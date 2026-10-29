@@ -8,8 +8,8 @@
   --fuente:"Instrument Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --gotica:"UnifrakturMaguntia",serif;
 }
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--tinta:#7DBBF8;--tinta-suave:#1d2c42;--mostaza:#4DA3F5;--mostaza-tinta:#7DBBF8;--mostaza-suave:#1d2c42;--marca:#4DA3F5}}
-:root[data-theme="dark"]{--tinta:#7DBBF8;--tinta-suave:#1d2c42;--mostaza:#4DA3F5;--mostaza-tinta:#7DBBF8;--mostaza-suave:#1d2c42;--marca:#4DA3F5}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14171A;--sup:#14171A;--sup2:#1D2125;--borde:#2E3338;--borde-campo:#6B747D;--texto:#ECEFF1;--texto2:#B7BDC4;--tenue:#9AA1A9;--tinta:#7DBBF8;--tinta-suave:#12304D;--mostaza:#5AA9F5;--mostaza-tinta:#7DBBF8;--mostaza-suave:#1d2c42;--marca:#5AA9F5}}
+:root[data-theme="dark"]{--bg:#14171A;--sup:#14171A;--sup2:#1D2125;--borde:#2E3338;--borde-campo:#6B747D;--texto:#ECEFF1;--texto2:#B7BDC4;--tenue:#9AA1A9;--tinta:#7DBBF8;--tinta-suave:#12304D;--mostaza:#5AA9F5;--mostaza-tinta:#7DBBF8;--mostaza-suave:#1d2c42;--marca:#5AA9F5}
 body{font-family:var(--fuente)}
 h1,h2,h3{letter-spacing:-.02em}
 
@@ -28,10 +28,16 @@ h1,h2,h3{letter-spacing:-.02em}
   .inferior [aria-current] svg{fill:var(--tinta-suave)}
 }
 
+h2.cap{font-size:1.75rem;line-height:1.2;font-weight:600;letter-spacing:-.03em}
+/* Capital de párrafo (Iniciales): tres líneas de alto, solo en lectura larga */
+p.capital::first-letter{font-family:var(--gotica);float:left;font-size:90px;line-height:72px;padding:4px 10px 0 0;color:var(--marca)}
+
 /* Índice de inicio */
 .inicio-tope h2{font-size:2.75rem;line-height:1.18;font-weight:600;letter-spacing:-.03em}
-.inicio-tope h2::first-letter{font-family:var(--gotica);font-weight:400;font-size:1.12em;letter-spacing:0;color:var(--marca)}
-.inicio-sub,.inicio-cerr{font-family:var(--serif)}
+.inicio-tope h2::first-letter,h2.cap::first-letter{font-family:var(--gotica);font-weight:400;font-size:1.12em;letter-spacing:0;color:var(--marca)}
+.inicio-sub,.inicio-cerr{font-family:var(--serif);margin-left:auto;margin-right:auto;text-align:center}
+.inicio-cerr{align-items:baseline}
+.inicio-cerr .enlace{min-height:44px;display:inline-flex;align-items:center}
 .inicio-grupo h3{font-size:var(--t-lg);border-bottom:1px solid var(--borde-campo)}
 .inicio-grupo li a svg{color:var(--tinta)}
 @media (max-width:720px){.inicio-tope h2{font-size:2rem}}
@@ -67,8 +73,14 @@ h1,h2,h3,.portada h2,.practica h2,.nov-t,.perfil b,.avance b,.recorrido .area,.i
 .pie-legal{position:relative;margin-top:48px;padding-top:30px;border-top:0}
 .pie-legal::before{content:"";position:absolute;left:0;right:0;top:0;height:14px;background:radial-gradient(circle,var(--texto) 1.1px,transparent 1.5px) 0 0/7px 7px;opacity:.4;-webkit-mask-image:linear-gradient(90deg,#000,transparent);mask-image:linear-gradient(90deg,#000,transparent)}
 @media (max-width:760px){.pie-cols{grid-template-columns:1fr}.pie-nav{grid-template-columns:repeat(2,minmax(0,1fr))}}
-/* Barra de Analytics: texto de los botones centrado (la fuente de Galera lo bajaba) */
-.galletas .btn{display:inline-flex;align-items:center;justify-content:center;font-family:inherit;line-height:1;padding-top:0;padding-bottom:0;text-align:center}
+/* Barra de Analytics: texto a la izquierda y botones a la derecha, del mismo alto y con el texto centrado (la fuente de Galera lo bajaba) */
+.galletas{padding:10px max(16px,calc((100% - 1224px)/2 + 16px))}
+.galletas.on{justify-content:space-between;align-items:center}
+.galletas p{line-height:20px}
+.galletas .botones{align-items:center;margin:0}
+.galletas .btn{display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;height:40px;min-height:40px;font-family:inherit;font-size:14px;line-height:1;padding:0 16px;border:1.5px solid transparent;text-align:center}
+.galletas .btn.lin{border-color:var(--borde)}
+@media (max-width:720px){.galletas .btn{height:44px;min-height:44px}}
 
 /* Menú con grupos de las páginas estáticas (el lienzo: Cabecera) */
 .sub a{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border-radius:4px;font-size:var(--t-sm);color:var(--texto);text-decoration:none}
