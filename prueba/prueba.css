@@ -41,7 +41,7 @@ h1::first-letter{font-family:var(--capf);font-weight:400;font-size:1.12em;letter
 .dv{display:flex;justify-content:center;align-items:center;min-height:24px}
 .dv .corto{display:block;width:48px;height:1px;background:currentColor;opacity:.55}
 .dv .gl{font-family:var(--serif);font-size:22px;line-height:24px;letter-spacing:.1em}
-.sumario>.lab{text-align:center;letter-spacing:.3em}
+.indice>.lab{text-align:center;letter-spacing:.3em}
 .chap{display:flex;align-items:baseline;gap:16px;margin:40px 0 4px;padding-bottom:8px;border-bottom:1px solid var(--ink);font-weight:inherit;font-size:inherit}
 .num{font:600 13px/16px var(--sans);letter-spacing:.1em;color:var(--t3);width:32px}
 .gn{font-family:var(--serif);font-size:30px;line-height:36px;font-weight:500}
