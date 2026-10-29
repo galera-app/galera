@@ -3,25 +3,25 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Planificador de libros (archivo descargable) · Cursada</title>
+<title>Planificador de libros (archivo descargable) · Galera</title>
 <meta name="description" content="Cronograma de un libro del original a la reimpresión: varios libros con catálogo, responsables y seguimiento, plantillas por tipo de libro, dependencias con retardo, días hábiles y feriados, y fecha de salida hacia atrás.">
 <meta name="robots" content="noindex">
 <meta name="color-scheme" content="light dark">
 <link rel="canonical" href="https://galera.com.ar/libro/cronograma/">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Cursada · Edición (UBA)">
+<meta property="og:site_name" content="Galera · Edición (UBA)">
 <meta property="og:locale" content="es_AR">
-<meta property="og:title" content="Planificador de libros (archivo descargable) · Cursada">
+<meta property="og:title" content="Planificador de libros (archivo descargable) · Galera">
 <meta property="og:description" content="Cronograma de un libro del original a la reimpresión: varios libros con catálogo, responsables y seguimiento, plantillas por tipo de libro, dependencias con retardo, días hábiles y feriados, y fecha de salida hacia atrás.">
 <meta property="og:url" content="https://galera.com.ar/libro/cronograma/">
 <meta property="og:image" content="https://galera.com.ar/libro/img/cronograma.jpg">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Planificador de libros: cronograma editorial con Gantt, PERT y Roy, gratis y sin cuenta (Cursada)">
+<meta property="og:image:alt" content="Planificador de libros: cronograma editorial con Gantt, PERT y Roy, gratis y sin cuenta (Galera)">
 <meta name="twitter:card" content="summary_large_image">
 <!-- Armado por 104-edicion-cursada/libro_web.py el 2026-10-28. Código MIT, plantillas CC BY 4.0 · Fidel Chaves · https://galera.com.ar/ -->
-<style>/* Cursada: tokens de diseño (colores, radios, tipografías), claro y oscuro. Los usa estilos.css; sirve también para Figma y para otras páginas.
+<style>/* Galera: tokens de diseño (colores, radios, tipografías), claro y oscuro. Los usa estilos.css; sirve también para Figma y para otras páginas.
    Equivale a propuestas/2026-10-24/design-system/tokens.json: si cambia uno, cambia el otro. */
 :root {
   color-scheme: light;
@@ -46,7 +46,7 @@
     --azul-texto: #7DBBF8; --tinta: #8fb4ea; --tinta-suave: #1d2c42; --mostaza: #f2c14e; --mostaza-tinta: #f2c14e; --mostaza-suave: #3a2f12;
     --ok: #63cc92; --ok-suave: #16331f; --ojo: #f0b155; --ojo-suave: #3a2a10; --mal: #f08179; --mal-suave: #401c19; --sombra: none; }
 
-/* Cursada: cuaderno académico. Azul tinta + mostaza, claro y oscuro. Los tokens (colores, radios, fuentes) están en tokens.css. */
+/* Galera: cuaderno académico. Azul tinta + mostaza, claro y oscuro. Los tokens (colores, radios, fuentes) están en tokens.css. */
 * { box-sizing: border-box; }
 html, body { margin: 0; background: var(--bg); color: var(--texto); font: 16px/1.5 var(--fuente); }
 a { color: var(--tinta); }
@@ -973,7 +973,7 @@ dialog.conf .btn { min-height: 44px; }
   .ent-t svg { margin-left: -28px; } .ent-b { font-size: var(--t-sm); }
 }
 
-/* Planificador de libros (Cursada). Se suma a /cursada/estilos.css. */
+/* Planificador de libros (Galera). Se suma a /cursada/estilos.css. */
 .lectura-main.lb-main { max-width: 1100px; }
 .lb-eje { position: relative; height: 18px; margin: 4px 0 0; font-size: .72rem; color: var(--tenue); }
 .lb-eje span { position: absolute; transform: translateX(-50%); white-space: nowrap; }
@@ -1024,7 +1024,7 @@ tr.lb-info td { background: var(--sup2); border-bottom: 1px solid var(--borde); 
 </head>
 <body class="lectura">
 <header class="cabecera"><div class="marca"><span class="logo" aria-hidden="true"></span>
-<div><p class="nombre">Planificador de libros</p><p>Archivo descargable de Cursada · funciona sin internet</p></div></div></header>
+<div><p class="nombre">Planificador de libros</p><p>Archivo descargable de Galera · funciona sin internet</p></div><nav class="pestanas" aria-label="Secciones"><button type="button" class="tab" data-g="0" aria-expanded="false">Planificar<svg class="cv" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><button type="button" class="tab" data-g="1" aria-expanded="true" aria-current="page">Estudiar<svg class="cv" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><button type="button" class="tab" data-g="2" aria-expanded="false">Descubrir<svg class="cv" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><button type="button" class="tab" data-g="3" aria-expanded="false">Galera<svg class="cv" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></nav></div><div class="subw"><nav class="sub" aria-label="Planificar" hidden><a href="/#plan">Mi carrera</a><a href="/#horarios">Horarios</a><a href="/#calendario">Calendario</a></nav><nav class="sub" aria-label="Estudiar"><a href="/r/">Resúmenes</a><a href="/biblioteca/">Biblioteca</a><a href="/simuladores/">Simuladores</a><a href="/glosario/">Glosario</a></nav><nav class="sub" aria-label="Descubrir" hidden><a href="/directorio/">Directorio</a><a href="/eventos/">Eventos</a><a href="/#links">Links útiles</a></nav><nav class="sub" aria-label="Galera" hidden><a href="/#novedades">Novedades</a><a href="/sostener/">Cómo se sostiene</a><a href="/fuentes/">Fuentes</a><a href="/#config">Configuración</a></nav></div></header>
 <main id="main" class="lectura-main lb-main">
 <div id="planificador" class="lb-app"><p class="cargando">Cargando el planificador…</p></div>
 <noscript><p class="chico alerta">El planificador necesita JavaScript.</p></noscript>
@@ -1278,7 +1278,7 @@ const Cronograma = (() => {
       return ['BEGIN:VEVENT', `UID:${x.id}-${ymd(f.desde)}@cursada.ficha.github.io`, 'DTSTAMP:20260101T000000Z', `DTSTART;VALUE=DATE:${ymd(f.desde)}`, `DTEND;VALUE=DATE:${ymd(sig(f.hasta))}`,
         `SUMMARY:${icsT((titulo ? titulo + ': ' : '') + x.t)}`, ...(x.q ? [`DESCRIPTION:${icsT('Responsable: ' + x.q)}`] : []), 'END:VEVENT'].join('\r\n');
     });
-    return ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Cursada//Planificador de libros//ES', 'CALSCALE:GREGORIAN', ...ev, 'END:VCALENDAR'].join('\r\n') + '\r\n';
+    return ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Galera//Planificador de libros//ES', 'CALSCALE:GREGORIAN', ...ev, 'END:VCALENDAR'].join('\r\n') + '\r\n';
   }
 
   // Sanea lo que viene de afuera (localStorage o link): ids únicos, números, predecesoras existentes.
@@ -1305,9 +1305,9 @@ const Cronograma = (() => {
 })();
 if (typeof module !== 'undefined') module.exports = Cronograma;
 
-// Planificador de libros (Cursada): pantalla del cronograma editorial profesional.
+// Planificador de libros (Galera): pantalla del cronograma editorial profesional.
 // Las cuentas están en /cursada/cronograma.js; las plantillas, en plantillas.json (las arma libro_plantillas.py).
-// Sin cuentas ni servidor: todo queda en este navegador (localStorage 'cursada.libro.v1'). Código MIT; plantillas CC BY (Fidel Chaves · Cursada).
+// Sin cuentas ni servidor: todo queda en este navegador (localStorage 'cursada.libro.v1'). Código MIT; plantillas CC BY (Fidel Chaves · Galera).
 (function () {
   'use strict';
   var KEY1 = 'cursada.libro.v1', KEY = 'cursada.libro.v2', MAX_LIBROS = 20;

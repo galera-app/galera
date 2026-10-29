@@ -1,5 +1,5 @@
 'use strict';
-// «Pasar a otro dispositivo»: el estado de Cursada comprimido dentro del # de un link y de un QR.
+// «Pasar a otro dispositivo»: el estado de Galera comprimido dentro del # de un link y de un QR.
 // No hay servidor: los datos viajan en el link (el # no se manda a ningún sitio) y se leen en el otro dispositivo.
 // El generador de QR es propio (modo bytes, niveles M y L, versiones 1 a 40), sin librerías de terceros.
 const Traspaso = (() => {
@@ -194,13 +194,13 @@ const Traspaso = (() => {
     const crudo = new TextEncoder().encode(JSON.stringify(paraEnviar(E, liviano)));
     return 'a' + aB64(await correr(new CompressionStream('deflate-raw'), crudo));
   }
-  // Devuelve el objeto de estado (todavía sin normalizar). Falla si el texto está cortado o no es de Cursada.
+  // Devuelve el objeto de estado (todavía sin normalizar). Falla si el texto está cortado o no es de Galera.
   async function desempaquetar(texto) {
     if (!HAY_COMPRESION()) throw new Error('Este navegador no puede leer los datos.');
     if (texto[0] !== 'a') throw new Error('versión desconocida');
     const bytes = await correr(new DecompressionStream('deflate-raw'), deB64(texto.slice(1)), 1e6);
     const e = JSON.parse(new TextDecoder().decode(bytes));
-    if (!e || e.v !== 1 || typeof e.materias !== 'object') throw new Error('no es de Cursada');
+    if (!e || e.v !== 1 || typeof e.materias !== 'object') throw new Error('no es de Galera');
     return e;
   }
 

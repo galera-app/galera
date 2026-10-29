@@ -1,4 +1,4 @@
-// Cursada: gestor para la carrera de Edición (FFyL, UBA). Todo corre en el navegador:
+// Galera: gestor para la carrera de Edición (FFyL, UBA). Todo corre en el navegador:
 // el plan, el calendario y la oferta horaria son archivos de datos (datos/*.json) y lo que carga
 // cada persona se guarda en su localStorage. Sin servidor ni cuentas.
 'use strict';
@@ -246,7 +246,7 @@ const alCambiarHash = () => {
 window.addEventListener('hashchange', alCambiarHash);
 window.addEventListener('popstate', alCambiarHash);
 
-// Para saber si Cursada sirve (Analytics, solo con consentimiento): si quien cargó materias vuelve otro día, y a los cuántos días.
+// Para saber si Galera sirve (Analytics, solo con consentimiento): si quien cargó materias vuelve otro día, y a los cuántos días.
 // Nunca viaja qué cargó: solo el número de días desde la primera carga.
 function registrarVisita() {
   if (E.primera && E.visto && E.visto !== hoy()) V.ausencia = diasDesde(E.visto);
@@ -317,7 +317,7 @@ function cambiarEnInicio() { V.cambiaPerfil = true; render(); const b = document
 function colofonInicio(per) {
   const lista = ((D.novedades && D.novedades.novedades) || []).filter(n => n.perfil === 'todos' || n.perfil === per);
   const f = lista.map(n => n.fecha).sort().pop(), n = lista.filter(x => x.fecha === f).length;
-  const ed = f ? `Esta edición de Cursada se actualizó el ${fechaLarga(f)} y trae <a href="#novedades">${n === 1 ? '1 novedad' : n + ' novedades'}</a>. ` : '';
+  const ed = f ? `Esta edición de Galera se actualizó el ${fechaLarga(f)} y trae <a href="#novedades">${n === 1 ? '1 novedad' : n + ' novedades'}</a>. ` : '';
   return `<p class="colofon">${ed}Se hizo en CABA, Argentina. Se sostiene con <a href="#sostener">cafecitos</a>; tus datos quedan en este navegador (<a href="#config">ajustes</a>).</p>`;
 }
 function vInicio() {
@@ -353,7 +353,7 @@ function conFoco(raiz, dibujar) {
 }
 // El título de la pestaña del navegador sigue al simulador abierto.
 const TITULO_BASE = document.title;
-const tituloPagina = () => { if (V.tab === 'arcade') return 'Arcade de Corrección de Estilo · Cursada'; const x = V.tab === 'simuladores' && SIMULADORES.find(y => y.id === V.sim); return x ? x.t + ' · Cursada' : V.tab === 'simuladores' ? 'Herramientas · Cursada' : TITULO_BASE; };
+const tituloPagina = () => { if (V.tab === 'arcade') return 'Arcade de Corrección de Estilo · Galera'; const x = V.tab === 'simuladores' && SIMULADORES.find(y => y.id === V.sim); return x ? x.t + ' · Galera' : V.tab === 'simuladores' ? 'Herramientas · Galera' : TITULO_BASE; };
 function render() {
   ajustarTab();
   dibujarPestanas();
@@ -420,7 +420,10 @@ function dibujarPestanas() {
   $('#subw').hidden = !ab;
   $('#sub').setAttribute('aria-label', ab ? ab[0] : 'Secciones del grupo');
   $('#sub').innerHTML = ab ? ab[1].map(id => `<button type="button" ${V.tab === id ? 'aria-current="page"' : ''} onclick="ir(${arg(id)})">${rotuloTab(id)}</button>`).join('') : '';
-  $('#pie-nav').innerHTML = G.filter(g => g[1].length > 1).map(([n, ids]) => `<nav aria-label="${n}"><h2>${n}</h2>${ids.map(id => `<button type="button" onclick="ir(${arg(id)})">${rotuloTab(id)}</button>`).join('')}</nav>`).join('');
+  // Pie del lienzo: Planificar, Estudiar, Descubrir y Galera (las mismas columnas que el pie de las páginas estáticas).
+  const PIE = esPro() ? [['Descubrir', ['eventos', 'directorio', 'links']], ['Consultar', ['resumenes', 'glosario', 'biblioteca', 'simuladores']], ['Galera', ['novedades', 'sostener', 'config']]]
+    : [['Planificar', ['carrera', 'horarios', 'calendario']], ['Estudiar', ['resumenes', 'biblioteca', 'simuladores', 'glosario']], ['Descubrir', ['directorio', 'links']], ['Galera', ['novedades', 'sostener', 'config']]];
+  $('#pie-nav').innerHTML = PIE.map(([n, ids]) => `<nav aria-label="${n}"><h2>${n}</h2>${ids.map(id => `<button type="button" onclick="ir(${arg(id)})">${({ simuladores: 'Simuladores', config: 'Configuración' })[id] || rotuloTab(id)}</button>`).join('')}${n === 'Galera' ? '<a href="fuentes/">Fuentes</a>' : ''}</nav>`).join('');
   pintarTema(); altoCab();
 }
 function alternarGrupo(n) { V.gAbierto = V.gAbierto === n ? '' : n; dibujarPestanas(); }
@@ -599,7 +602,7 @@ function borrarHitos() { E.juego.hitos = []; guardar(true); abrirAjustes(); }
 function abrirAjustes() { abrir(cab('Ajustes') + bloqueJuego(), 'ajustes'); }
 // Compartir la pantalla actual: el menú del sistema si existe; si no, se copia el link.
 function compartirPantalla() {
-  const url = location.href, titulo = document.title, texto = 'Mirá esto en Cursada, el gestor para la carrera de Edición (FFyL, UBA).';
+  const url = location.href, titulo = document.title, texto = 'Mirá esto en Galera, el gestor para la carrera de Edición (FFyL, UBA).';
   const nativo = !!navigator.share;
   medir('share', { method: nativo ? 'nativo' : 'copiar', content_type: 'pantalla', item_id: V.tab });
   if (nativo) navigator.share({ title: titulo, text: texto, url }).catch(() => { });
@@ -682,7 +685,7 @@ function recordatorioCopia() {
     Con una copia las recuperás si cambiás de celular o se borran los datos del navegador.</span><button class="btn sec ch" onclick="exportar()">Guardar una copia</button></div>`;
 }
 // Compartir: WhatsApp es por donde circula todo en la cursada. El mensaje es el mismo que el del mail de los lunes.
-const MSJ_COMPARTIR = 'Te paso Cursada: llevás las materias de Edición, el promedio y armás los horarios sin superposiciones. Gratis y sin cuenta 👉 https://galera.com.ar/';
+const MSJ_COMPARTIR = 'Te paso Galera: llevás las materias de Edición, el promedio y armás los horarios sin superposiciones. Gratis y sin cuenta 👉 https://galera.com.ar/';
 function compartirCursada(donde) {
   medir('share', { method: 'whatsapp', content_type: 'cursada', item_id: donde });
   window.open('https://wa.me/?text=' + encodeURIComponent(MSJ_COMPARTIR), '_blank', 'noopener');
@@ -765,7 +768,11 @@ function setNota(id, v) {
   if (n && Number(n) >= 4 && mat(id).estado !== 'aprobada') mat(id).estado = 'aprobada';
   guardar(); render();
 }
-const MARCA = { cursando: '● cursando', regular: '◐ regular', aprobada: '✓ aprobada' };
+const MARCA = { cursando: 'cursando', regular: 'regular', aprobada: 'aprobada' };
+// Íconos de estado de la hoja Marca: cuarto de círculo + palabra + color (se leen igual en escala de grises).
+const iconoEstado = est => `<span class="ge ${ESTADO_CLS[est] || 'pen'}" aria-hidden="true"></span>`;
+const ESTADO_CLS = { pendiente: 'pen', cursando: 'cur', regular: 'reg', aprobada: 'ok' };
+const chipEstado = est => `<span class="tag-est ${ESTADO_CLS[est] || 'pen'}">${iconoEstado(est)}${esc(ESTADOS[est] || ESTADOS.pendiente)}</span>`;
 function vRecorrido() {
   const celdas = [];
   D.plan.areas.forEach(a => {
@@ -773,11 +780,11 @@ function vRecorrido() {
     for (let mod = 1; mod <= 4; mod++) {
       celdas.push('<div class="celda">' + D.plan.materias.filter(m => m.area === a && m.modulo === mod).map(m =>
         { const est = (E.materias[m.id] || {}).estado || 'pendiente';
-          return `<button class="mat ${est}" onclick="abrirMateria(${arg(m.id)})">${esc(nombreDe(m))}${est === 'pendiente' ? '' : `<span class="marca-estado">${MARCA[est]}</span>`}</button>`; }).join('') + '</div>');
+          return `<button class="mat ${est}" onclick="abrirMateria(${arg(m.id)})">${esc(nombreDe(m))}${est === 'pendiente' ? '' : `<span class="marca-estado">${iconoEstado(est)}${MARCA[est]}</span>`}</button>`; }).join('') + '</div>');
     }
   });
   return `<p class="chico tenue">Orden sugerido por el Departamento de Edición, por áreas. No es obligatorio: la carrera no tiene correlatividades.
-    <span class="chip mos">cursando</span> <span class="chip ojo">regular</span> <span class="chip ok">aprobada</span></p>
+    ${['pendiente', 'cursando', 'regular', 'aprobada'].map(chipEstado).join(' ')}</p>
     <div class="recorrido"><div></div>${[1, 2, 3, 4].map(n => `<div class="cab">Módulo ${n}</div>`).join('')}${celdas.join('')}</div>
     <p class="chico tenue u-margin-top-12px">Idiomas y pasantía o tesina no figuran acá: se cursan en paralelo. Están en la vista Tabla.</p>`;
 }
@@ -832,7 +839,7 @@ function abrirMateria(id) {
     ${previas ? `<p class="u-my6 chico">💡 ${esc(previas)} <span class="tenue">(Sugerencia: la carrera no tiene correlatividades.)</span></p>` : ''}
     ${m.opciones ? `<label class="c">¿Cuál elegís?</label><select id="m-op" onchange="campo(${arg(id)},'opcion',this.value);abrirMateria(${arg(id)})"><option value="">Todavía no sé</option>${m.opciones.map(x => `<option value="${x.id}" ${e.opcion === x.id ? 'selected' : ''}>${esc(x.nombre)}</option>`).join('')}</select>` : ''}
     ${m.libre ? `<label class="c">¿Qué seminario?</label><input id="m-det" maxlength="200" class="u-w100" value="${esc(e.detalle || '')}" placeholder="Nombre del seminario" onchange="campo(${arg(id)},'detalle',this.value)">` : ''}
-    <div class="fila"><div class="crece"><label class="c">Estado</label><select class="u-w100" onchange="campo(${arg(id)},'estado',this.value)">${Object.keys(ESTADOS).map(k => `<option value="${k}" ${e.estado === k ? 'selected' : ''}>${ESTADOS[k]}</option>`).join('')}</select></div>
+    <div class="fila"><div class="crece"><label class="c">Estado</label><p class="u-m0">${chipEstado(e.estado)}</p><select class="u-w100" aria-label="Cambiar el estado" onchange="campo(${arg(id)},'estado',this.value)">${Object.keys(ESTADOS).map(k => `<option value="${k}" ${e.estado === k ? 'selected' : ''}>${ESTADOS[k]}</option>`).join('')}</select></div>
       <div><label class="c">Nota final</label><input class="nota u-width-90px" maxlength="5" inputmode="decimal" value="${esc(valorNota(id, e))}"${attrsNota(id)} onchange="setNota(${arg(id)},this.value)">${msgNota(id)}</div></div>
     <div class="fila"><div class="crece"><label class="c">Cuándo la cursaste o cursás</label><input maxlength="80" class="u-w100" value="${esc(e.cuando || '')}" placeholder="Ej.: 2.º cuatrimestre 2026" onchange="campo(${arg(id)},'cuando',this.value)"></div>
       <div><label class="c">Fecha de aprobación</label><input type="date" value="${esc(e.aprobada || '')}" onchange="campo(${arg(id)},'aprobada',this.value)"></div></div>
@@ -1169,7 +1176,7 @@ function exportarCursada() {
     lugar: x.c.aula ? 'Aula ' + x.c.aula : x.c.modalidad || '',
     nota: [x.c.docente && 'Docente: ' + x.c.docente, p.nombre + ': del ' + fmt(p.desde) + ' al ' + fmt(p.hasta) + '.',
       x.sin.length ? 'Sin clase: ' + x.sin.map(s => fmt(s) + ' (' + fer.find(f => f.fecha === s).t + ')').join(', ') + '.' : '',
-      'Horarios sujetos a cambios: confirmá en la planilla de la Facultad. Armado con Cursada, galera.com.ar/'].filter(Boolean).join('\n')
+      'Horarios sujetos a cambios: confirmá en la planilla de la Facultad. Armado con Galera, galera.com.ar/'].filter(Boolean).join('\n')
   }));
   descargar('cursada-' + V.oferta.toLowerCase() + '.ics', Horarios.ics(evs, hoy()), 'text/calendar');
   aviso(evs.length === 1 ? 'Se bajó 1 clase semanal' : 'Se bajaron ' + evs.length + ' clases semanales');
@@ -1408,7 +1415,7 @@ function vApunte() {
       <button class="btn lin ch" onclick="imprimir(${arg(k)})" aria-label="Imprimir o guardar como PDF">🖨️</button>
       <button class="btn lin ch" onclick="linkSeccion('',${arg(a.titulo)})">🔗 Compartir</button>
       <button class="btn lin ch" onclick="abrirQR(urlRes(${arg(materia)},${arg(apunte)}),${arg(a.titulo)},'apunte',${arg(k)})" aria-label="Código QR de este apunte">▦ QR</button></div>
-    <article class="tarjeta apunte"><p class="solo-imprimir chico">${esc(m.nombre)} · Resúmenes de Cursada (galera.com.ar)</p><h2>${esc(a.titulo)}</h2>${indice}${a.cuerpoConIds}</article>
+    <article class="tarjeta apunte"><p class="solo-imprimir chico">${esc(m.nombre)} · Resúmenes de Galera (galera.com.ar)</p><h2>${esc(a.titulo)}</h2>${indice}${a.cuerpoConIds}</article>
     ${a.preguntas.length ? `<div class="titulo-sec" id="autoevaluacion"><h2>Autoevaluación <button class="ancla" onclick="linkSeccion('autoevaluacion','Autoevaluación')" aria-label="Copiar el link a la autoevaluación" title="Copiar el link a esta parte">🔗</button></h2>
       ${cerradas.length ? `<span class="chico">${hechas.length ? `<b>${bien.length} de ${hechas.length}</b> bien` : 'Tocá la opción que te parezca correcta'}${hechas.length ? ` · <button class="enlace" onclick="V.quiz[${arg(k)}]={};render()">Empezar de nuevo</button>` : ''}</span>` : ''}</div>
       <div class="tarjeta">${a.preguntas.map(pregunta).join('')}</div>${bloqueFinAuto(materia, apunte, bien.length, hechas.length, cerradas.length)}` : ''}
@@ -2902,8 +2909,8 @@ function sostenerHoras(H, R) {
     : `<p class="u-font-size-1-5rem_margin-0"><b>${esc(horasTxt(H.horas_totales))}</b></p>
     <p class="chico tenue u-margin-2px-0-8px">de trabajo desde el ${esc(fmtLarga(H.primer_commit))}, en ${esc(H.sesiones)} sesiones. Actualizado el ${esc(fmtLarga(H.generado))}.</p>`;
   const nota = rango
-    ? `<p class="u-m0 chico tenue">Cómo se cuenta: junto en una sola línea de tiempo cada cambio guardado en Cursada y la hora de cada mensaje de mis sesiones de trabajo con Claude (solo la hora, nunca el contenido), y cuento una sesión mientras no pasen más de 10, 20 o 45 minutos sin actividad (más unos minutos de arranque). De ahí salen el mínimo, el valor central y el máximo. Es una estimación y no incluye el tiempo fuera de la pantalla, como pensar o probar en el celular. Solo con los cambios guardados, que cualquiera puede verificar en el <a href="https://github.com/Ficha/Ficha.github.io/commits/main/cursada" target="_blank" rel="noopener">historial público</a>, son ${esc(horasTxt(H.horas_totales))} (sesiones de hasta 2 horas entre cambios, más 30 minutos de arranque).</p>`
-    : `<p class="u-m0 chico tenue">Cómo se cuenta: se toman todos los cambios que se guardaron en Cursada y se juntan en sesiones (si entre un cambio y el siguiente pasaron menos de 2 horas, es la misma sesión). A cada sesión se le suman 30 minutos de arranque. Es una estimación, y cualquiera puede verificarla en el <a href="https://github.com/Ficha/Ficha.github.io/commits/main/cursada" target="_blank" rel="noopener">historial público</a>.</p>`;
+    ? `<p class="u-m0 chico tenue">Cómo se cuenta: junto en una sola línea de tiempo cada cambio guardado en Galera y la hora de cada mensaje de mis sesiones de trabajo con Claude (solo la hora, nunca el contenido), y cuento una sesión mientras no pasen más de 10, 20 o 45 minutos sin actividad (más unos minutos de arranque). De ahí salen el mínimo, el valor central y el máximo. Es una estimación y no incluye el tiempo fuera de la pantalla, como pensar o probar en el celular. Solo con los cambios guardados, que cualquiera puede verificar en el <a href="https://github.com/Ficha/Ficha.github.io/commits/main/cursada" target="_blank" rel="noopener">historial público</a>, son ${esc(horasTxt(H.horas_totales))} (sesiones de hasta 2 horas entre cambios, más 30 minutos de arranque).</p>`
+    : `<p class="u-m0 chico tenue">Cómo se cuenta: se toman todos los cambios que se guardaron en Galera y se juntan en sesiones (si entre un cambio y el siguiente pasaron menos de 2 horas, es la misma sesión). A cada sesión se le suman 30 minutos de arranque. Es una estimación, y cualquiera puede verificarla en el <a href="https://github.com/Ficha/Ficha.github.io/commits/main/cursada" target="_blank" rel="noopener">historial público</a>.</p>`;
   return `${cabeza}
     ${rango ? '' : (meses ? `<ul class="chico u-margin-0-0-8px_padding-left-18px">${meses}</ul>` : '')}
     ${nota}`;
@@ -2921,16 +2928,16 @@ function sostenerPlan(P) {
 function vSostener() {
   if (!D.sostener) { cargarSostener(); return '<p class="cargando">Cargando…</p>'; }
   const S = D.sostener, fila = (t, v) => `<div class="donar-fila"><span class="chico tenue">${t}</span><code>${esc(v)}</code><button class="btn sec" type="button" onclick="copiar(${arg(v)})">Copiar</button></div>`;
-  return `<div class="titulo-sec"><h2>Cómo se sostiene Cursada</h2></div>
-    <p>Cursada es gratis, no pide cuenta y no tiene publicidad. La hago yo, Fidel, estudiante de Edición, y esta pantalla cuenta cuánto trabajo lleva, cuánto cuesta y cómo ayudar si querés.</p>
+  return `<div class="titulo-sec"><h2>Cómo se sostiene Galera</h2></div>
+    <p>Galera es gratis, no pide cuenta y no tiene publicidad. La hago yo, Fidel, estudiante de Edición, y esta pantalla cuenta cuánto trabajo lleva, cuánto cuesta y cómo ayudar si querés.</p>
     <div class="titulo-sec"><h2>Horas de trabajo</h2></div><div class="tarjeta">${sostenerHoras(S.horas, S.claude)}</div>
     <div class="titulo-sec"><h2>Costos</h2></div><div class="tarjeta">${sostenerCostos(S.costos)}
       <p class="u-margin-12px-0-0">Con más apoyo podría pagar un plan superior de Claude y avanzar más frentes por semana.</p></div>
     <div class="titulo-sec"><h2>Cómo ayudar</h2></div><div class="tarjeta">
-      <p class="u-mt0">Si Cursada te sirve, podés transferir lo que quieras desde cualquier banco o billetera: sin comisión y llega al instante.</p>
+      <p class="u-mt0">Si Galera te sirve, podés transferir lo que quieras desde cualquier banco o billetera: sin comisión y llega al instante.</p>
       ${DONAR.alias ? fila('Alias', DONAR.alias) : ''}${DONAR.cvu ? fila('CVU', DONAR.cvu) : ''}
       <div class="donar-fila"><span class="chico tenue">Cafecito</span><code>cafecito.app/fidelchaves</code><a class="btn sec" href="${urlSegura(DONAR.cafecito)}" target="_blank" rel="noopener">Abrir</a></div>
-      <p class="chico u-margin-12px-0-0">¿Querés ayudar de otra forma? <a href="mailto:${CONTACTO}?subject=${encodeURIComponent('Cursada: quiero ayudar')}">Escribime</a>.</p></div>
+      <p class="chico u-margin-12px-0-0">¿Querés ayudar de otra forma? <a href="mailto:${CONTACTO}?subject=${encodeURIComponent('Galera: quiero ayudar')}">Escribime</a>.</p></div>
     ${sostenerPlan(S.plan)}`;
 }
 
@@ -2983,12 +2990,12 @@ function vNovedades() {
     ${x.texto ? `<p class="u-mt6 chico">${esc(x.texto)}</p>` : ''}
     ${hechos.filter(p => p.v === x.v).map(p => `<p class="u-mt6 chico"><span class="chip ok">Lo pidieron</span> «${esc(p.resumen)}» <a href="#novedades/pedidos" onclick="verNov('pedidos'); return false">Ver pedidos →</a></p>`).join('')}
     <p class="u-mt8 chico tenue">${tema[x.tipo] || ''} ${esc((TEMAS_NOV.find(t => t[0] === x.tipo) || ['', ''])[1].replace(/^\S+\s/, ''))}${x.para ? ' · Para: ' + esc(x.para) : ''}${enlaceNov(x.url)}</p></div>`;
-  return filtroNov() + `<p class="u-mt0 chico tenue">Todo lo que se fue sumando a Cursada, desde la primera versión hasta hoy. Es lo mismo que te llega por mail los lunes.</p>
+  return filtroNov() + `<p class="u-mt0 chico tenue">Todo lo que se fue sumando a Galera, desde la primera versión hasta hoy. Es lo mismo que te llega por mail los lunes.</p>
     <p class="botones"><button class="btn ch" onclick="avisame()">🔔 Avisame por mail</button><button class="btn lin ch" onclick="idea()">💡 Pedir algo</button></p>` +
     vers.map(v => { const L = N.filter(x => x.v === v).sort((a, b) => a.fecha < b.fecha ? 1 : -1);
       return `<div class="titulo-sec" id="nov-v${v}"><h2>v${v}${v === vers[0] ? ' <span class="chip ok">última</span>' : ''}</h2><span class="chico tenue">${fmtLarga(L[0].fecha)}</span></div>${L.map(tarjeta).join('')}`; }).join('');
 }
-const enlaceNov = u => { const r = typeof u === 'string' && /^https:\/\/ficha\.github\.io\/cursada\/(#[a-z]+)?$/.test(u) ? u.replace(/^https:\/\/ficha\.github\.io\/cursada\//, '') : ''; return r && r !== '#donar' ? ` · <a href="${esc(r)}">Verlo en Cursada →</a>` : ''; };
+const enlaceNov = u => { const r = typeof u === 'string' && /^https:\/\/ficha\.github\.io\/cursada\/(#[a-z]+)?$/.test(u) ? u.replace(/^https:\/\/ficha\.github\.io\/cursada\//, '') : ''; return r && r !== '#donar' ? ` · <a href="${esc(r)}">Verlo en Galera →</a>` : ''; };
 const fmtLarga = s => { const d = fecha(s); return d.getDate() + ' de ' + MESES_LARGO[d.getMonth()] + ' de ' + d.getFullYear(); };
 const MESES_LARGO = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
 
@@ -3005,7 +3012,7 @@ function vLinksPro() {
     D.linksLibro.grupos.map(g => `<div class="titulo-sec"><h2>${esc(g.grupo)}</h2></div><div class="tarjeta u-padding-6px-16px">
       ${g.links.map(l => `<a class="evento u-text-decoration-none_color-inherit" href="${urlSegura(l.url)}" target="_blank" rel="noopener"><span class="crece"><b class="u-color-var-tinta">${esc(l.t)} ↗</b>
         ${l.d ? `<span class="chico tenue u-display-block">${esc(l.d)}</span>` : ''}</span></a>`).join('')}</div>`).join('') +
-    `<div class="titulo-sec"><h2>En Cursada</h2></div><div class="tarjeta u-padding-6px-16px">
+    `<div class="titulo-sec"><h2>En Galera</h2></div><div class="tarjeta u-padding-6px-16px">
       <a class="evento u-text-decoration-none_color-inherit" href="#simuladores/leyes" onclick="irSim('leyes'); return false"><span class="crece"><b class="u-color-var-tinta">Leyes del libro</b><span class="chico tenue u-display-block">La pirámide de normas y el traductor jurídico.</span></span></a>
       <a class="evento u-text-decoration-none_color-inherit" href="#simuladores/contratos" onclick="irSim('contratos'); return false"><span class="crece"><b class="u-color-var-tinta">Contratos modelo</b><span class="chico tenue u-display-block">Borrador de contrato de traducción o de edición, con la fuente de cada cláusula.</span></span></a>
       <a class="evento u-text-decoration-none_color-inherit" href="libro/cronograma/"><span class="crece"><b class="u-color-var-tinta">Planificador de libros</b><span class="chico tenue u-display-block">Del original a la reimpresión, con Gantt, PERT y Roy.</span></span></a></div>` +
@@ -3059,7 +3066,7 @@ async function mandarIdea() {
   } catch (e) {
     boton.disabled = false; boton.textContent = 'Enviar';
     // Si el buzón no responde, queda el plan B: el mail de siempre, con el texto ya cargado.
-    $('#i-n').innerHTML = `No se pudo enviar (${esc(e.message || 'sin conexión')}). Probá de nuevo o <a href="mailto:${CONTACTO}?subject=${encodeURIComponent('Cursada: sugerencia')}&body=${encodeURIComponent(texto)}">mandala por mail</a>.`;
+    $('#i-n').innerHTML = `No se pudo enviar (${esc(e.message || 'sin conexión')}). Probá de nuevo o <a href="mailto:${CONTACTO}?subject=${encodeURIComponent('Galera: sugerencia')}&body=${encodeURIComponent(texto)}">mandala por mail</a>.`;
   }
 }
 
@@ -3088,7 +3095,7 @@ function avisame() {
   if (!NOVEDADES) return;
   const cursando = D.plan ? D.plan.materias.filter(m => (E.materias[m.id] || {}).estado === 'cursando') : [];
   novAbierta = Date.now();
-  abrir(cab('🔔 Novedades de Cursada') + `<p class="u-mt0">Dejame tu mail y los <b>lunes a las 8:00</b> te llega solo lo nuevo del gestor que te importa. Es gratis, y si un lunes no hay nada para vos, no te escribo.</p>
+  abrir(cab('🔔 Novedades de Galera') + `<p class="u-mt0">Dejame tu mail y los <b>lunes a las 8:00</b> te llega solo lo nuevo del gestor que te importa. Es gratis, y si un lunes no hay nada para vos, no te escribo.</p>
     <label class="c" for="n-m">Tu mail</label>
     <input id="n-m" type="email" class="u-w100" maxlength="120" autocomplete="email" placeholder="nombre@ejemplo.com">
     <div class="c">¿Qué querés recibir?</div>${checksTemas()}
@@ -3137,11 +3144,11 @@ function manejarLinkNov() {
 }
 const errNov = e => `<p class="alerta">${esc(e.message || 'Sin conexión')}</p><p class="chico tenue">Probá de nuevo más tarde o escribime a <a href="mailto:${CONTACTO}">${CONTACTO}</a>.</p><div class="botones"><button class="btn" onclick="cerrar()">Cerrar</button></div>`;
 async function confirmarNov() {
-  abrir(cab('🔔 Novedades de Cursada') + '<p class="cargando">Confirmando tu mail…</p>', 'nov');
+  abrir(cab('🔔 Novedades de Galera') + '<p class="cargando">Confirmando tu mail…</p>', 'nov');
   try {
     await postNov({ accion: 'confirmar', token: novToken });
-    abrir(cab('✅ ¡Listo!') + `<p>Tu mail quedó confirmado. Desde el próximo lunes, a las 8:00, te llega lo nuevo de Cursada que elegiste recibir. Si un lunes no hay nada para vos, no te escribo.</p>
-      <div class="botones"><button class="btn" onclick="cerrar()">Seguir en Cursada</button><button class="btn lin" onclick="verPrefsNov()">Cambiar lo que recibo</button></div>`, 'nov');
+    abrir(cab('✅ ¡Listo!') + `<p>Tu mail quedó confirmado. Desde el próximo lunes, a las 8:00, te llega lo nuevo de Galera que elegiste recibir. Si un lunes no hay nada para vos, no te escribo.</p>
+      <div class="botones"><button class="btn" onclick="cerrar()">Seguir en Galera</button><button class="btn lin" onclick="verPrefsNov()">Cambiar lo que recibo</button></div>`, 'nov');
   } catch (e) { abrir(cab('No se pudo confirmar') + errNov(e), 'nov'); }
 }
 async function verPrefsNov() {
@@ -3204,12 +3211,12 @@ function exportar() {
 function importar(archivo) {
   if (!archivo) return;
   if (V.demo) { E = V.demo; V.demo = null; }
-  if (archivo.size > 1e6) return aviso('Ese archivo es demasiado grande para ser una copia de Cursada');
+  if (archivo.size > 1e6) return aviso('Ese archivo es demasiado grande para ser una copia de Galera');
   const r = new FileReader();
   r.onload = () => {
     let e;
     try { e = JSON.parse(r.result); if (!e || e.v !== 1 || typeof e.materias !== 'object') throw new Error(); e = normalizar(e); }
-    catch (err) { return aviso('Ese archivo no es una copia de Cursada'); }
+    catch (err) { return aviso('Ese archivo no es una copia de Galera'); }
     // Cargar una copia reemplaza todo lo que hay: si ya hay datos, se pide confirmar y se baja antes una copia de lo actual.
     const hay = Object.keys(E.materias || {}).length + Object.keys(E.horarios || {}).length;
     if (hay) {
@@ -3239,7 +3246,7 @@ async function abrirTraspaso(liviano) {
   traspasoUrl = location.origin + location.pathname + '#datos=' + t;
   const m = Traspaso.qrDeTexto(traspasoUrl);
   const qr = m
-    ? `<div class="qr-caja">${Traspaso.qrSvg(m, 'Código QR con tus datos de Cursada')}</div><p class="chico tenue u-text-align-center">En el otro dispositivo, abrí la cámara y apuntá al código.${liviano ? ' <b>Este QR no lleva el historial de práctica de las preguntas.</b>' : ''}</p>`
+    ? `<div class="qr-caja">${Traspaso.qrSvg(m, 'Código QR con tus datos de Galera')}</div><p class="chico tenue u-text-align-center">En el otro dispositivo, abrí la cámara y apuntá al código.${liviano ? ' <b>Este QR no lleva el historial de práctica de las preguntas.</b>' : ''}</p>`
     : `<p class="alerta">Tus datos pesan demasiado para un QR${liviano ? ', incluso sin el historial de práctica' : ''}.</p>` + (liviano ? '' : '<div class="botones"><button class="btn sec" onclick="abrirTraspaso(true)">Hacer un QR sin el historial de práctica</button></div>') + '<p class="chico tenue">Usá el link o «Descargar una copia».</p>';
   abrir(cab(T) + `<p class="u-mt0">Tus notas, fechas y horarios van <b>dentro del link</b>: no pasan por ningún servidor. Abrilo en el otro dispositivo y, antes de reemplazar lo que haya ahí, te pide confirmar.</p>${qr}
     <div class="botones"><button class="btn" onclick="copiarTraspaso()">Copiar el link</button>${navigator.share ? '<button class="btn sec" onclick="compartirTraspaso()">Compartir</button>' : ''}<button class="btn sec" onclick="abrirDatos()">Volver</button></div>
@@ -3251,13 +3258,13 @@ function copiarTraspaso() {
   const a = $('#tr-link'), manual = () => { const d = a && a.closest('details'); if (d) d.open = true; if (a) { a.focus(); a.select(); } aviso('No pude copiarlo solo: copialo a mano desde el cuadro'); };
   if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(traspasoUrl).then(() => aviso('Link copiado'), manual); else manual();
 }
-function compartirTraspaso() { if (navigator.share) navigator.share({ title: 'Mis datos de Cursada', url: traspasoUrl }).catch(() => { }); }
+function compartirTraspaso() { if (navigator.share) navigator.share({ title: 'Mis datos de Galera', url: traspasoUrl }).catch(() => { }); }
 async function recibirTraspaso(t) {
   const T = 'Datos de otro dispositivo';
   abrir(cab(T) + '<p class="cargando">Leyendo los datos…</p>', 'recibir');
   let e;
   try { e = normalizar(await Traspaso.desempaquetar(t)); }
-  catch (err) { return abrir(cab('No se pudo leer el link') + '<p>Este link no trae datos de Cursada completos: puede haberse cortado al copiarlo o al mandarlo por un chat.</p><p class="chico tenue">Probá de nuevo desde el otro dispositivo, o usá «Descargar una copia» y «Cargar una copia».</p><div class="botones"><button class="btn" onclick="cerrar()">Cerrar</button></div>', 'recibir'); }
+  catch (err) { return abrir(cab('No se pudo leer el link') + '<p>Este link no trae datos de Galera completos: puede haberse cortado al copiarlo o al mandarlo por un chat.</p><p class="chico tenue">Probá de nuevo desde el otro dispositivo, o usá «Descargar una copia» y «Cargar una copia».</p><div class="botones"><button class="btn" onclick="cerrar()">Cerrar</button></div>', 'recibir'); }
   traspasoRecibido = e;
   const actual = V.demo || E, hay = hayDatosCargados(actual), n = Object.keys(e.materias).length, h = Object.keys(e.horarios).length;
   const plural = (k, s, p) => k + ' ' + (k === 1 ? s : p);

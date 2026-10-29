@@ -1,4 +1,4 @@
-// Cursada sin conexión: primero la red (así cada publicación llega al instante) y, si no hay, lo último que se vio.
+// Galera sin conexión: primero la red (así cada publicación llega al instante) y, si no hay, lo último que se vio.
 // Solo guarda páginas y archivos de este sitio; el buzón de Apps Script y Analytics (otros orígenes) no pasan por acá.
 const CACHE = 'cursada-sw-1';
 self.addEventListener('install', () => self.skipWaiting());

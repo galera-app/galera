@@ -212,7 +212,7 @@ const Cronograma = (() => {
       return ['BEGIN:VEVENT', `UID:${x.id}-${ymd(f.desde)}@cursada.ficha.github.io`, 'DTSTAMP:20260101T000000Z', `DTSTART;VALUE=DATE:${ymd(f.desde)}`, `DTEND;VALUE=DATE:${ymd(sig(f.hasta))}`,
         `SUMMARY:${icsT((titulo ? titulo + ': ' : '') + x.t)}`, ...(x.q ? [`DESCRIPTION:${icsT('Responsable: ' + x.q)}`] : []), 'END:VEVENT'].join('\r\n');
     });
-    return ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Cursada//Planificador de libros//ES', 'CALSCALE:GREGORIAN', ...ev, 'END:VCALENDAR'].join('\r\n') + '\r\n';
+    return ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Galera//Planificador de libros//ES', 'CALSCALE:GREGORIAN', ...ev, 'END:VCALENDAR'].join('\r\n') + '\r\n';
   }
 
   // Sanea lo que viene de afuera (localStorage o link): ids únicos, números, predecesoras existentes.
