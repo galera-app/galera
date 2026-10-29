@@ -7,16 +7,16 @@
      ('unsafe-inline' queda por los manejadores en línea; sus argumentos pasan todos por arg() en app.js.) -->
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.google-analytics.com https://www.googletagmanager.com; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com; object-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<title>Cursada: gestor para la carrera de Edición (UBA)</title>
+<title>Galera: tu carrera de Edición, en orden (UBA)</title>
 <meta name="description" content="Tus notas, fechas de examen, horarios sin superposiciones, resúmenes con autoevaluación y simuladores para la carrera de Edición (FFyL, UBA). Gratis y sin cuenta.">
 <meta name="author" content="Fidel Chaves">
 <meta name="color-scheme" content="light dark">
 <link rel="canonical" href="https://galera.com.ar/">
-<meta property="og:title" content="Cursada: gestor para la carrera de Edición (UBA)">
+<meta property="og:title" content="Galera: tu carrera de Edición, en orden (UBA)">
 <meta property="og:description" content="Notas, fechas de examen, calendario académico, programas y horarios sin superposiciones. Sin cuenta: todo queda en tu navegador.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://galera.com.ar/">
-<meta property="og:site_name" content="Cursada · Edición (UBA)">
+<meta property="og:site_name" content="Galera · Edición (UBA)">
 <meta property="og:locale" content="es_AR">
 <meta property="og:image" content="https://galera.com.ar/img/cursada.jpg">
 <meta property="og:image:type" content="image/jpeg">
@@ -25,13 +25,14 @@
 <meta property="og:image:alt" content="Cursada: tu carrera de Edición, en orden. Notas, horarios, resúmenes y simuladores.">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231f3a5f'/%3E%3Cpath d='M16 20h32M16 32h32M16 44h20' stroke='%23f2c14e' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Cursada","description":"Gestor para estudiantes de Edición (FFyL, UBA): plan con notas y promedios, horarios, calendario, resúmenes y simuladores.","url":"https://galera.com.ar/","applicationCategory":"EducationalApplication","operatingSystem":"Any","inLanguage":"es-AR","isAccessibleForFree":true,"image":"https://galera.com.ar/img/cursada.jpg","offers":{"@type":"Offer","price":"0","priceCurrency":"ARS"},"author":{"@type":"Person","name":"Fidel Chaves","url":"https://ficha.github.io/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Galera","description":"Gestor para estudiantes de Edición (FFyL, UBA): plan con notas y promedios, horarios, calendario, resúmenes y simuladores.","url":"https://galera.com.ar/","applicationCategory":"EducationalApplication","operatingSystem":"Any","inLanguage":"es-AR","isAccessibleForFree":true,"image":"https://galera.com.ar/img/cursada.jpg","offers":{"@type":"Offer","price":"0","priceCurrency":"ARS"},"author":{"@type":"Person","name":"Fidel Chaves","url":"https://ficha.github.io/"}}</script>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="img/icono-192.png">
-<meta name="theme-color" content="#1f3a5f">
+<meta name="theme-color" content="#0560C8">
 <script>try{var t=localStorage.getItem("cursada.tema");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}</script>
 <link rel="stylesheet" href="tokens.css?v=6">
 <link rel="stylesheet" href="estilos.css?v=50">
+<link rel="stylesheet" href="galera.css?v=2">
 <link rel="preload" href="datos/indice.json" as="fetch">
 <script defer src="analitica.js?v=3"></script>
 </head>
@@ -39,7 +40,7 @@
 <a class="saltar" href="#main">Ir al contenido</a>
 <header class="cabecera">
   <div class="marca">
-    <a class="nombre" href="./" aria-label="Cursada, ir al inicio" onclick="ir('inicio'); return false"><span class="logo" aria-hidden="true"></span><h1>Cursada</h1></a>
+    <a class="nombre" href="./" aria-label="Galera, ir al inicio" onclick="ir('inicio'); return false"><span class="logo" aria-hidden="true"></span><h1>galera</h1></a>
     <p id="subtitulo" class="sr">Gestor para la carrera de Edición</p>
     <nav class="pestanas" id="pestanas" aria-label="Secciones"></nav>
     <div class="acciones">
@@ -61,7 +62,7 @@
     <button class="btn" type="button" onclick="avisame()"><span aria-hidden="true">🔔</span> Avisame por mail</button></div>
   <div class="pie-cols">
     <div class="pie-marca">
-      <p class="pie-nombre"><span class="logo" aria-hidden="true"></span>Cursada</p>
+      <p class="pie-nombre"><span class="logo" aria-hidden="true"></span>galera</p>
       <p>Gratis, sin cuenta y sin publicidad. Hecho por <a href="https://ficha.github.io/" rel="author">Fidel Chaves</a>, estudiante de Edición. No es un sitio oficial: verificá en SIU-Guaraní y en el <a href="https://edicion.filo.uba.ar/" target="_blank" rel="noopener">Departamento de Edición</a>. Los resúmenes salen de mis apuntes y pueden tener errores.</p>
       <p><a href="ingresantes/">Guía del ingresante</a> · <a href="fuentes/">Fuentes</a> · <a href="r/">Apuntes para leer</a></p>
       <p class="pie-acciones"><span id="donar"></span><button class="btn sec" type="button" onclick="compartirCursada('pie')"><span aria-hidden="true">💬</span> Pasásela a alguien</button></p>

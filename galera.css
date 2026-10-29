@@ -1,0 +1,40 @@
+/* Galera: capa de estilo del lienzo (C1 sobria) sobre estilos.css. Redefine tokens, cabecera, barra del celular e índice de inicio. */
+@font-face{font-family:"Instrument Sans";src:url(fonts/instrument-sans.woff2) format("woff2");font-weight:400 700;font-display:swap}
+@font-face{font-family:"UnifrakturMaguntia";src:url(fonts/unifraktur.woff2) format("woff2");font-weight:400;font-display:swap}
+:root{
+  --bg:#fff; --sup:#fff; --sup2:#F5F7FA; --borde:#E3E8EE; --borde-campo:#89939E; --texto:#212121; --texto2:#4D4D4D; --tenue:#666;
+  --tinta:#0560C8; --tinta-suave:#DBEDFF; --mostaza:#0671E0; --mostaza-tinta:#0560C8; --mostaza-suave:#DBEDFF;
+  --radio:4px; --sombra:none; --marca:#0671E0;
+  --fuente:"Instrument Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --gotica:"UnifrakturMaguntia",serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--tinta:#7DBBF8;--tinta-suave:#1d2c42;--mostaza:#4DA3F5;--mostaza-tinta:#7DBBF8;--mostaza-suave:#1d2c42;--marca:#4DA3F5}}
+:root[data-theme="dark"]{--tinta:#7DBBF8;--tinta-suave:#1d2c42;--mostaza:#4DA3F5;--mostaza-tinta:#7DBBF8;--mostaza-suave:#1d2c42;--marca:#4DA3F5}
+body{font-family:var(--fuente)}
+h1,h2,h3{letter-spacing:-.02em}
+
+/* Cabecera: «galera» en gótica, la g en azul */
+.marca .logo{display:none}
+.marca .nombre{padding:10px 20px 10px 0}
+.marca h1{font-family:var(--gotica);font-weight:400;font-size:32px;line-height:28px;letter-spacing:0;text-transform:none}
+.marca h1::first-letter{color:var(--marca)}
+.pestanas .tab{font-size:var(--t-sm)}
+.pestanas .tab[aria-current="page"]::after{height:2px;background:var(--marca)}
+
+/* Barra del celular: ícono y rótulo siempre visibles, rótulo de 12 px */
+@media (max-width:720px){
+  .inferior button{font:600 .75rem/1.1 var(--fuente)}
+  .inferior [aria-current]{color:var(--tinta)}
+  .inferior [aria-current] svg{fill:var(--tinta-suave)}
+}
+
+/* Índice de inicio */
+.inicio-tope h2{font-size:2.75rem;line-height:1.18;font-weight:600;letter-spacing:-.03em}
+.inicio-tope h2::first-letter{font-family:var(--gotica);font-weight:400;font-size:1.12em;letter-spacing:0;color:var(--marca)}
+.inicio-sub,.inicio-cerr{font-family:var(--serif)}
+.inicio-grupo h3{font-size:var(--t-lg);border-bottom:1px solid var(--borde-campo)}
+.inicio-grupo li a svg{color:var(--tinta)}
+@media (max-width:720px){.inicio-tope h2{font-size:2rem}}
+
+/* Títulos y destacados en sans (la serif queda para lectura de apuntes y bajadas) */
+h1,h2,h3,.portada h2,.practica h2,.nov-t,.perfil b,.avance b,.recorrido .area,.inicio-sel b{font-family:var(--fuente)}
