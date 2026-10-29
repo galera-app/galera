@@ -61,6 +61,12 @@ function borrarCookiesGA() {
     b.classList.add('on');
   }
 
+  // Para la pantalla de Configuración: leer y cambiar la decisión sin pasar por la barra.
+  window.galeraConsent = {
+    on: () => { try { return localStorage.getItem(CLAVE) === 'granted'; } catch (e) { return false; } },
+    poner: on => { const v = on ? 'granted' : 'denied'; try { localStorage.setItem(CLAVE, v); } catch (e) { } guardado = v; aplicar(v); const b = document.getElementById('galletas'); if (b) b.classList.remove('on'); }
+  };
+
   document.addEventListener('DOMContentLoaded', () => {
     if (guardado !== 'granted' && guardado !== 'denied') mostrar();
     const cambiar = document.getElementById('cookies');

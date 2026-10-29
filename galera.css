@@ -144,3 +144,85 @@ h1,h2,h3,.portada h2,.practica h2,.nov-t,.perfil b,.avance b,.recorrido .area,.i
 .elige input{margin:0}
 .elige.on,.elige:has(input:checked){font-weight:500}
 @media (min-width:900px){.eligen{max-width:420px}}
+
+/* G17 Calendario y G18 Configuración (lienzo): filtros, mes en cuadrícula, «Lo que viene»; secciones y switches */
+.sw{width:52px;height:32px;border-radius:16px;border:1px solid var(--borde-campo);background:none;position:relative;flex:none;cursor:pointer;padding:0;min-height:32px}
+.sw::after{content:"";position:absolute;left:4px;top:4px;width:22px;height:22px;border-radius:50%;background:var(--borde-campo)}
+.sw[aria-checked="true"]{background:var(--azul-fondo);border-color:var(--azul-texto)}
+.sw[aria-checked="true"]::after{left:24px;background:#fff}
+.sw::before{content:"";position:absolute;inset:-8px -2px}
+.sw:focus-visible{outline:2px solid var(--texto);outline-offset:2px}
+.cfg-pag{display:flex;flex-wrap:wrap;gap:32px 24px;align-items:flex-start;margin-top:24px}
+.cfg-lado{flex:1 1 200px;max-width:240px}
+.cfg-cuerpo{flex:1 1 480px;min-width:0;max-width:720px}
+.cfg-cuerpo section{scroll-margin-top:96px}
+.cfg-cuerpo section+section{margin-top:48px}
+.cfg-cuerpo h3{margin:0 0 12px;font-size:24px;line-height:32px;font-weight:600;letter-spacing:-.02em}
+.cfg-nav{display:flex;flex-direction:column;position:sticky;top:88px}
+.cfg-nav a{display:flex;align-items:center;min-height:48px;padding:0 12px;border-top:1px solid var(--borde);color:var(--texto2);text-decoration:none}
+.cfg-nav a:last-child{border-bottom:1px solid var(--borde)}
+.cfg-nav a:hover{color:var(--azul-texto)}
+.cfg-fila{display:flex;align-items:center;gap:16px;padding:20px 0;border-top:1px solid var(--borde)}
+.cfg-fila:last-of-type{border-bottom:1px solid var(--borde)}
+.cfg-fila b{display:block;font-weight:500}
+.cfg-fila .chico{display:block}
+@media (max-width:760px){.cfg-lado{max-width:none}.cfg-nav{position:static;flex-direction:row;flex-wrap:wrap;gap:4px}.cfg-nav a{border:0;min-height:44px}.cfg-nav a:last-child{border:0}}
+
+.cal-pag{display:flex;flex-wrap:wrap;gap:32px 24px;align-items:flex-start;justify-content:center;margin-top:24px}
+.cal-lado,.cal-rail{flex:1 1 240px;max-width:288px}
+.cal-mes{flex:1 1 480px;min-width:0;max-width:648px}
+.cal-nav{margin-bottom:16px;gap:8px}
+.cal-tit{min-width:9ch;text-align:center;font-size:20px;line-height:28px;font-weight:600;letter-spacing:-.02em}
+.cal-grilla{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));border:1px solid var(--borde);border-radius:var(--radio);overflow:hidden;background:var(--sup)}
+.cal-dia{padding:10px 0;text-align:center;font-size:12px;font-weight:500;letter-spacing:.08em;color:var(--texto2);border-bottom:1px solid #ABBED1}
+.cal-cel{min-height:96px;padding:8px;border-right:1px solid var(--borde);border-bottom:1px solid var(--borde);display:flex;flex-direction:column;gap:6px;font-size:14px;min-width:0}
+.cal-cel:nth-child(7n){border-right:0}
+.cal-cel b{font-weight:500;line-height:20px}
+.cal-cel.hoy{background:var(--sup2)}
+.cal-cel.hoy b{display:inline-grid;place-items:center;width:28px;height:28px;margin:-4px 0 0 -4px;border-radius:50%;background:var(--texto);color:var(--sup)}
+.cal-ev{display:flex;gap:6px;align-items:flex-start;font-size:12px;line-height:16px;min-width:0;overflow-wrap:anywhere}
+.cal-ev .cal-pt{margin-top:4px}
+.cal-pt{width:8px;height:8px;border-radius:50%;background:var(--azul-fondo);flex:none;display:inline-block}
+.cal-pt.r{background:none;border:1.5px solid var(--azul-fondo)}
+.cal-pt.s{background:repeating-linear-gradient(45deg,var(--azul-fondo) 0 1.5px,transparent 1.5px 3px)}
+.cal-ref{display:flex;flex-direction:column;gap:10px}
+.cal-ref .fila{gap:10px}
+.cal-ck{width:16px;height:16px;border:1px solid var(--borde-campo);border-radius:3px;flex:none}
+.cal-ck.on{border-color:var(--azul-texto);background:radial-gradient(circle,var(--azul-fondo) 1.3px,transparent 1.7px) 0 0/4px 4px}
+.cal-ag{display:flex;gap:16px;padding:16px;background:var(--sup2);border-radius:var(--radio)}
+.cal-ag+.cal-ag{margin-top:8px}
+.cal-fe{width:48px;flex:none;text-align:center;font-size:12px;line-height:16px;color:var(--azul-texto)}
+.cal-fe b{display:block;font-size:24px;line-height:28px;font-weight:500;letter-spacing:-.04em;color:var(--texto)}
+@media (max-width:760px){.cal-lado,.cal-rail,.cal-mes{max-width:none}.cal-cel{min-height:56px;padding:4px}.cal-ev>span:last-child{display:none}.cal-ev{justify-content:center}.cal-cel b{font-size:13px}}
+.cal-opt{display:flex;align-items:center;gap:12px;min-height:48px;padding:0 4px;border:0;border-top:1px solid var(--borde);border-radius:0;background:none;width:100%;text-align:left;font:inherit;font-size:16px;line-height:24px;color:var(--texto);cursor:pointer}
+.cal-opt:last-of-type{border-bottom:1px solid var(--borde)}
+.cal-opt.on{font-weight:500}
+.cal-opt:focus-visible{outline:2px solid var(--texto);outline-offset:2px}
+
+/* G02 Mi carrera (lienzo): lista plana por grupo, ícono de estado a la izquierda, selector de estado sobrio, aro de avance fino */
+.plan-tabla{padding:0;margin-top:12px}
+.plan-h{margin-top:40px}
+.plan-h h2{font-size:28px;line-height:36px;font-weight:600;letter-spacing:-.02em}
+.plan-tabla .tabla th{padding:8px 10px;font-size:12px;font-weight:600;letter-spacing:.06em;color:var(--texto2);border-bottom:1px solid #ABBED1}
+.plan-tabla .tabla td{padding:14px 10px;border-bottom:1px solid var(--borde)}
+.plan-tabla .tabla tr:last-child td{border-bottom:1px solid var(--borde)}
+.plan-n{display:flex;gap:12px;align-items:flex-start}
+.plan-n>.ge{margin:3px 0 0;width:20px;height:20px;color:var(--texto2)}
+.plan-n .plan-c{min-width:0;flex:1}
+.plan-tabla .tabla .nombre{font-weight:500;font-size:16px;line-height:24px}
+.plan-tabla tr.aprobada .ge{color:var(--ok)}
+.plan-tabla tr.cursando .ge,.plan-tabla tr.regular .ge{color:var(--azul-texto)}
+.plan-tabla .tabla select{border-radius:4px;border:1px solid var(--borde-campo);background:var(--sup);min-height:40px}
+.plan-tabla .tabla tr.aprobada select{background:var(--ok-suave)}
+.carrera-2 .lateral .aro{width:176px;height:176px;margin:0 auto}
+.carrera-2 .lateral .aro b{width:148px;height:148px;font-size:2.25rem;font-weight:600;letter-spacing:-.04em}
+@media (max-width:1000px){.plan-n>.ge{margin-top:2px}}
+
+/* G05 Qué voy a cursar (lienzo): lista plana con ícono de pendiente y una línea entre materias */
+.resumen-sel.qc{margin:16px 0;gap:0}
+.resumen-sel.qc li{display:flex;gap:12px;align-items:center;min-height:48px;border-left:0;border-top:1px solid var(--borde);padding:0 4px}
+.resumen-sel.qc li:last-child{border-bottom:1px solid var(--borde)}
+.resumen-sel.qc .ge{margin:0;width:20px;height:20px;color:var(--texto2)}
+.resumen-sel.qc b{font-weight:500;font-size:16px;line-height:24px}
+.elige-color{width:12px;height:12px;border-radius:3px;flex:none}
+@media (max-width:760px){.cal-mes{order:-1}}

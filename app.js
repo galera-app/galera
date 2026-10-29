@@ -272,12 +272,34 @@ function elegirPerfil() {
 function vConfig() {
   const pr = esPro() ? 'profesional' : 'estudiante';
   const op = (p, ico, t, d) => `<button class="perfil ${pr === p ? 'on' : ''}" type="button" aria-pressed="${pr === p}" onclick="cambiarPerfil(${arg(p)})"><span class="perfil-ico" aria-hidden="true">${ico}</span><b>${t}</b><span class="chico tenue">${d}</span></button>`;
+  let guardado = ''; try { guardado = localStorage.getItem('cursada.tema') || ''; } catch (e) { }
+  const tema = guardado === 'dark' || guardado === 'light' ? guardado : 'auto';
+  const sw = (id, on, t, d, fn) => `<div class="cfg-fila"><div class="crece"><b>${t}</b><span class="chico tenue">${d}</span></div><button class="sw" type="button" role="switch" id="${id}" aria-checked="${on}" aria-label="${esc(t)}" onclick="${fn}"></button></div>`;
+  const stats = !!(window.galeraConsent && galeraConsent.on());
   return `<div class="titulo-sec"><h2>Configuración</h2></div><p class="chico tenue u-mt0">Tus datos viven en este dispositivo. Desde acá los movés o los borrás.</p>
-    <div class="tarjeta"><h3>¿Qué te representa?</h3><p class="u-mt0 chico tenue">Elegí qué secciones ver. Podés volver acá cuando quieras.</p>
-      <div class="perfiles">${op('estudiante', '🎓', 'Estudiante', 'Tu carrera de Edición: notas, horarios, calendario y resúmenes.')}${op('profesional', '📚', 'Profesional del libro', 'Herramientas, eventos de la industria y links del sector.')}</div></div>
-    <div class="tarjeta"><h3>Tus datos</h3><p class="u-mt0 chico tenue">Se guardan solo en este navegador.</p>
-      <p class="fila"><button class="btn sec" type="button" onclick="abrirDatos()">Guardar una copia</button><button class="btn sec" type="button" onclick="abrirAjustes()">Avisos de progreso</button></p></div>`;
+    <div class="cfg-pag"><aside class="cfg-lado" aria-label="Secciones"><nav class="cfg-nav" aria-label="Configuración"><a href="#cfg-perfil" onclick="cfgIr(event,'cfg-perfil')">Perfil</a><a href="#cfg-apariencia" onclick="cfgIr(event,'cfg-apariencia')">Apariencia</a><a href="#cfg-avisos" onclick="cfgIr(event,'cfg-avisos')">Avisos</a><a href="#cfg-datos" onclick="cfgIr(event,'cfg-datos')">Datos</a></nav></aside>
+    <div class="cfg-cuerpo">
+      <section id="cfg-perfil"><h3>¿Qué te representa?</h3><p class="u-mt0 chico tenue">Elegí qué secciones ver. Podés volver acá cuando quieras.</p>
+        <div class="perfiles">${op('estudiante', '🎓', 'Estudiante', 'Tu carrera de Edición: notas, horarios, calendario y resúmenes.')}${op('profesional', '📚', 'Profesional del libro', 'Herramientas, eventos de la industria y links del sector.')}</div></section>
+      <section id="cfg-apariencia"><h3>Apariencia</h3>
+        <div class="seg" role="group" aria-label="Tema">${[['auto', 'Automática'], ['light', 'Clara'], ['dark', 'Oscura']].map(([k, n]) => `<button type="button" class="${tema === k ? 'on' : ''}" aria-pressed="${tema === k}" onclick="ponerTema(${arg(k)})">${n}</button>`).join('')}</div>
+        <p class="chico tenue">«Automática» sigue la configuración de tu dispositivo.</p></section>
+      <section id="cfg-avisos"><h3>Avisos</h3>
+        ${sw('sw-juego', !!E.juego.on, 'Avisos de progreso y retos', 'Cierres de ronda, repasos y registro de lo que hiciste. Sin puntos ni rachas.', 'setJuegoCfg(this)')}
+        ${sw('sw-stats', stats, 'Estadísticas anónimas', 'Google Analytics cuenta visitas: no ve tus notas ni tus horarios.', 'setStats(this)')}
+        <div class="cfg-fila"><div class="crece"><b>Mail de los lunes</b><span class="chico tenue">Novedades y mesas de la semana, solo lo que te importa.</span></div><button class="btn sec ch" type="button" onclick="avisame()">Configurar</button></div></section>
+      <section id="cfg-datos"><h3>Datos</h3><p class="u-mt0 chico tenue">Se guardan solo en este navegador.${E.copia ? ' Tu última copia es del ' + fmt(E.copia) + '.' : ''}</p>
+        <p class="fila"><button class="btn sec" type="button" onclick="abrirDatos()">Guardar una copia</button><button class="btn sec" type="button" onclick="abrirTraspaso()">Pasar a otro dispositivo</button><button class="btn pel" type="button" onclick="borrarTodo()">Borrar mis datos</button></p></section>
+    </div></div>`;
 }
+function cfgIr(e, id) { e.preventDefault(); const el = document.getElementById(id); if (el) el.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' }); }
+function ponerTema(k) {
+  if (k === 'auto') { delete raizHtml().dataset.theme; try { localStorage.removeItem('cursada.tema'); } catch (e) { } }
+  else { raizHtml().dataset.theme = k; try { localStorage.setItem('cursada.tema', k); } catch (e) { } }
+  pintarTema(); render();
+}
+function setJuegoCfg(b) { E.juego.on = b.getAttribute('aria-checked') !== 'true'; guardar(true); render(); }
+function setStats(b) { if (!window.galeraConsent) return; const on = b.getAttribute('aria-checked') !== 'true'; galeraConsent.poner(on); b.setAttribute('aria-checked', String(on)); aviso(on ? 'Estadísticas activadas' : 'Estadísticas apagadas'); }
 function cambiarPerfil(p) { if ((esPro() ? 'profesional' : 'estudiante') !== p) ponerPerfil(p); }
 function ponerPerfil(p) {
   E.perfil = p === 'profesional' ? 'profesional' : 'estudiante';
@@ -727,17 +749,17 @@ function proximaFecha(id) {
 }
 function vGrupo(g) {
   const L = D.plan.materias.filter(m => m.grupo === g.id);
-  return `<div class="titulo-sec"><h2>${esc(g.nombre)}</h2><span class="chico tenue">${L.filter(m => (E.materias[m.id] || {}).estado === 'aprobada').length} de ${L.length}</span></div>
+  return `<div class="titulo-sec plan-h"><h2>${esc(g.nombre)}</h2><span class="chico tenue">${L.filter(m => (E.materias[m.id] || {}).estado === 'aprobada').length} de ${L.length}</span></div>
     ${g.ayuda ? `<p class="chico tenue u-margin-4px-0-8px">${esc(g.ayuda)}</p>` : ''}
-    <div class="tarjeta u-padding-6px-12px"><table class="tabla"><thead><tr><th>Materia</th><th>Se dicta</th><th>Estado</th><th>Nota</th><th><span class="solo-lector">Programa</span></th></tr></thead><tbody>
+    <div class="plan-tabla"><table class="tabla"><thead><tr><th>Materia</th><th>Se dicta</th><th>Estado</th><th>Nota</th><th><span class="solo-lector">Programa</span></th></tr></thead><tbody>
     ${L.map(m => {
       const e = E.materias[m.id] || { estado: 'pendiente' }, o = opcion(m);
       const cuat = (o && o.cuat) || m.cuat || [], reg = (o && o.regimen) || m.regimen, regNota = (o && o.regimen_nota) || m.regimen_nota, progs = programas(m, o);
       // Las electivas con opciones fijas se eligen acá mismo (los seminarios y la pasantía o tesina, desde su ficha).
       const elige = m.opciones && m.id !== 'final' ? `<select class="elige-op" data-f="op${esc(m.id)}" aria-label="¿Cuál cursaste o vas a cursar? (${esc(m.nombre)})" onchange="campo(${arg(m.id)},'opcion',this.value)">
         <option value="">¿Cuál elegiste?</option>${m.opciones.map(x => `<option value="${esc(x.id)}" ${e.opcion === x.id ? 'selected' : ''}>${esc(x.nombre)}</option>`).join('')}</select>` : '';
-      return `<tr class="${e.estado}"><td><button class="nombre" onclick="abrirMateria(${arg(m.id)})">${esc(nombreDe(m))}</button>${elige}
-        <div class="chico tenue">${m.codigo || (o && o.codigo) ? esc(m.codigo || o.codigo) + ' · ' : ''}${m.electiva && !o && !(m.libre && e.detalle) && !elige ? 'A elegir · ' : ''}${reg ? esc(reg) : ''}${regNota ? ` <span class="chip ojo" title="${esc(regNota)}">cambió</span>` : ''} ${proximaFecha(m.id)}${(e.aplazos || []).length ? ` <span class="chip mal">${e.aplazos.length} ${e.aplazos.length === 1 ? 'aplazo' : 'aplazos'}</span>` : ''}</div></td>
+      return `<tr class="${e.estado}"><td class="plan-n">${iconoEstado(e.estado)}<div class="plan-c"><button class="nombre" onclick="abrirMateria(${arg(m.id)})">${esc(nombreDe(m))}</button>${elige}
+        <div class="chico tenue">${m.codigo || (o && o.codigo) ? esc(m.codigo || o.codigo) + ' · ' : ''}${m.electiva && !o && !(m.libre && e.detalle) && !elige ? 'A elegir · ' : ''}${reg ? esc(reg) : ''}${regNota ? ` <span class="chip ojo" title="${esc(regNota)}">cambió</span>` : ''} ${proximaFecha(m.id)}${(e.aplazos || []).length ? ` <span class="chip mal">${e.aplazos.length} ${e.aplazos.length === 1 ? 'aplazo' : 'aplazos'}</span>` : ''}</div></div></td>
         <td class="ctl">${cuat.map(c => `<span class="chip">${c}</span>`).join(' ')}</td>
         <td class="ctl" data-rot="Estado"><select aria-label="Estado de ${esc(m.nombre)}" onchange="setEstado(${arg(m.id)},this.value)">${Object.keys(ESTADOS).map(k => `<option value="${k}" ${e.estado === k ? 'selected' : ''}>${ESTADOS[k]}</option>`).join('')}</select></td>
         <td class="ctl" data-rot="Nota"><input class="nota" maxlength="5" inputmode="decimal" placeholder="Nota" aria-label="Nota de ${esc(m.nombre)}" value="${esc(valorNota(m.id, e))}"${attrsNota(m.id)} onchange="setNota(${arg(m.id)},this.value)">${msgNota(m.id)}</td>
@@ -950,8 +972,8 @@ function vHorarios() {
   // Las que ya aprobaste no aparecen, salvo que las pidas o ya las hayas elegido. Los seminarios van aparte, plegados.
   const ocultas = disponibles.filter(id => yaAprobada(id) && h.materias.indexOf(id) < 0);
   const visibles = V.verAprobadas ? disponibles : disponibles.filter(id => ocultas.indexOf(id) < 0);
-  const opcionMat = id => `<label class="elige" ${h.materias.indexOf(id) >= 0 ? `style="background:${colorDe(id)};color:#fff;border-color:${colorDe(id)}"` : ''}>
-      <input type="checkbox" data-f="q${esc(id)}" ${h.materias.indexOf(id) >= 0 ? 'checked' : ''} onchange="quieroCursar(${arg(id)},this.checked)"><span>${esc(nombreMateria(id))}${yaAprobada(id) ? ' <small>(aprobada)</small>' : ''}</span></label>`;
+  const opcionMat = id => `<label class="elige">
+      <input type="checkbox" data-f="q${esc(id)}" ${h.materias.indexOf(id) >= 0 ? 'checked' : ''} onchange="quieroCursar(${arg(id)},this.checked)">${h.materias.indexOf(id) >= 0 ? `<i class="elige-color" style="background:${colorDe(id)}" aria-hidden="true"></i>` : ''}<span>${esc(nombreMateria(id))}${yaAprobada(id) ? ' <small>(aprobada)</small>' : ''}</span></label>`;
   const sems = visibles.filter(id => extra(id)), mats = visibles.filter(id => !extra(id));
   const semAbierto = V.verSem || sems.some(id => h.materias.indexOf(id) >= 0);
   out.push(disponibles.length ? `<div class="eligen">${mats.map(opcionMat).join('')}</div>
@@ -1129,8 +1151,9 @@ function vCalendario() {
     <span class="chip ${(chip[e.tipo] || chip.info)[0]}">${(chip[e.tipo] || chip.info)[1]}</span></div>`; };
   let semana = '';
   if (periodo) { const n = Math.floor((fecha(t) - fecha(periodo.desde)) / 6048e5) + 1, tot = Math.ceil((fecha(periodo.hasta) - fecha(periodo.desde)) / 6048e5); semana = `<div class="tarjeta"><b>${esc(periodo.nombre)}</b>: semana ${n} de ${tot}<div class="barra"><i style="width:${Math.round(n * 100 / tot)}%;background:var(--tinta)"></i></div></div>`; }
+  if ((V.calVista || 'mes') === 'mes') return calMes(todos, t, semana, turnos);
   return `${semana}<div class="titulo-sec"><h2>Lo que viene</h2><span class="fila">${V.oferta && E.horarios[V.oferta] && elegidas().length && periodoDe(V.oferta) ? '<button class="btn sec ch" onclick="ayudaCalendario()">📅 Llevar mi cursada al calendario</button>' : ''}${misFechas().length ? '<button class="btn sec ch" onclick="exportarIcs()">Llevar mis fechas al calendario (.ics)</button>' : ''}</span></div>
-    <div class="u-mb10 fila"><div class="seg" role="group" aria-label="Qué fechas ver">${[['todo', 'Todo'], ['mias', 'Mis fechas'], ['oficial', 'Oficial']].map(([k, n]) => `<button class="${filtro === k ? 'on' : ''}" aria-pressed="${filtro === k}" onclick="V.calFiltro=${arg(k)};render()">${n}</button>`).join('')}</div>
+    <div class="u-mb10 fila">${calVistaSeg()}<div class="seg" role="group" aria-label="Qué fechas ver">${[['todo', 'Todo'], ['mias', 'Mis fechas'], ['oficial', 'Oficial']].map(([k, n]) => `<button class="${filtro === k ? 'on' : ''}" aria-pressed="${filtro === k}" onclick="V.calFiltro=${arg(k)};render()">${n}</button>`).join('')}</div>
       <span class="crece"></span><button class="btn lin ch" onclick="ir(${arg('links')})">Cómo inscribirse y trámites</button></div>
     <p class="chico tenue u-margin-4px-0-8px">Calendario académico ${c.anio} de la Facultad más tus parciales y finales (se cargan desde cada materia, en Mi carrera). ${esc(c.nota)}
       ${repasos().length ? 'Antes de cada parcial o final de una materia con resumen, te sugiero tres repasos cortos: una semana, tres días y un día antes.' : ''}</p>
@@ -1139,6 +1162,46 @@ function vCalendario() {
     ${pasados.length ? `<button class="btn lin ch" onclick="V.verPasados=!V.verPasados;render()">${V.verPasados ? 'Ocultar' : 'Ver'} lo que ya pasó (${pasados.length})</button>${V.verPasados ? `<div class="tarjeta u-padding-6px-16px_margin-top-10px">${pasados.map(fila).join('')}</div>` : ''}` : ''}
     ${c.consultado ? `<p class="chico tenue verificado">✓ Calendario cotejado con la <a href="${urlSegura(c.fuente.url)}" target="_blank" rel="noopener">Secretaría Académica</a> el ${fmt(c.consultado)}. Los feriados salen de argentina.gob.ar y se actualizan solos (incluye los de la Ciudad, donde está la Facultad).</p>` : ''}`;
 }
+// Calendario en vista de mes (lienzo): filtros por tipo a un costado, cuadrícula y «Lo que viene» en la columna derecha.
+const CAL_GRUPOS = [['fechas', 'Parciales e inscripciones', ['inscripcion', 'cursada', 'tramite', 'info', 'mio', 'repaso']], ['mesas', 'Mesas de examen', ['mesa', 'examen']], ['feriados', 'Feriados', ['feriado', 'especial']]];
+const calGrupo = tipo => (CAL_GRUPOS.find(g => g[2].indexOf(tipo) >= 0) || CAL_GRUPOS[0])[0];
+const calMarca = tipo => ({ mesas: 'r', feriados: 's' })[calGrupo(tipo)] || '';
+function calVistaSeg() { const v = V.calVista || 'mes'; return `<div class="seg" role="group" aria-label="Vista">${[['mes', 'Mes'], ['lista', 'Lista']].map(([k, n]) => `<button type="button" class="${v === k ? 'on' : ''}" aria-pressed="${v === k}" onclick="V.calVista=${arg(k)};render()">${n}</button>`).join('')}</div>`; }
+function calMover(d) {
+  const [y, m] = (V.calMes || hoy().slice(0, 7)).split('-').map(Number), n = new Date(y, m - 1 + d, 1);
+  V.calMes = iso(n).slice(0, 7); render();
+}
+function calMes(todos, t, previo, turnos) {
+  const mes = V.calMes || t.slice(0, 7), [y, m] = mes.split('-').map(Number), ocultos = V.calOcultos || [];
+  const soloMias = V.calFiltro === 'mias';
+  const MIO = ['mio', 'mesa', 'repaso'];
+  const vis = todos.filter(e => ocultos.indexOf(calGrupo(e.tipo)) < 0 && (!soloMias || MIO.indexOf(e.tipo) >= 0));
+  const porDia = {};
+  vis.forEach(e => { [e.desde, e.hasta].filter((x, i, a) => a.indexOf(x) === i).forEach(d => { (porDia[d] = porDia[d] || []).push(e); }); });
+  const primero = new Date(y, m - 1, 1), vacios = (primero.getDay() + 6) % 7, dias = new Date(y, m, 0).getDate();
+  const celdas = [];
+  for (let i = 0; i < vacios; i++) celdas.push('<div class="cal-cel vacia" aria-hidden="true"></div>');
+  for (let d = 1; d <= dias; d++) {
+    const k = mes + '-' + String(d).padStart(2, '0'), ev = porDia[k] || [];
+    celdas.push(`<div class="cal-cel ${k === t ? 'hoy' : ''}"><b>${d}</b>${ev.slice(0, 3).map(e => `<span class="cal-ev"><i class="cal-pt ${calMarca(e.tipo)}" aria-hidden="true"></i><span>${esc(e.t)}</span></span>`).join('')}${ev.length > 3 ? `<span class="chico tenue">+${ev.length - 3} más</span>` : ''}</div>`);
+  }
+  const prox = vis.filter(e => e.hasta >= t).slice(0, 5);
+  const opc = (g, n) => { const on = ocultos.indexOf(g) < 0; return `<button type="button" class="cal-opt ${on ? 'on' : ''}" aria-pressed="${on}" onclick="calAlternar(${arg(g)})"><i class="cal-ck ${on ? 'on' : ''}" aria-hidden="true"></i>${n}</button>`; };
+  const ag = e => { const d = fecha(e.desde); return `<div class="cal-ag"><div class="cal-fe"><b>${d.getDate()}</b>${MESES[d.getMonth()].toUpperCase()}</div><div><span>${esc(e.t)}</span><span class="chico tenue u-display-block">${[e.hasta !== e.desde && 'hasta el ' + fmt(e.hasta), e.hora && e.hora + ' h'].filter(Boolean).join(' · ') || ({ mesas: 'Mesa de examen', feriados: 'Feriado' })[calGrupo(e.tipo)] || 'Fecha'}</span></div></div>`; };
+  const ref = (c, n) => `<span class="fila"><i class="cal-pt ${c}" aria-hidden="true"></i>${n}</span>`;
+  return `${previo}<div class="titulo-sec"><h2>Calendario</h2><span class="fila">${V.oferta && E.horarios[V.oferta] && elegidas().length && periodoDe(V.oferta) ? '<button class="btn sec ch" onclick="ayudaCalendario()">📅 Llevar mi cursada al calendario</button>' : ''}</span></div>
+    <p class="chico tenue u-mt0">Calendario académico ${D.calendario.anio} de la Facultad, tus fechas, las mesas de tus materias y los feriados. Los marcadores dicen qué hay cada día.</p>
+    <div class="cal-pag"><aside class="cal-lado" aria-label="Filtros"><div class="nov-rot">Qué mostrar</div>${CAL_GRUPOS.map(g => opc(g[0], g[1])).join('')}
+      <button type="button" class="cal-opt ${soloMias ? 'on' : ''}" aria-pressed="${soloMias}" onclick="V.calFiltro=${arg(soloMias ? 'todo' : 'mias')};render()"><i class="cal-ck ${soloMias ? 'on' : ''}" aria-hidden="true"></i>Solo mis fechas</button>
+      <div class="nov-rot u-margin-top-24px">Referencias</div><div class="cal-ref chico tenue">${ref('', 'Parcial o inscripción')}${ref('r', 'Mesa de examen')}${ref('s', 'Feriado')}</div></aside>
+    <section class="cal-mes" aria-label="Mes"><div class="fila cal-nav">${calVistaSeg()}<span class="crece"></span>
+      <button class="btn sec ch" type="button" aria-label="Mes anterior" onclick="calMover(-1)">‹</button><b class="cal-tit">${MESES_LARGOS[m - 1]} ${y}</b><button class="btn sec ch" type="button" aria-label="Mes siguiente" onclick="calMover(1)">›</button>${mes !== t.slice(0, 7) ? '<button class="btn lin ch" type="button" onclick="V.calMes=null;render()">Hoy</button>' : ''}</div>
+      <div class="cal-grilla" role="grid">${['L', 'M', 'X', 'J', 'V', 'S', 'D'].map(x => `<div class="cal-dia" role="columnheader">${x}</div>`).join('')}${celdas.join('')}</div>
+      <p class="chico tenue">Los feriados salen de argentina.gob.ar.</p></section>
+    <aside class="cal-rail" aria-label="Lo que viene"><div class="nov-rot">Lo que viene</div>${prox.map(ag).join('') || '<p class="vacio">No queda nada con estos filtros.</p>'}
+      <p><button class="btn sec u-w100" onclick="V.calVista=${arg('lista')};render()">Ver todo en lista</button></p></aside></div>${turnos}`;
+}
+function calAlternar(g) { const o = V.calOcultos = V.calOcultos || [], i = o.indexOf(g); if (i >= 0) o.splice(i, 1); else o.push(g); render(); }
 // Repaso espaciado: antes de cada parcial o final de una materia con resumen, tres repasos cortos (7, 3 y 1 día antes).
 // No se guardan: se calculan de las fechas que carga cada persona.
 function repasos() {
