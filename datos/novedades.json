@@ -2,6 +2,16 @@
  "nota": "Lo que va en el mail de los lunes (Novedades.gs) y en la pestaña Novedades. v: número de versión (obligatorio; ver CHANGELOG.md). tipo: herramientas | resumenes | fechas. perfil: estudiante (por defecto) | profesional | todos; el mail y la pestaña Novedades lo usan para mostrar a cada perfil lo suyo. materias: ids del plan (vacío = para todas). url: solo links a galera.com.ar/. Sumar una entrada por cada cosa que se publica; el script manda solo lo posterior al último envío de cada persona, así que las viejas no se reenvían.",
  "novedades": [
    {
+   "v": 87,
+   "fecha": "2026-10-29",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "titulo": "Galera estrena ícono, cinta y pie",
+   "texto": "El ícono es ahora la g gótica en azul, la cabecera lleva una cinta de puntos y el pie se reordena con todas las secciones a mano.",
+   "url": "https://galera.com.ar/"
+   },
+   {
    "v": 86,
    "fecha": "2026-10-29",
    "tipo": "resumenes",

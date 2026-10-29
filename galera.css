@@ -43,3 +43,27 @@ h1,h2,h3,.portada h2,.practica h2,.nov-t,.perfil b,.avance b,.recorrido .area,.i
 .lectura .marca .nombre{font-family:var(--gotica);font-weight:400;font-size:32px;line-height:28px;letter-spacing:0;margin:0;padding:10px 20px 10px 0}
 .lectura .marca .nombre a::first-letter{color:var(--marca)}
 .lectura .apunte h1,.lectura .apunte h2,.lectura .apunte h3{font-family:var(--fuente)}
+
+/* Cinta de puntos sobre la cabecera y dentro del pie (lienzo Cabecera y Pie) */
+.cabecera::before{content:"";display:block;height:12px;background:radial-gradient(circle,var(--texto) 1px,transparent 1.4px) 0 0/6px 6px;opacity:.45;-webkit-mask-image:linear-gradient(90deg,#000,transparent 60%);mask-image:linear-gradient(90deg,#000,transparent 60%)}
+@media (max-width:720px){.cabecera::before{height:8px}}
+
+/* Pie: fondo a todo el ancho, nombre en gótica, rótulos en versalitas, botón de cafecito y cinta */
+.pie{max-width:none;background:var(--sup2);border-top:1px solid var(--borde);padding:48px 16px 32px}
+.pie>*{max-width:1224px;margin-left:auto;margin-right:auto}
+.pie-cols{grid-template-columns:1.4fr 3fr;gap:40px 24px;padding:0}
+.pie-nombre{font-family:var(--gotica);font-weight:400;font-size:32px;line-height:28px;letter-spacing:0;margin:0 0 16px}
+.pie-nombre .logo{display:none}
+.pie-nombre a{color:var(--texto);text-decoration:none}
+.pie-nombre::first-letter,.pie-nombre a::first-letter{color:var(--marca)}
+.pie-marca p{max-width:34ch}
+.pie-nav{grid-template-columns:repeat(4,minmax(0,1fr))}
+.pie-nav h2,.pie-nav .rot{font:600 12px/16px var(--fuente);letter-spacing:.06em;margin:0 0 12px}
+.pie-nav a,.pie-nav button{min-height:32px;font-size:14px;line-height:20px}
+.pie .cafe,.pie #donar .btn{display:inline-flex;align-items:center;height:44px;padding:0 18px;border-radius:4px;background:#DBEDFF;color:#0053AD;font-weight:500;font-size:16px;text-decoration:none;border:0}
+.pie .cafe:hover,.pie #donar .btn:hover{background:var(--marca);color:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .pie .cafe,:root:not([data-theme="light"]) .pie #donar .btn{background:#12304F;color:#9CCBFA}}
+:root[data-theme="dark"] .pie .cafe,:root[data-theme="dark"] .pie #donar .btn{background:#12304F;color:#9CCBFA}
+.pie-legal{position:relative;margin-top:48px;padding-top:30px;border-top:0}
+.pie-legal::before{content:"";position:absolute;left:0;right:0;top:0;height:14px;background:radial-gradient(circle,var(--texto) 1.1px,transparent 1.5px) 0 0/7px 7px;opacity:.4;-webkit-mask-image:linear-gradient(90deg,#000,transparent);mask-image:linear-gradient(90deg,#000,transparent)}
+@media (max-width:760px){.pie-cols{grid-template-columns:1fr}.pie-nav{grid-template-columns:repeat(2,minmax(0,1fr))}}
