@@ -38,3 +38,8 @@ h1,h2,h3{letter-spacing:-.02em}
 
 /* Títulos y destacados en sans (la serif queda para lectura de apuntes y bajadas) */
 h1,h2,h3,.portada h2,.practica h2,.nov-t,.perfil b,.avance b,.recorrido .area,.inicio-sel b{font-family:var(--fuente)}
+
+/* Páginas estáticas de lectura (resúmenes, biblioteca, glosario…): mismo nombre en la cabecera */
+.lectura .marca .nombre{font-family:var(--gotica);font-weight:400;font-size:32px;line-height:28px;letter-spacing:0;margin:0;padding:10px 20px 10px 0}
+.lectura .marca .nombre a::first-letter{color:var(--marca)}
+.lectura .apunte h1,.lectura .apunte h2,.lectura .apunte h3{font-family:var(--fuente)}
