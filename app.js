@@ -339,7 +339,7 @@ function cambiarEnInicio() { V.cambiaPerfil = true; render(); const b = document
 function colofonInicio(per) {
   const lista = ((D.novedades && D.novedades.novedades) || []).filter(n => n.perfil === 'todos' || n.perfil === per);
   const f = lista.map(n => n.fecha).sort().pop(), n = lista.filter(x => x.fecha === f).length;
-  const ed = f ? `Esta edición de Galera se actualizó el ${fechaLarga(f)} y trae <a href="#novedades">${n === 1 ? '1 novedad' : n + ' novedades'}</a>. ` : '';
+  const ed = f ? `Esta edición de Galera se actualizó el ${fechaLarga(f)} y trae <a href="#novedades">${n === 1 ? 'una novedad' : (['', '', 'dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho', 'nueve'][n] || n) + ' novedades'}</a>. ` : '';
   return `<p class="colofon">${ed}Se hizo en CABA, Argentina. Se sostiene con <a href="#sostener">cafecitos</a>; tus datos quedan en este navegador (<a href="#config">ajustes</a>).</p>`;
 }
 function vInicio() {
@@ -385,8 +385,10 @@ function render() {
   document.title = tituloPagina();
   altoCab();
   const gr = grupoDe(V.tab); if (gr) (V.gUlt = V.gUlt || {})[gr[0]] = V.tab;
-  conFoco($('#main'), () => { $('#main').innerHTML = (V.demo ? bandaEjemplo() : '') + subnav() + { inicio: vInicio, carrera: vCarrera, horarios: vHorarios, calendario: vCalendario, resumenes: vResumenes, biblioteca: vBiblioteca, simuladores: vSimuladores, glosario: vGlosario, directorio: vDirectorio, links: vLinks, novedades: vNovedades, sostener: vSostener, eventos: vEventos, arcade: vArcade, config: vConfig }[V.tab](); });
+  conFoco($('#main'), () => { $('#main').innerHTML = (V.demo ? bandaEjemplo() : '') + subnav() + { inicio: vInicio, carrera: vCarrera, horarios: vHorarios, calendario: vCalendario, resumenes: vResumenes, biblioteca: vBiblioteca, simuladores: vSimuladores, glosario: vGlosario, directorio: vDirectorio, links: vLinks, novedades: vNovedades, sostener: vSostener, eventos: vEventos, arcade: vArcade, config: vConfig }[V.tab](); capitulares(); });
 }
+// Capitular de Iniciales: solo en el título de la pantalla (no en subtítulos) y si empieza con mayúscula y minúscula (nunca en cifras ni siglas, como «2.º cuatrimestre» o «CBC»).
+function capitulares() { const h = document.querySelector('#main .titulo-sec h2'); if (h && /^[¿¡]?[A-ZÁÉÍÓÚÑ][a-záéíóúñü]/.test(h.textContent.trim())) h.classList.add('cap'); }
 // La banda del ejemplo queda fija justo debajo de la cabecera: se mide su alto.
 function altoCab() { const c = document.querySelector('.cabecera'); if (c) document.documentElement.style.setProperty('--alto-cab', c.offsetHeight + 'px'); }
 window.addEventListener('resize', altoCab);
@@ -1986,7 +1988,7 @@ function vLeyes() {
     <p class="acciones u-margin-10px-0-0"><a class="btn sec" href="${urlSegura(L.link(sel))}" target="_blank" rel="noopener">Leer la norma oficial en InfoLEG ↗</a></p></div>`;
   return cab + `<p class="u-mt0 chico tenue">Las normas que se ven en Derechos Editoriales y del Autor, ordenadas por jerarquía: una norma de abajo no puede contradecir a las de arriba. Tocá una para ver su ficha.</p>
     <div class="ley-cols"><div class="tarjeta ley-pir" role="group" aria-label="Pirámide de normas, de la Constitución arriba a las disposiciones abajo">${bandas}</div><div>${ficha}</div></div>
-    <p class="chico tenue u-margin-top-12px">Hay normas que todavía no figuran porque no confirmé su link oficial (el Acuerdo ADPIC, la Ley 22.195, entre otras). Si te falta alguna, avisame con 💡 Sugerencias.</p>`;
+    <p class="chico tenue u-margin-top-12px">Hay normas que todavía no figuran porque no confirmé su link oficial (el Acuerdo ADPIC, la Ley 22.195, entre otras). Si te falta alguna, avisame con «Contame qué falta».</p>`;
 }
 
 // =====================================================================
@@ -2992,7 +2994,7 @@ function vSostener() {
   if (!D.sostener) { cargarSostener(); return '<p class="cargando">Cargando…</p>'; }
   const S = D.sostener, fila = (t, v) => `<div class="donar-fila"><span class="chico tenue">${t}</span><code>${esc(v)}</code><button class="btn sec" type="button" onclick="copiar(${arg(v)})">Copiar</button></div>`;
   return `<div class="titulo-sec"><h2>Cómo se sostiene Galera</h2></div>
-    <p>Galera es gratis, no pide cuenta y no tiene publicidad. La hago yo, Fidel, estudiante de Edición, y esta pantalla cuenta cuánto trabajo lleva, cuánto cuesta y cómo ayudar si querés.</p>
+    <p class="capital">Galera es gratis, no pide cuenta y no tiene publicidad. La hago yo, Fidel, estudiante de Edición, y esta pantalla cuenta cuánto trabajo lleva, cuánto cuesta y cómo ayudar si querés.</p>
     <div class="titulo-sec"><h2>Horas de trabajo</h2></div><div class="tarjeta">${sostenerHoras(S.horas, S.claude)}</div>
     <div class="titulo-sec"><h2>Costos</h2></div><div class="tarjeta">${sostenerCostos(S.costos)}
       <p class="u-margin-12px-0-0">Con más apoyo podría pagar un plan superior de Claude y avanzar más frentes por semana.</p></div>
@@ -3071,7 +3073,7 @@ async function cargarLinksLibro() {
 function vLinksPro() {
   if (!D.linksLibro) { cargarLinksLibro(); return '<p class="cargando">Cargando los links…</p>'; }
   if (D.linksLibro.error) return '<p class="vacio">No pude cargar esto. Puede ser la conexión. <button class="btn sec" type="button" onclick="location.reload()">Probar de nuevo</button></p>';
-  return `<p class="chico tenue">Los sitios oficiales que más se usan para registrar, informarse y moverse en el sector del libro. Si falta alguno, avisame con 💡 Sugerencias.</p>` +
+  return `<p class="chico tenue">Los sitios oficiales que más se usan para registrar, informarse y moverse en el sector del libro. Si falta alguno, avisame con «Contame qué falta».</p>` +
     D.linksLibro.grupos.map(g => `<div class="titulo-sec"><h2>${esc(g.grupo)}</h2></div><div class="tarjeta u-padding-6px-16px">
       ${g.links.map(l => `<a class="evento u-text-decoration-none_color-inherit" href="${urlSegura(l.url)}" target="_blank" rel="noopener"><span class="crece"><b class="u-color-var-tinta">${esc(l.t)} ↗</b>
         ${l.d ? `<span class="chico tenue u-display-block">${esc(l.d)}</span>` : ''}</span></a>`).join('')}</div>`).join('') +
@@ -3086,7 +3088,7 @@ function vLinks() {
   const G = D.plan.guia;
   return (G ? `<div class="titulo-sec"><h2>Lo básico de la cursada</h2></div><div class="tarjeta guia">${G.items.map(i => `<details><summary>${esc(i.t)}</summary><p class="chico">${esc(i.d)}</p></details>`).join('')}
     <p class="chico tenue u-margin-10px-0-0">${esc(G.fuente)}</p></div>` : '') +
-    `<p class="chico tenue">Los sitios oficiales que más se usan durante la cursada. Si falta alguno, avisame con 💡 Sugerencias.</p>` +
+    `<p class="chico tenue">Los sitios oficiales que más se usan durante la cursada. Si falta alguno, avisame con «Contame qué falta».</p>` +
     `<div class="links-g3">${(D.plan.links || []).map(g => `<div class="tarjeta u-padding-6px-16px"><p class="nov-rot">${esc(g.grupo)}</p>
       ${g.links.map(l => `<a class="evento u-text-decoration-none_color-inherit" href="${urlSegura(l.url)}" target="_blank" rel="noopener"><span class="crece"><b class="u-color-var-tinta">${esc(l.t)} ↗</b>
         ${l.d ? `<span class="chico tenue u-display-block">${esc(l.d)}</span>` : ''}</span></a>`).join('')}</div>`).join('')}</div>` +
