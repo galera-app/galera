@@ -2,6 +2,16 @@
  "nota": "Lo que va en el mail de los lunes (Novedades.gs) y en la pestaña Novedades. v: número de versión (obligatorio; ver CHANGELOG.md). tipo: herramientas | resumenes | fechas. perfil: estudiante (por defecto) | profesional | todos; el mail y la pestaña Novedades lo usan para mostrar a cada perfil lo suyo. materias: ids del plan (vacío = para todas). url: solo links a galera.com.ar/. Sumar una entrada por cada cosa que se publica; el script manda solo lo posterior al último envío de cada persona, así que las viejas no se reenvían.",
  "novedades": [
    {
+   "v": 90,
+   "fecha": "2026-10-29",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "titulo": "Calendario, Mi carrera y Configuración con la cara de Galera",
+   "texto": "El calendario se ve por mes, con filtros y «Lo que viene» al costado; Mi carrera muestra cada materia con su ícono de estado; y en Configuración elegís el tema, los avisos y las estadísticas con interruptores.",
+   "url": "https://galera.com.ar/"
+   },
+   {
    "v": 89,
    "fecha": "2026-10-29",
    "tipo": "herramientas",
