@@ -1,15 +1,25 @@
 {
-  "name": "Cursada · gestor para la carrera de Edición",
-  "short_name": "Cursada",
+  "name": "Galera · gestor para la carrera de Edición",
+  "short_name": "Galera",
   "description": "Plan con notas, mesas, calendario, resúmenes y horarios para estudiantes de Edición (FFyL, UBA).",
   "lang": "es-AR",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#1f3a5f",
-  "theme_color": "#1f3a5f",
+  "background_color": "#ffffff",
+  "theme_color": "#0671E0",
   "icons": [
-    { "src": "img/icono-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
-    { "src": "img/icono-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+    {
+      "src": "img/icono-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "img/icono-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
   ]
 }
