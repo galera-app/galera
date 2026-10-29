@@ -126,7 +126,7 @@ const Contratos = (() => {
     const cab = id === 'traduccion'
       ? `En ______________, a los ___ días del mes de ______________ de ______, entre ${v.editor || FALTA('editor')} (domicilio y DNI: ______________) y ${v.traductor || FALTA('traductor')} (domicilio y DNI: ______________):`
       : `En ______________, a los ___ días del mes de ______________ de ______, entre ${v.editor || FALTA('editor')} (domicilio y DNI: ______________) y ${v.autor || FALTA('autor')} (domicilio y DNI: ______________):`;
-    return [`# ${m.t.toUpperCase()}`, '', '> Borrador generado con Cursada (galera.com.ar). Modelo orientativo: no es asesoramiento legal. Antes de firmar, que lo revise un abogado.', '', cab, '',
+    return [`# ${m.t.toUpperCase()}`, '', '> Borrador generado con Galera (galera.com.ar). Modelo orientativo: no es asesoramiento legal. Antes de firmar, que lo revise un abogado.', '', cab, '',
       ...r.clausulas.map(c => `**${c.n}. ${c.t}.** ${c.texto}`).flatMap(x => [x, '']),
       'Para que conste, las partes firman dos ejemplares de un mismo tenor.', '', '______________________ &nbsp;&nbsp;&nbsp;&nbsp; ______________________', id === 'traduccion' ? 'TRADUCTOR/A &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; EDITOR/A' : 'AUTOR/A &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; EDITOR/A', ''].join('\n');
   }

@@ -67,3 +67,49 @@ h1,h2,h3,.portada h2,.practica h2,.nov-t,.perfil b,.avance b,.recorrido .area,.i
 .pie-legal{position:relative;margin-top:48px;padding-top:30px;border-top:0}
 .pie-legal::before{content:"";position:absolute;left:0;right:0;top:0;height:14px;background:radial-gradient(circle,var(--texto) 1.1px,transparent 1.5px) 0 0/7px 7px;opacity:.4;-webkit-mask-image:linear-gradient(90deg,#000,transparent);mask-image:linear-gradient(90deg,#000,transparent)}
 @media (max-width:760px){.pie-cols{grid-template-columns:1fr}.pie-nav{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* Barra de Analytics: texto de los botones centrado (la fuente de Galera lo bajaba) */
+.galletas .btn{display:inline-flex;align-items:center;justify-content:center;font-family:inherit;line-height:1;padding-top:0;padding-bottom:0;text-align:center}
+
+/* Menú con grupos de las páginas estáticas (el lienzo: Cabecera) */
+.sub a{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border-radius:4px;font-size:var(--t-sm);color:var(--texto);text-decoration:none}
+.sub a:hover{background:var(--tinta-suave);color:var(--tinta)}
+.sub a[aria-current="page"]{font-weight:700;box-shadow:inset 0 -3px 0 var(--marca)}
+.lectura .cabecera .pestanas{display:flex}
+.lectura .cabecera .subw:not([hidden]){display:block}
+@media (max-width:720px){.lectura .cabecera .marca{flex-wrap:wrap}.lectura .cabecera .pestanas{flex-basis:100%;order:3}}
+
+/* Íconos de estado de la hoja Marca: pendiente, cursando, regular y aprobada */
+.ge{width:16px;height:16px;flex:none;display:inline-block;vertical-align:-3px;margin-right:6px;background:currentColor;-webkit-mask:var(--ic) center/contain no-repeat;mask:var(--ic) center/contain no-repeat}
+.ge.pen{--ic:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='8'/%3E%3C/svg%3E")}
+.ge.cur{--ic:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='8'/%3E%3Cpath d='M12 4a8 8 0 0 1 8 8h-8z' fill='black'/%3E%3C/svg%3E")}
+.ge.reg{--ic:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='8'/%3E%3Cpath d='M12 4a8 8 0 0 1 0 16a8 8 0 0 1-8-8h8z' fill='black'/%3E%3C/svg%3E")}
+.ge.ok{--ic:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' fill-rule='evenodd' d='M12 3a9 9 0 1 0 0 18a9 9 0 0 0 0-18zM7.6 12.4l1.4-1.4 2.2 2.2 4.6-4.6 1.4 1.4-6 6z'/%3E%3C/svg%3E")}
+.marca-estado{display:flex;align-items:center}
+.marca-estado .ge{width:14px;height:14px;margin-right:4px;vertical-align:0}
+.tag-est{display:inline-flex;align-items:center;height:24px;padding:0 8px;border-radius:4px;font:500 12px/16px var(--fuente);white-space:nowrap}
+.tag-est .ge{width:14px;height:14px;margin-right:6px;vertical-align:0}
+.tag-est.pen{background:#F5F7FA;color:#4D4D4D;box-shadow:inset 0 0 0 1px #8996A3}
+.tag-est.cur{background:#DBEDFF;color:#0053AD}
+.tag-est.reg{background:#FFEBC9;color:#7A4A00}
+.tag-est.ok{background:#CFF0E2;color:#00573B}
+.mat.cursando .marca-estado{color:#0053AD}.mat.regular .marca-estado{color:#7A4A00}.mat.aprobada .marca-estado{color:#00573B}
+@media (prefers-color-scheme:dark){
+:root:not([data-theme="light"]) .tag-est.pen{background:#1D2125;color:#B7BDC4;box-shadow:inset 0 0 0 1px #6B747D}
+:root:not([data-theme="light"]) .tag-est.cur{background:#12304D;color:#9CCBF8}
+:root:not([data-theme="light"]) .tag-est.reg{background:#3F2E10;color:#F2C27A}
+:root:not([data-theme="light"]) .tag-est.ok{background:#0F3A2B;color:#7FD9B5}
+:root:not([data-theme="light"]) .mat.regular .marca-estado{color:#F2C27A}
+:root:not([data-theme="light"]) .mat.aprobada .marca-estado{color:#7FD9B5}
+:root:not([data-theme="light"]) .mat.cursando .marca-estado{color:#9CCBF8}
+}
+:root[data-theme="dark"] .tag-est.pen{background:#1D2125;color:#B7BDC4;box-shadow:inset 0 0 0 1px #6B747D}
+:root[data-theme="dark"] .tag-est.cur{background:#12304D;color:#9CCBF8}
+:root[data-theme="dark"] .tag-est.reg{background:#3F2E10;color:#F2C27A}
+:root[data-theme="dark"] .tag-est.ok{background:#0F3A2B;color:#7FD9B5}
+:root[data-theme="dark"] .mat.cursando .marca-estado{color:#9CCBF8}
+:root[data-theme="dark"] .mat.regular .marca-estado{color:#F2C27A}
+:root[data-theme="dark"] .mat.aprobada .marca-estado{color:#7FD9B5}
+
+/* Divisores, nivel 2 (hoja Divisores): el corte de sección de las páginas de lectura son tres asteriscos */
+.lectura hr{border:0;height:auto;margin:32px 0;text-align:center;color:var(--texto2);overflow:visible}
+.lectura hr::before{content:"*\2003*\2003*";font-size:20px;line-height:24px}

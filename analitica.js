@@ -1,7 +1,7 @@
-// Cursada: Google Analytics con consentimiento (Consent Mode v2), igual que el resto del sitio.
+// Galera: Google Analytics con consentimiento (Consent Mode v2), igual que el resto del sitio.
 // gtag.js NO se descarga hasta que la persona acepta: antes de eso no sale ningún pedido a Google (ni siquiera sin cookies).
 // La decisión se guarda en "fc-consent", la misma clave que usa ficha.github.io: quien ya eligió
-// en el sitio no vuelve a ver el aviso. Analytics nunca recibe lo que la persona carga en Cursada.
+// en el sitio no vuelve a ver el aviso. Analytics nunca recibe lo que la persona carga en Galera.
 window.dataLayer = window.dataLayer || [];
 function gtag() { dataLayer.push(arguments); }
 gtag('consent', 'default', { analytics_storage: 'denied', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });

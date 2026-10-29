@@ -151,7 +151,7 @@ var Horarios = (function () {
   }
   function ics(eventos, sello) {
     var f = function (s) { return s.replace(/-/g, ''); }, h = function (s) { return s.replace(':', '') + '00'; };
-    var L = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Cursada//ficha.github.io//ES', 'CALSCALE:GREGORIAN',
+    var L = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Galera//ficha.github.io//ES', 'CALSCALE:GREGORIAN',
       'BEGIN:VTIMEZONE', 'TZID:' + TZ, 'BEGIN:STANDARD', 'DTSTART:19700101T000000', 'TZOFFSETFROM:-0300', 'TZOFFSETTO:-0300', 'TZNAME:-03', 'END:STANDARD', 'END:VTIMEZONE'];
     eventos.forEach(function (e) {
       L.push('BEGIN:VEVENT', 'UID:' + e.uid, 'DTSTAMP:' + f(sello || iso(new Date())) + 'T000000Z');

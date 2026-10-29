@@ -1,7 +1,7 @@
-// Compartir: gestos para pasarle Cursada a otra persona (ticket de difusión, sección A).
+// Compartir: gestos para pasarle Galera a otra persona (ticket de difusión, sección A).
 // Sin servidores ni terceros: las imágenes salen de un canvas, el QR es el del traspaso y los links llevan todo en el #.
 // Nada de lo que se comparte lleva nombre ni datos personales. Las funciones se llaman desde app.js y arcade-ui.js.
-const BRAND = { nombre: 'Cursada', sitio: 'galera.com.ar', url: 'https://galera.com.ar/' };
+const BRAND = { nombre: 'Galera', sitio: 'galera.com.ar', url: 'https://galera.com.ar/' };
 const CV_FONDO = '#1f3a5f', CV_ACENTO = '#f2c14e', CV_FUENTE = 'system-ui, -apple-system, "Segoe UI", Roboto, sans-serif';
 
 // ---------- canvas ----------
@@ -88,7 +88,7 @@ function abrirQR(url, titulo, tipo, id) {
     <p class="chico tenue">Sirve para pegarlo en una cartelera o en un apunte en papel: quien lo escanee abre esta misma pantalla.</p>
     <div class="botones"><button class="btn" onclick="bajarQR()">Descargar (.png)</button><button class="btn sec" onclick="copiarLink(QR_ACTUAL.url)">Copiar el link</button><button class="btn lin" onclick="cerrar()">Cerrar</button></div>`, 'qr');
 }
-function abrirQRPantalla() { abrirQR(urlCompartible(), document.title.replace(/\s*·\s*Cursada$/, '') || BRAND.nombre, 'pantalla', V.tab); }
+function abrirQRPantalla() { abrirQR(urlCompartible(), document.title.replace(/\s*·\s*Galera$/, '') || BRAND.nombre, 'pantalla', V.tab); }
 function bajarQR() {
   if (!QR_ACTUAL) return;
   const { m, titulo } = QR_ACTUAL, n = m.length, k = Math.max(6, Math.ceil(900 / (n + 8))), lado = (n + 8) * k, banda = 150;
@@ -115,7 +115,7 @@ function compartirResultado(materia, apunte, bien, total) {
     lineas: [[a.titulo, 50, 700], [bien === total ? '¡Todas bien!' : 'Sigo practicando.', 38, 400]] });
   abrirImagen(cv, { archivo: 'cursada-resultado.png', titulo: 'Mi resultado', tipo: 'resultado', id: materia + '/' + apunte,
     intro: 'Es solo el puntaje y el nombre del apunte: no lleva tu nombre ni otros datos.', texto: `Me salió ${bien} de ${total} en la autoevaluación de «${a.titulo}». ¿Y a vos? ${urlRes(materia, apunte)}`,
-    alt: `Tarjeta con el resultado: ${bien} de ${total} en la autoevaluación de ${a.titulo} (${m.nombre}), en Cursada.` });
+    alt: `Tarjeta con el resultado: ${bien} de ${total} en la autoevaluación de ${a.titulo} (${m.nombre}), en Galera.` });
 }
 // Se muestra al final de cada autoevaluación.
 function bloqueFinAuto(materia, apunte, bien, hechas, total) {
@@ -131,7 +131,7 @@ function compartirAvance() {
   const cv = cvDato({ kicker: 'Mi carrera de Edición', grande: av + ' %', barra: av, lineas: [['Llevo el ' + av + ' % de la carrera.', 54, 700], [p.total[0] + ' de ' + p.total[1] + ' requisitos aprobados.', 38, 400]] });
   abrirImagen(cv, { archivo: 'cursada-avance.png', titulo: 'Mi avance', tipo: 'avance', id: String(av),
     intro: 'Solo el porcentaje: sin materias, notas ni nombre. Vos decidís si la compartís.', texto: `Llevo el ${av} % de la carrera de Edición. ${BRAND.url}`,
-    alt: `Tarjeta: llevo el ${av} % de la carrera de Edición, ${p.total[0]} de ${p.total[1]} requisitos aprobados. Cursada.` });
+    alt: `Tarjeta: llevo el ${av} % de la carrera de Edición, ${p.total[0]} de ${p.total[1]} requisitos aprobados. Galera.` });
 }
 
 // ---------- mi semana ----------
@@ -182,7 +182,7 @@ function linkSemana() {
   medir('share', { method: 'link', content_type: 'horario', item_id: V.oferta });
   abrir(cab('Link para ver mi horario') + `<p style="margin-top:0">Quien lo abra ve tu semana <b>en modo lectura</b>, sin cuenta y sin poder cambiar nada. No lleva notas ni otros datos tuyos.</p>
     ${m ? `<div class="qr-caja">${Traspaso.qrSvg(m, 'Código QR con tu horario')}</div>` : ''}
-    <div class="botones"><button class="btn" onclick="copiarLink(HOR_LINK)">Copiar el link</button>${navigator.share ? '<button class="btn sec" onclick="navigator.share({title:\'Mi horario en Cursada\',url:HOR_LINK}).catch(()=>{})">Compartir</button>' : ''}<button class="btn lin" onclick="cerrar()">Cerrar</button></div>`, 'hor-link');
+    <div class="botones"><button class="btn" onclick="copiarLink(HOR_LINK)">Copiar el link</button>${navigator.share ? '<button class="btn sec" onclick="navigator.share({title:\'Mi horario en Galera\',url:HOR_LINK}).catch(()=>{})">Compartir</button>' : ''}<button class="btn lin" onclick="cerrar()">Cerrar</button></div>`, 'hor-link');
 }
 function abrirSemanaCompartida(oferta_, ids) {
   const of = (D.ofertas || []).find(o => o.id === oferta_);
@@ -218,7 +218,7 @@ async function abrirPasarAmigo() {
   medir('share', { method: 'link', content_type: 'plan', item_id: 'amigo' });
   abrir(cab(T) + `<p style="margin-top:0">Tu amigo abre el link y ya tiene cargadas las <b>${n} ${n === 1 ? 'materia' : 'materias'}</b> en las que estás (aprobadas y cursando). <b>No van tus notas, fechas, horarios ni apuntes.</b></p>
     ${m ? `<div class="qr-caja">${Traspaso.qrSvg(m, 'Código QR con tu plan, sin notas')}</div>` : '<p class="chico tenue">Es un link largo para un QR: usá «Copiar el link».</p>'}
-    <div class="botones"><button class="btn" onclick="copiarLink(AMIGO_URL)">Copiar el link</button>${navigator.share ? '<button class="btn sec" onclick="navigator.share({title:\'Mi plan en Cursada\',url:AMIGO_URL}).catch(()=>{})">Compartir</button>' : ''}<button class="btn lin" onclick="cerrar()">Cerrar</button></div>
+    <div class="botones"><button class="btn" onclick="copiarLink(AMIGO_URL)">Copiar el link</button>${navigator.share ? '<button class="btn sec" onclick="navigator.share({title:\'Mi plan en Galera\',url:AMIGO_URL}).catch(()=>{})">Compartir</button>' : ''}<button class="btn lin" onclick="cerrar()">Cerrar</button></div>
     <p class="chico tenue" style="margin-top:10px">El link lleva el plan adentro y no pasa por ningún servidor. Mandalo solo a quien quieras.</p>`, 'amigo');
 }
 
@@ -279,7 +279,7 @@ function compartirLogro(id) {
   const cv = cvDato({ kicker: g.kicker, grande: g.grande, barra: g.barra == null ? null : g.barra, lineas: [[g.frase, 54, 700], [g.detalle || '', 36, 400]].filter(l => l[0]) });
   abrirImagen(cv, { archivo: 'cursada-logro-' + id + '.png', titulo: 'Mi logro', tipo: 'logro', id,
     intro: 'Solo el logro: sin materias, notas ni nombre. Vos decidís si lo compartís.', texto: g.texto,
-    alt: `Tarjeta con el logro: ${g.frase} ${g.detalle || ''} Cursada.` });
+    alt: `Tarjeta con el logro: ${g.frase} ${g.detalle || ''} Galera.` });
 }
 function abrirLogros() {
   if (V.demo) return aviso('Estás viendo el ejemplo: salí del ejemplo para ver tus logros');
@@ -340,14 +340,14 @@ function sumarApunte(id) {
 }
 function mailApunte() {
   const m = datosMateria(val('a-m')) || { id: val('a-m'), nombre: val('a-m') };
-  const cuerpo = `Hola Fidel, te mando mi resumen de ${m.nombre} para Cursada.
+  const cuerpo = `Hola Fidel, te mando mi resumen de ${m.nombre} para Galera.
 
 Link o adjunto: 
 Cómo querés que te acredite (nombre, apodo o sin crédito): 
 
-Es un resumen mío (o tengo permiso de quien lo hizo) y acepto que se publique en Cursada con el crédito que indiqué.`;
+Es un resumen mío (o tengo permiso de quien lo hizo) y acepto que se publique en Galera con el crédito que indiqué.`;
   medir('sumar_apunte', { item_id: m.id });
-  window.location.href = `mailto:${CONTACTO}?subject=${encodeURIComponent('Cursada: resumen de ' + m.nombre)}&body=${encodeURIComponent(cuerpo)}`;
+  window.location.href = `mailto:${CONTACTO}?subject=${encodeURIComponent('Galera: resumen de ' + m.nombre)}&body=${encodeURIComponent(cuerpo)}`;
 }
 
 // ---------- qué cursar el próximo cuatrimestre ----------
@@ -388,7 +388,7 @@ function imagenQueCursar() {
   cvPie(c, 1080, 1080);
   abrirImagen(cv, { archivo: 'cursada-que-cursar.png', titulo: 'Qué voy a cursar', tipo: 'que_cursar', id: V.oferta,
     intro: 'Solo los nombres de las materias: sin docentes, notas ni datos personales.', texto,
-    alt: 'Tarjeta con las materias que pienso cursar: ' + nombres.join(', ') + '. Cursada.' });
+    alt: 'Tarjeta con las materias que pienso cursar: ' + nombres.join(', ') + '. Galera.' });
 }
 
 // ---------- desafío del Arcade ----------
