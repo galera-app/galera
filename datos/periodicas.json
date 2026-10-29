@@ -1,0 +1,371 @@
+{
+ "nota": "Medios, revistas académicas e informes periódicos que siguen el mundo del libro, por idioma. Las entradas se eligieron por su relación con la edición, la industria y la historia del libro; cada una lleva el link oficial. «Acceso abierto» solo donde lo confirma el directorio DOAJ.",
+ "actualizado": "2026-10-20",
+ "idiomas": [
+  {
+   "id": "es",
+   "t": "Español"
+  },
+  {
+   "id": "en",
+   "t": "Inglés"
+  },
+  {
+   "id": "pt",
+   "t": "Portugués"
+  },
+  {
+   "id": "de",
+   "t": "Alemán"
+  },
+  {
+   "id": "fr",
+   "t": "Francés"
+  }
+ ],
+ "tipos": [
+  {
+   "id": "noticias",
+   "t": "Noticias del sector"
+  },
+  {
+   "id": "academica",
+   "t": "Revistas académicas"
+  },
+  {
+   "id": "informe",
+   "t": "Informes y estadísticas"
+  },
+  {
+   "id": "resenas",
+   "t": "Reseñas y crítica"
+  }
+ ],
+ "publicaciones": [
+  {
+   "id": "ics",
+   "idioma": "es",
+   "tipo": "academica",
+   "t": "Información, cultura y sociedad",
+   "pais": "Argentina",
+   "editor": "Universidad de Buenos Aires (Instituto de Investigaciones Bibliotecológicas)",
+   "url": "https://revistascientificas.filo.uba.ar/index.php/ICS/index",
+   "d": "Bibliotecología y ciencias de la información, con trabajos de historia del libro y de la cultura escrita.",
+   "aa": true
+  },
+  {
+   "id": "bibliographica",
+   "idioma": "es",
+   "tipo": "academica",
+   "t": "Bibliographica",
+   "pais": "México",
+   "editor": "UNAM, Instituto de Investigaciones Bibliográficas",
+   "url": "https://bibliographica.iib.unam.mx/index.php/RB/index",
+   "d": "Investigaciones sobre el libro y la cultura escrita: bibliografía, historia del libro, edición e impresión.",
+   "aa": true
+  },
+  {
+   "id": "amoxtli",
+   "idioma": "es",
+   "tipo": "academica",
+   "t": "Amoxtli",
+   "pais": "Chile",
+   "editor": "Ariadna Ediciones",
+   "url": "https://revistas.uft.cl/index.php/amox/index",
+   "d": "Historia del libro y de la lectura en América Latina (en español y portugués).",
+   "aa": true
+  },
+  {
+   "id": "anecdotica",
+   "idioma": "es",
+   "tipo": "academica",
+   "t": "(an)ecdótica",
+   "pais": "México",
+   "editor": "UNAM, Instituto de Investigaciones Filológicas",
+   "url": "https://revistas-filologicas.unam.mx/anEcdotica/index.php/anec",
+   "d": "Revista de ecdótica y estudios de la edición; trae reseñas de historia del libro y la edición en la región."
+  },
+  {
+   "id": "cerlalc",
+   "idioma": "es",
+   "tipo": "informe",
+   "t": "Cerlalc",
+   "pais": "Regional (Colombia)",
+   "editor": "Centro Regional para el Fomento del Libro en América Latina y el Caribe",
+   "url": "https://cerlalc.org/",
+   "d": "Organismo regional que publica estudios, boletines y estadísticas del libro y la lectura en Iberoamérica."
+  },
+  {
+   "id": "fgee",
+   "idioma": "es",
+   "tipo": "informe",
+   "t": "Panorámica de la edición española",
+   "pais": "España",
+   "editor": "Federación de Gremios de Editores de España",
+   "url": "https://federacioneditores.org/",
+   "d": "Informe anual del sector editorial español, publicado desde 1996 (producción, comercio, empresas)."
+  },
+  {
+   "id": "cal",
+   "idioma": "es",
+   "tipo": "informe",
+   "t": "Cámara Argentina del Libro",
+   "pais": "Argentina",
+   "editor": "Cámara Argentina del Libro",
+   "url": "https://www.editores.org.ar/",
+   "d": "Entidad que administra el ISBN en el país y publica informes y estadísticas de la producción del libro argentino."
+  },
+  {
+   "id": "rdl",
+   "idioma": "es",
+   "tipo": "resenas",
+   "t": "Revista de Libros (RdL)",
+   "pais": "España",
+   "editor": "Revista de Libros",
+   "url": "https://www.revistadelibros.com/",
+   "d": "Crítica cultural: artículos, ensayos y reseñas bibliográficas."
+  },
+  {
+   "id": "pw",
+   "idioma": "en",
+   "tipo": "noticias",
+   "t": "Publishers Weekly",
+   "pais": "Estados Unidos",
+   "editor": "PWxyz",
+   "url": "https://www.publishersweekly.com/",
+   "d": "Semanario del comercio del libro estadounidense desde 1872; noticias del sector y reseñas previas a la publicación."
+  },
+  {
+   "id": "bookseller",
+   "idioma": "en",
+   "tipo": "noticias",
+   "t": "The Bookseller",
+   "pais": "Reino Unido",
+   "editor": "The Bookseller",
+   "url": "https://www.thebookseller.com/",
+   "d": "Prensa del comercio del libro británico desde 1858: editoriales, librerías, premios y cifras."
+  },
+  {
+   "id": "pubpersp",
+   "idioma": "en",
+   "tipo": "noticias",
+   "t": "Publishing Perspectives",
+   "pais": "Estados Unidos",
+   "editor": "Publishing Perspectives",
+   "url": "https://publishingperspectives.com/",
+   "d": "Noticias de la industria editorial internacional, con boletines diarios."
+  },
+  {
+   "id": "shelf",
+   "idioma": "en",
+   "tipo": "noticias",
+   "t": "Shelf Awareness",
+   "pais": "Estados Unidos",
+   "editor": "Shelf Awareness",
+   "url": "https://www.shelf-awareness.com/",
+   "d": "Boletín diario para librerías y bibliotecas del mundo del libro anglosajón."
+  },
+  {
+   "id": "booksandpub",
+   "idioma": "en",
+   "tipo": "noticias",
+   "t": "Books+Publishing",
+   "pais": "Australia",
+   "editor": "Books+Publishing",
+   "url": "https://www.booksandpublishing.com.au/",
+   "d": "Noticias de edición, bibliotecas y reseñas del mercado australiano."
+  },
+  {
+   "id": "quill",
+   "idioma": "en",
+   "tipo": "noticias",
+   "t": "Quill & Quire",
+   "pais": "Canadá",
+   "editor": "Quill & Quire",
+   "url": "https://www.quillandquire.com/",
+   "d": "Revista canadiense de noticias y reseñas del libro."
+  },
+  {
+   "id": "kitchen",
+   "idioma": "en",
+   "tipo": "noticias",
+   "t": "The Scholarly Kitchen",
+   "pais": "Estados Unidos",
+   "editor": "Society for Scholarly Publishing",
+   "url": "https://scholarlykitchen.sspnet.org/",
+   "d": "Blog colectivo sobre edición académica y comunicación científica."
+  },
+  {
+   "id": "logos",
+   "idioma": "en",
+   "tipo": "academica",
+   "t": "Logos: Journal of the World Publishing Community",
+   "pais": "Países Bajos",
+   "editor": "Brill",
+   "url": "https://brill.com/view/journals/logo/logo-overview.xml",
+   "d": "Revista internacional sobre la edición de libros y revistas."
+  },
+  {
+   "id": "learned",
+   "idioma": "en",
+   "tipo": "academica",
+   "t": "Learned Publishing",
+   "pais": "Reino Unido",
+   "editor": "ALPSP / Wiley",
+   "url": "https://onlinelibrary.wiley.com/journal/17414857",
+   "d": "Revista de la Asociación de Editores Académicos y Profesionales sobre la edición académica."
+  },
+  {
+   "id": "prq",
+   "idioma": "en",
+   "tipo": "academica",
+   "t": "Publishing Research Quarterly",
+   "pais": "Estados Unidos",
+   "editor": "Springer",
+   "url": "https://link.springer.com/journal/12109",
+   "d": "Revisada por pares; abarca desarrollo de contenidos, producción, distribución y marketing de libros, revistas y servicios en línea."
+  },
+  {
+   "id": "bookhistory",
+   "idioma": "en",
+   "tipo": "academica",
+   "t": "Book History",
+   "pais": "Estados Unidos",
+   "editor": "SHARP (Society for the History of Authorship, Reading and Publishing)",
+   "url": "https://sharpweb.org/",
+   "d": "Revista de la sociedad internacional de historia de la autoría, la lectura y la edición; el sitio de SHARP lleva a la revista."
+  },
+  {
+   "id": "jep",
+   "idioma": "en",
+   "tipo": "academica",
+   "t": "Journal of Electronic Publishing",
+   "pais": "Estados Unidos",
+   "editor": "Michigan Publishing, Universidad de Michigan",
+   "url": "https://quod.lib.umich.edu/j/jep",
+   "d": "Edición electrónica y comunicación académica."
+  },
+  {
+   "id": "publishnews",
+   "idioma": "pt",
+   "tipo": "noticias",
+   "t": "PublishNews",
+   "pais": "Brasil",
+   "editor": "PublishNews",
+   "url": "https://www.publishnews.com.br/",
+   "d": "Portal de noticias del mercado editorial brasileño, con unos 25 años en línea."
+  },
+  {
+   "id": "revpn",
+   "idioma": "pt",
+   "tipo": "noticias",
+   "t": "Revista PublishNews",
+   "pais": "Brasil",
+   "editor": "PublishNews",
+   "url": "https://www.publishnews.com.br/etiquetas/revista-publishnews",
+   "d": "Revista semestral, gratuita, con impresión y versión digital; nació en 2025."
+  },
+  {
+   "id": "cblpesq",
+   "idioma": "pt",
+   "tipo": "informe",
+   "t": "Produção e Vendas do Setor Editorial Brasileiro",
+   "pais": "Brasil",
+   "editor": "Câmara Brasileira do Livro (CBL) y SNEL",
+   "url": "https://cbl.org.br/",
+   "d": "Pesquisa anual de la CBL y el Sindicato Nacional dos Editores de Livros sobre producción y ventas del sector."
+  },
+  {
+   "id": "boersenblatt",
+   "idioma": "de",
+   "tipo": "noticias",
+   "t": "Börsenblatt",
+   "pais": "Alemania",
+   "editor": "Börsenverein des Deutschen Buchhandels",
+   "url": "https://www.boersenblatt.net/",
+   "d": "Órgano del Börsenverein: noticias y servicios para librerías y editoriales de lengua alemana."
+  },
+  {
+   "id": "buchreport",
+   "idioma": "de",
+   "tipo": "noticias",
+   "t": "buchreport",
+   "pais": "Alemania",
+   "editor": "buchreport",
+   "url": "https://www.buchreport.de/",
+   "d": "Revista del sector en Alemania, Austria y Suiza; publica cada año la lista de las 100 mayores editoriales."
+  },
+  {
+   "id": "bbz",
+   "idioma": "de",
+   "tipo": "informe",
+   "t": "Buch und Buchhandel in Zahlen",
+   "pais": "Alemania",
+   "editor": "Börsenverein des Deutschen Buchhandels",
+   "url": "https://www.boersenverein.de/",
+   "d": "Estadísticas anuales del libro y la librería en Alemania, que edita el Börsenverein."
+  },
+  {
+   "id": "livreshebdo",
+   "idioma": "fr",
+   "tipo": "noticias",
+   "t": "Livres Hebdo",
+   "pais": "Francia",
+   "editor": "Électre",
+   "url": "https://www.livreshebdo.fr/",
+   "d": "Magazine de los oficios del libro (edición, librería, bibliotecas); su primer número salió en 1979."
+  },
+  {
+   "id": "actualitte",
+   "idioma": "fr",
+   "tipo": "noticias",
+   "t": "ActuaLitté",
+   "pais": "Francia",
+   "editor": "ActuaLitté",
+   "url": "https://actualitte.com/",
+   "d": "Sitio de actualidad del libro: autores, librerías, edición y bibliotecas."
+  },
+  {
+   "id": "bbf",
+   "idioma": "fr",
+   "tipo": "academica",
+   "t": "Bulletin des bibliothèques de France",
+   "pais": "Francia",
+   "editor": "enssib",
+   "url": "https://bbf.enssib.fr/",
+   "d": "Revista de las bibliotecas y de la profesión, editada por la Escuela Nacional Superior de Ciencias de la Información y las Bibliotecas."
+  },
+  {
+   "id": "memoires",
+   "idioma": "fr",
+   "tipo": "academica",
+   "t": "Mémoires du livre / Studies in Book Culture",
+   "pais": "Canadá (Quebec)",
+   "editor": "GRELQ, Groupe de recherches et d'études sur le livre au Québec",
+   "url": "https://www.erudit.org/fr/revues/memoires/",
+   "d": "Historia del libro, cultura impresa, autoría y edición (en francés e inglés).",
+   "aa": true
+  },
+  {
+   "id": "biens",
+   "idioma": "fr",
+   "tipo": "academica",
+   "t": "Biens symboliques / Symbolic Goods",
+   "pais": "Francia",
+   "editor": "Presses universitaires de Paris Nanterre",
+   "url": "https://journals.openedition.org/bssg/",
+   "d": "Sociología e historia del libro y de los bienes simbólicos (en francés e inglés).",
+   "aa": true
+  },
+  {
+   "id": "sne",
+   "idioma": "fr",
+   "tipo": "informe",
+   "t": "Syndicat national de l'édition (SNE)",
+   "pais": "Francia",
+   "editor": "Syndicat national de l'édition",
+   "url": "https://www.sne.fr/",
+   "d": "Entidad de las editoriales francesas; publica cada año las cifras del sector."
+  }
+ ]
+}

@@ -1,0 +1,310 @@
+{
+ "anio": 2026,
+ "fuente": {
+  "t": "Calendario Académico 2026 (Secretaría de Asuntos Académicos, FFyL)",
+  "url": "https://academica.filo.uba.ar/calendario-acad%C3%A9mico"
+ },
+ "consultado": "2026-10-11",
+ "nota": "Las inscripciones por SIU-Guaraní empiezan a las 10:00 del primer día y terminan a las 23:59 del último.",
+ "feriados": [
+  {
+   "fecha": "2026-01-01",
+   "t": "Año Nuevo",
+   "tipo": "inamovible"
+  },
+  {
+   "fecha": "2026-02-16",
+   "t": "Carnaval",
+   "tipo": "inamovible"
+  },
+  {
+   "fecha": "2026-02-17",
+   "t": "Carnaval",
+   "tipo": "inamovible"
+  },
+  {
+   "fecha": "2026-03-23",
+   "t": "Día no laborable con fines turísticos",
+   "tipo": "turistico"
+  },
+  {
+   "fecha": "2026-03-24",
+   "t": "Día Nacional de la Memoria por la Verdad y la Justicia",
+   "tipo": "inamovible"
+  },
+  {
+   "fecha": "2026-04-02",
+   "t": "Día del Veterano y de los Caídos en la Guerra de Malvinas",
+   "tipo": "inamovible"
+  },
+  {
+   "fecha": "2026-04-03",
+   "t": "Viernes Santo Festividad Cristiana",
+   "tipo": "inamovible"
+  },
+  {
+   "fecha": "2026-05-01",
+   "t": "Día del Trabajador",
+   "tipo": "inamovible"
+  },
+  {
+   "fecha": "2026-05-25",
+   "t": "Día de la Revolución de Mayo",
+   "tipo": "inamovible"
+  },
+  {
+   "fecha": "2026-06-15",
+   "t": "Paso a la Inmortalidad del Gral. Don Martín Miguel de Güemes (17/6)",
+   "tipo": "trasladable"
+  },
+  {
+   "fecha": "2026-06-20",
+   "t": "Paso a la Inmortalidad del Gral. Manuel Belgrano",
+   "tipo": "inamovible"
+  },
+  {
+   "fecha": "2026-07-09",
+   "t": "Día de la Independencia",
+   "tipo": "inamovible"
+  },
+  {
+   "fecha": "2026-07-10",
+   "t": "Día no laborable con fines turísticos",
+   "tipo": "turistico"
+  },
+  {
+   "fecha": "2026-08-17",
+   "t": "Paso a la Inmortalidad del Gral. José de San Martín",
+   "tipo": "trasladable"
+  },
+  {
+   "fecha": "2026-10-12",
+   "t": "Día de la Raza",
+   "tipo": "trasladable"
+  },
+  {
+   "fecha": "2026-11-09",
+   "t": "Visita de Su Santidad el Papa León XIV",
+   "tipo": "inamovible"
+  },
+  {
+   "fecha": "2026-11-10",
+   "t": "Visita de Su Santidad el Papa León XIV (feriado en la Ciudad)",
+   "tipo": "especial"
+  },
+  {
+   "fecha": "2026-11-23",
+   "t": "Día de la Soberanía Nacional (20/11)",
+   "tipo": "trasladable"
+  },
+  {
+   "fecha": "2026-12-07",
+   "t": "Día no laborable con fines turísticos",
+   "tipo": "turistico"
+  },
+  {
+   "fecha": "2026-12-08",
+   "t": "Inmaculada Concepción de María",
+   "tipo": "inamovible"
+  },
+  {
+   "fecha": "2026-12-25",
+   "t": "Navidad",
+   "tipo": "inamovible"
+  }
+ ],
+ "periodos": [
+  {
+   "id": "2026-1C",
+   "nombre": "1.er cuatrimestre 2026",
+   "desde": "2026-03-16",
+   "hasta": "2026-06-27"
+  },
+  {
+   "id": "2026-2C",
+   "nombre": "2.º cuatrimestre 2026",
+   "desde": "2026-08-03",
+   "hasta": "2026-11-14"
+  }
+ ],
+ "eventos": [
+  {
+   "t": "Turno marzo: inscripción",
+   "tipo": "inscripcion",
+   "desde": "2026-02-09",
+   "hasta": "2026-02-11"
+  },
+  {
+   "t": "Turno marzo: exámenes libres de idiomas",
+   "tipo": "examen",
+   "desde": "2026-02-18",
+   "hasta": "2026-02-20"
+  },
+  {
+   "t": "Turno marzo: finales y libres, 1.er llamado",
+   "tipo": "examen",
+   "desde": "2026-02-23",
+   "hasta": "2026-02-27"
+  },
+  {
+   "t": "Turno marzo: finales y libres, 2.º llamado",
+   "tipo": "examen",
+   "desde": "2026-03-02",
+   "hasta": "2026-03-06"
+  },
+  {
+   "t": "1.er cuatrimestre: se publica la oferta de asignaturas",
+   "tipo": "info",
+   "desde": "2026-02-20",
+   "hasta": "2026-02-20"
+  },
+  {
+   "t": "1.er cuatrimestre: inscripción a materias, seminarios e idiomas",
+   "tipo": "inscripcion",
+   "desde": "2026-03-09",
+   "hasta": "2026-03-13"
+  },
+  {
+   "t": "1.er cuatrimestre: cursada",
+   "tipo": "cursada",
+   "desde": "2026-03-16",
+   "hasta": "2026-06-27"
+  },
+  {
+   "t": "1.er cuatrimestre: renuncias a inscripciones",
+   "tipo": "tramite",
+   "desde": "2026-03-16",
+   "hasta": "2026-04-10"
+  },
+  {
+   "t": "Turno mayo: inscripción",
+   "tipo": "inscripcion",
+   "desde": "2026-05-06",
+   "hasta": "2026-05-08"
+  },
+  {
+   "t": "Turno mayo: finales y libres",
+   "tipo": "examen",
+   "desde": "2026-05-18",
+   "hasta": "2026-05-22"
+  },
+  {
+   "t": "Espacio de formación en investigación",
+   "tipo": "info",
+   "desde": "2026-05-18",
+   "hasta": "2026-05-22"
+  },
+  {
+   "t": "Turno julio: inscripción",
+   "tipo": "inscripcion",
+   "desde": "2026-06-29",
+   "hasta": "2026-07-03"
+  },
+  {
+   "t": "Renuncias a la regularidad de asignaturas cursadas",
+   "tipo": "tramite",
+   "desde": "2026-07-01",
+   "hasta": "2026-07-03"
+  },
+  {
+   "t": "Turno julio: exámenes libres de idiomas",
+   "tipo": "examen",
+   "desde": "2026-07-13",
+   "hasta": "2026-07-17"
+  },
+  {
+   "t": "Turno julio: finales y libres, 1.er llamado",
+   "tipo": "examen",
+   "desde": "2026-07-13",
+   "hasta": "2026-07-17"
+  },
+  {
+   "t": "Turno julio: finales y libres, 2.º llamado",
+   "tipo": "examen",
+   "desde": "2026-07-20",
+   "hasta": "2026-07-24"
+  },
+  {
+   "t": "2.º cuatrimestre: se publica la oferta de asignaturas",
+   "tipo": "info",
+   "desde": "2026-07-20",
+   "hasta": "2026-07-20"
+  },
+  {
+   "t": "2.º cuatrimestre: inscripción a materias, seminarios e idiomas",
+   "tipo": "inscripcion",
+   "desde": "2026-07-27",
+   "hasta": "2026-07-31"
+  },
+  {
+   "t": "2.º cuatrimestre: cursada",
+   "tipo": "cursada",
+   "desde": "2026-08-03",
+   "hasta": "2026-11-14"
+  },
+  {
+   "t": "2.º cuatrimestre: renuncias a inscripciones",
+   "tipo": "tramite",
+   "desde": "2026-08-03",
+   "hasta": "2026-08-28"
+  },
+  {
+   "t": "Turno septiembre: inscripción",
+   "tipo": "inscripcion",
+   "desde": "2026-09-02",
+   "hasta": "2026-09-04"
+  },
+  {
+   "t": "Turno septiembre: finales y libres",
+   "tipo": "examen",
+   "desde": "2026-09-14",
+   "hasta": "2026-09-18"
+  },
+  {
+   "t": "Espacio de formación en investigación",
+   "tipo": "info",
+   "desde": "2026-10-05",
+   "hasta": "2026-10-10"
+  },
+  {
+   "t": "2.º cuatrimestre: cierre de actas de cursada",
+   "tipo": "info",
+   "desde": "2026-11-18",
+   "hasta": "2026-11-20"
+  },
+  {
+   "t": "Turno diciembre: inscripción",
+   "tipo": "inscripcion",
+   "desde": "2026-11-24",
+   "hasta": "2026-11-27"
+  },
+  {
+   "t": "Turno diciembre: exámenes libres de idiomas",
+   "tipo": "examen",
+   "desde": "2026-11-30",
+   "hasta": "2026-12-04"
+  },
+  {
+   "t": "Turno diciembre: finales y libres, 1.er llamado",
+   "tipo": "examen",
+   "desde": "2026-11-30",
+   "hasta": "2026-12-04"
+  },
+  {
+   "t": "Turno diciembre: finales y libres, 2.º llamado",
+   "tipo": "examen",
+   "desde": "2026-12-09",
+   "hasta": "2026-12-15"
+  },
+  {
+   "t": "Turno diciembre: finales y libres, 3.er llamado",
+   "tipo": "examen",
+   "desde": "2026-12-16",
+   "hasta": "2026-12-22"
+  }
+ ],
+ "fuente_feriados": {
+  "t": "Feriados nacionales (argentina.gob.ar)",
+  "url": "https://www.argentina.gob.ar/feriados"
+ }
+}

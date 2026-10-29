@@ -1,0 +1,271 @@
+{
+ "nota": "Libros que sirven para el oficio de editar. Los datos son de la edición de referencia; puede haber ediciones más nuevas. Las tapas vienen de Open Library.",
+ "temas": [
+  "El oficio editorial",
+  "Norma y corrección",
+  "Diseño y tipografía",
+  "La industria del libro"
+ ],
+ "libros": [
+  {
+   "id": "canalicchio",
+   "t": "Smart Marketing",
+   "subtitulo": "Análisis estratégico en entornos complejos",
+   "autor": "Pablo Canalicchio",
+   "editorial": "LID Editorial",
+   "anio": 2021,
+   "paginas": 224,
+   "isbn": "9789874467263",
+   "tema": "La industria del libro",
+   "sinTapa": true,
+   "sinopsis": "Una guía para tomar decisiones de marketing en contextos cambiantes: análisis del mercado y de la competencia, posicionamiento y estrategia. Lo recomiendan estudiantes de Administración de la Empresa Editorial: este año cambió una parte de la materia, pero sigue sirviendo bastante. Hay una segunda edición actualizada.",
+   "link": {
+    "t": "Ficha en LID Editorial",
+    "url": "https://lideditorial.com.ar/productos/smart-marketing/"
+   }
+  },
+  {
+   "id": "piccolini",
+   "t": "De la idea al libro",
+   "autor": "Patricia Piccolini",
+   "editorial": "Fondo de Cultura Económica",
+   "anio": 2014,
+   "isbn": "9786071656704",
+   "tema": "El oficio editorial",
+   "sinopsis": "Un manual práctico del proceso de edición, de la idea o el original al libro impreso: armar y presupuestar un proyecto, trabajar con autores y colaboradores, pedir presupuestos a la imprenta y organizar cada etapa. Trae cuestionarios y planillas para usar en proyectos propios."
+  },
+  {
+   "id": "sagastizabal",
+   "t": "El mundo de la edición de libros",
+   "autor": "Leandro de Sagastizábal y Fernando Esteves Fros (comps.)",
+   "editorial": "Paidós",
+   "anio": 2002,
+   "paginas": 270,
+   "isbn": "9789501205015",
+   "tema": "El oficio editorial",
+   "sinopsis": "Obra colectiva escrita por profesionales del libro en la Argentina. Recorre todo el circuito: el editor y el catálogo, los derechos de autor, la corrección, el diseño, la producción gráfica, la comercialización y la distribución. Un buen mapa general de la profesión."
+  },
+  {
+   "id": "davies",
+   "t": "Gestión de proyectos editoriales",
+   "subtitulo": "Cómo encargar y contratar libros",
+   "autor": "Gill Davies",
+   "editorial": "Fondo de Cultura Económica",
+   "anio": 2005,
+   "paginas": 232,
+   "isbn": "9789681677633",
+   "tema": "El oficio editorial",
+   "sinopsis": "El trabajo del editor de adquisiciones: buscar y evaluar proyectos, encargar obras, negociar contratos y coordinarse con producción y marketing. Presenta al editor como un gestor de proyectos y cierra con lecturas recomendadas para seguir."
+  },
+  {
+   "id": "zavala",
+   "t": "El libro y sus orillas",
+   "subtitulo": "Tipografía, originales, redacción, corrección de estilo y de pruebas",
+   "autor": "Roberto Zavala Ruiz",
+   "editorial": "Fondo de Cultura Económica",
+   "anio": 2012,
+   "paginas": 431,
+   "isbn": "9786071610164",
+   "tema": "El oficio editorial",
+   "sinopsis": "Un clásico de la edición en español. Explica las partes del libro y cómo preparar un original para la imprenta, con criterios de tipografía, redacción y corrección de estilo y de pruebas. Muy útil como obra de consulta en el escritorio."
+  },
+  {
+   "id": "autoedicion",
+   "t": "Manual de edición y autoedición",
+   "autor": "José Martínez de Sousa",
+   "editorial": "Pirámide",
+   "anio": 2007,
+   "paginas": 352,
+   "isbn": "9788436819311",
+   "tema": "El oficio editorial",
+   "sinopsis": "El proceso editorial y las reglas de composición del libro, pensado tanto para quienes trabajan en una editorial como para quienes editan y componen sus propios textos: partes del libro, originales, corrección y normas de presentación."
+  },
+  {
+   "id": "garcia-negroni",
+   "sinTapa": true,
+   "t": "Escribir en español",
+   "subtitulo": "Claves para una corrección de estilo",
+   "autor": "María Marta García Negroni (coord.)",
+   "editorial": "Santiago Arcos",
+   "anio": 2010,
+   "paginas": 857,
+   "isbn": "9789871240494",
+   "tema": "Norma y corrección",
+   "sinopsis": "Una guía normativa pensada para la corrección, con ejemplos de la variedad rioplatense: acentuación, puntuación, mayúsculas, concordancia, verbos, preposiciones y los errores más frecuentes. Es bibliografía de Corrección de Estilo."
+  },
+  {
+   "id": "ortografia",
+   "t": "Ortografía de la lengua española",
+   "autor": "Real Academia Española y Asociación de Academias de la Lengua Española",
+   "editorial": "Espasa",
+   "anio": 2010,
+   "paginas": 743,
+   "isbn": "9788467034264",
+   "tema": "Norma y corrección",
+   "sinopsis": "La norma ortográfica académica vigente, con sus fundamentos: letras, tildes, puntuación, mayúsculas, unión y separación de palabras, abreviaciones y expresiones numéricas. La referencia de cualquier corrector."
+  },
+  {
+   "id": "dpd",
+   "t": "Diccionario panhispánico de dudas",
+   "autor": "Real Academia Española y Asociación de Academias de la Lengua Española",
+   "editorial": "Santillana",
+   "anio": 2005,
+   "paginas": 888,
+   "isbn": "9789587043686",
+   "tema": "Norma y corrección",
+   "sinopsis": "Responde las dudas concretas de uso del español (ortografía, pronunciación, gramática y léxico), palabra por palabra y con la variación entre países. Se puede consultar gratis en el sitio de la RAE.",
+   "link": {
+    "t": "Consultarlo en línea (RAE)",
+    "url": "https://www.rae.es/dpd/"
+   }
+  },
+  {
+   "id": "libro-estilo",
+   "t": "Libro de estilo de la lengua española",
+   "subtitulo": "Según la norma panhispánica",
+   "autor": "Real Academia Española",
+   "editorial": "Espasa",
+   "anio": 2018,
+   "paginas": 504,
+   "isbn": "9788467053791",
+   "tema": "Norma y corrección",
+   "sinopsis": "Una guía práctica, más ágil que la Ortografía y la Gramática, para escribir bien según la norma académica. Incluye recomendaciones para la escritura digital, un glosario de dudas y apéndices de abreviaturas, siglas y símbolos."
+  },
+  {
+   "id": "mele",
+   "t": "Manual de estilo de la lengua española",
+   "autor": "José Martínez de Sousa",
+   "editorial": "Trea",
+   "anio": 2003,
+   "paginas": 671,
+   "isbn": "9788497040228",
+   "tema": "Norma y corrección",
+   "sinopsis": "El manual de estilo de referencia para quienes editan: abreviaciones, números, citas, notas, bibliografías, índices y presentación de originales, con criterios razonados para cada caso. Tiene ediciones más recientes."
+  },
+  {
+   "id": "ootea",
+   "t": "Ortografía y ortotipografía del español actual",
+   "autor": "José Martínez de Sousa",
+   "editorial": "Trea",
+   "anio": 2014,
+   "paginas": 560,
+   "isbn": "9788497047241",
+   "tema": "Norma y corrección",
+   "sinopsis": "Además de la ortografía, la ortotipografía: cuándo van cursivas, versalitas o negritas, cómo se usan comillas, rayas y otros signos, y cómo se combinan las reglas del idioma con las de la composición tipográfica."
+  },
+  {
+   "id": "cassany",
+   "t": "La cocina de la escritura",
+   "autor": "Daniel Cassany",
+   "editorial": "Anagrama",
+   "anio": 1995,
+   "paginas": 255,
+   "isbn": "9788433913920",
+   "tema": "Norma y corrección",
+   "sinopsis": "Cómo se escribe un texto claro, de la planificación al borrador y la revisión: párrafos, frases, palabras, puntuación y conectores, con ejemplos y consejos prácticos. Sirve para escribir y para entender qué mira un buen corrector."
+  },
+  {
+   "id": "bringhurst",
+   "t": "Los elementos del estilo tipográfico",
+   "autor": "Robert Bringhurst",
+   "editorial": "Fondo de Cultura Económica",
+   "anio": 2014,
+   "paginas": 471,
+   "isbn": "9786071620095",
+   "tema": "Diseño y tipografía",
+   "sinopsis": "El clásico sobre el buen uso de la tipografía: ritmo y proporción, interlineado, alineación, elección y combinación de familias y diseño de la página. Escrito con criterio de editor, sirve para dialogar con quien diseña."
+  },
+  {
+   "id": "de-buen",
+   "t": "Manual de diseño editorial",
+   "autor": "Jorge de Buen Unna",
+   "editorial": "Trea",
+   "anio": 2020,
+   "paginas": 704,
+   "isbn": "9788417987947",
+   "tema": "Diseño y tipografía",
+   "sinopsis": "Un manual completo de diseño de libros y publicaciones en español: historia de la tipografía, la página y sus proporciones, la caja, la composición y la ortotipografía, con ejemplos de libros reales."
+  },
+  {
+   "id": "epstein",
+   "t": "La industria del libro",
+   "subtitulo": "Pasado, presente y futuro de la edición",
+   "autor": "Jason Epstein",
+   "editorial": "Anagrama",
+   "anio": 2002,
+   "isbn": "9788433961686",
+   "tema": "La industria del libro",
+   "sinopsis": "Un editor de larga trayectoria en Random House cuenta cómo cambió el negocio del libro: la concentración de editoriales y librerías, la presión de los best sellers y el futuro que imagina con la impresión por demanda y la edición digital."
+  },
+  {
+   "id": "herralde",
+   "t": "El observatorio editorial",
+   "autor": "Jorge Herralde",
+   "editorial": "Adriana Hidalgo",
+   "anio": 2004,
+   "paginas": 218,
+   "isbn": "9789871156085",
+   "tema": "La industria del libro",
+   "sinopsis": "Textos y conferencias del fundador de Anagrama sobre la edición independiente: cómo se construye un catálogo, la relación con autores y libreros y la amenaza de la concentración empresarial."
+  },
+  {
+   "id": "schiffrin",
+   "t": "La edición sin editores",
+   "subtitulo": "Las grandes corporaciones y la cultura",
+   "autor": "André Schiffrin",
+   "editorial": "Era",
+   "anio": 2001,
+   "isbn": "9789684115231",
+   "tema": "La industria del libro",
+   "sinopsis": "Un ensayo breve y polémico: el exdirector de Pantheon Books cuenta cómo los grandes grupos, al exigir la misma rentabilidad que cualquier otro negocio, empujan a las editoriales a dejar de publicar libros valiosos pero de venta lenta."
+  },
+  {
+   "id": "unseld",
+   "t": "El autor y su editor",
+   "autor": "Siegfried Unseld",
+   "editorial": "Taurus",
+   "anio": 2018,
+   "paginas": 320,
+   "isbn": "9788430619719",
+   "tema": "La industria del libro",
+   "sinopsis": "El director de la editorial Suhrkamp reflexiona sobre la tarea del editor a partir de la relación de Hesse, Brecht, Rilke y Robert Walser con sus editores. Un clásico sobre el vínculo entre quien escribe y quien publica."
+  },
+  {
+   "id": "de-diego",
+   "sinTapa": true,
+   "t": "Editores y políticas editoriales en Argentina (1880-2010)",
+   "autor": "José Luis de Diego (dir.)",
+   "editorial": "Fondo de Cultura Económica",
+   "anio": 2014,
+   "paginas": 314,
+   "isbn": "9789877190519",
+   "tema": "La industria del libro",
+   "sinopsis": "La historia de la edición argentina, período por período: los comienzos, la época de oro de las décadas de 1940 y 1950, los años sesenta, la dictadura, la concentración de los noventa y el nuevo siglo, con sus editores y sus catálogos."
+  },
+  {
+   "id": "es-mi-tipo",
+   "t": "Es mi tipo",
+   "subtitulo": "Una historia de las letras que nos rodean",
+   "autor": "Simon Garfield",
+   "editorial": "Taurus",
+   "anio": 2011,
+   "paginas": 376,
+   "isbn": "9788430608263",
+   "tema": "Diseño y tipografía",
+   "sinTapa": true,
+   "sinopsis": "Un recorrido por la historia de las tipografías y por cómo las fuentes (de la Gill Sans a la Comic Sans) se cuelan en carteles, libros y pantallas. Lo leen en la carrera Informática Aplicada a la Producción Editorial y Fundamentos de Diseño Gráfico para Editores."
+  },
+  {
+   "id": "demasiados-libros",
+   "t": "Los demasiados libros",
+   "autor": "Gabriel Zaid",
+   "editorial": "Anagrama",
+   "paginas": 133,
+   "isbn": "9788433905338",
+   "tema": "La industria del libro",
+   "sinTapa": true,
+   "sinopsis": "Ensayo sobre la proliferación de libros y de lectores que no alcanzan a leerlos: la oferta y la demanda de poesía, el mercado de los libros y qué significa publicar hoy. Está en la bibliografía de varias materias de la carrera.",
+   "anio": 1996
+  }
+ ]
+}

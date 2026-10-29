@@ -1,0 +1,9 @@
+{
+  "actualizado": "2026-10-15",
+  "items": [
+    {"id": "claude", "t": "Claude Pro (la herramienta con la que se arma Cursada)", "monto": "USD 20 por mes + impuestos vigentes"},
+    {"id": "proporcion", "t": "Parte de ese gasto que va a Cursada", "monto": null, "nota": "se calcula con un script local, próximamente"},
+    {"id": "dominio", "t": "Dominio", "monto": "$0"},
+    {"id": "hosting", "t": "GitHub Pages (donde vive la página)", "monto": "$0"}
+  ]
+}

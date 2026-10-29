@@ -1,0 +1,105 @@
+{
+ "codigo": "0902",
+ "anio": 2025,
+ "grupos": [
+  {
+   "t": "Unidad 1",
+   "obligatoria": [
+    "Chartier, Roger, “Introducción a las prácticas de la lectura en la era moderna (siglos XVIXVIII)”, en El mundo como representación, Barcelona, Gedisa, 1992. (1.1)",
+    "Rivera, Jorge B., El escritor y la industria cultural. El camino hacia la profesionalización (1800-1900)”, Buenos Aires, Atuel, 1998.",
+    "Katz, Alejandro, “De la piedra al CD-Rom”, 1er. Congreso de Promoción de la Lectura. Feria Internacional del Libro. Del Autor al Lector. 1997. Reproducido en La Gaceta, México, Fondo de Cultura Económica, 1998, y en LetraInternacional, Barcelona, 1999.",
+    "Bourdieu, Pierre, Las reglas del arte. Génesis y estructura del campo literario, Anagrama, Barcelona, 1995.",
+    "Hobsbawn Eric La revolución industrial en La era de la revolución , Cap. II, págs. Editorial Crítica, Buenos Aires, 1998.",
+    "Henry-Jean Martin De la imprenta a nuestros días en Historia de la Tecnología Vo l I I Capítulo I compilador Wlliams Raymond Ed. Bosch, Comunicación, Barcelona, 1992.",
+    "Bordieu, Pierre, Campo intelectual y proyecto creador en Campo de poder, campo intelectual . Itinerario de un concepto , Montressor, Buenos Aires, 2002.",
+    "Cobo Borda, Gustavo (editor), Historia de las empresas editoriales de América Latina, Siglo XX, Colombia CERLALC, 2000.",
+    "De Diego, José Luis (director), Editores y políticas editoriales en Argentina, 1880-2000, México, Fondo de Cultura Económica, 2006."
+   ],
+   "complementaria": []
+  },
+  {
+   "t": "Unidad 2",
+   "obligatoria": [
+    "Altamirano, Carlos, y Sarlo, Beatriz, “Qué es un editor” y “Edición”, en Conceptos de sociología literaria, Buenos Aires, Centro Editor de América Latina, 1980. (2.1)",
+    "Epstein, Jason, “Decadencia y auge de las editoriales”, en La Gaceta, México, Fondo de Cultura Económica, Nueva Época, Núm. 238, octubre 1990, pp. 44-50.",
+    "Gèze, François, “¿Adónde van las editoriales francesas?”, La Gaceta, México, Fondo de Cultura Económica, num. 238, octubre de 1990, pp. 29-32.",
+    "Engelhardt, Tom, “Bottom Line Dreams”, Letra Internacional, núm. 21-22, Barcelona, pp. 3-11."
+   ],
+   "complementaria": []
+  },
+  {
+   "t": "Unidad 3",
+   "obligatoria": [
+    "Katz, Alejandro, “El libro y la lectura: un escenario para el 2005”, en El libro y la edición, Bogotá, CERLALC, 2003.",
+    "Sierra, Jorge Alfonso, Manual de mercadeo para empresas editoriales, Bogotá, CERLAC, 1989. (2.4).",
+    "Yánover, Héctor, Memorias de un librero, Barcelona, Muchnik-Anaya, 1994.",
+    "Rivera, Jorge B., El periodismo cultural, Piados, Buenos Aires, 1996."
+   ],
+   "complementaria": []
+  },
+  {
+   "t": "Unidad 4",
+   "obligatoria": [
+    "Giuliani, Alejandra, La Cámara Argentina del Libro, ficha de cátedra.",
+    "“Ley de defensa de la actividad librera” (ley de precio fijo de los libros), Congreso de la Nación, en www.editores.com/documentos/preciofijo.htm",
+    "Proyecto de “Ley de fomento del libro y la lectura” (Ley del libro), Congreso de la Nación, en www.editores.com/documentos/Ley Nº2025446.htm",
+    "Arribas, Adriana, Actores institucionales del sector, ficha de cátedra."
+   ],
+   "complementaria": []
+  },
+  {
+   "t": "Unidad 5",
+   "obligatoria": [
+    "Thompson, John, Books in digital Age, Polity Press, Cambridge, 2005",
+    "Thompson, John, Merchants of Culture. The Publishing Business in the Twenty-First Century, Polity Press, Cambridge, 2010",
+    "Harvey, Eric, “The Social History of MP3”, en Pitchfork, 24 de agosto de 2009. Disponible en http://pitchfork.com/features/articles/7689-the-social-history-of-themp3/",
+    "Kelly, Kevin, “Scan this book”, en The New York Times, 14 de mayo de 2006. Disponible en http://www.nytimes.com/2006/05/14/magazine/14publishing.html",
+    "Marlow, Martin, “E-volution or revolution: some observations on emerging trends in content, technology and service provision”, en Information Services & Use, vol. 26, núm. 2, Special Issue: APE2006 Academic Publishing in Europe. The Role of Information in Science and Society",
+    "Worlock, David R., “Changing Business Models in Technical, Medical and Medical Publishing Marketplace”, OECD / WPIE Conference, París, 2004, en http://www.oecd.org/dataoecd/58/32/32145392.pdf",
+    "Lloyd, Sara, Manifiesto de una editora para el siglo XXI, publicado originalmente en el blog El Digitalista. Se puede descargar en español en formato pdf desde http://libros.soybits.com/blog/manifiesto-sara-lloyd. Ver también el comentario de Alejandro Katz, “Falsos dilemas”, en revista Libros de México, 2009."
+   ],
+   "complementaria": []
+  },
+  {
+   "t": "General",
+   "obligatoria": [
+    "Cavallo, Guglielmo, Libros, editores y público en el Mundo Antiguo, Madrid, Alianza, 1995.",
+    "Chartier, Roger, El orden de los libros, Barcelona, Gedisa, 1994.",
+    "Chartier, Roger, El mundo como representación, Barcelona, Gedisa, 1995.",
+    "Chartier, Roger, Escuchar a los muertos con los ojos, Katz Editores, Buenos Aires, 2008.",
+    "Chartier, Roger, Lectura y pandemia. Conversaciones con Alejandro Katz y Nicolás Kwiatkowsky, Katz Editores, Buenos Aires, 2020",
+    "Epstein, Jason, La industria del libro. Pasado, presente y futuro de la edición, Barcelona, Anagrama, 2002",
+    "Nunberg, Geoffrey (comp.), El futuro del libro. ¿Esto matará eso?, Barcelona, Paidós, 1998.",
+    "Vandendorpe, Christian, Del papiro al hipertexto. Ensayo sobre las mutaciones del texto y de la lectura, México, Buenos Aires, Fondo de Cultura Económica, 2003",
+    "Ferreiro, Emilia, Pasado y presente de los verbos leer y escribir, Buenos Aires, Fondo de Cultura Económica, 2001.",
+    "Schiffrin, André, La edición sin editores, Madrid, Destino, 2000.",
+    "Zaid, Gabriel, Los demasiados libros, Barcelona, Anagrama, 1996",
+    "Unseld, Siegfried, El autor y su editor, Madrid, Taurus, 1985.",
+    "Cavallo, G. y Chartier, R., Historia de la lectura en el mundo occidental,Madrid, Taurus, 1998"
+   ],
+   "complementaria": []
+  }
+ ],
+ "falta": [
+  "Introducción a las prácticas de la lectura",
+  "De la piedra al CD-Rom",
+  "Hobsbawn",
+  "Cobo Borda",
+  "Decadencia y auge",
+  "Gèze",
+  "Bottom Line Dreams",
+  "un escenario para el 2005",
+  "Sierra, Jorge",
+  "Yánover",
+  "El periodismo cultural",
+  "La Cámara Argentina del Libro, ficha",
+  "Arribas",
+  "Books in digital Age",
+  "Merchants of Culture",
+  "Social History of",
+  "Scan this book",
+  "E-volution",
+  "Changing Business Models",
+  "Manifiesto de una editora"
+ ]
+}

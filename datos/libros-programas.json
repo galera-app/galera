@@ -1,0 +1,7477 @@
+{
+ "nota": "Libros de la bibliografía de los programas de la carrera que todavía no estaban en la Biblioteca.",
+ "materias": {
+  "0902": "Introducción a la Actividad Editorial",
+  "0905": "Fundamentos de la Producción de Impresos",
+  "0909": "Administración de la Empresa Editorial",
+  "0911": "Corrección de Estilo",
+  "0912": "Pasantía de la Práctica Profesional en Empresas Privadas",
+  "0913": "Teoría de los Medios y de la Cultura",
+  "0914": "Edición Editorial",
+  "0915": "Registro y Organización de Materiales Editoriales",
+  "0916": "Informática Aplicada a la Administración Editorial",
+  "0917": "Informática Aplicada a la Producción Editorial",
+  "0918": "Marketing Editorial",
+  "0919": "Derechos Editoriales y del Autor",
+  "0920": "Fundamentos de Diseño Gráfico para Editores",
+  "0921": "Edición Electrónica y Multimedia",
+  "0922": "Edición de Publicaciones Periódicas",
+  "0923": "Pasantía de la Práctica Profesional en Instituciones Públicas u ONG"
+ },
+ "libros": [
+  {
+   "id": "aavv-los-diarios-en-la-encrucijada-del-siglo-xxi",
+   "titulo": "Los Diarios en la Encrucijada del Siglo XXI",
+   "autor": "AAVV",
+   "editorial": "Clarín",
+   "anio": 2006,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0922",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "abadal-revistas-cientificas-situacion-actual-y-retos-de-futu",
+   "titulo": "Revistas científicas: situación actual y retos de futuro",
+   "autor": "Abadal, Ernest",
+   "editorial": "Edicions Universitat de Barcelona",
+   "anio": 2017,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "abraham-la-editorial-tor-medio-siglo-de-libros-populares",
+   "titulo": "La editorial Tor. Medio siglo de libros populares",
+   "autor": "Abraham, Carlos",
+   "editorial": "Tren en Movimiento",
+   "anio": 2002,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0923",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "abravanel-cultura-organizacional-aspectos-teoricos-practicos",
+   "titulo": "Cultura organizacional: aspectos teóricos, prácticos y metodológicos",
+   "autor": "Abravanel, H. y Allaire, Y. y Firsirotu, M. y Hobbs, B. y Poupart, R. y Simard, J. J.",
+   "editorial": "Legis",
+   "anio": 1992,
+   "tema": "Teoría y análisis",
+   "materias": [
+    {
+     "c": "0912",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "agencia-efe-manual-de-espanol-urgente",
+   "titulo": "Manual de español urgente",
+   "autor": "Agencia EFE",
+   "editorial": "Cátedra",
+   "anio": 1995,
+   "tema": "Norma y corrección",
+   "materias": [
+    {
+     "c": "0911",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "agencia-internacional-del-isbn-manual-del-usuario-del-isbn",
+   "titulo": "Manual del usuario del ISBN",
+   "autor": "Agencia Internacional del ISBN",
+   "editorial": "International ISBN Agency",
+   "anio": 2017,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "agfa-guia-del-color-postscript",
+   "titulo": "Guía del color PostScript",
+   "autor": "Agfa",
+   "editorial": "Agfa",
+   "anio": 1998,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0905",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "agfa-introduccion-a-la-digitalizacion-vol-4",
+   "titulo": "Introducción a la digitalización vol.4",
+   "autor": "Agfa",
+   "editorial": "Agfa",
+   "anio": 1999,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0905",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "agfa-preimpresion-digital-en-color",
+   "titulo": "Preimpresión digital en color",
+   "autor": "Agfa",
+   "editorial": "Agfa",
+   "anio": 1998,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0905",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "agfa-servicios-de-filmacion-impresion",
+   "titulo": "Servicios de filmación impresión",
+   "autor": "Agfa",
+   "editorial": "Agfa",
+   "anio": 2000,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0905",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "aguilar-munoz-una-experiencia-editorial",
+   "titulo": "Una experiencia editorial",
+   "autor": "Aguilar Muñoz, Manuel",
+   "editorial": "Aguilar",
+   "anio": 1964,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0909",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "alarcos-llorach-gramatica-de-la-lengua-espanola",
+   "titulo": "Gramática de la lengua española",
+   "autor": "Alarcos Llorach, E.",
+   "editorial": "Espasa Calpe",
+   "anio": 1994,
+   "tema": "Norma y corrección",
+   "materias": [
+    {
+     "c": "0911",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "alberte-el-dardo-en-la-academia",
+   "titulo": "El dardo en la Academia",
+   "autor": "Alberte, M. y Senz, S.",
+   "editorial": "Melusina",
+   "anio": 2008,
+   "tema": "Norma y corrección",
+   "materias": [
+    {
+     "c": "0911",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "albretch-inteligencia-social",
+   "titulo": "Inteligencia social",
+   "autor": "Albretch, K.",
+   "editorial": "Editorial Vergara",
+   "anio": 2006,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0912",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "albrieu-inteligencia-artificial-y-crecimiento-economico-opor",
+   "titulo": "Inteligencia artificial y crecimiento económico. Oportunidades y desafíos para Argentina",
+   "autor": "Albrieu, R. et al.",
+   "editorial": "CIPPEC",
+   "anio": 2018,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0916",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "alles-direccion-estrategica-de-recursos-humanos-gestion-por",
+   "titulo": "Dirección estratégica de recursos humanos. Gestión por competencias",
+   "autor": "Alles, M.",
+   "editorial": "Granica",
+   "anio": 2005,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0912",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "altamirano-conceptos-de-sociologia-literaria",
+   "titulo": "Conceptos de sociología literaria",
+   "autor": "Altamirano, Carlos y Sarlo, Beatriz",
+   "editorial": "Centro Editor de América Latina",
+   "anio": 1980,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0902",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "alterini-contratos-teoria-general",
+   "titulo": "Contratos. Teoría general",
+   "autor": "Alterini, Atilio Aníbal",
+   "editorial": "Abeledo –Perrot",
+   "anio": 1998,
+   "tema": "Derechos y contratos",
+   "materias": [
+    {
+     "c": "0919",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "alvar-ezquerra-manual-de-redaccion-y-estilo",
+   "titulo": "Manual de redacción y estilo",
+   "autor": "Alvar Ezquerra, M.",
+   "editorial": "Istmo",
+   "anio": 1999,
+   "tema": "Norma y corrección",
+   "materias": [
+    {
+     "c": "0911",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "alvar-introduccion-a-la-linguistica-espanola",
+   "titulo": "Introducción a la lingüística española",
+   "autor": "Alvar, M.",
+   "editorial": "Ariel",
+   "anio": 2000,
+   "tema": "Norma y corrección",
+   "materias": [
+    {
+     "c": "0911",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "alvarado-paratexto",
+   "titulo": "Paratexto",
+   "autor": "Alvarado, M.",
+   "editorial": "CBC",
+   "anio": 1994,
+   "tema": "Historia del libro y la lectura",
+   "materias": [
+    {
+     "c": "0911",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "ambrose-impresion-y-acabados",
+   "titulo": "Impresión y acabados",
+   "autor": "Ambrose, G. y Harris, P.",
+   "editorial": "Parramon",
+   "anio": 2008,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0905",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "ambrose-layout",
+   "titulo": "Layout",
+   "autor": "Ambrose, G. y Harris, P.",
+   "editorial": "Parramon",
+   "anio": 2008,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0905",
+     "n": "compl"
+    },
+    {
+     "c": "0920",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "ambrose-manual-de-produccion-guia-para-disenadores",
+   "titulo": "Manual de Producción. Guía para diseñadores",
+   "autor": "Ambrose, G. y Harris, P.",
+   "editorial": "Parramon Arquitectura",
+   "anio": null,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0905",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "ambrose-reticulas",
+   "titulo": "Retículas",
+   "autor": "Ambrose, G. y Harris, P.",
+   "editorial": "Parramon",
+   "anio": 2008,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0917",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "ambrosini-la-cultura-del-entretenimiento-fenomeno-mundial-el",
+   "titulo": "La cultura del entretenimiento: fenómeno mundial: el caso argentino",
+   "autor": "Ambrosini, A.",
+   "editorial": "Nabuko",
+   "anio": 2008,
+   "tema": "Teoría y análisis",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "american-psychological-association-publication-manual-of-the",
+   "titulo": "Publication manual of the American Psychological Association: The official guide to APA style",
+   "autor": "American Psychological Association",
+   "editorial": "APA",
+   "anio": 2020,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "ander-egg-como-elaborar-un-proyecto-guia-para-disenar-proyec",
+   "titulo": "Cómo elaborar un proyecto. Guía para diseñar proyectos sociales y culturales",
+   "autor": "Ander Egg, E. y Aguilar Ibáñez, M.",
+   "editorial": "Lumen",
+   "anio": 1995,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0912",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "anguita-villanueva-el-derecho-de-propiedad-privada-en-los-bi",
+   "titulo": "El derecho de propiedad privada en los bienes de interés cultural",
+   "autor": "Anguita Villanueva, Luis A.",
+   "editorial": "Dykinson",
+   "anio": 2001,
+   "tema": "Derechos y contratos",
+   "materias": [
+    {
+     "c": "0919",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "aparici-la-imagen-analisis-y-representacion-de-la-realidad",
+   "titulo": "La imagen. Análisis y representación de la realidad",
+   "autor": "Aparici, R. y otros",
+   "editorial": "Gedisa",
+   "anio": 2006,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0917",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "aparicio-manual-de-gestion-editorial-de-revistas-cientificas",
+   "titulo": "Manual de gestión editorial de revistas científicas de ciencias sociales y humanas: buenas prácticas y criterios de calidad",
+   "autor": "Aparicio, Alicia y Banzato, Guillermo y Liberatore, Gustavo",
+   "editorial": "CLACSO",
+   "anio": 2016,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "arago-diccionario-de-dudas-y-problemas",
+   "titulo": "Diccionario de dudas y problemas",
+   "autor": "Aragó, M. R.",
+   "editorial": "El Ateneo",
+   "anio": 1995,
+   "tema": "Norma y corrección",
+   "materias": [
+    {
+     "c": "0911",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "areitio-informacion-informatica-e-internet-del-ordenador-per",
+   "titulo": "Información, Informática e Internet: del ordenador personal a la 2.0",
+   "autor": "Areitio, G. y Areitio, A.",
+   "editorial": "Visión Libros",
+   "anio": 2009,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0917",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "arfuch-diseno-y-comunicacion-teorias-y-enfoques-criticos",
+   "titulo": "Diseño y Comunicación. Teorías y enfoques críticos",
+   "autor": "Arfuch, L., Chaves, N. y Ledesma, M.",
+   "editorial": "Paidós",
+   "anio": 1997,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0920",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "arnheim-arte-y-percepcion-visual",
+   "titulo": "Arte y percepción visual",
+   "autor": "Arnheim, R.",
+   "editorial": "Alianza",
+   "anio": 2011,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0917",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "astrua-fotocromia-basica",
+   "titulo": "Fotocromía básica",
+   "autor": "Astrua, A.",
+   "editorial": "Gram Editora",
+   "anio": null,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0905",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "auge-los-no-lugares-espacios-del-anonimato",
+   "titulo": "Los no lugares. Espacios del anonimato",
+   "autor": "Augé, M.",
+   "editorial": "Gedisa",
+   "anio": 1992,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "ayala-el-comportamiento-de-las-personas-en-las-organizacione",
+   "titulo": "El comportamiento de las personas en las organizaciones",
+   "autor": "Ayala, J. C. y Perez van Morlegan, L.",
+   "editorial": "Pearson Education",
+   "anio": 2011,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0912",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "bajtin-estetica-de-la-creacion-verbal",
+   "titulo": "Estética de la creación verbal",
+   "autor": "Bajtín, M.",
+   "editorial": "Siglo XXI",
+   "anio": 1985,
+   "tema": "Norma y corrección",
+   "materias": [
+    {
+     "c": "0911",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "bann-como-corregir-pruebas-en-color",
+   "titulo": "Como corregir pruebas en color",
+   "autor": "Bann, D. y Gargan, J.",
+   "editorial": "Editorial G. Gili",
+   "anio": 1992,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0905",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "bann-como-corregir-pruebas-de-color",
+   "titulo": "Cómo corregir pruebas de color",
+   "autor": "Bann, D. y Gargan, J.",
+   "editorial": "G. Gili",
+   "anio": 1992,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0905",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "barrera-historia-del-periodismo-universal",
+   "titulo": "Historia del Periodismo Universal",
+   "autor": "Barrera, Carlos",
+   "editorial": "Ariel Comunicación",
+   "anio": 2004,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0922",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "barret-medios-contextuales-en-la-practica-cultura",
+   "titulo": "Medios contextuales en la práctica cultura",
+   "autor": "Barret, E. y Redmond, M.",
+   "editorial": "Paidós",
+   "anio": 1997,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "barthes-image-music-text",
+   "titulo": "Image, Music, Text",
+   "autor": "Barthes, Roland",
+   "editorial": "Noonday Press",
+   "anio": 1977,
+   "tema": "Derechos y contratos",
+   "materias": [
+    {
+     "c": "0919",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "barthes-la-camara-lucida",
+   "titulo": "La cámara lúcida",
+   "autor": "Barthes, Roland",
+   "editorial": "Paidós",
+   "anio": 1992,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0914",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "barvo-manual-de-edicion-guia-para-autores-editores-corrector",
+   "titulo": "Manual de edición. Guía para autores, editores, correctores de estilo y diagramadores",
+   "autor": "Barvo, Carmen",
+   "editorial": "CERLALC",
+   "anio": 1996,
+   "tema": "Norma y corrección",
+   "materias": [
+    {
+     "c": "0909",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "battelle-la-base-de-datos-de-las-intenciones",
+   "titulo": "La base de datos de las intenciones",
+   "autor": "Battelle, J.",
+   "editorial": "Tendencias",
+   "anio": 2005,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "bazlen-informes-de-lectura-cartas-a-montale",
+   "titulo": "Informes de lectura. Cartas a Montale",
+   "autor": "Bazlen, Roberto",
+   "editorial": "La bestia equilátera",
+   "anio": 2012,
+   "tema": "Historia del libro y la lectura",
+   "materias": [
+    {
+     "c": "0914",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "benhamou-el-libro-en-la-era-digital",
+   "titulo": "El libro en la era digital",
+   "autor": "Benhamou, F.",
+   "editorial": "Paidós",
+   "anio": 2015,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "benhamou-el-libro-en-la-era-digital-papel-pantallas-y-otras",
+   "titulo": "El libro en la era digital. Papel, pantallas y otras derivas",
+   "autor": "Benhamou, F.",
+   "editorial": "Paidós",
+   "anio": 2014,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "berners-lee-tejiendo-la-red",
+   "titulo": "Tejiendo la red",
+   "autor": "Berners-Lee, T.",
+   "editorial": "Siglo XXI",
+   "anio": 2000,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "bianco-introduccion-a-la-probabilidad-y-la-estadistica",
+   "titulo": "Introducción a la probabilidad y la estadística",
+   "autor": "Bianco, M. J., Bacchini, R. D., Vázquez, L. V. y García Fronti, J.",
+   "editorial": "Facultad de Ciencias Económicas (UBA)",
+   "anio": 2018,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0916",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "bierut-fundamentos-del-diseno-grafico",
+   "titulo": "Fundamentos del diseño gráfico",
+   "autor": "Bierut, Michael, Helfand, Jessica, Heller, Steven y Poynor, Rick",
+   "editorial": "Infinito",
+   "anio": 2001,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0920",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "binde-hacia-las-sociedades-del-conocimiento",
+   "titulo": "Hacia las sociedades del conocimiento",
+   "autor": "Bindé, Jérôme",
+   "editorial": "UNESCO",
+   "anio": 2005,
+   "tema": "Derechos y contratos",
+   "materias": [
+    {
+     "c": "0919",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "blasco-soplon-sobreimpresion-de-la-pantalla-al-papel-y-vicev",
+   "titulo": "Sobreimpresión de la pantalla al papel y viceversa",
+   "autor": "Blasco Soplon, Laia",
+   "editorial": "Index Book S.L.",
+   "anio": 2011,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0905",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "blaustein-deciamos-ayer-la-prensa-argentina-bajo-el-proceso",
+   "titulo": "Decíamos Ayer: La prensa argentina bajo el Proceso",
+   "autor": "Blaustein, Eduardo y Zubieta, Martín",
+   "editorial": "Colihue",
+   "anio": 1998,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0922",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "boivin-constructores-de-otredad-una-introduccion-a-la-antrop",
+   "titulo": "Constructores de otredad. Una introducción a la Antropología Social y Cultural",
+   "autor": "Boivin, Mauricio y Rosato, Ana y Arribas, Victoria",
+   "editorial": "Editorial Antropofagia",
+   "anio": 2004,
+   "tema": "Teoría y análisis",
+   "materias": [
+    {
+     "c": "0913",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "bordieu-campo-de-poder-campo-intelectual",
+   "titulo": "Campo de poder, campo intelectual",
+   "autor": "Bordieu, Pierre",
+   "editorial": "Montressor",
+   "anio": 2002,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0902",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "boretto-contratos-de-edicion-guia-de-licencias-y-cesion-de-d",
+   "titulo": "Contratos de edición. Guía de licencias y cesión de derechos. Derechos de autor. Ebooks y el entorno digital",
+   "autor": "Boretto, M.M.",
+   "editorial": "BdeF",
+   "anio": 2010,
+   "tema": "Derechos y contratos",
+   "materias": [
+    {
+     "c": "0919",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "borko-abstracting-concepts-and-methods",
+   "titulo": "Abstracting concepts and methods",
+   "autor": "Borko, Harold y Bernier, Charles L.",
+   "editorial": "Academic Press",
+   "anio": 1975,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "borrat-el-periodico-actor-politico",
+   "titulo": "El periódico, actor político",
+   "autor": "Borrat, Héctor",
+   "editorial": "G. Gilli",
+   "anio": 1994,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0922",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "borras-perello-el-libro-y-la-edicion",
+   "titulo": "El libro y la edición",
+   "autor": "Borrás Perelló, Lluís",
+   "editorial": "CERLALC",
+   "anio": 2003,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0902",
+     "n": "obl"
+    },
+    {
+     "c": "0915",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "borsuk-el-libro-expandido-variaciones-materialidad-y-experim",
+   "titulo": "El libro expandido. Variaciones, materialidad y experimentos",
+   "autor": "Borsuk, A.",
+   "editorial": "Ed. Ampersand",
+   "anio": 2018,
+   "tema": "Historia del libro y la lectura",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "bourdieu-sobre-la-television",
+   "titulo": "Sobre la televisión",
+   "autor": "Bourdieu, P.",
+   "editorial": "Anagrama",
+   "anio": 1997,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "compl"
+    },
+    {
+     "c": "0922",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "bourdieu-cuestiones-de-sociologia",
+   "titulo": "Cuestiones de Sociología",
+   "autor": "Bourdieu, Pierre",
+   "editorial": "Istmo",
+   "anio": 2008,
+   "tema": "Teoría y análisis",
+   "materias": [
+    {
+     "c": "0922",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "bourdieu-las-reglas-del-arte-genesis-y-estructura-del-campo",
+   "titulo": "Las reglas del arte. Génesis y estructura del campo literario",
+   "autor": "Bourdieu, Pierre",
+   "editorial": "Anagrama",
+   "anio": 1995,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0902",
+     "n": "obl"
+    },
+    {
+     "c": "0916",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "briggs-de-gutenberg-a-internet-una-historia-social-de-los-me",
+   "titulo": "De Gutenberg a Internet: una historia social de los medios de comunicación",
+   "autor": "Briggs, Asa y Burke, Peter",
+   "editorial": "Taurus",
+   "anio": 2002,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "bueno-centro-editor-de-america-latina-capitulos-para-una-his",
+   "titulo": "Centro Editor de América Latina: capítulos para una historia",
+   "autor": "Bueno, M. y Taroncher, M. A.",
+   "editorial": "Siglo XXI Editores",
+   "anio": 2006,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "burke-visto-y-no-visto-el-uso-de-la-imagen-como-documento-hi",
+   "titulo": "Visto y no visto. El uso de la imagen como documento histórico",
+   "autor": "Burke, Peter",
+   "editorial": "Crítica",
+   "anio": 2001,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0914",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "busaniche-argentina-copyleft-la-crisis-del-modelo-de-derecho",
+   "titulo": "Argentina copyleft: la crisis del modelo de derecho de autor y las prácticas para democratizar la cultura",
+   "autor": "Busaniche, Beatriz",
+   "editorial": "Fundación Vía Libre / Fundación Heinrich Böll - Cono Sur",
+   "anio": 2010,
+   "tema": "Derechos y contratos",
+   "materias": [
+    {
+     "c": "0923",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "calvino-los-libros-de-los-otros",
+   "titulo": "Los libros de los otros",
+   "autor": "Calvino, Italo",
+   "editorial": "Tusquets",
+   "anio": 1994,
+   "tema": "Historia del libro y la lectura",
+   "materias": [
+    {
+     "c": "0914",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "calvo-fake-news-trolls-y-otros-encantos",
+   "titulo": "Fake news, trolls y otros encantos",
+   "autor": "Calvo, E. y Aruguete, N.",
+   "editorial": "Siglo Veintiuno",
+   "anio": 2020,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0922",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "camps-pare-introduccion-a-las-bases-de-datos",
+   "titulo": "Introducción a las bases de datos",
+   "autor": "Camps Pare, R.",
+   "editorial": "Fundación Universitat Oberta",
+   "anio": 2005,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0916",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "camps-asi-se-hace-periodismo-manual-practico-del-periodismo",
+   "titulo": "Así se hace periodismo: Manual práctico del periodismo gráfico",
+   "autor": "Camps, Sibila y Pazos, Luis",
+   "editorial": "Paidós",
+   "anio": 2003,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0922",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "camus-tienes-cinco-segundos",
+   "titulo": "Tienes cinco segundos",
+   "autor": "Camus, J. C.",
+   "editorial": "",
+   "anio": 2009,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0922",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "canalicchio-smart-marketing-analisis-estrategico-en-entornos",
+   "titulo": "Smart Marketing. Análisis estratégico en entornos complejos",
+   "autor": "Canalicchio, P.",
+   "editorial": "LID",
+   "anio": 2021,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0912",
+     "n": "obl"
+    },
+    {
+     "c": "0918",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "canavilhas-webnoticia-propuesta-de-modelo-periodistico-para",
+   "titulo": "Webnoticia. Propuesta de modelo periodístico para la WWW",
+   "autor": "Canavilhas, J.",
+   "editorial": "Labcom",
+   "anio": 2007,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0922",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "canitrot-publier-une-illustration-mode-d-emploi",
+   "titulo": "Publier une illustration, mode d'emploi",
+   "autor": "Canitrot, Armelle y Lütz-Sorg, Stéphane",
+   "editorial": "Centre de formation et perfectionnement des journalistes (CFPJ)",
+   "anio": 1992,
+   "tema": "Traducción",
+   "materias": [
+    {
+     "c": "0914",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "capetti-tecnicas-de-la-impresion",
+   "titulo": "Técnicas de la impresión",
+   "autor": "Capetti, F.",
+   "editorial": "Don Bosco",
+   "anio": 1982,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0905",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "caplan-editar-sin-papel",
+   "titulo": "Editar sin papel",
+   "autor": "Caplan, G.",
+   "editorial": "JVE",
+   "anio": 1999,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "carbajo-gascon-publicaciones-electronicas-y-propiedad-intele",
+   "titulo": "Publicaciones electrónicas y propiedad intelectual",
+   "autor": "Carbajo Gascón, Fernando",
+   "editorial": "Colex",
+   "anio": 2002,
+   "tema": "Derechos y contratos",
+   "materias": [
+    {
+     "c": "0919",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "cardona-antropologia-de-la-escritura",
+   "titulo": "Antropología de la escritura",
+   "autor": "Cardona, G.",
+   "editorial": "Gedisa",
+   "anio": 1995,
+   "tema": "Historia del libro y la lectura",
+   "materias": [
+    {
+     "c": "0911",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "carlon-el-fin-de-los-medios-masivos-el-comienzo-de-un-debate",
+   "titulo": "El fin de los medios masivos. El comienzo de un debate",
+   "autor": "Carlon, M. y Scolari, C.",
+   "editorial": "La Crujía",
+   "anio": 2009,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0920",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "carrion-los-campos-electromagneticos-teorias-y-practicas-de",
+   "titulo": "Los campos electromagnéticos: Teorías y prácticas de la escritura artificial",
+   "autor": "Carrión, J. y Taller Estampa",
+   "editorial": "Caja Negra",
+   "anio": 2023,
+   "tema": "Historia del libro y la lectura",
+   "materias": [
+    {
+     "c": "0912",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "casanovas-tecnologias-de-la-informacion-y-las-comunicaciones",
+   "titulo": "Tecnologías de la información y las comunicaciones aplicadas a la administración y gestión editorial",
+   "autor": "Casanovas, I. et al.",
+   "editorial": "FFyL",
+   "anio": 2014,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0916",
+     "n": "obl"
+    },
+    {
+     "c": "0917",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "cascon-martin-manual-del-buen-uso-del-espanol",
+   "titulo": "Manual del buen uso del español",
+   "autor": "Cascón Martín, E.",
+   "editorial": "Castalia",
+   "anio": 1999,
+   "tema": "Norma y corrección",
+   "materias": [
+    {
+     "c": "0911",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "cassany-describir-el-escribir",
+   "titulo": "Describir el escribir",
+   "autor": "Cassany, Daniel",
+   "editorial": "Paidós",
+   "anio": 1989,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0914",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "cassin-googleame",
+   "titulo": "Googléame",
+   "autor": "Cassin, Bárbara",
+   "editorial": "FCE",
+   "anio": 2008,
+   "tema": "Derechos y contratos",
+   "materias": [
+    {
+     "c": "0919",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "castells-la-era-de-la-informacion",
+   "titulo": "La era de la información",
+   "autor": "Castells, M.",
+   "editorial": "Alianza",
+   "anio": 1998,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "castells-la-era-de-la-informacion-vol-1-la-sociedad-red",
+   "titulo": "La era de la Información. Vol. 1. La sociedad red",
+   "autor": "Castells, M.",
+   "editorial": "Alianza",
+   "anio": 1998,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "casullo-itinerarios-de-la-modernidad-corrientes-del-pensamie",
+   "titulo": "Itinerarios de la Modernidad. Corrientes del pensamiento y tradiciones intelectuales desde la Ilustración hasta la posmodernidad",
+   "autor": "Casullo, N. y Forster, R. y Kaufman, A.",
+   "editorial": "EUDEBA",
+   "anio": 1999,
+   "tema": "Teoría y análisis",
+   "materias": [
+    {
+     "c": "0913",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "catach-hacia-una-teoria-de-la-lengua-escrita",
+   "titulo": "Hacia una teoría de la lengua escrita",
+   "autor": "Catach, N.",
+   "editorial": "Gedisa",
+   "anio": 1995,
+   "tema": "Norma y corrección",
+   "materias": [
+    {
+     "c": "0911",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "cavallo-historia-de-la-lectura-en-el-mundo-occidental",
+   "titulo": "Historia de la lectura en el mundo occidental",
+   "autor": "Cavallo, G. y Chartier, R.",
+   "editorial": "Taurus",
+   "anio": 1998,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0902",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "cavallo-libros-editores-y-publico-en-el-mundo-antiguo",
+   "titulo": "Libros, editores y público en el Mundo Antiguo",
+   "autor": "Cavallo, Guglielmo",
+   "editorial": "Alianza",
+   "anio": 1995,
+   "tema": "Historia del libro y la lectura",
+   "materias": [
+    {
+     "c": "0902",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "cerezo-disenadores-en-la-nebulosa-el-diseno-grafico-en-la-er",
+   "titulo": "Diseñadores en la nebulosa. El diseño gráfico en la era digital",
+   "autor": "Cerezo, José M.",
+   "editorial": "Biblioteca Nueva",
+   "anio": 1999,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0920",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "cevasco-para-leer-a-raymond-williams",
+   "titulo": "Para leer a Raymond Williams",
+   "autor": "Cevasco, María Elisa",
+   "editorial": "UNQUI",
+   "anio": 2003,
+   "tema": "Teoría y análisis",
+   "materias": [
+    {
+     "c": "0913",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "chartier-la-lectura-de-un-siglo-a-otro-discursos-sobre-la-le",
+   "titulo": "La lectura de un siglo a otro. Discursos sobre la lectura (1980-2000)",
+   "autor": "Chartier, Anne Marie y Hébrard, Jean",
+   "editorial": "Gedisa",
+   "anio": 2002,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0914",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "chartier-la-lectura-de-un-siglo-a-otro",
+   "titulo": "La lectura de un siglo a otro",
+   "autor": "Chartier, Anne-Marie y Hébrard, J.",
+   "editorial": "Gedisa",
+   "anio": 2002,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0920",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "chartier-las-revoluciones-de-la-cultura-escrita-dialogo-e-in",
+   "titulo": "Las revoluciones de la cultura escrita. Dialogo e intervenciones",
+   "autor": "Chartier, R.",
+   "editorial": "Gedisa",
+   "anio": 2000,
+   "tema": "Teoría y análisis",
+   "materias": [
+    {
+     "c": "0911",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "chartier-lectura-y-pandemia",
+   "titulo": "Lectura y pandemia",
+   "autor": "Chartier, R.",
+   "editorial": "Katz Editores",
+   "anio": 2021,
+   "tema": "Historia del libro y la lectura",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "chartier-el-mundo-como-representacion",
+   "titulo": "El mundo como representación",
+   "autor": "Chartier, Roger",
+   "editorial": "Gedisa",
+   "anio": 1992,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0902",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "chartier-el-orden-de-los-libros",
+   "titulo": "El orden de los libros",
+   "autor": "Chartier, Roger",
+   "editorial": "Gedisa",
+   "anio": 1994,
+   "tema": "Historia del libro y la lectura",
+   "materias": [
+    {
+     "c": "0902",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "chartier-escuchar-a-los-muertos-con-los-ojos",
+   "titulo": "Escuchar a los muertos con los ojos",
+   "autor": "Chartier, Roger",
+   "editorial": "Katz Editores",
+   "anio": 2008,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0902",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "chartier-lectura-y-pandemia-conversaciones-con-alejandro-kat",
+   "titulo": "Lectura y pandemia. Conversaciones con Alejandro Katz y Nicolás Kwiatkowsky",
+   "autor": "Chartier, Roger",
+   "editorial": "Katz Editores",
+   "anio": 2020,
+   "tema": "Historia del libro y la lectura",
+   "materias": [
+    {
+     "c": "0902",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "chartier-libros-lectores-y-lecturas-en-la-edad-moderna",
+   "titulo": "Libros, lectores y lecturas en la Edad Moderna",
+   "autor": "Chartier, Roger",
+   "editorial": "Alianza",
+   "anio": 1988,
+   "tema": "Historia del libro y la lectura",
+   "materias": [
+    {
+     "c": "0914",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "chiavenato-introduccion-a-la-teoria-general-de-la-administra",
+   "titulo": "Introducción a la teoría general de la administración",
+   "autor": "Chiavenato, Adalberto",
+   "editorial": "McGraw-Hill",
+   "anio": 2010,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0909",
+     "n": "obl"
+    },
+    {
+     "c": "0916",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "chiavenato-administracion-proceso-administrativo",
+   "titulo": "Administración, Proceso Administrativo",
+   "autor": "Chiavenato, Idalberto",
+   "editorial": "Mc Graw‐Hill",
+   "anio": 2001,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0909",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "clarin-manual-de-estilo",
+   "titulo": "Manual de Estilo",
+   "autor": "Clarín",
+   "editorial": "Alianza",
+   "anio": 1997,
+   "tema": "Norma y corrección",
+   "materias": [
+    {
+     "c": "0911",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "cobo-borda-historia-de-las-empresas-editoriales-de-america-l",
+   "titulo": "Historia de las empresas editoriales de América Latina, Siglo XX",
+   "autor": "Cobo Borda, Gustavo",
+   "editorial": "CERLALC",
+   "anio": 2000,
+   "tema": "Historia del libro y la lectura",
+   "materias": [
+    {
+     "c": "0902",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "cobo-planeta-web-2-0-inteligencia-colectiva-o-medios-fast-fo",
+   "titulo": "Planeta Web 2.0. Inteligencia colectiva o medios fast food",
+   "autor": "Cobo, C. y Pardo, H.",
+   "editorial": "UVICFlacso México",
+   "anio": 2006,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "coicaud-videojuegos-realidad-extendida-robotica-y-plataforma",
+   "titulo": "Videojuegos, realidad extendida, robótica y plataformas: potencialidades didácticas de la inteligencia artificial. Mediaciones tecnológicas para una enseñanza disruptiva",
+   "autor": "Coicaud, S.",
+   "editorial": "Noveduc",
+   "anio": 2019,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0912",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "colleu-la-edicion-independiente-como-herramienta-protagonica",
+   "titulo": "La edición independiente. Como herramienta protagónica de la bibliodiversidad",
+   "autor": "Colleu, Pilles",
+   "editorial": "La marca editora",
+   "anio": 2008,
+   "tema": "Derechos y contratos",
+   "materias": [
+    {
+     "c": "0919",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "collier-diseno-para-la-autoedicion",
+   "titulo": "Diseño para la autoedición",
+   "autor": "Collier, D. y Cotton, B.",
+   "editorial": "G. Gili",
+   "anio": null,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0905",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "colombet-propriete-litteraire-et-artistique-et-droits-voisin",
+   "titulo": "Propriété littéraire et artistique, et droits voisins",
+   "autor": "Colombet, Claude",
+   "editorial": "Dalloz",
+   "anio": 1986,
+   "tema": "Derechos y contratos",
+   "materias": [
+    {
+     "c": "0919",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "corderoy-encuadernacion",
+   "titulo": "Encuadernación",
+   "autor": "Corderoy, J.",
+   "editorial": "Kapeluz",
+   "anio": 1973,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0905",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "cordon-garcia-lectoescritura-digital",
+   "titulo": "Lectoescritura digital",
+   "autor": "Cordón-García, José Antonio",
+   "editorial": "Ministerio de Educación y Formación",
+   "anio": 2019,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0920",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "correa-acuerdo-trips-regimen-internacional-de-la-propiedad-i",
+   "titulo": "Acuerdo TRIPs. Régimen internacional de la propiedad intelectual",
+   "autor": "Correa, Carlos M.",
+   "editorial": "Ciudad Argentina",
+   "anio": 1996,
+   "tema": "Derechos y contratos",
+   "materias": [
+    {
+     "c": "0919",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "coseriu-teoria-del-lenguaje-y-linguistica-general",
+   "titulo": "Teoría del lenguaje y lingüística general",
+   "autor": "Coseriu, E.",
+   "editorial": "Gredos",
+   "anio": 1962,
+   "tema": "Norma y corrección",
+   "materias": [
+    {
+     "c": "0911",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "crawford-atlas-de-inteligencia-artificial-poder-politica-y-c",
+   "titulo": "Atlas de inteligencia artificial. Poder política y costos planetarios",
+   "autor": "Crawford, K.",
+   "editorial": "Fondo de Cultura Económica",
+   "anio": 2022,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0912",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "cremmins-el-arte-de-resumir",
+   "titulo": "El arte de resumir",
+   "autor": "Cremmins, Edward T.",
+   "editorial": "Mitre",
+   "anio": 1985,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "crenzel-los-desaparecidos-en-la-argentina-memorias-represent",
+   "titulo": "Los desaparecidos en la Argentina. Memorias, representaciones e ideas (1983-2008)",
+   "autor": "Crenzel, Emilio",
+   "editorial": "Biblos",
+   "anio": 2010,
+   "tema": "Teoría y análisis",
+   "materias": [
+    {
+     "c": "0913",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "camara-argentina-de-publicaciones-cap-el-libro-blanco-de-la",
+   "titulo": "El Libro Blanco de la Industria Editorial Argentina 2018",
+   "autor": "Cámara Argentina de Publicaciones (CAP)",
+   "editorial": "",
+   "anio": 2018,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "camara-argentina-del-libro-manual-para-editoriales",
+   "titulo": "Manual para editoriales",
+   "autor": "Cámara Argentina del Libro",
+   "editorial": "CAL",
+   "anio": 2005,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "da-silva-teorias-de-la-administracion",
+   "titulo": "Teorías de la Administración",
+   "autor": "Da Silva, Reinaldo O.",
+   "editorial": "Thomson Internacional",
+   "anio": 2002,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0909",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "dahl-historia-del-libro",
+   "titulo": "Historia del libro",
+   "autor": "Dahl, Svend",
+   "editorial": "Alianza",
+   "anio": 1999,
+   "tema": "Historia del libro y la lectura",
+   "materias": [
+    {
+     "c": "0909",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "dato-las-librerias-de-buenos-aires",
+   "titulo": "Las librerías de Buenos Aires",
+   "autor": "Dato, H.",
+   "editorial": "CEEED, FCE, UBA",
+   "anio": 2019,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0918",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "davis-diseno-de-paginas-web",
+   "titulo": "Diseño de páginas Web",
+   "autor": "Davis, J. y Merritt, S.",
+   "editorial": "Anaya",
+   "anio": 1999,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "day-como-escribir-y-publicar-trabajos-cientificos",
+   "titulo": "Cómo escribir y publicar trabajos científicos",
+   "autor": "Day, Robert A.",
+   "editorial": "OPS",
+   "anio": 2005,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "de-diego-los-autores-no-escriben-libros-nuevos-aportes-a-la",
+   "titulo": "Los autores no escriben libros. Nuevos aportes a la historia de la edición",
+   "autor": "de Diego, J.",
+   "editorial": "Ampersand",
+   "anio": 2019,
+   "tema": "Historia del libro y la lectura",
+   "materias": [
+    {
+     "c": "0911",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "de-diego-editores-y-politicas-editoriales-en-argentina-1880",
+   "titulo": "Editores y políticas editoriales en Argentina, 1880-2000",
+   "autor": "De Diego, José Luis",
+   "editorial": "Fondo de Cultura Económica",
+   "anio": 2006,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0902",
+     "n": "obl"
+    },
+    {
+     "c": "0911",
+     "n": "compl"
+    },
+    {
+     "c": "0923",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "de-diego-politicas-editoriales-y-politicas-de-lecturas",
+   "titulo": "Políticas editoriales y políticas de lecturas",
+   "autor": "De Diego, José Luís",
+   "editorial": "Fondo de cultura económica",
+   "anio": 2006,
+   "tema": "Derechos y contratos",
+   "materias": [
+    {
+     "c": "0919",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "de-ugarte-el-poder-de-las-redes-manual-digital",
+   "titulo": "El poder de las redes: Manual digital",
+   "autor": "De Ugarte, D.",
+   "editorial": "Editorial De las Indias",
+   "anio": 2006,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "deal-las-empresas-como-sistemas-culturales",
+   "titulo": "Las empresas como sistemas culturales",
+   "autor": "Deal, T. y Kennedy, A.",
+   "editorial": "Sudamericana",
+   "anio": 1985,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0912",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "del-castillo-zayas-resumenes-documentales",
+   "titulo": "Resúmenes documentales",
+   "autor": "Del Castillo Zayas, Yulennys M.",
+   "editorial": "Alfagrama",
+   "anio": 2009,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "demonte-estudios-de-linguistica-de-espana-y-mexico",
+   "titulo": "Estudios de lingüística de España y México",
+   "autor": "Demonte, V. y Garza Cuarón, B.",
+   "editorial": "Universidad de México",
+   "anio": 1990,
+   "tema": "Norma y corrección",
+   "materias": [
+    {
+     "c": "0911",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "di-tullio-manual-de-gramatica-del-espanol",
+   "titulo": "Manual de gramática del español",
+   "autor": "Di Tullio, A.",
+   "editorial": "Edicial",
+   "anio": 1997,
+   "tema": "Norma y corrección",
+   "materias": [
+    {
+     "c": "0911",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "dickey-como-elaborar-un-presupuesto",
+   "titulo": "Cómo elaborar un presupuesto",
+   "autor": "Dickey, Ferry",
+   "editorial": "Grupo Editorial Iberoamérica",
+   "anio": 1994,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0909",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "dobruskin-periodistas-en-debate-aportes-al-estudio-del-campo",
+   "titulo": "Periodistas en Debate. Aportes al estudio del campo periodístico",
+   "autor": "Dobruskin, Mauro",
+   "editorial": "Ediciones Imago Mundi",
+   "anio": 2021,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0922",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "dreyfus-diccionario-de-la-edicion-y-de-las-artes-graficas",
+   "titulo": "Diccionario de la edición y de las artes gráficas",
+   "autor": "Dreyfus, J. y Richaudeau, F.",
+   "editorial": "",
+   "anio": null,
+   "tema": "Norma y corrección",
+   "materias": [
+    {
+     "c": "0905",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "ducrot-el-decir-y-lo-dicho",
+   "titulo": "El decir y lo dicho",
+   "autor": "Ducrot, O.",
+   "editorial": "Paidós",
+   "anio": 1984,
+   "tema": "Norma y corrección",
+   "materias": [
+    {
+     "c": "0911",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "d-adamo-medios-de-comunicacion-y-opinion-publica",
+   "titulo": "Medios de comunicación y opinión pública",
+   "autor": "D´adamo, O., Beaudoux, V.G. y Freidenberg, F.",
+   "editorial": "Mc Graw Hill",
+   "anio": 2007,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0922",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "diaz-celada-del-diseno-a-la-experiencia-editorial",
+   "titulo": "Del diseño a la experiencia editorial",
+   "autor": "Díaz Celada, A.",
+   "editorial": "Facultad de Arquitectura y Diseño, Universidad del Itsmo",
+   "anio": 2018,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0917",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "eco-apocalipticos-e-integrados",
+   "titulo": "Apocalípticos e integrados",
+   "autor": "Eco, U.",
+   "editorial": "Lumen",
+   "anio": 1968,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "eiseman-armonia-cromatica-edicion-pantone",
+   "titulo": "Armonía cromática edición Pantone",
+   "autor": "Eiseman, L.",
+   "editorial": "Naturart",
+   "anio": 2018,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0917",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "elam-sistemas-reticulares-principios-para-organizar-la-tipog",
+   "titulo": "Sistemas reticulares: principios para organizar la tipografía",
+   "autor": "Elam, K.",
+   "editorial": "Ed Gili",
+   "anio": 2010,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0917",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "ellison-tipografia-digital",
+   "titulo": "Tipografía digital",
+   "autor": "Ellison, A.",
+   "editorial": "Ed. Paidos",
+   "anio": 2008,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0917",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "emery-propiedad-intelectual-ley-11-723-comentada-anotada-y-c",
+   "titulo": "Propiedad Intelectual: Ley 11,723: Comentada, anotada y concordada con los Tratados Internacionales",
+   "autor": "Emery, M.A.",
+   "editorial": "Astrea",
+   "anio": 1999,
+   "tema": "Derechos y contratos",
+   "materias": [
+    {
+     "c": "0919",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "escandell-vidal-pragmatica",
+   "titulo": "Pragmática",
+   "autor": "Escandell Vidal, M.V., Amenós Pons, J. y Ahern, A.",
+   "editorial": "Akal",
+   "anio": 2020,
+   "tema": "Norma y corrección",
+   "materias": [
+    {
+     "c": "0911",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "escobar-sobrino-la-biblioteca-de-alejandria",
+   "titulo": "La biblioteca de Alejandría",
+   "autor": "Escobar Sobrino, Hipólito",
+   "editorial": "Gredos",
+   "anio": 2001,
+   "tema": "Derechos y contratos",
+   "materias": [
+    {
+     "c": "0919",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "espin-alba-contrato-de-edicion-literaria",
+   "titulo": "Contrato de edición literaria",
+   "autor": "Espin Alba, Isabel",
+   "editorial": "Comares",
+   "anio": 1994,
+   "tema": "Derechos y contratos",
+   "materias": [
+    {
+     "c": "0919",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "esteves-fros-manual-de-supervivencia-para-editores-del-siglo",
+   "titulo": "Manual de supervivencia para editores del siglo XXI",
+   "autor": "Esteves Fros, F.",
+   "editorial": "Eudeba",
+   "anio": 2014,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0916",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "esteves-la-edicion-de-libros-en-tiempos-de-cambio",
+   "titulo": "La edición de libros en tiempos de cambio",
+   "autor": "Esteves, F. y Piccolini, P.",
+   "editorial": "Paidós",
+   "anio": 2017,
+   "tema": "Norma y corrección",
+   "materias": [
+    {
+     "c": "0911",
+     "n": "compl"
+    },
+    {
+     "c": "0914",
+     "n": "obl"
+    },
+    {
+     "c": "0919",
+     "n": "obl"
+    },
+    {
+     "c": "0921",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "faga-como-conocer-y-manejar-sus-costos-para-tomar-decisiones",
+   "titulo": "Cómo conocer y manejar sus costos para tomar decisiones rentables",
+   "autor": "Faga, Héctor y Ramos Mejía, Mariano",
+   "editorial": "Cuadernos Granica",
+   "anio": 1997,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0909",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "faga-como-profundizar-en-el-analisis-de-sus-costos-para-toma",
+   "titulo": "Cómo profundizar en el análisis de sus costos para tomar mejores decisiones empresariales",
+   "autor": "Faga, Héctor y Ramos Mejía, Mariano",
+   "editorial": "Cuadernos Granica",
+   "anio": 2000,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0909",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "farro-el-libro-blanco-de-la-conversacion",
+   "titulo": "El libro blanco de la conversación",
+   "autor": "Farro, M. y Nigro, P.",
+   "editorial": "Biblos",
+   "anio": 2022,
+   "tema": "Norma y corrección",
+   "materias": [
+    {
+     "c": "0911",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "fawcett-intellectual-property-and-private-international-law",
+   "titulo": "Intellectual Property and Private International Law",
+   "autor": "Fawcett, J.J. y Torremans, P.",
+   "editorial": "",
+   "anio": 1998,
+   "tema": "Derechos y contratos",
+   "materias": [
+    {
+     "c": "0919",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "feather-communicating-knowledge-publishing-in-the-21st-centu",
+   "titulo": "Communicating knowledge: Publishing in the 21st century",
+   "autor": "Feather, John P.",
+   "editorial": "Saur",
+   "anio": 2003,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "ferla-y-groisman-el-medio-es-el-diseno",
+   "titulo": "El medio es el diseño",
+   "autor": "Ferla y Groisman",
+   "editorial": "Eudeba",
+   "anio": 1998,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "ferrater-noticias-de-libros",
+   "titulo": "Noticias de libros",
+   "autor": "Ferrater, Gabriel",
+   "editorial": "Península",
+   "anio": 2000,
+   "tema": "Historia del libro y la lectura",
+   "materias": [
+    {
+     "c": "0914",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "ferreiro-pasado-y-presente-de-los-verbos-leer-y-escribir",
+   "titulo": "Pasado y presente de los verbos leer y escribir",
+   "autor": "Ferreiro, Emilia",
+   "editorial": "Fondo de Cultura Económica",
+   "anio": 2001,
+   "tema": "Historia del libro y la lectura",
+   "materias": [
+    {
+     "c": "0902",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "ficsor-la-gestion-colectiva-del-derecho-de-autor-y-los-derec",
+   "titulo": "La gestión colectiva del derecho de autor y los derechos conexos",
+   "autor": "Ficsor, Mihály",
+   "editorial": "OMPI",
+   "anio": 2002,
+   "tema": "Derechos y contratos",
+   "materias": [
+    {
+     "c": "0919",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "finkelstein-una-introduccion-a-la-historia-del-libro",
+   "titulo": "Una introducción a la historia del libro",
+   "autor": "Finkelstein, David y McCleery, Alistair",
+   "editorial": "Paidós",
+   "anio": 2014,
+   "tema": "Historia del libro y la lectura",
+   "materias": [
+    {
+     "c": "0914",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "finquelievich-la-ciudad-y-sus-tics",
+   "titulo": "La ciudad y sus TICs",
+   "autor": "Finquelievich, S. y Schiavo, E.",
+   "editorial": "Universidad Nacional de Quilmes",
+   "anio": 1998,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "finquelievich-nuevas-tecnologias-en-la-ciudad-informacion-y",
+   "titulo": "Nuevas tecnologías en la ciudad: Información y comunicación en la cotidianeidad",
+   "autor": "Finquelievich, S., Vidal, A. y Karol, J.",
+   "editorial": "Centro Editor de América Latina",
+   "anio": 1992,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "fioravanti-diseno-y-reproduccion",
+   "titulo": "Diseño y reproducción",
+   "autor": "Fioravanti, G.",
+   "editorial": "G. Gili",
+   "anio": 1988,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0905",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "franco-como-escribir-para-la-web",
+   "titulo": "Cómo escribir para la web",
+   "autor": "Franco, G.",
+   "editorial": "Centro Knight para Periodismo en las Américas",
+   "anio": 2015,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0922",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "freeman-edicion-de-la-imagen-digital",
+   "titulo": "Edición de la imagen digital",
+   "autor": "Freeman, M.",
+   "editorial": "Blume",
+   "anio": 2014,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0917",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "freund-la-fotografia-como-documento-social",
+   "titulo": "La fotografía como documento social",
+   "autor": "Freund, Gisèle",
+   "editorial": "G. Gilli",
+   "anio": 1993,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0922",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "fundacion-espanola-para-la-ciencia-y-la-tecnologia-manual-de",
+   "titulo": "Manual de buenas prácticas en edición de revistas científicas",
+   "autor": "Fundación Española para la Ciencia y la Tecnología",
+   "editorial": "FECYT",
+   "anio": 2012,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "gamba-nuevo-diccionario-de-estudios-de-genero-y-feminismos",
+   "titulo": "Nuevo diccionario de estudios de género y feminismos",
+   "autor": "Gamba, Susana y Diz, Tania",
+   "editorial": "Biblos",
+   "anio": 2020,
+   "tema": "Teoría y análisis",
+   "materias": [
+    {
+     "c": "0913",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "garcia-negroni-curso-de-linguistica-general-antologia-anotad",
+   "titulo": "Curso de lingüística general. Antología anotada",
+   "autor": "García Negroni, M.M. y Ramírez Gelbes, S.",
+   "editorial": "Akal",
+   "anio": 2018,
+   "tema": "Norma y corrección",
+   "materias": [
+    {
+     "c": "0911",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "garcia-negroni-en-busca-del-espanol-correcto-respuestas-brev",
+   "titulo": "En busca del español correcto. Respuestas breves para dudas frecuentes",
+   "autor": "García Negroni, M.M.",
+   "editorial": "Waldhuter Editores",
+   "anio": 2018,
+   "tema": "Norma y corrección",
+   "materias": [
+    {
+     "c": "0911",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "garcia-negroni-para-escribir-bien-en-espanol-claves-para-una",
+   "titulo": "Para escribir bien en español. Claves para una corrección de estilo",
+   "autor": "García Negroni, M.M.",
+   "editorial": "Waldhuter editores",
+   "anio": 2016,
+   "tema": "Norma y corrección",
+   "materias": [
+    {
+     "c": "0911",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "garcia-libros-electronicos-y-contenidos-digitales-en-la-soci",
+   "titulo": "Libros electrónicos y contenidos digitales en la sociedad del conocimiento. Mercado, servicios y derechos",
+   "autor": "García, Cordón y otros",
+   "editorial": "Pirámide",
+   "anio": 2012,
+   "tema": "Derechos y contratos",
+   "materias": [
+    {
+     "c": "0917",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "garcia-el-ateneo-vida-y-obra-de-pedro-garcia",
+   "titulo": "El Ateneo. Vida y obra de Pedro García",
+   "autor": "García, Eustacio A.",
+   "editorial": "Dunken",
+   "anio": 2004,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0923",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "garza-mercado-normas-de-estilo-bibliografico-para-ensayos-se",
+   "titulo": "Normas de estilo bibliográfico para ensayos semestrales y tesis",
+   "autor": "Garza Mercado, Ario",
+   "editorial": "El Colegio de México",
+   "anio": 2000,
+   "tema": "Norma y corrección",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "geckeler-semantica-estructural-y-teoria-del-campo-lexico",
+   "titulo": "Semántica estructural y teoría del campo léxico",
+   "autor": "Geckeler, H.",
+   "editorial": "Gredos",
+   "anio": 1976,
+   "tema": "Norma y corrección",
+   "materias": [
+    {
+     "c": "0911",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "genette-umbrales",
+   "titulo": "Umbrales",
+   "autor": "Genette, Gérard",
+   "editorial": "Siglo XXI",
+   "anio": 2001,
+   "tema": "Historia del libro y la lectura",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "gettino-el-capital-de-la-cultura",
+   "titulo": "El capital de la cultura",
+   "autor": "Gettino, O.",
+   "editorial": "Ciccus",
+   "anio": 1999,
+   "tema": "Teoría y análisis",
+   "materias": [
+    {
+     "c": "0916",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "giammatteo-como-se-clasifican-las-palabras",
+   "titulo": "Cómo se clasifican las palabras",
+   "autor": "Giammatteo, M. y Albano, H.",
+   "editorial": "Littera Ediciones",
+   "anio": 2006,
+   "tema": "Norma y corrección",
+   "materias": [
+    {
+     "c": "0911",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "gibaldi-mla-style-manual-and-guide-to-scholarly-publishing",
+   "titulo": "MLA style manual and guide to scholarly publishing",
+   "autor": "Gibaldi, Joseph",
+   "editorial": "Modern Language Association",
+   "anio": 2008,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "gil-el-paradigma-digital-y-sostenible-del-libro",
+   "titulo": "El paradigma digital y sostenible del libro",
+   "autor": "Gil, Manuel y Rodríguez, Joaquín",
+   "editorial": "Trama editorial",
+   "anio": 2011,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "obl"
+    },
+    {
+     "c": "0921",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "gilli-diseno-organizativo-estructura-y-procesos",
+   "titulo": "Diseño organizativo. Estructura y procesos",
+   "autor": "Gilli, J.",
+   "editorial": "Granica",
+   "anio": 2007,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0916",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "gimenez-imiridizaldu-tipografia-en-pantalla-una-guia-para-di",
+   "titulo": "Tipografía en pantalla: una guía para diseñadores, editores, tipógrafos y estudiantes",
+   "autor": "Gimenez Imiridizaldu, D.",
+   "editorial": "Ed. Gili",
+   "anio": 2015,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0917",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "gimenez-toledo-edicion-academica-y-difusion-libro-abierto-en",
+   "titulo": "Edición académica y difusión. Libro abierto en Iberoamérica",
+   "autor": "Giménez Toledo, Elea y Córdoba Restrepo, Juan Felipe",
+   "editorial": "Editorial Universidad del Rosario - Editorial Comares",
+   "anio": 2018,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "gociol-mas-libros-para-mas-colecciones-del-centro-editor-de",
+   "titulo": "Más libros para más. Colecciones del Centro Editor de América Latina",
+   "autor": "Gociol, Judith",
+   "editorial": "Biblioteca Nacional",
+   "anio": 2007,
+   "tema": "Historia del libro y la lectura",
+   "materias": [
+    {
+     "c": "0923",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "goldstein-derecho-de-autor-y-sociedad-de-la-informacion",
+   "titulo": "Derecho de autor y sociedad de la información",
+   "autor": "Goldstein, Mabel",
+   "editorial": "La Rocca",
+   "anio": null,
+   "tema": "Derechos y contratos",
+   "materias": [
+    {
+     "c": "0919",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "gombrich-los-usos-de-las-imagenes",
+   "titulo": "Los usos de las imágenes",
+   "autor": "Gombrich, Ernst",
+   "editorial": "Fondo de Cultura Económica",
+   "anio": 2003,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0914",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "gonella-diseno-grafico-y-edicion-lo-que-debe-saber-un-editor",
+   "titulo": "Diseño gráfico y edición. Lo que debe saber un editor sobre diseño gráfico y viceversa",
+   "autor": "Gonella, J.",
+   "editorial": "",
+   "anio": null,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0905",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "gonzalez-historia-conjetural-del-periodismo-leyendo-el-diari",
+   "titulo": "Historia conjetural del periodismo. Leyendo el diario de ayer",
+   "autor": "González, Horacio",
+   "editorial": "Ediciones Colihue",
+   "anio": 2013,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0922",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "gottardello-impresion-offset",
+   "titulo": "Impresión offset",
+   "autor": "Gottardello, C. y M.",
+   "editorial": "Don Bosco",
+   "anio": null,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0905",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "graham-telecommunications-and-the-city-electronic-spaces-urb",
+   "titulo": "Telecommunications and the City. Electronic Spaces, Urban Places",
+   "autor": "Graham, S. y Marvin, S.",
+   "editorial": "Routledge",
+   "anio": 1996,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "greenhalgh-como-leer-un-articulo-cientifico-guia-basica-de-l",
+   "titulo": "Cómo leer un artículo científico: Guía básica de la medicina basada en las evidencias",
+   "autor": "Greenhalgh, T.",
+   "editorial": "Volpe/Fox; BMJ Books",
+   "anio": 2005,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "gubern-del-bisonte-a-la-realidad-virtual",
+   "titulo": "Del bisonte a la realidad virtual",
+   "autor": "Gubern, R.",
+   "editorial": "Anagrama",
+   "anio": 1996,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "gubern-metamorfosis-de-la-lectura",
+   "titulo": "Metamorfosis de la lectura",
+   "autor": "Gubern, R.",
+   "editorial": "Anagrama",
+   "anio": 2010,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "gudino-kieffer-losada-gonzalo-losada-el-editor-que-difundio",
+   "titulo": "Losada. Gonzalo Losada, el editor que difundió el libro argentino en el mundo",
+   "autor": "Gudiño Kieffer, Eduardo",
+   "editorial": "Dunken",
+   "anio": 2004,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0923",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "gomez-torrego-ejercicios-de-gramatica-normativa",
+   "titulo": "Ejercicios de gramática normativa",
+   "autor": "Gómez Torrego, L.",
+   "editorial": "Arco Libros",
+   "anio": 1996,
+   "tema": "Norma y corrección",
+   "materias": [
+    {
+     "c": "0911",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "gomez-torrego-la-impersonalidad-gramatical-descripcion-y-nor",
+   "titulo": "La impersonalidad gramatical: descripción y norma",
+   "autor": "Gómez Torrego, L.",
+   "editorial": "Arco Libros",
+   "anio": 1998,
+   "tema": "Norma y corrección",
+   "materias": [
+    {
+     "c": "0911",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "gomez-vieites-sistemas-de-informacion-herramientas-practicas",
+   "titulo": "Sistemas de información: herramientas prácticas para la gestión",
+   "autor": "Gómez Vieites, A. y Suárez Rey, C.",
+   "editorial": "Alfaomega",
+   "anio": 2010,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0916",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "gomez-produccion-y-mediacion-editorial-el-rol-social-y-cultu",
+   "titulo": "Producción y mediación editorial. El rol social y cultural de la edición como factor constitutivo de las sociedades contemporáneas",
+   "autor": "Gómez, M. G.",
+   "editorial": "MICA",
+   "anio": 2013,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0916",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "gomez-gestion-de-la-informacion-en-la-empresa-cultural-tecno",
+   "titulo": "Gestión de la información en la empresa cultural. Tecnologías y recursos para la edición",
+   "autor": "Gómez, M. y Kessler, C.",
+   "editorial": "Biblos",
+   "anio": 2019,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0916",
+     "n": "obl"
+    },
+    {
+     "c": "0917",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "gomez-edicion-en-construccion-los-estudios-editoriales-en-pe",
+   "titulo": "Edición en construcción. Los estudios editoriales en perspectiva social y cultural",
+   "autor": "Gómez, Martín G.",
+   "editorial": "Facultad de Filosofía y Letras (UBA)",
+   "anio": 2019,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0916",
+     "n": "obl"
+    },
+    {
+     "c": "0920",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "habermas-historia-y-critica-de-la-opinion-publica",
+   "titulo": "Historia y crítica de la opinión pública",
+   "autor": "Habermas, Jürguen",
+   "editorial": "G. Gilli",
+   "anio": 1991,
+   "tema": "Historia del libro y la lectura",
+   "materias": [
+    {
+     "c": "0922",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "han-en-el-enjambre",
+   "titulo": "En el enjambre",
+   "autor": "Han, B.",
+   "editorial": "Herder Editorial",
+   "anio": 2014,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "han-psicopolitica",
+   "titulo": "Psicopolítica",
+   "autor": "Han, Byung-Chul",
+   "editorial": "Herder",
+   "anio": 2014,
+   "tema": "Teoría y análisis",
+   "materias": [
+    {
+     "c": "0913",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "handscombe-el-jefe-de-producto",
+   "titulo": "El jefe de producto",
+   "autor": "Handscombe, Richard",
+   "editorial": "Mc. Graw Hill/Interamericana de España",
+   "anio": 1992,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0909",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "haraway-testigo-modesto-segundo-milenio-feminismo-y-tecnocie",
+   "titulo": "Testigo_modesto@segundo_milenio. Feminismo y tecnociencia",
+   "autor": "Haraway, Donna y Goodeve, Thyrza",
+   "editorial": "UOC",
+   "anio": 2004,
+   "tema": "Teoría y análisis",
+   "materias": [
+    {
+     "c": "0913",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "haraway-ciencia-cyborgs-y-mujeres-la-invencion-de-la-natural",
+   "titulo": "Ciencia, cyborgs y mujeres. La invención de la naturaleza",
+   "autor": "Haraway, Donna",
+   "editorial": "Cátedra",
+   "anio": 1995,
+   "tema": "Teoría y análisis",
+   "materias": [
+    {
+     "c": "0913",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "harting-ciencia-y-feminismo",
+   "titulo": "Ciencia y feminismo",
+   "autor": "Harting, Sandra",
+   "editorial": "Morata",
+   "anio": 1996,
+   "tema": "Teoría y análisis",
+   "materias": [
+    {
+     "c": "0913",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "haslam-creacion-diseno-y-produccion-de-libros",
+   "titulo": "Creación, diseño y producción de libros",
+   "autor": "Haslam, A.",
+   "editorial": "Blume",
+   "anio": 2007,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0905",
+     "n": "compl"
+    },
+    {
+     "c": "0917",
+     "n": "compl"
+    },
+    {
+     "c": "0920",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "haslam-tipografia-funcion-forma-y-diseno",
+   "titulo": "Tipografía: función, forma y diseño",
+   "autor": "Haslam, A.",
+   "editorial": "Ed. Gili",
+   "anio": 2003,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0917",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "heck-home-based-employment-and-family-life",
+   "titulo": "Home-Based Employment and Family Life",
+   "autor": "Heck, R., Owen, A. y Rowe, B.",
+   "editorial": "Auburn House",
+   "anio": 1995,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "heller-design-literacy-understanding-graphic-design",
+   "titulo": "Design literacy: understanding graphic design",
+   "autor": "Heller, Steven",
+   "editorial": "Allworth Press",
+   "anio": 2004,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0920",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "herrscher-planeamiento-sistemico",
+   "titulo": "Planeamiento sistémico",
+   "autor": "Herrscher, E. G.",
+   "editorial": "Macchi",
+   "anio": 2005,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0916",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "hobsbawn-la-era-de-la-revolucion",
+   "titulo": "La era de la revolución",
+   "autor": "Hobsbawn, Eric",
+   "editorial": "Crítica",
+   "anio": 1998,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0902",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "hooper-writing-reviews-for-readers-advisory",
+   "titulo": "Writing reviews for readers’ advisory",
+   "autor": "Hooper, Brad",
+   "editorial": "American Library Association",
+   "anio": 2010,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "human-rights-information-and-documentation-systems-huridocs",
+   "titulo": "Guías para registrar nombres de personas",
+   "autor": "Human Rights Information and Documentation Systems (HURIDOCS)",
+   "editorial": "Huridocs",
+   "anio": 2002,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "hummel-formas-y-formulas-de-tratamiento-en-el-mundo-hispano",
+   "titulo": "Formas y fórmulas de tratamiento en el mundo hispano",
+   "autor": "Hummel, M. et al.",
+   "editorial": "Colegio de México",
+   "anio": 2010,
+   "tema": "Norma y corrección",
+   "materias": [
+    {
+     "c": "0911",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "ibarra-guia-para-escribir-y-publicar-ebooks",
+   "titulo": "Guía para escribir y publicar eBooks",
+   "autor": "Ibarra, J.",
+   "editorial": "Createspace",
+   "anio": 2015,
+   "tema": "Historia del libro y la lectura",
+   "materias": [
+    {
+     "c": "0917",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "igarza-burbujas-de-ocio-nuevas-formas-de-consumo-cultural",
+   "titulo": "Burbujas de ocio: nuevas formas de consumo cultural",
+   "autor": "Igarza, R.",
+   "editorial": "La Crujía",
+   "anio": 2009,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "igarza-transmediaciones",
+   "titulo": "Transmediaciones",
+   "autor": "Igarza, R.",
+   "editorial": "La Crujía",
+   "anio": 2018,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0916",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "international-association-of-scientific-the-stm-report-an-ov",
+   "titulo": "The STM Report. An overview of scientific and scholarly publishing",
+   "autor": "International Association of Scientific, Technical and Medical Publishers (STM)",
+   "editorial": "STM",
+   "anio": 2018,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "international-council-for-science-icsu-guia-para-publicacion",
+   "titulo": "Guía para publicaciones científicas",
+   "autor": "International Council for Science (ICSU)",
+   "editorial": "ICSU",
+   "anio": 2001,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "invernizzi-los-libros-son-tuyos",
+   "titulo": "Los libros son tuyos",
+   "autor": "Invernizzi, Hernán",
+   "editorial": "Eudeba",
+   "anio": 2005,
+   "tema": "Historia del libro y la lectura",
+   "materias": [
+    {
+     "c": "0923",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "islas-lopez-analisis-y-diseno-de-sistemas",
+   "titulo": "Análisis y diseño de sistemas",
+   "autor": "Islas López, N.",
+   "editorial": "McGraw-Hill",
+   "anio": 2001,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0916",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "inigo-dehud-diseno-editorial-manual-de-conceptos-basicos",
+   "titulo": "Diseño editorial. Manual de conceptos básicos",
+   "autor": "Iñigo Dehud, L. y Makhlouf Akl, A.",
+   "editorial": "Universidad Autónoma del estado de Morelos",
+   "anio": 2014,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0917",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "jakobson-ensayos-de-linguistica-general",
+   "titulo": "Ensayos de lingüística general",
+   "autor": "Jakobson, R.",
+   "editorial": "Seix Barral",
+   "anio": 1981,
+   "tema": "Norma y corrección",
+   "materias": [
+    {
+     "c": "0911",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "jenkins-fans-blogueros-y-videojuegos-la-cultura-de-la-colabo",
+   "titulo": "Fans, blogueros y videojuegos: La cultura de la colaboración",
+   "autor": "Jenkins, H.",
+   "editorial": "Paidós",
+   "anio": 2009,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "jenkins-la-cultura-de-la-convergencia-de-los-medios-de-comun",
+   "titulo": "La cultura de la convergencia de los medios de comunicación",
+   "autor": "Jenkins, H.",
+   "editorial": "Paidós",
+   "anio": 2008,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "johannson-manual-de-produccion-grafica-recetas",
+   "titulo": "Manual de Producción Gráfica - Recetas",
+   "autor": "Johannson, K",
+   "editorial": "G. Gilli",
+   "anio": 2011,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0905",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "jubert-typography-and-graphic-design",
+   "titulo": "Typography and Graphic Design",
+   "autor": "Jubert, Roxane",
+   "editorial": "Flammarion",
+   "anio": 2006,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0920",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "julier-la-cultura-del-diseno",
+   "titulo": "La cultura del diseño",
+   "autor": "Julier, Guy",
+   "editorial": "Gustavo Gili",
+   "anio": 2010,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0920",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "karch-manual-de-artes-graficas",
+   "titulo": "Manual de artes gráficas",
+   "autor": "Karch, R.",
+   "editorial": "Trillas",
+   "anio": null,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0905",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "kerbrat-orecchioni-la-enunciacion-de-la-subjetividad-en-el-l",
+   "titulo": "La enunciación. De la subjetividad en el lenguaje",
+   "autor": "Kerbrat Orecchioni, C.",
+   "editorial": "Hachette",
+   "anio": 1986,
+   "tema": "Norma y corrección",
+   "materias": [
+    {
+     "c": "0911",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "kilomba-memorias-de-la-plantacion-episodios-de-racismo-cotid",
+   "titulo": "Memorias de la plantación. Episodios de racismo cotidiano",
+   "autor": "Kilomba, Grada",
+   "editorial": "Tinta Limón",
+   "anio": 2023,
+   "tema": "Teoría y análisis",
+   "materias": [
+    {
+     "c": "0913",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "klastorin-administracion-de-proyectos",
+   "titulo": "Administración de proyectos",
+   "autor": "Klastorin, T.",
+   "editorial": "Alfaomega",
+   "anio": 2005,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0916",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "koltergan-arte-y-tecnica-de-la-impresion",
+   "titulo": "Arte y técnica de la impresión",
+   "autor": "Koltergán, G.",
+   "editorial": "Ateneo",
+   "anio": 1990,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0905",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "koontz-administracion",
+   "titulo": "Administración",
+   "autor": "Koontz, H. y Weihrich, H.",
+   "editorial": "McGraw-Hill",
+   "anio": 1994,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0916",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "kovacci-el-comentario-gramatical-ii",
+   "titulo": "El comentario gramatical II",
+   "autor": "Kovacci, O.",
+   "editorial": "Arco Libros",
+   "anio": 1992,
+   "tema": "Norma y corrección",
+   "materias": [
+    {
+     "c": "0911",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "la-ferla-la-revolucion-del-video",
+   "titulo": "La revolución del video",
+   "autor": "La Ferla, J.",
+   "editorial": "Eudeba",
+   "anio": 1996,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "lacruz-montecon-las-obligaciones-del-editor-en-el-contrato-d",
+   "titulo": "Las obligaciones del editor en el contrato de edición",
+   "autor": "Lacruz Montecon, Miguel L.",
+   "editorial": "Reus",
+   "anio": 2000,
+   "tema": "Derechos y contratos",
+   "materias": [
+    {
+     "c": "0919",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "lahire-sociologia-de-la-lectura",
+   "titulo": "Sociología de la lectura",
+   "autor": "Lahire, Bernard",
+   "editorial": "Gedisa",
+   "anio": 2004,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0914",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "lancaster-indizacion-y-resumenes-teoria-y-practica",
+   "titulo": "Indización y resúmenes: teoría y práctica",
+   "autor": "Lancaster, Frederick W.",
+   "editorial": "EB Publicaciones",
+   "anio": 1996,
+   "tema": "Traducción",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "landow-hipertexto-la-convergencia-de-la-teoria-critica-conte",
+   "titulo": "Hipertexto: la convergencia de la teoría crítica contemporánea y la tecnología",
+   "autor": "Landow, G.",
+   "editorial": "Paidós",
+   "anio": 1995,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "lang-formacion-de-palabras-en-espanol",
+   "titulo": "Formación de palabras en español",
+   "autor": "Lang, M.",
+   "editorial": "Cátedra",
+   "anio": 1992,
+   "tema": "Norma y corrección",
+   "materias": [
+    {
+     "c": "0911",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "lash-critica-de-la-informacion",
+   "titulo": "Crítica de la información",
+   "autor": "Lash, Scott",
+   "editorial": "Amorrortu",
+   "anio": 2005,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "laudon-sistemas-de-informacion-gerencial",
+   "titulo": "Sistemas de información gerencial",
+   "autor": "Laudon, K. C. y Laudon, J. P.",
+   "editorial": "Pearson",
+   "anio": 2012,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0916",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "laudon-e-commerce",
+   "titulo": "E-commerce",
+   "autor": "Laudon, K. y Guercio Travel, C.",
+   "editorial": "Pearson",
+   "anio": 2014,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0918",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "leal-jimenez-manual-de-marketing-y-comunicacion-cultural",
+   "titulo": "Manual de marketing y comunicación cultural",
+   "autor": "Leal Jiménez, A. y Quero Gervilla, M. J.",
+   "editorial": "Universidad de Cádiz",
+   "anio": 2011,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0916",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "lebert-una-corta-historia-del-ebook",
+   "titulo": "Una corta historia del ebook",
+   "autor": "Lebert, M.",
+   "editorial": "Universidad de Toronto",
+   "anio": 2009,
+   "tema": "Traducción",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "lecinski-ganar-en-el-momento-cero-de-la-verdad",
+   "titulo": "Ganar en el momento cero de la verdad",
+   "autor": "Lecinski, J.",
+   "editorial": "Google",
+   "anio": 2011,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "leiva-cabanillas-patrimonio-humano-ni-recurso-ni-capital",
+   "titulo": "Patrimonio Humano, ni recurso ni capital",
+   "autor": "Leiva Cabanillas, J. y Núñez, J. V.",
+   "editorial": "Althaea",
+   "anio": 2013,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0912",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "lerner-adolescentes-jovenes-nuevos-horizontes-escuchar-inter",
+   "titulo": "Adolescentes jóvenes: Nuevos horizontes. Escuchar, interrogar, pensar",
+   "autor": "Lerner, H.",
+   "editorial": "",
+   "anio": 2015,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "levine-estadistica-para-administracion",
+   "titulo": "Estadística para administración",
+   "autor": "Levine, D., Krehbiel, T. y Berenson, M.",
+   "editorial": "Pearson",
+   "anio": 2006,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0916",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "leon-papeles-sobre-el-papel",
+   "titulo": "Papeles sobre el papel",
+   "autor": "León, R.",
+   "editorial": "Universidad de Málaga",
+   "anio": 1996,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0905",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "lipszyc-derecho-de-autor-y-derecho-conexos",
+   "titulo": "Derecho de autor y derecho conexos",
+   "autor": "Lipszyc, Delia",
+   "editorial": "UNESCO-CERLALC-Zavalía",
+   "anio": 1993,
+   "tema": "Derechos y contratos",
+   "materias": [
+    {
+     "c": "0919",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "lipszyc-nuevos-temas-de-derecho-de-autor-y-derechos-conexos",
+   "titulo": "Nuevos temas de derecho de autor y derechos conexos",
+   "autor": "Lipszyc, Delia",
+   "editorial": "UNESCO-CERLALC-Zavalía",
+   "anio": 2004,
+   "tema": "Derechos y contratos",
+   "materias": [
+    {
+     "c": "0919",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "longoni-el-siluetazo",
+   "titulo": "El Siluetazo",
+   "autor": "Longoni, Ana y Bruzzone, Gustavo",
+   "editorial": "Adriana Hidalgo",
+   "anio": 2008,
+   "tema": "Teoría y análisis",
+   "materias": [
+    {
+     "c": "0913",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "lopez-tarrauela-martinez-contratos-internacionales-de-softwa",
+   "titulo": "Contratos internacionales de software",
+   "autor": "Lopez-Tarrauela Martinez, Aurelio",
+   "editorial": "Tirant Lo Blanch",
+   "anio": 2006,
+   "tema": "Derechos y contratos",
+   "materias": [
+    {
+     "c": "0919",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "lutz-reading-national-geographic",
+   "titulo": "Reading National Geographic",
+   "autor": "Lutz, Catherine A. y Collins, Jane L.",
+   "editorial": "The University of Chicago Press",
+   "anio": 1993,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0914",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "lynn-como-preparar-disenos-para-la-imprenta",
+   "titulo": "Cómo preparar diseños para la imprenta",
+   "autor": "Lynn, J.",
+   "editorial": "G. Gili",
+   "anio": 1995,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0905",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "lopez-garcia-historia-economica-de-la-empresa",
+   "titulo": "Historia económica de la empresa",
+   "autor": "López García, S. y Valdaliso, J.",
+   "editorial": "Editorial Crítica",
+   "anio": 2008,
+   "tema": "Historia del libro y la lectura",
+   "materias": [
+    {
+     "c": "0916",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "lopez-llovet-sudamericana-antonio-lopez-llausas-un-editor-co",
+   "titulo": "Sudamericana. Antonio López Llausás, un editor con los pies en la tierra",
+   "autor": "López Llovet, Gloria",
+   "editorial": "Dunken",
+   "anio": 2004,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0923",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "magal-royo-preproduccion-multimedia",
+   "titulo": "Preproducción multimedia",
+   "autor": "Magal Royo, T.",
+   "editorial": "Universidad Politécnica de Valencia",
+   "anio": 2006,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0917",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "magarinos-de-morentin-el-mensaje-publicitario",
+   "titulo": "El mensaje publicitario",
+   "autor": "Magariños de Morentín, Juan A.",
+   "editorial": "Edicial",
+   "anio": 1991,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0922",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "mangada-sanz-calculo-editorial",
+   "titulo": "Cálculo editorial",
+   "autor": "Mangada Sanz, A.",
+   "editorial": "Paraninfo",
+   "anio": 1988,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0905",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "mangada-sanz-calculo-editorial-fundamentos-economicos-de-la",
+   "titulo": "Cálculo editorial. Fundamentos económicos de la edición",
+   "autor": "Mangada Sanz, Alfonso",
+   "editorial": "Pirámide",
+   "anio": 1998,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0909",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "mangieri-es-rigurosamente-cierto",
+   "titulo": "Es rigurosamente cierto",
+   "autor": "Mangieri, José Luis",
+   "editorial": "Libros del Rojas",
+   "anio": 2004,
+   "tema": "Historia del libro y la lectura",
+   "materias": [
+    {
+     "c": "0923",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "manjarrez-de-la-vega-diseno-editorial",
+   "titulo": "Diseño editorial",
+   "autor": "Manjarrez de la Vega, J.",
+   "editorial": "",
+   "anio": 2015,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0917",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "manovich-el-lenguaje-de-los-nuevos-medios-de-comunicacion-la",
+   "titulo": "El lenguaje de los nuevos medios de comunicación. La imagen en la era digital",
+   "autor": "Manovich, L.",
+   "editorial": "Paidós",
+   "anio": 2006,
+   "tema": "Norma y corrección",
+   "materias": [
+    {
+     "c": "0917",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "maradei-administracion-editorial-herramientas-utiles",
+   "titulo": "Administración Editorial: herramientas útiles",
+   "autor": "Maradei, Pablo",
+   "editorial": "FFyL",
+   "anio": 2022,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0909",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "march-tipografia-creativa",
+   "titulo": "Tipografía creativa",
+   "autor": "March, M.",
+   "editorial": "Ed. Gili",
+   "anio": 2003,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0917",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "marco-introduccion-a-la-gestion-y-administracion-en-las-orga",
+   "titulo": "Introducción a la gestión y administración en las organizaciones",
+   "autor": "Marcó, F., Loguzzo, H. A. y Fedi, J. L.",
+   "editorial": "Universidad Nacional Arturo Jauretche",
+   "anio": 2016,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0916",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "martini-periodismo-noticia-y-noticiabilidad",
+   "titulo": "Periodismo, noticia y noticiabilidad",
+   "autor": "Martini, Stella",
+   "editorial": "Norma",
+   "anio": 2000,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0922",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "martin-artes-graficas-introduccion-general",
+   "titulo": "Artes gráficas: introducción general",
+   "autor": "Martín, E.",
+   "editorial": "G. Gili",
+   "anio": null,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0905",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "martin-como-se-hace-un-libro-proceso-de-realizacion-grafica",
+   "titulo": "Cómo se hace un libro. Proceso de realización gráfica",
+   "autor": "Martín, E.",
+   "editorial": "Don Bosco",
+   "anio": null,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0905",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "martin-la-composicion-en-las-artes-graficas",
+   "titulo": "La composición en las artes gráficas",
+   "autor": "Martín, E.",
+   "editorial": "Don Bosco",
+   "anio": null,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0905",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "martinez-arellano-organizacion-de-la-informacion-con-rda-su",
+   "titulo": "Organización de la información con RDA: su presencia en los catálogos de bibliotecas de América Latina",
+   "autor": "Martínez Arellano, Filiberto Felipe",
+   "editorial": "UNAM",
+   "anio": 2020,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "martinez-de-sousa-diccionario-de-redaccion-y-estilo",
+   "titulo": "Diccionario de redacción y estilo",
+   "autor": "Martínez de Sousa, J.",
+   "editorial": "Pirámide",
+   "anio": 1997,
+   "tema": "Norma y corrección",
+   "materias": [
+    {
+     "c": "0911",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "martinez-de-sousa-diccionario-de-uso-de-las-mayusculas-y-min",
+   "titulo": "Diccionario de uso de las mayúsculas y minúsculas",
+   "autor": "Martínez de Sousa, J.",
+   "editorial": "Trea",
+   "anio": 2007,
+   "tema": "Norma y corrección",
+   "materias": [
+    {
+     "c": "0911",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "martinez-de-sousa-diccionario-de-usos-y-dudas-del-espanol-ac",
+   "titulo": "Diccionario de usos y dudas del español actual",
+   "autor": "Martínez de Sousa, J.",
+   "editorial": "Vox",
+   "anio": 1998,
+   "tema": "Norma y corrección",
+   "materias": [
+    {
+     "c": "0911",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "martinez-elebi-impactos-sociales-de-la-inteligencia-artifici",
+   "titulo": "Impactos sociales de la inteligencia artificial. Poniendo el foco sobre Argentina",
+   "autor": "Martínez Elebi, C.",
+   "editorial": "Fundación Vía Libre",
+   "anio": 2019,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0916",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "martinez-meave-ensayos-sobre-diseno-tipografia-y-lenguaje",
+   "titulo": "Ensayos sobre diseño, tipografía y lenguaje",
+   "autor": "Martínez Meave, G.",
+   "editorial": "Nobuko",
+   "anio": 2005,
+   "tema": "Norma y corrección",
+   "materias": [
+    {
+     "c": "0905",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "martinez-rodriguez-como-buscar-y-usar-informacion-cientifica",
+   "titulo": "Cómo buscar y usar información científica: Guía para estudiantes universitarios 2016",
+   "autor": "Martínez Rodríguez, Luis J.",
+   "editorial": "Universidad de Cantabria",
+   "anio": 2016,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "mastrini-medios-en-guerra-balance-critica-y-desguace-de-las",
+   "titulo": "Medios en guerra. Balance, crítica y desguace de las políticas de comunicación 2003-2016",
+   "autor": "Mastrini, G. y Becerra, M.",
+   "editorial": "Editorial Biblos",
+   "anio": 2017,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0922",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "mattelart-la-mundializacion-de-la-comunicacion",
+   "titulo": "La mundialización de la comunicación",
+   "autor": "Mattelart, Armand",
+   "editorial": "Paidós",
+   "anio": 1998,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0922",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "maunas-boris-spivacow-memoria-de-un-sueno-argentino",
+   "titulo": "Boris Spivacow. Memoria de un sueño argentino",
+   "autor": "Maunás, Delia",
+   "editorial": "Colihue",
+   "anio": 1995,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0923",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "mc-luhan-el-medio-es-el-masaje-un-inventario-de-efectos",
+   "titulo": "El medio es el masaje. Un inventario de efectos",
+   "autor": "Mc Luhan, M. y Fiore, Q.",
+   "editorial": "La Marca Editora",
+   "anio": 2015,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "mc-luhan-la-galaxia-gutenberg",
+   "titulo": "La galaxia Gutenberg",
+   "autor": "Mc Luhan, M.",
+   "editorial": "Paidós",
+   "anio": 1994,
+   "tema": "Historia del libro y la lectura",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "mckenzie-bibliografia-y-sociologia-de-los-textos",
+   "titulo": "Bibliografía y sociología de los textos",
+   "autor": "McKenzie, Donald",
+   "editorial": "Akal",
+   "anio": 2005,
+   "tema": "Teoría y análisis",
+   "materias": [
+    {
+     "c": "0914",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "mcluhan-la-galaxia-gutenberg-genesis-el-homo-typographicus",
+   "titulo": "La galaxia Gutenberg. Génesis el homo typographicus",
+   "autor": "McLuhan, Marchall",
+   "editorial": "Galaxia Gutenberg",
+   "anio": 1998,
+   "tema": "Historia del libro y la lectura",
+   "materias": [
+    {
+     "c": "0919",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "meyrowitz-no-sense-of-place",
+   "titulo": "No Sense of Place",
+   "autor": "Meyrowitz, J.",
+   "editorial": "Oxford University Press",
+   "anio": 1985,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "mintzberg-la-estructuracion-de-las-organizaciones",
+   "titulo": "La estructuración de las organizaciones",
+   "autor": "Mintzberg, H.",
+   "editorial": "Paidós",
+   "anio": 2005,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0916",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "mintzberg-diseno-de-las-organizaciones-eficientes",
+   "titulo": "Diseño de las organizaciones eficientes",
+   "autor": "Mintzberg, Henry",
+   "editorial": "El Ateneo",
+   "anio": 2001,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0909",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "mitchell-city-of-bits",
+   "titulo": "City of Bits",
+   "autor": "Mitchell, J. Williams",
+   "editorial": "MIT Press",
+   "anio": 1996,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "mocciaro-presupuesto-integrado",
+   "titulo": "Presupuesto integrado",
+   "autor": "Mocciaro, O.",
+   "editorial": "Macchi",
+   "anio": 1992,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0916",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "mochon-administracion-enfoque-por-competencias-con-casos-lat",
+   "titulo": "Administración. Enfoque por competencias con casos latinoamericanos",
+   "autor": "Mochón, F., Mochón, M. C. y Sáez, M.",
+   "editorial": "Alfaomega",
+   "anio": 2014,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0916",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "mochon-economia-principios-y-aplicaciones",
+   "titulo": "Economía: principios y aplicaciones",
+   "autor": "Mochón, Francisco y Becker, Víctor",
+   "editorial": "McGraw Hill",
+   "anio": 2008,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0909",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "moliner-diccionario-de-uso-del-espanol",
+   "titulo": "Diccionario de uso del español",
+   "autor": "Moliner, M.",
+   "editorial": "Gredos",
+   "anio": 1984,
+   "tema": "Norma y corrección",
+   "materias": [
+    {
+     "c": "0911",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "monmonier-mapping-it-out-expository-cartography-for-the-huma",
+   "titulo": "Mapping It Out. Expository Cartography for the Humanities and the Social Sciences",
+   "autor": "Monmonier, Mark",
+   "editorial": "",
+   "anio": 1993,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0914",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "moreiro-gonzalez-el-contenido-de-los-documentos-textuales",
+   "titulo": "El contenido de los documentos textuales",
+   "autor": "Moreiro González, José A.",
+   "editorial": "Trea",
+   "anio": 2004,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "moreno-black-out",
+   "titulo": "Black out",
+   "autor": "Moreno, María",
+   "editorial": "Random House",
+   "anio": 2016,
+   "tema": "Teoría y análisis",
+   "materias": [
+    {
+     "c": "0913",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "mosouye-guia-del-convenio-de-berna",
+   "titulo": "Guía del Convenio de Berna",
+   "autor": "Mosouye, Claude",
+   "editorial": "OMPI",
+   "anio": 1978,
+   "tema": "Derechos y contratos",
+   "materias": [
+    {
+     "c": "0919",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "muchnik-aquel-periodismo-politica-medios-y-periodistas-en-la",
+   "titulo": "Aquel periodismo. Política, medios y periodistas en la Argentina 1965-2012",
+   "autor": "Muchnik, Daniel",
+   "editorial": "Edhasa",
+   "anio": 2013,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0922",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "muller-brockman-sistemas-de-reticulas",
+   "titulo": "Sistemas de retículas",
+   "autor": "Muller-Brockman, J.",
+   "editorial": "Ed. Gili",
+   "anio": 2012,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0917",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "munarriz-ortiz-imagen-digital",
+   "titulo": "Imagen digital",
+   "autor": "Munarriz Ortiz, J.",
+   "editorial": "Tursen",
+   "anio": 2010,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0917",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "murduchowicz-adolescentes-participacion-y-ciudadania-digital",
+   "titulo": "Adolescentes, participación y ciudadanía digital",
+   "autor": "Murduchowicz, R.",
+   "editorial": "Fondo de Cultura Económica",
+   "anio": 2021,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "murduchowicz-como-se-informan-los-adolescentes-en-la-era-dig",
+   "titulo": "Cómo se informan los adolescentes en la era digital",
+   "autor": "Murduchowicz, R.",
+   "editorial": "Penguin Random House Grupo Editorial",
+   "anio": 2018,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "murra-hamlet-en-la-holocubierta-el-futuro-de-la-narrativa-en",
+   "titulo": "Hamlet en la holocubierta: el futuro de la narrativa en el ciberespacio",
+   "autor": "Murra, J.",
+   "editorial": "Paidós",
+   "anio": 1999,
+   "tema": "Teoría y análisis",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "navarro-manual-de-escritura-para-carreras-de-humanidades",
+   "titulo": "Manual de escritura para carreras de humanidades",
+   "autor": "Navarro, Federico",
+   "editorial": "Editorial de la Facultad de Filosofía y Letras. Universidad de Buenos Aires",
+   "anio": 2014,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "navas-navarro-contratos-de-merchandising-y-propiedad-intelec",
+   "titulo": "Contratos de merchandising y propiedad intelectual",
+   "autor": "Navas Navarro, Susana",
+   "editorial": "Reus",
+   "anio": 2001,
+   "tema": "Derechos y contratos",
+   "materias": [
+    {
+     "c": "0919",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "negroni-el-arte-de-escribir-bien-en-espanol-manual-de-correc",
+   "titulo": "El arte de escribir bien en español. Manual de corrección de estilo",
+   "autor": "Negroni, M. M.",
+   "editorial": "Santiago Arcos",
+   "anio": 2006,
+   "tema": "Norma y corrección",
+   "materias": [
+    {
+     "c": "0912",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "neri-bytes-y-papel",
+   "titulo": "Bytes y papel",
+   "autor": "Neri, C.",
+   "editorial": "Editando Lo Digital",
+   "anio": 2002,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "neri-leer-escribir-y-compartir-mas-alla-de-los-temores-de-la",
+   "titulo": "Leer, escribir y compartir: Más allá de los temores de las industrias culturales",
+   "autor": "Neri, C.",
+   "editorial": "Biblos",
+   "anio": 2012,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "neri-no-todo-es-click",
+   "titulo": "No todo es click",
+   "autor": "Neri, C.",
+   "editorial": "Libros y Bytes",
+   "anio": 2005,
+   "tema": "Historia del libro y la lectura",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "nielsen-manual-de-lectura-facil-como-escribir-textos-accesib",
+   "titulo": "Manual de lectura fácil. Cómo escribir textos accesibles para personas con dificultades lectoras",
+   "autor": "Nielsen, Clara",
+   "editorial": "EUDEBA",
+   "anio": 2022,
+   "tema": "Historia del libro y la lectura",
+   "materias": [
+    {
+     "c": "0920",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "nielsen-homepage-usability-50-websites-deconstructed",
+   "titulo": "Homepage Usability: 50 Websites Deconstructed",
+   "autor": "Nielsen, J.",
+   "editorial": "New Riders Publishing",
+   "anio": 2001,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "nunberg-el-futuro-del-libro",
+   "titulo": "El futuro del libro",
+   "autor": "Nunberg, G.",
+   "editorial": "Paidós",
+   "anio": 1998,
+   "tema": "Historia del libro y la lectura",
+   "materias": [
+    {
+     "c": "0920",
+     "n": "compl"
+    },
+    {
+     "c": "0921",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "nunberg-el-futuro-del-libro-esto-matara-eso",
+   "titulo": "El futuro del libro. ¿Esto matará eso?",
+   "autor": "Nunberg, Geoffrey",
+   "editorial": "Paidós",
+   "anio": 1998,
+   "tema": "Historia del libro y la lectura",
+   "materias": [
+    {
+     "c": "0902",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "olarra-jimenez-espasa-calpe-manuel-olarra-un-editor-con-voca",
+   "titulo": "Espasa-Calpe. Manuel Olarra, un editor con vocación hispanoamericana",
+   "autor": "Olarra Jiménez, Rafael",
+   "editorial": "Dunken",
+   "anio": 2003,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0923",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "olson-el-mundo-sobre-el-papel-el-impacto-de-la-escritura-y-l",
+   "titulo": "El mundo sobre el papel. El impacto de la escritura y la lectura en la estructura del conocimiento",
+   "autor": "Olson, David",
+   "editorial": "Gedisa",
+   "anio": 1998,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0914",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "organisation-for-economic-co-operation-and-development-oecd",
+   "titulo": "Digital Broadband Content: Scientific Publishing",
+   "autor": "Organisation for Economic Co-operation and Development (OECD)",
+   "editorial": "OECD",
+   "anio": 2005,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "orihuela-introduccion-al-diseno-digital",
+   "titulo": "Introducción al diseño digital",
+   "autor": "Orihuela, J. y Santos, M.",
+   "editorial": "Anaya",
+   "anio": 1999,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "o-connor-the-scientist-as-editor-guidelines-for-editors-of-b",
+   "titulo": "The scientist as editor: guidelines for editors of books and journals",
+   "autor": "O’Connor, Maeve",
+   "editorial": "Wiley",
+   "anio": 1979,
+   "tema": "Derechos y contratos",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "paolazzi-huecograbado",
+   "titulo": "Huecograbado",
+   "autor": "Paolazzi, M.",
+   "editorial": "Don Bosco",
+   "anio": null,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0905",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "papert-la-familia-conectada",
+   "titulo": "La familia conectada",
+   "autor": "Papert, S.",
+   "editorial": "Emece",
+   "anio": 1997,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "pardo-kuklinski-geekonomia-un-radar-para-producir-en-el-post",
+   "titulo": "Geekonomía: Un radar para producir en el postdigitalismo",
+   "autor": "Pardo Kuklinski, H.",
+   "editorial": "Laboratori de Mitjans Interactius / Publicacions i Edicions de la Universitat de Barcelona",
+   "anio": 2010,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "pain-como-evaluar-las-acciones-de-capacitacion",
+   "titulo": "Cómo evaluar las acciones de capacitación",
+   "autor": "Paín, A.",
+   "editorial": "Granica",
+   "anio": 1993,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0912",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "pellegrino-del-clic-al-tap",
+   "titulo": "Del clic al tap",
+   "autor": "Pellegrino, M.",
+   "editorial": "LID Editorial",
+   "anio": 2020,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "pelta-disenar-hoy-temas-contemporaneos-de-diseno-grafico",
+   "titulo": "Diseñar Hoy. Temas contemporáneos de diseño gráfico",
+   "autor": "Pelta, Raquel",
+   "editorial": "Paidós",
+   "anio": 2004,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0920",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "pensato-manuale-di-bibliografia",
+   "titulo": "Manuale di bibliografia",
+   "autor": "Pensato, Rino",
+   "editorial": "Editrice Bibliografica",
+   "anio": 2007,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "petit-nuevos-acercamientos-a-los-jovenes-y-la-lectura",
+   "titulo": "Nuevos acercamientos a los jóvenes y la lectura",
+   "autor": "Petit, Michèle",
+   "editorial": "Fondo de Cultura Económica",
+   "anio": 1999,
+   "tema": "Historia del libro y la lectura",
+   "materias": [
+    {
+     "c": "0914",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "pena-lillo-memoria-de-papel",
+   "titulo": "Memoria de papel",
+   "autor": "Peña Lillo, Arturo",
+   "editorial": "Continente",
+   "anio": 2005,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0923",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "pimentel-manual-del-editor",
+   "titulo": "Manual del editor",
+   "autor": "Pimentel, Manuel",
+   "editorial": "Berenice",
+   "anio": 2007,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "pinto-analisis-documental-de-contenido",
+   "titulo": "Análisis documental de contenido",
+   "autor": "Pinto, María y Gálvez, Carmen",
+   "editorial": "Síntesis",
+   "anio": 1999,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "pinto-aprendiendo-a-resumir-prontuario-y-resolucion-de-casos",
+   "titulo": "Aprendiendo a resumir: prontuario y resolución de casos",
+   "autor": "Pinto, María",
+   "editorial": "Trea",
+   "anio": 2005,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "pinto-el-resumen-documental-paradigmas-modelos-y-metodos",
+   "titulo": "El resumen documental: paradigmas, modelos y métodos",
+   "autor": "Pinto, María",
+   "editorial": "Fundación Germán Sánchez Ruipérez",
+   "anio": 2001,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "piola-caselli-codice-del-diritto-di-autore",
+   "titulo": "Codice del Diritto di Autore",
+   "autor": "Piola Caselli, Eduardo",
+   "editorial": "Unione Tipografico-Edititrice Torinese",
+   "anio": 1943,
+   "tema": "Derechos y contratos",
+   "materias": [
+    {
+     "c": "0919",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "pipkin-practicas-de-lectura-y-escritura-academicas",
+   "titulo": "Prácticas de lectura y escritura académicas",
+   "autor": "Pipkin, Mabel y Reynoso, Marcela",
+   "editorial": "Comunic-Arte",
+   "anio": 2010,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "piscitelli-innovacion-y-barbarie-verbos-para-entender-la-com",
+   "titulo": "Innovación y barbarie. Verbos para entender la complejidad",
+   "autor": "Piscitelli, A. y Alonso, J.",
+   "editorial": "Fundació per a la Universitat Oberta de Catalunya",
+   "anio": 2020,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0912",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "ponjuan-dante-gestion-de-informacion-en-las-organizaciones-p",
+   "titulo": "Gestión de información en las organizaciones: principios, conceptos y aplicaciones",
+   "autor": "Ponjuán Dante, G.",
+   "editorial": "CECAPI",
+   "anio": 1998,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0916",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "porter-lo-esencial-en-la-gestion-empresarial",
+   "titulo": "Lo esencial en la gestión empresarial",
+   "autor": "Porter, M. E.",
+   "editorial": "Harvard Business Review Press",
+   "anio": 2016,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0916",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "press-el-diseno-como-experiencia-el-papel-del-diseno-y-los-d",
+   "titulo": "El diseño como experiencia. El papel del diseño y los diseñadores en el siglo XXI",
+   "autor": "Press, Mike y Cooper, Rachel",
+   "editorial": "Gustavo Gili",
+   "anio": 2007,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0920",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "project-management-institute-fundamentos-para-la-direccion-d",
+   "titulo": "Fundamentos para la dirección de proyectos",
+   "autor": "Project Management Institute",
+   "editorial": "",
+   "anio": 2017,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0916",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "puglisi-sopraccoperta",
+   "titulo": "Sopraccoperta",
+   "autor": "Puglisi, Paola",
+   "editorial": "AIB",
+   "anio": 2003,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "pungitore-sistemas-de-informacion-como-herramienta-competiti",
+   "titulo": "Sistemas de información como herramienta competitiva. Un enfoque integrador",
+   "autor": "Pungitore, J. L.",
+   "editorial": "Temas",
+   "anio": 2007,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0916",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "perez-tornero-escribir-para-red",
+   "titulo": "Escribir para red",
+   "autor": "Pérez Tornero, J.M. y Tejedor, S.",
+   "editorial": "Universidad Autónoma de Barcelona",
+   "anio": 2014,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0922",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "queau-lo-virtual-virtudes-y-vertigo",
+   "titulo": "Lo virtual. Virtudes y Vértigo",
+   "autor": "Queau, F.",
+   "editorial": "Paidós",
+   "anio": 1995,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "rae-y-aale-diccionario-de-la-lengua-espanola",
+   "titulo": "Diccionario de la lengua española",
+   "autor": "RAE y AALE",
+   "editorial": "Espasa",
+   "anio": 2014,
+   "tema": "Norma y corrección",
+   "materias": [
+    {
+     "c": "0911",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "ramonet-la-tirania-de-la-comunicacion",
+   "titulo": "La tiranía de la comunicación",
+   "autor": "Ramonet, Ignacio",
+   "editorial": "Debate",
+   "anio": 1998,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0922",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "ramirez-gelbes-como-redactar-un-paper-la-escritura-de-articu",
+   "titulo": "Cómo redactar un paper. La escritura de artículos científicos",
+   "autor": "Ramírez Gelbes, S.",
+   "editorial": "Noveduc",
+   "anio": 2013,
+   "tema": "Historia del libro y la lectura",
+   "materias": [
+    {
+     "c": "0911",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "ramirez-gelbes-ortografiemos",
+   "titulo": "Ortografiemos",
+   "autor": "Ramírez Gelbes, S.",
+   "editorial": "Colihue",
+   "anio": null,
+   "tema": "Norma y corrección",
+   "materias": [
+    {
+     "c": "0911",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "ramirez-gelbes-semantica-argumentativa-y-aspectualidad-los-e",
+   "titulo": "Semántica argumentativa y aspectualidad: los estativos",
+   "autor": "Ramírez Gelbes, S.",
+   "editorial": "EAE",
+   "anio": 2012,
+   "tema": "Norma y corrección",
+   "materias": [
+    {
+     "c": "0911",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "real-academia-espanola-nueva-gramatica-de-la-lengua-espanola",
+   "titulo": "Nueva gramática de la lengua española",
+   "autor": "Real Academia Española",
+   "editorial": "Espasa Calpe",
+   "anio": 2010,
+   "tema": "Norma y corrección",
+   "materias": [
+    {
+     "c": "0911",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "reyes-los-procedimientos-de-cita-citas-encubiertas-y-ecos",
+   "titulo": "Los procedimientos de cita: citas encubiertas y ecos",
+   "autor": "Reyes, G.",
+   "editorial": "Arco Libros",
+   "anio": 1994,
+   "tema": "Historia del libro y la lectura",
+   "materias": [
+    {
+     "c": "0911",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "reyes-los-procedimientos-de-cita-estilo-directo-y-estilo-ind",
+   "titulo": "Los procedimientos de cita: estilo directo y estilo indirecto",
+   "autor": "Reyes, G.",
+   "editorial": "Arco Libros",
+   "anio": 1995,
+   "tema": "Norma y corrección",
+   "materias": [
+    {
+     "c": "0911",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "rheingold-multitudes-inteligentes",
+   "titulo": "Multitudes inteligentes",
+   "autor": "Rheingold, H.",
+   "editorial": "Gedisa",
+   "anio": 2004,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "ribeiro-carreira-discurso-em-perspectiva",
+   "titulo": "Discurso em perspectiva",
+   "autor": "Ribeiro Carreira, R., Félix de Oliveira, W. y Eliakim, J.",
+   "editorial": "Blucher",
+   "anio": 2022,
+   "tema": "Norma y corrección",
+   "materias": [
+    {
+     "c": "0911",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "richino-estructuracion-del-rol-profesional",
+   "titulo": "Estructuración del rol profesional",
+   "autor": "Richino, S.",
+   "editorial": "Kargirman",
+   "anio": 1985,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0912",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "ricketson-convenio-de-berna-para-la-proteccion-de-las-obras",
+   "titulo": "Convenio de Berna para la Protección de las Obras Literarias y Artísticas: 1886-1986",
+   "autor": "Ricketson, S.",
+   "editorial": "Centre for Commercial Law Studies, Queen Mary College",
+   "anio": 1987,
+   "tema": "Derechos y contratos",
+   "materias": [
+    {
+     "c": "0919",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "rico-estudios-criticos-sobre-diseno-de-informacion",
+   "titulo": "Estudios críticos sobre diseño de información",
+   "autor": "Rico, Esteban y Gómez, Martín G.",
+   "editorial": "Facultad de Filosofía y Letras (UBA)",
+   "anio": 2011,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0916",
+     "n": "obl"
+    },
+    {
+     "c": "0920",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "rivera-el-escritor-y-la-industria-cultural-el-camino-hacia-l",
+   "titulo": "El escritor y la industria cultural. El camino hacia la profesionalización (1800-1900)",
+   "autor": "Rivera, Jorge B.",
+   "editorial": "Atuel",
+   "anio": 1998,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0902",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "rivera-el-periodismo-cultural",
+   "titulo": "El periodismo cultural",
+   "autor": "Rivera, Jorge B.",
+   "editorial": "Piados",
+   "anio": 1996,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0902",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "rodriguez-manual-de-gestion-y-calculo-editorial",
+   "titulo": "Manual de gestión y cálculo editorial",
+   "autor": "Rodríguez, G.",
+   "editorial": "CERLALC",
+   "anio": 1992,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0905",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "rodriguez-primitivos-de-una-nueva-era",
+   "titulo": "Primitivos de una nueva era",
+   "autor": "Rodríguez, J.",
+   "editorial": "Tusquets",
+   "anio": 2019,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "rodriguez-las-palabras-en-las-cosas",
+   "titulo": "Las palabras en las cosas",
+   "autor": "Rodríguez, Pablo Manolo",
+   "editorial": "Cactus",
+   "anio": 2019,
+   "tema": "Teoría y análisis",
+   "materias": [
+    {
+     "c": "0913",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "roitberg-periodismo-disruptivo",
+   "titulo": "Periodismo disruptivo",
+   "autor": "Roitberg, G.",
+   "editorial": "La crujía",
+   "anio": 2015,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0922",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "romero-romero-tecnicas-de-investigacion-editorial",
+   "titulo": "Técnicas de investigación editorial",
+   "autor": "Romero Romero, Álvaro",
+   "editorial": "CERLALC",
+   "anio": 1993,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0909",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "roman-la-edicion-de-revistas-cientificas-guia-de-buenos-usos",
+   "titulo": "La edición de revistas científicas: guía de buenos usos",
+   "autor": "Román, Adelaida",
+   "editorial": "CSIC-CINDOC",
+   "anio": 2001,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "roncaglia-la-cuarta-revolucion-seis-lecciones-sobre-el-futur",
+   "titulo": "La cuarta revolución. Seis lecciones sobre el futuro del libro",
+   "autor": "Roncaglia, G.",
+   "editorial": "Eduvim",
+   "anio": 2012,
+   "tema": "Historia del libro y la lectura",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "roncaglia-seis-lecciones-sobre-el-futuro-del-libro",
+   "titulo": "Seis lecciones sobre el futuro del libro",
+   "autor": "Roncaglia, Gino",
+   "editorial": "Eduvim",
+   "anio": 2012,
+   "tema": "Historia del libro y la lectura",
+   "materias": [
+    {
+     "c": "0920",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "ronselfend-y-morville-arquitectura-de-la-informacion",
+   "titulo": "Arquitectura de la información",
+   "autor": "Ronselfend y Morville",
+   "editorial": "Mcgraw Hill",
+   "anio": 2000,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "ross-nielsen-serigrafia-industrial-y-en-las-artes-graficas",
+   "titulo": "Serigrafía industrial y en las artes gráficas",
+   "autor": "Ross Nielsen, G.",
+   "editorial": "L.E.D.A.",
+   "anio": 1985,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0905",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "rotenberg-historia-confidencial-la-opinion-y-otros-olvidos",
+   "titulo": "Historia confidencial. La Opinión y otros olvidos",
+   "autor": "Rotenberg, Abrasha",
+   "editorial": "Sudamericana",
+   "anio": 1999,
+   "tema": "Historia del libro y la lectura",
+   "materias": [
+    {
+     "c": "0922",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "rothenberg-a-book-of-the-book",
+   "titulo": "A Book of the Book",
+   "autor": "Rothenberg, Jerome y Clay, Steven",
+   "editorial": "Granary Books",
+   "anio": 2000,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0914",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "rude-technical-editing",
+   "titulo": "Technical Editing",
+   "autor": "Rude, Carolyn",
+   "editorial": "Longman",
+   "anio": 2011,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0914",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "russell-inteligencia-artificial-un-enfoque-moderno",
+   "titulo": "Inteligencia artificial: Un enfoque moderno",
+   "autor": "Russell, S. y Norvig, P.",
+   "editorial": "Pearson Education",
+   "anio": 2004,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0912",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "saccone-experiencia-marketing",
+   "titulo": "Experiencia marketing",
+   "autor": "Saccone, E. y Boniato, P.",
+   "editorial": "UNLP",
+   "anio": 2018,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0916",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "sadin-la-silicolonizacion-del-mundo-la-irresistible-expansio",
+   "titulo": "La silicolonización del mundo. La irresistible expansión del liberalismo digital",
+   "autor": "Sadin, Eric",
+   "editorial": "Caja Negra",
+   "anio": 2018,
+   "tema": "Teoría y análisis",
+   "materias": [
+    {
+     "c": "0913",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "sagastizabal-un-editor-argentino-arturo-pena-lillo",
+   "titulo": "Un editor argentino. Arturo Peña Lillo",
+   "autor": "Sagastizábal, Leandro de y Giuliani, Alejandra",
+   "editorial": "Eudeba",
+   "anio": 2014,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0923",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "samara-disenar-con-y-sin-reticula",
+   "titulo": "Diseñar con y sin retícula",
+   "autor": "Samara, T.",
+   "editorial": "E. Gili",
+   "anio": 2008,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0917",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "san-martin-hipertexto-seis-propuestas-para-este-milenio",
+   "titulo": "Hipertexto. Seis propuestas para este milenio",
+   "autor": "San Martín, P.",
+   "editorial": "La crujía",
+   "anio": 2003,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0917",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "santarsiero-preimpresion-flujos-de-trabajo-y-gestion-digital",
+   "titulo": "Preimpresión flujos de trabajo y gestión digital",
+   "autor": "Santarsiero, H.",
+   "editorial": "TS Ediciones",
+   "anio": 2005,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0905",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "santarsiero-produccion-grafica-la-evolucion",
+   "titulo": "Producción Gráfica - La Evolución",
+   "autor": "Santarsiero, H.",
+   "editorial": "Producción Gráfica Ediciones",
+   "anio": 2014,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0905",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "santarsiero-produccion-grafica-y-multimedial",
+   "titulo": "Producción gráfica y multimedial",
+   "autor": "Santarsiero, H.",
+   "editorial": "TS Ediciones",
+   "anio": 2009,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0905",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "santarsiero-produccion-grafica-sistemas-de-impresion",
+   "titulo": "Producción gráfica. Sistemas de impresión",
+   "autor": "Santarsiero, H.",
+   "editorial": "TS Ediciones",
+   "anio": 2001,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0905",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "sarlo-escenas-de-la-vida-postmoderna-en-buenos-aires",
+   "titulo": "Escenas de la vida postmoderna en Buenos Aires",
+   "autor": "Sarlo, B.",
+   "editorial": "Ariel",
+   "anio": 1994,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "sarlo-terminos-criticos-de-sociologia-de-la-cultura",
+   "titulo": "Términos críticos de sociología de la cultura",
+   "autor": "Sarlo, Beatriz y Altamirano, Carlos",
+   "editorial": "Paidós",
+   "anio": 2002,
+   "tema": "Teoría y análisis",
+   "materias": [
+    {
+     "c": "0913",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "satanowsky-derecho-intelectual",
+   "titulo": "Derecho intelectual",
+   "autor": "Satanowsky, Isidro",
+   "editorial": "Tipográfica Editora Argentina",
+   "anio": 1954,
+   "tema": "Derechos y contratos",
+   "materias": [
+    {
+     "c": "0919",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "satue-el-diseno-de-libros-del-pasado-del-presente-y-tal-vez",
+   "titulo": "El diseño de libros del pasado, del presente, y tal vez del futuro: La huella de Aldo Manuzio",
+   "autor": "Satué, E.",
+   "editorial": "Fundación Germán Sánchez Ruipérez",
+   "anio": 1998,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "compl"
+    },
+    {
+     "c": "0917",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "schlemmer-manual-de-arte-grafico-publicitario",
+   "titulo": "Manual de arte gráfico publicitario",
+   "autor": "Schlemmer, R.",
+   "editorial": "Paidós",
+   "anio": 1995,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0905",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "schuwer-traite-pratique-d-edition",
+   "titulo": "Traité pratique d'édition",
+   "autor": "Schuwer, Philippe",
+   "editorial": "Éditions du cercle de la librairie",
+   "anio": 1997,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0914",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "schon-formacion-de-profesionales-reflexivos",
+   "titulo": "Formación de profesionales reflexivos",
+   "autor": "Schön, D.",
+   "editorial": "Paidós",
+   "anio": 1986,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0912",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "scolari-hacer-clic-hacia-una-sociosemiotica-de-las-interacci",
+   "titulo": "Hacer clic: Hacia una sociosemiótica de las interacciones digitales",
+   "autor": "Scolari, C. A.",
+   "editorial": "Gedisa",
+   "anio": 2004,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "scolari-la-guerra-de-las-plataformas-del-papiro-al-metaverso",
+   "titulo": "La Guerra de las plataformas. Del papiro al metaverso",
+   "autor": "Scolari, C. A.",
+   "editorial": "Anagrama",
+   "anio": 2022,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0912",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "scolari-media-evolution-sobre-el-origen-de-las-especies-medi",
+   "titulo": "Media evolution: Sobre el origen de las especies mediáticas",
+   "autor": "Scolari, C. A.",
+   "editorial": "La Marca Editora",
+   "anio": 2009,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "scolari-narrativas-transmedia-cuando-todos-los-medios-cuenta",
+   "titulo": "Narrativas transmedia: Cuando todos los medios cuentan",
+   "autor": "Scolari, C. A.",
+   "editorial": "Deusto",
+   "anio": 2013,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "scolari-hipermediaciones-elementos-para-una-teoria-de-la-com",
+   "titulo": "Hipermediaciones. Elementos para una teoría de la Comunicación Digital Interactiva",
+   "autor": "Scolari, C.",
+   "editorial": "Gedisa",
+   "anio": 2008,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0917",
+     "n": "obl"
+    },
+    {
+     "c": "0921",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "seco-diccionario-de-dudas-y-dificultades-de-la-lengua-espano",
+   "titulo": "Diccionario de dudas y dificultades de la lengua española",
+   "autor": "Seco, M.",
+   "editorial": "Espasa Calpe",
+   "anio": 1986,
+   "tema": "Norma y corrección",
+   "materias": [
+    {
+     "c": "0911",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "seco-gramatica-esencial-del-espanol",
+   "titulo": "Gramática esencial del español",
+   "autor": "Seco, M.",
+   "editorial": "Espasa Calpe",
+   "anio": 1994,
+   "tema": "Norma y corrección",
+   "materias": [
+    {
+     "c": "0911",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "sempere-manuel-aguilar-mitico-editor",
+   "titulo": "Manuel Aguilar, mítico editor",
+   "autor": "Sempere, Antonio",
+   "editorial": "Dunken",
+   "anio": 2002,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0923",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "senge-la-quinta-disciplina",
+   "titulo": "La quinta disciplina",
+   "autor": "Senge, P.",
+   "editorial": "Granica",
+   "anio": 2007,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0916",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "sengue-la-quinta-disciplina-como-impulsar-el-aprendizaje-en",
+   "titulo": "La quinta disciplina. Cómo impulsar el aprendizaje en la organización inteligente",
+   "autor": "Sengue, P.",
+   "editorial": "Granica",
+   "anio": 1995,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0912",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "serrano-fernandez-contratos-en-torno-a-la-edicion",
+   "titulo": "Contratos en torno a la edición",
+   "autor": "Serrano Fernandez, María",
+   "editorial": "Reus",
+   "anio": 2001,
+   "tema": "Derechos y contratos",
+   "materias": [
+    {
+     "c": "0919",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "serrano-desinformacion-como-los-medios-ocultan-el-mundo",
+   "titulo": "Desinformación. Cómo los medios ocultan el mundo",
+   "autor": "Serrano, Pascual",
+   "editorial": "Península",
+   "anio": 2009,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0922",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "sesma-tipografismo",
+   "titulo": "Tipografismo",
+   "autor": "Sesma, Manuel",
+   "editorial": "Paidós",
+   "anio": 2004,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0920",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "sieber-los-sistemas-de-informacion-en-la-empresa-actual-aspe",
+   "titulo": "Los sistemas de información en la empresa actual: aspectos estratégicos y alternativas tácticas",
+   "autor": "Sieber, S.",
+   "editorial": "McGraw Hill",
+   "anio": 2006,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0916",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "siebert-tres-teorias-sobre-la-prensa-en-el-mundo-capitalista",
+   "titulo": "Tres teorías sobre la prensa en el mundo capitalista",
+   "autor": "Siebert, F. y Peterson, T.",
+   "editorial": "De la Flor",
+   "anio": 1967,
+   "tema": "Teoría y análisis",
+   "materias": [
+    {
+     "c": "0922",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "sierra-manual-de-mercadeo-para-empresas-editoriales",
+   "titulo": "Manual de mercadeo para empresas editoriales",
+   "autor": "Sierra, Jorge Alfonso",
+   "editorial": "CERLAC",
+   "anio": 1989,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0902",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "sisto-puercoespines-digitales-vivir-y-nunca-morir-online",
+   "titulo": "Puercoespines digitales: Vivir y nunca morir online",
+   "autor": "Sisto, D.",
+   "editorial": "Fondo de Cultura Económica",
+   "anio": 2023,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "smith-guia-para-la-publicacion-de-libros",
+   "titulo": "Guía para la publicación de libros",
+   "autor": "Smith, Datus",
+   "editorial": "Universidad de Guadalajara",
+   "anio": 1991,
+   "tema": "Historia del libro y la lectura",
+   "materias": [
+    {
+     "c": "0909",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "spina-registro-y-organizacion-de-impresos-fuentes-de-informa",
+   "titulo": "Registro y organización de impresos: fuentes de información para la actividad editorial",
+   "autor": "Spina, Daniel H.",
+   "editorial": "Ars",
+   "anio": 1995,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "stair-principios-de-sistemas-de-informacion",
+   "titulo": "Principios de sistemas de información",
+   "autor": "Stair, R. M. y Reynolds, G. W.",
+   "editorial": "Cengage Learning",
+   "anio": 2010,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0916",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "swales-abstracts-and-the-writing-of-abstracts",
+   "titulo": "Abstracts and the writing of abstracts",
+   "autor": "Swales, John M. y Feak, Christine B.",
+   "editorial": "University of Michigan",
+   "anio": 2009,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "swann-el-color-en-el-diseno-grafico-principio-y-uso-efectivo",
+   "titulo": "El color en el diseño gráfico. Principio y uso efectivo del color",
+   "autor": "Swann, A.",
+   "editorial": "Ed. Gili",
+   "anio": 1993,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0917",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "saez-vacas-complejidad-y-tecnologias-de-la-informacion",
+   "titulo": "Complejidad y tecnologías de la información",
+   "autor": "Sáez Vacas, F.",
+   "editorial": "Fundación para el Desarrollo de las Telecomunicaciones",
+   "anio": 2009,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0916",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "sanchez-vigil-la-edicion-en-espana-industria-cultural-por-ex",
+   "titulo": "La edición en España: industria cultural por excelencia: historia, proceso, gestión, documentación",
+   "autor": "Sánchez Vigil, Juan M.",
+   "editorial": "Trea",
+   "anio": 2009,
+   "tema": "Historia del libro y la lectura",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "sanchez-base-tecnica-de-los-sistemas-de-informacion",
+   "titulo": "Base técnica de los sistemas de información",
+   "autor": "Sánchez, M.",
+   "editorial": "UCES",
+   "anio": 2012,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0916",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "terragno-como-armar-un-plan-de-negocios",
+   "titulo": "Cómo armar un plan de negocios",
+   "autor": "Terragno, Danila y Lecuona, María Laura",
+   "editorial": "Coyuntura",
+   "anio": 1999,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0909",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "thomet-manual-de-elaboracion-de-proyectos-una-herramienta-pa",
+   "titulo": "Manual de elaboración de proyectos. Una herramienta paso a paso para apoyar el desarrollo de las cooperativas y otras formas de organizaciones de autoayuda",
+   "autor": "Thomet, N. y Vozza, A.",
+   "editorial": "OIT Oficina Internacional del Trabajo",
+   "anio": 2012,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0912",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "thompson-books-in-digital-age",
+   "titulo": "Books in digital Age",
+   "autor": "Thompson, John",
+   "editorial": "Polity Press",
+   "anio": 2005,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0902",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "thompson-merchants-of-culture-the-publishing-business-in-the",
+   "titulo": "Merchants of Culture. The Publishing Business in the Twenty-First Century",
+   "autor": "Thompson, John",
+   "editorial": "Polity Press",
+   "anio": 2010,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0902",
+     "n": "obl"
+    },
+    {
+     "c": "0915",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "toffler-la-tercera-ola",
+   "titulo": "La tercera ola",
+   "autor": "Toffler, A.",
+   "editorial": "Plaza & Janés",
+   "anio": 1980,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "tonello-fotocomposicion",
+   "titulo": "Fotocomposición",
+   "autor": "Tonello, G.",
+   "editorial": "Don Bosco",
+   "anio": null,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0905",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "torres-ramirez-las-fuentes-de-informacion",
+   "titulo": "Las fuentes de información",
+   "autor": "Torres Ramírez, Isabel de",
+   "editorial": "Síntesis",
+   "anio": 1999,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "torres-la-cita-y-referencia-bibliografica-guia-basada-en-las",
+   "titulo": "La cita y referencia bibliográfica: guía basada en las normas APA",
+   "autor": "Torres, Silvia y González Bonorino, Adina y Vavilova, Irina",
+   "editorial": "Universidad de Ciencias Empresariales y Sociales",
+   "anio": 2017,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "tosi-escritos-para-ensenar-los-libros-de-texto-en-el-aula",
+   "titulo": "Escritos para enseñar. Los libros de texto en el aula",
+   "autor": "Tosi, C.",
+   "editorial": "Paidos",
+   "anio": 2018,
+   "tema": "Historia del libro y la lectura",
+   "materias": [
+    {
+     "c": "0911",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "tufte-envisioning-information",
+   "titulo": "Envisioning Information",
+   "autor": "Tufte, Edward",
+   "editorial": "Graphic Press",
+   "anio": 1990,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0914",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "tufte-visual-explanations",
+   "titulo": "Visual Explanations",
+   "autor": "Tufte, Edward",
+   "editorial": "Graphic Press",
+   "anio": 1997,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0914",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "turkle-vida-en-la-pantalla",
+   "titulo": "Vida en la pantalla",
+   "autor": "Turkle, S.",
+   "editorial": "Paidós",
+   "anio": 1998,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "ulrich-recursos-humanos-champions",
+   "titulo": "Recursos humanos Champions",
+   "autor": "Ulrich, D.",
+   "editorial": "Granica",
+   "anio": 2010,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0912",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "unctad-informe-sobre-la-economia-de-la-informacion-digitaliz",
+   "titulo": "Informe sobre la economía de la información: digitalización, comercio y desarrollo",
+   "autor": "UNCTAD",
+   "editorial": "Naciones Unidas - Conferencia ONU sobre Comercio y Desarrollo",
+   "anio": 2017,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0916",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "university-of-chicago-press-manual-de-estilo-chicago-deusto",
+   "titulo": "Manual de estilo Chicago-Deusto",
+   "autor": "University of Chicago Press",
+   "editorial": "Universidad de Deusto",
+   "anio": 2013,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "university-of-chicago-press-the-chicago-manual-of-style",
+   "titulo": "The Chicago Manual of Style",
+   "autor": "University of Chicago Press",
+   "editorial": "University of Chicago Press",
+   "anio": 2010,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "unwin-la-verdad-sobre-el-negocio-editorial",
+   "titulo": "La verdad sobre el negocio editorial",
+   "autor": "Unwin, Sir Stanley",
+   "editorial": "Juventud",
+   "anio": 1964,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0909",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "uribe-el-deposito-legal-en-los-paises-de-latinoamerica-en-20",
+   "titulo": "El depósito legal en los países de Latinoamérica en 2005",
+   "autor": "Uribe, Richard y Steenkist, Robert Max",
+   "editorial": "Centro Regional para el Fomento del Libro en América Latina y el Caribe (CERLALC)",
+   "anio": 2005,
+   "tema": "Norma y corrección",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "valdes-alonso-propiedad-intelectual-y-relacion-de-trabajo",
+   "titulo": "Propiedad intelectual y relación de trabajo",
+   "autor": "Valdés Alonso, Alberto",
+   "editorial": "Civitas",
+   "anio": 2001,
+   "tema": "Derechos y contratos",
+   "materias": [
+    {
+     "c": "0919",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "valle-como-corregir-sin-ofender",
+   "titulo": "Cómo corregir sin ofender",
+   "autor": "Valle, P.",
+   "editorial": "Lumen",
+   "anio": 1998,
+   "tema": "Norma y corrección",
+   "materias": [
+    {
+     "c": "0911",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "van-dijck-la-cultura-de-la-conectividad-una-historia-critica",
+   "titulo": "La cultura de la conectividad. Una historia crítica de las redes sociales",
+   "autor": "Van Dijck, J.",
+   "editorial": "Siglo Veintiuno Editores",
+   "anio": 2016,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0912",
+     "n": "compl"
+    },
+    {
+     "c": "0921",
+     "n": "obl"
+    },
+    {
+     "c": "0922",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "vandendorpe-del-papiro-al-hipertexto-ensayo-sobre-las-mutaci",
+   "titulo": "Del papiro al hipertexto. Ensayo sobre las mutaciones del texto y de la lectura",
+   "autor": "Vandendorpe, Christian",
+   "editorial": "Fondo de Cultura Económica",
+   "anio": 2003,
+   "tema": "Historia del libro y la lectura",
+   "materias": [
+    {
+     "c": "0902",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "veron-construir-el-acontecimiento",
+   "titulo": "Construir el acontecimiento",
+   "autor": "Verón, Eliseo",
+   "editorial": "Gedisa",
+   "anio": 1983,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0922",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "vilches-vivancos-el-menosprecio-de-la-lengua",
+   "titulo": "El menosprecio de la lengua",
+   "autor": "Vilches Vivancos, F.",
+   "editorial": "Dykinson",
+   "anio": 2004,
+   "tema": "Norma y corrección",
+   "materias": [
+    {
+     "c": "0911",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "villalba-el-derecho-de-autor-en-la-argentina",
+   "titulo": "El derecho de autor en la Argentina",
+   "autor": "Villalba, Carlos y Lipszyc, Delia",
+   "editorial": "La Ley",
+   "anio": 2001,
+   "tema": "Derechos y contratos",
+   "materias": [
+    {
+     "c": "0919",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "von-bertalanffy-teoria-general-de-los-sistemas",
+   "titulo": "Teoría general de los sistemas",
+   "autor": "Von Bertalanffy, L.",
+   "editorial": "FCE",
+   "anio": 2005,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0916",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "vazquez-costos",
+   "titulo": "Costos",
+   "autor": "Vázquez, Juan Carlos",
+   "editorial": "Aguilar",
+   "anio": 2000,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0909",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "watts-mundos-pequenos-seis-grados-de-separacion",
+   "titulo": "Mundos pequeños: Seis grados de separación",
+   "autor": "Watts, D.",
+   "editorial": "Paidós",
+   "anio": 2008,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "weber-nuevas-tendencias-en-maquetacion-y-diseno-editorial",
+   "titulo": "Nuevas tendencias en maquetación y diseño editorial",
+   "autor": "Weber, M.",
+   "editorial": "Ed. Gili",
+   "anio": 2010,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0917",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "werneck-manual-sobre-desarrollo-inclusivo-para-los-medios-y",
+   "titulo": "Manual sobre desarrollo inclusivo para los medios y profesionales de la comunicación",
+   "autor": "Werneck, Claudia",
+   "editorial": "Escola Da Gente-WVA",
+   "anio": 2005,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0920",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "yanover-memorias-de-un-librero",
+   "titulo": "Memorias de un librero",
+   "autor": "Yánover, Héctor",
+   "editorial": "Muchnik-Anaya",
+   "anio": 1994,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0902",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "zallo-elguezabal-desenredando-la-economia-de-la-cultura",
+   "titulo": "Desenredando la economía de la cultura",
+   "autor": "Zallo Elguezabal, R.",
+   "editorial": "Periférica",
+   "anio": 2017,
+   "tema": "Teoría y análisis",
+   "materias": [
+    {
+     "c": "0916",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "ziman-que-es-la-ciencia",
+   "titulo": "¿Qué es la ciencia?",
+   "autor": "Ziman, John",
+   "editorial": "Cambridge University Press",
+   "anio": 2003,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "zuazo-guerras-de-internet",
+   "titulo": "Guerras de internet",
+   "autor": "Zuazo, N.",
+   "editorial": "Debate",
+   "anio": 2015,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0912",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "2001-el-futuro-detras",
+   "titulo": "2001: El futuro detrás",
+   "autor": "",
+   "editorial": "Tren en Movimiento Ediciones",
+   "anio": 2024,
+   "tema": "Teoría y análisis",
+   "materias": [
+    {
+     "c": "0913",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "a-potencie-of-life-books-in-society",
+   "titulo": "A Potencie of Life: Books in Society",
+   "autor": "",
+   "editorial": "British Library",
+   "anio": 1993,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0914",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "big-data-breve-manual-para-conocer-la-ciencia-de-datos-que-y",
+   "titulo": "Big Data. Breve manual para conocer la ciencia de datos que ya cambió nuestras vidas",
+   "autor": "",
+   "editorial": "Siglo veintiuno editores",
+   "anio": 2019,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0918",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "carta-s-un-pensamiento-sismico",
+   "titulo": "Carta(s) Un pensamiento sísmico",
+   "autor": "",
+   "editorial": "Museo Reina Sofía",
+   "anio": 2021,
+   "tema": "Teoría y análisis",
+   "materias": [
+    {
+     "c": "0913",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "catalogacion-de-monografias-impresas",
+   "titulo": "Catalogación de monografías impresas",
+   "autor": "",
+   "editorial": "Alfagrama",
+   "anio": 2007,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "cien-cartas-a-un-desconocido",
+   "titulo": "Cien cartas a un desconocido",
+   "autor": "",
+   "editorial": "Anagrama",
+   "anio": 2007,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "compitiendo-por-el-futuro",
+   "titulo": "Compitiendo por el futuro",
+   "autor": "",
+   "editorial": "Ariel",
+   "anio": 1995,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0918",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "convergence-culture",
+   "titulo": "Convergence Culture",
+   "autor": "",
+   "editorial": "Paidós",
+   "anio": 2008,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0916",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "conversaciones",
+   "titulo": "Conversaciones",
+   "autor": "",
+   "editorial": "Pretextos",
+   "anio": 1999,
+   "tema": "Teoría y análisis",
+   "materias": [
+    {
+     "c": "0913",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "copistas-e-iluminadores",
+   "titulo": "Copistas e iluminadores",
+   "autor": "",
+   "editorial": "Akal",
+   "anio": 1999,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0914",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "cruces-y-perspectivas-de-la-cultura-escrita-en-la-argentina",
+   "titulo": "Cruces y perspectivas de la cultura escrita en la Argentina. Historia de la lectura, el libro y la edición",
+   "autor": "",
+   "editorial": "Facultad de Filosofía y Letras - UBA",
+   "anio": 2013,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0905",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "curso-de-bibliografia",
+   "titulo": "Curso de bibliografía",
+   "autor": "",
+   "editorial": "Trea",
+   "anio": 1994,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "del-entretenimiento-al-conocimiento",
+   "titulo": "Del entretenimiento al conocimiento",
+   "autor": "",
+   "editorial": "Engranajes de la Cultura",
+   "anio": 2016,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "dialectica-del-iluminismo",
+   "titulo": "Dialéctica del iluminismo",
+   "autor": "",
+   "editorial": "Sudamericana",
+   "anio": 1988,
+   "tema": "Teoría y análisis",
+   "materias": [
+    {
+     "c": "0913",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "diez-lecciones-sobre-estudios-culturales",
+   "titulo": "Diez lecciones sobre estudios culturales",
+   "autor": "",
+   "editorial": "La Marca",
+   "anio": 2013,
+   "tema": "Teoría y análisis",
+   "materias": [
+    {
+     "c": "0913",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "direccion-de-marketing",
+   "titulo": "Dirección de marketing",
+   "autor": "",
+   "editorial": "Pearson",
+   "anio": 2012,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0918",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "discurso-poder-y-subjetividad",
+   "titulo": "Discurso, poder y subjetividad",
+   "autor": "",
+   "editorial": "El Cielo por Asalto",
+   "anio": 1995,
+   "tema": "Teoría y análisis",
+   "materias": [
+    {
+     "c": "0913",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "discursos-interrumpidos-i",
+   "titulo": "Discursos interrumpidos I",
+   "autor": "",
+   "editorial": "Taurus",
+   "anio": 1989,
+   "tema": "Teoría y análisis",
+   "materias": [
+    {
+     "c": "0913",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "diseno-para-la-discapacidad",
+   "titulo": "Diseño para la discapacidad",
+   "autor": "",
+   "editorial": "Universidad Autónoma Metropolitana",
+   "anio": 2014,
+   "tema": "Diseño y tipografía",
+   "materias": [
+    {
+     "c": "0920",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "economia-de-la-comunicacion-y-la-cultura",
+   "titulo": "Economía de la comunicación y la cultura",
+   "autor": "",
+   "editorial": "Akal",
+   "anio": 1988,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0916",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "editing-technical-writing",
+   "titulo": "Editing Technical Writing",
+   "autor": "",
+   "editorial": "Oxford University Press",
+   "anio": 1993,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0914",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "el-beso-de-lamourette",
+   "titulo": "El beso de Lamourette",
+   "autor": "",
+   "editorial": "Fondo de Cultura Económica",
+   "anio": 2010,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0914",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "el-libro-en-un-libro",
+   "titulo": "El libro en un libro",
+   "autor": "",
+   "editorial": "Torre",
+   "anio": 2004,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0916",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "estrategia-competitiva",
+   "titulo": "Estrategia competitiva",
+   "autor": "",
+   "editorial": "CECSA",
+   "anio": 1992,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0918",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "estudios-sobre-el-espanol-de-la-argentina-3",
+   "titulo": "Estudios sobre el español de la Argentina 3",
+   "autor": "",
+   "editorial": "U.N. del Sur",
+   "anio": 1994,
+   "tema": "Norma y corrección",
+   "materias": [
+    {
+     "c": "0911",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "historia-de-la-comunicacion",
+   "titulo": "Historia de la comunicación",
+   "autor": "",
+   "editorial": "Bosch",
+   "anio": 1992,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0916",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "historia-de-la-tecnologia",
+   "titulo": "Historia de la Tecnología",
+   "autor": "",
+   "editorial": "Bosch",
+   "anio": 1992,
+   "tema": "Derechos y contratos",
+   "materias": [
+    {
+     "c": "0902",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "historia-de-las-empresas-editoriales-en-america-latina-siglo",
+   "titulo": "Historia de las empresas editoriales en América Latina. Siglo XX",
+   "autor": "",
+   "editorial": "CERLALC",
+   "anio": 2000,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0909",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "inteligencia-artificial",
+   "titulo": "Inteligencia artificial",
+   "autor": "",
+   "editorial": "Alienta",
+   "anio": 2018,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0916",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "inteligencia-artificial-transformaciones-y-retos-en-el-secto",
+   "titulo": "Inteligencia artificial: transformaciones y retos en el sector editorial",
+   "autor": "",
+   "editorial": "Cerlalc-Unesco",
+   "anio": 2020,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0916",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "la-aventura-semiologica",
+   "titulo": "La aventura semiológica",
+   "autor": "",
+   "editorial": "Paidós",
+   "anio": 1993,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0918",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "la-edicion-independiente",
+   "titulo": "La edición independiente",
+   "autor": "",
+   "editorial": "La Marca Editora",
+   "anio": 2008,
+   "tema": "Derechos y contratos",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "la-era-de-la-informacion-economia-sociedad-y-cultura",
+   "titulo": "La era de la información: economía, sociedad y cultura",
+   "autor": "",
+   "editorial": "Alianza",
+   "anio": 1997,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0916",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "la-industria-cultural",
+   "titulo": "La industria cultural",
+   "autor": "",
+   "editorial": "El cuenco de plata",
+   "anio": 2013,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0913",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "la-teoria-de-la-bolsa-de-la-ficcion",
+   "titulo": "La teoría de la bolsa de la ficción",
+   "autor": "",
+   "editorial": "Rara Avis",
+   "anio": null,
+   "tema": "Teoría y análisis",
+   "materias": [
+    {
+     "c": "0913",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "las-nuevas-fuentes-de-informacion-informacion-y-busqueda-doc",
+   "titulo": "Las nuevas fuentes de información: información y búsqueda documental en el contexto de la web 2.0",
+   "autor": "",
+   "editorial": "Pirámide",
+   "anio": 2010,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "listos-para-leer-diseno-de-libros-en-espana",
+   "titulo": "Listos para leer: diseño de libros en España",
+   "autor": "",
+   "editorial": "Ministerio de Asuntos Exteriores y de Cooperación",
+   "anio": 2005,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "los-desafios-de-la-administracion-en-el-siglo-xxi",
+   "titulo": "Los desafíos de la administración en el siglo XXI",
+   "autor": "",
+   "editorial": "Sudamericana",
+   "anio": 1999,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0916",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "manual-de-marketing-directo-e-interactivo",
+   "titulo": "Manual de marketing directo e interactivo",
+   "autor": "",
+   "editorial": "AMDIA",
+   "anio": null,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0918",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "manual-de-verificacion-una-guia-definitiva-para-verificar-co",
+   "titulo": "Manual de Verificación. Una guía definitiva para verificar contenido digital al cubrir emergencias",
+   "autor": "",
+   "editorial": "Centro Europeo de Periodismo",
+   "anio": 2015,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0922",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "marketing-y-competitividad-nuevos-enfoques-para-nuevas-reali",
+   "titulo": "Marketing y competitividad. Nuevos enfoques para nuevas realidades",
+   "autor": "",
+   "editorial": "Pearson",
+   "anio": 2009,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0918",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "marketing-conceptos-y-estrategias",
+   "titulo": "Marketing. Conceptos y estrategias",
+   "autor": "",
+   "editorial": "Pirámide",
+   "anio": 2000,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0918",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "marxismo-y-literatura",
+   "titulo": "Marxismo y Literatura",
+   "autor": "",
+   "editorial": "Las Cuarenta",
+   "anio": 2010,
+   "tema": "Teoría y análisis",
+   "materias": [
+    {
+     "c": "0913",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "mayonesa-estrategia-cognicion-y-poder-competitivo",
+   "titulo": "Mayonesa. Estrategia, cognición y poder competitivo",
+   "autor": "",
+   "editorial": "Granica",
+   "anio": 2013,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0918",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "metadatos-para-la-descripcion-de-recursos-electronicos-en-li",
+   "titulo": "Metadatos para la descripción de recursos electrónicos en línea",
+   "autor": "",
+   "editorial": "Alfagrama",
+   "anio": 2010,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "neologismos-en-el-espanol-actual",
+   "titulo": "Neologismos en el español actual",
+   "autor": "",
+   "editorial": "Arco Libros",
+   "anio": 1995,
+   "tema": "Norma y corrección",
+   "materias": [
+    {
+     "c": "0911",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "nuevos-horizontes-en-el-analisis-de-los-registros-y-la-norma",
+   "titulo": "Nuevos horizontes en el análisis de los registros y la normativa bibliográfica",
+   "autor": "",
+   "editorial": "Trea",
+   "anio": 2003,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "oralidad-y-escritura",
+   "titulo": "Oralidad y escritura",
+   "autor": "",
+   "editorial": "Fondo de Cultura Económica",
+   "anio": 1999,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0914",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "perder-la-forma-humana-una-imagen-sismica-de-los-anos-80-en",
+   "titulo": "Perder la forma humana. Una imagen sísmica de los años 80 en América Latina",
+   "autor": "",
+   "editorial": "Museo Reina Sofía",
+   "anio": 2012,
+   "tema": "Teoría y análisis",
+   "materias": [
+    {
+     "c": "0913",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "poder-y-desaparicion",
+   "titulo": "Poder y desaparición",
+   "autor": "",
+   "editorial": "Colihue",
+   "anio": 1998,
+   "tema": "Teoría y análisis",
+   "materias": [
+    {
+     "c": "0913",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "poeticas-contemporaneas",
+   "titulo": "Poéticas Contemporáneas",
+   "autor": "",
+   "editorial": "Fondo Nacional de las Artes",
+   "anio": 2011,
+   "tema": "Teoría y análisis",
+   "materias": [
+    {
+     "c": "0913",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "resumenes-documentales-su-evolucion",
+   "titulo": "Resúmenes documentales: su evolución",
+   "autor": "",
+   "editorial": "Alfagrama",
+   "anio": 2009,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "sistemas-de-informacion-en-la-era-digital",
+   "titulo": "Sistemas de información en la era digital",
+   "autor": "",
+   "editorial": "Fundación OSDE",
+   "anio": 2002,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0916",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "sociologia-de-la-cultura",
+   "titulo": "Sociología de la Cultura",
+   "autor": "",
+   "editorial": "Paidós",
+   "anio": 1981,
+   "tema": "Teoría y análisis",
+   "materias": [
+    {
+     "c": "0913",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "teoria-de-la-comunicacion-humana",
+   "titulo": "Teoría de la comunicación humana",
+   "autor": "",
+   "editorial": "Herder",
+   "anio": 1995,
+   "tema": "La industria del libro",
+   "materias": [
+    {
+     "c": "0918",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "teoria-del-hipertexto",
+   "titulo": "Teoría del hipertexto",
+   "autor": "",
+   "editorial": "Paidós",
+   "anio": 1997,
+   "tema": "Edición digital",
+   "materias": [
+    {
+     "c": "0921",
+     "n": "compl"
+    }
+   ]
+  },
+  {
+   "id": "teoria-y-practica-de-la-gestion-cultural",
+   "titulo": "Teoría y práctica de la gestión cultural",
+   "autor": "",
+   "editorial": "CNSC",
+   "anio": 2010,
+   "tema": "Traducción",
+   "materias": [
+    {
+     "c": "0916",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "tecnicas-de-registro-y-organizacion-de-materiales-editoriale",
+   "titulo": "Técnicas de registro y organización de materiales editoriales",
+   "autor": "",
+   "editorial": "Santiago Arcos",
+   "anio": 2010,
+   "tema": "El oficio editorial",
+   "materias": [
+    {
+     "c": "0915",
+     "n": "obl"
+    }
+   ]
+  },
+  {
+   "id": "alvarez-mendez-teoria-linguistica-y-ensenanza-de-la-lengua",
+   "titulo": "Teoría lingüística y enseñanza de la lengua",
+   "autor": "Álvarez Méndez, J.",
+   "editorial": "Akal/Universitaria",
+   "anio": 1987,
+   "tema": "Norma y corrección",
+   "materias": [
+    {
+     "c": "0911",
+     "n": "obl"
+    }
+   ]
+  }
+ ],
+ "coinciden": {
+  "r:sagastizabal": [
+   {
+    "c": "0909",
+    "n": "obl"
+   },
+   {
+    "c": "0912",
+    "n": "obl"
+   },
+   {
+    "c": "0914",
+    "n": "obl"
+   },
+   {
+    "c": "0918",
+    "n": "obl"
+   }
+  ],
+  "r:de-diego": [
+   {
+    "c": "0919",
+    "n": "compl"
+   }
+  ],
+  "f:la-maquina-de-contenido-2150": [
+   {
+    "c": "0917",
+    "n": "compl"
+   }
+  ],
+  "r:de-buen": [
+   {
+    "c": "0917",
+    "n": "obl"
+   }
+  ],
+  "r:cassany": [
+   {
+    "c": "0911",
+    "n": "compl"
+   }
+  ],
+  "f:marketing-editorial-la-guia-4071": [
+   {
+    "c": "0909",
+    "n": "compl"
+   }
+  ],
+  "r:davies": [
+   {
+    "c": "0912",
+    "n": "compl"
+   },
+   {
+    "c": "0914",
+    "n": "obl"
+   },
+   {
+    "c": "0916",
+    "n": "obl"
+   }
+  ],
+  "r:epstein": [
+   {
+    "c": "0902",
+    "n": "obl"
+   }
+  ],
+  "r:es-mi-tipo": [
+   {
+    "c": "0917",
+    "n": "obl"
+   },
+   {
+    "c": "0920",
+    "n": "compl"
+   }
+  ],
+  "r:autoedicion": [
+   {
+    "c": "0912",
+    "n": "compl"
+   },
+   {
+    "c": "0920",
+    "n": "obl"
+   }
+  ],
+  "f:la-labor-del-editor-3916": [
+   {
+    "c": "0914",
+    "n": "obl"
+   }
+  ],
+  "f:manual-de-edicion-literaria-y-no-literaria-7688": [
+   {
+    "c": "0912",
+    "n": "obl"
+   }
+  ],
+  "f:el-negocio-de-la-edicion-digital-2297": [
+   {
+    "c": "0916",
+    "n": "obl"
+   },
+   {
+    "c": "0917",
+    "n": "compl"
+   }
+  ],
+  "r:herralde": [
+   {
+    "c": "0923",
+    "n": "compl"
+   }
+  ],
+  "r:mele": [
+   {
+    "c": "0911",
+    "n": "compl"
+   },
+   {
+    "c": "0915",
+    "n": "obl"
+   }
+  ],
+  "r:ootea": [
+   {
+    "c": "0915",
+    "n": "obl"
+   }
+  ],
+  "r:piccolini": [
+   {
+    "c": "0914",
+    "n": "obl"
+   }
+  ],
+  "r:dpd": [
+   {
+    "c": "0911",
+    "n": "obl"
+   }
+  ],
+  "r:ortografia": [
+   {
+    "c": "0911",
+    "n": "obl"
+   }
+  ],
+  "r:schiffrin": [
+   {
+    "c": "0902",
+    "n": "obl"
+   },
+   {
+    "c": "0923",
+    "n": "compl"
+   }
+  ],
+  "r:unseld": [
+   {
+    "c": "0902",
+    "n": "obl"
+   },
+   {
+    "c": "0909",
+    "n": "compl"
+   },
+   {
+    "c": "0914",
+    "n": "compl"
+   }
+  ],
+  "f:editar-para-ganar-4064": [
+   {
+    "c": "0909",
+    "n": "obl"
+   }
+  ],
+  "r:demasiados-libros": [
+   {
+    "c": "0902",
+    "n": "obl"
+   },
+   {
+    "c": "0914",
+    "n": "compl"
+   },
+   {
+    "c": "0915",
+    "n": "obl"
+   },
+   {
+    "c": "0921",
+    "n": "compl"
+   },
+   {
+    "c": "0923",
+    "n": "compl"
+   }
+  ]
+ }
+}

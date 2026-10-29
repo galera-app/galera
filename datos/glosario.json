@@ -1,0 +1,5246 @@
+{
+ "actualizado": "2026-10-20",
+ "materias": [
+  {
+   "id": "0911",
+   "nombre": "Corrección de Estilo",
+   "corto": "Corrección de Estilo"
+  },
+  {
+   "id": "0905",
+   "nombre": "Fundamentos de la Producción de Impresos",
+   "corto": "Fundamentos"
+  },
+  {
+   "id": "0909",
+   "nombre": "Administración de la Empresa Editorial",
+   "corto": "Administración"
+  },
+  {
+   "id": "0902",
+   "nombre": "Introducción a la Actividad Editorial",
+   "corto": "Introducción"
+  }
+ ],
+ "terminos": [
+  {
+   "t": "Adecuación",
+   "materias": [
+    "0911"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0911"
+     ],
+     "def": "Ajuste del texto al registro y a la variedad dialectal que corresponden a su situación, su género y su público. Es una de las tareas de la competencia textual del corrector.",
+     "ref": {
+      "0911": "E4"
+     }
+    }
+   ],
+   "alias": [
+    "adecuación de registro"
+   ]
+  },
+  {
+   "t": "Agente literario",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Intermediario profesional que representa al autor ante el editor, negocia contratos y derechos y cobra una comisión (alrededor del 10 %). Surge cuando la propiedad literaria se vuelve valiosa y hoy funciona como primer filtro de valor.",
+     "ref": {
+      "0902": "E3"
+     }
+    }
+   ],
+   "alias": [
+    "agente",
+    "agentes literarios"
+   ]
+  },
+  {
+   "t": "Aldo Manuzio",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Editor veneciano (1500-1502), el primero en imaginar una editorial en términos de forma según Calasso. En 1502 publicó a Sófocles en formato pequeño, considerado el primer libro de bolsillo.",
+     "ref": {
+      "0902": "E1"
+     }
+    }
+   ],
+   "alias": [
+    "aldo",
+    "manuzio"
+   ]
+  },
+  {
+   "t": "Alfabetización distraída",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Según Umberto Eco, lectura rápida y fragmentada que busca información y no la comprensión de la obra completa; Chartier la asocia con la lectura en pantalla.",
+     "ref": {
+      "0902": "E3"
+     }
+    }
+   ],
+   "alias": [
+    "lectura fragmentada"
+   ]
+  },
+  {
+   "t": "Alzado",
+   "materias": [
+    "0905"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0905"
+     ],
+     "def": "Ordenar los cuadernillos en la secuencia correcta antes de unirlos. Se verifica con la escalerita de las marcas de alzado en el lomo.",
+     "ref": {
+      "0905": "E6"
+     }
+    }
+   ],
+   "alias": [
+    "marcas de alzado"
+   ]
+  },
+  {
+   "t": "Análisis de sensibilidad",
+   "materias": [
+    "0909"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0909"
+     ],
+     "def": "Ver cómo cambian el punto de equilibrio y el resultado ante variaciones de precio, ventas, costos, márgenes y descuentos, recalculando el PE con el dato cambiado.",
+     "ref": {
+      "0909": "E2"
+     }
+    }
+   ]
+  },
+  {
+   "t": "Aprendizaje profundo",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Sistemas de redes neuronales de muchas capas que aprenden de grandes volúmenes de datos e imitan estructuralmente al cerebro (Geoffrey Hinton). Es un caso del aprendizaje automático y la base de la ola actual de la IA.",
+     "ref": {
+      "0902": "E8"
+     }
+    }
+   ],
+   "alias": [
+    "deep learning"
+   ]
+  },
+  {
+   "t": "Apropiación",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Según Chartier, modo en que cada lector o comunidad usa y le da sentido a un texto, con sus propias categorías, gestos y convenciones. Leer es apropiarse: el sentido no está prescripto de antemano.",
+     "ref": {
+      "0902": "E4"
+     }
+    }
+   ],
+   "alias": [
+    "apropiarse"
+   ]
+  },
+  {
+   "t": "Archilexema",
+   "materias": [
+    "0911"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0911"
+     ],
+     "def": "Significado global de un campo léxico, su denominador común. Lo retoma Geckeler de Coseriu.",
+     "ref": {
+      "0911": "E9"
+     }
+    }
+   ],
+   "alias": [
+    "archilexemas"
+   ]
+  },
+  {
+   "t": "Autor como propietario",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Noción moderna (Altamirano y Sarlo) del autor como primer propietario intelectual y material de su obra, definido por sus derechos: enajenarla a un editor y percibir parte de los réditos.",
+     "ref": {
+      "0902": "E1"
+     }
+    }
+   ],
+   "alias": [
+    "autor propietario"
+   ]
+  },
+  {
+   "t": "Autor transindividual",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Idea de Lucien Goldmann, retomada por Altamirano y Sarlo: las obras no son suma de intenciones individuales sino resultado de acciones de grupos humanos.",
+     "ref": {
+      "0902": "E1"
+     }
+    }
+   ],
+   "alias": [
+    "sujeto transindividual"
+   ]
+  },
+  {
+   "t": "Barbarismo",
+   "materias": [
+    "0911"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0911"
+     ],
+     "def": "Falta contra la pronunciación, la ortografía o los accidentes gramaticales de una palabra (nivel fonemático y morfológico). Se distingue del solecismo, que es un error de sintaxis.",
+     "ref": {
+      "0911": "E4"
+     }
+    }
+   ],
+   "alias": [
+    "barbarismos"
+   ]
+  },
+  {
+   "t": "Bedel cultural",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Quien filtra y legitima el valor de lo que circula: reseñistas, élites culturales, clubes del libro. Ejemplo del apunte: los reseñistas de Boston en la carrera de Hawthorne.",
+     "ref": {
+      "0902": "E3"
+     }
+    }
+   ],
+   "alias": [
+    "bedeles",
+    "gatekeeper",
+    "guardián cultural"
+   ]
+  },
+  {
+   "t": "Bibliodiversidad",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Defensa de la riqueza y variedad de la oferta editorial, análoga a la diversidad biológica y amenazada por la monopolización, la homogeneización y los regímenes autoritarios. Según Rivera Mir, la propuso un colectivo de editores independientes de Chile en los años noventa.",
+     "ref": {
+      "0902": "E1"
+     }
+    }
+   ],
+   "alias": [
+    "diversidad editorial"
+   ]
+  },
+  {
+   "t": "Biblioteca Argentina y La Cultura Argentina",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Dos colecciones de 1915: la Biblioteca Argentina (Ricardo Rojas) y La Cultura Argentina (José Ingenieros), que reeditaron clásicos nacionales con intención didáctica. Son ejemplos de «edición sin editor».",
+     "ref": {
+      "0902": "E5b"
+     }
+    }
+   ],
+   "alias": [
+    "biblioteca argentina",
+    "la cultura argentina"
+   ]
+  },
+  {
+   "t": "Biblioteca de La Nación",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Colección de libros baratos lanzada en 1901 por el diario La Nación (dirigida por Payró y Drago); es el origen del libro barato argentino y funcionó hasta 1920.",
+     "ref": {
+      "0902": "E5a"
+     }
+    }
+   ],
+   "alias": [
+    "biblioteca de la nación"
+   ]
+  },
+  {
+   "t": "Bien homogéneo y heterogéneo",
+   "materias": [
+    "0909"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0909"
+     ],
+     "def": "Homogéneo: sustituible entre vendedores (diccionarios, atlas, clásicos). Heterogéneo: diferenciado y no sustituible, como la mayoría de los libros.",
+     "ref": {
+      "0909": "E5"
+     }
+    }
+   ],
+   "alias": [
+    "bien heterogéneo",
+    "bien homogéneo"
+   ]
+  },
+  {
+   "t": "Cadena productiva",
+   "materias": [
+    "0909"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0909"
+     ],
+     "def": "Proceso por el que el texto de un autor llega como libro al lector: autor, editorial (preproducción y producción material), intermediarios (distribuidoras, librerías) y consumidor.",
+     "ref": {
+      "0909": "E3"
+     }
+    }
+   ],
+   "alias": [
+    "cadena del libro"
+   ]
+  },
+  {
+   "t": "Caja negra",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Característica de las redes neuronales profundas: ni sus diseñadores pueden explicar por qué aciertan o fallan. Contrasta con Deep Blue, que era transparente.",
+     "ref": {
+      "0902": "E8"
+     }
+    }
+   ],
+   "alias": [
+    "cajas negras"
+   ]
+  },
+  {
+   "t": "Calco",
+   "materias": [
+    "0911"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0911"
+     ],
+     "def": "Extranjerismo que se traduce a la lengua propia, en lugar de adaptarse o mantenerse (por ejemplo, balompié). Se distingue del préstamo y del extranjerismo.",
+     "ref": {
+      "0911": "E4"
+     }
+    }
+   ],
+   "alias": [
+    "calcos"
+   ]
+  },
+  {
+   "t": "Calibre",
+   "materias": [
+    "0905"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0905"
+     ],
+     "def": "Grosor del papel, expresado en micrones (o milímetros) y medido con micrómetro. No debe confundirse con el gramaje.",
+     "ref": {
+      "0905": "E2"
+     }
+    }
+   ],
+   "alias": [
+    "espesor"
+   ]
+  },
+  {
+   "t": "Calidad total",
+   "materias": [
+    "0905",
+    "0909"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0905",
+      "0909"
+     ],
+     "def": "Enfoque de gestión de origen japonés (Total Quality Management): como el 100 % es inalcanzable, se busca minimizar el error entre un paso y otro, y la calidad se construye durante el proceso y no solo se controla al final. En Administración organiza la gestión de la editorial (Robbins 2007).",
+     "ref": {
+      "0905": "E1",
+      "0909": "E3"
+     }
+    }
+   ],
+   "sigla": "TQM",
+   "alias": [
+    "Total Quality Management",
+    "administración de la calidad",
+    "calidad",
+    "calidad construida",
+    "calidad controlada"
+   ]
+  },
+  {
+   "t": "Camino crítico",
+   "materias": [
+    "0905"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0905"
+     ],
+     "def": "Camino cuyas tareas tienen margen total igual a cero; es el de mayor duración del proyecto y todo proyecto tiene al menos uno.",
+     "ref": {
+      "0905": "E1"
+     }
+    }
+   ],
+   "sigla": "CPM",
+   "alias": [
+    "CPM"
+   ]
+  },
+  {
+   "t": "Campo editorial",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Según Bourdieu, espacio de posiciones y luchas donde editoriales, autores, críticos y escuela compiten por imponer las categorías legítimas de percepción y valoración. Tiene autonomía relativa frente a los poderes económico, político y religioso.",
+     "ref": {
+      "0902": "E4"
+     }
+    }
+   ],
+   "alias": [
+    "campo",
+    "campo de producción cultural",
+    "campo intelectual",
+    "campo literario"
+   ]
+  },
+  {
+   "t": "Campo léxico",
+   "materias": [
+    "0911"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0911"
+     ],
+     "def": "Paradigma cerrado de lexemas que se reparten un continuo de contenido y se oponen entre sí por rasgos distintivos simples. Se distingue del campo asociativo, que es una red abierta de asociaciones.",
+     "ref": {
+      "0911": "E9"
+     }
+    }
+   ],
+   "alias": [
+    "campo semántico",
+    "campos léxicos",
+    "campos semánticos"
+   ]
+  },
+  {
+   "t": "Capital simbólico",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Según Bourdieu, capital económico negado, reconocido y por eso legítimo: el crédito de un nombre que da poder de consagrar obras y personas. En el polo de producción restringida es la acumulación que importa; «un editor es su catálogo».",
+     "ref": {
+      "0902": "E4"
+     }
+    }
+   ],
+   "alias": [
+    "capital económico negado"
+   ]
+  },
+  {
+   "t": "Catálogo",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Conjunto de libros que una editorial publica y que forman un todo con identidad propia. Según Davies, se organiza primero por tema y luego por lector, y la adecuación al catálogo es el motivo de rechazo más habitual de un original.",
+     "ref": {
+      "0902": "E1"
+     }
+    }
+   ],
+   "alias": [
+    "catálogo editorial"
+   ]
+  },
+  {
+   "t": "CEAL",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Editorial de libros baratos fundada en 1966 (el mismo año que Siglo XXI), que los apuntes ubican en la etapa de masificación del modelo hispanoamericano posterior a Eudeba.",
+     "ref": {
+      "0902": "E5b"
+     }
+    }
+   ],
+   "alias": [
+    "centro editor de américa latina"
+   ]
+  },
+  {
+   "t": "Celulosa",
+   "materias": [
+    "0905"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0905"
+     ],
+     "def": "Polisacárido natural, insoluble en agua, que se aglutina en fibras y le da estructura a las plantas. Es la base del papel.",
+     "ref": {
+      "0905": "E2"
+     }
+    }
+   ],
+   "alias": [
+    "soporte celulósico"
+   ]
+  },
+  {
+   "t": "Cerlalc",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Centro Regional para el Fomento del Libro en América Latina y el Caribe. Su dosier de octubre de 2020 plantea preguntas, no fórmulas, sobre la IA y la edición, y advierte que la regulación latinoamericana no la contempla.",
+     "ref": {
+      "0902": "E8"
+     }
+    }
+   ],
+   "alias": [
+    "centro regional para el fomento del libro en américa latina y el caribe"
+   ]
+  },
+  {
+   "t": "Cesión de derechos",
+   "materias": [
+    "0909"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0909"
+     ],
+     "def": "El autor registra la obra y cede al editor, por un tiempo y un espacio geográfico, el derecho de editarla y distribuirla, a cambio de 8-15 % del PVP por ejemplar vendido.",
+     "ref": {
+      "0909": "E3"
+     }
+    }
+   ],
+   "alias": [
+    "cesión de derecho"
+   ]
+  },
+  {
+   "t": "Circuito de la comunicación",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Modelo de Robert Darnton para mapear las redes de producción, difusión y consumo de lo impreso: autor, editor, impresor, distribuidor, librero y lector.",
+     "ref": {
+      "0902": "E3"
+     }
+    }
+   ],
+   "alias": [
+    "circuito de comunicación",
+    "circuito de darnton"
+   ]
+  },
+  {
+   "t": "Cita",
+   "materias": [
+    "0911"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0911"
+     ],
+     "def": "Modo de incorporar la voz de otro en un texto. Bolívar la clasifica en destacada, integrada, de parafraseo, de apoyo y de expansión, y las normas de estilo fijan cómo se acredita la fuente.",
+     "ref": {
+      "0911": "E8"
+     }
+    }
+   ],
+   "alias": [
+    "citación",
+    "citas"
+   ]
+  },
+  {
+   "t": "Código",
+   "materias": [
+    "0911"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0911"
+     ],
+     "def": "En el esquema de Jakobson, el factor al que corresponde la función metalingüística. Kerbrat-Orecchioni critica que el esquema presuponga un código único y homogéneo, cuando hay tantos idiolectos como hablantes.",
+     "ref": {
+      "0911": "E7"
+     }
+    }
+   ],
+   "alias": [
+    "códigos"
+   ]
+  },
+  {
+   "t": "Coherencia",
+   "materias": [
+    "0911"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0911"
+     ],
+     "def": "Organización lógico-semántica de un texto, que permite al lector hacer las inferencias necesarias para interpretarlo. Se distingue de la cohesión, que opera con recursos léxico-gramaticales.",
+     "ref": {
+      "0911": "E4"
+     }
+    }
+   ]
+  },
+  {
+   "t": "Cohesión",
+   "materias": [
+    "0911"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0911"
+     ],
+     "def": "Relaciones de sentido que se establecen en un texto mediante recursos léxico-gramaticales: conectores, sustitución, elipsis y reiteración.",
+     "ref": {
+      "0911": "E4"
+     }
+    }
+   ]
+  },
+  {
+   "t": "Colección",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Agrupación de libros de una editorial con personalidad propia, que Piccolini llama «diversidad organizada». Los títulos se sostienen entre sí y el diseño unifica la oferta en la librería.",
+     "ref": {
+      "0902": "E1"
+     }
+    }
+   ],
+   "alias": [
+    "colecciones",
+    "serie"
+   ]
+  },
+  {
+   "t": "Colonización pedagógica",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Idea de Jauretche retomada por Peña Lillo (colección La Siringa): la cultura nacional estaría colonizada por el imperialismo y la oligarquía local, y las grandes editoriales «envasan cultura». Edita como militancia por la descolonización.",
+     "ref": {
+      "0902": "E5a"
+     }
+    }
+   ],
+   "alias": [
+    "descolonización ideológica"
+   ]
+  },
+  {
+   "t": "Competencia",
+   "materias": [
+    "0911"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0911"
+     ],
+     "def": "Término tomado de la lingüística. Para Chomsky es el conocimiento gramatical del hablante-oyente ideal; Hymes lo amplía a competencia comunicativa, que incluye el uso en contexto. García Negroni y Estrada distinguen competencias enciclopédicas, gramaticales y textuales del corrector.",
+     "ref": {
+      "0911": "E4"
+     }
+    }
+   ],
+   "alias": [
+    "competencia comunicativa",
+    "competencia lingüística",
+    "competencias"
+   ]
+  },
+  {
+   "t": "Composición",
+   "materias": [
+    "0905"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0905"
+     ],
+     "def": "Armado del texto en página. La composición en caliente usa tipografía de plomo (tipos móviles o linotipo); la composición en frío usa métodos digitales y unificó el punto en 1/72 de pulgada.",
+     "ref": {
+      "0905": "E3"
+     }
+    }
+   ],
+   "alias": [
+    "composición en caliente",
+    "composición en frío",
+    "composición tipográfica"
+   ]
+  },
+  {
+   "t": "Comunidades de interpretación",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Expresión de Stanley Fish: grupos de lectores que comparten competencias, usos, códigos e intereses frente a lo escrito. Cavallo y Chartier la usan para mostrar que la lectura no es invariante.",
+     "ref": {
+      "0902": "E3"
+     }
+    }
+   ],
+   "alias": [
+    "comunidad de interpretación",
+    "comunidad interpretativa",
+    "comunidades interpretativas"
+   ]
+  },
+  {
+   "t": "Concentración editorial",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Proceso por el cual pocas empresas se llevan la mayor parte del mercado. Dato de Rama (2003): de unas 1.590 editoriales registradas en Argentina, diez concentraban el 45 % de las ventas.",
+     "ref": {
+      "0902": "E6"
+     }
+    }
+   ],
+   "alias": [
+    "concentración",
+    "concentración económica"
+   ]
+  },
+  {
+   "t": "Consagración",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Según Bourdieu, acto por el cual editores, críticos, academias y escuela seleccionan lo que merece conservarse. La competencia del campo es por la consagración más que por el éxito, y la escuela canoniza clásicos post mortem.",
+     "ref": {
+      "0902": "E4"
+     }
+    }
+   ],
+   "alias": [
+    "instancias de consagración"
+   ]
+  },
+  {
+   "t": "Consenso de Washington",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Conjunto de diez principios de 1990 (disciplina fiscal, apertura comercial, privatizaciones, desregulación) que se impuso en la periferia como receta de la globalización.",
+     "ref": {
+      "0902": "E6"
+     }
+    }
+   ],
+   "alias": [
+    "consenso de washington (1990)"
+   ]
+  },
+  {
+   "t": "Consignación",
+   "materias": [
+    "0909"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0909"
+     ],
+     "def": "El editor entrega los libros al punto de venta, que declara las ventas y paga lo vendido, con o sin derecho de devolución; la editorial asume el costo económico y el financiero hasta que hay ventas.",
+     "ref": {
+      "0909": "E3"
+     }
+    }
+   ]
+  },
+  {
+   "t": "Convenio de Berna",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Primer acuerdo internacional real sobre derechos de autor (1886). Presupone un autor persona física, y su duración, de vida más cincuenta años, se cita en el debate sobre IA.",
+     "ref": {
+      "0902": "E7"
+     }
+    }
+   ],
+   "alias": [
+    "berna",
+    "convenio de berna (1886)"
+   ]
+  },
+  {
+   "t": "Corrección",
+   "materias": [
+    "0911"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0911"
+     ],
+     "def": "Intervención sobre un texto. La corrección de concepto atiende al contenido y la hace un especialista; la corrección de estilo atiende a lo ortotipográfico, gramatical y léxico. En Rosenblat, el criterio de corrección lingüística se resuelve por la aceptabilidad social.",
+     "ref": {
+      "0911": "E4"
+     }
+    }
+   ],
+   "alias": [
+    "corrección de concepto",
+    "corrección de estilo",
+    "corrector",
+    "criterio de corrección"
+   ]
+  },
+  {
+   "t": "Costeo directo",
+   "materias": [
+    "0909"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0909"
+     ],
+     "def": "Separa los costos directos del título del CE: el libro no es responsable de la estructura, solo contribuye a pagarla. PE = CE/MCU.",
+     "ref": {
+      "0909": "E2"
+     }
+    }
+   ]
+  },
+  {
+   "t": "Costeo por absorción",
+   "materias": [
+    "0909"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0909"
+     ],
+     "def": "Asigna todos los costos, incluido el CE, a los títulos, sin distinguir directos de estructura. PE = (CE + CDT)/INU.",
+     "ref": {
+      "0909": "E2"
+     }
+    }
+   ]
+  },
+  {
+   "t": "Costo",
+   "materias": [
+    "0909"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0909"
+     ],
+     "def": "Esfuerzo económico para obtener un objetivo (vender el libro): todo lo que integra el precio, salvo la ganancia. Se distingue de la pérdida, que es un costo que no logra su objetivo (el alquiler es costo; un robo, pérdida).",
+     "ref": {
+      "0909": "E1"
+     }
+    }
+   ],
+   "alias": [
+    "costos"
+   ]
+  },
+  {
+   "t": "Costo de estructura",
+   "materias": [
+    "0909"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0909"
+     ],
+     "def": "Costos que no son atribuibles a un título sino a la gestión de la editorial (sueldos, alquileres, servicios); normalmente mensuales y fijos, no dependen de la tirada. Es un costo indirecto.",
+     "ref": {
+      "0909": "E1"
+     }
+    }
+   ],
+   "sigla": "CE",
+   "alias": [
+    "costos de estructura"
+   ]
+  },
+  {
+   "t": "Costo directo total",
+   "materias": [
+    "0909"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0909"
+     ],
+     "def": "Costo directo de toda la tirada. CDT = CDU x tirada.",
+     "ref": {
+      "0909": "E1"
+     }
+    }
+   ],
+   "sigla": "CDT"
+  },
+  {
+   "t": "Costo directo unitario",
+   "materias": [
+    "0909"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0909"
+     ],
+     "def": "Lo que cuesta editar un ejemplar: preproducción, industriales y gastos comerciales. CDU = CPU + gastos comerciales (derechos de autor sobre PVP, invendibles sobre CPU, el resto sobre INU).",
+     "ref": {
+      "0909": "E1"
+     }
+    }
+   ],
+   "sigla": "CDU"
+  },
+  {
+   "t": "Costo global total",
+   "materias": [
+    "0909"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0909"
+     ],
+     "def": "Todos los costos de la edición del libro, directos y de estructura. CGT = CDT + CE.",
+     "ref": {
+      "0909": "E1"
+     }
+    }
+   ],
+   "sigla": "CGT"
+  },
+  {
+   "t": "Costo global unitario",
+   "materias": [
+    "0909"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0909"
+     ],
+     "def": "Costo total por ejemplar incluyendo la estructura repartida; baja al subir la tirada. CGU = CDU + CE/Q.",
+     "ref": {
+      "0909": "E1"
+     }
+    }
+   ],
+   "sigla": "CGU"
+  },
+  {
+   "t": "Costo marginal",
+   "materias": [
+    "0909"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0909"
+     ],
+     "def": "Costo de producir un ejemplar más; es igual al CDU. Sube el CDT pero no el CE.",
+     "ref": {
+      "0909": "E1"
+     }
+    }
+   ]
+  },
+  {
+   "t": "Costo producto total",
+   "materias": [
+    "0909"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0909"
+     ],
+     "def": "Suma de los costos directos de producción del título: preproducción (fijos) más industriales (variables). CPT = preproducción + industriales.",
+     "ref": {
+      "0909": "E1"
+     }
+    }
+   ],
+   "sigla": "CPT"
+  },
+  {
+   "t": "Costo producto unitario",
+   "materias": [
+    "0909"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0909"
+     ],
+     "def": "Costo de producción de cada ejemplar. CPU = CPT / tirada.",
+     "ref": {
+      "0909": "E1"
+     }
+    }
+   ],
+   "sigla": "CPU"
+  },
+  {
+   "t": "Costos directos",
+   "materias": [
+    "0909"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0909"
+     ],
+     "def": "Costos atribuibles a un título: si el título no se edita, no existen (diseño de tapa, corrección, traducción, imprenta). Incluyen los fijos de preproducción y los variables industriales.",
+     "ref": {
+      "0909": "E1"
+     }
+    }
+   ],
+   "alias": [
+    "costo directo"
+   ]
+  },
+  {
+   "t": "Costos fijos y variables",
+   "materias": [
+    "0909"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0909"
+     ],
+     "def": "Fijos: constantes para ciertos rangos de producción (la estructura). Variables: proporcionales a lo producido (los industriales: imprenta, encuadernación).",
+     "ref": {
+      "0909": "E1"
+     }
+    }
+   ],
+   "alias": [
+    "costo fijo",
+    "costo variable",
+    "costos fijos",
+    "costos variables"
+   ]
+  },
+  {
+   "t": "Costos indirectos",
+   "materias": [
+    "0909"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0909"
+     ],
+     "def": "Costos no asignables a un título en particular; en la editorial, el costo de estructura. Todo costo variable es directo, pero no todo costo directo es variable.",
+     "ref": {
+      "0909": "E1"
+     }
+    }
+   ],
+   "alias": [
+    "costo indirecto"
+   ]
+  },
+  {
+   "t": "Cuadernillo",
+   "materias": [
+    "0905"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0905"
+     ],
+     "def": "Conjunto de páginas que resulta de plegar un pliego varias veces. Su cantidad de páginas es una potencia de 2 (4, 8, 16, 32, 64).",
+     "ref": {
+      "0905": "E6"
+     }
+    }
+   ],
+   "alias": [
+    "cuadernillos"
+   ]
+  },
+  {
+   "t": "Cuarta revolución industrial",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Expresión con la que un autor del dosier del Cerlalc describe el cambio que traerá la IA, que tendría efectos más profundos que el vapor, la electricidad y las computadoras e internet.",
+     "ref": {
+      "0902": "E8"
+     }
+    }
+   ],
+   "alias": [
+    "4.ª revolución industrial"
+   ]
+  },
+  {
+   "t": "Cuatricromía",
+   "materias": [
+    "0905"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0905"
+     ],
+     "def": "Impresión con cuatro tintas de proceso (cian, magenta, amarillo y negro). Se agregó el negro porque CMY solo forma marrones y violetas sucios.",
+     "ref": {
+      "0905": "E4a"
+     }
+    }
+   ],
+   "sigla": "CMYK",
+   "alias": [
+    "CMYK",
+    "RGB",
+    "policromía",
+    "síntesis aditiva",
+    "síntesis sustractiva",
+    "tintas de proceso",
+    "tintas proceso"
+   ]
+  },
+  {
+   "t": "Cuerpo tipográfico",
+   "materias": [
+    "0905"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0905"
+     ],
+     "def": "Altura, en puntos, del bloque de tipo móvil que contiene la letra; no es el tamaño de la letra impresa. Por eso familias distintas de igual cuerpo miden distinto al imprimirse.",
+     "ref": {
+      "0905": "E3"
+     }
+    }
+   ],
+   "alias": [
+    "cuerpo"
+   ]
+  },
+  {
+   "t": "Customer Intelligence",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Uso de datos de las interacciones de los lectores en redes para recomendar, fidelizar y segmentar; puede orientar la estrategia editorial. Propuesto por Ruz para editoriales medianas y grandes.",
+     "ref": {
+      "0902": "E8"
+     }
+    }
+   ],
+   "alias": [
+    "inteligencia de clientes"
+   ]
+  },
+  {
+   "t": "Demasía",
+   "materias": [
+    "0905"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0905"
+     ],
+     "def": "Margen que se imprime de más, más allá del corte, para que al refilar no queden filos blancos. También se llama sangrado.",
+     "ref": {
+      "0905": "E6"
+     }
+    }
+   ],
+   "alias": [
+    "sangrado",
+    "sangría de impresión"
+   ]
+  },
+  {
+   "t": "Derechos de autor",
+   "materias": [
+    "0909"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0909"
+     ],
+     "def": "Pago al autor por ejemplar vendido, típicamente 8-15 % del PVP; en dominio público (70 años de la muerte del autor) es 0 %. Aquí es un gasto comercial por ejemplar, no el derecho en sentido jurídico general.",
+     "ref": {
+      "0909": "E1"
+     }
+    }
+   ],
+   "sigla": "DA",
+   "alias": [
+    "derecho de autor",
+    "regalías"
+   ]
+  },
+  {
+   "t": "Descriptivismo",
+   "materias": [
+    "0911"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0911"
+     ],
+     "def": "Postura de la lingüística moderna, que describe lo que los hablantes dicen realmente sin juicio de valor. Se opone a la gramática prescriptiva, que establece lo que debe decirse.",
+     "ref": {
+      "0911": "E6"
+     }
+    }
+   ],
+   "alias": [
+    "descriptivista",
+    "descriptivo",
+    "gramática descriptiva"
+   ]
+  },
+  {
+   "t": "Descuento comercial",
+   "materias": [
+    "0909"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0909"
+     ],
+     "def": "Porcentaje del PVP que se queda el canal (librería, cadena o distribuidor). Valor = PVP x %/100; ej.: librerías 40 %, cadenas 55 %.",
+     "ref": {
+      "0909": "E1"
+     }
+    }
+   ],
+   "alias": [
+    "descuento a librerías"
+   ]
+  },
+  {
+   "t": "Desintermediación",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Según Bhaskar, exclusión o distanciamiento de los editores de la cadena de valor, por ejemplo con la autopublicación. Es parcial y gradual, no una ley.",
+     "ref": {
+      "0902": "E7"
+     }
+    }
+   ],
+   "alias": [
+    "desintermediar"
+   ]
+  },
+  {
+   "t": "Determinativo",
+   "materias": [
+    "0911"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0911"
+     ],
+     "def": "Clase de palabra funcional que actualiza (determinantes: artículo, demostrativos, posesivos) o cuantifica (cuantificadores) al sustantivo. Se diferencia del adjetivo por su posición fija y porque no es opcional con sustantivos contables singulares en función de sujeto.",
+     "ref": {
+      "0911": "E1"
+     }
+    }
+   ],
+   "alias": [
+    "determinante",
+    "determinantes",
+    "determinativos"
+   ]
+  },
+  {
+   "t": "Diagrama de Gantt",
+   "materias": [
+    "0905",
+    "0909"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0905",
+      "0909"
+     ],
+     "def": "Gráfico de barras horizontales que representa tareas, duración, secuencia y superposiciones en función del tiempo. Es muy visual pero poco apto para cálculos (a diferencia del PERT); en Administración permite hallar la cadena crítica que fija el plazo total de producción.",
+     "ref": {
+      "0905": "E1",
+      "0909": "E4"
+     }
+    }
+   ],
+   "alias": [
+    "Gantt",
+    "diagrama de Gantt",
+    "diagramas de Gantt"
+   ]
+  },
+  {
+   "t": "Doble carácter del libro",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Distinción de Kant (citada por Chartier): el libro como objeto material, propiedad del comprador, y como discurso dirigido al público, propiedad del autor. Esa separación entre texto y soporte fundó la propiedad literaria.",
+     "ref": {
+      "0902": "E3"
+     }
+    }
+   ],
+   "alias": [
+    "doble condición del libro",
+    "libro como objeto y como discurso",
+    "opus mechanicum"
+   ]
+  },
+  {
+   "t": "Doble faz (producto de)",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Fórmula de Bourdieu citada por Altamirano y Sarlo: el objeto artístico es a la vez mercancía y significación, y su valor estético no se reduce al económico.",
+     "ref": {
+      "0902": "E4"
+     }
+    }
+   ],
+   "alias": [
+    "doble faz",
+    "mercancía y significación",
+    "producto de doble faz"
+   ]
+  },
+  {
+   "t": "Dos polos del campo editorial",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Según Bourdieu (1992), la producción restringida (arte «puro», ciclo largo, capital simbólico; ejemplo, Minuit) se opone a la gran producción (éxito inmediato medido por la tirada, ciclo corto; ejemplo, Laffont).",
+     "ref": {
+      "0902": "E4"
+     }
+    }
+   ],
+   "alias": [
+    "gran producción",
+    "polo de gran producción",
+    "polo de producción restringida",
+    "producción restringida"
+   ]
+  },
+  {
+   "t": "Ecosistema del libro",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Según Rivera Mir, conjunto de actores, prácticas e institucionalidad que permiten que un texto llegue a los lectores. Amplía la cadena autor-editor-distribuidor-librero-lector con bibliotecarios, correctores, impresores, críticos, el Estado y la sociedad civil.",
+     "ref": {
+      "0902": "E1"
+     }
+    }
+   ],
+   "alias": [
+    "ecosistema"
+   ]
+  },
+  {
+   "t": "Edición",
+   "materias": [
+    "0909"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0909"
+     ],
+     "def": "En esta materia, el conjunto de costos y ejemplares de un título o de varios (edición multi-título) que se evalúa económicamente: CDT y CDG son los costos directos de la edición, y el PE de la edición cubre solo ellos.",
+     "ref": {
+      "0909": "E2"
+     }
+    }
+   ],
+   "alias": [
+    "la edición"
+   ]
+  },
+  {
+   "t": "Edición de autor",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Modalidad corriente a principios del siglo XX en Argentina: el escritor pagaba su propia edición y el «editor» solo administraba y cobraba una comisión.",
+     "ref": {
+      "0902": "E5a"
+     }
+    }
+   ],
+   "alias": [
+    "edición por cuenta del autor"
+   ]
+  },
+  {
+   "t": "Edición sin editor",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Según Sora, grandes proyectos de colección pensados por intelectuales y no por editores profesionales, y fabricados por un taller o una librería importantes. Ejemplos: La Cultura Argentina y la Biblioteca Argentina.",
+     "ref": {
+      "0902": "E5b"
+     }
+    }
+   ]
+  },
+  {
+   "t": "Editor advenedizo",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Editor de los años veinte y treinta que viene de oficios ajenos a la cultura y de familias inmigrantes y autodidactas, como Glusberg, Gleizer o Zamora.",
+     "ref": {
+      "0902": "E5a"
+     }
+    }
+   ],
+   "alias": [
+    "editores advenedizos"
+   ]
+  },
+  {
+   "t": "Editor industrial",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Según Barbier, el editor del siglo XIX que define la política editorial, encarga a los autores, fija las características materiales, calcula el presupuesto y organiza la difusión, entre el autor, el impresor y el difusor. Se vincula con los bancos; Panckoucke fue el primero «estricto».",
+     "ref": {
+      "0902": "E2"
+     }
+    }
+   ],
+   "alias": [
+    "editor moderno"
+   ]
+  },
+  {
+   "t": "Editorial como único texto",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Idea de Calasso: la editorial es el texto formado por todos sus libros, portadas, solapas y publicidad, un género literario híbrido cuyo criterio es la forma.",
+     "ref": {
+      "0902": "E1"
+     }
+    }
+   ],
+   "alias": [
+    "editorial como género literario",
+    "la editorial como texto"
+   ]
+  },
+  {
+   "t": "Efecto de red",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Según Bhaskar, doble movimiento de centralización (principio de Highlander, ley de Metcalfe) y fragmentación (abundancia de sitios y caída de guardianes) de una misma estructura de red. No son opuestos: la red hace ambas cosas.",
+     "ref": {
+      "0902": "E7"
+     }
+    }
+   ],
+   "alias": [
+    "centralización y fragmentación"
+   ]
+  },
+  {
+   "t": "Eloísa Cartonera",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Pequeña editorial argentina de 2003 que fabrica libros con cartón, sin ISBN ni derechos. Los autores ceden sus textos gratis a cambio de capital simbólico.",
+     "ref": {
+      "0902": "E6"
+     }
+    }
+   ]
+  },
+  {
+   "t": "Enunciación",
+   "materias": [
+    "0911"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0911"
+     ],
+     "def": "Marco en que se produce el enunciado. En sentido amplio abarca todo el marco enunciativo; en sentido restringido, las huellas del locutor en el enunciado (subjetividad en el lenguaje).",
+     "ref": {
+      "0911": "E7"
+     }
+    }
+   ],
+   "alias": [
+    "enunciado",
+    "enunciados"
+   ]
+  },
+  {
+   "t": "Era civil del libro",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Expresión de Lucien Febvre: hacia 1530 el libro impreso alcanza un lugar definido en el orden social, con portada, signaturas, numeración e índices.",
+     "ref": {
+      "0902": "E2"
+     }
+    }
+   ],
+   "alias": [
+    "libro moderno"
+   ]
+  },
+  {
+   "t": "Era Gutenberg",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Período de la imprenta de tipos móviles. Epstein (2009) sostiene que está terminando, pero que la naturaleza humana filtra la calidad y el códice persiste.",
+     "ref": {
+      "0902": "E6"
+     }
+    }
+   ],
+   "alias": [
+    "fin de la era gutenberg",
+    "galaxia gutenberg"
+   ]
+  },
+  {
+   "t": "Escena de enunciación",
+   "materias": [
+    "0911"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0911"
+     ],
+     "def": "Marco con que Maingueneau analiza dónde y cómo se presenta un texto: escena englobante (tipo de discurso), escena genérica (género) y escenografía (puesta en escena particular).",
+     "ref": {
+      "0911": "E8"
+     }
+    }
+   ],
+   "alias": [
+    "escenas de enunciación",
+    "escenografía",
+    "escenografías"
+   ]
+  },
+  {
+   "t": "Estado editor",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Intervención de los gobiernos en el ámbito del libro, común en regímenes populistas, pero según Rivera Mir no ha sido lo único ni lo más sostenido en el tiempo.",
+     "ref": {
+      "0902": "E1"
+     }
+    }
+   ]
+  },
+  {
+   "t": "Estandarización",
+   "materias": [
+    "0911"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0911"
+     ],
+     "def": "Proceso histórico, nunca completo en el habla, por el que una variedad se impone como modelo: selección, aceptación, difusión, mantenimiento, codificación y prescripción. Ramírez Gelbes distingue la monocéntrica, la pluricéntrica y la composicional.",
+     "ref": {
+      "0911": "E6"
+     }
+    }
+   ]
+  },
+  {
+   "t": "Estatuto de la Reina Ana",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Ley inglesa de 1709-1710, primer reconocimiento legislativo del derecho de reproducción. Según Bhaskar, el derecho de autor es una ficción legal que inventaron los editores.",
+     "ref": {
+      "0902": "E7"
+     }
+    }
+   ],
+   "alias": [
+    "estatuto de ana",
+    "reina ana"
+   ]
+  },
+  {
+   "t": "Estereotipia",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Técnica que hace un molde de cada página compuesta para reimprimir sin recomponer ni inmovilizar los tipos. Bajó el precio de los libros y cambió el presupuesto de la edición.",
+     "ref": {
+      "0902": "E2"
+     }
+    }
+   ],
+   "alias": [
+    "clisado",
+    "clisé"
+   ]
+  },
+  {
+   "t": "Eudeba",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Editorial de la Universidad de Buenos Aires fundada en 1959 bajo la dirección de Boris Spivacow, hito de la masificación del libro en Argentina.",
+     "ref": {
+      "0902": "E5b"
+     }
+    }
+   ],
+   "alias": [
+    "editorial universitaria de buenos aires"
+   ]
+  },
+  {
+   "t": "Extranjerismo",
+   "materias": [
+    "0911"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0911"
+     ],
+     "def": "Palabra de otra lengua que se mantiene sin adaptar y se escribe en bastardilla (por ejemplo, background). Se distingue del préstamo y del calco.",
+     "ref": {
+      "0911": "E4"
+     }
+    }
+   ],
+   "alias": [
+    "extranjerismos"
+   ]
+  },
+  {
+   "t": "Extranjerización",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Pase de las principales editoriales de literatura a capitales extranjeros. En Argentina, el caso citado es la venta de Sudamericana primero y de Emecé después.",
+     "ref": {
+      "0902": "E6"
+     }
+    }
+   ],
+   "alias": [
+    "desnacionalización"
+   ]
+  },
+  {
+   "t": "Familia tipográfica",
+   "materias": [
+    "0905"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0905"
+     ],
+     "def": "Conjunto de variables (regular, bold, italic, etc.) construidas sobre una misma estructura.",
+     "ref": {
+      "0905": "E3"
+     }
+    }
+   ],
+   "alias": [
+    "familias tipográficas",
+    "fuente",
+    "fuentes"
+   ]
+  },
+  {
+   "t": "Fondo editorial",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Libros de catálogo permanente que se venden año tras año y se reeditan con costos menores, ya amortizados. Son el verdadero capital de la editorial: dan ingresos regulares y financian inversiones arriesgadas.",
+     "ref": {
+      "0902": "E4"
+     }
+    }
+   ],
+   "alias": [
+    "backlist",
+    "fondo",
+    "libro de fondo",
+    "libros de fondo"
+   ]
+  },
+  {
+   "t": "Forma impresora",
+   "materias": [
+    "0905"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0905"
+     ],
+     "def": "Matriz, material o no, de la que se transfiere la imagen al soporte; define la zona impresora y la zona no impresora. Su naturaleza varía según el sistema de impresión, y su obtención marca el fin de la pre-prensa.",
+     "ref": {
+      "0905": "E1"
+     }
+    }
+   ],
+   "alias": [
+    "forma",
+    "formas impresoras",
+    "matriz",
+    "plancha"
+   ]
+  },
+  {
+   "t": "Formato",
+   "materias": [
+    "0905",
+    "0909"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0905"
+     ],
+     "def": "Relación de proporción entre ancho y alto de una publicación (vertical, cuadrado o apaisado), no su tamaño. El tamaño es la magnitud absoluta de sus dimensiones.",
+     "ref": {
+      "0905": "E3"
+     }
+    },
+    {
+     "materias": [
+      "0909"
+     ],
+     "def": "En esta materia, el trabajo de maquetación con que se da al original forma de libro (en Illustrator, InDesign o Quark) y se define el diseño de tapa e interior; no refiere a las dimensiones del libro.",
+     "ref": {
+      "0909": "E5"
+     }
+    }
+   ],
+   "alias": [
+    "dar formato",
+    "formatos",
+    "tamaño"
+   ]
+  },
+  {
+   "t": "Función autor",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Chartier retoma a Foucault: el vínculo entre obra y autor no es universal ni inmediato, y hubo épocas en que la propiedad no descansaba en el autor. Advierte que la respuesta de Foucault no agota la pregunta.",
+     "ref": {
+      "0902": "E4"
+     }
+    }
+   ]
+  },
+  {
+   "t": "Función del lenguaje",
+   "materias": [
+    "0911"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0911"
+     ],
+     "def": "Para Jakobson, a cada factor de la comunicación corresponde una función: emotiva, conativa, referencial, poética, metalingüística y fática. En todo mensaje coexisten varias, pero una es dominante.",
+     "ref": {
+      "0911": "E7"
+     }
+    }
+   ],
+   "alias": [
+    "funciones de Jakobson",
+    "funciones del lenguaje",
+    "función poética"
+   ]
+  },
+  {
+   "t": "Gamut",
+   "materias": [
+    "0905"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0905"
+     ],
+     "def": "Espacio o cantidad de colores que un dispositivo o sistema puede representar. El gamut CMYK es menor que el RGB y que el del ojo humano.",
+     "ref": {
+      "0905": "E4a"
+     }
+    }
+   ]
+  },
+  {
+   "t": "Ganancia de punto",
+   "materias": [
+    "0905"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0905"
+     ],
+     "def": "Diferencia entre el porcentaje de trama teórico y el realmente impreso, por aplastamiento de la tinta (mecánica) o por la absorción del soporte (óptica). Es máxima en los sistemas en relieve y mínima en offset y digital de calidad.",
+     "ref": {
+      "0905": "E4a"
+     }
+    }
+   ],
+   "alias": [
+    "aumento de punto"
+   ]
+  },
+  {
+   "t": "Ganancia deseada",
+   "materias": [
+    "0909"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0909"
+     ],
+     "def": "Monto que se quiere obtener además de cubrir los costos; se suma al costo cubierto por el PE (por ejemplo, (CE + G)/MCU).",
+     "ref": {
+      "0909": "E2"
+     }
+    }
+   ],
+   "sigla": "G",
+   "alias": [
+    "ganancia"
+   ]
+  },
+  {
+   "t": "Gastos comerciales",
+   "materias": [
+    "0909"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0909"
+     ],
+     "def": "Egresos de comercialización y distribución atribuibles a un título, que se generan al vender; en el curso se asumen directos. Bases: invendibles sobre CPU, derechos de autor sobre PVP, el resto (incobrables, comisiones, flete, publicidad) sobre INU.",
+     "ref": {
+      "0909": "E1"
+     }
+    }
+   ],
+   "alias": [
+    "gasto comercial"
+   ]
+  },
+  {
+   "t": "Género discursivo",
+   "materias": [
+    "0911"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0911"
+     ],
+     "def": "Para Bajtín, tipo relativamente estable de enunciados definido por tema, estilo y composición. Funciona como correa de transmisión entre la historia social y la historia de la lengua.",
+     "ref": {
+      "0911": "E5"
+     }
+    }
+   ],
+   "alias": [
+    "géneros discursivos"
+   ]
+  },
+  {
+   "t": "Giro antropológico",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Según Canclini, paso de medir la lectura con encuestas a observar con etnografías y diarios de lectura qué hacen los lectores. Implica desontologizar (no partir de una definición fija de leer) y descuantitivizar.",
+     "ref": {
+      "0902": "E7"
+     }
+    }
+   ],
+   "alias": [
+    "descuantitivizar",
+    "desontologizar"
+   ]
+  },
+  {
+   "t": "Glotopolítica",
+   "materias": [
+    "0911"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0911"
+     ],
+     "def": "Enfoque discursivo e histórico que estudia las intervenciones sobre el lenguaje, oficiales o no, en relación con procesos sociohistóricos amplios.",
+     "ref": {
+      "0911": "E6b"
+     }
+    }
+   ]
+  },
+  {
+   "t": "Gramaje",
+   "materias": [
+    "0905"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0905"
+     ],
+     "def": "Masa del papel por unidad de superficie, en g/m². Es la variable que une el cálculo por superficie (uso) con el pago por peso (compra).",
+     "ref": {
+      "0905": "E2"
+     }
+    }
+   ]
+  },
+  {
+   "t": "Gramatización",
+   "materias": [
+    "0911"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0911"
+     ],
+     "def": "Proceso, descrito por Auroux, de describir e instrumentar una lengua mediante gramática y diccionario. Los diccionarios en línea abren una nueva fase de ese proceso.",
+     "ref": {
+      "0911": "E6b"
+     }
+    }
+   ],
+   "alias": [
+    "instrumento lingüístico",
+    "instrumentos lingüísticos"
+   ]
+  },
+  {
+   "t": "Habitus",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Según Bourdieu, disposición duradera que la escuela y el campo inculcan; hace que el creador comparta sin saberlo un inconsciente cultural y que lectores y críticos sintonicen en gustos y visión del mundo.",
+     "ref": {
+      "0902": "E4"
+     }
+    }
+   ],
+   "alias": [
+    "habitus cultivado"
+   ]
+  },
+  {
+   "t": "Habla",
+   "materias": [
+    "0911"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0911"
+     ],
+     "def": "Para Saussure, acto individual de voluntad e inteligencia, ejecutivo y heterogéneo. Para Coseriu es la realidad concreta e inédita sobre la que se abstraen la norma y el sistema.",
+     "ref": {
+      "0911": "E2"
+     }
+    }
+   ]
+  },
+  {
+   "t": "Hegemonía",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Concepto de Gramsci que Romero usa para decir que la cultura popular es subordinada y conflictiva a la vez: ni un polo íntegro de resistencia ni un mero producto de la manipulación.",
+     "ref": {
+      "0902": "E5b"
+     }
+    }
+   ],
+   "alias": [
+    "hegemonía de gramsci"
+   ]
+  },
+  {
+   "t": "Hipertexto",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Escritura no secuencial que bifurca y permite elegir, concepto de Ted Nelson (1965). Chartier y Hébrard: leer significa crear vínculos.",
+     "ref": {
+      "0902": "E7"
+     }
+    }
+   ],
+   "alias": [
+    "hiperlectura",
+    "hipervínculo"
+   ]
+  },
+  {
+   "t": "Hoja de estilo",
+   "materias": [
+    "0911"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0911"
+     ],
+     "def": "Instrumento donde una editorial o un proyecto resuelve de manera institucional las dudas de normativa y de estilo. El corrector la aplica y respeta la decisión autoral y editorial en lugar de imponer su preferencia.",
+     "ref": {
+      "0911": "C_Complementarios_resumenes"
+     }
+    }
+   ],
+   "alias": [
+    "guía de estilo",
+    "hojas de estilo"
+   ]
+  },
+  {
+   "t": "Homología",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Según Bourdieu, los campos de producción cultural son estructural y funcionalmente homólogos entre sí y con el campo del poder, lo que explica el ajuste entre oferta y demanda sin cálculo cínico.",
+     "ref": {
+      "0902": "E4"
+     }
+    }
+   ],
+   "alias": [
+    "armonía preestablecida"
+   ]
+  },
+  {
+   "t": "Imposición",
+   "materias": [
+    "0905"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0905"
+     ],
+     "def": "Disposición de las páginas dentro del pliego para que, al plegarse, queden en la foliación correcta y sin desperdicio. Hoy la hace el RIP; antes se hacía a mano sobre astralón.",
+     "ref": {
+      "0905": "E4b"
+     }
+    }
+   ],
+   "alias": [
+    "imposición de pliego"
+   ]
+  },
+  {
+   "t": "Impresión bajo demanda",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Impresión de copias individuales a partir de un archivo digital, como la Espresso Book Machine, que Epstein describe como un cajero automático de libros.",
+     "ref": {
+      "0902": "E6"
+     }
+    }
+   ],
+   "alias": [
+    "ebm",
+    "espresso book machine",
+    "on demand"
+   ]
+  },
+  {
+   "t": "Impresión por demanda",
+   "materias": [
+    "0909"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0909"
+     ],
+     "def": "Impresión de pocos ejemplares sin los costos fijos del offset; su mayor costo es la tecnología, en gran parte dolarizada.",
+     "ref": {
+      "0909": "E3"
+     }
+    }
+   ],
+   "alias": [
+    "impresión digital",
+    "impresión por demanda (digital)"
+   ]
+  },
+  {
+   "t": "Inconsciente cultural",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Según Bourdieu, conjunto de esquemas de percepción, temas y problemas obligados que el creador incorpora sin saberlo, sobre todo por su formación escolar.",
+     "ref": {
+      "0902": "E4"
+     }
+    }
+   ]
+  },
+  {
+   "t": "Industria cultural",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Concepto de Adorno: la mercancía y el principio de intercambio dominan la cultura, que se estandariza; el valor de cambio reemplaza al valor de uso. La vanguardia sería una forma de resistencia.",
+     "ref": {
+      "0902": "E4"
+     }
+    }
+   ],
+   "alias": [
+    "industrias culturales"
+   ]
+  },
+  {
+   "t": "Ingreso neto unitario",
+   "materias": [
+    "0909"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0909"
+     ],
+     "def": "Lo que recibe la editorial por ejemplar una vez descontado el descuento comercial del canal. INU = PVP - descuento comercial = PVP x (1 - d).",
+     "ref": {
+      "0909": "E1"
+     }
+    }
+   ],
+   "sigla": "INU"
+  },
+  {
+   "t": "Interlínea",
+   "materias": [
+    "0905"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0905"
+     ],
+     "def": "Distancia, en puntos, entre la línea de base de un renglón y la del siguiente. Puede ser sólida (igual al cuerpo), abierta (mayor) o negativa (menor, solo en digital).",
+     "ref": {
+      "0905": "E3"
+     }
+    }
+   ],
+   "alias": [
+    "interlineado",
+    "leading"
+   ]
+  },
+  {
+   "t": "Invendibles",
+   "materias": [
+    "0909"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0909"
+     ],
+     "def": "Previsión de libros que no se van a vender (obsolescencia, deteriorados); se calcula como porcentaje del CPU.",
+     "ref": {
+      "0909": "E1"
+     }
+    }
+   ],
+   "alias": [
+    "invendible"
+   ]
+  },
+  {
+   "t": "Invierno de la IA",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Período de los años ochenta y noventa en que el enfoque simbólico mostró sus límites y se agotaron la financiación y el interés por la inteligencia artificial.",
+     "ref": {
+      "0902": "E8"
+     }
+    }
+   ],
+   "alias": [
+    "invierno de la inteligencia artificial"
+   ]
+  },
+  {
+   "t": "Kerning y tracking",
+   "materias": [
+    "0905"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0905"
+     ],
+     "def": "El kerning agrega o quita espacio entre un par concreto de caracteres, como corrección óptica puntual. El tracking expande o comprime el espaciado de un bloque de texto, en proporción al cuerpo.",
+     "ref": {
+      "0905": "E3"
+     }
+    }
+   ],
+   "alias": [
+    "interletrado",
+    "kerning",
+    "tracking"
+   ]
+  },
+  {
+   "t": "La Siringa",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Colección de 35 libros de ensayo político y cultural publicada por A. Peña Lillo Editor entre 1959 y 1966. Giuliani la analiza como edición militante, desde la periferia del campo.",
+     "ref": {
+      "0902": "E5a"
+     }
+    }
+   ],
+   "alias": [
+    "colección la siringa",
+    "peña lillo"
+   ]
+  },
+  {
+   "t": "Lector editorial",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Asesor del editor que evalúa manuscritos; se volvió figura contratada a fines del siglo XIX. Hay dos tipos: el que busca y trabaja el talento (Garnett) y el que evalúa lo que le pasan (Jewsbury).",
+     "ref": {
+      "0902": "E3"
+     }
+    }
+   ],
+   "alias": [
+    "dictaminador",
+    "lector profesional"
+   ]
+  },
+  {
+   "t": "Lectura intensiva y extensiva",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Intensiva: relación repetitiva y reverente con pocos textos, releídos y memorizados (sobre todo religiosos). Extensiva: consumo rápido, crítico y variado de muchos impresos. La tesis, aplicada a la Reforma y al siglo XVIII, es discutida y matizada.",
+     "ref": {
+      "0902": "E3"
+     }
+    }
+   ],
+   "alias": [
+    "lectura extensiva",
+    "lectura intensiva"
+   ]
+  },
+  {
+   "t": "Lengua",
+   "materias": [
+    "0911"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0911"
+     ],
+     "def": "Para Saussure, parte social, sistemática y homogénea del lenguaje, elegida como objeto de la lingüística; solo existe completa en la masa hablante. Se opone al habla.",
+     "ref": {
+      "0911": "E2"
+     }
+    }
+   ]
+  },
+  {
+   "t": "Lengua estándar",
+   "materias": [
+    "0911"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0911"
+     ],
+     "def": "Variedad social de los sectores cultos o prestigiosos que se impone como modelo. Es una abstracción, una entidad ideal que nadie habla tal cual.",
+     "ref": {
+      "0911": "E6"
+     }
+    }
+   ],
+   "alias": [
+    "estándar",
+    "variedad estándar"
+   ]
+  },
+  {
+   "t": "Lenguaje inclusivo",
+   "materias": [
+    "0911"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0911"
+     ],
+     "def": "Conjunto de estrategias (desdoblamiento, arroba, equis, asterisco, morfema -e) frente al sexismo lingüístico. Ramírez Gelbes lo caracteriza como un cambio lingüístico consciente y disputado, a diferencia del cambio espontáneo.",
+     "ref": {
+      "0911": "E5"
+     }
+    }
+   ],
+   "alias": [
+    "masculino genérico",
+    "sexismo lingüístico"
+   ]
+  },
+  {
+   "t": "Lexema",
+   "materias": [
+    "0911"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0911"
+     ],
+     "def": "Unidad léxica que funciona dentro de un campo léxico y se opone a las demás por rasgos distintivos mínimos (semas).",
+     "ref": {
+      "0911": "E9"
+     }
+    }
+   ],
+   "alias": [
+    "lexemas",
+    "sema",
+    "semas"
+   ]
+  },
+  {
+   "t": "Léxicas y funcionales (clases de palabras)",
+   "materias": [
+    "0911"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0911"
+     ],
+     "def": "Giammatteo y Albano dividen las siete clases del español en léxicas (sustantivo, adjetivo, verbo, adverbio, preposición), con contenido descriptivo y función de núcleo, y funcionales (determinativo, conjunción), de significado relacional o gramatical.",
+     "ref": {
+      "0911": "E1"
+     }
+    }
+   ],
+   "alias": [
+    "categoría gramatical",
+    "categorías gramaticales",
+    "clase de palabras",
+    "clases de palabras",
+    "palabras funcionales",
+    "palabras léxicas"
+   ]
+  },
+  {
+   "t": "Libro barato",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Edición de bajo costo y altas tiradas, distribuida también por canales no tradicionales como los kioscos, pensada para un público ampliado y anónimo. Es uno de los ejes de la hipótesis de Sora sobre la edición argentina.",
+     "ref": {
+      "0902": "E5b"
+     }
+    }
+   ],
+   "alias": [
+    "libro al alcance de todos",
+    "libros baratos"
+   ]
+  },
+  {
+   "t": "Libro de autor y libro de proyecto editorial",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Según Piccolini, el libro de autor nace de la obra de un escritor; en el de proyecto editorial el equipo piensa la obra hasta el detalle y encarga la escritura (libros de texto, manuales, obras de referencia).",
+     "ref": {
+      "0902": "E1"
+     }
+    }
+   ],
+   "alias": [
+    "libro de autor",
+    "libro de proyecto editorial",
+    "proyecto editorial"
+   ]
+  },
+  {
+   "t": "Libro de choque",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Según Escarpit, éxito comercial inmediato que asegura una venta más o menos constante; el best seller encadena éxitos de choque. Se opone al libro de fondo, de venta constante a largo plazo.",
+     "ref": {
+      "0902": "E1"
+     }
+    }
+   ],
+   "alias": [
+    "best seller",
+    "best-seller",
+    "éxito de choque"
+   ]
+  },
+  {
+   "t": "Margen de contribución global",
+   "materias": [
+    "0909"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0909"
+     ],
+     "def": "Suma de los MCT de todos los títulos de la edición (análisis multi-título). MCG = Σ MCT.",
+     "ref": {
+      "0909": "E2"
+     }
+    }
+   ],
+   "sigla": "MCG"
+  },
+  {
+   "t": "Margen de contribución total",
+   "materias": [
+    "0909"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0909"
+     ],
+     "def": "Aporte total de un título al pago de la estructura. MCT = MCU x Q.",
+     "ref": {
+      "0909": "E2"
+     }
+    }
+   ],
+   "sigla": "MCT"
+  },
+  {
+   "t": "Margen de contribución total porcentual",
+   "materias": [
+    "0909"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0909"
+     ],
+     "def": "MCT sobre el ingreso neto total (INT) del título; coincide con el MCU% del título.",
+     "ref": {
+      "0909": "E4"
+     }
+    }
+   ],
+   "sigla": "MCT%"
+  },
+  {
+   "t": "Margen de contribución unitario",
+   "materias": [
+    "0909"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0909"
+     ],
+     "def": "Lo que queda del INU después de pagar el CDU; es lo que cada ejemplar aporta para pagar el CE. MCU = INU - CDU.",
+     "ref": {
+      "0909": "E1"
+     }
+    }
+   ],
+   "sigla": "MCU",
+   "alias": [
+    "MCU absoluto",
+    "margen de contribución unitario absoluto"
+   ]
+  },
+  {
+   "t": "Margen de contribución unitario porcentual",
+   "materias": [
+    "0909"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0909"
+     ],
+     "def": "Porcentaje del INU que queda a la editorial después de cubrir el costo directo. MCU% = MCU / INU, expresado con 4 decimales.",
+     "ref": {
+      "0909": "E1"
+     }
+    }
+   ],
+   "sigla": "MCU%",
+   "alias": [
+    "MCU porcentual"
+   ]
+  },
+  {
+   "t": "Mecenazgo",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Relación tradicional entre escritores y círculos aristocráticos cultivados que eran su público. El mercado literario y la figura del editor lo desplazan, aunque en Argentina persistió como compensación de una profesionalización inacabada.",
+     "ref": {
+      "0902": "E4"
+     }
+    }
+   ],
+   "alias": [
+    "mecenas",
+    "patronato intelectual",
+    "patronazgo"
+   ]
+  },
+  {
+   "t": "Mediadores",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Actores que orientan la lectura. En la era digital ya no son solo familia y escuela sino bibliotecas, ferias, libroclubes, booktubers y algoritmos, que reducen el poder prescriptor de editoriales y escuelas.",
+     "ref": {
+      "0902": "E7"
+     }
+    }
+   ],
+   "alias": [
+    "mediador cultural",
+    "mediadores de la lectura"
+   ]
+  },
+  {
+   "t": "Mercado",
+   "materias": [
+    "0909"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0909"
+     ],
+     "def": "Ámbito físico o virtual donde se enfrentan oferta y demanda para llegar al precio más conveniente para ambas partes; a mayor precio, menor demanda. Se clasifica por estructura (monopolio, oligopolio, competencia monopolística, perfecta).",
+     "ref": {
+      "0909": "E5"
+     }
+    }
+   ]
+  },
+  {
+   "t": "Mercado literario",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Sistema de producción, circulación y consumo de libros como mercancías. Se consolida en los siglos XVIII y XIX e introduce una relación contractual entre editor y escritor.",
+     "ref": {
+      "0902": "E4"
+     }
+    }
+   ],
+   "alias": [
+    "mercado de bienes simbólicos"
+   ]
+  },
+  {
+   "t": "Metadatos",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Según Katz, herencia de los metatextos: aparato periférico del libro para que sea descubierto y transmitido. Hoy debe incluir lo que antes hacían críticos y profesores (videos, entrevistas, reseñas).",
+     "ref": {
+      "0902": "E7"
+     }
+    }
+   ],
+   "alias": [
+    "metatextos"
+   ]
+  },
+  {
+   "t": "Moiré",
+   "materias": [
+    "0905"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0905"
+     ],
+     "def": "Interferencia óptica visible por mala angulatura o mal registro de tramas superpuestas. También ocurre al escanear un impreso ya tramado.",
+     "ref": {
+      "0905": "E4a"
+     }
+    }
+   ]
+  },
+  {
+   "t": "Nicho",
+   "materias": [
+    "0909"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0909"
+     ],
+     "def": "Segmento temático, de autores y de público donde se ubica la editorial.",
+     "ref": {
+      "0909": "E5"
+     }
+    }
+   ]
+  },
+  {
+   "t": "Norma",
+   "materias": [
+    "0911"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0911"
+     ],
+     "def": "Para Coseriu, lo tradicional y habitual en una comunidad, lo que ya se dice; es descriptiva y no equivale a lo correcto según la gramática. Es un sentido distinto de la norma prescriptiva o académica, y el parcial puede tentar a confundirlos.",
+     "ref": {
+      "0911": "E3"
+     }
+    }
+   ],
+   "alias": [
+    "norma culta",
+    "norma lingüística",
+    "norma prescriptiva",
+    "normas"
+   ]
+  },
+  {
+   "t": "Norma de estilo",
+   "materias": [
+    "0911"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0911"
+     ],
+     "def": "Convención editorial para citar y referenciar (APA, Chicago, MLA) que fija cómo se acredita el saber ajeno. El corrector debe reconocerla y aplicarla, no inventarla.",
+     "ref": {
+      "0911": "E8"
+     }
+    }
+   ],
+   "alias": [
+    "APA",
+    "normas APA",
+    "normas de estilo",
+    "normas editoriales"
+   ]
+  },
+  {
+   "t": "Nuevos lectores del siglo XIX",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Según Lyons, mujeres, niños y clases trabajadoras que entran a la cultura impresa en el siglo XIX, con competencias y gustos distintos a los de la élite.",
+     "ref": {
+      "0902": "E3"
+     }
+    }
+   ],
+   "alias": [
+    "nuevos lectores"
+   ]
+  },
+  {
+   "t": "Offset",
+   "materias": [
+    "0905",
+    "0909"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0905",
+      "0909"
+     ],
+     "def": "Sistema de impresión indirecto en superficie, basado en la repulsión agua-grasa: la tinta pasa de la plancha a la mantilla de caucho y de ahí al soporte. Es el sistema tradicional para tiradas grandes (más de 1.500 ejemplares): sus insumos (películas, chapas) y su mano de obra son costos fijos que se amortizan con muchos ejemplares.",
+     "ref": {
+      "0905": "E5",
+      "0909": "E3"
+     }
+    }
+   ],
+   "alias": [
+    "impresión offset"
+   ]
+  },
+  {
+   "t": "Opacidad",
+   "materias": [
+    "0905"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0905"
+     ],
+     "def": "Grado de no transparencia del papel, es decir, porcentaje de luz no transmitida; evita que se transparente el texto del reverso. Atención: el mundo del papel usa también la palabra con otro sentido, vinculado al brillo.",
+     "ref": {
+      "0905": "E2"
+     }
+    }
+   ]
+  },
+  {
+   "t": "Original",
+   "materias": [
+    "0905",
+    "0909"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0905"
+     ],
+     "def": "Material del que parte la producción gráfica. El original de autor es el texto y demás materiales ya corregidos; el original electrónico es el archivo digital (habitualmente PDF) con todo lo que debe imprimirse, y es de donde arranca la producción gráfica en sentido estricto.",
+     "ref": {
+      "0905": "E1"
+     }
+    },
+    {
+     "materias": [
+      "0909"
+     ],
+     "def": "En esta materia, el resultado de la preproducción (la matriz) que se reproduce en la producción industrial; también el texto que envía el autor, al que luego se da formato de libro.",
+     "ref": {
+      "0909": "E3"
+     }
+    }
+   ],
+   "sigla": "OE",
+   "alias": [
+    "OE",
+    "matriz u original",
+    "original de autor",
+    "original electrónico",
+    "originales"
+   ]
+  },
+  {
+   "t": "Ortotipografía",
+   "materias": [
+    "0911"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0911"
+     ],
+     "def": "Nivel de la corrección que atiende a la acentuación, la ortografía, el uso de mayúsculas, las abreviaturas y los signos, entre otros aspectos de la escritura.",
+     "ref": {
+      "0911": "E4"
+     }
+    }
+   ],
+   "alias": [
+    "ortotipográfico"
+   ]
+  },
+  {
+   "t": "Overprint y trapping",
+   "materias": [
+    "0905"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0905"
+     ],
+     "def": "El overprint es la sobreimpresión deliberada de una tinta sobre otra sin recortar el fondo, típica del texto negro. El trapping agranda levemente un área de color para disimular el fuera de registro.",
+     "ref": {
+      "0905": "E4a"
+     }
+    }
+   ],
+   "alias": [
+    "atrape",
+    "overprint",
+    "sobreimpresión",
+    "trapping"
+   ]
+  },
+  {
+   "t": "Pacto de lectura",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Según Scolari, cada medio genera un pacto que se negocia en la interfaz. Albarello habla hoy de una refundación de los pactos de lectura.",
+     "ref": {
+      "0902": "E7"
+     }
+    }
+   ],
+   "alias": [
+    "pactos de lectura"
+   ]
+  },
+  {
+   "t": "Papel obra y papel ilustración",
+   "materias": [
+    "0905"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0905"
+     ],
+     "def": "El papel obra no tiene recubrimiento superficial, predomina la pasta mecánica y es más poroso. El papel ilustración está estucado, predomina la pasta química y reproduce mejor imágenes y color.",
+     "ref": {
+      "0905": "E2"
+     }
+    }
+   ],
+   "alias": [
+    "papel couché",
+    "papel ilustración",
+    "papel obra"
+   ]
+  },
+  {
+   "t": "Paracontenido",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Concepto de Bhaskar: lo que forma parte de la experiencia de una obra pero es ajeno a ella, en otros formatos que la sostienen y la publicitan; se apoya en el relato transmedia.",
+     "ref": {
+      "0902": "E7"
+     }
+    }
+   ]
+  },
+  {
+   "t": "Paratexto",
+   "materias": [
+    "0911"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0911"
+     ],
+     "def": "Según Genette, discurso auxiliar al servicio del texto: preliminares, títulos, índices, notas, glosario, apéndices y bibliografía.",
+     "ref": {
+      "0911": "E8"
+     }
+    }
+   ],
+   "alias": [
+    "paratextos"
+   ]
+  },
+  {
+   "t": "Pasta mecánica y química",
+   "materias": [
+    "0905"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0905"
+     ],
+     "def": "La pasta mecánica se obtiene moliendo la madera, conserva la lignina y amarillea. La pasta química disuelve la lignina con reactivos, rinde menos y da mayor resistencia y blancura.",
+     "ref": {
+      "0905": "E2"
+     }
+    }
+   ],
+   "alias": [
+    "kraft",
+    "pasta de celulosa",
+    "pasta mecánica",
+    "pasta química"
+   ]
+  },
+  {
+   "t": "Perfil de color",
+   "materias": [
+    "0905"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0905"
+     ],
+     "def": "Archivo que describe cómo reproduce el color un dispositivo, un papel o una tinta. El estándar es el ICC y se lo compara con un DNI tecnológico de la imprenta.",
+     "ref": {
+      "0905": "E4a"
+     }
+    }
+   ],
+   "sigla": "ICC",
+   "alias": [
+    "gestión de color",
+    "perfil ICC",
+    "perfiles de color"
+   ]
+  },
+  {
+   "t": "Plan económico",
+   "materias": [
+    "0909"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0909"
+     ],
+     "def": "Proyección de cuándo se emite la factura (se devenga), en el mes de la operación.",
+     "ref": {
+      "0909": "E4"
+     }
+    }
+   ]
+  },
+  {
+   "t": "Plan financiero",
+   "materias": [
+    "0909"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0909"
+     ],
+     "def": "Proyección de cuándo se cobra o se paga: mes de la operación más el plazo.",
+     "ref": {
+      "0909": "E4"
+     }
+    }
+   ]
+  },
+  {
+   "t": "Pliego",
+   "materias": [
+    "0905"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0905"
+     ],
+     "def": "Hoja de papel impresa, con marcas accesorias (líneas de corte, cruces de registro, cuñas de control). Se describe por la fracción de tintas (4/4, 4/0, etc.) y por sus medidas.",
+     "ref": {
+      "0905": "E6"
+     }
+    }
+   ],
+   "alias": [
+    "pliegos"
+   ]
+  },
+  {
+   "t": "Polarización",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Coexistencia de dos polos opuestos sin gran zona intermedia: conglomerados transnacionales y pequeñas editoriales. Botto la describe junto con la concentración económica en Argentina.",
+     "ref": {
+      "0902": "E6"
+     }
+    }
+   ],
+   "alias": [
+    "polarización del campo editorial"
+   ]
+  },
+  {
+   "t": "Polos de la edición literaria y técnica",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Según Piccolini, en el polo literario hay libro de autor, ficción, maqueta simple y lectura de principio a fin; en el técnico, proyecto editorial, autores no escritores, maqueta compleja y lectura fragmentaria.",
+     "ref": {
+      "0902": "E1"
+     }
+    }
+   ],
+   "alias": [
+    "edición literaria",
+    "edición técnica",
+    "polo literario",
+    "polo técnico"
+   ]
+  },
+  {
+   "t": "Pre-prensa",
+   "materias": [
+    "0905"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0905"
+     ],
+     "def": "Área que va del original electrónico hasta la obtención de las formas impresoras y las pruebas de color. Se completa con la prensa (entintado e impresión) y la post-prensa (terminaciones y acabados).",
+     "ref": {
+      "0905": "E1"
+     }
+    }
+   ],
+   "alias": [
+    "post-prensa",
+    "postprensa",
+    "pre-impresión",
+    "prensa",
+    "preprensa",
+    "terminaciones"
+   ]
+  },
+  {
+   "t": "Precio de venta al público",
+   "materias": [
+    "0909"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0909"
+     ],
+     "def": "Precio al que se vende el libro al lector; lo fija la editorial entre un piso (cubre costos) y un techo (mercado) y es único para todo el país (Ley 25.542). Es base de cálculo del descuento comercial y de los derechos de autor.",
+     "ref": {
+      "0909": "E1"
+     }
+    }
+   ],
+   "sigla": "PVP",
+   "alias": [
+    "precio de tapa",
+    "valor de tapa"
+   ]
+  },
+  {
+   "t": "Preproducción",
+   "materias": [
+    "0909"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0909"
+     ],
+     "def": "Etapa de edición del original previa a la impresión: corrección de estilo, diseño, ilustraciones, armado de páginas, traducción, preprensa. Sus costos son fijos (no dependen de la tirada) y de ella sale la matriz.",
+     "ref": {
+      "0909": "E3"
+     }
+    }
+   ],
+   "alias": [
+    "costos de preproducción"
+   ]
+  },
+  {
+   "t": "Préstamo",
+   "materias": [
+    "0911"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0911"
+     ],
+     "def": "Palabra extranjera que se adapta a la lengua propia (por ejemplo, fútbol). Se distingue del extranjerismo, que se mantiene sin adaptar, y del calco.",
+     "ref": {
+      "0911": "E4"
+     }
+    }
+   ],
+   "alias": [
+    "préstamos"
+   ]
+  },
+  {
+   "t": "Producción material",
+   "materias": [
+    "0909"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0909"
+     ],
+     "def": "Reproducción por la imprenta de lo generado en la etapa intelectual y de preproducción; puede tercerizarse según el tamaño de la editorial.",
+     "ref": {
+      "0909": "E3"
+     }
+    }
+   ],
+   "alias": [
+    "producción industrial"
+   ]
+  },
+  {
+   "t": "Profesionalización del escritor",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Proceso por el cual el escritor aspira a vivir de su trabajo, apoyado en la modernización y la industria cultural (Rivera). Contrasta al escritor «heredero» (Estrada) con el «profesional» (Quiroga).",
+     "ref": {
+      "0902": "E5a"
+     }
+    }
+   ],
+   "alias": [
+    "escritor profesional"
+   ]
+  },
+  {
+   "t": "Prosumidor",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Productor y consumidor a la vez. McLuhan lo sugirió en 1972 y Alvin Toffler acuñó el término en La tercera ola (1980); Katz critica la mistificación de la creatividad del prosumidor.",
+     "ref": {
+      "0902": "E7"
+     }
+    }
+   ],
+   "alias": [
+    "prosumidores"
+   ]
+  },
+  {
+   "t": "Proyecto creador",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Según Bourdieu (1966), lugar donde se entrecruzan la necesidad interna de la obra y las restricciones sociales; es siempre un proyecto de ser reconocido.",
+     "ref": {
+      "0902": "E4"
+     }
+    }
+   ],
+   "alias": [
+    "proyecto de ser reconocido"
+   ]
+  },
+  {
+   "t": "Prueba",
+   "materias": [
+    "0905",
+    "0909"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0905"
+     ],
+     "def": "Impresión de control que certifica cómo va a salir el color. Hay varias, como la blanda (en pantalla), la digital, la de peliculado, la progresiva y la prueba a pie de máquina.",
+     "ref": {
+      "0905": "E4b"
+     }
+    },
+    {
+     "materias": [
+      "0909"
+     ],
+     "def": "Muestra definitiva del libro que, una vez confirmada, da lugar a la Orden de Trabajo de impresión.",
+     "ref": {
+      "0909": "E5"
+     }
+    }
+   ],
+   "alias": [
+    "corrección de pruebas",
+    "prueba",
+    "prueba de contrato",
+    "pruebas",
+    "pruebas de color"
+   ]
+  },
+  {
+   "t": "Punto",
+   "materias": [
+    "0905"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0905"
+     ],
+     "def": "Unidad mínima de los sistemas tipográficos de medición. El punto Didot y el punto Pica o Franklin difieren en tamaño, y el punto PostScript equivale a 1/72 de pulgada. En trama, el punto es el grafismo que administra el porcentaje de tinta.",
+     "ref": {
+      "0905": "E3"
+     }
+    }
+   ],
+   "alias": [
+    "punto tipográfico",
+    "puntos"
+   ]
+  },
+  {
+   "t": "Punto de equilibrio",
+   "materias": [
+    "0909"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0909"
+     ],
+     "def": "Cantidad (o monto) de ejemplares vendidos donde el ingreso neto total iguala el costo que se quiere cubrir. Con costeo directo paga el CE (CE/MCU); con absorción, CE más costos directos ((CE + CDT)/INU); para solo la edición, CDT/INU.",
+     "ref": {
+      "0909": "E2"
+     }
+    }
+   ],
+   "sigla": "PE"
+  },
+  {
+   "t": "Registro",
+   "materias": [
+    "0911",
+    "0905"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0911"
+     ],
+     "def": "Variedad que el hablante elige según la situación y el interlocutor. Para Rosenblat, cada hablante alterna variedades y registros según comunidad, clase e interlocutor.",
+     "ref": {
+      "0911": "E6"
+     }
+    },
+    {
+     "materias": [
+      "0905"
+     ],
+     "def": "Coincidencia exacta de la superposición de los distintos colores (y de frente y dorso). Se controla con cuentahílos mirando las cruces de registro.",
+     "ref": {
+      "0905": "E5"
+     }
+    }
+   ],
+   "alias": [
+    "desregistro",
+    "fuera de registro",
+    "registros"
+   ]
+  },
+  {
+   "t": "Regla de Diderot y Escarpit",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "De cada diez ediciones, una tiene éxito, cuatro cubren gastos y cinco pierden dinero. Diderot fundó el riesgo editorial en 1767; Escarpit lo actualiza.",
+     "ref": {
+      "0902": "E1"
+     }
+    }
+   ],
+   "alias": [
+    "regla de diderot",
+    "riesgo editorial"
+   ]
+  },
+  {
+   "t": "Reintermediación",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Aparición de nuevos intermediarios tras la desintermediación (informe de la OCDE, 2010): la actividad editorial no está en retirada, solo cambia de lugar.",
+     "ref": {
+      "0902": "E7"
+     }
+    }
+   ],
+   "alias": [
+    "desintermediación híbrida"
+   ]
+  },
+  {
+   "t": "Responsabilidad Social Empresaria",
+   "materias": [
+    "0909"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0909"
+     ],
+     "def": "Rediseñar el accionar de la empresa considerando a todos los que se relacionan con ella (stakeholders); no es filantropía.",
+     "ref": {
+      "0909": "E3"
+     }
+    }
+   ],
+   "sigla": "RSE"
+  },
+  {
+   "t": "Revistas que editan libros",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Proyectos de revista que se extienden a un sello editorial en los años veinte y treinta: Nosotros, Claridad, Babel, Proa y Sur.",
+     "ref": {
+      "0902": "E5a"
+     }
+    }
+   ],
+   "alias": [
+    "claridad",
+    "nosotros",
+    "proa",
+    "sur"
+   ]
+  },
+  {
+   "t": "RIP",
+   "materias": [
+    "0905"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0905"
+     ],
+     "def": "Raster Image Process: software que traduce el original electrónico a un lenguaje que entienden filmadoras, grabadoras de planchas o impresoras. Valida, separa colores, trama e impone.",
+     "ref": {
+      "0905": "E4b"
+     }
+    }
+   ],
+   "sigla": "RIP",
+   "alias": [
+    "ripeado"
+   ]
+  },
+  {
+   "t": "Scriptio continua",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Escritura sin separación de palabras, impuesta en Roma hacia fines del siglo I. Dificulta la lectura rápida y obligaba a verbalizar, lo que ligó la lectura a la voz alta.",
+     "ref": {
+      "0902": "E2"
+     }
+    }
+   ],
+   "alias": [
+    "escritura continua"
+   ]
+  },
+  {
+   "t": "Selección doble",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Según Davies, la editorial elige al autor y el autor elige a la editorial (por prestigio del catálogo, identidad de marca, presencia de un editor con criterio, promoción y producción).",
+     "ref": {
+      "0902": "E1"
+     }
+    }
+   ]
+  },
+  {
+   "t": "Signo lingüístico",
+   "materias": [
+    "0911"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0911"
+     ],
+     "def": "Unidad de significante (imagen acústica) y significado (concepto). Es arbitrario y lineal; se lo toma como un todo positivo, mientras que cada una de sus caras por separado es diferencial y negativa.",
+     "ref": {
+      "0911": "E2"
+     }
+    }
+   ],
+   "alias": [
+    "significado",
+    "significante",
+    "signo",
+    "signos lingüísticos"
+   ]
+  },
+  {
+   "t": "Sincronía y diacronía",
+   "materias": [
+    "0911"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0911"
+     ],
+     "def": "La sincronía estudia un estado de lengua, con ejes simultáneos; la diacronía estudia su evolución en el tiempo, con ejes sucesivos.",
+     "ref": {
+      "0911": "E2"
+     }
+    }
+   ],
+   "alias": [
+    "diacronía",
+    "sincronía"
+   ]
+  },
+  {
+   "t": "Sinécdoque",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Error que Katz señala en quienes dicen que «el libro ha muerto»: lo que es cierto para un segmento (libros de texto, novelas populares) se aplica a toda la edición, sin diferenciar segmentos.",
+     "ref": {
+      "0902": "E7"
+     }
+    }
+   ],
+   "alias": [
+    "falsos dilemas"
+   ]
+  },
+  {
+   "t": "Sintagma y paradigma",
+   "materias": [
+    "0911"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0911"
+     ],
+     "def": "Las relaciones sintagmáticas son de combinación en la cadena hablada (in praesentia). Las asociativas o paradigmáticas son de asociación mental de términos ausentes (in absentia). Jakobson las asocia con los ejes de combinación y de selección.",
+     "ref": {
+      "0911": "E2"
+     }
+    }
+   ],
+   "alias": [
+    "paradigmático",
+    "relaciones paradigmáticas",
+    "relaciones sintagmáticas",
+    "sintagmático"
+   ]
+  },
+  {
+   "t": "Sistema",
+   "materias": [
+    "0911"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0911"
+     ],
+     "def": "Para Coseriu, conjunto de oposiciones funcionales, lo que se puede decir, y el nivel más abstracto: habla, norma y sistema se incluyen de modo creciente. Para Saussure, la lengua es un sistema de valores.",
+     "ref": {
+      "0911": "E3"
+     }
+    }
+   ],
+   "alias": [
+    "sistema lingüístico",
+    "sistemas"
+   ]
+  },
+  {
+   "t": "Sobrecorrección y ultracorrección",
+   "materias": [
+    "0911"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0911"
+     ],
+     "def": "Dos modos de corromper el texto al corregirlo: la sobrecorrección impone preferencias personales en lugar de corregir apartamientos de la norma; la ultracorrección corrige lo que ya era correcto.",
+     "ref": {
+      "0911": "E4"
+     }
+    }
+   ],
+   "alias": [
+    "hipercorrección",
+    "sobrecorrección",
+    "ultracorrección"
+   ]
+  },
+  {
+   "t": "Sociedad barrial",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Según Romero, sociedad de los barrios nuevos de Buenos Aires de entreguerras, con clubes, bibliotecas populares y comités. Su cultura era popular, letrada, conformista y reformista más que contestataria.",
+     "ref": {
+      "0902": "E5b"
+     }
+    }
+   ],
+   "alias": [
+    "barrios",
+    "cultura barrial"
+   ]
+  },
+  {
+   "t": "Solecismo",
+   "materias": [
+    "0911"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0911"
+     ],
+     "def": "Error de sintaxis, nivel sintáctico de la competencia gramatical (por ejemplo, queísmo, leísmo). Se distingue del barbarismo.",
+     "ref": {
+      "0911": "E4"
+     }
+    }
+   ],
+   "alias": [
+    "solecismos"
+   ]
+  },
+  {
+   "t": "Soporte",
+   "materias": [
+    "0905",
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0905"
+     ],
+     "def": "Sustrato donde se imprime o se deja una marca. El papel es el soporte por excelencia de la industria editorial; puede ser celulósico o no celulósico (plásticos, telas, metales, vidrio).",
+     "ref": {
+      "0905": "E2"
+     }
+    },
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Idea de Chartier y McKenzie: no hay texto sin soporte ni sin lectores. Los autores no escriben libros, escriben textos que otros convierten en objetos.",
+     "ref": {
+      "0902": "E3"
+     }
+    }
+   ],
+   "alias": [
+    "no hay texto fuera del soporte",
+    "soporte",
+    "soportes",
+    "sustrato"
+   ]
+  },
+  {
+   "t": "Stakeholders",
+   "materias": [
+    "0909"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0909"
+     ],
+     "def": "Grupos de interés vinculados a la empresa, según la teoría de Freeman.",
+     "ref": {
+      "0909": "E3"
+     }
+    }
+   ],
+   "alias": [
+    "grupos de interés",
+    "stakeholder"
+   ]
+  },
+  {
+   "t": "Subjetivema",
+   "materias": [
+    "0911"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0911"
+     ],
+     "def": "Marca léxica que revela la presencia del enunciador, según Kerbrat-Orecchioni: afectivo (reacción emocional), evaluativo (no axiológico o axiológico) o modalizador (grado de adhesión del hablante).",
+     "ref": {
+      "0911": "E9"
+     }
+    }
+   ],
+   "alias": [
+    "subjetivemas",
+    "subjetividad"
+   ]
+  },
+  {
+   "t": "Test de Turing",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Propuesta de Alan Turing (1950) que cambia la pregunta «¿puede pensar una máquina?» por otra empírica: ¿puede hacerse pasar por humano ante un juez humano?",
+     "ref": {
+      "0902": "E8"
+     }
+    }
+   ],
+   "alias": [
+    "juego de la imitación"
+   ]
+  },
+  {
+   "t": "Texto",
+   "materias": [
+    "0911"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0911"
+     ],
+     "def": "Para Halliday y Hasan, unidad de significado (no de forma) y de lenguaje en uso. De Beaugrande y Dressler enumeran sus normas de textualidad: cohesión, coherencia, intencionalidad, aceptabilidad, situacionalidad, intertextualidad e informatividad.",
+     "ref": {
+      "0911": "E4"
+     }
+    }
+   ],
+   "alias": [
+    "textos",
+    "textualidad"
+   ]
+  },
+  {
+   "t": "Tinta spot y tinta de proceso",
+   "materias": [
+    "0905"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0905"
+     ],
+     "def": "Las tintas spot (planas o sólidas) son premezcladas: un color, una tinta, una forma. Las de proceso son las CMYK, que se combinan por tramado en porcentajes.",
+     "ref": {
+      "0905": "E4a"
+     }
+    }
+   ],
+   "alias": [
+    "tinta plana",
+    "tinta proceso",
+    "tintas spot",
+    "tintas sólidas"
+   ]
+  },
+  {
+   "t": "Tipografía",
+   "materias": [
+    "0905"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0905"
+     ],
+     "def": "Familia de caracteres diseñada para componer texto, cuya medida y distribución se controlan con cuerpo, interlínea e interletrado. También se llama tipografía al sistema de impresión en relieve con tipos de plomo.",
+     "ref": {
+      "0905": "E3"
+     }
+    }
+   ],
+   "alias": [
+    "fuente tipográfica",
+    "tipo",
+    "tipografías"
+   ]
+  },
+  {
+   "t": "Tirada",
+   "materias": [
+    "0905",
+    "0909"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0905",
+      "0909"
+     ],
+     "def": "Cantidad de ejemplares que se imprimen de una edición (se simboliza Q). A mayor tirada, menor costo unitario, porque los costos fijos se reparten entre más ejemplares; en Administración es una decisión central del editor y la base del CPU y del CDT.",
+     "ref": {
+      "0905": "E1",
+      "0909": "E1"
+     }
+    }
+   ],
+   "alias": [
+    "tiradas"
+   ]
+  },
+  {
+   "t": "Tradición discursiva",
+   "materias": [
+    "0911"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0911"
+     ],
+     "def": "Para Garatea Grau, vía Bolívar, parámetros convencionales históricos de una comunidad lingüística que guían la interacción; las convenciones de cita varían entre disciplinas.",
+     "ref": {
+      "0911": "E8"
+     }
+    }
+   ],
+   "alias": [
+    "tradiciones discursivas"
+   ]
+  },
+  {
+   "t": "Trama",
+   "materias": [
+    "0905"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0905"
+     ],
+     "def": "Descomposición de una imagen en pequeños grafismos (puntos) que administran el porcentaje de tinta de cada canal; es el semitono con que se simula el tono continuo. Puede ser AM (amplitud modulada), FM o estocástica, o híbrida (XM).",
+     "ref": {
+      "0905": "E4a"
+     }
+    }
+   ],
+   "alias": [
+    "lineatura",
+    "medio tono",
+    "semitono",
+    "trama AM",
+    "trama FM",
+    "trama estocástica",
+    "tramas"
+   ]
+  },
+  {
+   "t": "Tres sectores de la industria editorial",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Clasificación estadística mundial según Piccolini: libros científicos y profesionales, libros educativos no universitarios y libros comerciales o generales. En los dos primeros hay prescriptores; los educativos tienen tres destinatarios.",
+     "ref": {
+      "0902": "E1"
+     }
+    }
+   ],
+   "alias": [
+    "libros científicos y profesionales",
+    "libros comerciales",
+    "libros educativos",
+    "sector educativo",
+    "sector general"
+   ]
+  },
+  {
+   "t": "Valor",
+   "materias": [
+    "0911"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0911"
+     ],
+     "def": "Para Saussure, lo que un signo es por su posición en el sistema, por comparación con los demás signos. Se distingue de la significación, que vincula significante y significado dentro del signo.",
+     "ref": {
+      "0911": "E2"
+     }
+    }
+   ],
+   "alias": [
+    "valor lingüístico",
+    "valores"
+   ]
+  },
+  {
+   "t": "Variedad",
+   "materias": [
+    "0911"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0911"
+     ],
+     "def": "Forma de la lengua asociada a una comunidad, una clase social o una situación. Rosenblat defiende la pluralidad de normas del español hablado y una unidad flexible para el escrito.",
+     "ref": {
+      "0911": "E6"
+     }
+    }
+   ],
+   "alias": [
+    "dialecto",
+    "variedad dialectal",
+    "variedad lingüística",
+    "variedades"
+   ]
+  },
+  {
+   "t": "XIA",
+   "materias": [
+    "0902"
+   ],
+   "acepciones": [
+    {
+     "materias": [
+      "0902"
+     ],
+     "def": "Inteligencia artificial explicable: giro hacia sistemas cuyas decisiones se pueden explicar, condición para usos éticos y para que no reproduzcan patrones discriminatorios.",
+     "ref": {
+      "0902": "E8"
+     }
+    }
+   ],
+   "alias": [
+    "explainable artificial intelligence",
+    "ia explicable"
+   ]
+  }
+ ],
+ "relaciones": [
+  [
+   0,
+   38,
+   "m"
+  ],
+  [
+   0,
+   46,
+   "m"
+  ],
+  [
+   0,
+   180,
+   "m"
+  ],
+  [
+   0,
+   208,
+   "m"
+  ],
+  [
+   4,
+   61,
+   "m"
+  ],
+  [
+   5,
+   179,
+   "m"
+  ],
+  [
+   6,
+   18,
+   "v"
+  ],
+  [
+   7,
+   40,
+   "v"
+  ],
+  [
+   8,
+   24,
+   "m"
+  ],
+  [
+   9,
+   30,
+   "v"
+  ],
+  [
+   10,
+   9,
+   "v"
+  ],
+  [
+   11,
+   195,
+   "m"
+  ],
+  [
+   14,
+   36,
+   "m"
+  ],
+  [
+   14,
+   79,
+   "m"
+  ],
+  [
+   15,
+   36,
+   "m"
+  ],
+  [
+   15,
+   135,
+   "m"
+  ],
+  [
+   17,
+   171,
+   "m"
+  ],
+  [
+   17,
+   173,
+   "m"
+  ],
+  [
+   18,
+   6,
+   "v"
+  ],
+  [
+   19,
+   94,
+   "m"
+  ],
+  [
+   19,
+   172,
+   "m"
+  ],
+  [
+   20,
+   109,
+   "m"
+  ],
+  [
+   24,
+   133,
+   "m"
+  ],
+  [
+   25,
+   26,
+   "m"
+  ],
+  [
+   25,
+   75,
+   "m"
+  ],
+  [
+   26,
+   155,
+   "m"
+  ],
+  [
+   27,
+   93,
+   "m"
+  ],
+  [
+   27,
+   135,
+   "m"
+  ],
+  [
+   32,
+   151,
+   "m"
+  ],
+  [
+   34,
+   35,
+   "m"
+  ],
+  [
+   37,
+   127,
+   "m"
+  ],
+  [
+   38,
+   46,
+   "m"
+  ],
+  [
+   39,
+   202,
+   "m"
+  ],
+  [
+   45,
+   67,
+   "m"
+  ],
+  [
+   46,
+   156,
+   "m"
+  ],
+  [
+   47,
+   58,
+   "m"
+  ],
+  [
+   48,
+   47,
+   "v"
+  ],
+  [
+   48,
+   50,
+   "v"
+  ],
+  [
+   48,
+   179,
+   "v"
+  ],
+  [
+   49,
+   104,
+   "m"
+  ],
+  [
+   50,
+   60,
+   "m"
+  ],
+  [
+   50,
+   203,
+   "m"
+  ],
+  [
+   51,
+   58,
+   "m"
+  ],
+  [
+   51,
+   203,
+   "m"
+  ],
+  [
+   52,
+   67,
+   "m"
+  ],
+  [
+   52,
+   105,
+   "m"
+  ],
+  [
+   52,
+   124,
+   "m"
+  ],
+  [
+   52,
+   171,
+   "m"
+  ],
+  [
+   53,
+   50,
+   "v"
+  ],
+  [
+   53,
+   51,
+   "v"
+  ],
+  [
+   54,
+   203,
+   "m"
+  ],
+  [
+   55,
+   50,
+   "v"
+  ],
+  [
+   55,
+   52,
+   "v"
+  ],
+  [
+   56,
+   58,
+   "m"
+  ],
+  [
+   56,
+   171,
+   "m"
+  ],
+  [
+   57,
+   203,
+   "m"
+  ],
+  [
+   58,
+   171,
+   "m"
+  ],
+  [
+   60,
+   50,
+   "m"
+  ],
+  [
+   60,
+   58,
+   "m"
+  ],
+  [
+   60,
+   59,
+   "m"
+  ],
+  [
+   61,
+   166,
+   "m"
+  ],
+  [
+   64,
+   178,
+   "m"
+  ],
+  [
+   67,
+   105,
+   "m"
+  ],
+  [
+   72,
+   22,
+   "v"
+  ],
+  [
+   73,
+   196,
+   "m"
+  ],
+  [
+   75,
+   23,
+   "v"
+  ],
+  [
+   75,
+   25,
+   "m"
+  ],
+  [
+   75,
+   203,
+   "m"
+  ],
+  [
+   77,
+   58,
+   "m"
+  ],
+  [
+   79,
+   14,
+   "m"
+  ],
+  [
+   79,
+   36,
+   "m"
+  ],
+  [
+   84,
+   25,
+   "m"
+  ],
+  [
+   85,
+   198,
+   "m"
+  ],
+  [
+   88,
+   85,
+   "v"
+  ],
+  [
+   88,
+   106,
+   "v"
+  ],
+  [
+   90,
+   208,
+   "m"
+  ],
+  [
+   91,
+   67,
+   "m"
+  ],
+  [
+   94,
+   19,
+   "m"
+  ],
+  [
+   94,
+   172,
+   "m"
+  ],
+  [
+   97,
+   26,
+   "m"
+  ],
+  [
+   98,
+   169,
+   "m"
+  ],
+  [
+   98,
+   196,
+   "m"
+  ],
+  [
+   100,
+   9,
+   "v"
+  ],
+  [
+   102,
+   63,
+   "m"
+  ],
+  [
+   103,
+   153,
+   "m"
+  ],
+  [
+   103,
+   196,
+   "m"
+  ],
+  [
+   103,
+   205,
+   "m"
+  ],
+  [
+   105,
+   67,
+   "m"
+  ],
+  [
+   105,
+   124,
+   "m"
+  ],
+  [
+   106,
+   85,
+   "m"
+  ],
+  [
+   111,
+   120,
+   "m"
+  ],
+  [
+   112,
+   150,
+   "m"
+  ],
+  [
+   116,
+   23,
+   "v"
+  ],
+  [
+   117,
+   166,
+   "m"
+  ],
+  [
+   118,
+   119,
+   "v"
+  ],
+  [
+   119,
+   59,
+   "m"
+  ],
+  [
+   119,
+   153,
+   "m"
+  ],
+  [
+   122,
+   69,
+   "m"
+  ],
+  [
+   123,
+   64,
+   "m"
+  ],
+  [
+   123,
+   178,
+   "m"
+  ],
+  [
+   125,
+   6,
+   "v"
+  ],
+  [
+   126,
+   64,
+   "m"
+  ],
+  [
+   127,
+   36,
+   "m"
+  ],
+  [
+   130,
+   112,
+   "m"
+  ],
+  [
+   131,
+   208,
+   "m"
+  ],
+  [
+   133,
+   24,
+   "m"
+  ],
+  [
+   135,
+   203,
+   "m"
+  ],
+  [
+   137,
+   97,
+   "m"
+  ],
+  [
+   138,
+   139,
+   "v"
+  ],
+  [
+   139,
+   141,
+   "v"
+  ],
+  [
+   140,
+   142,
+   "m"
+  ],
+  [
+   141,
+   50,
+   "v"
+  ],
+  [
+   141,
+   52,
+   "v"
+  ],
+  [
+   141,
+   122,
+   "v"
+  ],
+  [
+   142,
+   58,
+   "m"
+  ],
+  [
+   143,
+   146,
+   "m"
+  ],
+  [
+   147,
+   161,
+   "v"
+  ],
+  [
+   148,
+   180,
+   "m"
+  ],
+  [
+   148,
+   205,
+   "m"
+  ],
+  [
+   153,
+   59,
+   "m"
+  ],
+  [
+   153,
+   98,
+   "m"
+  ],
+  [
+   153,
+   196,
+   "m"
+  ],
+  [
+   153,
+   203,
+   "m"
+  ],
+  [
+   155,
+   98,
+   "m"
+  ],
+  [
+   155,
+   171,
+   "m"
+  ],
+  [
+   155,
+   173,
+   "m"
+  ],
+  [
+   156,
+   46,
+   "m"
+  ],
+  [
+   157,
+   180,
+   "m"
+  ],
+  [
+   159,
+   162,
+   "m"
+  ],
+  [
+   163,
+   131,
+   "m"
+  ],
+  [
+   165,
+   164,
+   "v"
+  ],
+  [
+   166,
+   180,
+   "m"
+  ],
+  [
+   167,
+   41,
+   "m"
+  ],
+  [
+   168,
+   136,
+   "m"
+  ],
+  [
+   169,
+   98,
+   "m"
+  ],
+  [
+   169,
+   155,
+   "m"
+  ],
+  [
+   169,
+   177,
+   "m"
+  ],
+  [
+   170,
+   67,
+   "m"
+  ],
+  [
+   170,
+   69,
+   "m"
+  ],
+  [
+   171,
+   46,
+   "m"
+  ],
+  [
+   171,
+   98,
+   "m"
+  ],
+  [
+   171,
+   155,
+   "m"
+  ],
+  [
+   171,
+   169,
+   "m"
+  ],
+  [
+   171,
+   203,
+   "m"
+  ],
+  [
+   172,
+   19,
+   "m"
+  ],
+  [
+   172,
+   94,
+   "m"
+  ],
+  [
+   173,
+   171,
+   "m"
+  ],
+  [
+   174,
+   121,
+   "m"
+  ],
+  [
+   178,
+   205,
+   "m"
+  ],
+  [
+   179,
+   47,
+   "m"
+  ],
+  [
+   179,
+   58,
+   "m"
+  ],
+  [
+   180,
+   208,
+   "m"
+  ],
+  [
+   182,
+   70,
+   "m"
+  ],
+  [
+   183,
+   197,
+   "m"
+  ],
+  [
+   185,
+   98,
+   "m"
+  ],
+  [
+   185,
+   155,
+   "m"
+  ],
+  [
+   185,
+   205,
+   "m"
+  ],
+  [
+   187,
+   26,
+   "m"
+  ],
+  [
+   192,
+   112,
+   "m"
+  ],
+  [
+   192,
+   130,
+   "m"
+  ],
+  [
+   192,
+   150,
+   "m"
+  ],
+  [
+   192,
+   207,
+   "m"
+  ],
+  [
+   193,
+   150,
+   "m"
+  ],
+  [
+   195,
+   11,
+   "m"
+  ],
+  [
+   200,
+   34,
+   "m"
+  ],
+  [
+   200,
+   35,
+   "m"
+  ],
+  [
+   201,
+   63,
+   "m"
+  ],
+  [
+   202,
+   64,
+   "m"
+  ],
+  [
+   202,
+   123,
+   "m"
+  ],
+  [
+   202,
+   126,
+   "m"
+  ],
+  [
+   203,
+   59,
+   "m"
+  ],
+  [
+   205,
+   178,
+   "m"
+  ],
+  [
+   207,
+   188,
+   "m"
+  ]
+ ]
+}

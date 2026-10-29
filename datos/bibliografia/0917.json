@@ -1,0 +1,80 @@
+{
+ "codigo": "0917",
+ "anio": 2025,
+ "grupos": [
+  {
+   "t": "Unidad 1: Hardware y software para la edición automatizada (Reseña introductoria)",
+   "obligatoria": [
+    "Selección de bibliografía y apuntes de cátedra sobre Tecnologías de la información."
+   ],
+   "complementaria": [
+    "AREITIO, G. y AREITIO, A. (2009). Información, Informática e Internet: del ordenador personal a la 2.0. España: Visión Libros.",
+    "CASANOVAS, I. et al. (2014). Tecnologías de la información y las comunicaciones aplicadas a la administración y gestión editorial. Buenos Aires, Facultad de Filosofía y Letras (UBA).",
+    "BHASKAR, M. (2014). La máquina de contenido. Hacia una teoría de la edición desde la imprenta hasta la red digital. México: FCE",
+    "GÓMEZ, M. y KESSLER, C. (2019). Gestión de la información en la empresa cultural. Tecnologías y recursos para la edición. Buenos Aires: Editorial Biblos.",
+    "HALL, F. (2014). El negocio de la edición digital. México: FCE"
+   ]
+  },
+  {
+   "t": "Unidad 2: Composición digital",
+   "obligatoria": [
+    "IÑIGO DEHUD, L. & MAKHLOUF AKL, A. (2014). Diseño editorial. Manual de conceptos básicos. México: Universidad Autónoma del estado de Morelos.",
+    "MANJARREZ DE LA VEGA, J. (2015). Diseño editorial.",
+    "MULLER-BROCKMAN J. (2012). Sistemas de retículas. Madrid: Ed. Gili.",
+    "SAMARA, T. (2008). Diseñar con y sin retícula. Barcelona: E. Gili.",
+    "SATUÉ, E (1998). El diseño de libros del pasado, del presente, y tal vez del futuro: La huella de Aldo Manuzio. Madrid: Fundación Germán Sánchez Ruizpérez."
+   ],
+   "complementaria": [
+    "AMBROSE, G. & HARRIS, P. (2008). Retículas. Barcelona: Parramon.",
+    "ARNHEIM, R. (2011) Arte y percepción visual: Ed. Alianza",
+    "BUEN UNNA, J. (2014). Manual de Diseño Editorial. Ediciones Trea",
+    "HASLAM, A. (2007). Creación, diseño y producción de libros. Barcelona: Blume.",
+    "WEBER M. (2010) Nuevas tendencias en maquetación y diseño editorial. Barcelona: Ed. Gili."
+   ]
+  },
+  {
+   "t": "Unidad 3: Tipografía digital",
+   "obligatoria": [
+    "BUEN UNNA, J. (2014). Manual de Diseño Editorial. Ediciones Trea",
+    "GARFIELD, S. (2012). Es mi tipo. Madrid: Taurus.",
+    "IÑIGO DEHUD, L. & MAKHLOUF AKL, A. (2014). Diseño editorial. Manual de conceptos básicos. México: Universidad Autónoma del estado de Morelos."
+   ],
+   "complementaria": [
+    "ELAM, K. (2010). Sistemas reticulares: principios para organizar la tipografía. Ed Gili",
+    "ELLISON, A. (2008). Tipografía digital. Ed. Paidos",
+    "GIMENEZ IMIRIDIZALDU, D. (2015). Tipografía en pantalla: una guía para diseñadores, editores, tipógrafos y estudiantes. Ed. Gili",
+    "HASLAM, A. (2003) Tipografía: función, forma y diseño. Ed. Gili",
+    "MARCH, M. (2003). Tipografía creativa. Barcelona: Ed. Gili."
+   ]
+  },
+  {
+   "t": "Unidad 4: Imagen y color digital",
+   "obligatoria": [
+    "AMBROSE, G y HARRIS, P (2019). Color. Barcelona: Parramon.",
+    "APARICI, R. y otros (2006). La imagen. Análisis y representación de la realidad. Barcelona: Gedisa.",
+    "SWANN, A. (1993). El color en el diseño gráfico. Principio y uso efectivo del color. Barcelona. Ed. Gili."
+   ],
+   "complementaria": [
+    "EISEMAN L. (2018). Armonía cromática edición Pantone. Naturart",
+    "FREEMAN M. (2014) Edición de la imagen digital. Blume",
+    "MANOVICH, L. (2006). El lenguaje de los nuevos medios de comunicación. La imagen en la era digital. Buenos Aires: Paidós.",
+    "MORENO MORA J. Psicología del color y la forma [en línea] http://www.astraph.com/udl/ biblioteca/antologías/",
+    "MUNARRIZ ORTIZ J. (2010). Imagen digital. Tursen"
+   ]
+  },
+  {
+   "t": "Unidad 5: La producción de publicaciones digitales",
+   "obligatoria": [
+    "DÍAZ CELADA, A. (2018). Del diseño a la experiencia editorial. Panamá: Facultad de Arquitectura y Diseño, Universidad del Itsmo.",
+    "SAN MARTÍN, P. (2003). Hipertexto. Seis propuestas para este milenio. Buenos Aires: La crujía.",
+    "SCOLARI, C. (2008). Hipermediaciones. Elementos para una teoría de la Comunicación Digital Interactiva. Barcelona: Gedisa."
+   ],
+   "complementaria": [
+    "GARCIA, CORDON y otros (2012). Libros electrónicos y contenidos digitales en la sociedad del conocimiento. Mercado, servicios y derechos. Madrid: Pirámide.",
+    "IBARRA J. (2015). Guía para escribir y publicar eBooks. Createspace.",
+    "LEBERT, M. (2009). Una corta historia del e-book. Universidad de Toronto. [online] http://www.etudes-francaises.net/dossiers/ebookES.pdf",
+    "MAGAL ROYO, T. (2006). Preproducción multimedia – Ed. Universidad Politécnica de Valencia."
+   ]
+  }
+ ]
+}

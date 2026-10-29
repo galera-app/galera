@@ -1,0 +1,1289 @@
+{
+ "id": "2026-2C",
+ "carrera": "edicion",
+ "nombre": "2.º cuatrimestre 2026",
+ "fuente": "https://academica.filo.uba.ar/horarios-de-materias-y-seminarios",
+ "actualizado": "2026-09-30",
+ "nota": "Cartelera sujeta a cambios: confirmá siempre en la planilla de la Facultad.",
+ "extras": [
+  {
+   "id": "sem-saberes-editoriales-en-escenarios-educativos",
+   "nombre": "Saberes editoriales en escenarios educativos digitales",
+   "tipo": "Seminario"
+  },
+  {
+   "id": "sem-diseno-de-discursos-visuales-editoriales",
+   "nombre": "Diseño de discursos visuales editoriales: imagen y tipografía",
+   "tipo": "Seminario"
+  },
+  {
+   "id": "sem-leer-para-editar-lectura-critica",
+   "nombre": "Leer para editar: lectura crítica transposición y mediaciones editoriales",
+   "tipo": "Seminario"
+  },
+  {
+   "id": "sem-libros-de-ficcion-y-no",
+   "nombre": "Libros de ficción y no ficción infantiles y juveniles (en edad escolar) prohibidos en la dictadura cívico militar. Promoción de la lectura desde la lij.",
+   "tipo": "PST"
+  },
+  {
+   "id": "sem-especificidad-y-grados-de-intervencion",
+   "nombre": "Especificidad y grados de intervención de la corrección desde el original de autor hasta las pruebas finales",
+   "tipo": "Seminario"
+  },
+  {
+   "id": "sem-derechos-humanos-sujetos-problematicas-y",
+   "nombre": "Derechos humanos: sujetos, problemáticas y perspectivas",
+   "tipo": "Seminario"
+  },
+  {
+   "id": "sem-gestion-y-politicas-culturales-a",
+   "nombre": "Gestión y políticas culturales \"A\": producción y gestión de proyectos culturales en filo.",
+   "tipo": "Seminario"
+  },
+  {
+   "id": "sem-clinica-de-escritura-academica-de",
+   "nombre": "Clínica de escritura académica: de la lectura crítica a la experiencia del texto propio en lengua inglesa",
+   "tipo": "Seminario"
+  }
+ ],
+ "comisiones": [
+  {
+   "id": "0909-t",
+   "materia": "0909",
+   "tipo": "Teórico",
+   "nombre": "",
+   "docente": "Canalicchio, Pablo",
+   "aula": "108",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 5,
+     "desde": "18:00",
+     "hasta": "22:00"
+    }
+   ]
+  },
+  {
+   "id": "0909-c1",
+   "materia": "0909",
+   "tipo": "Práctico",
+   "nombre": "1",
+   "docente": "",
+   "aula": "146",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 1,
+     "desde": "20:00",
+     "hasta": "22:00"
+    }
+   ]
+  },
+  {
+   "id": "0909-c2",
+   "materia": "0909",
+   "tipo": "Práctico",
+   "nombre": "2",
+   "docente": "",
+   "aula": "127",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 2,
+     "desde": "10:00",
+     "hasta": "12:00"
+    }
+   ]
+  },
+  {
+   "id": "0909-c3",
+   "materia": "0909",
+   "tipo": "Práctico",
+   "nombre": "3",
+   "docente": "",
+   "aula": "232",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 4,
+     "desde": "16:00",
+     "hasta": "18:00"
+    }
+   ]
+  },
+  {
+   "id": "0909-c4",
+   "materia": "0909",
+   "tipo": "Práctico",
+   "nombre": "4",
+   "docente": "",
+   "aula": "148",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 4,
+     "desde": "18:00",
+     "hasta": "20:00"
+    }
+   ]
+  },
+  {
+   "id": "0909-c5",
+   "materia": "0909",
+   "tipo": "Práctico",
+   "nombre": "5",
+   "docente": "",
+   "aula": "232",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 5,
+     "desde": "16:00",
+     "hasta": "18:00"
+    }
+   ]
+  },
+  {
+   "id": "0909-c6",
+   "materia": "0909",
+   "tipo": "Práctico",
+   "nombre": "6",
+   "docente": "",
+   "aula": "145",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 5,
+     "desde": "16:00",
+     "hasta": "18:00"
+    }
+   ]
+  },
+  {
+   "id": "0911-t",
+   "materia": "0911",
+   "tipo": "Teórico",
+   "nombre": "",
+   "docente": "Ramirez Gelbes Silvia, Tossi Carolina",
+   "aula": "108",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 2,
+     "desde": "16:00",
+     "hasta": "20:00"
+    }
+   ]
+  },
+  {
+   "id": "0911-c1",
+   "materia": "0911",
+   "tipo": "Práctico",
+   "nombre": "1",
+   "docente": "",
+   "aula": "231",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 2,
+     "desde": "14:00",
+     "hasta": "16:00"
+    }
+   ]
+  },
+  {
+   "id": "0911-c2",
+   "materia": "0911",
+   "tipo": "Práctico",
+   "nombre": "2",
+   "docente": "",
+   "aula": "252",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 2,
+     "desde": "20:00",
+     "hasta": "22:00"
+    }
+   ]
+  },
+  {
+   "id": "0911-c3",
+   "materia": "0911",
+   "tipo": "Práctico",
+   "nombre": "3",
+   "docente": "",
+   "aula": "231",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 3,
+     "desde": "10:00",
+     "hasta": "12:00"
+    }
+   ]
+  },
+  {
+   "id": "0911-c4",
+   "materia": "0911",
+   "tipo": "Práctico",
+   "nombre": "4",
+   "docente": "",
+   "aula": "B 304",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 3,
+     "desde": "14:00",
+     "hasta": "16:00"
+    }
+   ]
+  },
+  {
+   "id": "0911-c5",
+   "materia": "0911",
+   "tipo": "Práctico",
+   "nombre": "5",
+   "docente": "",
+   "aula": "B 201",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 3,
+     "desde": "16:00",
+     "hasta": "18:00"
+    }
+   ]
+  },
+  {
+   "id": "0911-c6",
+   "materia": "0911",
+   "tipo": "Práctico",
+   "nombre": "6",
+   "docente": "",
+   "aula": "B 201",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 3,
+     "desde": "18:00",
+     "hasta": "20:00"
+    }
+   ]
+  },
+  {
+   "id": "0911-c7",
+   "materia": "0911",
+   "tipo": "Práctico",
+   "nombre": "7",
+   "docente": "",
+   "aula": "257",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 1,
+     "desde": "14:00",
+     "hasta": "16:00"
+    }
+   ]
+  },
+  {
+   "id": "0911-c8",
+   "materia": "0911",
+   "tipo": "Práctico",
+   "nombre": "8",
+   "docente": "",
+   "aula": "346",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 4,
+     "desde": "16:00",
+     "hasta": "18:00"
+    }
+   ]
+  },
+  {
+   "id": "0911-c9",
+   "materia": "0911",
+   "tipo": "Práctico",
+   "nombre": "9",
+   "docente": "",
+   "aula": "230",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 5,
+     "desde": "08:00",
+     "hasta": "10:00"
+    }
+   ]
+  },
+  {
+   "id": "0914-t",
+   "materia": "0914",
+   "tipo": "Teórico",
+   "nombre": "",
+   "docente": "Piccolini Patricia Lilia, Castro Marcela",
+   "aula": "108",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 4,
+     "desde": "10:00",
+     "hasta": "14:00"
+    }
+   ]
+  },
+  {
+   "id": "0914-c1",
+   "materia": "0914",
+   "tipo": "Práctico",
+   "nombre": "1",
+   "docente": "",
+   "aula": "127",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 3,
+     "desde": "12:00",
+     "hasta": "14:00"
+    }
+   ]
+  },
+  {
+   "id": "0914-c2",
+   "materia": "0914",
+   "tipo": "Práctico",
+   "nombre": "2",
+   "docente": "",
+   "aula": "147",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 4,
+     "desde": "18:00",
+     "hasta": "20:00"
+    }
+   ]
+  },
+  {
+   "id": "0914-c3",
+   "materia": "0914",
+   "tipo": "Práctico",
+   "nombre": "3",
+   "docente": "",
+   "aula": "148",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 4,
+     "desde": "20:00",
+     "hasta": "22:00"
+    }
+   ]
+  },
+  {
+   "id": "0914-c4",
+   "materia": "0914",
+   "tipo": "Práctico",
+   "nombre": "4",
+   "docente": "",
+   "aula": "230",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 5,
+     "desde": "10:00",
+     "hasta": "12:00"
+    }
+   ]
+  },
+  {
+   "id": "0914-c5",
+   "materia": "0914",
+   "tipo": "Práctico",
+   "nombre": "5",
+   "docente": "",
+   "aula": "129",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 5,
+     "desde": "14:00",
+     "hasta": "16:00"
+    }
+   ]
+  },
+  {
+   "id": "0914-c6",
+   "materia": "0914",
+   "tipo": "Práctico",
+   "nombre": "6",
+   "docente": "",
+   "aula": "146",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 5,
+     "desde": "18:00",
+     "hasta": "20:00"
+    }
+   ]
+  },
+  {
+   "id": "0921-t",
+   "materia": "0921",
+   "tipo": "Teórico",
+   "nombre": "",
+   "docente": "Pellegrino, Mariana",
+   "aula": "324",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 4,
+     "desde": "12:00",
+     "hasta": "16:00"
+    }
+   ]
+  },
+  {
+   "id": "0921-c1",
+   "materia": "0921",
+   "tipo": "Práctico",
+   "nombre": "1",
+   "docente": "",
+   "aula": "LAB. 143",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 1,
+     "desde": "16:00",
+     "hasta": "18:00"
+    }
+   ]
+  },
+  {
+   "id": "0921-c2",
+   "materia": "0921",
+   "tipo": "Práctico",
+   "nombre": "2",
+   "docente": "",
+   "aula": "232",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 3,
+     "desde": "16:00",
+     "hasta": "18:00"
+    }
+   ]
+  },
+  {
+   "id": "0921-c3",
+   "materia": "0921",
+   "tipo": "Práctico",
+   "nombre": "3",
+   "docente": "",
+   "aula": "344",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 3,
+     "desde": "18:00",
+     "hasta": "20:00"
+    }
+   ]
+  },
+  {
+   "id": "0921-c4",
+   "materia": "0921",
+   "tipo": "Práctico",
+   "nombre": "4",
+   "docente": "",
+   "aula": "LAB. 143",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 4,
+     "desde": "10:00",
+     "hasta": "12:00"
+    }
+   ]
+  },
+  {
+   "id": "0921-c5",
+   "materia": "0921",
+   "tipo": "Práctico",
+   "nombre": "5",
+   "docente": "",
+   "aula": "126",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 4,
+     "desde": "10:00",
+     "hasta": "12:00"
+    }
+   ]
+  },
+  {
+   "id": "0921-c6",
+   "materia": "0921",
+   "tipo": "Práctico",
+   "nombre": "6",
+   "docente": "",
+   "aula": "LAB. 143",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 4,
+     "desde": "16:00",
+     "hasta": "18:00"
+    }
+   ]
+  },
+  {
+   "id": "0921-c7",
+   "materia": "0921",
+   "tipo": "Práctico",
+   "nombre": "7",
+   "docente": "",
+   "aula": "252",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 4,
+     "desde": "16:00",
+     "hasta": "18:00"
+    }
+   ]
+  },
+  {
+   "id": "0905-t",
+   "materia": "0905",
+   "tipo": "Teórico",
+   "nombre": "",
+   "docente": "Macarol Gabriel",
+   "aula": "108",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 3,
+     "desde": "18:00",
+     "hasta": "22:00"
+    }
+   ]
+  },
+  {
+   "id": "0905-c1",
+   "materia": "0905",
+   "tipo": "Práctico",
+   "nombre": "1",
+   "docente": "",
+   "aula": "154",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 1,
+     "desde": "14:00",
+     "hasta": "16:00"
+    }
+   ]
+  },
+  {
+   "id": "0905-c2",
+   "materia": "0905",
+   "tipo": "Práctico",
+   "nombre": "2",
+   "docente": "",
+   "aula": "126",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 2,
+     "desde": "08:00",
+     "hasta": "10:00"
+    }
+   ]
+  },
+  {
+   "id": "0905-c3",
+   "materia": "0905",
+   "tipo": "Práctico",
+   "nombre": "3",
+   "docente": "",
+   "aula": "126",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 2,
+     "desde": "10:00",
+     "hasta": "12:00"
+    }
+   ]
+  },
+  {
+   "id": "0905-c4",
+   "materia": "0905",
+   "tipo": "Práctico",
+   "nombre": "4",
+   "docente": "",
+   "aula": "250",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 2,
+     "desde": "18:00",
+     "hasta": "20:00"
+    }
+   ]
+  },
+  {
+   "id": "0905-c5",
+   "materia": "0905",
+   "tipo": "Práctico",
+   "nombre": "5",
+   "docente": "",
+   "aula": "",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 3,
+     "desde": "14:00",
+     "hasta": "16:00"
+    }
+   ]
+  },
+  {
+   "id": "0905-c6",
+   "materia": "0905",
+   "tipo": "Práctico",
+   "nombre": "6",
+   "docente": "",
+   "aula": "128",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 3,
+     "desde": "16:00",
+     "hasta": "18:00"
+    }
+   ]
+  },
+  {
+   "id": "0905-c7",
+   "materia": "0905",
+   "tipo": "Práctico",
+   "nombre": "7",
+   "docente": "",
+   "aula": "145",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 4,
+     "desde": "20:00",
+     "hasta": "22:00"
+    }
+   ]
+  },
+  {
+   "id": "0905-c8",
+   "materia": "0905",
+   "tipo": "Práctico",
+   "nombre": "8",
+   "docente": "",
+   "aula": "136",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 5,
+     "desde": "18:00",
+     "hasta": "20:00"
+    }
+   ]
+  },
+  {
+   "id": "0917-t",
+   "materia": "0917",
+   "tipo": "Teórico",
+   "nombre": "",
+   "docente": "Kessler Kenig, Carola",
+   "aula": "",
+   "modalidad": "Virtual",
+   "bloques": [
+    {
+     "dia": 1,
+     "desde": "14:00",
+     "hasta": "18:00"
+    }
+   ]
+  },
+  {
+   "id": "0917-c1",
+   "materia": "0917",
+   "tipo": "Práctico",
+   "nombre": "1",
+   "docente": "",
+   "aula": "234",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 1,
+     "desde": "18:00",
+     "hasta": "20:00"
+    }
+   ]
+  },
+  {
+   "id": "0917-c2",
+   "materia": "0917",
+   "tipo": "Práctico",
+   "nombre": "2",
+   "docente": "",
+   "aula": "234",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 2,
+     "desde": "08:00",
+     "hasta": "10:00"
+    }
+   ]
+  },
+  {
+   "id": "0917-c3",
+   "materia": "0917",
+   "tipo": "Práctico",
+   "nombre": "3",
+   "docente": "",
+   "aula": "LAB. 143",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 2,
+     "desde": "10:00",
+     "hasta": "12:00"
+    }
+   ]
+  },
+  {
+   "id": "0917-c4",
+   "materia": "0917",
+   "tipo": "Práctico",
+   "nombre": "4",
+   "docente": "",
+   "aula": "LAB. 143",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 2,
+     "desde": "12:00",
+     "hasta": "14:00"
+    }
+   ]
+  },
+  {
+   "id": "0917-c5",
+   "materia": "0917",
+   "tipo": "Práctico",
+   "nombre": "5",
+   "docente": "",
+   "aula": "LAB. 143",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 2,
+     "desde": "16:00",
+     "hasta": "18:00"
+    }
+   ]
+  },
+  {
+   "id": "0917-c6",
+   "materia": "0917",
+   "tipo": "Práctico",
+   "nombre": "6",
+   "docente": "",
+   "aula": "147",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 2,
+     "desde": "18:00",
+     "hasta": "20:00"
+    }
+   ]
+  },
+  {
+   "id": "0917-c7",
+   "materia": "0917",
+   "tipo": "Práctico",
+   "nombre": "7",
+   "docente": "",
+   "aula": "LAB. 143",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 3,
+     "desde": "10:00",
+     "hasta": "12:00"
+    }
+   ]
+  },
+  {
+   "id": "0917-c8",
+   "materia": "0917",
+   "tipo": "Práctico",
+   "nombre": "8",
+   "docente": "",
+   "aula": "LAB. 143",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 3,
+     "desde": "18:00",
+     "hasta": "20:00"
+    }
+   ]
+  },
+  {
+   "id": "0917-c9",
+   "materia": "0917",
+   "tipo": "Práctico",
+   "nombre": "9",
+   "docente": "",
+   "aula": "LAB. 143",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 3,
+     "desde": "20:00",
+     "hasta": "22:00"
+    }
+   ]
+  },
+  {
+   "id": "0917-c10",
+   "materia": "0917",
+   "tipo": "Práctico",
+   "nombre": "10",
+   "docente": "",
+   "aula": "252",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 4,
+     "desde": "10:00",
+     "hasta": "12:00"
+    }
+   ]
+  },
+  {
+   "id": "0917-c11",
+   "materia": "0917",
+   "tipo": "Práctico",
+   "nombre": "11",
+   "docente": "",
+   "aula": "252",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 4,
+     "desde": "20:00",
+     "hasta": "22:00"
+    }
+   ]
+  },
+  {
+   "id": "0917-c12",
+   "materia": "0917",
+   "tipo": "Práctico",
+   "nombre": "12",
+   "docente": "",
+   "aula": "LAB. 143",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 5,
+     "desde": "14:00",
+     "hasta": "16:00"
+    }
+   ]
+  },
+  {
+   "id": "0917-c13",
+   "materia": "0917",
+   "tipo": "Práctico",
+   "nombre": "13",
+   "docente": "",
+   "aula": "126",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 5,
+     "desde": "20:00",
+     "hasta": "22:00"
+    }
+   ]
+  },
+  {
+   "id": "0923-t",
+   "materia": "0923",
+   "tipo": "Teórico",
+   "nombre": "",
+   "docente": "Cordo, Matias Jose Damian",
+   "aula": "134",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 2,
+     "desde": "18:00",
+     "hasta": "20:00"
+    }
+   ]
+  },
+  {
+   "id": "0912-tp",
+   "materia": "0912",
+   "tipo": "Teórico-práctico",
+   "nombre": "",
+   "docente": "Canalicchio, Pablo",
+   "aula": "B 304",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 1,
+     "desde": "18:00",
+     "hasta": "20:00"
+    }
+   ]
+  },
+  {
+   "id": "0913-t",
+   "materia": "0913",
+   "tipo": "Teórico",
+   "nombre": "",
+   "docente": "Longoni Ana, Margiolakis Evangelina",
+   "aula": "108",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 3,
+     "desde": "10:00",
+     "hasta": "14:00"
+    }
+   ]
+  },
+  {
+   "id": "0913-c1",
+   "materia": "0913",
+   "tipo": "Práctico",
+   "nombre": "1",
+   "docente": "",
+   "aula": "347",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 3,
+     "desde": "14:00",
+     "hasta": "16:00"
+    }
+   ]
+  },
+  {
+   "id": "0913-c2",
+   "materia": "0913",
+   "tipo": "Práctico",
+   "nombre": "2",
+   "docente": "",
+   "aula": "B 401",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 3,
+     "desde": "14:00",
+     "hasta": "16:00"
+    }
+   ]
+  },
+  {
+   "id": "0913-c3",
+   "materia": "0913",
+   "tipo": "Práctico",
+   "nombre": "3",
+   "docente": "",
+   "aula": "344",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 3,
+     "desde": "16:00",
+     "hasta": "18:00"
+    }
+   ]
+  },
+  {
+   "id": "0913-c4",
+   "materia": "0913",
+   "tipo": "Práctico",
+   "nombre": "4",
+   "docente": "",
+   "aula": "254",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 3,
+     "desde": "16:00",
+     "hasta": "18:00"
+    }
+   ]
+  },
+  {
+   "id": "0913-c5",
+   "materia": "0913",
+   "tipo": "Práctico",
+   "nombre": "5",
+   "docente": "",
+   "aula": "154",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 3,
+     "desde": "16:00",
+     "hasta": "18:00"
+    }
+   ]
+  },
+  {
+   "id": "0913-c6",
+   "materia": "0913",
+   "tipo": "Práctico",
+   "nombre": "6",
+   "docente": "",
+   "aula": "148",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 3,
+     "desde": "18:00",
+     "hasta": "20:00"
+    }
+   ]
+  },
+  {
+   "id": "0913-c7",
+   "materia": "0913",
+   "tipo": "Práctico",
+   "nombre": "7",
+   "docente": "",
+   "aula": "127",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 3,
+     "desde": "20:00",
+     "hasta": "22:00"
+    }
+   ]
+  },
+  {
+   "id": "0913-c8",
+   "materia": "0913",
+   "tipo": "Práctico",
+   "nombre": "8",
+   "docente": "",
+   "aula": "355",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 4,
+     "desde": "10:00",
+     "hasta": "12:00"
+    }
+   ]
+  },
+  {
+   "id": "0913-c9",
+   "materia": "0913",
+   "tipo": "Práctico",
+   "nombre": "9",
+   "docente": "",
+   "aula": "145",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 4,
+     "desde": "18:00",
+     "hasta": "20:00"
+    }
+   ]
+  },
+  {
+   "id": "0913-c10",
+   "materia": "0913",
+   "tipo": "Práctico",
+   "nombre": "10",
+   "docente": "",
+   "aula": "B 101",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 5,
+     "desde": "14:00",
+     "hasta": "16:00"
+    }
+   ]
+  },
+  {
+   "id": "0913-c11",
+   "materia": "0913",
+   "tipo": "Práctico",
+   "nombre": "11",
+   "docente": "",
+   "aula": "B 101",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 5,
+     "desde": "16:00",
+     "hasta": "18:00"
+    }
+   ]
+  },
+  {
+   "id": "sem-saberes-editoriales-en-escenarios-educativos-tp",
+   "materia": "sem-saberes-editoriales-en-escenarios-educativos",
+   "tipo": "Teórico-práctico",
+   "nombre": "",
+   "docente": "Merlo, Clara",
+   "aula": "",
+   "modalidad": "Virtual",
+   "bloques": [
+    {
+     "dia": 3,
+     "desde": "18:00",
+     "hasta": "22:00"
+    }
+   ]
+  },
+  {
+   "id": "sem-diseno-de-discursos-visuales-editoriales-tp",
+   "materia": "sem-diseno-de-discursos-visuales-editoriales",
+   "tipo": "Teórico-práctico",
+   "nombre": "",
+   "docente": "Valenzuela, Martin",
+   "aula": "250",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 4,
+     "desde": "18:00",
+     "hasta": "22:00"
+    }
+   ]
+  },
+  {
+   "id": "sem-leer-para-editar-lectura-critica-tp",
+   "materia": "sem-leer-para-editar-lectura-critica",
+   "tipo": "Teórico-práctico",
+   "nombre": "",
+   "docente": "Pergola Laura, Beviglia Marina",
+   "aula": "125",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 1,
+     "desde": "16:00",
+     "hasta": "20:00"
+    }
+   ]
+  },
+  {
+   "id": "sem-libros-de-ficcion-y-no-tp",
+   "materia": "sem-libros-de-ficcion-y-no",
+   "tipo": "Teórico-práctico",
+   "nombre": "",
+   "docente": "Pastor Berroa Yanina",
+   "aula": "125 / TERRITORIO",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 3,
+     "desde": "20:00",
+     "hasta": "22:00"
+    },
+    {
+     "dia": 6,
+     "desde": "11:00",
+     "hasta": "13:00"
+    }
+   ]
+  },
+  {
+   "id": "sem-especificidad-y-grados-de-intervencion-tp",
+   "materia": "sem-especificidad-y-grados-de-intervencion",
+   "tipo": "Teórico-práctico",
+   "nombre": "",
+   "docente": "Estrada Andrea",
+   "aula": "",
+   "modalidad": "Virtual",
+   "bloques": [
+    {
+     "dia": 2,
+     "desde": "14:00",
+     "hasta": "18:00"
+    }
+   ]
+  },
+  {
+   "id": "sem-derechos-humanos-sujetos-problematicas-y-tp",
+   "materia": "sem-derechos-humanos-sujetos-problematicas-y",
+   "tipo": "Teórico-práctico",
+   "nombre": "",
+   "docente": "Ferreira, Marcelo Gustavo",
+   "aula": "",
+   "modalidad": "Virtual",
+   "bloques": [
+    {
+     "dia": 1,
+     "desde": "18:00",
+     "hasta": "22:00"
+    }
+   ]
+  },
+  {
+   "id": "sem-gestion-y-politicas-culturales-a-tp",
+   "materia": "sem-gestion-y-politicas-culturales-a",
+   "tipo": "Teórico-práctico",
+   "nombre": "",
+   "docente": "Lencina, Victoria",
+   "aula": "25 DE MAYO",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 4,
+     "desde": "18:00",
+     "hasta": "22:00"
+    }
+   ]
+  },
+  {
+   "id": "sem-clinica-de-escritura-academica-de-tp",
+   "materia": "sem-clinica-de-escritura-academica-de",
+   "tipo": "Teórico-práctico",
+   "nombre": "",
+   "docente": "De Francesco, Karen",
+   "aula": "B 202",
+   "modalidad": "",
+   "bloques": [
+    {
+     "dia": 4,
+     "desde": "08:00",
+     "hasta": "12:00"
+    }
+   ]
+  }
+ ]
+}

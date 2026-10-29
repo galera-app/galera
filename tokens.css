@@ -1,0 +1,24 @@
+/* Cursada: tokens de diseño (colores, radios, tipografías), claro y oscuro. Los usa estilos.css; sirve también para Figma y para otras páginas.
+   Equivale a propuestas/2026-10-24/design-system/tokens.json: si cambia uno, cambia el otro. */
+:root {
+  color-scheme: light;
+  --bg: #f7f5f0; --sup: #ffffff; --sup2: #efece4; --borde: #ded9cc; --borde-campo: #8a8577; --texto: #1d2430; --texto2: #46505d; --tenue: #5d6673;
+  --tinta: #1f3a5f; --tinta-suave: #e3eaf4; --mostaza: #b9860a; --mostaza-tinta: #6f4e00; --mostaza-suave: #fbf0d3;
+  --ok: #1d7a46; --ok-suave: #dff2e6; --ojo: #8a4b00; --ojo-suave: #fdecd2; --mal: #b3261e; --mal-suave: #fbe1de;
+  --ancho: 1360px; --radio: 4px; --sombra: 0 1px 2px rgba(30,40,60,.06), 0 4px 14px rgba(30,40,60,.05);
+  /* Escala tipográfica: xs 12 px, sm 14 px, base 16 px, md 18 px; los títulos grandes quedan sueltos. */
+  --t-xs: .75rem; --t-sm: .875rem; --t-base: 1rem; --t-md: 1.125rem; --t-lg: 1.25rem; --t-xl: 1.5rem; --t-2xl: 2rem;
+  /* Azul: el de texto y enlaces (contraste AA sobre claro) va aparte del de fondos y bordes. */
+  --azul-texto: #0560C8; --azul-fondo: #0671E0;
+  --sobre-color: #fff; /* texto sobre fondos de color propio (bloques del horario, tapas) */
+  --fuente: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --serif: Charter, "Bitstream Charter", "Iowan Old Style", Cambria, Georgia, serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { color-scheme: dark; --bg: #12161d; --sup: #1a2029; --sup2: #232b37; --borde: #313b4a; --borde-campo: #6b788c; --texto: #eef1f5; --texto2: #c0c8d4; --tenue: #8893a3;
+    --azul-texto: #7DBBF8; --tinta: #8fb4ea; --tinta-suave: #1d2c42; --mostaza: #f2c14e; --mostaza-tinta: #f2c14e; --mostaza-suave: #3a2f12;
+    --ok: #63cc92; --ok-suave: #16331f; --ojo: #f0b155; --ojo-suave: #3a2a10; --mal: #f08179; --mal-suave: #401c19; --sombra: none; }
+}
+:root[data-theme="dark"] { color-scheme: dark; --bg: #12161d; --sup: #1a2029; --sup2: #232b37; --borde: #313b4a; --borde-campo: #6b788c; --texto: #eef1f5; --texto2: #c0c8d4; --tenue: #8893a3;
+    --azul-texto: #7DBBF8; --tinta: #8fb4ea; --tinta-suave: #1d2c42; --mostaza: #f2c14e; --mostaza-tinta: #f2c14e; --mostaza-suave: #3a2f12;
+    --ok: #63cc92; --ok-suave: #16331f; --ojo: #f0b155; --ojo-suave: #3a2a10; --mal: #f08179; --mal-suave: #401c19; --sombra: none; }

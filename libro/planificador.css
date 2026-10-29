@@ -1,0 +1,47 @@
+/* Planificador de libros (Cursada). Se suma a /cursada/estilos.css. */
+.lectura-main.lb-main { max-width: 1100px; }
+.lb-eje { position: relative; height: 18px; margin: 4px 0 0; font-size: .72rem; color: var(--tenue); }
+.lb-eje span { position: absolute; transform: translateX(-50%); white-space: nowrap; }
+.lb-eje span:first-child { transform: none; } .lb-eje span:last-child { transform: translateX(-100%); }
+.lb-gantt .cr-fila { grid-template-columns: minmax(130px, 30%) 1fr 92px; }
+.lb-esfase { margin-top: 6px; font-weight: 700; }
+.lb-esfase .cr-pista { height: 22px; }
+.cr-barra.fase { opacity: .9; background: var(--tinta); }
+.cr-barra.fase.crit { background: var(--mal); }
+.cr-barra.tarde { background: repeating-linear-gradient(45deg, var(--mal), var(--mal) 5px, var(--mal-suave) 5px, var(--mal-suave) 8px); opacity: 1; outline: 1px solid var(--mal); }
+.lb-fase-bt { border: 0; background: none; padding: 0; font: inherit; font-weight: 700; color: inherit; cursor: pointer; text-align: left; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+.lb-fase-bt:hover { color: var(--tinta); text-decoration: underline; }
+.lb-fase { margin: 0 0 8px; border-top: 1px solid var(--borde); }
+.lb-fase > summary { cursor: pointer; padding: 10px 0; }
+tr.lb-na td { opacity: .55; }
+tr.lb-info td { background: var(--sup2); border-bottom: 1px solid var(--borde); white-space: normal; }
+.tabla.cr-tareas td { white-space: normal; }
+.lb-intro ul { margin: 6px 0 0; padding-left: 20px; }
+.lb-licencia { font-size: .8rem; color: var(--tenue); margin: 14px 0 0; }
+@media (max-width: 600px) { .lb-gantt .cr-fila { grid-template-columns: 1fr 80px; } }
+@media print {
+  .no-imprimir, .cabecera, .migas, .lb-intro, .pie { display: none !important; }
+  .tarjeta { box-shadow: none; border: 0; padding: 0; }
+  .lb-gantt .cr-fila { break-inside: avoid; }
+  .cr-barra, .cr-hol { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+.tabla.cr-tareas .elige { padding: 4px 8px; font-size: .78rem; white-space: nowrap; }
+.tabla.cr-tareas .elige input { min-width: 0; width: 18px; height: 18px; min-height: 0; padding: 0; }
+.lb-hito { display: inline-block; position: absolute; top: 50%; width: 11px; height: 11px; margin: -5.5px 0 0 -5.5px; background: var(--acento, #f2c14e); border: 1.5px solid var(--tinta); transform: rotate(45deg); z-index: 2; }
+.lb-hoy { position: absolute; top: 0; bottom: 0; width: 0; border-left: 2px dashed var(--mal); z-index: 1; }
+.cr-ref.lb-hito, .cr-ref.lb-hoy { position: static; display: inline-block; vertical-align: middle; margin: 0 3px 0 0; }
+.cr-ref.lb-hoy { height: 12px; }
+.lb-rol { display: block; margin-top: 2px; white-space: normal; max-width: 160px; }
+.lb-equipo { margin: 0 0 10px; border-top: 1px solid var(--borde); padding-top: 8px; }
+.lb-equipo > summary { cursor: pointer; padding: 4px 0; }
+
+/* Seguimiento: avance, línea base y fechas reales */
+.lb-prog { position: absolute; top: 0; height: 100%; background: var(--ok); opacity: .85; border-radius: 4px; z-index: 1; pointer-events: none; }
+.lb-base { position: absolute; bottom: 0; height: 4px; background: var(--tenue); opacity: .9; z-index: 1; }
+.lb-real { position: absolute; top: 0; height: 4px; background: var(--ok); z-index: 3; outline: 1px solid var(--sup, #fff); }
+.cr-ref.lb-prog, .cr-ref.lb-base, .cr-ref.lb-real { position: static; display: inline-block; vertical-align: middle; width: 22px; margin: 0 3px 0 0; }
+.cr-ref.lb-prog { height: 10px; } .cr-ref.lb-base, .cr-ref.lb-real { height: 4px; }
+.tabla.cr-tareas input.lb-av { width: 4.2em; }
+.tabla.cr-tareas input[type=date].nota { min-width: 9.5em; }
+.lb-descarga { margin: 12px 0 0; }
+@media print { .lb-prog, .lb-base, .lb-real { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }

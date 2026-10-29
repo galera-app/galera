@@ -1,0 +1,65 @@
+{
+ "nota": "Lo que piden por 💡 Sugerencias, resumido y sin datos de quien lo mandó (lo escribe Fidel en la planilla; el texto original y el contacto nunca salen de ahí). estado: nuevo | proceso | hecho | no. fecha: cuándo llegó; v: versión de Cursada en que salió (solo si está hecho).",
+ "pedidos": [
+  {
+   "fecha": "2026-10-01",
+   "resumen": "Mostrar el porcentaje de la carrera aprobado.",
+   "estado": "hecho",
+   "v": 5
+  },
+  {
+   "fecha": "2026-10-01",
+   "resumen": "Ver el porcentaje de avance en la carrera.",
+   "estado": "hecho",
+   "v": 5
+  },
+  {
+   "fecha": "2026-10-05",
+   "resumen": "Edición Editorial es con final este año.",
+   "estado": "hecho",
+   "v": 9
+  },
+  {
+   "fecha": "2026-10-05",
+   "resumen": "Sumar Smart Marketing a la Biblioteca.",
+   "estado": "hecho",
+   "v": 9
+  },
+  {
+   "fecha": "2026-10-05",
+   "resumen": "Administración de la Empresa Editorial es con promoción: distinguir el régimen según el año de cursada.",
+   "estado": "hecho",
+   "v": 9
+  },
+  {
+   "fecha": "2026-10-07",
+   "resumen": "Información sobre el pretrámite del título y sobre la tesina.",
+   "estado": "hecho",
+   "v": 9
+  },
+  {
+   "fecha": "2026-10-13",
+   "resumen": "Simulador de esquema de paginación con las partes del libro.",
+   "estado": "hecho",
+   "v": 19
+  },
+  {
+   "fecha": "2026-10-14",
+   "resumen": "Poder ver lo que piden otros, como antes de la v14.",
+   "estado": "hecho",
+   "v": 21
+  },
+  {
+   "fecha": "2026-10-08",
+   "resumen": "Poner los horarios de idiomas en el calendario.",
+   "estado": "hecho",
+   "v": null
+  },
+  {
+   "fecha": "2026-10-14",
+   "resumen": "Planificador del proceso editorial para armar un Gantt.",
+   "estado": "hecho",
+   "v": 29
+  }
+ ]
+}

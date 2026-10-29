@@ -1,0 +1,228 @@
+{
+ "codigo": "0915",
+ "anio": 2025,
+ "grupos": [
+  {
+   "t": "Unidad 1",
+   "obligatoria": [
+    "Argentina. Ley 25.446 de Protección y fomento del libro. 2001. https://www.camaradellibro.com.ar/informes-legislacion/.",
+    "Cordón García, José A. “Bibliografía general internacional y control bibliográfico universal”. En: Las fuentes de información, coord. por Isabel de Torres Ramírez. Madrid: Síntesis, 1999. (p. 9-38)",
+    "Cordón García, José A. et al.\"Libros y e-libros\". En: Las nuevas fuentes de información: información y búsqueda documental en el contexto de la web 2.0. Madrid: Pirámide, 2010. (p. 71-110)",
+    "Etorena, Joaquín. “La cuchara y el océano: la red de las redes y el trabajo editorial”. Libros de México, n. 74, (agosto-octubre 2004), p. 19-24",
+    "Giordanino, Eduardo P. “El control bibliográfico”. En: Técnicas de registro y organización de materiales editoriales. Buenos Aires: Santiago Arcos, 2010. (p. 23-31)",
+    "Giordanino, Eduardo P. “Las orillas y umbrales del libro: los paratextos”. En: Técnicas de registro registro y organización de materiales editoriales. Buenos Aires: Santiago Arcos, 2010. (p. 33-51)",
+    "Giordanino, Eduardo P. “El libro hipocondríaco del siglo XXI”. Revista del Hospital Italiano de Buenos Aires, v. 30, n. 1 (junio 2010), p. 21-26. http://eprints.rclis.org/14936/",
+    "Martínez Rodríguez, Luis J. Cómo buscar y usar información científica: Guía para estudiantes universitarios 2016. Santander, Universidad de Cantabria, 2016. http://eprints.rclis.org/29934/",
+    "Uribe, Richard y Robert Max Steenkist. El depósito legal en los países de Latinoamérica en 2005. Bogotá: Centro Regional para el Fomento del Libro en América Latina y el Caribe (CERLALC), 2005. https://cerlalc.org/wp-content/uploads/publicaciones/olb/PUBLICACIONES_OLB_ %20El-deposito-legal-en-los-paises-de-Latinoamerica-en-2005-Su-vigencia-ynormatividad-Estadisticas-comparativas_v1_011205.pdf",
+    "Zaid, Gabriel. Los demasiados libros. Barcelona: Anagrama, 1996. (p. 11-38)"
+   ],
+   "complementaria": [
+    "Fuente: Agencia Argentina de ISBN. Registro de libro físico en el sistema. (Videos Tutoriales). http://www.isbn.org.ar/web/video-registro-libro-fisico.html",
+    "Fuente: Agencia Argentina de ISBN. Darse de alta como Nuevo Registrante. (Videos Tutoriales).http://www.isbn.org.ar/web/video-alta-nuevo-registrante.html",
+    "Fuente: Agencia Argentina de ISBN. Familiarización con el Panel de Inicio. http://www.isbn.org.ar/web/video-familiarizacion-inicio.html",
+    "Fuente: Agencia Argentina de ISBN. Recuperar su Contraseña en el nuevo sistema. http://www.isbn.org.ar/web/video-recuperar-contrasena.html",
+    "Argentina. Centro de Estudios para la Producción. “La industria del libro en Argentina”. Síntesis de la Economía Real, 2ª época, n. 48 (abril 2005), p. 53-82",
+    "Bazán, Claudia B., «El repertorio ausente: bibliografía y nación». En: M. Bueno & M.A. Taroncher (Eds.), Centro Editor de América Latina: capítulos para una historia. Buenos Aires: Siglo XXI Editores, 2006. (p. 13-38)",
+    "Cámara Argentina de Publicaciones (CAP). El Libro Blanco de la Industria Editorial Argentina 2018. Buenos Aires, 2018. http://www.publicaciones.org.ar/EllibroBlancoSIMPLES.pdf",
+    "Cámara Argentina del Libro. (2020). Informe de producción 2020. https://www.camaradellibro.com.ar/index.php/la-camara/noticias/30-noticias-cal/3225informe-de-produccion-2020",
+    "Feather, John P. Communicating knowledge: Publishing in the 21st century. München: Saur, 2003.",
+    "International Association of Scientific, Technical and Medical Publishers (STM). The STM Report. An overview of scientific and scholarly publishing. 5th ed. TheHague: STM, 2018.",
+    "Lash, Scott. Crítica de la información. Buenos Aires: Amorrortu, 2005.",
+    "Spina, Daniel H. y Eduardo Giordanino. “El libro: desde el papiro hasta el byte”. En: Guía de la 24ª Feria del Libro. Fundación El Libro, abril 1998, p. 89-92. http://eprints.rclis.org/14956/",
+    "Fuente: Biblioteca Nacional. https://www.bn.gov.ar/.",
+    "Fuente: Cámara Argentina del Libro. https://www.camaradellibro.com.ar/.",
+    "Fuente: Dirección Nacional del Derecho de Autor (DNDA). https://www.argentina.gob.ar/justicia/derechodeautor.",
+    "Fuente: Agencia Argentina de ISBN. https://www.isbn.org.ar/",
+    "Fuente: Argentina. Sistema de Información Universitaria (SIU). BDU. Catálogo bibliográfico cooperativo. http://bdu.siu.edu.ar/.",
+    "Fuente: Universidad de Buenos Aires. Sistema de bibliotecas y de información (SISBI). http://www.sisbi.uba.ar/.",
+    "Fuente: Universidad de Buenos Aires. Catálogo colectivo. http://catalogosuba.sisbi.uba.ar/vufind/.",
+    "Fuente: Universidad de Buenos Aires. Bases de datos suscriptas. http://www.sisbi.uba.ar/bases-de-datos-suscriptas-por-la-uba"
+   ]
+  },
+  {
+   "t": "Unidad 2",
+   "obligatoria": [
+    "Angelozzi, Silvina M. y Sandra G. Martín. “Metadatos”. En: Metadatos para la descripción de recursos electrónicos en línea. Buenos Aires: Alfagrama, 2010. (p. 23-28).",
+    "Cámara Argentina del Libro. Manual para editoriales. Buenos Aires: CAL, 2005.",
+    "Giordanino, Eduardo P. “La descripción bibliográfica”. En: Técnicas de registro y organización de materiales editoriales. Buenos Aires: Santiago Arcos, 2010. (p. 53-78).",
+    "Giordanino, Eduardo P. “La forma de los encabezamientos de autores”. En: Técnicas de registro y organización de materiales editoriales. Buenos Aires: Santiago Arcos, 2010. (p. 79-98).",
+    "Giordanino, Eduardo P. “Los metadatos en la industria editorial”. En: Técnicas de registro… Buenos Aires: Santiago Arcos, 2010. (p. 99-114).",
+    "Giordanino, Eduardo P. y Carmen De CuccoAlconada. “Los nombres en Argentina a partir del nuevo Código Civil y Comercial”. VI Encuentro Nacional de Catalogadores, Buenos Aires, 15 al 17 de noviembre 2017.",
+    "Human Rights Information and Documentation Systems (HURIDOCS). Guías para registrar nombres de personas. Versoix (Suiza): Huridocs, 2002.",
+    "Martínez Arellano, F. F.; Palma Peña, J. M. “Metadatos para la organización de publicaciones académicas”. En Filiberto Felipe Martínez Arellano, coord. Organización de la información con RDA: su presencia en los catálogos de bibliotecas de América Latina. México: UNAM, 2020. (p. 1-27)",
+    "Ríos Hilario, Ana B. “El registro bibliográfico”. En: Nuevos horizontes en el análisis de los registros y la normativa bibliográfica. Gijón: Trea, 2003. (p. 23-33).",
+    "Spedalieri, Graciela. “Forma de los nombres (nombres personales)”, En Catalogación de monografías impresas. Buenos Aires: Alfagrama, 2007. (p. 238-255).",
+    "Torres, Silvia; Adina González Bonorino; Irina Vavilova. (2017). La cita y referencia bibliográfica: guía basada en las normas APA. 3ª edición, rev. y ampl. Buenos Aires, Universidad de Ciencias Empresariales y Sociales."
+   ],
+   "complementaria": [
+    "Fuente: Giordanino, Eduardo P. y María Carmen De CuccoAlconada. \"Los nombres en Argentina a partir del nuevo Código Civil y Comercial\". VI Encuentro Nacional de Catalogadores, Buenos Aires, Biblioteca Nacional de la República Argentina, 15 de noviembre de 2017. https://www.bn.gov.ar/micrositios/multimedia/ciclos/vi-encuentro-nacional-decatalogadores-15-11-17-parte-4(38:10’ hasta 46:57’)",
+    "Fuente: Identificación de metadatos. Universidad de Antioquia. Escuela Interamericana de Bibliotecología, 2017.https://youtu.be/GroHbd5Y0pY",
+    "Association of American Publishers (AAP). Metadata Standards for Ebooks, Version 1.0. New York: AAP, 2000. http://www.publishers.org.",
+    "Desrichard, Yves. \"Vers la convergence des formats bibliographiques? ONIX, application XML du monde de l’édition\". Bulletin des Bibliothèques de France, t. 49 (2004) n. 3, p. 55-63.",
+    "Garza Mercado, Ario. Normas de estilo bibliográfico para ensayos semestrales y tesis. 2ª ed. México: El Colegio de México, 2000. http://biblio.colmex.mx/diglibrary/normas_estilo/index.html.",
+    "International Federation of Library Associations (IFLA). Descripción Bibliográfica Internacional Normalizada (ISBD). Edición preliminar consolidada. Madrid: Biblioteca Nacional, 2013. https://www.ifla.org/files/assets/cataloguing/isbd/isbd-translationses.pdf.",
+    "ISO 690:2010. Information and documentation: Guidelines for bibliographic references and citations to information resources. 3rd ed. Geneva: International OrganizationforStandardization, 2010.",
+    "Reglas de catalogación angloamericanas. 2ª ed., revisión de 2002, act. 2003. Bogotá: Rojas Eberhard, 2004.",
+    "Tillett, B. El modelo FRBR: Requerimientos Funcionales para Registros Bibliográficos. Washington, DC: Library of Congress, 2004. http://www.loc.gov/catdir/cpso/frbrspan.pdf.",
+    "Fuente: Formato MARC 21 Conciso para Datos Bibliográficos. https://www.loc.gov/marc/bibliographic/ecbdspa.html.",
+    "Fuente: International Standard Bibliographic Description (ISBD) Review Group. https://www.ifla.org/isbd-rg.",
+    "Fuente: ONIX. EDItEUR. https://www.editeur.org/8/ONIX/.",
+    "Fuente: VIAF:Fichero de Autoridades Virtual Internacional. https://viaf.org/.",
+    "Fuente: WorldCat. https://www.worldcat.org/."
+   ]
+  },
+  {
+   "t": "Unidad 3",
+   "obligatoria": [
+    "Calasso, Roberto. “Solapa de solapas”, En Cien cartas a un desconocido. Madrid: Anagrama, 2007. (p. 15-21).",
+    "Eco, Umberto. “Elogio del resumen”. Libros y artes, n. 4, abril 2003, p. 24-26.",
+    "Del Castillo Zayas, Yulennys M. \"El hipertexto: su implicación en resúmenes automáticos\". En: Resúmenes documentales: su evolución. Buenos Aires: Alfagrama, 2009. (p. 53-73).",
+    "Giordanino, Eduardo P. “La descripción del contenido: los resúmenes”. En: Técnicas de registro y organización de materiales editoriales. Buenos Aires: Santiago Arcos editor, 2010. (p. 115-145).",
+    "Giordanino, Eduardo P. “Las reseñas”. En: Técnicas de registro y organización de materiales editoriales. Buenos Aires: Santiago Arcos editor, 2010. (p. 147-174).",
+    "Pinto, María. “Hacia un modelo de representación documental: la técnica de resumir”. Investigación bibliotecológica, v. 5, n. 10 (1991), p. 17-28.",
+    "Pinto, María. “La operación de resumir: formulación teórica, procedimientos y perspectiva”. Documentación de las Ciencias de la Información, v. 11 (1987), p. 75-99."
+   ],
+   "complementaria": [
+    "American Library Association (ALA). Elements for basic reviews. Chicago: ALA/RUSA, April 2005.",
+    "Borko, Harold y Charles L. Bernier. Abstracting concepts and methods. New York: Academic Press, 1975.",
+    "Cremmins, Edward T. El arte de resumir. Barcelona: Mitre, 1985.",
+    "Del Castillo Zayas, Yulennys M. Resúmenes documentales. Buenos Aires: Alfagrama, 2009.",
+    "Genette, Gérard. Umbrales. México: Siglo XXI, 2001.",
+    "Hooper, Brad. Writing reviews for readers’ advisory. Chicago: American Library Association, 2010.",
+    "Lancaster, Frederick W. Indización y resúmenes: teoría y práctica. Traducción de Elsa Barber. Buenos Aires: EB Publicaciones, 1996. (Capítulo 8).",
+    "Moreiro González, José A. El contenido de los documentos textuales. Gijón: Trea, 2004.",
+    "Navarro, Federico (Coord.). Manual de escritura para carreras de humanidades. Buenos Aires: Editorial de la Facultad de Filosofía y Letras. Universidad de Buenos Aires, 2014.",
+    "Pinto, María; Carmen Gálvez. Análisis documental de contenido. Madrid: Síntesis, 1999.",
+    "Pinto, María. Aprendiendo a resumir: prontuario y resolución de casos. Gijón: Trea, 2005.",
+    "Pinto, María. El resumen documental: paradigmas, modelos y métodos. 2a ed. Madrid: Fundación Germán Sánchez Ruipérez, 2001.",
+    "Pipkin, Mabel; Marcela Reynoso. Prácticas de lectura y escritura académicas. Córdoba: Comunic-Arte, 2010.",
+    "Swales, John M.; Feak, Christine B. Abstracts and thewritingofabstracts. Universityof Michigan, 2009."
+   ]
+  },
+  {
+   "t": "Unidad 4",
+   "obligatoria": [
+    "Agencia Internacional del ISBN. Manual del usuario del ISBN. 7ª ed. Londres: International ISBN Agency, 2017.https://www.isbn-international.org/es/content/manual-del-usuariodel-isbn.",
+    "Argentina. Ley 22.399 ISBN, y decreto reglamentario, 1981.",
+    "Cámara Argentina del Libro. Guía rápida de registro de un libro. Buenos Aires: CAL, 2015. https://www.isbn.org.ar/web/Guia-rapida-de-Registro-de-un-libro.pdf",
+    "Cámara Argentina del Libro. Registro de editores en línea. Buenos Aires: CAL, septiembre 2011.",
+    "Giordanino, Eduardo P. “La identificación bibliográfica”. En: Técnicas de registro y organización de materiales editoriales. Buenos Aires: Santiago Arcos editor, 2010. (p. 175-206).",
+    "Giordanino, Eduardo P. “El sistema CISAC y otros identificadores (IDDN, ISMN, ISRC)”. En: Técnicas de registro y organización de materiales editoriales. Buenos Aires: Santiago Arcos editor, 2010. (p. 207-226).",
+    "Giordanino, Eduardo P. “Tipología documental en las estadísticas del ISBN”. Documentación de las Ciencias de la Información, v. 34 (2011). https://revistas.ucm.es/index.php/DCIN/article/view/36456."
+   ],
+   "complementaria": [
+    "Fuente: Esteban-Hernández, Jesus. Proceso de citación: Complemento sobre identificadores únicos. Universidad Rey Juan Carlos, 2020. https://youtu.be/SYuZGy13lu0",
+    "Association of American Publishers (AAP). Numbering Standards for Ebooks, Version 1.0. New York: AAP, 2000.",
+    "Ayuso García, María D. y Victoria Martínez Navarro. “Evaluación de calidad de fuentes y recursos digitales”. Anales de Documentación, n. 9 (2006), p.17-42.",
+    "Book Industry Study Group (BISG). The identification of digital book content. New York: Book Industry Study Group, 2008.",
+    "Book Industry Study Group (BISG). BISG Policy Statement POL-1101: Best Practices for Identifying Digital Products. New York: Book Industry Study Group, 2013.",
+    "Cámara Argentina del Libro. Manual para editoriales. Buenos Aires: CAL, 2005.",
+    "Giordanino, Eduardo P. Fuentes de información para la industria editorial. Repertorios comerciales de la producción editorial. Apunte de cátedra, 1º mayo 2011.http://eprints.rclis.org/15754/.",
+    "Giordanino, Eduardo P. Identificación de autores: Nombres y números [ISNI]. SocialBiblio Latinoamérica, 16 de abril 2013. http://eprints.rclis.org/19508/.",
+    "Spina, Daniel H. Registro y organización de impresos: fuentes de información para la actividad editorial. 2ª ed. Buenos Aires: Ars, 1995.",
+    "Vitiello, Giuseppe. “L’identificazionedegliidentificatori”. Bibliotecheoggi, v. 22, n. 2 (marzo 2004), p. 67-80.",
+    "Fuente: Centro Internacional del ISSN. https://www.issn.org/.",
+    "Fuente: Confederación Internacional de Sociedades de Autores y Compositores (CISAC). https://es.cisac.org/.",
+    "Fuente: International DOI Foundation. https://www.doi.org/.",
+    "Fuente: International ISBN Agency. https://www.isbn-international.org/."
+   ]
+  },
+  {
+   "t": "Unidad 5",
+   "obligatoria": [
+    "Colleu, Gilles. “Construir su catálogo cotidianamente”, En La edición independiente. Buenos Aires: La Marca Editora, 2008. (p. 125-142).",
+    "Cordón García, José Antonio; Raquel Gómez Díaz, Julio Alonso Arévalo. “Las plataformas de venta de libros electrónicos: modelos de negocio y estrategias de mercado”. BiD: textos universitaris de biblioteconomia i documentació, n. 26 (juny 2011). http://www.ub.edu/bid/26/cordon2.htm.",
+    "García Rodríguez, A. “El papel de las plataformas de distribución y venta en la promoción del libro electrónico infantil y juvenil”. Anales de Documentación, v. 16, n. 1 (2013) http://revistas.um.es/analesdoc/article/view/166601.",
+    "Genette, Gérard. “Introducción” y “El peritexto editorial”, En:Umbrales. México: Siglo XXI, 2001. (p. 7-35).",
+    "Giordanino, Eduardo P. “Los catálogos editoriales”. En: Técnicas de registro y organización de materiales editoriales. Buenos Aires: Santiago Arcos editor, 2010. (p. 227-257).",
+    "Pensato, Rino. “La compilación de bibliografías”. En: Curso de bibliografía. Gijón: Trea, 1994. (p. 46-71).",
+    "Ramírez, Antonio. “Los años del declive”, En Listos para leer: diseño de libros en España. Madrid: Ministerio de Asuntos Exteriores y de Cooperación, 2005. (p. 2.039-2.043).",
+    "Sánchez Vigil, Juan Miguel; Juan Carlos Marcos Recio y Belén Fernández Fuentes. “Catálogos editoriales: características, funciones, tipología y análisis de contenido”. Scire: Representación y organización del conocimiento, v. 14, n. 1 (2008), p. 111-124. http://ibersid.eu/ojs/index.php/scire/issue/view/183."
+   ],
+   "complementaria": [
+    "Maggio Ramírez, Matías. El \"exilio\" aún vigente. Trama y Texturas, n. 30 (2016), p. 39-49.",
+    "Pensato, Rino. Manualedi bibliografia. Milano: EditriceBibliografica, 2007.",
+    "Puglisi, Paola. Sopraccoperta. Roma: AIB, 2003.",
+    "Satué, Enric. “Aldo Manuzio, librero”, En El diseño de libros del pasado, del presente, y tal vez del futuro. Madrid: Fundación Germán Sánchez Ruipérez, 1998. (p. 163-185)",
+    "Spina, Daniel H. Registro y organización de impresos: fuentes de información para la actividad editorial. 2ª ed. Buenos Aires: Ars, 1995. (Cap. 7)."
+   ]
+  },
+  {
+   "t": "Unidad 6",
+   "obligatoria": [
+    "Abadal, Ernest (ed.). Revistas científicas: situación actual y retos de futuro. EdicionsUniversitat de Barcelona, 2017. http://www.publicacions.ub.edu/ficha.aspx? cod=08744",
+    "Abadal, E. & Rius Alcaraz, Ll. “Revistas científicas digitales: características e indicadores“. Revista de Universidad y Sociedad del Conocimiento (RUSC, UOC), v. 3, n. 1 (2006). http://dx.doi.org/10.7238/rusc.v3i1.272.",
+    "Aparicio, Alicia; Banzato, Guillermo; Liberatore, Gustavo. Manual de gestión editorial de revistas científicas de ciencias sociales y humanas: buenas prácticas y criterios de calidad. Buenos Aires: CLACSO: CAICYT-CONICET: PISAC: MINCyT, 2016.",
+    "Argentina. Ley 26.899. Repositorios Digitales Institucionales de Acceso Abierto.https://www.argentina.gob.ar/normativa/nacional/ley-26899-223459.",
+    "Argentina. Ministerio de Ciencia, Tecnología e Innovación Productiva. Resolución 753 E/2016. Reglamento Operativo para la aplicación de la Ley Nº 26.899.",
+    "Camacho Villalobos, M. E.; Rojas Porras, M. E. & Rojas Blanco, L. “El artículo científico para revista académica: Pautas para su planificación y edición de acuerdo con el modelo APA”. e-Ciencias de la Información, v. 4, n. 2 (2014). doi 10.15517/eci.v4i2.15129.",
+    "Giménez Toledo, Elea; Adelaida Román y Manola Vázquez. “Normalización”, En Adelaida Román, coord., La edición de revistas científicas: guía de buenos usos, 17-33. Madrid: CSIC-CINDOC, 2001.",
+    "Giménez Toledo, Elea; Juan Felipe Córdoba Restrepo, eds. Edición académica y difusión. Libro abierto en Iberoamérica. Bogotá: Editorial Universidad del Rosario - Editorial Comares, 2018.",
+    "Giordanino, Eduardo P. \"Revistas electrónicas: vino nuevo en odres nuevos\". Simposio electrónico Las revistas electrónicas: del papel al espacio, Buenos Aires, sep-oct 2000, Sociedad Argentina de Información. http://eprints.rclis.org/14933/.",
+    "Giordanino, Eduardo P.et al. “Mesa redonda: Escritura y evaluación de trabajos psicoanalíticos”. Revista de Psicoanálisis, v. 58, n. 1 (2001), p. 155-196.",
+    "Giordanino, Eduardo P. “Sistemas de evaluación de trabajos para publicaciones científicas (peer review)”, Técnica Administrativa, v. 4, n. 20 (ene-mar 2005). http://eprints.rclis.org/14932/.",
+    "International JournalofPsychoanalisis. “Notas para los colaboradores”. 2009.",
+    "International JournalofPsychoanalisis. “Notas para los evaluadores”, traducción de Eduardo Giordanino. Buenos Aires, 2001.",
+    "Juty, Nick, et al. \"Unique, persistent, resolvable: Identifiers as thefoundationof FAIR.\" Data Intelligence, 2.1-2 (2020): 30-39.",
+    "Martínez Arellano, Filiberto F.; Palma Peña, Juan M. “Metadatos para la organización de publicaciones académicas”, En Filiberto Felipe Martínez Arellano, coord. Organización de la información con RDA : su presencia en los catálogos de bibliotecas de América Latina, p. 1-27. México: IIBI-UNAM, 2020. http://ru.iibi.unam.mx/jspui/handle/IIBI_UNAM/55",
+    "Martinovich, Viviana. El rol de la gestión editorial en las revistas científicas. Apunte de Cátedra. Registro y organización de materiales editoriales, lunes 23 de junio de 2014.",
+    "Martinovich, Viviana. “Revistas científicas argentinas de acceso abierto y circulación internacional. Un análisis desde la teoría de los campos de Pierre Bourdieu.” Información, cultura y sociedad, n. 40 (2019): 93-116. https://doi.org/10.34096/ics.i40.5540.",
+    "Rio Riande, G. del.; Fiormonte, D. Una vez más sobre los sures de las \"digital humanities\". Acervo: Revista do Arquivo Nacional, v. 35, n. 1, (2022), p. 1–15. https://revista.an.gov.br/index.php/revistaacervo/article/view/1850",
+    "Rodríguez López, Joaquín. “Ciencia y comunicación científica”. El profesional de la información, v. 14, n. 4 (2005), p. 246-254.",
+    "Rodríguez Yunta, L. & Tejada Artigas, C.M. “El editor técnico: un perfil necesario para la profesionalización de la edición de revistas científicas en el entorno digital”. Anales de Documentación, v. 16, n. 2 (2013).https://doi.org/10.6018/analesdoc.16.2.176391.",
+    "Unesco. Recomendación de la UNESCO sobre la Ciencia Abierta. Paris, 2021.https://unesdoc.unesco.org/ark:/48223/pf0000379949_spa",
+    "Vuotto, Andrés; Rojas, M. C.; Fernández, G. V. “Gestión editorial de publicaciones con referato en línea: proceso de construcción, publicación y administración con soluciones en software libre”. Biblios, n. 52 (2013) p. 7482.https://doi.org/10.5195/biblios.2013.135."
+   ],
+   "complementaria": [
+    "Fuente: Acceso abierto: Reapropiarse de la producción científica. Biblioteca Profesor Guillermo Obiols de la Facultad de Humanidades y Ciencias de la Educación de la Universidad Nacional de La Plata. 2014. https://youtu.be/XqybkpjvYec",
+    "Fuente: Giordanino, Eduardo P. El editor de revistas científicas como comunicador de la ciencia abierta. Primer Congreso de revistas científicas. Asociación Uruguaya de Revistas Científicas, 16 octubre 2020. https://vimeo.com/470993641",
+    "Fuente: Packer, Abel. El modus operandi de la ciencia abierta y las oportunidades y desafíos que se presentan al avance de las revistas científicas. Primer Congreso de revistas científicas. Asociación Uruguaya de Revistas Científicas, 16 octubre 2020. https://vimeo.com/470993641",
+    "Arunachalam, Subbiah; Madhan, Muthu. \"Adopting ORCID as a uniqueidentifierwillbenefitallinvolved in scholarlycommunication.\" TheNational medical journalof India, v. 29, n.4 (2016): e1-e8.",
+    "Day, Robert A. Cómo escribir y publicar trabajos científicos. 3a ed. Washington, DC: OPS, 2005.",
+    "Fundación Española para la Ciencia y la Tecnología. Manual de buenas prácticas en edición de revistas científicas. Madrid: FECYT, 2012.",
+    "Greco, Albert N. et al. “The state of scholarly journal publishing”. Journal of Scholarly Publishing, v. 37, n. 3 (apr 2006), p. 155-214.",
+    "Greenhalgh, T. (2005). Cómo leer un artículo científico: Guía básica de la medicina basada en las evidencias. Buenos Aires: Volpe/Fox; BMJ Books.",
+    "Martín Gonzaléz, Juan C. y José A. Merlo Vega. “Las revistas electrónicas: características, fuentes de información y medios de acceso”. Anales de Documentación, n. 6 (2003), p. 155-186.",
+    "Melero, Remedios. “Acceso abierto a las publicaciones científicas: definición, recursos, copyright e impacto”. El Profesional de la Información, v. 15, n. 4 (2005), p.255-266",
+    "O’Connor, Maeve. The scientist as editor: guidelines for editors of books and journals. New York: Wiley, 1979.",
+    "Organisation for Economic Co-operation and Development (OECD). Digital Broadband Content: Scientific Publishing. Paris: OECD, 2005.",
+    "Román, Adelaida. La edición de revistas científicas: guía de buenos usos. Madrid: Centro de Información y Documentación Científica (CSIC-CINDOC), 2001.",
+    "Ruiz, Adela; E. Rojido y P. Marco. \"Diseño De Revistas Científicas Electrónicas. límites y posibilidades del gestor OJS.\" Bold, n. 3 (oct. 2016), p. 20-31.",
+    "Solomon, David J. “The role of peer review for scholarly journals in the information age”. Journal of Electronic Publishing, v. 10, n. 1 (winter 2007). https://doi.org/10.3998/3336451.0010.107.",
+    "Warner, Simeon. “The transformation of scholarly communication”. Learned Publishing, v. 18, n. 3 (jul 2005), p. 177-187. https://10.1087/0953151054636156.",
+    "Ziman, John. (2003). ¿Qué es la ciencia? Madrid, Cambridge UniversityPress.",
+    "Fuente: Argentina. Biblioteca electrónica de ciencia y tecnología (MINCYT). http://www.biblioteca.mincyt.gob.ar/.",
+    "Fuente: Argentina. Sistema de Información Universitaria (SIU). BDU2. Repositorios digitales.http://cosechador.siu.edu.ar/bdu3/.",
+    "Fuente: Argentina. Sistema Nacional de Repositorios Digitales. http://repositoriosdigitales.mincyt.gob.ar/vufind/.",
+    "Fuente: Bielefeld Academic Search Engine (BASE). https://www.base-search.net/about/en/.",
+    "Fuente: Committee on Publication Ethics (COPE). https://publicationethics.org/",
+    "Fuente: American Psychological Association. APA Style. (2022). https://apastyle.apa.org/",
+    "Fuente: Modern Language Association of America. MLA Style Center. (2022). https://style.mla.org/",
+    "Fuente: The University of Chicago. The Chicago Manual of Style 17th edition (2017). https://www.chicagomanualofstyle.org/home.html",
+    "Fuente: Directory of Open Access Journals. https://doaj.org/",
+    "Fuente: International Committee of Medical Journal Editors (ICMJE). Recommendations for the Conduct, Reporting, Editing, and Publication of Scholarly work in Medical Journals(2019). http://www.icmje.org/recommendations/",
+    "Fuente: Open Archives Initiative (OAI). https://www.openarchives.org/.",
+    "Fuente: Universidad de Buenos Aires. Repositorio digital institucional. http://repositoriouba.sisbi.uba.ar/."
+   ]
+  },
+  {
+   "t": "General",
+   "obligatoria": [
+    "American Psychological Association. Publication manual of the American Psychological Association: The official guide to APA style. 7th ed. Washington, DC: APA, 2020.",
+    "Borrás Perelló, Lluís. El libro y la edición. Gijón: Trea, 2015.",
+    "Briggs, Asa y Peter Burke. De Gutenberg a Internet: una historia social de los medios de comunicación. Madrid: Taurus, 2002.",
+    "Gibaldi, Joseph. MLA style manual and guide to scholarly publishing. 3rd ed. New York: Modern Language Association, 2008.",
+    "Gil, Manuel y Joaquín Rodríguez. El paradigma digital y sostenible del libro. Madrid: Trama editorial, 2011.",
+    "International Council forScience (ICSU). Guía para publicaciones científicas. Paris: ICSU, 2001.",
+    "Martínez de Sousa, José. Manual de estilo de la lengua española. 5ª ed. Gijón: Trea, 2012.",
+    "Martínez de Sousa, José. Ortografía y ortotipografía del español actual. 3ª ed. Gijón: Trea, 2014.",
+    "Pimentel, Manuel. Manual del editor. Córdoba (España): Berenice, 2007.",
+    "Sánchez Vigil, Juan M. La edición en España: industria cultural por excelencia: historia, proceso, gestión, documentación. Gijón: Trea, 2009.",
+    "Thompson, John B. Merchants of Culture: The Publishing Business in the Twenty-First Century. Cambridge: Polity Press, 2010.",
+    "University of Chicago Press. Manual de estilo Chicago-Deusto. Adapt. y ed. de Javier Torres Ripa. Bilbao: Universidad de Deusto, 2013.",
+    "University of Chicago Press. The Chicago Manual of Style. 16th ed. Chicago, London: University of Chicago Press, 2010."
+   ],
+   "complementaria": []
+  }
+ ]
+}

@@ -1,0 +1,375 @@
+{
+ "nota": "Libros que hablan de libros: oficio de editar, industria, historia del libro y de la lectura, tipografía y derechos, de la colección «Libros sobre Libros» (Fondo de Cultura Económica Argentina). Solo datos bibliográficos; la portada y la descripción están en la ficha del editor.",
+ "consultado": "2026-10-20",
+ "fuentes": [
+  {
+   "id": "fce",
+   "t": "Fondo de Cultura Económica Argentina",
+   "url": "https://fce.com.ar/colecciones/libros-sobre-libros/"
+  }
+ ],
+ "temas": [
+  {
+   "id": "oficio",
+   "t": "El oficio de editar"
+  },
+  {
+   "id": "industria",
+   "t": "Industria, mercado y librería"
+  },
+  {
+   "id": "historia",
+   "t": "Historia del libro y la lectura"
+  },
+  {
+   "id": "lectura",
+   "t": "Lectura y lectores"
+  },
+  {
+   "id": "tipografia",
+   "t": "Tipografía y diseño"
+  },
+  {
+   "id": "derechos",
+   "t": "Derechos y contratos"
+  }
+ ],
+ "libros": [
+  {
+   "id": "como-seleccionar-titulos-rentables-8228",
+   "autor": "Leonard Shatzkin",
+   "titulo": "Cómo seleccionar títulos rentables",
+   "anio": 2004,
+   "paginas": 87,
+   "isbn": "9789681668228",
+   "editorial": "FCE",
+   "coleccion": "Libros sobre Libros",
+   "tema": "industria",
+   "url": "https://fce.com.ar/tienda/economia/como-seleccionar-titulos-rentables/"
+  },
+  {
+   "id": "comprar-y-vender-derechos-5508",
+   "autor": "Lynette Owen",
+   "titulo": "Comprar y vender derechos",
+   "anio": null,
+   "paginas": null,
+   "isbn": "9789681685508",
+   "editorial": "FCE",
+   "coleccion": "Libros sobre Libros",
+   "tema": "derechos",
+   "url": "https://fce.com.ar/tienda/economia/comprar-y-vender-derechos/"
+  },
+  {
+   "id": "de-la-idea-al-libro-6704",
+   "autor": "Patricia Piccolini",
+   "titulo": "De la idea al libro",
+   "anio": null,
+   "paginas": 354,
+   "isbn": "9786071656704",
+   "editorial": "FCE",
+   "coleccion": "Libros sobre Libros",
+   "tema": "oficio",
+   "url": "https://fce.com.ar/tienda/estudios-literarios/de-la-idea-al-libro-2/"
+  },
+  {
+   "id": "derecho-de-autor-para-autores-4502",
+   "autor": "José Luis Caballero Leal",
+   "titulo": "Derecho de autor para autores",
+   "anio": 2004,
+   "paginas": 76,
+   "isbn": "9789681674502",
+   "editorial": "FCE",
+   "coleccion": "Libros sobre Libros",
+   "tema": "derechos",
+   "url": "https://fce.com.ar/tienda/economia/derecho-de-autor-para-autores/"
+  },
+  {
+   "id": "desde-aqui-leo-0375",
+   "autor": "Tim Parks",
+   "titulo": "Desde aquí leo",
+   "anio": 2017,
+   "paginas": 219,
+   "isbn": "9786071650375",
+   "editorial": "FCE",
+   "coleccion": "Libros sobre Libros",
+   "tema": "lectura",
+   "url": "https://fce.com.ar/tienda/literatura/desde-aqui-leo/"
+  },
+  {
+   "id": "editar-para-ganar-4064",
+   "autor": "Thomas Woll",
+   "titulo": "Editar para ganar",
+   "anio": 2003,
+   "paginas": 356,
+   "isbn": "9789685374064",
+   "editorial": "FCE",
+   "coleccion": "Libros sobre Libros",
+   "tema": "industria",
+   "url": "https://fce.com.ar/tienda/economia/editar-para-ganar/"
+  },
+  {
+   "id": "editores-y-politicas-editoriales-en-argentina-1880-2010-0519",
+   "autor": "José Luis de Diego",
+   "titulo": "Editores y políticas editoriales en Argentina, 1880-2010",
+   "anio": 2006,
+   "paginas": 330,
+   "isbn": "9789877190519",
+   "editorial": "FCE",
+   "coleccion": "Libros sobre Libros",
+   "tema": "historia",
+   "url": "https://fce.com.ar/tienda/historia/editores-y-politicas-editoriales-en-argentina-1880-2010/"
+  },
+  {
+   "id": "el-arte-de-vender-libros-3826",
+   "autor": "Herbert Paulerberg",
+   "titulo": "El arte de vender libros",
+   "anio": 2004,
+   "paginas": 183,
+   "isbn": "9789681673826",
+   "editorial": "FCE",
+   "coleccion": "Libros sobre Libros",
+   "tema": "industria",
+   "url": "https://fce.com.ar/tienda/economia/el-arte-de-vender-libros/"
+  },
+  {
+   "id": "el-fondo-la-casa-y-la-introduccion-del-pensamiento-moderno-e-1830",
+   "autor": "Javier Garciadiego",
+   "titulo": "El Fondo, la Casa y la introducción del pensamiento moderno en México",
+   "anio": 2016,
+   "paginas": 109,
+   "isbn": "9786071641830",
+   "editorial": "FCE",
+   "coleccion": "Libros sobre Libros",
+   "tema": "historia",
+   "url": "https://fce.com.ar/tienda/historia/el-fondo-la-casa-y-la-introduccion-del-pensamiento-moderno-en-mexico/"
+  },
+  {
+   "id": "el-libro-y-sus-orillas-0164",
+   "autor": "Roberto Zavala Ruiz",
+   "titulo": "El libro y sus orillas",
+   "anio": 2012,
+   "paginas": 431,
+   "isbn": "9786071610164",
+   "editorial": "FCE",
+   "coleccion": "Libros sobre Libros",
+   "tema": "oficio",
+   "url": "https://fce.com.ar/tienda/literatura/el-libro-y-sus-orillas/"
+  },
+  {
+   "id": "el-negocio-de-la-edicion-digital-2297",
+   "autor": "Frania Hall",
+   "titulo": "El negocio de la edición digital",
+   "anio": 2014,
+   "paginas": 344,
+   "isbn": "9786071622297",
+   "editorial": "FCE",
+   "coleccion": "Libros sobre Libros",
+   "tema": "industria",
+   "url": "https://fce.com.ar/tienda/historia/el-negocio-de-la-edicion-digital/"
+  },
+  {
+   "id": "el-negocio-de-la-ilustracion-0138",
+   "autor": "Robert Darnton",
+   "titulo": "El negocio de la Ilustración",
+   "anio": 2006,
+   "paginas": 698,
+   "isbn": "9789681680138",
+   "editorial": "FCE",
+   "coleccion": "Libros sobre Libros",
+   "tema": "historia",
+   "url": "https://fce.com.ar/tienda/historia/el-negocio-de-la-ilustracion/"
+  },
+  {
+   "id": "gestion-de-proyectos-editoriales-7633",
+   "autor": "Gill Davies",
+   "titulo": "Gestión de proyectos editoriales",
+   "anio": null,
+   "paginas": null,
+   "isbn": "9789681677633",
+   "editorial": "FCE",
+   "coleccion": "Libros sobre Libros",
+   "tema": "oficio",
+   "url": "https://fce.com.ar/tienda/economia/gestion-de-proyectos-editoriales/"
+  },
+  {
+   "id": "independientes-de-que-4695",
+   "autor": "Hernán López Winne y Víctor Malumián",
+   "titulo": "Independientes, ¿de qué?",
+   "anio": 2016,
+   "paginas": 159,
+   "isbn": "9786071644695",
+   "editorial": "FCE",
+   "coleccion": "Libros sobre Libros",
+   "tema": "industria",
+   "url": "https://fce.com.ar/tienda/derechos-humanos/independientes-de-que/"
+  },
+  {
+   "id": "la-aparicion-del-libro-4095",
+   "autor": "Henri-Jean Martin, Lucien Febvre",
+   "titulo": "La aparición del libro",
+   "anio": 2005,
+   "paginas": 515,
+   "isbn": "9789685374095",
+   "editorial": "FCE",
+   "coleccion": "Libros sobre Libros",
+   "tema": "historia",
+   "url": "https://fce.com.ar/tienda/historia/la-aparicion-del-libro/"
+  },
+  {
+   "id": "la-imprenta-como-agente-de-cambio-4378",
+   "autor": "Elizabeth L. Einsenstein",
+   "titulo": "La imprenta como agente de cambio",
+   "anio": 2010,
+   "paginas": 725,
+   "isbn": "9786071604378",
+   "editorial": "FCE",
+   "coleccion": "Libros sobre Libros",
+   "tema": "historia",
+   "url": "https://fce.com.ar/tienda/historia/la-imprenta-como-agente-de-cambio/"
+  },
+  {
+   "id": "la-labor-del-editor-3916",
+   "autor": "Peter Ginna",
+   "titulo": "La labor del editor",
+   "anio": 2022,
+   "paginas": 447,
+   "isbn": "9786071673916",
+   "editorial": "FCE",
+   "coleccion": "Libros sobre Libros",
+   "tema": "oficio",
+   "url": "https://fce.com.ar/tienda/administracion/la-labor-del-editor/"
+  },
+  {
+   "id": "la-libreria-como-negocio-3833",
+   "autor": "Giorgio Brunetti, Umberto Collesei, Tiziano Vescovi y Ugo Sòstero",
+   "titulo": "La librería como negocio",
+   "anio": null,
+   "paginas": null,
+   "isbn": "9789681673833",
+   "editorial": "FCE",
+   "coleccion": "Libros sobre Libros",
+   "tema": "industria",
+   "url": "https://fce.com.ar/tienda/economia/la-libreria-como-negocio/"
+  },
+  {
+   "id": "la-maquina-de-contenido-2150",
+   "autor": "Michael Bhaskar",
+   "titulo": "La máquina de contenido",
+   "anio": 2014,
+   "paginas": 273,
+   "isbn": "9786071622150",
+   "editorial": "FCE",
+   "coleccion": "Libros sobre Libros",
+   "tema": "industria",
+   "url": "https://fce.com.ar/tienda/literatura/la-maquina-de-contenido/"
+  },
+  {
+   "id": "la-novela-el-novelista-y-su-editor-4361",
+   "autor": "Thomas McCormack",
+   "titulo": "La novela, el novelista y su editor",
+   "anio": 2010,
+   "paginas": 149,
+   "isbn": "9786071604361",
+   "editorial": "FCE",
+   "coleccion": "Libros sobre Libros",
+   "tema": "oficio",
+   "url": "https://fce.com.ar/tienda/literatura/la-novela-el-novelista-y-su-editor/"
+  },
+  {
+   "id": "la-tirada-6030",
+   "autor": "Hernán López Winne y Víctor Malumián",
+   "titulo": "La tirada",
+   "anio": 2025,
+   "paginas": 96,
+   "isbn": "9789877196030",
+   "editorial": "FCE",
+   "coleccion": "Libros sobre Libros",
+   "tema": "industria",
+   "url": "https://fce.com.ar/tienda/comunicacion/la-tirada/"
+  },
+  {
+   "id": "libros-en-llamas-3986",
+   "autor": "Lucien X. Polastron",
+   "titulo": "Libros en llamas",
+   "anio": 2007,
+   "paginas": 341,
+   "isbn": "9789681683986",
+   "editorial": "FCE",
+   "coleccion": "Libros sobre Libros",
+   "tema": "historia",
+   "url": "https://fce.com.ar/tienda/historia/libros-en-llamas/"
+  },
+  {
+   "id": "libros-o-velocidad-6018",
+   "autor": "Jordi Nadal y Francisco García",
+   "titulo": "Libros o velocidad",
+   "anio": 2005,
+   "paginas": 158,
+   "isbn": "9789681676018",
+   "editorial": "FCE",
+   "coleccion": "Libros sobre Libros",
+   "tema": "industria",
+   "url": "https://fce.com.ar/tienda/economia/libros-o-velocidad/"
+  },
+  {
+   "id": "los-elementos-del-estilo-tipografico-0095",
+   "autor": "Robert Bringhurst",
+   "titulo": "Los elementos del estilo tipográfico",
+   "anio": 2008,
+   "paginas": 471,
+   "isbn": "9786071620095",
+   "editorial": "FCE",
+   "coleccion": "Libros sobre Libros",
+   "tema": "tipografia",
+   "url": "https://fce.com.ar/tienda/literatura/los-elementos-del-estilo-tipografico/"
+  },
+  {
+   "id": "manual-de-edicion-literaria-y-no-literaria-7688",
+   "autor": "Irene Gunther y Leslie T. Sharpe",
+   "titulo": "Manual de edición literaria y no literaria",
+   "anio": 2005,
+   "paginas": 185,
+   "isbn": "9789681677688",
+   "editorial": "FCE",
+   "coleccion": "Libros sobre Libros",
+   "tema": "oficio",
+   "url": "https://fce.com.ar/tienda/economia/manual-de-edicion-literaria-y-no-literaria/"
+  },
+  {
+   "id": "marketing-editorial-la-guia-4071",
+   "autor": "David Cole",
+   "titulo": "Marketing editorial: la guía",
+   "anio": null,
+   "paginas": null,
+   "isbn": "9789685374071",
+   "editorial": "FCE",
+   "coleccion": "Libros sobre Libros",
+   "tema": "industria",
+   "url": "https://fce.com.ar/tienda/economia/marketing-editorial-la-guia/"
+  },
+  {
+   "id": "una-historia-de-la-feria-de-francfort-8383",
+   "autor": "Peter Weidhaas",
+   "titulo": "Una historia de la Feria de Fráncfort",
+   "anio": null,
+   "paginas": null,
+   "isbn": "9786071608383",
+   "editorial": "FCE",
+   "coleccion": "Libros sobre Libros",
+   "tema": "historia",
+   "url": "https://fce.com.ar/tienda/historia/una-historia-de-la-feria-de-francfort/"
+  },
+  {
+   "id": "vender-el-alma-5058",
+   "autor": "Romano Montroni",
+   "titulo": "Vender el alma",
+   "anio": 2007,
+   "paginas": 237,
+   "isbn": "9789681685058",
+   "editorial": "FCE",
+   "coleccion": "Libros sobre Libros",
+   "tema": "industria",
+   "url": "https://fce.com.ar/tienda/economia/vender-el-alma/"
+  }
+ ]
+}

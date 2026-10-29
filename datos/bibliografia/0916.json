@@ -1,0 +1,154 @@
+{
+ "codigo": "0916",
+ "anio": 2025,
+ "grupos": [
+  {
+   "t": "Unidad 1: Tecnologías de la información y la comunicación en el campo cultural",
+   "obligatoria": [
+    "Castells, M. (1997). “La tecnología de la información y la empresa red”. La era de la información: economía, sociedad y cultura, vol. I. Madrid, Alianza.",
+    "Gómez, M. G. (2019). “Situación de la edición en el ecosistema de medios”. Edición en construcción. Los estudios editoriales en perspectiva social y cultural. Buenos Aires, Facultad de Filosofía y Letras (UBA).",
+    "Jenkins, H. (2008). “Un nuevo paradigma para comprender el cambio mediático”. Convergence Culture. Barcelona, Paidós.",
+    "Martín Serrano, M. (1992). “Los cambios acontecidos en las funciones de la comunicación y en el valor de la información”. Reis, núm. 57, Madrid."
+   ],
+   "complementaria": [
+    "Arsenault, A. y Castells, M. (2008). The structure and dynamics of global multi-media business networks, en International Journal of Communication, vol. 2, pp. 707-748.",
+    "Gandara, J. et al. (2007). Efectos de las TIC’s en las nuevas estructuras organizativas: de la gerencia vertical a la empresa horizontal, Negotium, núm. 3(8), pp. 4-29.",
+    "Román, V. (2015). “Las microempresas y pymes editoriales argentinas frente al desafío de la promoción, venta y distribución de libros a fines del siglo XX y principios del XXI”. História econômica & história de empresas, vol. 18, núm. 2.",
+    "Tricoci, A. G., Corral, P. A. y Rosenthal, A. M. (2016). “Inversiones en tecnologías de la información y comunicaciones y su impacto en la competitividad”. Visión de Futuro, año 13, vol. 20, núm. 1, pp. 87-104."
+   ]
+  },
+  {
+   "t": "Unidad 2: Dimensiones de la empresa editorial y sus requerimientos de información",
+   "obligatoria": [
+    "Alonso Erausquin, M. (2004). “Las señas del cambio”. El libro en un libro. Madrid, Torre.",
+    "Gómez, M. G. y Kessler, C. (2019). “Dimensiones sociales y empresariales de las iniciativas editoriales”. Gestión de la información en la empresa cultural. Tecnologías y recursos para la edición. Buenos Aires, Biblos.",
+    "Williams, R. (1992). “Tecnologías de la comunicación e instituciones sociales”. Historia de la comunicación, vol. 2. Barcelona, Bosch.",
+    "Zallo Elguezabal, R. (2017). Desenredando la economía de la cultura. Madrid, Periférica."
+   ],
+   "complementaria": [
+    "Bourdieu, P. (1995). El mercado de los bienes simbólicos, en Las reglas del arte. Génesis y estructura del campo literario. Barcelona, Anagrama.",
+    "Drucker, P. F. (1999). “Los desafíos de la información”. En Los desafíos de la administración en el siglo XXI, pp. 115-155. Buenos Aires, Sudamericana.",
+    "Gettino, O. (1999). El capital de la cultura. Buenos Aires, Ciccus.",
+    "Gómez, M. G. (2013). Producción y mediación editorial. El rol social y cultural de la edición como factor constitutivo de las sociedades contemporáneas. Buenos Aires, MICA."
+   ]
+  },
+  {
+   "t": "Unidad 3: Fundamentos del enfoque sistémico aplicado a la organización editorial",
+   "obligatoria": [
+    "Alonso Domínguez-Ríos, V. y López-Santillán, M. (2016). “Teoría General de Sistemas, un enfoque práctico”. Tecnociencia, vol. X, núm. 3. México, UAC.",
+    "Chiavenato, I. (2008). “Enfoque sistémico de la administración”. Introducción a la teoría general de la administración. México, McGraw Hill.",
+    "Gómez, M. G. y Kessler, C. (2019). “Perspectivas de la edición en su situación económica y sociotecnológica”. Gestión de la información en la empresa cultural. Tecnologías y recursos para la edición. Buenos Aires, Biblos.",
+    "Zallo, R. (1988). “La industria editorial: encuentro de modos de producción”. Economía de la comunicación y la cultura. Madrid, Akal."
+   ],
+   "complementaria": [
+    "Arnold, M. y Osorio, F. (1998). “Introducción a los conceptos básicos de la teoría general de sistemas”. Cinta de Moebio, núm. 3, pp. 40-49.",
+    "Gómez, M. G. (2019). El impacto sistémico de las transformaciones tecnológicas de la edición: caracterización a partir de las variaciones productivas en el campo editorial. Intercambios. La Letra del Encuentro, año IV, número 2, pp. 26-33. Bernal, UNQ.",
+    "Herrscher, E. G. (2005). Planeamiento sistémico. Buenos Aires, Macchi.",
+    "Von Bertalanffy, L. (2005 [1968]). Teoría general de los sistemas. Buenos Aires, FCE."
+   ]
+  },
+  {
+   "t": "Unidad 4: Análisis y diseño de sistemas de información para la administración y la gestión",
+   "obligatoria": [
+    "Gilli, J. (coord.) (2007). Diseño organizativo. Estructura y procesos. Buenos Aires, Granica.",
+    "Gómez, M. G. y Kessler, C. (2019). “Administración de la empresa y sus requerimientos de información”. Gestión de la información en la empresa cultural. Tecnologías y recursos para la edición. Buenos Aires, Biblos.",
+    "Saroka, R. H. (2002). “Tipos de sistemas de información”. Sistemas de información en la era digital. Buenos Aires, Fundación OSDE.",
+    "Stair, R. M. y Reynolds, G. W. (2010). Principios de sistemas de información. México, Cengage Learning."
+   ],
+   "complementaria": [
+    "Islas López, N. (2001). Análisis y diseño de sistemas. México, McGraw-Hill.",
+    "Koontz, H. y Weihrich, H. (1994). Administración. México, McGraw-Hill.",
+    "Marcó, F., Loguzzo, H. A. y Fedi, J. L. (2016). Introducción a la gestión y administración en las organizaciones. Florencio Varela, Universidad Nacional Arturo Jauretche.",
+    "Mintzberg, H. (2005). La estructuración de las organizaciones. Barcelona, Paidós."
+   ]
+  },
+  {
+   "t": "Unidad 5: Sistemas de información administrativa para la actividad editorial",
+   "obligatoria": [
+    "Casanovas, I. (2014). “Los sistemas transaccionales”. Tecnologías de la información y las comunicaciones aplicadas a la administración y gestión editorial. Buenos Aires, FFyL.",
+    "Casanovas, I. y Tomassino, C. (2015). Sistemas de información: entendiendo la identidad de una nueva disciplina. III Congreso Nacional de Ingeniería Informática / Sistemas de Información. Buenos Aires, Universidad Tecnológica Nacional.",
+    "Pungitore, J. L. (2007). Sistemas de información como herramienta competitiva. Un enfoque integrador. Buenos Aires, Temas."
+   ],
+   "complementaria": [
+    "Camps Pare, R. (2005). Introducción a las bases de datos. Fundación Universitat Oberta.",
+    "Robbins, S. y Coulter, M. (2005). Administración. México, Pearson Educación.",
+    "Sánchez, M. (2012). Base técnica de los sistemas de información. Rafaela, UCES.",
+    "Sieber, S. (2006). Los sistemas de información en la empresa actual: aspectos estratégicos y alternativas tácticas. México, McGraw Hill."
+   ]
+  },
+  {
+   "t": "Unidad 6: Sistemas de gestión, inteligencia de negocios y apoyo gerencial",
+   "obligatoria": [
+    "Gómez, M. G. y Kessler, C. (2019). “Comunicación de la información e interfaces en la empresa cultural”. Gestión de la información en la empresa cultural. Tecnologías y recursos para la edición. Buenos Aires, Biblos.",
+    "Laudon, K. C. y Laudon, J. P. (2012). Sistemas de información gerencial. México, Pearson.",
+    "Gálvez Martínez, A. et al. (2017). Modelo de integración: inteligencia de negocios y gestión del conocimiento. Redes de Ingeniería, pp. 109-118. Universidad F. J. de Caldas.",
+    "León Viera, S. (2010). “La economía de la cultura y las industrias culturales. Gestión económico-financiera en la cultura”. Gutiérrez Menéndez, G. (comp.), Teoría y práctica de la gestión cultural. La Habana, CNSC."
+   ],
+   "complementaria": [
+    "Hernández Ortega, B. et al. (2007). Influencia de las TIC’s en la gestión de la información empresarial. Grupo Investigación FEDRA – Universidad de Zaragoza.",
+    "Leal Jiménez, A. y Quero Gervilla, M. J. (2011). Manual de marketing y comunicación cultural. Andalucía, Universidad de Cádiz.",
+    "Porter, M. E. (2016). Lo esencial en la gestión empresarial. Barcelona, Harvard Business Review Press.",
+    "Quiroga, E., Salvatierra, J. M. y Alonso Bafico, H. (2015). Modelos de comportamiento como marco de análisis del objetivo empresario. Ciencias Administrativas, núm. 6. UNLP."
+   ]
+  },
+  {
+   "t": "Unidad 7: Infraestructura tecnológica e informacional para la organización",
+   "obligatoria": [
+    "Gómez, M. G. y Kessler, C. (2019). “Infraestructura tecnológica e informacional para la empresa”. Gestión de la información en la empresa cultural. Tecnologías y recursos para la edición. Buenos Aires, Biblos.",
+    "Gómez Vieites, A. y Suárez Rey, C. (2010). Sistemas de información: herramientas prácticas para la gestión. México, Alfaomega.",
+    "Rodríguez Roche, S. y Leiva Ramos, A. (2009). “Las tecnologías de información en la actividad editorial: tendencias, contextos y perspectivas”. Acimed, vol. 20, núm. 5.",
+    "Waldbott de Bassenheim, C. (2018). “Por qué invertir en tecnologías de información”. Revista Consejo, año VIII, núm. 48, junio."
+   ],
+   "complementaria": [
+    "Esteves Fros, F. (2014). Manual de supervivencia para editores del siglo XXI. Eudeba.",
+    "López García, S. y Valdaliso, J. (2008). Historia económica de la empresa. Editorial Crítica.",
+    "Mochón, F., Mochón, M. C. y Sáez, M. (2014). Administración. Enfoque por competencias con casos latinoamericanos. México, Alfaomega.",
+    "UNCTAD (2017). Informe sobre la economía de la información: digitalización, comercio y desarrollo. Suiza, Naciones Unidas - Conferencia ONU sobre Comercio y Desarrollo."
+   ]
+  },
+  {
+   "t": "Unidad 8: Estadística y visualización de información para la gestión editorial",
+   "obligatoria": [
+    "Gómez, M. G. (2011). “Variables visuales, esquemática y abstracción”. Gómez, M. G. y Rico, E., Estudios críticos sobre diseño de información. Buenos Aires, Facultad de Filosofía y Letras (UBA).",
+    "Gómez, M. G. (2014). “Análisis estadístico y uso de gráficos”. Tecnologías de la información y las comunicaciones aplicadas a la administración y gestión editorial. Buenos Aires, Facultad de Filosofía y Letras (UBA).",
+    "Sáez Vacas, F. (2009). Complejidad y tecnologías de la información. Madrid, Fundación para el Desarrollo de las Telecomunicaciones."
+   ],
+   "complementaria": [
+    "Bianco, M. J., Bacchini, R. D., Vázquez, L. V. y García Fronti, J. (2018). Introducción a la probabilidad y la estadística. Buenos Aires, Facultad de Ciencias Económicas (UBA).",
+    "Igarza, R. (2018). Transmediaciones. Buenos Aires, La Crujía.",
+    "Levine, D., Krehbiel, T. y Berenson, M. (2006). Estadística para administración. Pearson.",
+    "Saccone, E. y Boniato, P. (coords.) (2018). Experiencia marketing. La Plata, UNLP."
+   ]
+  },
+  {
+   "t": "Unidad 9: Diseño y gestión de proyectos en la actividad editorial y cultural",
+   "obligatoria": [
+    "Gómez, M. G. y Kessler, C. (2019). “Diseño y gestión de proyectos en la empresa editorial”. Gestión de la información en la empresa cultural. Tecnologías y recursos para la edición. Buenos Aires, Biblos.",
+    "Lledó, P. y Rivarola, G. (2007). Gestión de proyectos. Buenos Aires, Prentice Hall - Pearson.",
+    "Ponjuán Dante, G. (1998). Gestión de información en las organizaciones: principios, conceptos y aplicaciones. Santiago de Chile, CECAPI.",
+    "Project Management Institute (2017). Fundamentos para la dirección de proyectos (6ta. edición)."
+   ],
+   "complementaria": [
+    "Klastorin, T. (2005). Administración de proyectos. México, Alfaomega.",
+    "Mantilla, W. P. (2017). Gestión y control de proyectos con enfoque cuantitativo y basado en la metodología PMBOK. MQR Investigar, vol. 1, núm. 1, pp. 13-27.",
+    "Mocciaro, O. (1992). Presupuesto integrado. Buenos Aires, Macchi.",
+    "Torres Hernández, Z. y Torres Martínez, H. (2014). Administración de proyectos. Larousse."
+   ]
+  },
+  {
+   "t": "Unidad 10: Innovación en inteligencia artificial, economía y comunicación digital",
+   "obligatoria": [
+    "Bhaskar, M. (2020). “La IA y las editoriales: ¿qué sigue?”. Inteligencia artificial: transformaciones y retos en el sector editorial. Bogotá, Cerlalc-Unesco.",
+    "Gómez, M. G. y Kessler, C. (2019). “La comercialización y la comunicación desde el entorno digital”. Gestión de la información en la empresa cultural. Tecnologías y recursos para la edición. Buenos Aires, Biblos.",
+    "Hall, F. (2014). El negocio de la edición digital. México, Fondo de Cultura Económica.",
+    "Rouhiainen, L. (2018). “Introducción a la inteligencia artificial”. En Inteligencia artificial, cap. 1 (pp. 15-32). Barcelona, Alienta."
+   ],
+   "complementaria": [
+    "Albrieu, R. et al. (2018). Inteligencia artificial y crecimiento económico. Oportunidades y desafíos para Argentina. Buenos Aires, CIPPEC.",
+    "Gómez, M. G. (2022). El tiempo de la edición y sus desafíos educativos y epistemológicos. Contraportada, número 7, “Editar desde el Sur”, pp. 54-67. Colombia, Universidad de los Andes.",
+    "Martínez Elebi, C. (2019). Impactos sociales de la inteligencia artificial. Poniendo el foco sobre Argentina. Buenos Aires, Fundación Vía Libre.",
+    "Senge, P. (2007 [1990]). La quinta disciplina. Buenos Aires, Granica."
+   ]
+  }
+ ]
+}

@@ -1,0 +1,752 @@
+{
+ "dificiles": [
+  {
+   "eje": "e10",
+   "texto": "Una editorial recibe los PDF de las <em>segundas pruebas</em> de un libro ya maquetado. ¿Quién debe revisarlas, atendiendo a las decisiones previas del editor, del corrector de estilo y del de concepto?",
+   "opciones": [
+    "El corrector de pruebas (<em>proofreader</em>)",
+    "El corrector de estilo (<em>copyeditor</em>), porque es quien conoce mejor el original",
+    "El atendedor, que lee el original en voz alta mientras otro revisa",
+    "El editor responsable, que aprueba el texto antes de la maqueta"
+   ],
+   "correcta": 0,
+   "respuesta": "El corrector de pruebas trabaja sobre las pruebas de página ya diagramadas y debe respetar lo decidido antes por editor, corrector de estilo y de concepto. Mosqueda y Tosi (2013), apunte E10, p. 9 (cita a Martínez de Sousa, 1999).",
+   "dificil": true
+  },
+  {
+   "eje": "e10",
+   "texto": "Un corrector de estilo recibe un original <em>técnico</em>. ¿En qué condición puede intervenir en los distintos niveles de composición textual?",
+   "opciones": [
+    "Siempre que el texto esté en prueba de página, sin consultar a nadie",
+    "Cuando el editor ya aprobó el texto y autor y editor responsable están de acuerdo",
+    "Solo cuando el original es literario, porque exige mayor sensibilidad",
+    "Cuando el diagramador lo autoriza una vez cerrada la maqueta"
+   ],
+   "correcta": 1,
+   "respuesta": "El corrector de estilo revisa el original una vez aprobado por el editor, con acuerdo de autor y editor responsable, y se trata de textos técnicos, no literarios. Mosqueda y Tosi (2013), apunte E10, pp. 8-9.",
+   "dificil": true
+  },
+  {
+   "eje": "e10",
+   "texto": "La gerencia propone prescindir del corrector porque \"el procesador de texto ya marca los errores\". ¿Qué argumento de Mosqueda y Tosi responde mejor?",
+   "opciones": [
+    "Los programas corrigen mal la ortografía de las palabras de origen latino",
+    "La normativa exige por ley que todo libro lleve corrector",
+    "Ningún programa llega a los niveles enunciativo, discursivo, genérico y enciclopédico del texto",
+    "Los correctores de estilo y de pruebas cobran menos que un programa"
+   ],
+   "correcta": 2,
+   "respuesta": "El corrector es un asesor lingüístico con competencias gramaticales, textuales y enciclopédicas; ningún programa informático llega a los niveles enunciativo, discursivo, genérico y enciclopédico. Mosqueda y Tosi (2013), apunte E10, p. 19.",
+   "dificil": true
+  },
+  {
+   "eje": "e10",
+   "texto": "Un corrector detecta que una nota de divulgación atribuye una teoría a un autor equivocado y fecha mal un descubrimiento. ¿Qué competencia del asesor lingüístico está poniendo en juego?",
+   "opciones": [
+    "La gramatical, porque se trata de normativa",
+    "La textual, porque revisa la organización global",
+    "La tipográfica, porque corrige datos en la galerada",
+    "La enciclopédica o cultural (conocimientos implícitos del mundo)"
+   ],
+   "correcta": 3,
+   "respuesta": "Las competencias del asesor lingüístico son gramaticales (normativa), textuales (organización global) y enciclopédicas o culturales (conocimientos implícitos del mundo). García Negroni y Estrada (2006), citadas en Mosqueda y Tosi (2013), apunte E10, pp. 5 y 21.",
+   "dificil": true
+  },
+  {
+   "eje": "e10",
+   "texto": "Según Mosqueda y Tosi, ¿qué obra de 1608 es considerada el primer manual técnico para correctores de pruebas?",
+   "opciones": [
+    "<em>Recuerdos de un corrector de imprenta</em>, de Manuel Benítez",
+    "<em>Orthotypographia</em>, de Hornschuch",
+    "<em>Savia y follaje del libro</em>, de Raúl Lagomarsino",
+    "<em>Acento impreso. Notas para correctores</em>, de José M. Rafols"
+   ],
+   "correcta": 1,
+   "respuesta": "Hornschuch, corrector, publicó <em>Orthotypographia</em> (Leipzig, 1608), primer manual técnico para correctores de pruebas. Los otros tres son argentinos y posteriores (1925, 1957, 1947). Mosqueda y Tosi (2013), apunte E10, pp. 3-4.",
+   "dificil": true
+  },
+  {
+   "eje": "e11a",
+   "texto": "El locutor dice <em>yo</em> y, al hacerlo, se declara locutor e \"implanta al otro delante de él\". Según Benveniste, ¿qué se desprende de esto?",
+   "opciones": [
+    "Toda enunciación es un monólogo, porque el locutor habla desde su propia lengua",
+    "El alocutario existe antes de que el locutor tome la palabra",
+    "La enunciación solo ocurre cuando hay respuesta oral del otro",
+    "Toda enunciación es, explícita o implícita, una alocución: postula un alocutario"
+   ],
+   "correcta": 3,
+   "respuesta": "Benveniste: en cuanto se declara locutor, el que habla implanta al otro delante de sí; toda enunciación es una alocución y postula un alocutario. Benveniste, apunte E11a, p. 5.",
+   "dificil": true
+  },
+  {
+   "eje": "e11a",
+   "texto": "Un estudiante afirma que \"la enunciación es lo mismo que el habla\". ¿Cómo responde Benveniste?",
+   "opciones": [
+    "Lo específico de la enunciación es la relación del locutor con la lengua y los indicios que marcan esa relación",
+    "Tiene razón: la enunciación es el habla individual de cada hablante",
+    "La enunciación es el texto del enunciado, es decir, el producto ya terminado",
+    "La enunciación es la realización vocal, el modo en que suenan los sonidos"
+   ],
+   "correcta": 0,
+   "respuesta": "Benveniste anticipa la objeción y la rechaza: el objeto es el acto (no el texto del enunciado) y la relación del locutor con la lengua, con sus marcas lingüísticas. Benveniste, apunte E11a, p. 3.",
+   "dificil": true
+  },
+  {
+   "eje": "e11a",
+   "texto": "Según Benveniste, ¿qué papel cumple el presente en la temporalidad lingüística?",
+   "opciones": [
+    "Es un tiempo más del paradigma, sin ninguna relación especial con el locutor",
+    "Es la forma menos usada, porque el relato se hace en pasado",
+    "Es la forma axial: coincide con el momento de la enunciación y es la fuente del tiempo",
+    "Es el tiempo que describe hechos independientes de quien habla"
+   ],
+   "correcta": 2,
+   "respuesta": "\"El presente es propiamente la fuente del tiempo\": el paradigma temporal se determina por relación con el <em>ego</em>, centro de la enunciación. Benveniste, apunte E11a, p. 6.",
+   "dificil": true
+  },
+  {
+   "eje": "e11a",
+   "texto": "Complete según la correlación de tiempos en subjuntivo (García Negroni): <em>El jefe exigió que los informes ______ antes del viernes</em> (la entrega es posterior a la exigencia).",
+   "opciones": [
+    "estén",
+    "hayan estado",
+    "hubieran estado",
+    "estuvieran"
+   ],
+   "correcta": 3,
+   "respuesta": "Con verbo principal en pasado, el subordinado va en imperfecto de subjuntivo si expresa simultaneidad o posterioridad; el pluscuamperfecto marca anterioridad. García Negroni, apunte E11a, p. 4. (Que <em>estén</em> circule en la prensa se explica por la interpretación de doble acceso, pp. 5-6, pero no es la forma de la regla.)",
+   "dificil": true
+  },
+  {
+   "eje": "e11a",
+   "texto": "<em>Se lamentó de que nadie le ______ del cambio de fecha</em> (el aviso tendría que haber sido anterior a la lamentación).",
+   "opciones": [
+    "hubiera avisado",
+    "avisara",
+    "haya avisado",
+    "avise"
+   ],
+   "correcta": 0,
+   "respuesta": "Con verbo principal en pasado, la anterioridad se expresa con el pluscuamperfecto de subjuntivo (<em>hubiera avisado</em>). El imperfecto cubre simultaneidad y posterioridad. García Negroni, apunte E11a, p. 4.",
+   "dificil": true
+  },
+  {
+   "eje": "e11a",
+   "texto": "En <em>El ministro pidió que abandonemos el edificio</em> aparece un presente de subjuntivo subordinado a un verbo principal en pasado. Según la interpretación de doble acceso, ¿cómo se lee el evento subordinado?",
+   "opciones": [
+    "Anterior al momento de la enunciación, porque el verbo principal está en pasado",
+    "Vigente en el momento de la enunciación y siempre posterior a T0",
+    "Simultáneo a la petición del ministro, sin relación con T0",
+    "Hipotético: el presente de subjuntivo nunca remite al futuro"
+   ],
+   "correcta": 1,
+   "respuesta": "Con V1 en pasado y V2 en presente hay doble dependencia temporal: el evento sigue vigente en T0 y se interpreta siempre como posterior a T0. García Negroni, apunte E11a, pp. 5-6.",
+   "dificil": true
+  },
+  {
+   "eje": "e11b",
+   "texto": "Según Ramírez Gelbes, ¿cuál de estas oraciones expresa un evento <em>télico</em> (si se interrumpe, no se cumple)?",
+   "opciones": [
+    "<em>Juan durmió.</em>",
+    "<em>Juan caminó por el parque.</em>",
+    "<em>Juan trabajó.</em>",
+    "<em>Juan se durmió.</em>"
+   ],
+   "correcta": 3,
+   "respuesta": "Telicidad: el evento debe llegar a un cierto punto y, si se interrumpe, no se cumple (<em>Juan se durmió</em>). En la atelicidad, aunque se interrumpa, ya se realizó (<em>Juan durmió</em>). Ramírez Gelbes, cap. 1, apunte E11b, p. 17.",
+   "dificil": true
+  },
+  {
+   "eje": "e11b",
+   "texto": "En <em>Supe la verdad</em>, el pretérito perfecto simple produce sobre <em>saber</em> una lectura equivalente a \"me enteré\". ¿Qué fenómeno ilustra?",
+   "opciones": [
+    "El perfectivo aporta un matiz incoativo a ciertos estativos (<em>saber</em>, <em>ser</em>)",
+    "El estativo pasa a ser agentivo y admite imperativo",
+    "El imperfectivo proyecta un evento sobre un estado",
+    "El verbo se vuelve atélico por efecto de la perífrasis"
+   ],
+   "correcta": 0,
+   "respuesta": "El perfectivo puede agregar un matiz incoativo a <em>saber</em> y <em>ser</em> (<em>supe la verdad</em> = me enteré), no a <em>conocer</em> ni <em>estar</em>; es el fenómeno de coerción (De Swart). Ramírez Gelbes, cap. 1, apunte E11b, pp. 10-11 y 40.",
+   "dificil": true
+  },
+  {
+   "eje": "e11b",
+   "texto": "Según Ramírez Gelbes, <em>Juan está siendo amable</em> (progresivo con <em>ser</em>) es posible. ¿Qué consecuencia tiene para el reconocimiento de los estativos?",
+   "opciones": [
+    "Demuestra que <em>ser</em> no es un verbo estativo",
+    "La prueba del progresivo no es concluyente: ninguna de las pruebas tradicionales lo es por sí sola",
+    "Confirma que la prueba del progresivo es la más fiable",
+    "Solo vale en el español rioplatense y no en el peninsular"
+   ],
+   "correcta": 1,
+   "respuesta": "La autora aplica con corpus las ocho pruebas tradicionales (progresivo, <em>ocurrir</em>, habitual, <em>dejar de</em>, etc.) y concluye que ninguna es conclusiva; propone tres condiciones usadas en conjunto. Ramírez Gelbes, cap. 2, apunte E11b, pp. 3-24.",
+   "dificil": true
+  },
+  {
+   "eje": "e11b",
+   "texto": "¿Cuál de estas NO es una de las tres condiciones que Ramírez Gelbes propone para reconocer un estativo?",
+   "opciones": [
+    "Ausencia de dinamismo o desplazamiento",
+    "Ausencia de agente",
+    "Que admita el imperativo",
+    "Función descriptiva"
+   ],
+   "correcta": 2,
+   "respuesta": "Las tres condiciones son: sin desplazamiento, sin agente y descriptivo, usadas en conjunto. La agentividad (imperativo, <em>forzar</em>, <em>deliberadamente</em>) es una de las pruebas tradicionales que la autora muestra que falla (<em>Sé amable, Juan</em>; <em>Sabé el poema</em>). Ramírez Gelbes, cap. 2, apunte E11b, pp. 3-24.",
+   "dificil": true
+  },
+  {
+   "eje": "e11b",
+   "texto": "Un corrector lee: <em>Juan cantaba cuando llegué</em>. Comparada con <em>Juan cantó</em>, ¿qué cambia según la distinción perfectivo/imperfectivo?",
+   "opciones": [
+    "El punto de vista: el imperfectivo mira desde dentro y no dice que la acción terminó; el perfectivo la ve como bloque cerrado",
+    "El tiempo absoluto: <em>cantaba</em> es futuro respecto del habla",
+    "La telicidad: <em>cantó</em> es télico y <em>cantaba</em> atélico",
+    "El modo: <em>cantaba</em> pertenece al subjuntivo"
+   ],
+   "correcta": 0,
+   "respuesta": "Perfectivo = mirar la situación desde fuera, como bloque; imperfectivo = desde dentro, sin especificar comienzo ni fin. En español la oposición se marca en el pasado simple. Ramírez Gelbes, cap. 1, apunte E11b, pp. 1-2.",
+   "dificil": true
+  },
+  {
+   "eje": "e11b",
+   "texto": "Según Verkuyl, la aspectualidad es <em>composicional</em>. ¿Qué par ejemplifica mejor esa idea?",
+   "opciones": [
+    "<em>Canta</em> frente a <em>cantaba</em>: cambia el tiempo verbal y cambia el evento",
+    "<em>Comió manzanas</em> (sin cantidad específica) frente a <em>Comió una manzana</em> (cantidad específica): cambia el argumento y cambia el tipo de evento",
+    "<em>Corre</em> frente a <em>corrió</em>: cambia el verbo y cambia el evento",
+    "<em>Ser</em> frente a <em>estar</em>: cambia el verbo y cambia la clase de estativo"
+   ],
+   "correcta": 1,
+   "respuesta": "Para Verkuyl la aspectualidad es propiedad de la oración (verbo + argumentos), con los rasgos [±ADD TO] y [±SQA] (cantidad específica del argumento). Ramírez Gelbes, cap. 1, apunte E11b, pp. 31-35.",
+   "dificil": true
+  },
+  {
+   "eje": "e12",
+   "texto": "¿Cuál es la oración correcta según Gómez Torrego?",
+   "opciones": [
+    "<em>En la reunión hubieron varios reclamos.</em>",
+    "<em>En la reunión habían varios reclamos.</em>",
+    "<em>En la reunión hubo varios reclamos.</em>",
+    "<em>En la reunión habrían varios reclamos.</em>"
+   ],
+   "correcta": 2,
+   "respuesta": "<em>Haber</em> impersonal es unipersonal (solo 3.ª singular): el SN que lo acompaña es objeto directo, no sujeto (<em>Hubo fiestas → las hubo</em>). Gómez Torrego (1998), apunte E12, 5.2, p. 7.",
+   "dificil": true
+  },
+  {
+   "eje": "e12",
+   "texto": "¿Cuál oración con perífrasis respeta la norma sobre <em>haber</em> impersonal?",
+   "opciones": [
+    "<em>Van a haber cambios en la hoja de estilo.</em>",
+    "<em>Deben haber cambios en la hoja de estilo.</em>",
+    "<em>Hubieron cambios en la hoja de estilo.</em>",
+    "<em>Va a haber cambios en la hoja de estilo.</em>"
+   ],
+   "correcta": 3,
+   "respuesta": "También en perífrasis el verbo queda en 3.ª singular: <em>Va a haber problemas</em> (no <em>Van a haber</em>); <em>Debe haber</em> (no <em>Deben haber</em>). Gómez Torrego (1998), apunte E12, 5.2, p. 7.",
+   "dificil": true
+  },
+  {
+   "eje": "e12",
+   "texto": "¿Cuál de las siguientes oraciones es impersonal tanto sintáctica como semánticamente (sin sujeto y sin agente)?",
+   "opciones": [
+    "<em>Pronto se conocerán las noticias.</em>",
+    "<em>Se vive bien en España.</em>",
+    "<em>Está nevando en la sierra.</em>",
+    "<em>Juan rompió el vidrio.</em>"
+   ],
+   "correcta": 1,
+   "respuesta": "<em>Se vive en España</em> no tiene sujeto sintáctico ni actor mencionado: ambas impersonalidades. <em>Pronto se conocerán las noticias</em> solo es semántica (sujeto léxico <em>las noticias</em>); <em>Está nevando</em>, solo sintáctica; <em>Juan rompió el vidrio</em>, ninguna. Gómez Torrego (1998), apunte E12, p. 2.",
+   "dificil": true
+  },
+  {
+   "eje": "e12",
+   "texto": "En un aviso laboral, ¿cuál es la forma correcta?",
+   "opciones": [
+    "<em>Se necesita correctores para trabajo remoto.</em>",
+    "<em>Se necesita a correctores para trabajo remoto.</em>",
+    "<em>Se necesitan correctores para trabajo remoto.</em>",
+    "<em>Se necesitaba correctores para trabajo remoto.</em>"
+   ],
+   "correcta": 2,
+   "respuesta": "En la pasiva refleja el SN (<em>correctores</em>) es el sujeto, el verbo concuerda con él y no hay agente. Gómez Torrego (1998), apunte E12, 3.1, p. 4; Ramírez Gelbes (2016) añade que el sujeto va pospuesto.",
+   "dificil": true
+  },
+  {
+   "eje": "e12",
+   "texto": "En un resumen académico se lee: <em>En el trabajo de Labov (1972) se establece que…</em>. Según la pista polifónico-argumentativa de Ramírez Gelbes, ¿qué lectura del agente de <em>se</em> orienta la mención de la fuente?",
+   "opciones": [
+    "Locutiva: el agente coincide con el autor del resumen",
+    "Universal: el agente es \"todos\", la voz de la <em>doxa</em>",
+    "Lectora: el <em>se</em> interpela al lector con valor de imperativo",
+    "Alterlocutiva: un agente particular distinto del locutor"
+   ],
+   "correcta": 3,
+   "respuesta": "La mención de la fuente del discurso orienta la lectura alterlocutiva; admite acuerdo, distanciamiento o rechazo, pero no identificación. Ramírez Gelbes (2016), apunte E12, pp. 22-26.",
+   "dificil": true
+  },
+  {
+   "eje": "e12",
+   "texto": "En <em>En este trabajo se propone una hipótesis nueva…</em>, la deixis de primera persona (<em>este trabajo</em>) orienta una lectura locutiva del <em>se</em>. ¿Qué continuación resulta incompatible con esa lectura?",
+   "opciones": [
+    "<em>…pero no estoy de acuerdo con esa hipótesis.</em>",
+    "<em>…En otras palabras, sostendré que…</em>",
+    "<em>…Así que, en lo que sigue, la desarrollaré.</em>",
+    "<em>…Al menos, eso creo.</em>"
+   ],
+   "correcta": 0,
+   "respuesta": "En el <em>se</em> locutivo el locutor se identifica con el punto de vista del <em>se</em>: admite identificación, acuerdo o atenuación y rechaza el distanciamiento o rechazo. Ramírez Gelbes (2016), apunte E12, pp. 22-26.",
+   "dificil": true
+  },
+  {
+   "eje": "e12",
+   "texto": "En <em>Dicen que aumentará el dólar</em> (3.ª persona plural con sujeto tácito inespecífico), ¿quién queda excluido del agente?",
+   "opciones": [
+    "El destinatario",
+    "Los sujetos humanos en general",
+    "El locutor",
+    "Ninguno: incluye a todos los hablantes"
+   ],
+   "correcta": 2,
+   "respuesta": "La 3.ª plural con sujeto tácito inespecífico va siempre en voz activa, con referente humano, y excluye al locutor (RAE 2009). Ramírez Gelbes (2016), apunte E12, nota 18, p. 21.",
+   "dificil": true
+  },
+  {
+   "eje": "e13a",
+   "texto": "Un autor escribe: <em>Mi hijo me dijo: \"Quiero que vengas a casa\"</em>. Según Ducrot, ¿cuántos sujetos empíricos y cuántos locutores hay?",
+   "opciones": [
+    "Un sujeto empírico y un locutor, porque el hijo no escribe",
+    "Dos sujetos empíricos y dos locutores",
+    "Un enunciado sin locutor, porque es discurso referido",
+    "Un sujeto empírico y dos locutores (doble enunciación en estilo directo)"
+   ],
+   "correcta": 3,
+   "respuesta": "Doble enunciación: un enunciado con un único sujeto empírico y dos locutores (L1 y L2), en estilo directo, ecos imitativos y discursos imaginarios. Tosi, apunte E13a, pp. 2-3.",
+   "dificil": true
+  },
+  {
+   "eje": "e13a",
+   "texto": "Una vecina lee en voz alta la nota que dejó la administración para <em>los propietarios</em>, y el encargado del edificio, que pasaba, la escucha. ¿Qué es el encargado en relación con la nota?",
+   "opciones": [
+    "Receptor, pero no destinatario",
+    "Destinatario, pero no receptor",
+    "Destinatario y receptor",
+    "Locutor segundo"
+   ],
+   "correcta": 0,
+   "respuesta": "El destinatario se construye en el discurso (léxico, tono, pronombres) y no equivale al receptor; a veces coinciden y a veces no. Tosi, apunte E13a, p. 4.",
+   "dificil": true
+  },
+  {
+   "eje": "e13a",
+   "texto": "\"Al mal tiempo, buena cara\" es un enunciado proverbial. Según Tosi, ¿qué lo caracteriza respecto del locutor?",
+   "opciones": [
+    "Tiene dos locutores, el que lo repite y el que lo inventó",
+    "Hay sujeto empírico pero sin marcas de origen personal: parece provenir de una sabiduría anónima",
+    "El locutor es siempre el autor del libro donde aparece",
+    "Carece de destinatario"
+   ],
+   "correcta": 1,
+   "respuesta": "Los enunciados sin locutor tienen sujeto empírico pero no marcas de origen personal; buscan que la palabra parezca venir de una sabiduría anónima, más allá de toda subjetividad individual. Tosi, apunte E13a, p. 2.",
+   "dificil": true
+  },
+  {
+   "eje": "e13a",
+   "texto": "Una publicidad adopta la forma de la carta de un amigo que aconseja. Según Maingueneau, ¿qué escena se está poniendo en juego para legitimar el enunciado?",
+   "opciones": [
+    "La escena englobante, el tipo de discurso publicitario",
+    "La escena genérica, que impone el género",
+    "La situación de comunicación, exterior al discurso",
+    "La escenografía, constituida en el texto mismo"
+   ],
+   "correcta": 3,
+   "respuesta": "La escenografía es la escena constituida en el texto: no es mero decorado, sino que legitima enunciados e interpela al lector. El discurso publicitario y político exigen muchas. Tosi, apunte E13a, p. 102 del capítulo.",
+   "dificil": true
+  },
+  {
+   "eje": "e13a",
+   "texto": "Un premio nacional tiene la categoría \"Literatura infantil y juvenil\", donde compiten cuento, poesía, libro álbum y novela gráfica. ¿Qué problema señala Tosi?",
+   "opciones": [
+    "Se trata a la LIJ como si fuera un género, y compiten géneros distintos entre sí",
+    "Se excluye a los libros ilustrados por no ser literatura",
+    "Se confunde la escena englobante con la escenografía",
+    "Se premia la materialidad del libro y no el texto"
+   ],
+   "correcta": 0,
+   "respuesta": "Tosi objeta que los premios traten la LIJ como un género: cuento, libro álbum, poesía y novela gráfica compiten entre sí; el Colectivo LIJ y la UEJ piden dejar de tratarla así. Tosi, apunte E13a, p. 96.",
+   "dificil": true
+  },
+  {
+   "eje": "e13a",
+   "texto": "Un autor usa lenguaje inclusivo, pero la hoja de estilo de la editorial no lo prevé. Según Ramírez Gelbes, ¿qué debe hacer el corrector?",
+   "opciones": [
+    "Normalizar siempre según la hoja de estilo, porque la norma editorial prima",
+    "Respetar y cuidar el ethos construido y buscar un consenso con la línea editorial, por ejemplo con una nota o un prólogo",
+    "Dejar el texto sin ninguna indicación, para que el lector lo interprete",
+    "Consultar a la Academia y aplicar su recomendación"
+   ],
+   "correcta": 1,
+   "respuesta": "La corrección debería respetar y cuidar la construcción del ethos del autor; ante choques con la hoja de estilo se buscan consensos, y los mecanismos habituales son paratextuales (prólogos, notas al pie). Ramírez Gelbes, apunte E13a, p. 6.",
+   "dificil": true
+  },
+  {
+   "eje": "e13b",
+   "texto": "Un original dice: <em>Los considerandos del decreto fueron redactados con cuidado</em>. ¿Qué hace el corrector?",
+   "opciones": [
+    "Lo respeta: <em>considerandos</em> es un sustantivo (falso gerundio) con género y plural",
+    "Lo corrige a <em>los considerando</em>, porque el gerundio es invariable",
+    "Lo reemplaza por <em>los considerados</em>",
+    "Lo marca como error de concordancia"
+   ],
+   "correcta": 0,
+   "respuesta": "Los falsos gerundios de tipo A (<em>considerando, educando, doctorando</em>) son sustantivos derivados del gerundivo latino: tienen género y plural, no se corrigen. García Negroni y Ramírez Gelbes, apunte E13b, p. 8.",
+   "dificil": true
+  },
+  {
+   "eje": "e13b",
+   "texto": "Según la tabla de infinitivo verbal e infinitivo sustantivado, ¿cuál de estas oraciones NO es admisible?",
+   "opciones": [
+    "<em>El roncar de Pedro le desagrada.</em>",
+    "<em>El roncar continuamente de Pedro le desagrada.</em>",
+    "<em>El haber llegado tarde le costó el puesto.</em>",
+    "<em>El mirar yo ese cuadro siempre me perturba.</em>"
+   ],
+   "correcta": 1,
+   "respuesta": "El infinitivo sustantivado admite adjetivos pero no adverbios (<em>el roncar continuo</em>, no <em>continuamente</em>); el sujeto va con sintagma preposicional. Las otras tres son admisibles. García Negroni y Ramírez Gelbes, apunte E13b, pp. 2-3.",
+   "dificil": true
+  },
+  {
+   "eje": "e13b",
+   "texto": "¿Cuál es la forma correcta del participio?",
+   "opciones": [
+    "<em>Ya tengo resuelto la tarea.</em>",
+    "<em>La mujer había venida.</em>",
+    "<em>Ya tengo resuelta la tarea.</em>",
+    "<em>La jueza no fue visto.</em>"
+   ],
+   "correcta": 2,
+   "respuesta": "El participio es invariable en los tiempos compuestos (<em>había venido</em>) y concordado en las pasivas (<em>fue vista</em>) y en perífrasis con <em>tener/llevar + participio</em> (<em>tengo resuelta la tarea</em>). García Negroni y Ramírez Gelbes, apunte E13b, p. 3.",
+   "dificil": true
+  },
+  {
+   "eje": "e13b",
+   "texto": "¿Por qué los falsos gerundios de tipo B (<em>agenda, leyenda, propaganda</em>) son femeninos?",
+   "opciones": [
+    "Porque vienen del ablativo del gerundio latino (<em>legendo discitur</em>)",
+    "Porque derivan de nominalizaciones en <em>-ada/-ida</em>",
+    "Porque el gerundio verbal es femenino cuando se sustantiva",
+    "Porque proceden del neutro plural del gerundivo latino (obligación en pasado, sentido retrospectivo-resultativo)"
+   ],
+   "correcta": 3,
+   "respuesta": "Los falsos gerundios no vienen del gerundio sino del gerundivo latino (obligación y futuro); los de tipo B conservan la terminación del neutro plural latino. El ablativo es la hipótesis de Gili Gaya para el gerundio verbal. García Negroni y Ramírez Gelbes, apunte E13b, pp. 8-9.",
+   "dificil": true
+  },
+  {
+   "eje": "e13b",
+   "texto": "¿Cuál de estas palabras NO es un falso gerundio según García Negroni y Ramírez Gelbes?",
+   "opciones": [
+    "<em>leyenda</em>",
+    "<em>caminada</em>",
+    "<em>propaganda</em>",
+    "<em>doctorando</em>"
+   ],
+   "correcta": 1,
+   "respuesta": "Las nominalizaciones en <em>-ada/-ida</em> (<em>caminada, estada</em>) son otra derivación: aportan sentido aspectual (iteración, intensidad, rapidez) y heredan los argumentos del verbo. García Negroni y Ramírez Gelbes, apunte E13b, pp. 10-11.",
+   "dificil": true
+  },
+  {
+   "eje": "e13b",
+   "texto": "En <em>En la esquina hay un puesto de diarios</em>, ¿en qué punto del continuum de Briz se ubica <em>puesto</em>?",
+   "opciones": [
+    "Adjetivo ocasional (<em>las sábanas puestas</em>)",
+    "Adjetivo sustantivado por elipsis (<em>los puestos entre paréntesis</em>)",
+    "Falso participio: valor sustantivo pleno, totalmente lexicalizado",
+    "Sustantivado por artículo neutro (<em>lo puesto</em>)"
+   ],
+   "correcta": 2,
+   "respuesta": "El continuum va de adjetivo, adjetivo por elipsis, artículo neutro y adjetivo nominalizado hasta el falso participio, con valor sustantivo pleno, que perdió los argumentos del verbo. García Negroni y Ramírez Gelbes, apunte E13b, p. 10.",
+   "dificil": true
+  },
+  {
+   "eje": "e13b",
+   "texto": "Un autor escribe <em>componenda</em> donde el corrector pensaba poner <em>acuerdo</em>. ¿Qué debe considerar el corrector?",
+   "opciones": [
+    "Que es un error de registro y conviene siempre normalizar a <em>acuerdo</em>",
+    "Que es un falso participio, por lo tanto corresponde el plural",
+    "Que es un gerundio especificativo y debe reformularse con relativa",
+    "Que no es sinonimia neutra: <em>componenda</em> carga un eco argumentativo negativo (lo que no debió arreglarse y se arregló)"
+   ],
+   "correcta": 3,
+   "respuesta": "Los falsos gerundios lexicalizan un fragmento argumentativo; <em>componenda</em> implica juicio negativo y postura crítica del locutor. Elegir uno trae esos ecos. García Negroni y Ramírez Gelbes, apunte E13b, pp. 8-10.",
+   "dificil": true
+  },
+  {
+   "eje": "e14",
+   "texto": "¿Cuál de estas palabras se forma por parasíntesis (prefijación y sufijación simultáneas, sin forma intermedia)?",
+   "opciones": [
+    "<em>enflaquecer</em> (<em>en-flaqu-ecer</em>; no existe *<em>flaquecer</em>)",
+    "<em>desarmar</em> (<em>des-</em> + <em>armar</em>)",
+    "<em>inútil</em> (<em>in-</em> + <em>útil</em>)",
+    "<em>contraataque</em> (<em>contra-</em> + <em>ataque</em>)"
+   ],
+   "correcta": 0,
+   "respuesta": "En la parasíntesis prefijo y sufijo se agregan a la vez: no existe la base intermedia (*<em>flaquecer</em>, *<em>desalma</em>). En las otras tres la base existe sola. Lang, cap. 1.2, apunte E14, p. 4.",
+   "dificil": true
+  },
+  {
+   "eje": "e14",
+   "texto": "<em>Tratar → trato</em>, <em>mejorar → mejora</em>, <em>deteriorar → deterioro</em>. ¿Qué procedimiento ilustran?",
+   "opciones": [
+    "Parasíntesis",
+    "Combinación (<em>blending</em>)",
+    "Derivación regresiva (sufijación cero)",
+    "Acortamiento por apócope"
+   ],
+   "correcta": 2,
+   "respuesta": "La derivación regresiva no suma sílabas: deverbales como <em>tratar &gt; trato</em>, <em>desarmar &gt; desarme</em>. Lang, cap. 1.2, apunte E14, p. 9.",
+   "dificil": true
+  },
+  {
+   "eje": "e14",
+   "texto": "Según Lang, ¿de dónde parte la derivación: del morfema o de la palabra?",
+   "opciones": [
+    "Del morfema, porque es la unidad mínima distintiva",
+    "De la raíz, que nunca coincide con una palabra",
+    "Del afijo, que se agrega a cualquier base",
+    "De la palabra, no del morfema: la palabra es la fuente de la derivación"
+   ],
+   "correcta": 3,
+   "respuesta": "Lang sostiene que en español las palabras casi nunca coinciden con el morfema; la palabra, no el morfema, es la fuente de la derivación. Lang, cap. 1.2, apunte E14, p. 3.",
+   "dificil": true
+  },
+  {
+   "eje": "g",
+   "texto": "<em>Salió de casa, llegando a la oficina a las nueve.</em> ¿Cuál es el problema del gerundio y cómo se corrige?",
+   "opciones": [
+    "Es de posterioridad: la acción del gerundio es posterior a la principal; se coordina (<em>y llegó</em>)",
+    "Es un gerundio especificativo; se corrige con una relativa",
+    "Es un gerundio colgante sin verbo principal; se conjuga el verbo",
+    "No hay problema: es un gerundio de simultaneidad"
+   ],
+   "correcta": 0,
+   "respuesta": "El gerundio expresa simultaneidad o anterioridad inmediata; la posterioridad se corrige con coordinación (<em>Salió de casa y llegó…</em>) o subordinación. Norma RAE; ejercicio de la cátedra en P11-2, p. 1 (consigna 1).",
+   "dificil": true
+  },
+  {
+   "eje": "g",
+   "texto": "<em>Una caja conteniendo libros.</em> ¿Qué corrección corresponde?",
+   "opciones": [
+    "<em>Una caja conteniendo libros</em> está bien: es un gerundio modal",
+    "<em>Una caja que contiene libros</em>: gerundio especificativo, que no es admisible",
+    "<em>Una caja habiendo contenido libros</em>, con gerundio compuesto",
+    "<em>Una caja contener libros</em>, con infinitivo"
+   ],
+   "correcta": 1,
+   "respuesta": "El gerundio especificativo funciona como relativa restrictiva e identifica un sustantivo: no es admisible (salvo verbos de percepción o representación). Se reemplaza por relativa con <em>que</em>. Norma RAE; ejercicio de la cátedra en P11-2, p. 1 (g).",
+   "dificil": true
+  },
+  {
+   "eje": "g",
+   "texto": "<em>Se publicó una ley, agregando un artículo.</em> ¿Qué tipo de gerundio incorrecto es?",
+   "opciones": [
+    "De perífrasis, correcto con <em>agregar</em>",
+    "Modal, correcto porque indica cómo se publicó",
+    "Copulativo: reemplaza a <em>y</em> + verbo conjugado (<em>y se agregó</em>)",
+    "Concesivo, correcto porque admite <em>aun</em>"
+   ],
+   "correcta": 2,
+   "respuesta": "El gerundio copulativo une dos acciones en lugar de coordinarlas: es posterioridad disfrazada. Se corrige: <em>Se publicó una ley y se agregó un artículo</em>. Norma RAE; ejercicio de la cátedra en P11-2, p. 1 (a).",
+   "dificil": true
+  },
+  {
+   "eje": "g",
+   "texto": "¿Cuál de estos gerundios es correcto?",
+   "opciones": [
+    "<em>Anda cantando por los pasillos.</em>",
+    "<em>Se buscan editoras teniendo cinco años de experiencia.</em>",
+    "<em>Decreto estableciendo normas de seguridad.</em>",
+    "<em>El asesino huyó siendo alcanzado por la policía más tarde.</em>"
+   ],
+   "correcta": 0,
+   "respuesta": "<em>Andar + gerundio</em> es perífrasis verbal (correcta). Las otras presentan gerundio especificativo, \"del BOE\" y posterioridad. Norma RAE; ejercicio de la cátedra en P11-2, p. 1 (e, k, l).",
+   "dificil": true
+  },
+  {
+   "eje": "g",
+   "texto": "Un texto comienza: <em>Siendo los temas más frecuentes la neurociencia y la medicina.</em> y no continúa con ningún verbo principal. ¿Qué corresponde?",
+   "opciones": [
+    "Dejarlo: <em>siendo</em> es siempre un gerundio causal válido",
+    "Conjugar el verbo: es un gerundio colgante, el fragmento queda sin oración principal",
+    "Cambiar <em>siendo</em> por <em>habiendo sido</em>",
+    "Pasar los temas al plural"
+   ],
+   "correcta": 1,
+   "respuesta": "Un gerundio sin verbo principal deja la oración incompleta; se corrige reformulando con verbo conjugado (<em>Los temas más frecuentes son…</em>). Texto de P11-2, p. 1 (Sidorenko-Bautista et al.); norma RAE.",
+   "dificil": true
+  },
+  {
+   "eje": "m",
+   "texto": "Un estudiante dice: \"el imperfecto de subjuntivo está desapareciendo, así que el paradigma se reduce\". ¿Qué contraargumento ofrece García Negroni?",
+   "opciones": [
+    "Se mantiene porque el subjuntivo tiene nueve tiempos",
+    "Solo se mantiene en la lengua escrita periodística",
+    "Se mantiene gracias a la interpretación de doble acceso",
+    "Sobrevive en las prótasis condicionales (<em>Si pudiera, te llevaría</em>)"
+   ],
+   "correcta": 3,
+   "respuesta": "El imperfecto de subjuntivo \"sobrevive\" en las prótasis condicionales; es argumento contra la idea de que el paradigma se reduce. García Negroni, apunte M, p. 9.",
+   "dificil": true
+  },
+  {
+   "eje": "m",
+   "texto": "¿Cuántos tiempos tiene el subjuntivo frente al indicativo, según García Negroni?",
+   "opciones": [
+    "Nueve, igual que el indicativo",
+    "Cuatro (presente, perfecto, imperfecto y pluscuamperfecto) frente a nueve del indicativo",
+    "Seis, porque suma el futuro y el condicional",
+    "Dos: presente y pasado"
+   ],
+   "correcta": 1,
+   "respuesta": "En subjuntivo hay menos distinciones temporales: presente, perfecto, imperfecto y pluscuamperfecto, frente a los nueve tiempos del indicativo. García Negroni, apunte M, p. 4.",
+   "dificil": true
+  },
+  {
+   "eje": "m",
+   "texto": "<em>Lamento que Juan haya venido.</em> El hecho es real y sin embargo el verbo está en subjuntivo. ¿Qué conclusión se extrae sobre el subjuntivo?",
+   "opciones": [
+    "Que el subjuntivo se usa solo con verbos de deseo",
+    "Que la oración es agramatical y debe pasar al indicativo",
+    "Se define por su naturaleza no asertiva, no por expresar irrealidad",
+    "Que el subjuntivo marca siempre anterioridad"
+   ],
+   "correcta": 2,
+   "respuesta": "Aunque el subjuntivo aparece en contextos no factuales, hechos reales pueden presentarse en subjuntivo (<em>Lamento que Juan haya venido</em>); por eso las academias lo definen como no asertivo. García Negroni, apunte M, pp. 2-4.",
+   "dificil": true
+  },
+  {
+   "eje": "m",
+   "texto": "Según Morimoto, ¿qué implica conocer el significado de un verbo?",
+   "opciones": [
+    "Conocer solo su forma conjugada y sus irregularidades",
+    "Saber únicamente cuántos complementos selecciona",
+    "Conocer su etimología y su registro de uso",
+    "Saber sus participantes (estructura argumental) y su estructura aspectual"
+   ],
+   "correcta": 3,
+   "respuesta": "Para Morimoto, conocer el significado de un verbo implica saber sus participantes (estructura argumental) y su estructura aspectual, es decir su constitución temporal interna. Morimoto, apunte M, pp. 2-3.",
+   "dificil": true
+  },
+  {
+   "eje": "m",
+   "texto": "Según la RAE/ASALE (2009), citada por García Negroni, ¿qué informa el modo?",
+   "opciones": [
+    "La actitud del hablante ante la información suministrada y su punto de vista",
+    "El momento del evento respecto de la enunciación",
+    "La duración interna del evento y si tiene límite",
+    "El número de participantes del evento"
+   ],
+   "correcta": 0,
+   "respuesta": "El modo es la manifestación gramatical de la modalidad: informa sobre la actitud del hablante ante la información y sobre su punto de vista (RAE/ASALE 2009, p. 1866). García Negroni, apunte M, p. 2.",
+   "dificil": true
+  }
+ ],
+ "practicos": [
+  {
+   "id": "p08-catedra-1",
+   "titulo": "Resumen sobre discursos conmemorativos (cátedra)",
+   "tema": "P08 · adjetivos",
+   "fuente": "Cátedra, ejercitación «El adjetivo» (C. Tosi), ejercicio 1 (resumen de F. Bottazzi, adaptado). Solucionario: S_Soluciones-practicos, P08.",
+   "texto": "En el contexto actual, marcado por el auge de la memoria y la creciente disputa pública sobre los hechos históricos, el análisis de los discursos conmemorativos resulta clave para comprender las diversas apropiaciones del pasado. En el {n|ámbito} latinoamericano y argentino, {e|los mismos|estos discursos|el uso anafórico de «el mismo» está desaconsejado (DPD): se reemplaza por un demostrativo o por el sustantivo} se vinculan estrechamente con las prácticas educativas, donde calendarios y actividades conmemorativos forman géneros específicos dirigidos a niños y jóvenes. El presente trabajo analiza discursos conmemorativos en materiales educativos digitales, destinados a dichas audiencias, identificando regularidades {e|muy discursivas|discursivas|«discursivo» es un adjetivo relacional («relativo al discurso») y no admite gradación} en la configuración de los hechos históricos. Se examinan materiales de portales estatales, editoriales independientes e {n|influencers}, centrados en fechas {n|claves}, como el 24 de {n|Marzo} y el 9 de {n|Julio}.\n\nLa metodología es cualitativa y se basa en el análisis del discurso como práctica {n|interpretadora} (Arnoux, 2006). Se introduce la categoría de “modos de hacer memoria” para describir las propiedades que configuran los hechos históricos y orientan la acción del lector-espectador.\n\nLos “modos de hacer memoria” se caracterizan por su dimensión {e|polifónica-enunciativa,|polifónico-enunciativa,|en los adjetivos compuestos con guion el primer elemento queda invariable (masculino singular) y solo concuerda el segundo} al articularse con la situación de enunciación y discursos previos, y por {e|su argumentativo funcionamiento,|su funcionamiento argumentativo,|los adjetivos relacionales no se anteponen: van siempre pospuestos} en el que los tópicos se entrelazan para orientar la acción del lector. Se concluye que estos modos mantienen un vínculo estrechísimo con el clásico discurso conmemorativo, a la vez que se diferencian en los tópicos abordados y en la incorporación de escenografías discursivas que favorecen la informalidad y la polémica.",
+   "revisado": true
+  },
+  {
+   "id": "p08-propio-1",
+   "titulo": "Reseña de una primera novela (propio)",
+   "tema": "P08 · adjetivos",
+   "fuente": "Texto propio. Reglas: apócope de «primero» solo ante masculino singular; comparativos sintéticos; adjetivos de significado absoluto; compuestos con guion; adjetivos relacionales pospuestos; «de lo que» (S_Soluciones-practicos, P08 y sección de concordancia).",
+   "texto": "La editorial Marea Baja publicó la {e|primer|primera|«primero» se apocopa solo ante un sustantivo masculino singular; «novela» es femenino} novela de Lucía Ferrán, una autora rosarina que hasta ahora solo había editado cuentos. La historia sigue a una traductora que vuelve a su pueblo natal para reconstruir la memoria de su familia, y lo hace entre archivos y fotografías guardados en cajas húmedas.\n\nEl libro es {e|más superior|superior|«superior» ya es un comparativo sintético: no admite «más»} a su volumen anterior. Ferrán trabaja con una prosa {e|melancólica-irónica|melancólico-irónica|en los adjetivos compuestos con guion, el primer elemento queda invariable y solo concuerda el segundo} que sostiene el relato sin esfuerzo. Su {e|narrativo estilo|estilo narrativo|los adjetivos relacionales no se anteponen: van pospuestos} se apoya en frases breves y en un humor seco.\n\nEs una novela más ambiciosa {e|que lo|de lo|cuando el segundo término de la comparación es una oración de grado se usa «de lo que»} que la autora había declarado en entrevistas. La edición suma un glosario de palabras {n|clave} del habla de la región, un recurso {e|muy fundamental|fundamental|«fundamental» tiene significado absoluto y no admite gradación} para quienes no conocen ese dialecto.\n\nLas calles y los barrios inundados del segundo capítulo son, quizá, lo mejor del libro. Una lectura recomendable para quien busque literatura argentina sin estridencias.",
+   "revisado": true
+  },
+  {
+   "id": "p08-propio-2",
+   "titulo": "Informe de lectura de un libro de cuentos (propio)",
+   "tema": "P08 · adjetivos",
+   "fuente": "Texto propio. Reglas: apócope de «uno» ante masculino; posición del adjetivo y significado; gentilicios en minúscula (hoja de estilo §6.1); adjetivos de significado absoluto; «el mismo» anafórico; «de lo que» (S_Soluciones-practicos, P08 y ejercicio 5).",
+   "texto": "El manuscrito reúne {e|veintiuno|veintiún|«uno» se apocopa en «un» delante de un sustantivo masculino, también en los compuestos} relatos breves de una autora {e|Argentina|argentina|los gentilicios se escriben con minúscula} que vive desde hace años en Montevideo. {e|Los mismos|Estos|el uso anafórico de «el mismo» está desaconsejado: se reemplaza por un demostrativo o por el sustantivo} se organizan en tres partes según el escenario: la casa, el barrio y la ruta.\n\nEn el {e|tiempo último,|último tiempo,|antepuesto, «último» significa «reciente»; pospuesto significa «final»} la narrativa breve ganó lectores y los catálogos independientes lo notaron.\n\nEl mayor acierto es un tono {e|muy único|único|«único» tiene significado absoluto y no admite gradación} que combina ternura y distancia. El libro tiene un humor y una ternura poco frecuentes en el género. Algunos relatos resultan más débiles {e|que lo|de lo|cuando el segundo término de la comparación es una oración de grado se usa «de lo que»} sugiere el resto del volumen.\n\nRecomiendo publicarlo con ajustes menores: unificar la puntuación de los diálogos y revisar el orden de los relatos.",
+   "revisado": true
+  },
+  {
+   "id": "p09-catedra-1",
+   "titulo": "Los años de la hegemonía rosista (cátedra)",
+   "tema": "P09 · verbos 1",
+   "fuente": "Cátedra, ejercitación «Verbos» (S. Ansaldo), ejercicio 1, párrafos 2 y 3 del texto (fragmento, adaptado de Historia 3, Estación Mandioca, 2023). Solucionario: S_Soluciones-practicos, P09.",
+   "texto": "Realizadas las elecciones para volver a constituir la Sala de Representantes bonaerense, resultó vencedor el Partido Federal. Poco después, en agosto de 1827, la Sala eligió gobernador de la provincia al líder de los federales porteños, Manuel Dorrego. Dorrego, quien había tenido una destacada participación en el Ejército del Norte, {e|se hubiera convertido|se había convertido|«hubiera» es subjuntivo (irreal); se afirma un hecho anterior: pluscuamperfecto de indicativo} en un caudillo popular bonaerense. Solía vestirse con ropas plebeyas y dirigirse a las pulperías de la ciudad para conversar con los asistentes durante las campañas electorales. Además, {e|solió|solía|«soler» es defectivo: no tiene pretérito perfecto simple} defender a los sectores populares de los abusos de autoridad, en particular, de la obligación de cumplir con el servicio militar en tiempos de guerra con Brasil. A pesar de su fuerte ascendiente sobre las clases populares y del gran apoyo que {e|gozaría|gozaba|el condicional da valor de conjetura; el apoyo era simultáneo a los hechos: imperfecto de indicativo} entre ellas, el nuevo gobernador evitó tomar medidas que {e|perjudicaron|perjudicaran|la relativa depende de «evitó» y designa medidas posibles, no efectivas: subjuntivo, en pretérito por correlación} a los grupos más poderosos, como los terratenientes.\n\nApenas llegado al cargo, Dorrego debió abocarse a la difícil tarea de retomar las negociaciones y sellar la paz con el Brasil. Así, en agosto de 1828 {e|se firmaba|se firmó|acción puntual y concluida, como «estableció»: pretérito perfecto simple} un tratado que estableció la independencia de la Banda Oriental y la convertió en un Estado soberano: la República Oriental del Uruguay.",
+   "revisado": true
+  },
+  {
+   "id": "p09-propio-1",
+   "titulo": "Nota de prensa de una editorial (propio)",
+   "tema": "P09 · verbos 1",
+   "fuente": "Texto propio. Reglas: «haber» y «hacer» impersonales invariables, correlación de tiempos, condicional en la prótasis, «soler» defectivo, pretéritos irregulares, «deber» vs «deber de», «se» impersonal con «a» (apuntes PV, secciones 1, 2, 4, 5 y 6; hoja de estilo §8).",
+   "texto": "La editorial Faro presentó ayer su catálogo de otoño ante autoras, libreros y periodistas. {e|Hubieron|Hubo|«haber» impersonal es invariable: va en singular aunque el complemento sea plural} más de cuarenta invitados en la sala. Realizadas las presentaciones, la directora, Marta Quiroga, recordó que {e|hacen|hace|«hacer» en expresiones de tiempo es impersonal e invariable} diez años la editorial publicaba solo poesía.\n\nAntes el equipo {e|solió|solía|«soler» es defectivo: no tiene pretérito perfecto simple; el pasado habitual es «solía»} imprimir tiradas de mil ejemplares. Quiroga pidió a los autores que {e|entreguen|entregaran|con verbo principal en pasado, el subjuntivo va en imperfecto} los originales antes de junio. Aclaró que la editorial abriría una colección de ensayo si {e|tendría|tuviera|la prótasis de una condicional no lleva condicional: si + imperfecto de subjuntivo} más presupuesto.\n\nLa tirada inicial del catálogo anterior {e|satisfació|satisfizo|«satisfacer» tiene pretérito fuerte: satisfice, satisfizo} a todo el equipo. Los interesados en las charlas {e|deben de|deben|«deber de» expresa conjetura; la obligación se dice «deber»} inscribirse en la web de la editorial antes del viernes. {e|Se buscan|Se busca|con objeto directo con «a» el «se» es impersonal y el verbo queda en singular} a nuevos ilustradores para la colección infantil.",
+   "revisado": true
+  },
+  {
+   "id": "p10-catedra-1",
+   "titulo": "Copiapó: si la luz fuera líquida (cátedra)",
+   "tema": "P10 · verbos 2",
+   "fuente": "Cátedra, ejercitación «Verbos 2» (M. V. Dillon), ejercicio 1 (texto adaptado de L. Guerriero, Anfibia, 2014): fragmentos del párrafo 1 y del comienzo de la página 2. Solucionario: S_Soluciones-practicos, P10.",
+   "texto": "Cuando llegó a estas tierras en 1536, después de atravesar los Andes, dejando atrás decenas de caballos muertos y de hombres triturados por el frío, lo que sintió el conquistador español Diego de Almagro no fue algarabía, sino desilusión: donde esperaba encontrar oro había montañas yermas, de modo que decidió regresar al Perú, de donde {e|partió.|había partido.|acción anterior a «llegó»: pluscuamperfecto} No puede decirse que {n|es} un visionario. La ciudad de Copiapó, capital de la región, {e|fue fundado|fue fundada|el participio de la pasiva concuerda con «la ciudad» (femenino)} en 1744. Años después, un pastor de cabras, llamado Juan Godoy, descubrió una mina de plata denominada Chañarcillo que fue, mientras duró, una de las más grandes del continente. En 1842 ya {e|habían|había|«haber» existencial es impersonal e invariable} noventa y cuatro minas en la zona, dieciocho ricas en cobre.\n\nEn 1947 mandó a llamar a uno de sus hijos, Alfonso, que por entonces vivía en la Argentina, en una región fértil de la provincia de Santa Fe, para que {e|cultive|cultivara|con verbo principal en pasado («mandó»), el subjuntivo va en imperfecto} esos campos amargos. Semanas más tarde llegó con su mujer, Berta, que, al ver ese valle de muerte bajo un cielo azul maligno, acorralado por las comisuras violentas del peor desierto del planeta, le preguntó aterrada dónde la {e|trajo.|había traído.|acción anterior a «preguntó»: pluscuamperfecto} Un año después, Alfonso Prohens {n|plantaba} las primeras parras.",
+   "revisado": true
+  },
+  {
+   "id": "p10-propio-1",
+   "titulo": "Reseña de una biografía de inmigrante (propio)",
+   "tema": "P10 · verbos 2",
+   "fuente": "Texto propio. Reglas: correlación de tiempos, «haber» impersonal, pretéritos fuertes (-ducir), participio y conjugación de «contraer» y «construir» (-uir), «se» impersonal con «a» (apuntes PV, secciones 1, 2, 5 y 6).",
+   "texto": "El libro reconstruye la vida de Teresa Bellini, una costurera que llegó a Buenos Aires en 1912. Su padre le había pedido que {e|vuelva|volviera|con verbo principal en pasado, el subjuntivo va en imperfecto} si la ciudad no la trataba bien, pero ella se quedó. Dos vecinos la {e|conducieron|condujeron|los verbos en «-ducir» tienen pretérito fuerte: conduje, condujeron} hasta un taller de la calle Defensa, donde {e|se contrataron|se contrató|con objeto directo con «a» el «se» es impersonal y el verbo queda en singular} a las costureras por día.\n\nEn el conventillo donde vivía {e|habían|había|«haber» existencial es impersonal e invariable} doce familias. Mientras tanto, en Génova, sus hermanos esperaban noticias. Años después Teresa {e|contrayó|contrajo|«contraer» sigue el modelo de «traer»: contraje, contrajo} matrimonio con un carpintero que {e|construió|construyó|los verbos en «-uir» llevan «y» en 3.ª persona: construyó} una casa en Barracas.\n\nLa autora reconstruye esa trayectoria con cartas y registros de la época. El resultado es una biografía sobria, bien documentada y atenta a los detalles de la vida cotidiana.",
+   "revisado": true
+  },
+  {
+   "id": "p11-1-cat-1",
+   "titulo": "Reseña de «Cometierra»: comienzo (cátedra)",
+   "tema": "P11-1 · práctica 2.º parcial",
+   "fuente": "Cátedra, 2.º parcial (práctica), ejercicio 1: reseña de Cometierra (Infobae, adaptada), título y párrafos 1 y 4 (fragmento). Solucionario: S2_Soluciones-P11 (s2-soluciones-p11.json).",
+   "texto": "Dolores Reyes y la historia de Cometierra, la mujer {e|teniendo|que tiene|gerundio especificativo: modifica a un sustantivo; se reemplaza por una oración de relativo} el don de saber dónde están los seres queridos que faltan\n\nSe trata de la {e|primer|primera|«primero» se apocopa solo ante un sustantivo masculino singular} novela que sorprende por su originalidad y su calidad narrativa. En la trama de este libro {e|tiene|tienen|el verbo concuerda con el sujeto pospuesto: «los femicidios y la trata»} un lugar central los femicidios y la trata de personas. {e|El mismo|Este|«el mismo» anafórico es un calco burocrático y ambiguo: basta un demostrativo} se convirtió en un entusiasta boca a boca entre lectores ávidos de {n|literatura argentina} {e|buena|buena.|falta el punto final del párrafo}\n\nDolores Reyes es madre de siete hijos, {e|habiendo seis que viven|seis de los cuales viven|gerundio incorrecto («haber» no es el verbo adecuado): se resuelve con un relativo} con {e|ella,|ella.|coma entre oraciones independientes: corresponde punto} Dolores es maestra, dio clases en grado durante {n|15} años y actualmente {e|trabajaría|trabaja|el condicional de rumor es desaconsejable en una nota informativa: el hecho se afirma en indicativo} en la secretaría de la {e|escuela|Escuela|nombre propio de una institución («Escuela 41»): mayúscula} 41 de Pablo Podestá. Hasta ahora, su nombre y el de su novela eran un secreto a voces en el circuito de los {e|Talleres Literarios|talleres literarios|nombre común: minúscula} y los espacios de {e|colectiva lectura|lectura colectiva|el adjetivo clasificador va pospuesto} y, a partir de la llegada de los ejemplares a librerías, un entusiasta boca a boca entre lectores {n|muy ávidos} de buena literatura argentina.",
+   "revisado": true
+  },
+  {
+   "id": "p11-1-cat-2",
+   "titulo": "Reseña de «Cometierra»: el don (cátedra)",
+   "tema": "P11-1 · práctica 2.º parcial",
+   "fuente": "Cátedra, 2.º parcial (práctica), ejercicio 1: reseña de Cometierra (Infobae, adaptada), párrafo 5 (fragmento). Solucionario: S2_Soluciones-P11 (s2-soluciones-p11.json).",
+   "texto": "Trabajada a lo largo de varios años {e|–algo|—algo|la raya de apertura es —, no el signo corto} {e|se está traduciendo,|que se está traduciendo,|falta el relativo «que» que introduce el inciso} entre otras cosas, en la potencia narrativa y la calidad de las voces de los {e|protagonistas-,|protagonistas—,|la raya de cierre es obligatoria y va antes de la coma; el guion no sustituye a la raya} esta novela breve y original en su concepción es un pequeño puñetazo en medio del pecho y, curiosamente, es {e|también al mismo tiempo|también|redundancia: «también» y «al mismo tiempo» dicen lo mismo} pura luz. Narrada en primera persona, Cometierra es la historia de una joven vidente a la que recurren vecinos desesperados. Se trata de {n|un ser} que {e|tienen|tiene|el verbo del relativo concuerda con su antecedente singular} la capacidad de {n|darle respuesta a} los {e|qué|que|el relativo es átono: va sin tilde} buscan y su don la acompaña desde {n|chiquita}, {n|desde cuando} ella misma fue una nena desesperada por la brutal ausencia de su madre.",
+   "revisado": true
+  },
+  {
+   "id": "p11-1-cat-3",
+   "titulo": "Reseña de «Cometierra»: la tierra (cátedra)",
+   "tema": "P11-1 · práctica 2.º parcial",
+   "fuente": "Cátedra, 2.º parcial (práctica), ejercicio 1: reseña de Cometierra (Infobae, adaptada), párrafo final (fragmento). Solucionario: S2_Soluciones-P11 (s2-soluciones-p11.json).",
+   "texto": "Cometierra logra ver dónde están los que {n|faltaron} y para eso, para ver ese más allá que muchas veces es la muerte pero que también puede ser un cautiverio, necesita que le {e|alcanzase|alcance|con verbo principal en presente, el subjuntivo va en presente} un puñado de tierra cercana a los cuerpos ausentes. La {e|escena,|escena|no se escribe coma entre el sujeto y el verbo} se repite. Ella cierra los ojos, toma el puñado de tierra y lo traga: es en ese acto cuando llega, con más o menos esfuerzo, con más o menos fortuna, el contacto con la imagen esperada, {e|ésa|esa|los demostrativos van sin tilde} respuesta que apenas {e|satisfació|satisface|forma inexistente; el tiempo debe ser el presente, como «calma» y «deja»} la angustia de los que van tras sus desaparecidos, pero que calma {e|la alma|el alma|los sustantivos femeninos con /a/ tónica inicial llevan el artículo «el» (el alma, las almas)} un instante y deja en ella la sensación de la emoción {e|más intensísima|más intensa|doble superlativo: «más» y «-ísima» son redundantes} que jamás había sentido.",
+   "revisado": true
+  },
+  {
+   "id": "p11-2-cat-1",
+   "titulo": "Estado de la cuestión de una tesis (cátedra)",
+   "tema": "P11 · gerundios",
+   "fuente": "Cátedra, ejercitación «Gerundios», texto «El estado de la cuestión» de un proyecto de tesis (completo, ~190 palabras). Solucionario: S2_Soluciones-P11.",
+   "texto": "Sidorenko-Bautista et al. (2021) estudian el potencial de Instagram como herramienta para la divulgación científica, tomando el caso de la agencia mexicana de diseño @pictoline. {n|A través de} metodología mixta, analizaron {n|3.384} publicaciones realizadas entre 2015 y {e|2020|2020,|el gerundio modal necesita una coma que lo separe (alternativa: coordinar con «y identificaron»)} identificando 552 contenidos de carácter científico, lo que representa un 16,3 % de su producción total. Los hallazgos {e|indicando|indican|gerundio especificativo: modifica al sujeto y lo deja sin verbo propio} que las infografías son el formato {e|predominante|predominante:|dos oraciones pegadas sin signo que las separe} constituyen el {e|85,86%|85,86 %|falta el espacio entre el número y el símbolo %} de las publicaciones científicas {e|demostrando, en consecuencia, ser|y, en consecuencia, son|gerundio de posterioridad o consecuencia: se reemplaza por un verbo en forma personal} las que generan un mayor nivel de {n|engagement}. {e|Siendo los temas más frecuentes|Los temas más frecuentes son|gerundio sin verbo principal: la oración queda sin núcleo} la neurociencia y la medicina (27,7 %) y la astronomía y el espacio (18,3 %). Según los autores, los resultados obtenidos refutan la hipótesis inicial sobre la dificultad de conectar temas complejos con audiencias {e|jóvenes, concluyendo|jóvenes y concluyen|gerundio de posterioridad: se coordina con un verbo personal} que el formato visual y la adaptación pop del discurso científico desarrollada por esta agencia resultan de su interés. Finalmente, el trabajo {e|pondera a|pondera|«ponderar» es transitivo y no lleva «a» con cosa} la plataforma Instagram, {e|como considerándola una|como una|«como» ya indica el predicativo, el gerundio sobra} herramienta efectiva para la comunicación {e|científica, como|científica y como|se coordinan los dos predicativos con «y como»} un espacio central de difusión, aunque señala la necesidad de una estrategia más consistente en el uso de {n|hashtags} especializados (#ciencia solo aparece en el 12,86 % de las publicaciones) y una mayor atención a temas ambientales.",
+   "revisado": true
+  },
+  {
+   "id": "p11-propio-1",
+   "titulo": "Informe de gestión de una editorial (propio)",
+   "tema": "P11 · gerundios",
+   "fuente": "Texto propio. Reglas: gerundio especificativo, de posterioridad y copulativo incorrectos; gerundios modales, de percepción, causales y perífrasis correctos (apunte G_Gerundios, tabla maestra; hoja de estilo §8).",
+   "texto": "La editorial recibió ayer una carta {e|solicitando|que solicita|gerundio especificativo: modifica a un sustantivo; se reemplaza por una oración de relativo} la devolución de un original. La gerente encontró al editor leyendo el contrato y le pidió que no respondiera hasta revisar los plazos. Hace un mes que el equipo viene trabajando con esa autora.\n\nEl libro de poemas salió en marzo, {e|vendiéndose|y se vendieron|gerundio de posterioridad: se coordina con un verbo en forma personal} mil ejemplares en dos semanas. La autora había revisado cada poema durante el verano, corrigiéndolos a mano. Teniendo en cuenta los plazos, se pospuso la reunión con la imprenta.\n\nPara la nueva colección se necesita un corrector {e|dominando|que domine|gerundio especificativo: modifica a «corrector»; se reemplaza por un relativo} la normativa y el uso de la hoja de estilo. Se sumaron tres diseñadoras, {e|siendo Ana Ruiz una de ellas.|una de las cuales es Ana Ruiz.|gerundio copulativo (posterioridad disfrazada): se evita con un relativo} Todas trabajan desde sus casas.\n\nEl director dejó la oficina a las seis, {e|llegando|y llegó|gerundio de posterioridad: se coordina con un verbo personal} a su casa a las siete. Fue enviado ayer un informe {e|detallando|que detalla|gerundio especificativo: modifica a «informe»; se reemplaza por un relativo} los gastos del trimestre.",
+   "revisado": true
+  }
+ ]
+}

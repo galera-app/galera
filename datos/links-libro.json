@@ -1,0 +1,116 @@
+{
+ "nota": "Links de la vista Profesional de Cursada. Solo sitios oficiales de organismos, entidades y ferias. verificado: la fecha en que se comprobó que cada sitio responde (algunos sitios argentinos dan error de certificado desde ciertas redes: son los oficiales igual).",
+ "verificado": "2026-10-19",
+ "grupos": [
+  {
+   "grupo": "Registro y trámites",
+   "links": [
+    {
+     "t": "Dirección Nacional del Derecho de Autor",
+     "url": "https://www.argentina.gob.ar/justicia/derechodeautor",
+     "d": "Registro de obras, depósito legal y trámites a distancia."
+    },
+    {
+     "t": "Cámara Argentina del Libro",
+     "url": "https://www.editores.org.ar/",
+     "d": "Gestiona el ISBN en Argentina y reúne a las editoriales."
+    },
+    {
+     "t": "ISBN: Agencia Internacional",
+     "url": "https://www.isbn-international.org/",
+     "d": "Qué es el ISBN y cómo se asigna en cada país."
+    },
+    {
+     "t": "CAICYT-CONICET",
+     "url": "https://www.caicyt.gov.ar/",
+     "d": "Centro nacional del ISSN, para publicaciones periódicas."
+    }
+   ]
+  },
+  {
+   "grupo": "Normas",
+   "links": [
+    {
+     "t": "InfoLEG",
+     "url": "https://www.infoleg.gob.ar/",
+     "d": "Leyes, decretos y disposiciones nacionales, con su texto actualizado."
+    },
+    {
+     "t": "OMPI (WIPO)",
+     "url": "https://www.wipo.int/",
+     "d": "Tratados internacionales de derecho de autor, como el de Berna."
+    }
+   ]
+  },
+  {
+   "grupo": "Entidades del sector",
+   "links": [
+    {
+     "t": "Fundación El Libro",
+     "url": "https://www.el-libro.org.ar/",
+     "d": "Organiza la Feria del Libro de Buenos Aires y la infantil y juvenil."
+    },
+    {
+     "t": "CADRA",
+     "url": "https://www.cadra.org.ar/",
+     "d": "Gestión colectiva de derechos de reprografía de autores y editores."
+    },
+    {
+     "t": "Sociedad Argentina de Escritores (SADE)",
+     "url": "https://sade.org.ar/",
+     "d": "Entidad de autores."
+    },
+    {
+     "t": "Unión Internacional de Editores (IPA)",
+     "url": "https://internationalpublishers.org/",
+     "d": "Libertad de publicar y derechos, a nivel mundial."
+    },
+    {
+     "t": "CERLALC",
+     "url": "https://cerlalc.org/",
+     "d": "Organismo regional: estadísticas y estudios del libro en Iberoamérica."
+    }
+   ]
+  },
+  {
+   "grupo": "Estado y bibliotecas",
+   "links": [
+    {
+     "t": "Cultura de la Nación",
+     "url": "https://www.argentina.gob.ar/cultura",
+     "d": "Políticas, programas y convocatorias del libro y la lectura."
+    },
+    {
+     "t": "Biblioteca Nacional Mariano Moreno",
+     "url": "https://www.bn.gov.ar/",
+     "d": "Recibe el depósito legal y publica el catálogo nacional."
+    },
+    {
+     "t": "CONABIP",
+     "url": "https://www.conabip.gob.ar/",
+     "d": "Comisión Nacional de Bibliotecas Populares."
+    }
+   ]
+  },
+  {
+   "grupo": "Ferias",
+   "links": [
+    {
+     "t": "FIL Guadalajara",
+     "url": "https://www.fil.com.mx/",
+     "d": "Noviembre y diciembre."
+    },
+    {
+     "t": "Bologna Children's Book Fair",
+     "url": "https://www.bolognachildrensbookfair.com/",
+     "d": "Libro infantil y juvenil, en abril."
+    },
+    {
+     "t": "Frankfurter Buchmesse",
+     "url": "https://www.buchmesse.de/en",
+     "d": "La feria profesional más grande, en octubre."
+    }
+   ]
+  }
+ ]
+}

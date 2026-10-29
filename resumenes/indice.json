@@ -1,0 +1,1044 @@
+{
+ "actualizado": "2026-10-29",
+ "nota": "Apuntes propios de Fidel Chaves, hechos para estudiar. No reemplazan la bibliografía ni las clases. Pueden tener errores: si encontrás uno, avisame con 💡 Sugerencias.",
+ "materias": [
+  {
+   "id": "0911",
+   "nombre": "Corrección de Estilo",
+   "anio": 2026,
+   "examen": "los parciales",
+   "apuntes": [
+    {
+     "id": "e1-clases-de-palabras",
+     "t": "Clases de palabras",
+     "clave": "E1",
+     "min": 31,
+     "preguntas": 18
+    },
+    {
+     "id": "e2-saussure-lengua-habla-valor",
+     "t": "Saussure: lingüística estructural (lengua y habla, valor)",
+     "clave": "E2",
+     "min": 13,
+     "preguntas": 15
+    },
+    {
+     "id": "e3-coseriu-sistema-norma-habla",
+     "t": "Coseriu: sistema y norma",
+     "clave": "E3",
+     "min": 10,
+     "preguntas": 15
+    },
+    {
+     "id": "e4-competencias-del-corrector",
+     "t": "García Negroni y Estrada / Pérgola: las competencias del corrector",
+     "clave": "E4",
+     "min": 20,
+     "preguntas": 15
+    },
+    {
+     "id": "e5-cambio-linguistico-sexismo-voseo-neutro",
+     "t": "El cambio lingüístico: sexismo en el lenguaje, voseo y variedad neutra",
+     "clave": "E5",
+     "min": 19,
+     "preguntas": 16
+    },
+    {
+     "id": "e6-prescripcion-descripcion-y-academias",
+     "t": "Prescripción, descripción, estandarización y academias (parte A)",
+     "clave": "E6",
+     "min": 29,
+     "preguntas": 15
+    },
+    {
+     "id": "e6b-academias-y-politica-linguistica-bonnin-lauria",
+     "t": "Academias, instrumentos y política lingüística panhispánica (parte B)",
+     "clave": "E6b",
+     "min": 28,
+     "preguntas": 15
+    },
+    {
+     "id": "e7-funciones-del-lenguaje-jakobson-kerbrat",
+     "t": "Funciones del lenguaje (Jakobson). Críticas y ampliación del modelo (Kerbrat-Orecchioni)",
+     "clave": "E7",
+     "min": 15,
+     "preguntas": 15
+    },
+    {
+     "id": "e8-normas-editoriales-apa-bolivar-tosi",
+     "t": "Normas editoriales y de estilo institucional: APA, tradiciones discursivas y discurso ajeno en manuales",
+     "clave": "E8",
+     "min": 32,
+     "preguntas": 20
+    },
+    {
+     "id": "e9-campo-semantico-y-lexico-escandell-geckeler",
+     "t": "Teoría del campo semántico, estructuración del léxico y procesos cognitivos. Subjetivemas y géneros",
+     "clave": "E9",
+     "min": 20,
+     "preguntas": 15
+    },
+    {
+     "id": "c-complementarios-resumenes",
+     "t": "Textos complementarios (no obligatorios): resúmenes",
+     "clave": "C",
+     "min": 17,
+     "preguntas": 15
+    },
+    {
+     "id": "e10-tipos-de-correccion-y-oficio",
+     "t": "Tipos de corrección, etapas del proceso editorial y lugar del corrector",
+     "clave": "E10",
+     "min": 30,
+     "preguntas": 14
+    },
+    {
+     "id": "e11a-enunciacion-correlacion-de-tiempos-aspecto-lexico",
+     "t": "La enunciación y la correlación de tiempos",
+     "clave": "E11a",
+     "min": 28,
+     "preguntas": 15
+    },
+    {
+     "id": "e11b-aspectualidad-y-estativos-ramirez-gelbes",
+     "t": "Aspectualidad y estativos (Ramírez Gelbes)",
+     "clave": "E11b",
+     "min": 33,
+     "preguntas": 14
+    },
+    {
+     "id": "e12-impersonalidad-y-usos-de-se",
+     "t": "Impersonalidad, sujetos arbitrarios y usos de *se*",
+     "clave": "E12",
+     "min": 19,
+     "preguntas": 14
+    },
+    {
+     "id": "e13a-locutor-ethos-y-generos-editoriales-tosi",
+     "t": "Construcción del locutor, destinatario y ethos autoral; géneros editoriales",
+     "clave": "E13a",
+     "min": 18,
+     "preguntas": 14
+    },
+    {
+     "id": "e13b-formas-no-personales-garcia-negroni-ramirez-gelbes",
+     "t": "Formas no personales del verbo: falsos infinitivos, gerundios y participios",
+     "clave": "E13b",
+     "min": 17,
+     "preguntas": 13
+    },
+    {
+     "id": "e14-formacion-de-palabras-lang",
+     "t": "Formación de palabras (Lang)",
+     "clave": "E14",
+     "min": 16,
+     "preguntas": 14
+    },
+    {
+     "id": "g-gerundios-usos-y-tipos",
+     "t": "Gerundios: usos correctos e incorrectos, tipos de gerundio",
+     "clave": "G",
+     "min": 12,
+     "preguntas": 15
+    },
+    {
+     "id": "m-tiempo-modo-condicionales-y-estructura-argumental",
+     "t": "Tiempo, modo y aspecto: correlación, modalidad, aspectualidad, condicionales y estructura argumental",
+     "clave": "M",
+     "min": 13,
+     "preguntas": 15
+    },
+    {
+     "id": "d-determinativos-subjetivemas-y-convenciones-editoriales",
+     "t": "Determinativos, subjetivemas y convenciones editoriales",
+     "clave": "D",
+     "min": 14,
+     "preguntas": 15
+    },
+    {
+     "id": "p-practicos-reglas-y-signos",
+     "t": "Corrección de Estilo — Apunte único para el primer parcial (29/9/2026)",
+     "clave": "P",
+     "min": 33,
+     "preguntas": 15
+    },
+    {
+     "id": "s-soluciones-practicos",
+     "t": "Solucionario de las ejercitaciones (P01-P07 + modelo Tema 2)",
+     "clave": "S",
+     "min": 48,
+     "preguntas": 0
+    },
+    {
+     "id": "s2-soluciones-p11",
+     "t": "Solucionario P11 · Práctica de 2.º parcial y ejercitación de gerundios",
+     "clave": "S2",
+     "min": 16,
+     "preguntas": 0
+    },
+    {
+     "id": "v-conjugacion-regular",
+     "t": "Conjugación verbal regular (cuadro completo)",
+     "clave": "V",
+     "min": 16,
+     "preguntas": 7
+    },
+    {
+     "id": "pv-verbos-reglas-y-trampas",
+     "t": "PV — Verbos: reglas, correlación de tiempos y trampas",
+     "clave": "PV",
+     "min": 10,
+     "preguntas": 10
+    },
+    {
+     "id": "00-repaso-final",
+     "t": "Repaso final · Corrección de Estilo, 1.er parcial",
+     "clave": "00",
+     "min": 7,
+     "preguntas": 0
+    },
+    {
+     "id": "00-repaso-final-2do-parcial",
+     "t": "Repaso final del 2.º parcial (para leer antes de rendir)",
+     "clave": "00",
+     "min": 4,
+     "preguntas": 0
+    },
+    {
+     "id": "z-simulacro",
+     "t": "Simulacro de primer parcial",
+     "clave": "Z",
+     "min": 6,
+     "preguntas": 0
+    },
+    {
+     "id": "z-simulacro-respuestas",
+     "t": "Respuestas del simulacro",
+     "clave": "Z",
+     "min": 6,
+     "preguntas": 0
+    },
+    {
+     "id": "z2-simulacro-2do-parcial",
+     "t": "Simulacro del 2.º parcial (90 minutos, sin apuntes)",
+     "clave": "Z2",
+     "min": 4,
+     "preguntas": 0
+    },
+    {
+     "id": "z2-simulacro-2do-parcial-respuestas",
+     "t": "Respuestas del simulacro del 2.º parcial",
+     "clave": "Z2",
+     "min": 3,
+     "preguntas": 0
+    },
+    {
+     "id": "z3-simulacro-2do-parcial-b",
+     "t": "Simulacro B del 2.º parcial (90 minutos, sin apuntes)",
+     "clave": "Z3",
+     "min": 3,
+     "preguntas": 0
+    },
+    {
+     "id": "z3-simulacro-2do-parcial-b-respuestas",
+     "t": "Z3_Simulacro-2do-parcial-B_RESPUESTAS",
+     "clave": "Z3",
+     "min": 5,
+     "preguntas": 0
+    }
+   ],
+   "pdfs": []
+  },
+  {
+   "id": "0905",
+   "nombre": "Fundamentos de la Producción de Impresos",
+   "anio": 2026,
+   "examen": "el 1.er parcial",
+   "apuntes": [
+    {
+     "id": "e1-planificacion-y-presupuesto",
+     "t": "La cuestión tecnológica, áreas de producción, planificación y presupuestación",
+     "clave": "E1",
+     "min": 37,
+     "preguntas": 15
+    },
+    {
+     "id": "e2-soportes-y-papel",
+     "t": "Unidad 2: Soportes de impresión y papel",
+     "clave": "E2",
+     "min": 35,
+     "preguntas": 15
+    },
+    {
+     "id": "e3-tipografia-y-archivos",
+     "t": "Unidad 3: Tipografía, tipometría, autoedición y archivos digitales",
+     "clave": "E3",
+     "min": 31,
+     "preguntas": 15
+    },
+    {
+     "id": "e4a-color-tintas-y-tramas",
+     "t": "Color, tintas y tramas (Unidades 4 y 5, primera parte)",
+     "clave": "E4a",
+     "min": 30,
+     "preguntas": 15
+    },
+    {
+     "id": "e4b-preprensa-flujos-y-calidad",
+     "t": "El camino hacia la forma: preprensa, flujos de trabajo y aseguramiento de la calidad",
+     "clave": "E4b",
+     "min": 28,
+     "preguntas": 15
+    },
+    {
+     "id": "e5-sistemas-de-impresion",
+     "t": "Sistemas de impresión",
+     "clave": "E5",
+     "min": 31,
+     "preguntas": 15
+    },
+    {
+     "id": "e6-postprensa-y-encuadernacion",
+     "t": "Postprensa: terminaciones/acabados y encuadernación",
+     "clave": "E6",
+     "min": 22,
+     "preguntas": 15
+    },
+    {
+     "id": "c-calculos",
+     "t": "Cálculos",
+     "clave": "C",
+     "min": 28,
+     "preguntas": 0
+    },
+    {
+     "id": "00-repaso-final",
+     "t": "Repaso final · Fundamentos de la Producción de Impresos, 1.er parcial",
+     "clave": "00",
+     "min": 7,
+     "preguntas": 0
+    },
+    {
+     "id": "z-simulacro",
+     "t": "Simulacro del primer parcial de FPI",
+     "clave": "Z",
+     "min": 5,
+     "preguntas": 0
+    },
+    {
+     "id": "z-simulacro-respuestas",
+     "t": "Simulacro: respuestas",
+     "clave": "Z",
+     "min": 7,
+     "preguntas": 0
+    }
+   ],
+   "pdfs": []
+  },
+  {
+   "id": "0909",
+   "nombre": "Administración de la Empresa Editorial",
+   "anio": 2025,
+   "examen": "los parciales y el final",
+   "apuntes": [
+    {
+     "id": "e1-costos-y-escandallo",
+     "t": "Costos y escandallo",
+     "clave": "E1",
+     "min": 39,
+     "preguntas": 20
+    },
+    {
+     "id": "e2-punto-de-equilibrio",
+     "t": "Punto de equilibrio",
+     "clave": "E2",
+     "min": 36,
+     "preguntas": 20
+    },
+    {
+     "id": "e3-cadena-productiva-y-escuelas",
+     "t": "Cadena productiva, emprendimientos editoriales y escuelas de administración",
+     "clave": "E3",
+     "min": 33,
+     "preguntas": 19
+    },
+    {
+     "id": "e4-decisiones-y-plan-financiero",
+     "t": "Toma de decisiones, plan económico, plan financiero y Gantt",
+     "clave": "E4",
+     "min": 42,
+     "preguntas": 20
+    },
+    {
+     "id": "e5-mercado-y-administracion",
+     "t": "El libro y el mercado; administración de la editorial",
+     "clave": "E5",
+     "min": 26,
+     "preguntas": 15
+    },
+    {
+     "id": "z-simulacro",
+     "t": "Simulacros de Administración de la Empresa Editorial",
+     "clave": "Z",
+     "min": 5,
+     "preguntas": 0
+    },
+    {
+     "id": "z-simulacro-respuestas",
+     "t": "Simulacros: respuestas",
+     "clave": "Z",
+     "min": 7,
+     "preguntas": 0
+    }
+   ],
+   "pdfs": []
+  },
+  {
+   "id": "0902",
+   "nombre": "Introducción a la Actividad Editorial",
+   "anio": 2026,
+   "examen": "el final",
+   "apuntes": [
+    {
+     "id": "e1-el-editor-y-el-ecosistema-del-libro",
+     "t": "El editor, sus actores y el ecosistema del libro",
+     "clave": "E1",
+     "min": 31,
+     "preguntas": 14
+    },
+    {
+     "id": "e2-del-manuscrito-a-la-industria",
+     "t": "Del libro manuscrito a la Revolución Industrial",
+     "clave": "E2",
+     "min": 30,
+     "preguntas": 14
+    },
+    {
+     "id": "e3-editores-libreros-y-lectores",
+     "t": "Editores, libreros y lectores: la historia de la lectura",
+     "clave": "E3",
+     "min": 30,
+     "preguntas": 15
+    },
+    {
+     "id": "e4-campo-mercado-y-bienes-simbolicos",
+     "t": "Campo intelectual, mercado y bienes simbólicos",
+     "clave": "E4",
+     "min": 29,
+     "preguntas": 14
+    },
+    {
+     "id": "e5a-edicion-argentina-editores-y-estado",
+     "t": "Editores y política editorial en Argentina (1)",
+     "clave": "E5a",
+     "min": 26,
+     "preguntas": 14
+    },
+    {
+     "id": "e5b-libros-para-todos-y-modelo-hispanoamericano",
+     "t": "Libros baratos, masificación y modelo hispanoamericano",
+     "clave": "E5b",
+     "min": 22,
+     "preguntas": 14
+    },
+    {
+     "id": "e6-concentracion-y-globalizacion",
+     "t": "Concentración editorial y globalización",
+     "clave": "E6",
+     "min": 27,
+     "preguntas": 14
+    },
+    {
+     "id": "e7-edicion-en-la-era-digital",
+     "t": "La edición en la era digital (Unidad 5)",
+     "clave": "E7",
+     "min": 30,
+     "preguntas": 15
+    },
+    {
+     "id": "e8-inteligencia-artificial-y-edicion",
+     "t": "Inteligencia artificial y sector editorial",
+     "clave": "E8",
+     "min": 22,
+     "preguntas": 15
+    },
+    {
+     "id": "e9-marco-legal-del-libro",
+     "t": "Marco legal del libro en la Argentina",
+     "clave": "E9",
+     "min": 17,
+     "preguntas": 14
+    },
+    {
+     "id": "z-simulacro",
+     "t": "Simulacro de final — Introducción a la Actividad Editorial",
+     "clave": "Z",
+     "min": 7,
+     "preguntas": 0
+    },
+    {
+     "id": "z-simulacro-respuestas",
+     "t": "Simulacro de final — Respuestas y criterios",
+     "clave": "Z",
+     "min": 6,
+     "preguntas": 0
+    }
+   ],
+   "pdfs": [
+    {
+     "t": "Repaso final, para antes del parcial",
+     "archivo": "0902/pdf/00_Repaso-final_antes-del-parcial.pdf"
+    },
+    {
+     "t": "Hoja de repaso: Historia de la tecnica y el editor",
+     "archivo": "0902/pdf/01_Cheat-sheet_Historia-de-la-tecnica-y-el-editor.pdf"
+    },
+    {
+     "t": "Hoja de repaso: Lectura y lectores",
+     "archivo": "0902/pdf/02_Cheat-sheet_Lectura-y-lectores.pdf"
+    },
+    {
+     "t": "Hoja de repaso: Editor y ecosistema",
+     "archivo": "0902/pdf/03_Cheat-sheet_Editor-y-ecosistema.pdf"
+    },
+    {
+     "t": "Hoja de repaso: Edicion argentina",
+     "archivo": "0902/pdf/04_Cheat-sheet_Edicion-argentina.pdf"
+    },
+    {
+     "t": "Hoja de repaso: Concentracion y globalizacion",
+     "archivo": "0902/pdf/05_Cheat-sheet_Concentracion-y-globalizacion.pdf"
+    },
+    {
+     "t": "Hoja de repaso: Era digital e IA",
+     "archivo": "0902/pdf/06_Cheat-sheet_Era-digital-e-IA.pdf"
+    },
+    {
+     "t": "Hoja de repaso: Marco legal",
+     "archivo": "0902/pdf/07_Cheat-sheet_Marco-legal.pdf"
+    }
+   ]
+  },
+  {
+   "id": "0919",
+   "nombre": "Derechos Editoriales y del Autor",
+   "anio": 2026,
+   "examen": "los parciales",
+   "apuntes": [
+    {
+     "id": "e1-introduccion",
+     "t": "Introducción: propiedad intelectual, derecho de autor y cómo leer una sentencia",
+     "clave": "E1",
+     "min": 17,
+     "preguntas": 10
+    },
+    {
+     "id": "e2-objeto",
+     "t": "Objeto del derecho de autor: la obra, la originalidad y el plagio",
+     "clave": "E2",
+     "min": 33,
+     "preguntas": 10
+    },
+    {
+     "id": "e3-titularidad",
+     "t": "Titularidad del derecho de autor",
+     "clave": "E3",
+     "min": 36,
+     "preguntas": 10
+    },
+    {
+     "id": "e4a1-derechos-patrimoniales-copia-y-agotamiento",
+     "t": "E4a1 — Contenido del derecho de autor (I): derechos patrimoniales ligados a la copia y agotamiento",
+     "clave": "E4a1",
+     "min": 21,
+     "preguntas": 10
+    },
+    {
+     "id": "e4a2-comunicacion-publica-y-derechos-morales",
+     "t": "E4a2 — Contenido del derecho de autor (II): comunicación pública, transformación, droit de suite y derechos morales",
+     "clave": "E4a2",
+     "min": 21,
+     "preguntas": 10
+    },
+    {
+     "id": "e4b-excepciones-y-limitaciones",
+     "t": "Excepciones y limitaciones al derecho de autor",
+     "clave": "E4b",
+     "min": 27,
+     "preguntas": 10
+    },
+    {
+     "id": "e4c-privacidad-imagen-libertad-de-expresion",
+     "t": "Privacidad, imagen y libertad de expresión",
+     "clave": "E4c",
+     "min": 22,
+     "preguntas": 10
+    },
+    {
+     "id": "e5-plazo-de-proteccion",
+     "t": "Plazo de protección y dominio público: Heinrich y Walt Disney",
+     "clave": "E5",
+     "min": 23,
+     "preguntas": 10
+    },
+    {
+     "id": "e6-formalidades",
+     "t": "Formalidades: registro, depósito, ISBN y fallos Arce y Bassi",
+     "clave": "E6",
+     "min": 19,
+     "preguntas": 10
+    },
+    {
+     "id": "e7-transmision",
+     "t": "Transmisión del derecho de autor: contrato de edición, cesión y licencia",
+     "clave": "E7",
+     "min": 28,
+     "preguntas": 10
+    },
+    {
+     "id": "e8-gestion-de-derechos",
+     "t": "Gestión de derechos: gestión colectiva y gestión digital",
+     "clave": "E8",
+     "min": 22,
+     "preguntas": 10
+    },
+    {
+     "id": "e9-observancia",
+     "t": "Observancia del derecho de autor: plagio, sanciones y responsabilidad de intermediarios",
+     "clave": "E9",
+     "min": 28,
+     "preguntas": 10
+    }
+   ],
+   "pdfs": []
+  },
+  {
+   "id": "0914",
+   "nombre": "Edición Editorial",
+   "anio": 2026,
+   "examen": "los parciales",
+   "apuntes": [
+    {
+     "id": "e1-historia-del-libro-darnton",
+     "t": "Historia del libro: el circuito de Darnton y qué es un libro",
+     "clave": "E1",
+     "min": 26,
+     "preguntas": 14
+    },
+    {
+     "id": "e2-generos-editoriales-y-etapas-del-proceso",
+     "t": "Géneros editoriales y etapas del proceso de edición",
+     "clave": "E2",
+     "min": 19,
+     "preguntas": 15
+    },
+    {
+     "id": "e3-revoluciones-del-libro-formas-y-partes-del-codice",
+     "t": "Revoluciones del libro, formas y materiales, y partes del códice",
+     "clave": "E3",
+     "min": 27,
+     "preguntas": 15
+    },
+    {
+     "id": "e4a-chartier-memoria-textos-impresos-lecturas",
+     "t": "Chartier: lecturas declaradas y lecturas efectivas",
+     "clave": "E4a",
+     "min": 23,
+     "preguntas": 15
+    },
+    {
+     "id": "e4b-petit-jovenes-y-lectura",
+     "t": "Petit: los jóvenes y la lectura",
+     "clave": "E4b",
+     "min": 24,
+     "preguntas": 15
+    },
+    {
+     "id": "e5-funciones-del-editor-y-edicion-tecnica",
+     "t": "Funciones del editor, historia de la edición y edición técnica",
+     "clave": "E5",
+     "min": 23,
+     "preguntas": 15
+    },
+    {
+     "id": "e6-preedicion-innovacion-y-libros-de-proyecto",
+     "t": "Preedición, innovación y libros de proyecto editorial",
+     "clave": "E6",
+     "min": 31,
+     "preguntas": 15
+    },
+    {
+     "id": "z-simulacro",
+     "t": "Simulacro integrador de Edición Editorial (0914)",
+     "clave": "Z",
+     "min": 5,
+     "preguntas": 0
+    },
+    {
+     "id": "z-simulacro-respuestas",
+     "t": "Respuestas del simulacro integrador (0914)",
+     "clave": "Z",
+     "min": 5,
+     "preguntas": 0
+    }
+   ],
+   "pdfs": []
+  },
+  {
+   "id": "0916",
+   "nombre": "Informática para la Administración Editorial",
+   "anio": 2026,
+   "examen": "los parciales",
+   "apuntes": [
+    {
+     "id": "e1-pensamiento-sistemico",
+     "t": "Pensamiento sistémico",
+     "clave": "E1",
+     "min": 27,
+     "preguntas": 15
+    },
+    {
+     "id": "e2-tipos-de-sistemas-de-informacion",
+     "t": "Tipos de sistemas de información y sistemas transaccionales",
+     "clave": "E2",
+     "min": 29,
+     "preguntas": 14
+    },
+    {
+     "id": "e3-informacion-en-la-empresa-cultural",
+     "t": "Cultura, tecnología e información",
+     "clave": "E3",
+     "min": 29,
+     "preguntas": 15
+    },
+    {
+     "id": "e4-gestion-gerencial-e-informacion-y-diseno",
+     "t": "Gestión gerencial e información y diseño",
+     "clave": "E4",
+     "min": 34,
+     "preguntas": 15
+    },
+    {
+     "id": "z-simulacro",
+     "t": "Simulacro de parcial (Informática para la Administración Editorial, 0916)",
+     "clave": "Z",
+     "min": 5,
+     "preguntas": 0
+    },
+    {
+     "id": "z-simulacro-respuestas",
+     "t": "Respuestas del simulacro",
+     "clave": "Z",
+     "min": 3,
+     "preguntas": 0
+    }
+   ],
+   "pdfs": []
+  },
+  {
+   "id": "0917",
+   "nombre": "Informática para la Producción Editorial",
+   "anio": 2026,
+   "examen": "los parciales",
+   "apuntes": [
+    {
+     "id": "e1-diseno-maquetacion-y-reticula",
+     "t": "Diseño, maquetación y retícula básica",
+     "clave": "E1",
+     "min": 31,
+     "preguntas": 15
+    },
+    {
+     "id": "e2-sistemas-de-reticulas",
+     "t": "Sistemas de retículas",
+     "clave": "E2",
+     "min": 35,
+     "preguntas": 15
+    },
+    {
+     "id": "e3-tipografia",
+     "t": "Tipografía",
+     "clave": "E3",
+     "min": 25,
+     "preguntas": 14
+    },
+    {
+     "id": "e4-principios-de-formacion",
+     "t": "Principios de formación (De Buen)",
+     "clave": "E4",
+     "min": 28,
+     "preguntas": 15
+    },
+    {
+     "id": "e5-color",
+     "t": "Color",
+     "clave": "E5",
+     "min": 19,
+     "preguntas": 15
+    },
+    {
+     "id": "e6-imagen",
+     "t": "Imagen: imagen digital y lectura de la imagen",
+     "clave": "E6",
+     "min": 27,
+     "preguntas": 15
+    },
+    {
+     "id": "e7-experiencia-editorial-e-hipermediaciones",
+     "t": "Experiencia editorial e hipermediaciones",
+     "clave": "E7",
+     "min": 23,
+     "preguntas": 15
+    },
+    {
+     "id": "e8-diseno-inclusivo-y-accesibilidad",
+     "t": "Diseño inclusivo y accesibilidad",
+     "clave": "E8",
+     "min": 26,
+     "preguntas": 15
+    },
+    {
+     "id": "z-simulacro",
+     "t": "Simulacro integrador (Informática para la Producción Editorial, 0917)",
+     "clave": "Z",
+     "min": 4,
+     "preguntas": 0
+    },
+    {
+     "id": "z-simulacro-respuestas",
+     "t": "Respuestas del simulacro integrador (0917)",
+     "clave": "Z",
+     "min": 4,
+     "preguntas": 0
+    }
+   ],
+   "pdfs": []
+  },
+  {
+   "id": "0922",
+   "nombre": "Edición de Publicaciones Periódicas",
+   "anio": 2026,
+   "examen": "el final",
+   "apuntes": [
+    {
+     "id": "e1a-historia-y-teorias-de-la-prensa",
+     "t": "Historia y teorías de la prensa",
+     "clave": "E1a",
+     "min": 20,
+     "preguntas": 15
+    },
+    {
+     "id": "e1b-prensa-argentina-y-politicas-de-comunicacion",
+     "t": "Prensa argentina, regulación y políticas de comunicación",
+     "clave": "E1b",
+     "min": 21,
+     "preguntas": 15
+    },
+    {
+     "id": "e2a-noticia-y-actor-politico",
+     "t": "Noticia, acontecimiento y el periódico como actor político",
+     "clave": "E2a",
+     "min": 29,
+     "preguntas": 14
+    },
+    {
+     "id": "e2b-desinformacion-y-opinion-publica",
+     "t": "Desinformación y opinión pública",
+     "clave": "E2b",
+     "min": 21,
+     "preguntas": 15
+    },
+    {
+     "id": "e3-campo-periodistico",
+     "t": "El campo periodístico (Bourdieu)",
+     "clave": "E3",
+     "min": 22,
+     "preguntas": 14
+    },
+    {
+     "id": "e4a-calidad-periodistica-y-nuevas-tecnologias",
+     "t": "Calidad periodística y nuevas tecnologías",
+     "clave": "E4a",
+     "min": 23,
+     "preguntas": 15
+    },
+    {
+     "id": "e4b-oficio-del-editor-y-fotografia",
+     "t": "El oficio del editor gráfico y la fotografía de prensa",
+     "clave": "E4b",
+     "min": 24,
+     "preguntas": 14
+    },
+    {
+     "id": "e5-edicion-digital",
+     "t": "Acción editorial en soporte digital",
+     "clave": "E5",
+     "min": 21,
+     "preguntas": 15
+    },
+    {
+     "id": "z-simulacro",
+     "t": "Simulacro integrador (Edición de Publicaciones Periódicas, 0922)",
+     "clave": "Z",
+     "min": 8,
+     "preguntas": 0
+    },
+    {
+     "id": "z-simulacro-respuestas",
+     "t": "Respuestas del simulacro integrador (0922)",
+     "clave": "Z",
+     "min": 3,
+     "preguntas": 0
+    }
+   ],
+   "pdfs": [
+    {
+     "t": "Hoja_E1a_Historia y teorias de la prensa",
+     "archivo": "0922/pdf/Hoja_E1a_Historia-y-teorias-de-la-prensa.pdf"
+    },
+    {
+     "t": "Hoja_E1b_Prensa argentina y politicas de comunicacion",
+     "archivo": "0922/pdf/Hoja_E1b_Prensa-argentina-y-politicas-de-comunicacion.pdf"
+    },
+    {
+     "t": "Hoja_E2a_Noticia y actor politico",
+     "archivo": "0922/pdf/Hoja_E2a_Noticia-y-actor-politico.pdf"
+    },
+    {
+     "t": "Hoja_E2b_Desinformacion y opinion publica",
+     "archivo": "0922/pdf/Hoja_E2b_Desinformacion-y-opinion-publica.pdf"
+    },
+    {
+     "t": "Hoja_E3_Campo periodistico",
+     "archivo": "0922/pdf/Hoja_E3_Campo-periodistico.pdf"
+    },
+    {
+     "t": "Hoja_E4a_Calidad periodistica y nuevas tecnologias",
+     "archivo": "0922/pdf/Hoja_E4a_Calidad-periodistica-y-nuevas-tecnologias.pdf"
+    },
+    {
+     "t": "Hoja_E4b_Oficio del editor y fotografia",
+     "archivo": "0922/pdf/Hoja_E4b_Oficio-del-editor-y-fotografia.pdf"
+    },
+    {
+     "t": "Hoja_E5_Edicion digital",
+     "archivo": "0922/pdf/Hoja_E5_Edicion-digital.pdf"
+    }
+   ],
+   "aviso": "Este resumen se hizo a partir de los textos, pero tiene partes por verificar (marcadas como [verificar] o [reconstruido]). Contrastalas con la bibliografía antes de citar.",
+   "faltan": [
+    "Siebert F. y Peterson T. (1967). Tres teorías sobre la prensa en el mundo capitalista. Buenos Aires, De la Flor (págs. 49 a 123).",
+    "Zabaljauregui, Esteban y Dobruskin, Mauro (2006) Historia y crítica de la circulación de publicaciones periódicas. Ficha de cátedra.",
+    "AAVV (2006). “El desafío de la verdad” (Mesa Redonda 1) y “El desafío de la independencia” (Mesa Redonda 7) de Ponencias y Conferencias del Seminario Internacional Desafíos del Periodismo real, en Los Diarios en la Encrucijada del Siglo XXI, Buenos Aires, Clarín (págs. 27 a 45 y 157 a 178).",
+    "Foglia, Marcos. (2015) “El fin de la nostalgia y la gestión exitosa de medios digitales”, en Roitberg, G. Periodismo disruptivo, (págs. 25 a 31), La crujía.",
+    "Pujol, Dolores (2015) “Algoritmos, editores y métricas en el negocio digital”, en Roitberg, G. Periodismo disruptivo, (págs. 64 a 68), La crujía.",
+    "Dobruskin, Mauro (2021). Periodistas en Debate. Aportes al estudio del campo periodístico. Buenos Aires, Ediciones Imago Mundi.",
+    "Belchi, A. (2014) Teaser: La fuerza del primer impacto. En J.M. Pérez Tornero & S. Tejedor (Eds.), Escribir para red (pp. 216-221). Universidad Autónoma de Barcelona",
+    "Camus, J. C. (2009) Tienes cinco segundos. Creative Commons — Atribución NoComercial-CompartirIgual 2.0 Chile — CC BY-NC-SA 2.0 CL \"Tienes 5 segundos\" – en Tienes 5 SegundosLibro PDF | PDF (scribd.com) Capítulos 1 y 2.",
+    "Canavilhas, J. (2007) Investigaciones empíricas sobre webperiodismo: estado de la cuestión. En Webnoticia. Propuesta de modelo periodístico para la WWW. (pp. 79-95). Labcom.",
+    "Martínez, J. (2014) La glocalización: Acercando la información. En J.M. Pérez Tornero & S. Tejedor (Eds.), Escribir para red (pp.222-232). Universidad Autónoma de Barcelona.",
+    "Orihuela, J.L.: «Los nuevos paradigmas de la comunicación», en eCuaderno, 2002 (https://www.ecuaderno.com/paradigmas/).",
+    "Ortuño, X. (2014) La portada: No ha muerto, se está reinventando. En J.M. Pérez Tornero & S. Tejedor (Eds.), Escribir para red (pp. 204-210). Universidad Autónoma de Barcelona",
+    "Salaverría, R. (2014) Cinco maneras infalibles de sacar de quicio a tu lector. En J.M. Pérez Tornero & S. Tejedor (Eds.), Escribir para red (pp. 167-176). Universidad Autónoma de Barcelona.",
+    "Salaverría, R. (2019). “Digital journalism: 25 years of research. Review article”. El profesional de la información, v. 28, n. 1, e280101. https://doi.org/10.3145/epi.2019.ene.01",
+    "Tabares Higuita, L.X. (2014) Las pirámides: las viejas y nuevas “construcciones” del ciberperiodismo. En J.M. Pérez Tornero & S. Tejedor (Eds.), Escribir para red (pp.197-203). Universidad Autónoma de Barcelona."
+   ]
+  },
+  {
+   "id": "0913",
+   "nombre": "Teoría de los Medios y de la Cultura",
+   "anio": 2026,
+   "examen": "los parciales",
+   "apuntes": [
+    {
+     "id": "e1-pensamiento-situado",
+     "t": "¿Qué es hacer teoría? Interseccionalidad y pensamiento situado",
+     "clave": "E1",
+     "min": 23,
+     "preguntas": 14
+    },
+    {
+     "id": "e2-cultura-y-hegemonia",
+     "t": "Cultura/culturas: el enfoque materialista (Unidad 2)",
+     "clave": "E2",
+     "min": 21,
+     "preguntas": 14
+    },
+    {
+     "id": "e3-industria-cultural",
+     "t": "Industrialización de la producción cultural: la industria cultural",
+     "clave": "E3",
+     "min": 24,
+     "preguntas": 14
+    },
+    {
+     "id": "e4a-sujeto-y-poder",
+     "t": "Sujeto y poder: del poder disciplinario a la sociedad algorítmica",
+     "clave": "E4a",
+     "min": 15,
+     "preguntas": 14
+    },
+    {
+     "id": "e4b-sujeto-y-poder",
+     "t": "Campo concentracionario y representación de los desaparecidos",
+     "clave": "E4b",
+     "min": 11,
+     "preguntas": 12
+    },
+    {
+     "id": "e5-arte-y-activismo",
+     "t": "Arte, reproducción y activismo artístico",
+     "clave": "E5",
+     "min": 23,
+     "preguntas": 15
+    },
+    {
+     "id": "z-simulacro",
+     "t": "Simulacro integrador (Teoría de los Medios y de la Cultura, 0913)",
+     "clave": "Z",
+     "min": 5,
+     "preguntas": 0
+    },
+    {
+     "id": "z-simulacro-respuestas",
+     "t": "Respuestas del simulacro integrador (0913)",
+     "clave": "Z",
+     "min": 2,
+     "preguntas": 0
+    }
+   ],
+   "pdfs": [
+    {
+     "t": "Hoja_E1_Pensamiento situado",
+     "archivo": "0913/pdf/Hoja_E1_Pensamiento-situado.pdf"
+    },
+    {
+     "t": "Hoja_E2_Cultura y hegemonia",
+     "archivo": "0913/pdf/Hoja_E2_Cultura-y-hegemonia.pdf"
+    },
+    {
+     "t": "Hoja_E3_Industria cultural",
+     "archivo": "0913/pdf/Hoja_E3_Industria-cultural.pdf"
+    },
+    {
+     "t": "Hoja_E4a_Sujeto y poder",
+     "archivo": "0913/pdf/Hoja_E4a_Sujeto-y-poder.pdf"
+    },
+    {
+     "t": "Hoja_E4b_Sujeto y poder",
+     "archivo": "0913/pdf/Hoja_E4b_Sujeto-y-poder.pdf"
+    },
+    {
+     "t": "Hoja_E5_Arte y activismo",
+     "archivo": "0913/pdf/Hoja_E5_Arte-y-activismo.pdf"
+    }
+   ],
+   "aviso": "Este resumen se hizo a partir de los textos, pero tiene partes por verificar (marcadas como [verificar] o [reconstruido]). Contrastalas con la bibliografía antes de citar.",
+   "faltan": [
+    "Haraway, Donna, “Tres mochilas en Colombia: bolsas para seguir con el problema”, en La teoría de la bolsa de la ficción, Buenos Aires, Rara Avis, pp. 11-23.",
+    "Adorno, Theodor y Horkheimer, Max. 1988, \"La Industria Cultural. Iluminismo como mistificación de masas\", en: Adorno, Theodor y Horkheimer, Max. Dialéctica del iluminismo. Buenos Aires, Sudamericana.",
+    "Película “Pajarito Gomez”, dir. Rodolfo Kuhn, Argentina, 1965."
+   ]
+  }
+ ]
+}

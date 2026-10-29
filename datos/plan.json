@@ -1,0 +1,22 @@
+{
+  "etapas": [
+    {"id": "ahora", "t": "Ahora", "items": [
+      {"id": "sostener", "t": "Cómo se sostiene", "d": "Esta pantalla: cuántas horas lleva Cursada, qué cuesta y cómo ayudar.", "estado": "listo"},
+      {"id": "leyes", "t": "Fichas de leyes del libro y del autor", "d": "Un resumen en palabras simples de las leyes que importan en edición.", "estado": "planeado"},
+      {"id": "resumenes-derecho", "t": "Resúmenes de Derechos Editoriales y del Autor", "d": "Apuntes para estudiar la materia, con autoevaluación.", "estado": "planeado"},
+      {"id": "compartir", "t": "Botón Compartir", "d": "Mandar por WhatsApp o copiar el link de la pantalla que estás viendo.", "estado": "listo"}
+    ]},
+    {"id": "verano", "t": "Verano", "items": [
+      {"id": "simuladores-nuevos", "t": "Simuladores nuevos", "d": "Más calculadoras y mapas para hacer las cuentas del oficio.", "estado": "planeado"},
+      {"id": "contratos", "t": "Generador de contratos para profesionales", "d": "Armar un contrato de edición a partir de modelos, para revisarlo con un abogado.", "estado": "planeado"},
+      {"id": "tarifario", "t": "Tarifario del sector", "d": "Cuánto se cobra por corrección, traducción, diseño y otras tareas editoriales.", "estado": "planeado"},
+      {"id": "mapa-editoriales", "t": "Mapa de editoriales argentinas", "d": "Dónde están las editoriales del país y qué publican.", "estado": "planeado"},
+      {"id": "cinco-secciones", "t": "Nueva organización en 5 secciones con buscador único", "d": "Encontrar todo más rápido, con un solo lugar para buscar.", "estado": "planeado"},
+      {"id": "otro-dispositivo", "t": "Pasar tus datos a otro dispositivo", "d": "Seguir en el celular lo que hiciste en la compu, con un link o un código QR.", "estado": "planeado"}
+    ]},
+    {"id": "cuat1-2027", "t": "1.er cuatrimestre 2027", "items": [
+      {"id": "herramientas-libro", "t": "Herramientas del libro para profesionales", "d": "Utilidades para quienes ya trabajan en edición, más allá de la cursada.", "estado": "planeado"},
+      {"id": "mas-resumenes", "t": "Más resúmenes según los aportes", "d": "Se suman materias y apuntes a medida que llegan textos para armarlos.", "estado": "planeado"}
+    ]}
+  ]
+}

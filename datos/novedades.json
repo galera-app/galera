@@ -1,0 +1,871 @@
+{
+ "nota": "Lo que va en el mail de los lunes (Novedades.gs) y en la pestaña Novedades. v: número de versión (obligatorio; ver CHANGELOG.md). tipo: herramientas | resumenes | fechas. perfil: estudiante (por defecto) | profesional | todos; el mail y la pestaña Novedades lo usan para mostrar a cada perfil lo suyo. materias: ids del plan (vacío = para todas). url: solo links a galera.com.ar/. Sumar una entrada por cada cosa que se publica; el script manda solo lo posterior al último envío de cada persona, así que las viejas no se reenvían.",
+ "novedades": [
+   {
+   "v": 84,
+   "fecha": "2026-10-29",
+   "tipo": "resumenes",
+   "perfil": "estudiante",
+   "materias": ["digital"],
+   "titulo": "Arreglo del nombre de Edición de Publicaciones Periódicas",
+   "texto": "En Resúmenes, la materia 0922 figuraba con otro nombre y como «Para los parciales»; ahora se llama Edición de Publicaciones Periódicas y dice «Para el final»."
+  },
+  {
+   "v": 83,
+   "fecha": "2026-10-28",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "titulo": "Buscador de resúmenes con rótulo y errores más claros",
+   "texto": "El buscador de resúmenes ahora dice qué busca, y los avisos de carga explican que puede ser la conexión."
+  },
+  {
+   "v": 82,
+   "fecha": "2026-10-28",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "titulo": "Cabecera más clara",
+   "texto": "Los íconos de la cabecera quedaron alineados con el menú y, en pantallas anchas, dicen qué hacen (Tus datos, Avisame, Compartir). El grupo «Cursada» del menú pasó a llamarse «El sitio»."
+  },
+  {
+   "v": 81,
+   "fecha": "2026-10-28",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "titulo": "Avisame por mail en el menú Más",
+   "texto": "Ahora podés pedir el aviso de los lunes desde Más, y «Sugerencias» pasó a llamarse «Contame qué falta», como en el resto del sitio."
+  },
+  {
+   "v": 80,
+   "fecha": "2026-10-28",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "titulo": "Tamaños de letra unificados",
+   "texto": "Los títulos y textos del sitio usan una sola escala de tamaños, y el Planificador de libros descargado ya no depende de internet para verse bien. Casi no se nota, pero queda todo más parejo."
+  },
+  {
+   "v": 79,
+   "fecha": "2026-10-28",
+   "tipo": "resumenes",
+   "perfil": "estudiante",
+   "materias": [
+    "0913"
+   ],
+   "titulo": "Resúmenes de Publicaciones Periódicas y Teoría de los Medios",
+   "texto": "Ya están los apuntes de 0922 y 0913, con avisos de lo que falta verificar y de los textos que no tengo. Si tenés alguno, mandámelo."
+  },
+  {
+   "v": 78,
+   "fecha": "2026-10-28",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "titulo": "El inicio ahora dice «Índice»",
+   "texto": "En la portada, el listado de todo el sitio por grupos pasa a llamarse «Índice» en lugar de «Sumario»."
+  },
+  {
+   "v": 76,
+   "fecha": "2026-10-27",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "titulo": "Avisos de error más claros",
+   "texto": "Los avisos de fecha y horario dicen qué falla, el botón de reintento dice «Probar de nuevo» y las comillas son las latinas «así»."
+  },
+  {
+   "v": 77,
+   "fecha": "2026-10-27",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "titulo": "Una portada para empezar",
+   "texto": "Cursada abre ahora en un inicio con todo el sitio ordenado por grupos. Elegís si sos estudiante o profesional del libro y el índice se ordena según lo que hacés; el perfil se cambia cuando quieras."
+  },
+  {
+   "v": 75,
+   "fecha": "2026-10-27",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "titulo": "Esquinas más rectas",
+   "texto": "Tarjetas, botones y campos pasan a un solo radio de esquina, más chico y parejo, como en el sistema de diseño nuevo."
+  },
+  {
+   "v": 74,
+   "fecha": "2026-10-27",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "titulo": "El menú de la cabecera ya se abre en escritorio",
+   "texto": "Arreglamos un error: al tocar Planificar, Estudiar o Descubrir en la computadora, el menú se abría y se cerraba al instante. Ahora se abre y podés elegir la sección.",
+   "materias": [],
+   "url": "https://galera.com.ar/"
+  },
+  {
+   "v": 73,
+   "fecha": "2026-10-27",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "titulo": "Código más ordenado por dentro",
+   "texto": "Seguimos limpiando por dentro: otros 170 estilos repetidos pasaron a clases compartidas. No cambia nada de lo que ves."
+  },
+  {
+   "v": 72,
+   "fecha": "2026-10-27",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "titulo": "Orden interno de colores, tipografías y espacios",
+   "texto": "Por dentro, Cursada ordena sus tamaños de letra en cuatro medidas y separa el azul de los textos del azul de los fondos. Casi no se nota: los textos quedan parejos entre pantallas.",
+   "materias": [],
+   "url": "https://galera.com.ar/"
+  },
+  {
+   "v": 71,
+   "fecha": "2026-10-27",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "titulo": "Avisos que no se pisan y tablas más claras en el celular",
+   "texto": "Al guardar una copia, Cursada te avisa dónde quedó y te recuerda guardarla en un lugar seguro. Los avisos salen arriba, así no chocan con la barra de cookies ni con las invitaciones. En el celular, Estado y Nota tienen rótulo a la vista, y las grillas que se desplazan de costado muestran una sombra en el borde.",
+   "materias": [],
+   "url": "https://galera.com.ar/"
+  },
+  {
+   "v": 70,
+   "fecha": "2026-10-27",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "titulo": "Cursada carga más liviana",
+   "texto": "El mapa del Directorio se descarga recién cuando abrís esa pantalla: el resto del sitio arranca con 50 KB menos.",
+   "materias": [],
+   "url": "https://galera.com.ar/"
+  },
+  {
+   "v": 69,
+   "fecha": "2026-10-27",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "titulo": "Cabecera, navegación y pie renovados, primera visita sin ventana y confirmaciones claras",
+   "texto": "La cabecera agrupa las secciones en Planificar, Estudiar, Herramientas, Descubrir y Cursada, con un botón para pasar a modo oscuro o claro; el pie ordena los mismos grupos en columnas. Si es tu primera vez, ya no te pregunto nada antes de mostrarte el sitio: arriba hay una franja para pasar al perfil de quienes trabajan con libros. Las confirmaciones (reemplazar una copia, borrar tus datos, salir de una partida del Arcade) tienen botones que dicen lo que hacen, y las acciones que se repetían tienen un solo nombre: Tus datos, Guardar una copia, Avisame por mail, Contame qué falta, Sostener y Ajustes.",
+   "materias": [],
+   "url": "https://galera.com.ar/"
+  },
+  {
+   "v": 68,
+   "fecha": "2026-10-27",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "titulo": "La Biblioteca marca los textos que faltan en Teoría de los Medios y en Periodísticas",
+   "texto": "En las listas de lectura de Teoría de los Medios y de la Cultura (0913) y de Estructura y Edición de Publicaciones Periodísticas (0922) ahora se ve cuáles textos del programa todavía no tenemos, con un botón para avisarme si vos los tenés. También se arreglaron dos referencias de Derechos Editoriales (0919) y Fundamentos de Informática (0915) para que coincidan con el programa.",
+   "materias": [
+    "0913",
+    "0915",
+    "0919"
+   ],
+   "url": "https://galera.com.ar/"
+  },
+  {
+   "v": 67,
+   "fecha": "2026-10-27",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "titulo": "El Directorio suma 98 fichas: imprentas, distribuidoras, librerías y editoriales",
+   "texto": "Sumamos 17 imprentas de libros, 8 distribuidoras, 46 librerías (con muchas del interior), 26 editoriales y una papelera. Cada ficha enlaza su fuente y la fecha en que se leyó; no hay domicilios ni teléfonos. Siguen siendo listas parciales: si falta alguien, avisanos en Sugerencias.",
+   "url": "https://galera.com.ar/"
+  },
+  {
+   "v": 66,
+   "fecha": "2026-10-26",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "titulo": "Los simuladores pasan a llamarse Herramientas y el celular se ordena en grupos",
+   "texto": "Los simuladores son herramientas de trabajo (escandallo, cálculo de papel, cronograma, contratos), así que ahora se llaman Herramientas. En el celular, la barra de abajo agrupa las secciones y las pestañas del grupo quedan siempre a la vista. Si cargás una nota menor a 4, el aviso aparece junto al campo, no borra lo que escribiste y te deja cargarla como aplazo. Quienes trabajan con libros ahora también ven los Resúmenes.",
+   "materias": [],
+   "url": "https://galera.com.ar/"
+  },
+  {
+   "v": 65,
+   "fecha": "2026-10-25",
+   "tipo": "herramientas",
+   "perfil": "estudiante",
+   "titulo": "Logros para compartir, guía del ingresante y apuntes de la comunidad",
+   "texto": "Tus logros («Aprobé el 50 % de la carrera») salen como imagen sobria, sin nombre ni notas. Al aprobar una materia te preguntamos si querés dejar tu apunte para quien viene detrás, y ahora podés sumar tu resumen a cada materia (me escribís por mail y lo reviso antes de publicarlo). Hay una guía del ingresante con qué anotarte en el primer cuatrimestre y un mapa del orden recomendado para compartir. Y en Horarios, «Qué voy a cursar» arma el mensaje para pasarle al grupo.",
+   "materias": [],
+   "url": "https://galera.com.ar/ingresantes/"
+  },
+  {
+   "v": 64,
+   "fecha": "2026-10-24",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "titulo": "Compartir es más fácil: imágenes, QR, desafíos y app instalable",
+   "texto": "Podés pasar tu resultado de una autoevaluación, tu avance o tu semana de horarios como imagen (sin nombre ni datos personales), sacar un QR de cualquier pantalla, mandar tu horario en un link de solo lectura, pasarle tu plan a un amigo sin tus notas y desafiar a alguien en el Arcade con las mismas preguntas. Además, Cursada se puede instalar en el celular y abre también sin conexión. El Directorio suma 95 editoriales más.",
+   "materias": [],
+   "url": "https://galera.com.ar/"
+  },
+  {
+   "v": 63,
+   "fecha": "2026-10-24",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "titulo": "Directorio con índice de la A a la Z y pantallas de carga más claras",
+   "texto": "En el Directorio podés saltar a una letra para encontrar rápido una editorial o una librería. Además, el logo se ve bien también en modo oscuro y los textos «Cargando…» llevan un indicador de espera.",
+   "materias": [],
+   "url": "https://galera.com.ar/directorio/"
+  },
+  {
+   "v": 62,
+   "fecha": "2026-10-24",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "titulo": "Directorio: más de 2.000 fichas y más fácil de recorrer",
+   "texto": "Sumamos 500 editoriales del registro oficial del Ministerio de Cultura, unimos las repetidas y ordenamos todo de la A a la Z. Ahora podés filtrar por provincia con una lista (además del mapa) y quedarte solo con las que tienen sitio web.",
+   "materias": [],
+   "url": "https://galera.com.ar/directorio/"
+  },
+  {
+   "v": 61,
+   "fecha": "2026-10-23",
+   "tipo": "herramientas",
+   "perfil": "estudiante",
+   "titulo": "Arcade: ya hay top de todos",
+   "texto": "Las marcas del Arcade de Corrección de Estilo se suman a un top compartido con tres letras. Para verlo, tocá 🏆 Top en cada tablero.",
+   "materias": [
+    "0911"
+   ],
+   "url": "https://galera.com.ar/arcade/"
+  },
+  {
+   "v": 60,
+   "fecha": "2026-10-22",
+   "tipo": "herramientas",
+   "perfil": "estudiante",
+   "titulo": "Arcade de Corrección de Estilo: preguntas con tres vidas y tocar el error",
+   "texto": "Una sala de juego aparte y opcional para el 2.º parcial: preguntas de los resúmenes con tres vidas, racha y récords (1.er parcial, 2.º parcial o Final), y un Práctico donde se toca el error en un texto. Se entra desde Resúmenes → Corrección de Estilo. Practicar sigue sin puntaje.",
+   "materias": [
+    "0911"
+   ],
+   "url": "https://galera.com.ar/arcade/"
+  },
+  {
+   "v": 59,
+   "fecha": "2026-10-22",
+   "tipo": "resumenes",
+   "perfil": "estudiante",
+   "titulo": "Resúmenes de Edición Editorial y de las dos Informáticas",
+   "texto": "Se sumaron a Resúmenes los apuntes de Edición Editorial (0914), Informática para la Administración Editorial (0916) e Informática para la Producción Editorial (0917), con autoevaluaciones y un simulacro integrador con respuestas en cada una. Están en borrador y lo avisan arriba: contrastalos con la bibliografía.",
+   "materias": [
+    "0914",
+    "0916",
+    "0917"
+   ],
+   "url": "https://galera.com.ar/"
+  },
+  {
+   "v": 58,
+   "fecha": "2026-10-21",
+   "tipo": "resumenes",
+   "perfil": "estudiante",
+   "titulo": "Corrección de Estilo: apuntes y simulacros para el 2.º parcial",
+   "texto": "Se sumaron a Resúmenes los apuntes de las clases 10 a 14 (tipos de corrección, enunciación y tiempos, aspecto, impersonalidad y «se», locutor y formas no personales, formación de palabras), gerundios, tiempo y modo, determinativos y subjetivemas, el repaso final del 2.º parcial dos simulacros con respuestas y los solucionarios de las prácticas. Los que están en borrador lo avisan arriba.",
+   "materias": [
+    "0911"
+   ],
+   "url": "https://galera.com.ar/"
+  },
+  {
+   "v": 57,
+   "fecha": "2026-10-21",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "titulo": "Pasá tus datos a otro dispositivo",
+   "texto": "En «Mis datos» hay un botón nuevo: «Pasar a otro dispositivo». Te da un QR y un link con tus notas, fechas y horarios adentro, sin cuentas ni servidores. Lo abrís en el celular o en la compu y, antes de reemplazar lo que haya, te pide confirmar.",
+   "materias": [],
+   "url": "https://galera.com.ar/"
+  },
+  {
+   "v": 56,
+   "fecha": "2026-10-21",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "titulo": "Más cuidado con los datos que escribís",
+   "texto": "Todos los campos tienen un largo máximo, y el mail de la suscripción y el de las sugerencias se revisan antes de enviarse. Un mail mal escrito se avisa al instante.",
+   "materias": [],
+   "url": "https://galera.com.ar/"
+  },
+  {
+   "v": 55,
+   "fecha": "2026-10-21",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "titulo": "El escandallo y el comparador explican cómo hacer la cuenta a mano",
+   "texto": "Debajo del simulador de escandallo y del comparador de títulos hay una sección nueva, «Cómo se hace a mano», con el método paso a paso para resolver cualquier ejercicio con lápiz y calculadora. Debajo de cada paso aparece la cuenta con las cifras que cargaste.",
+   "materias": [
+    "0909"
+   ],
+   "url": "https://galera.com.ar/simuladores/escandallo.html"
+  },
+  {
+   "v": 54,
+   "fecha": "2026-10-20",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "titulo": "La Biblioteca junta todos los libros en un solo lugar",
+   "texto": "Los libros recomendados, la colección «Libros sobre Libros» y más de 500 libros de la bibliografía de los programas de la carrera ahora están en una sola lista. Se filtra por origen, tema y materia, y cada ficha muestra qué materias lo piden y si es obligatorio o complementario.",
+   "materias": [],
+   "url": "https://galera.com.ar/biblioteca/"
+  },
+  {
+   "v": 53,
+   "fecha": "2026-10-20",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "titulo": "Todas las pestañas tienen el mismo ancho",
+   "texto": "La página ya no cambia de tamaño al pasar de una pestaña a otra: todas usan el mismo ancho y los textos largos mantienen una medida cómoda para leer. Además, en el mapa del Directorio ahora se ve el número de Salta (y el de Tierra del Fuego).",
+   "materias": [],
+   "url": "https://galera.com.ar/"
+  },
+  {
+   "v": 52,
+   "fecha": "2026-10-20",
+   "tipo": "herramientas",
+   "perfil": "profesional",
+   "titulo": "El Directorio suma 250 editoriales independientes",
+   "texto": "Sumamos las editoriales argentinas que expusieron en la Feria de Editores (FED) 2025 y 2026: nombre, temáticas y años de participación, con la fuente. La FED no informa provincia ni sitio web, así que estas fichas salen sin provincia. Las 18 que ya estaban muestran además en qué FED estuvieron.",
+   "materias": [],
+   "url": "https://galera.com.ar/directorio/"
+  },
+  {
+   "v": 51,
+   "fecha": "2026-10-20",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "titulo": "Biblioteca: libros sobre libros y revistas del sector",
+   "texto": "La Biblioteca ahora tiene tres solapas. «Libros sobre libros» reúne 28 títulos de la colección del FCE sobre edición, industria, historia de la lectura, tipografía y derechos, con autor, año, ISBN y link a la ficha del editor. «Publicaciones periódicas» lista 32 medios, revistas académicas e informes del sector, separados por idioma: español, inglés, portugués, alemán y francés. Además, la Biblioteca ya está disponible para el perfil profesional y suma dos libros de la bibliografía de la carrera.",
+   "materias": [],
+   "url": "https://galera.com.ar/biblioteca/"
+  },
+  {
+   "v": 50,
+   "fecha": "2026-10-20",
+   "tipo": "fechas",
+   "perfil": "estudiante",
+   "titulo": "Horarios de idiomas en Horarios",
+   "texto": "Ya figuran los horarios de inglés, francés, alemán, italiano y portugués del 2.º cuatrimestre 2026 (72 comisiones, con docente, días y modalidad). No venían en la planilla de la Facultad: los publica el Departamento de Lenguas Modernas en su blog y los sumamos para que puedas armar tu semana con todo junto. Tildá «Inglés, nivel 1» (o el idioma que cursés) en la pestaña Horarios.",
+   "materias": [
+    "ingles1",
+    "ingles2",
+    "ingles3",
+    "idioma2"
+   ],
+   "url": "https://galera.com.ar/#horarios"
+  },
+  {
+   "v": 49,
+   "fecha": "2026-10-20",
+   "tipo": "fechas",
+   "perfil": "profesional",
+   "titulo": "Eventos suma convocatorias y subsidios",
+   "texto": "La pestaña Eventos ahora incluye convocatorias del sector con su fecha de cierre y fuente oficial: premio y programa del Fondo Nacional de las Artes para editoriales, becas de movilidad para ferias, recursos de la CONABIP, Programa Sur, Fondo Metropolitano y Mecenazgo de la Ciudad. Las fechas de 2027 que todavía no publicó cada organismo figuran como «a confirmar», con la estimada según la edición anterior.",
+   "materias": [],
+   "url": "https://galera.com.ar/eventos/"
+  },
+  {
+   "v": 48,
+   "fecha": "2026-10-20",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "titulo": "Glosario: conexiones más precisas",
+   "texto": "Revisamos las líneas del grafo del glosario: sacamos las que salían de coincidencias de palabras sin vínculo real y sumamos conexiones entre términos que se definen uno con otro, como los márgenes de contribución, los costos globales o la escena de enunciación.",
+   "materias": [],
+   "url": "https://galera.com.ar/glosario/"
+  },
+  {
+   "v": 47,
+   "fecha": "2026-10-20",
+   "tipo": "herramientas",
+   "perfil": "profesional",
+   "titulo": "El Directorio suma productores de papel",
+   "texto": "Nueva solapa con las papeleras que fabrican papel para impresión y edición (papel obra, de diarios, cartulina): provincia, localidad de la planta, tipo de papel y la fuente oficial. Por ahora son pocas, porque el papel ilustración se importa.",
+   "materias": [],
+   "url": "https://galera.com.ar/directorio/"
+  },
+  {
+   "v": 46,
+   "fecha": "2026-10-20",
+   "tipo": "resumenes",
+   "perfil": "estudiante",
+   "titulo": "Resúmenes de Derechos Editoriales y del Autor (borrador)",
+   "texto": "Ya están los apuntes de las nueve unidades de Derechos Editoriales y del Autor, con los fallos de la cursada y autoevaluación de cada unidad. Son un borrador: todavía no los revisó una persona del área, así que contrastá los artículos y los plazos con la ley.",
+   "materias": [
+    "0919"
+   ],
+   "url": "https://galera.com.ar/r/0919/"
+  },
+  {
+   "v": 45,
+   "fecha": "2026-10-20",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "titulo": "Más fácil de tocar en el celular",
+   "texto": "Revisamos todo el sitio en pantalla de celular, en modo claro y oscuro. Botones, links chicos, signos de ayuda, listas desplegables y casillas ahora tienen un área de toque cómoda, y un par de textos con poco contraste en modo oscuro se leen mejor. También corregimos links de la bibliografía de Derecho que no abrían.",
+   "materias": [],
+   "url": "https://galera.com.ar/"
+  },
+  {
+   "v": 44,
+   "fecha": "2026-10-20",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "titulo": "El glosario, como grafo de conceptos",
+   "texto": "Además de la lista, ahora podés ver los 210 términos como un grafo: cada punto es un término y cada línea une dos términos cuando la definición de uno nombra al otro. Tocás un punto y ves su definición y con qué se conecta; filtrás por materia, acercás y arrastrás. En la lista, cada término trae su «Relacionado con».",
+   "materias": [],
+   "url": "https://galera.com.ar/glosario/"
+  },
+  {
+   "v": 43,
+   "fecha": "2026-10-20",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "titulo": "El Directorio ya tiene librerías",
+   "texto": "Más de 1.300 librerías de todo el país, de los datos abiertos del Ministerio de Cultura y de la Ciudad de Buenos Aires, para buscar por nombre, provincia o barrio. Imprentas y distribuidoras siguen sin una lista pública confiable.",
+   "materias": [],
+   "url": "https://galera.com.ar/directorio/"
+  },
+  {
+   "v": 42,
+   "fecha": "2026-10-20",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "titulo": "Todas las fuentes, en una sola página",
+   "texto": "El pie ahora tiene un único link «Fuentes» con de dónde sale cada dato del sitio: plan, calendario, horarios, directorio, eventos, tarifas y leyes.",
+   "materias": [],
+   "url": "https://galera.com.ar/fuentes/"
+  },
+  {
+   "v": 41,
+   "fecha": "2026-10-19",
+   "tipo": "herramientas",
+   "perfil": "profesional",
+   "titulo": "Tarifario de referencia",
+   "texto": "Los tarifarios que publican colegios, asociaciones y universidades para traducción, corrección, diseño e ilustración: quién los publica, en qué unidad, de qué fecha y dónde ver los valores. Son orientativos.",
+   "materias": [],
+   "url": "https://galera.com.ar/simuladores/tarifario.html"
+  },
+  {
+   "v": 40,
+   "fecha": "2026-10-19",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "titulo": "El Directorio ahora tiene el mapa de Argentina",
+   "texto": "En el Directorio, las provincias se tocan sobre el mapa real del país (con la cantidad de fichas en cada una) para filtrar editoriales, imprentas, distribuidoras y librerías.",
+   "materias": [],
+   "url": "https://galera.com.ar/directorio/"
+  },
+  {
+   "v": 39,
+   "fecha": "2026-10-19",
+   "tipo": "herramientas",
+   "perfil": "profesional",
+   "titulo": "Contratos modelo: traducción y edición",
+   "texto": "Completás los datos y armás un borrador de contrato de traducción (según el modelo de la AATI) o de edición (según los arts. 37 a 44 de la Ley 11.723), con la fuente de cada cláusula. Es un borrador orientativo, no asesoramiento legal.",
+   "materias": [],
+   "url": "https://galera.com.ar/simuladores/contratos.html"
+  },
+  {
+   "v": 38,
+   "fecha": "2026-10-19",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "titulo": "Nueva pestaña Configuración",
+   "texto": "Cambiar entre estudiante y profesional del libro ahora se hace desde la última pestaña, Configuración, junto con la copia de seguridad y los avisos. En el pie sumamos un botón para visitar mi sitio.",
+   "materias": [],
+   "url": "https://galera.com.ar/"
+  },
+  {
+   "v": 37,
+   "fecha": "2026-10-19",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "titulo": "Cambiar de perfil con un toque y pie más corto",
+   "texto": "El selector entre estudiante y profesional del libro ahora está siempre a la vista, arriba, también en la compu. Y el pie de la página quedó más corto.",
+   "materias": [],
+   "url": "https://galera.com.ar/"
+  },
+  {
+   "v": 36,
+   "fecha": "2026-10-19",
+   "tipo": "herramientas",
+   "perfil": "profesional",
+   "titulo": "Planificador de libros: seguimiento y descarga",
+   "texto": "Ahora el planificador sigue el avance de cada tarea, con fechas reales y una línea base para ver el desvío. Y lo podés bajar como un solo archivo .html que anda sin internet.",
+   "materias": [],
+   "url": "https://galera.com.ar/libro/cronograma/"
+  },
+  {
+   "v": 35,
+   "fecha": "2026-10-19",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "titulo": "Novedades por perfil y más leyes del libro",
+   "texto": "Si sos profesional del libro, Novedades te muestra solo lo que te toca, y en el mail de los lunes podés elegir «Novedades para profesionales del libro». En Leyes del libro sumamos el Convenio de Berna, el WCT y el WPPT.",
+   "materias": [],
+   "url": "https://galera.com.ar/"
+  },
+  {
+   "v": 34,
+   "fecha": "2026-10-19",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "titulo": "Nuevo: elegí si sos profesional del libro o estudiante",
+   "texto": "Al entrar te pregunto qué te representa. Si sos profesional del libro, ves herramientas, un calendario de ferias y eventos de la industria con su fuente oficial, y links del sector (registro, ISBN, entidades y bibliotecas), sin las pestañas de la carrera. Si sos estudiante, todo sigue igual. Lo cambiás cuando quieras desde Más.",
+   "materias": [],
+   "url": "https://galera.com.ar/eventos/"
+  },
+  {
+   "v": 33,
+   "fecha": "2026-10-19",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "titulo": "Nuevo: Leyes del libro (borrador)",
+   "texto": "Las normas de Derechos Editoriales y del Autor ordenadas en una pirámide —qué manda sobre qué— con una ficha de cada una y su link oficial, y un traductor que pasa los términos jurídicos a castellano común con ejemplos de editorial. Es un borrador que estoy revisando con la cátedra y no es asesoramiento legal.",
+   "materias": [
+    "0919"
+   ],
+   "url": "https://galera.com.ar/simuladores/leyes.html"
+  },
+  {
+   "v": 32,
+   "fecha": "2026-10-19",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "titulo": "Nuevo: Directorio del libro",
+   "texto": "Una pestaña con editoriales de todo el país (104 por ahora) para buscar por nombre, línea o provincia, con mapa y el enlace a la fuente pública de cada una. Imprentas, distribuidoras y librerías se van sumando; podés sugerir las que falten.",
+   "materias": [],
+   "url": "https://galera.com.ar/directorio/"
+  },
+  {
+   "v": 31,
+   "fecha": "2026-10-17",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "titulo": "Nuevo simulador: formatos de papel y serie A",
+   "texto": "Los tamaños de papel de Fundamentos de la Producción de Impresos (serie A, pliegos y libros) dibujados a escala, con la relación de aspecto de cada uno. Podés doblar un A3 a la mitad y comprobar por qué la serie A conserva su forma, y qué pasa con un libro de 14 × 21.",
+   "materias": [],
+   "url": "https://galera.com.ar/simuladores/formatos.html"
+  },
+  {
+   "v": 30,
+   "fecha": "2026-10-17",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "titulo": "Planificador de libros: catálogo y responsables",
+   "texto": "Ahora podés guardar varios libros y verlos juntos en un catálogo, con una barra por título y sus hitos. También asignás responsables a cada tarea (o al equipo por rol) y filtrás lo que le toca a cada persona.",
+   "materias": [],
+   "url": "https://galera.com.ar/libro/cronograma/"
+  },
+  {
+   "v": 29,
+   "fecha": "2026-10-17",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "titulo": "Nuevo: Planificador de libros",
+   "texto": "Armá el cronograma de un libro del original a la reimpresión: plantillas por tipo de libro, dependencias con retardo, días hábiles con feriados y fecha de salida hacia atrás. Lo mirás como Gantt, PERT o Roy y lo exportás a PDF, calendario, planilla o copia completa.",
+   "materias": [],
+   "url": "https://galera.com.ar/libro/cronograma/"
+  },
+  {
+   "v": 28,
+   "fecha": "2026-10-17",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "titulo": "Nuevo simulador: cronograma con Gantt, PERT y Roy",
+   "texto": "Planificá la producción de un libro con tres métodos sobre las mismas tareas: barras de Gantt, red PERT con la probabilidad de llegar a tiempo y red de Roy con ruta crítica y holguras. Usá cada uno por separado o compará los tres.",
+   "materias": [
+    "0905"
+   ],
+   "url": "https://galera.com.ar/simuladores/cronograma.html"
+  },
+  {
+   "v": 27,
+   "fecha": "2026-10-15",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "titulo": "Nueva pantalla: Cómo se sostiene Cursada",
+   "texto": "Una pantalla en «Más» cuenta cuántas horas de trabajo lleva Cursada, qué cuesta, cómo ayudar si querés y el plan de lo que viene, con el estado de cada cosa. El botón de donar ahora lleva ahí.",
+   "materias": [],
+   "url": "https://galera.com.ar/#sostener"
+  },
+  {
+   "v": 26,
+   "fecha": "2026-10-15",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "titulo": "Botón Compartir y pie de página ordenado",
+   "texto": "Nuevo botón Compartir para mandar la pantalla que estás viendo, y el pie quedó en cuatro grupos claros. «Novedades» en la cabecera pasó a llamarse «Recibir por mail». Arreglo: en la paginación, 4.6 y 4,6 ahora valen lo mismo; los campos se ven mejor y los avisos de error duran más y dicen qué hacer.",
+   "materias": [],
+   "url": "https://galera.com.ar/"
+  },
+  {
+   "v": 25,
+   "fecha": "2026-10-15",
+   "tipo": "resumenes",
+   "perfil": "estudiante",
+   "titulo": "Resúmenes de Introducción a la Actividad Editorial",
+   "texto": "Nueve apuntes sobre los prácticos de IAE, uno sobre el marco legal (leyes del libro), simulacro, siete hojas de repaso y un repaso final. Son un borrador armado desde los textos: los datos marcados [verificar] no están confirmados.",
+   "materias": [
+    "0902"
+   ],
+   "url": "https://galera.com.ar/#resumenes/0902"
+  },
+  {
+   "v": 24,
+   "fecha": "2026-10-15",
+   "tipo": "herramientas",
+   "perfil": "estudiante",
+   "titulo": "Navegación más cómoda en el celular",
+   "texto": "En el celular, las secciones están abajo, al alcance del pulgar, con un menú «Más» para el resto, y las materias se leen como una lista. En la compu, el resumen de tu avance queda fijo al costado y la pantalla se aprovecha mejor.",
+   "materias": [],
+   "url": "https://galera.com.ar/"
+  },
+  {
+   "v": 23,
+   "fecha": "2026-10-14",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "titulo": "Nuevo simulador: Ecosistema del libro",
+   "texto": "Un mapa con los actores del mundo editorial como nodos de un grafo: tocás uno y ves con quién se vincula. Tiene un recorrido paso a paso de un libro y una práctica de quién es quién (para Introducción a la Actividad Editorial). Suma también 86 términos al glosario y marca en la bibliografía los textos que faltan.",
+   "materias": [
+    "0902"
+   ],
+   "url": "https://galera.com.ar/#simuladores/ecosistema"
+  },
+  {
+   "v": 22,
+   "fecha": "2026-10-14",
+   "tipo": "herramientas",
+   "perfil": "estudiante",
+   "titulo": "Ayudas para ver cuánto avanzaste (y apagarlas)",
+   "texto": "Al terminar una ronda de Practicar ves cómo te fue contra la vez anterior y qué apuntes mirar; cada apunte muestra si está fresco o podés repasarlo; los simuladores de paginación y de escandallo suman retos opcionales; y en Mis datos hay un registro de lo que ya hiciste. Sin puntos ni rachas, y se apagan con un interruptor en Mis datos.",
+   "materias": [],
+   "url": "https://galera.com.ar/"
+  },
+  {
+   "v": 21,
+   "fecha": "2026-10-14",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "titulo": "Lo que pidieron, ahora en Novedades",
+   "texto": "Lo que pidieron vuelve, ahora dentro de Novedades: ves el estado de cada pedido y en qué versión salió.",
+   "materias": [],
+   "url": "https://galera.com.ar/#novedades"
+  },
+  {
+   "v": 20,
+   "fecha": "2026-10-14",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "titulo": "Más privacidad y seguridad",
+   "texto": "Google Analytics ya no se carga hasta que lo aceptás, al importar una copia se te avisa antes de reemplazar tus datos (y se descarga una copia de lo que tenías), los mails de novedades son más cuidados y los contactos del buzón se borran a los 6 meses.",
+   "materias": [],
+   "url": "https://galera.com.ar/"
+  },
+  {
+   "v": 19,
+   "fecha": "2026-10-13",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "titulo": "Simulador nuevo: esquema de paginación",
+   "texto": "Tildá las partes de un libro (portada, índice, prólogo, capítulos, colofón…), cargá cuántas páginas lleva cada una y mirá en qué página cae, cuáles quedan en blanco y cuántas faltan para completar el pliego. De Fundamentos de la Producción de Impresos.",
+   "materias": [
+    "0905"
+   ],
+   "url": "https://galera.com.ar/#simuladores/paginacion"
+  },
+  {
+   "v": 18,
+   "fecha": "2026-10-13",
+   "tipo": "herramientas",
+   "perfil": "estudiante",
+   "titulo": "Aviso de notas que faltan para tu promedio",
+   "texto": "En Mi carrera, si tenés materias aprobadas sin nota, un aviso te dice cuántas faltan y te lleva a cargarlas para ver tu promedio.",
+   "materias": [],
+   "url": "https://galera.com.ar/"
+  },
+  {
+   "v": 17,
+   "fecha": "2026-10-13",
+   "tipo": "herramientas",
+   "perfil": "estudiante",
+   "titulo": "Tesina: qué es, cómo se estructura y ejemplos",
+   "texto": "En Lo básico y en Links útiles: en qué consiste la tesina, la estructura de las tres tesinas de Edición publicadas en el Repositorio de Filo y los links para leerlas.",
+   "materias": [],
+   "url": "https://galera.com.ar/#links"
+  },
+  {
+   "v": 16,
+   "fecha": "2026-10-13",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "titulo": "Compartí cada simulador con su vista previa",
+   "texto": "Cada simulador tiene su propia página, con imagen y descripción al compartirlo por WhatsApp o redes, y un botón Compartir. La portada de Cursada también se ve bien al compartirla.",
+   "materias": [],
+   "url": "https://galera.com.ar/#simuladores"
+  },
+  {
+   "v": 15,
+   "fecha": "2026-10-13",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "titulo": "Simuladores: nuevo cálculo de papel e imposición",
+   "texto": "La pestaña Escandallo pasó a ser Simuladores, con una tarjeta por simulador y ordenados por materia. Se suma el cálculo de papel de Fundamentos de la Producción de Impresos: para interiores o tapa, con calles, pinza, cola e imposición, te da pliegos, resmas, kilos y costo, y compara los formatos de pliego.",
+   "materias": [
+    "0905"
+   ],
+   "url": "https://galera.com.ar/#simuladores/papel"
+  },
+  {
+   "v": 14,
+   "fecha": "2026-10-13",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "titulo": "Pestaña Novedades: todo lo que se fue sumando",
+   "texto": "Reemplaza a Pedidos. Tiene el registro completo de Cursada, de la primera versión a la última, con el mismo formato que el mail de los lunes. Ahí mismo podés pedir recibir las novedades.",
+   "materias": [],
+   "url": "https://galera.com.ar/#novedades"
+  },
+  {
+   "v": 13,
+   "fecha": "2026-10-11",
+   "tipo": "herramientas",
+   "perfil": "estudiante",
+   "titulo": "Mi carrera, más simple para empezar",
+   "texto": "Si todavía no cargaste nada, marcás de una vez las materias que aprobaste o estás cursando, o mirás cómo queda con un ejemplo. El promedio dice sobre cuántas notas se calcula y, cuando ya cargaste varias materias, te recuerdo bajar una copia de tus datos.",
+   "materias": [],
+   "url": "https://galera.com.ar/#carrera"
+  },
+  {
+   "v": 12,
+   "fecha": "2026-10-09",
+   "tipo": "resumenes",
+   "perfil": "estudiante",
+   "titulo": "Los apuntes, en versión para leer",
+   "texto": "Cada apunte tiene ahora su página para leer completa, sin abrir la app: ideal para compartir por WhatsApp o para encontrarlo en Google. Tiene índice, link a cada parte y la autoevaluación con las respuestas plegadas.",
+   "materias": [],
+   "url": "https://galera.com.ar/r/"
+  },
+  {
+   "v": 11,
+   "fecha": "2026-10-08",
+   "tipo": "herramientas",
+   "perfil": "estudiante",
+   "titulo": "Resúmenes: buscador, apuntes leídos y links a cada parte",
+   "texto": "Ahora podés buscar una palabra en todos los resúmenes, marcar los apuntes que ya leíste (y ver cuánto te falta de cada materia) e imprimirlos con la clave de respuestas. Cada parte de un apunte tiene su link (🔗), con vista previa en WhatsApp y las redes. Además, todas las materias están en tarjetas: en las que todavía no tienen resumen podés pedirlo o compartir tus apuntes.",
+   "materias": [],
+   "url": "https://galera.com.ar/#resumenes"
+  },
+  {
+   "v": 10,
+   "fecha": "2026-10-08",
+   "tipo": "resumenes",
+   "perfil": "estudiante",
+   "titulo": "Corrección de Estilo: arreglo en el apunte de Verbos",
+   "texto": "Tenía la regla vieja de abolir: hoy el DPD lo da por regular (se abole, abolen). También se completaron soler (con subjuntivo), predecir y deber de.",
+   "para": "Corrección de Estilo",
+   "materias": [
+    "0911"
+   ],
+   "url": "https://galera.com.ar/#resumenes"
+  },
+  {
+   "v": 9,
+   "fecha": "2026-10-08",
+   "tipo": "herramientas",
+   "perfil": "estudiante",
+   "titulo": "Biblioteca: Smart Marketing, de Pablo Canalicchio",
+   "texto": "Un libro que recomiendan estudiantes de Administración de la Empresa Editorial: sirve aunque haya cambiado una parte de la materia.",
+   "para": "Administración de la Empresa Editorial",
+   "materias": [
+    "0909"
+   ],
+   "url": "https://galera.com.ar/#biblioteca"
+  },
+  {
+   "v": 8,
+   "fecha": "2026-10-07",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "titulo": "Novedades por mail",
+   "texto": "Dejás tu mail y los lunes a las 8 te llega solo lo nuevo de Cursada que te importa. Elegís los temas y las materias, y podés cambiarlo o darte de baja desde cada mail.",
+   "materias": [],
+   "url": "https://galera.com.ar/#novedades"
+  },
+  {
+   "v": 7,
+   "fecha": "2026-10-07",
+   "tipo": "resumenes",
+   "perfil": "estudiante",
+   "titulo": "Resúmenes de Administración completados con el libro de Maradei",
+   "texto": "Más ejercicios resueltos de costos, escandallo y punto de equilibrio, y las erratas del libro marcadas.",
+   "para": "Administración de la Empresa Editorial",
+   "materias": [
+    "0909"
+   ],
+   "url": "https://galera.com.ar/#resumenes"
+  },
+  {
+   "v": 6,
+   "fecha": "2026-10-06",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "titulo": "Donar, sin comisión",
+   "texto": "«Doná para mantener este proyecto» muestra el alias y el CVU para transferir sin comisión, con botón de copiar.",
+   "materias": [],
+   "url": "https://galera.com.ar/#donar"
+  },
+  {
+   "v": 5,
+   "fecha": "2026-10-03",
+   "tipo": "fechas",
+   "perfil": "estudiante",
+   "titulo": "Regímenes corregidos",
+   "texto": "Teoría de los Medios y Marketing son de promoción directa, y Publicaciones Periódicas es con final.",
+   "materias": [],
+   "url": "https://galera.com.ar/#carrera"
+  },
+  {
+   "v": 4,
+   "fecha": "2026-10-01",
+   "tipo": "fechas",
+   "perfil": "estudiante",
+   "titulo": "Feriados nacionales en el Calendario",
+   "texto": "Salen del sitio oficial (argentina.gob.ar) y se ven en el Calendario. También se sumó el 9/11, que faltaba.",
+   "materias": [],
+   "url": "https://galera.com.ar/#calendario"
+  },
+  {
+   "v": 3,
+   "fecha": "2026-10-01",
+   "tipo": "herramientas",
+   "perfil": "estudiante",
+   "titulo": "Arreglo: lo guardado ya no se pierde",
+   "texto": "Tus notas y horarios seguían ahí, pero al recargar la página a veces no se mostraban. Quedó resuelto.",
+   "materias": [],
+   "url": "https://galera.com.ar/#carrera"
+  },
+  {
+   "v": 2,
+   "fecha": "2026-09-30",
+   "tipo": "herramientas",
+   "perfil": "estudiante",
+   "titulo": "Horarios más ordenados",
+   "texto": "Las materias aprobadas se ocultan y los seminarios van plegados. También se arregló el ancho en el celular.",
+   "materias": [],
+   "url": "https://galera.com.ar/#horarios"
+  },
+  {
+   "v": 1,
+   "fecha": "2026-09-30",
+   "tipo": "herramientas",
+   "perfil": "estudiante",
+   "titulo": "Primera versión de Cursada",
+   "texto": "El plan con notas y promedios, el calendario, los horarios con choques y sugerencias, la oferta y las mesas (que se actualizan solas) y el buzón de sugerencias.",
+   "materias": [],
+   "url": "https://galera.com.ar/"
+  }
+ ]
+}

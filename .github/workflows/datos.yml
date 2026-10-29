@@ -1,0 +1,43 @@
+# Cursada: trae la oferta horaria y las mesas de examen que publica la Facultad
+# (https://academica.filo.uba.ar/horarios-de-materias-y-seminarios) y actualiza datos/.
+# Corre en los servidores de GitHub: no usa la PC de nadie. Solo commitea si los datos cambiaron
+# y si la planilla se pudo leer bien (si no, falla y deja todo como estaba).
+name: Cursada - datos de la Facultad
+
+on:
+  schedule:
+    - cron: "17 11 * * 1,4"   # lunes y jueves, 8:17 de Buenos Aires
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cursada-datos
+  cancel-in-progress: false
+
+jobs:
+  actualizar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      # Versión fija: el script lee un PDF de terceros con permiso de escritura sobre el repo, así que
+      # no conviene instalar "lo último" a ciegas. Subirla a mano cuando haga falta.
+      - run: pip install pypdf==6.19.0
+      - name: Leer las planillas de la Facultad
+        run: python .github/scripts/cursada_datos.py
+      - name: Publicar si hubo cambios
+        run: |
+          git add datos
+          if git diff --cached --quiet; then
+            echo "Sin cambios."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -m "Cursada: datos de la Facultad actualizados"
+            git push
+          fi

@@ -1,0 +1,119 @@
+{
+ "nota": "Tarifarios y valores de referencia publicados por asociaciones y colegios, para quien trabaja en el libro. Solo se guarda quién lo publica, para qué rubro, en qué unidad, de qué fecha y dónde está: los montos se leen en la fuente, porque se actualizan. Son orientativos, no obligatorios. controlado: última vez que tarifas_links.py vio el link andando.",
+ "rubros": [
+  {
+   "id": "traduccion",
+   "t": "Traducción"
+  },
+  {
+   "id": "correccion",
+   "t": "Corrección y edición de textos"
+  },
+  {
+   "id": "diseno",
+   "t": "Diseño y maquetación"
+  },
+  {
+   "id": "ilustracion",
+   "t": "Ilustración"
+  }
+ ],
+ "fuentes": [
+  {
+   "id": "ctpcba-tp",
+   "quien": "Colegio de Traductores Públicos de la Ciudad de Buenos Aires",
+   "rubro": "traduccion",
+   "que": "Aranceles orientativos de traducción pública (documentos y traducciones certificadas)",
+   "unidad": "por foja, según categoría y par de idiomas",
+   "moneda": "ARS",
+   "pais": "AR",
+   "edicion": "2026-09",
+   "url": "https://www.traductores.org.ar/wp-content/uploads/2026/08/01-Aranceles_Septiembre-2026-.pdf",
+   "alcance": "Traducción pública y legalizada, no literaria ni editorial. Página de todas las ediciones: https://www.traductores.org.ar/matriculados/aranceles-orientativos/",
+   "actualiza": "semestral (mayo y septiembre)",
+   "estado": "vigente",
+   "controlado": "2026-10-19"
+  },
+  {
+   "id": "ctpcba-peritos",
+   "quien": "Colegio de Traductores Públicos de la Ciudad de Buenos Aires",
+   "rubro": "traduccion",
+   "que": "Aranceles orientativos para peritos traductores (traducción pública y pericias judiciales)",
+   "unidad": "por foja (traducción pública) y por palabra con mínimo de palabras (pericias)",
+   "moneda": "ARS",
+   "pais": "AR",
+   "edicion": "2026-09",
+   "url": "https://www.traductores.org.ar/wp-content/uploads/2026/08/01_Aranceles-Peritos_Septiembre-2026.pdf",
+   "alcance": "Pericias judiciales; el Colegio los toma como referencia sobre todo en el fuero penal. No son tarifas de traducción editorial.",
+   "actualiza": "semestral (mayo y septiembre)",
+   "estado": "vigente",
+   "controlado": "2026-10-19"
+  },
+  {
+   "id": "uner-setpyc",
+   "quien": "Facultad de Ciencias de la Educación (UNER) con SETPyC y TACER",
+   "rubro": "correccion",
+   "que": "Tarifario de referencia de periodismo y comunicación para independientes monotributistas: corrección ortotipográfica y de estilo, diseño editorial por página, diseño de portada, prólogo y contratapa",
+   "unidad": "por 1.000 caracteres con espacios (corrección); por página (diseño editorial); por trabajo (portada)",
+   "moneda": "ARS",
+   "pais": "AR",
+   "edicion": "2026-08",
+   "url": "https://www.fcedu.uner.edu.ar/wp-content/uploads/2026/08/Tarifario-Agosto.pdf",
+   "alcance": "Entre Ríos. Distingue instituciones y particulares. Se actualiza por IPC; para ediciones cita el tarifario de la Unión de Escritoras y Escritores.",
+   "actualiza": "con el IPC, varias veces por año",
+   "estado": "la columna instituciones/particulares se confirma abriendo el PDF",
+   "controlado": "2026-10-19"
+  },
+  {
+   "id": "efa",
+   "quien": "Editorial Freelancers Association (EE. UU.)",
+   "rubro": "correccion",
+   "que": "Tabla de tarifas editoriales a partir de una encuesta a más de 1.100 profesionales: corrección, edición de línea, edición de desarrollo, indexación, traducción, entre otros",
+   "unidad": "por palabra, por hora y por página, según el servicio",
+   "moneda": "USD",
+   "pais": "US",
+   "edicion": "2026-03",
+   "url": "https://www.the-efa.org/2026-editorial-rate-chart/",
+   "alcance": "Mercado estadounidense; sirve de referencia de estructura y de órdenes de magnitud, no de precios locales.",
+   "actualiza": "cada dos o tres años",
+   "estado": "vigente",
+   "controlado": "2026-10-19"
+  },
+  {
+   "id": "ciep",
+   "quien": "Chartered Institute of Editing and Proofreading (Reino Unido)",
+   "rubro": "correccion",
+   "que": "Tarifas mínimas sugeridas: corrección de pruebas, corrección de estilo, edición sustancial, gestión de proyectos",
+   "unidad": "por hora",
+   "moneda": "GBP",
+   "pais": "GB",
+   "edicion": "2026-03",
+   "url": "https://ciep.uk/resources/suggested-minimum-rates/",
+   "alcance": "Mercado británico. Se revisan cada año.",
+   "actualiza": "anual",
+   "estado": "la edición exacta se confirma en la página",
+   "controlado": "2026-10-19"
+  },
+  {
+   "id": "aoi",
+   "quien": "Asociación Profesional de Ilustradores de Madrid (AOI)",
+   "rubro": "ilustracion",
+   "que": "Tarifario de ilustración por tipo de uso (incluye libro infantil y editorial)",
+   "unidad": "por ilustración y por uso, con ejemplos",
+   "moneda": "EUR",
+   "pais": "ES",
+   "edicion": "2017",
+   "url": "https://agpi.es/wp-content/uploads/2017/06/inf-tarifarioAOI-r.pdf",
+   "alcance": "España. Advierte que sus tablas no son máximos ni mínimos. Sirve como método (cómo se descompone el precio por uso y cesión), no por los valores.",
+   "actualiza": "irregular",
+   "estado": "desactualizado: usar solo como método",
+   "controlado": "2026-10-19"
+  }
+ ],
+ "huecos": [
+  "AATI: no publica una tabla de tarifas de traducción literaria que se haya podido verificar; consultar aati.org.ar.",
+  "Ilustración en Argentina: no se encontró un tarifario de una asociación local.",
+  "Diseño editorial con alcance nacional: no se encontró; el único con valores por página es el de Entre Ríos.",
+  "Unión de Escritoras y Escritores: su tarifario se cita, pero no se encontró publicado."
+ ]
+}

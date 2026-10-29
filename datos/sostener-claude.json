@@ -1,0 +1,22 @@
+{
+  "minimo": 25,
+  "central": 30,
+  "maximo": 36,
+  "ventanas": 49,
+  "mensajes": 5863,
+  "desde": "2026-09-30",
+  "hasta": "2026-10-20",
+  "metodo": {
+    "hueco_min": [
+      10,
+      20,
+      45
+    ],
+    "arranque_min": [
+      10,
+      15,
+      20
+    ]
+  },
+  "generado": "2026-10-20"
+}

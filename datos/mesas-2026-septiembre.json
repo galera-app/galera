@@ -1,0 +1,122 @@
+{
+ "id": "2026-septiembre",
+ "carrera": "edicion",
+ "nombre": "Turno septiembre 2026",
+ "fuente": "https://academica.filo.uba.ar/horarios-de-materias-y-seminarios",
+ "actualizado": "2026-09-30",
+ "nota": "Cartelera sujeta a cambios: confirmá siempre en la planilla de la Facultad.",
+ "mesas": [
+  {
+   "materia": "0920",
+   "nombre": "Fundamentos de diseño gráfico para editores",
+   "fecha": "2026-09-14",
+   "hora": "14:00",
+   "llamado": "1° llamado",
+   "aula": "344"
+  },
+  {
+   "materia": "0922",
+   "nombre": "Edición de publicaciones periódicas",
+   "fecha": "2026-09-15",
+   "hora": "10:00",
+   "llamado": "1° llamado",
+   "aula": "250"
+  },
+  {
+   "materia": "0919",
+   "nombre": "Derechos editoriales y del autor",
+   "fecha": "2026-09-15",
+   "hora": "10:00",
+   "llamado": "1° llamado",
+   "aula": "250"
+  },
+  {
+   "materia": "0913",
+   "nombre": "Teoría de los medios y de la cultura",
+   "fecha": "2026-09-15",
+   "hora": "10:00",
+   "llamado": "1° llamado",
+   "aula": "250"
+  },
+  {
+   "materia": "0911",
+   "nombre": "Corrección de estilo",
+   "fecha": "2026-09-15",
+   "hora": "14:00",
+   "llamado": "1° llamado",
+   "aula": "125"
+  },
+  {
+   "materia": "0916",
+   "nombre": "Informática aplicada a la administración editorial",
+   "fecha": "2026-09-15",
+   "hora": "14:00",
+   "llamado": "1° llamado",
+   "aula": "125"
+  },
+  {
+   "materia": "0917",
+   "nombre": "Informática aplicada a la producción editorial",
+   "fecha": "2026-09-15",
+   "hora": "18:00",
+   "llamado": "1° llamado",
+   "aula": "154"
+  },
+  {
+   "materia": "0905",
+   "nombre": "Fundamentos de la producción de impresos",
+   "fecha": "2026-09-16",
+   "hora": "14:00",
+   "llamado": "1° llamado",
+   "aula": "130"
+  },
+  {
+   "materia": "0902",
+   "nombre": "Introducción a la actividad editorial",
+   "fecha": "2026-09-17",
+   "hora": "10:00",
+   "llamado": "1° llamado",
+   "aula": "P 406"
+  },
+  {
+   "materia": "0921",
+   "nombre": "Edición electrónica y multimedia",
+   "fecha": "2026-09-17",
+   "hora": "12:00",
+   "llamado": "1° llamado",
+   "aula": "353"
+  },
+  {
+   "materia": "0914",
+   "nombre": "Edición editorial",
+   "fecha": "2026-09-17",
+   "hora": "14:00",
+   "llamado": "1° llamado",
+   "aula": "250"
+  },
+  {
+   "materia": "0909",
+   "nombre": "Administración de la empresa editorial",
+   "fecha": "2026-09-17",
+   "hora": "16:00",
+   "llamado": "1° llamado",
+   "aula": "241"
+  },
+  {
+   "materia": "0918",
+   "nombre": "Marketing editorial",
+   "fecha": "2026-09-17",
+   "hora": "18:00",
+   "llamado": "1° llamado",
+   "aula": "241"
+  },
+  {
+   "materia": "0915",
+   "nombre": "Registro y organización de materiales editoriales",
+   "fecha": "2026-09-17",
+   "hora": "18:00",
+   "llamado": "1° llamado",
+   "aula": "241"
+  }
+ ]
+}

@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self'; img-src 'self' data: https://*.google-analytics.com https://www.googletagmanager.com; connect-src 'self' https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<!-- Página de lectura de Cursada (la arma 104-edicion-cursada/resumenes_web.py: no editar a mano). -->
+<title>Tipos de sistemas de información y sistemas transaccionales: resumen de Informática para la Administración Editorial (Edición, UBA)</title>
+<meta name="description" content="Saroka parte de una idea: cada tipo de sistema de información responde a un nivel de la organización y al tipo de decisión que allí se toma…">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Fidel Chaves">
+<meta name="color-scheme" content="light dark">
+<link rel="canonical" href="https://galera.com.ar/r/0916/e2-tipos-de-sistemas-de-informacion.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Cursada · Edición (UBA)">
+<meta property="og:locale" content="es_AR">
+<meta property="og:title" content="Tipos de sistemas de información y sistemas transaccionales: resumen de Informática para la Administración Editorial (Edición, UBA)">
+<meta property="og:description" content="Saroka parte de una idea: cada tipo de sistema de información responde a un nivel de la organización y al tipo de decisión que allí se toma…">
+<meta property="og:url" content="https://galera.com.ar/r/0916/e2-tipos-de-sistemas-de-informacion.html">
+<meta property="og:image" content="https://galera.com.ar/r/img/0916/e2-tipos-de-sistemas-de-informacion.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Tipos de sistemas de información y sistemas transaccionales: resumen de Informática para la Administración Editorial en Cursada">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231f3a5f'/%3E%3Cpath d='M16 20h32M16 32h32M16 44h20' stroke='%23f2c14e' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="/estilos.css?v=50">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Tipos de sistemas de información y sistemas transaccionales: resumen de Informática para la Administración Editorial (Edición, UBA)", "headline": "Tipos de sistemas de información y sistemas transaccionales", "description": "Saroka parte de una idea: cada tipo de sistema de información responde a un nivel de la organización y al tipo de decisión que allí se toma…", "url": "https://galera.com.ar/r/0916/e2-tipos-de-sistemas-de-informacion.html", "inLanguage": "es-AR", "timeRequired": "PT29M", "learningResourceType": "resumen de estudio", "educationalLevel": "universitario", "image": "https://galera.com.ar/r/img/0916/e2-tipos-de-sistemas-de-informacion.jpg", "author": {"@type": "Person", "name": "Fidel Chaves", "url": "https://ficha.github.io/"}, "isPartOf": {"@type": "Course", "name": "Informática para la Administración Editorial", "url": "https://galera.com.ar/r/0916/", "description": "Informática para la Administración Editorial, carrera de Edición, Facultad de Filosofía y Letras, UBA", "provider": {"@type": "CollegeOrUniversity", "name": "Universidad de Buenos Aires"}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Cursada", "item": "https://galera.com.ar/"}, {"@type": "ListItem", "position": 2, "name": "Informática para la Administración Editorial", "item": "https://galera.com.ar/r/0916/"}, {"@type": "ListItem", "position": 3, "name": "Tipos de sistemas de información y sistemas transaccionales", "item": "https://galera.com.ar/r/0916/e2-tipos-de-sistemas-de-informacion.html"}]}</script>
+<script src="/analitica.js?v=3"></script>
+</head>
+<body class="lectura">
+<header class="cabecera"><div class="marca"><span class="logo" aria-hidden="true"></span>
+<div><p class="nombre"><a href="/">Cursada</a></p><p>Gestor para la carrera de Edición</p></div></div></header>
+<main id="main" class="lectura-main">
+<nav class="migas chico tenue" aria-label="Ruta"><a href="/">Cursada</a> › <a href="/r/0916/">Informática para la Administración Editorial</a> › <span>Tipos de sistemas de información y sistemas transaccionales</span></nav>
+<article class="tarjeta apunte"><p class="chico tenue">Informática para la Administración Editorial · 29 min de lectura</p><h1>Tipos de sistemas de información y sistemas transaccionales</h1><p class="acciones"><a class="btn" href="/#resumenes/0916/e2-tipos-de-sistemas-de-informacion" data-abrir="0916/e2-tipos-de-sistemas-de-informacion" data-donde="arriba">Abrir en Cursada</a></p><details class="indice-apunte"><summary>En este apunte <span class="chip">26 partes</span></summary><ol><li class=""><a href="#s-mapa-rapido">Mapa rápido</a></li><li class=""><a href="#s-saroka-2002-tipos-de-sistemas-de-informacion">Saroka (2002): Tipos de sistemas de información</a></li><li class="sub"><a href="#s-tesis-central">Tesis central</a></li><li class="sub"><a href="#s-conceptos-clave">Conceptos clave</a></li><li class="sub"><a href="#s-los-erp-en-detalle-pags-4-13">Los ERP en detalle (págs. 4-13)</a></li><li class="sub"><a href="#s-por-que-saroka-rechaza-mis-pag-15">Por qué Saroka rechaza «MIS» (pág. 15)</a></li><li class="sub"><a href="#s-los-tres-metodos-tradicionales-para-detectar-neces">Los tres métodos «tradicionales» para detectar necesidades del ejecutivo (Rockart; págs. 22-24)</a></li><li class="sub"><a href="#s-distinciones-tabla">Distinciones (tabla)</a></li><li class="sub"><a href="#s-los-sad-dss-pags-16-19">Los SAD/DSS (págs. 16-19)</a></li><li class="sub"><a href="#s-eis-ess-frente-a-dss-pags-27-28">EIS/ESS frente a DSS (págs. 27-28)</a></li><li class="sub"><a href="#s-data-warehouse-lo-que-cae-seguro-pags-29-43">Data warehouse: lo que cae seguro (págs. 29-43)</a></li><li class="sub"><a href="#s-ejemplos-del-texto">Ejemplos del texto</a></li><li class=""><a href="#s-casanovas-2014-la-administracion-empresarial-los-s">Casanovas (2014): La administración empresarial, los sistemas transaccionales</a></li><li class="sub"><a href="#s-tesis-central-2">Tesis central</a></li><li class="sub"><a href="#s-conceptos-clave-2">Conceptos clave</a></li><li class="sub"><a href="#s-comercializacion-circuito-en-6-modulos-pags-8-23">Comercialización: circuito en 6 módulos (págs. 8-23)</a></li><li class="sub"><a href="#s-compras-circuito-en-8-modulos-pags-23-38">Compras: circuito en 8 módulos (págs. 23-38)</a></li><li class="sub"><a href="#s-cobranzas-circuito-en-5-modulos-pags-38-44">Cobranzas: circuito en 5 módulos (págs. 38-44)</a></li><li class="sub"><a href="#s-pagos-circuito-en-4-modulos-pags-45-49">Pagos: circuito en 4 módulos (págs. 45-49)</a></li><li class="sub"><a href="#s-funcion-contable-pags-49-50">Función Contable (págs. 49-50)</a></li><li class="sub"><a href="#s-distinciones-tabla-2">Distinciones (tabla)</a></li><li class=""><a href="#s-cuadro-comparativo-de-tipos-de-sistemas-segun-saro">Cuadro comparativo de tipos de sistemas (según Saroka)</a></li><li class=""><a href="#s-quien-dijo-que">Quién dijo qué</a></li><li class=""><a href="#s-lo-imprescindible-repaso-de-5-minutos">Lo imprescindible (repaso de 5 minutos)</a></li><li class=""><a href="#s-erratas-de-las-fuentes">Erratas de las fuentes</a></li><li><a href="#autoevaluacion">Autoevaluación</a></li></ol></details><blockquote>
+<p>⚠️ <strong>Borrador.</strong> Este apunte se armó a partir de los textos del campus, algunos escaneados. Los datos marcados <strong>[verificar]</strong> o <strong>[reconstruido]</strong> no están confirmados: contrastalos con la bibliografía. Si encontrás un error, avisame con 💡 Sugerencias.</p>
+<p>Textos: Saroka (2002), «Tipos de sistemas de información» (Unidad 2, <em>Sistemas de información en la era digital</em>) · Casanovas (coord., 2014), «La administración empresarial: los sistemas transaccionales» (cap. 5, <em>TIC aplicadas a la administración y gestión editorial</em>) | Tiempo estimado de lectura: 25 min
+Las páginas citadas (<code>pág. N</code>) son las del .txt (separador <code>=== pág. N ===</code>), no las del libro impreso. Los ejemplos de editorial marcados <strong>[ejemplo propio]</strong> no están en los textos: son aplicaciones mías para estudiar.</p>
+</blockquote>
+<h2 id="s-mapa-rapido">Mapa rápido <a class="ancla" href="#s-mapa-rapido" aria-label="Link a «Mapa rápido»">#</a></h2>
+<ul>
+<li>Saroka parte de una idea: <strong>cada tipo de sistema de información responde a un nivel de la organización</strong> y al tipo de decisión que allí se toma (estructurada → semiestructurada → no estructurada, a medida que se sube en la pirámide). Pág. 1.</li>
+<li>Pirámide de Saroka (de abajo hacia arriba): <strong>transaccionales</strong> (TPS/OLTP, ERP, CRM) → <strong>DSS/SAD</strong> (control operativo y táctico, decisiones semiestructuradas) → <strong>sistemas para el nivel superior</strong> (EIS/ESS, BI, OLAP; decisiones no estructuradas). Pág. 46-47.</li>
+<li>Saroka <strong>no acepta MIS</strong> como categoría propia: lo llama «información para control operativo», un subproducto de los transaccionales (pág. 15).</li>
+<li>Casanovas baja los transaccionales al terreno editorial: los módulos <strong>Comercialización, Compras, Cobranzas y Pagos</strong>, más la <strong>función Contable</strong> que los resume. Describe archivos, campos, documentos y secuencias.</li>
+<li>Hilo común: los transaccionales son la <strong>fuente de datos</strong> de todo lo demás. Sin buenos datos de ventas, stock y cuentas corrientes, no hay DSS, ni EIS, ni BI.</li>
+</ul>
+<hr />
+<h2 id="s-saroka-2002-tipos-de-sistemas-de-informacion">Saroka (2002): Tipos de sistemas de información <a class="ancla" href="#s-saroka-2002-tipos-de-sistemas-de-informacion" aria-label="Link a «Saroka (2002): Tipos de sistemas de información»">#</a></h2>
+<h3 id="s-tesis-central">Tesis central <a class="ancla" href="#s-tesis-central" aria-label="Link a «Tesis central»">#</a></h3>
+<p>Las distintas clases de sistemas de información surgen de <strong>necesidades diferentes</strong> de los subsistemas de la organización. Las organizaciones tienen <strong>4 niveles</strong>: operativo (procesos físicos de producción y distribución), control operativo, decisiones tácticas y decisiones estratégicas (pág. 1). Cuanto más se sube, <strong>menos estructuradas</strong> son las decisiones, y por eso hacen falta sistemas distintos para cada nivel.</p>
+<h3 id="s-conceptos-clave">Conceptos clave <a class="ancla" href="#s-conceptos-clave" aria-label="Link a «Conceptos clave»">#</a></h3>
+<ul>
+<li><strong>Transacción</strong>: intercambio entre un usuario que opera una terminal y un sistema de procesamiento de datos, en el que se concreta un resultado. Implica captura y validación de datos, consulta y/o actualización de archivos y una respuesta. Es una operación <strong>individual, breve e indivisible</strong> (pág. 2).</li>
+<li><strong>Sistemas transaccionales (TPS, Transaction Processing Systems)</strong>: satisfacen el <strong>nivel operativo</strong>; automatizan tareas rutinarias, repetitivas y relativamente sencillas, eliminan «papeleo», reducen errores y mano de obra. Históricamente fueron <strong>los primeros</strong> (y durante años casi los únicos) en computarizarse (págs. 2-3).</li>
+<li><strong>OLTP (On Line Transaction Processing)</strong>: transaccional con procesamiento <strong>en tiempo real</strong> (simultáneo a los hechos) (pág. 3).</li>
+<li><strong>Ejemplos de transaccionales</strong>: Contabilidad, Facturación, Inventarios, Ventas, Proveedores, Cuentas Corrientes, Cobranzas, Caja, Bancos, Sueldos, Finanzas, Compras, Planeamiento y Control de la Producción. Los <strong>«sistemas para mercados verticales»</strong> son los específicos de una rama (reserva de pasajes, administración hotelera, hospitalaria, etc.) (pág. 3).</li>
+<li><strong>Paquete vs. a medida</strong>: para la mayoría hay paquetes estandarizados; en los más potentes se plantea la alternativa estratégica entre <strong>soluciones de terceros</strong> y <strong>desarrollo «a medida»</strong> (págs. 3-4).</li>
+<li><strong>ERP (Enterprise Resource Planning)</strong>: «paquete de programas estandarizados que le permite a una compañía automatizar e integrar la mayor parte de sus procesos de negocios, compartir datos y prácticas entre todos los miembros de la organización, y producir y acceder a la información en un ambiente de tiempo real» (pág. 4, cita de <em>Gestión</em>, 1999). Saroka advierte que <strong>poco tiene que ver con «planificar recursos»</strong>; viene de los <strong>MRP</strong> (<em>Material Requirement Planning</em>, años 60) → <strong>MRPII</strong> (años 80, <em>Manufacturing Requirements Planning</em>) → <strong>ERP</strong> (años 90, al sumar finanzas, RR. HH., compras y ventas).</li>
+<li><strong>Información para control operativo</strong>: nombre que Saroka prefiere a «MIS». Son los informes (totales de ventas, cuentas con deuda de más de tres meses) que salen como <strong>subproducto natural</strong> de los transaccionales, de forma repetitiva y según calendario; sirven a los niveles medios y, más resumidos, a los altos (págs. 14-15).</li>
+<li><strong>SAD / DSS (Sistemas de Apoyo a la Decisión / Decision Support Systems)</strong>: sistemas computarizados, casi siempre interactivos, diseñados para <strong>asistir a un ejecutivo</strong> en problemas <strong>no totalmente estructurados</strong>, incorporando <strong>datos y modelos</strong> (pág. 16).</li>
+<li><strong>Análisis «¿qué pasaría si…?» (what-if)</strong>: modificar uno o más supuestos de un modelo para ver el impacto en el resultado (pág. 16).</li>
+<li><strong>EIS/ESS (Executive Information/Support Systems)</strong>: sistema que da a los gerentes acceso a la información relevante para su gestión; soporta actividades <strong>estratégicas</strong> (definir políticas, planear, presupuestar); recolecta, analiza e integra datos internos y externos en <strong>indicadores</strong> (pág. 27).</li>
+<li><strong>BI (Business Intelligence / Inteligencia de negocios)</strong>: «proceso centrado en el usuario que permite explorar datos, relaciones entre datos y tendencias, permitiendo mejorar la toma de decisiones» (pág. 28, cita de Plotkin, 1999).</li>
+<li><strong>Data warehouse</strong>: repositorio de información extraída de otros sistemas (transaccionales, bases departamentales, intranet, bases externas), accesible a usuarios de negocios; datos <strong>orientados al tema, integrados, no volátiles e historiados</strong> (pág. 29).</li>
+<li><strong>Data mart</strong>: repositorio <strong>menos ambicioso</strong> que el data warehouse; abarca un área o tema, no toda la compañía; más rápido y barato de construir. Puede ser <strong>dependiente</strong> (se alimenta del data warehouse) o <strong>independiente</strong> (toma datos de transaccionales o se carga a mano) (págs. 31-32).</li>
+<li><strong>Data mining</strong>: no es un tipo de análisis sino una variedad; abarca modelización/segmentación y descubrimiento del conocimiento. Objetivo: hallar relaciones entre datos que no se hallarían sin procedimientos especializados (pág. 37).</li>
+<li><strong>ETL (Extraction, Transformation, Loading)</strong>: herramientas para extraer datos de los transaccionales, transformarlos a un formato consistente orientado al negocio y cargarlos en el data warehouse (págs. 40-41).</li>
+<li><strong>OLAP (On Line Analytical Processing)</strong>: aplicaciones y tecnologías para capturar, almacenar, manipular y reproducir <strong>datos multidimensionales</strong> como base de análisis (pág. 45). <strong>ROLAP</strong> (Relational OLAP): análisis multidimensional sobre bases relacionales, tablas bidimensionales que forman cubos temporales al consultar. <strong>MOLAP</strong> (Multidimensional OLAP): tablas multidimensionales en forma de cubos, con asociaciones ya definidas al momento de la consulta.</li>
+<li><strong>Información blanda vs. dura</strong>: <em>blanda</em> = confiabilidad y valor no precisos (por la fuente o la ambigüedad de la evidencia); <em>dura</em> = validez comprobada, alta confiabilidad. Cuanto más se sube en la pirámide, <strong>más blanda</strong> la información (págs. 20-21).</li>
+<li><strong>FCE (Factores Clave para el Éxito)</strong>: actividades que <strong>es imprescindible</strong> que salgan bien para que la gestión salga bien. Por puesto, entre <strong>tres y seis</strong>; son <strong>personales</strong> (no de la organización), temporales y cambian con el contexto (págs. 24-26). Método de <strong>John F. Rockart</strong> (MIT, 1977-1979), con antecedentes de Daniel (1961) y Anthony, Dearden y Vancil (1971).</li>
+</ul>
+<h3 id="s-los-erp-en-detalle-pags-4-13">Los ERP en detalle (págs. 4-13) <a class="ancla" href="#s-los-erp-en-detalle-pags-4-13" aria-label="Link a «Los ERP en detalle (págs. 4-13)»">#</a></h3>
+<ul>
+<li><strong>Características</strong>: (1) <strong>sistema integrado</strong>, con una <strong>base de datos central</strong> que alimenta y es alimentada por las aplicaciones; (2) <strong>diseño basado en «mejores prácticas»</strong>, definidas por el <strong>vendedor y no por el cliente</strong>; (3) <strong>capacidad de personalización</strong> limitada: módulos y <strong>tablas de configuración</strong>; si no alcanza, se modifica el código o se hace una interfaz con un sistema externo, lo que diluye los beneficios.</li>
+<li><strong>Inversión de la secuencia clásica</strong>: antes la empresa definía su negocio y elegía un software que se adecuara; con los ERP, <strong>los procesos deben modificarse para ajustarse al sistema</strong>. Se recomienda un <strong>enfoque híbrido</strong>: tocar el código solo si la ventaja competitiva de un proceso no estándar está claramente demostrada.</li>
+<li><strong>Costos</strong>: implementar cuesta <strong>más que el producto</strong>; el costo total se estima en <strong>3 a 5 veces el valor de las licencias</strong> (a veces mucho más). Incluye consultoría, infraestructura, capacitación, gestión del cambio y tiempo del personal propio. «Un sistema ERP no es simplemente un proyecto, es como una forma de vida» (pág. 8).</li>
+<li><strong>Motivaciones</strong> (de negocio, no tecnológicas): fragmentación de la información, necesidad de intercomunicar sistemas dispares, redundancia de datos.</li>
+<li><strong>Riesgos</strong>: los mayores problemas son <strong>del negocio</strong>, no técnicos; subestimar el impacto en personas y roles; mala selección, mala gestión del proyecto y mal manejo del cambio; el <strong>legado</strong> (sistemas viejos).</li>
+<li><strong>Ventajas</strong>: menos tiempo de desarrollo, sistemas probados, actualización por el proveedor (cambios contables o legales), red de soporte, mejores prácticas, costos más predecibles, modularidad, consolidación de empresas de un grupo aun con distintos idiomas o monedas.</li>
+<li><strong>Desventajas</strong>: personalización compleja, <strong>dependencia del proveedor</strong>, alto costo y esfuerzo, hay que adaptar procesos, no todos los módulos son buenos, más recursos de cómputo, <strong>obsolescencia forzada</strong>.</li>
+<li><strong>Factores de éxito</strong>: apoyo de la dirección superior, verlo como <strong>iniciativa de negocio y no solo de tecnología</strong>, gestión del cambio, capacitación, equipos con líderes, <strong>reingeniería</strong> de procesos, gestión del conocimiento y <strong>superusuarios</strong> (personas del área funcional que hacen de interfaz con sistemas, proveedores y consultores).</li>
+</ul>
+<h3 id="s-por-que-saroka-rechaza-mis-pag-15">Por qué Saroka rechaza «MIS» (pág. 15) <a class="ancla" href="#s-por-que-saroka-rechaza-mis-pag-15" aria-label="Link a «Por qué Saroka rechaza «MIS» (pág. 15)»">#</a></h3>
+<ol>
+<li>Parece un sistema independiente y es <strong>un producto derivado</strong> del procesamiento transaccional.</li>
+<li><strong>No hay consenso</strong> sobre su significado (para unos es solo la información para control operativo; para otros abarca mucha más información gerencial).</li>
+<li>Los proveedores de tecnología <strong>bastardearon</strong> el término.</li>
+</ol>
+<h3 id="s-los-tres-metodos-tradicionales-para-detectar-neces">Los tres métodos «tradicionales» para detectar necesidades del ejecutivo (Rockart; págs. 22-24) <a class="ancla" href="#s-los-tres-metodos-tradicionales-para-detectar-neces" aria-label="Link a «Los tres métodos «tradicionales» para detectar necesidades del ejecutivo (Rockart; págs. 22-24)»">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Método</th>
+<th>Idea</th>
+<th>Problema que señala Saroka</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Técnica del subproducto</strong></td>
+<td>La información para ejecutivos es un subproducto de los transaccionales; cada responsable sube lo que cree</td>
+<td><strong>Inundación</strong> de información irrelevante; confunde eficiencia transaccional con utilidad gerencial</td>
+</tr>
+<tr>
+<td><strong>Enfoque vacío</strong></td>
+<td>Es imposible prever necesidades; vale solo la información oral, informal, reciente, «caliente»</td>
+<td>Falacia de que todo informe computarizado es inútil; igual los sistemas aportan datos imprescindibles</td>
+</tr>
+<tr>
+<td><strong>Principales indicadores</strong></td>
+<td>Se eligen indicadores fijos de la «salud del negocio» y se informan las excepciones</td>
+<td>Se informan <strong>todas</strong> las variables desviadas (a veces más de 50); mismo paquete para toda la organización, sin atender cada puesto</td>
+</tr>
+</tbody>
+</table>
+<p>El método de los <strong>FCE</strong> de Rockart es la alternativa: entrevistas de <strong>3 a 6 horas en 2 o 3 sesiones</strong>, con 7 pasos (registrar objetivos → discutir FCE implícitos → criterios de medición → afinar con el analista → discutir mediciones → proponer informes → acuerdo final).</p>
+<p><strong>Cuatro fuentes de FCE</strong>: la <strong>industria</strong>, la <strong>organización</strong> y su situación en ella, el <strong>contexto</strong> (tendencias de consumo, economía, política) y la <strong>coyuntura</strong> (áreas normalmente sin seguimiento especial, pero críticas temporalmente).
+<strong>Dos tipos de FCE</strong>: de <strong>seguimiento</strong> (control de operaciones en curso) y de <strong>transformación</strong> (programas de cambio iniciados por el ejecutivo). Cuanto más alto el puesto, <strong>más FCE de transformación</strong>.</p>
+<h3 id="s-distinciones-tabla">Distinciones (tabla) <a class="ancla" href="#s-distinciones-tabla" aria-label="Link a «Distinciones (tabla)»">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Par</th>
+<th>A</th>
+<th>B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Información</td>
+<td><strong>Dura</strong>: validez comprobada</td>
+<td><strong>Blanda</strong>: confiabilidad imprecisa; predomina en niveles altos</td>
+</tr>
+<tr>
+<td>FCE vs. metas/objetivos</td>
+<td>FCE: <strong>personales</strong>, cambian con el tiempo</td>
+<td>Metas/objetivos: relativamente inmutables, definidos en términos organizacionales</td>
+</tr>
+<tr>
+<td>Data warehouse vs. data mart</td>
+<td>Abarca <strong>toda la compañía</strong></td>
+<td>Abarca <strong>un área o tema</strong>; más barato y rápido</td>
+</tr>
+<tr>
+<td>Data mart dependiente vs. independiente</td>
+<td>Se alimenta del data warehouse</td>
+<td>Toma de transaccionales o se carga manualmente</td>
+</tr>
+<tr>
+<td>OLTP vs. OLAP</td>
+<td>Procesos, datos actuales, bidimensional, respuesta <strong>crítica</strong></td>
+<td>Tema, históricos, multidimensional, respuesta <strong>no crítica</strong> (ver tabla abajo)</td>
+</tr>
+<tr>
+<td>ROLAP vs. MOLAP</td>
+<td>Sobre bases relacionales; cubos temporales</td>
+<td>Cubos multidimensionales predefinidos</td>
+</tr>
+<tr>
+<td>FCE de seguimiento vs. de transformación</td>
+<td>Control de operaciones en curso</td>
+<td>Avance de programas de cambio</td>
+</tr>
+</tbody>
+</table>
+<p><strong>OLTP (transaccional) frente a OLAP (analítico)</strong> (pág. 44):
+| Aspecto | OLTP | OLAP |
+|---|---|---|
+| Orientación | A los <strong>procesos</strong> | Al <strong>tema</strong>, alcance corporativo |
+| Datos | Actuales (historia limitada) | Actuales <strong>e históricos</strong> |
+| Actualización | Con <strong>cada transacción</strong> | <strong>Periódica</strong> |
+| Usuarios | Nivel operativo | Analistas y nivel gerencial |
+| Estructura | <strong>Bidimensional</strong> | <strong>Multidimensional</strong> |
+| Tiempo de respuesta | <strong>Crítico</strong> | No crítico |</p>
+<h3 id="s-los-sad-dss-pags-16-19">Los SAD/DSS (págs. 16-19) <a class="ancla" href="#s-los-sad-dss-pags-16-19" aria-label="Link a «Los SAD/DSS (págs. 16-19)»">#</a></h3>
+<ul>
+<li><strong>Objetivos</strong>: apoyar (<strong>no reemplazar</strong>) el juicio humano; herramientas bajo control del usuario, sin automatizar todo el proceso decisorio; incorporar la creatividad y el juicio del «decididor» en formulación del problema, selección de datos y generación/evaluación de alternativas; apoyar a ejecutivos de alto nivel en problemas no totalmente estructurados.</li>
+<li><strong>Componentes</strong>: (1) <strong>base de datos</strong> (SABD: datos de transacciones, otros datos internos y datos externos), (2) <strong>base de modelos</strong> (SABM: modelos estratégicos, tácticos y operativos y programas para construirlos), (3) <strong>generador de diálogo / interfaz con el usuario</strong>, (4) el <strong>decididor</strong>. La <strong>administración de modelos</strong> es «la característica distintiva» de un SAD.</li>
+<li><strong>Características</strong>: se enfocan en <strong>procesos de decisión</strong>, no en transacciones; se implantan y modifican <strong>rápido</strong>; suelen ser <strong>construidos por los propios usuarios</strong> con planillas de cálculo (Excel, Lotus); la decisión es <strong>responsabilidad del ejecutivo</strong>.</li>
+<li><strong>Aplicaciones</strong> (lista del texto): análisis financiero, presupuestación, consolidación, análisis de costos, valuación de empresas, evaluación de proyectos, análisis de ventas y de mercados, simulación, impacto financiero de contratos, análisis de rentabilidad por tipo de cliente, entre otras.</li>
+<li><strong>Ejemplos del texto</strong>: planilla de estado financiero proyectado con análisis <em>what if</em> (ingresos, costo de materias primas, paridad cambiaria, tasa de interés); modelo de ingresos de una <strong>prepaga</strong> al subir la cuota (afiliados × cuota, con un porcentaje de rescisión).</li>
+</ul>
+<h3 id="s-eis-ess-frente-a-dss-pags-27-28">EIS/ESS frente a DSS (págs. 27-28) <a class="ancla" href="#s-eis-ess-frente-a-dss-pags-27-28" aria-label="Link a «EIS/ESS frente a DSS (págs. 27-28)»">#</a></h3>
+<ul>
+<li>La diferencia básica es el <strong>destinatario</strong>: los EIS/ESS apuntan al <strong>nivel ejecutivo</strong>, que necesita otro tipo de información y la trata distinto.</li>
+<li>Características: abarcan <strong>varias aplicaciones</strong> (incluidos varios DSS y automatización de oficinas); requieren una <strong>base de datos mayor</strong>; dan acceso a <strong>datos externos</strong> (industria, competidores, clientes); <strong>mayor énfasis en la interfaz</strong> (fácil de usar y entender); <strong>mayor impacto</strong> en la organización; suman correo electrónico, calendarios y conferencias por computadora. Lo más común es el acceso inmediato a una base de datos única con datos financieros y operacionales.</li>
+</ul>
+<h3 id="s-data-warehouse-lo-que-cae-seguro-pags-29-43">Data warehouse: lo que cae seguro (págs. 29-43) <a class="ancla" href="#s-data-warehouse-lo-que-cae-seguro-pags-29-43" aria-label="Link a «Data warehouse: lo que cae seguro (págs. 29-43)»">#</a></h3>
+<ul>
+<li><strong>Cuatro características de los datos</strong>: orientados al <strong>tema</strong>, <strong>integrados</strong>, <strong>historiados</strong>, <strong>no volátiles</strong> (la no volatilidad es consecuencia de la historialización: la misma consulta con fecha de referencia da lo mismo tres meses después).</li>
+<li><strong>Por qué es una plataforma duplicada</strong>: no recarga los transaccionales y los datos originales no pueden ser alterados por las consultas (más seguridad).</li>
+<li><strong>Cuatro clases de datos</strong>: <strong>detallados</strong>, <strong>comprimidos</strong>, <strong>históricos</strong> y <strong>metadatos</strong> (organizados en un eje histórico y un eje sintético). Metadatos: <em>del negocio</em> (para el usuario final), <em>de la base de datos</em> y <em>de aplicaciones</em>.</li>
+<li><strong>Cuatro métodos de análisis</strong> (evolución según Dyché, 2000): <strong>consultas estándar</strong> (predefinidas; las más usadas), <strong>análisis multidimensional</strong>, <strong>modelización y segmentación</strong>, <strong>descubrimiento del conocimiento</strong> (patrones no especificados de antemano; ejemplo: análisis de afinidad, «el 80 % de quienes compran papas fritas compra gaseosas»).</li>
+<li><strong>Tres tipos de data mining</strong> (por proceso): <strong>descubrimiento</strong>, <strong>modelado predictivo</strong>, <strong>análisis forense</strong> (detecta anomalías respecto de la norma). Métodos: estadística, árboles de decisión, algoritmos genéticos, redes neuronales y lógica difusa.</li>
+<li><strong>Visualización</strong>: <strong>drill down / drill up</strong> (del agregado al detalle y viceversa), <strong>drill across</strong> (moverse entre datos distintos, p. ej. de los 10 productos más vendidos a los locales que los vendieron), <strong>slice and dice</strong> (rotar el cubo para cambiar el punto de vista).</li>
+<li><strong>ETL</strong>: extracción, transformación (sumarización, agregación, ordenamiento, agrupamiento) y carga (periódica, con frecuencia programada).</li>
+<li><strong>Beneficios</strong>: única plataforma para datos heterogéneos, «pretexto» para limpiarlos, acceso más amplio sin depender de expertos, mejor atención al cliente, evitar números conflictivos. La <strong>integración</strong> es muy compleja y consume un alto porcentaje del proyecto; el éxito depende de <strong>comenzar por los requerimientos del negocio</strong>.</li>
+</ul>
+<h3 id="s-ejemplos-del-texto">Ejemplos del texto <a class="ancla" href="#s-ejemplos-del-texto" aria-label="Link a «Ejemplos del texto»">#</a></h3>
+<p>Prepaga (what-if sobre la cuota), precio del trigo en Chicago (ejemplo de FCE de la dirección; el atraso en la red de computación sería FCE del gerente de sistemas, no de la dirección), papas fritas y gaseosas (afinidad), marcas → productos → regiones (drill down), cubo producto × sucursal × actual/proyectada (slice and dice).</p>
+<hr />
+<h2 id="s-casanovas-2014-la-administracion-empresarial-los-s">Casanovas (2014): La administración empresarial, los sistemas transaccionales <a class="ancla" href="#s-casanovas-2014-la-administracion-empresarial-los-s" aria-label="Link a «Casanovas (2014): La administración empresarial, los sistemas transaccionales»">#</a></h2>
+<h3 id="s-tesis-central-2">Tesis central <a class="ancla" href="#s-tesis-central-2" aria-label="Link a «Tesis central»">#</a></h3>
+<p>Los sistemas transaccionales se estudian dentro de los <strong>sistemas de información administrativos integrados</strong>: módulos de <strong>Comercialización (Ventas), Compras, Cobranzas y Pagos</strong> que comparten una <strong>base de datos común</strong>, más la función <strong>Contable</strong>, que los resume. Producción y Recursos Humanos quedan afuera porque son demasiado específicos de cada empresa para armar un esquema «típico» (pág. 2). Al final del capítulo, el original trata los <strong>sistemas integrados de software administrativo (ERP)</strong>, pero ese tramo <strong>no figura en el .txt disponible</strong> (termina en la pág. 50, en la función contable).</p>
+<h3 id="s-conceptos-clave-2">Conceptos clave <a class="ancla" href="#s-conceptos-clave-2" aria-label="Link a «Conceptos clave»">#</a></h3>
+<ul>
+<li><strong>Sistema integrado</strong>: varios subsistemas entre los que <strong>fluyen los datos</strong> para cumplir el objetivo del sistema general; los datos comunes se almacenan una sola vez, evitando <strong>redundancia</strong> (datos repetidos) e <strong>incoherencia</strong> (datos ambiguos). Surgió porque los primeros sistemas funcionaban como <strong>«islas»</strong>, y fue posible gracias a las <strong>bases de datos</strong> (pág. 3).</li>
+<li><strong>Archivo maestro</strong>: datos relativamente <strong>permanentes</strong>, de carácter único, cuya existencia no depende de transacciones. Ejemplos: ‘Productos’, ‘Clientes’, ‘Bancos’ (pág. 3). Esquema: campos de <strong>identificación</strong> y campos de <strong>atributos</strong>.</li>
+<li><strong>Archivo transaccional</strong>: registra las operaciones; <strong>cada registro depende de una transacción</strong>. Ejemplos: ‘Pedidos’, ‘Facturas’, ‘Cuenta Corriente de Clientes’. Se estructura en <strong>cabecera</strong> (datos únicos: número, fecha, cliente, total) y <strong>detalle</strong> (ítems repetitivos: artículos de un pedido) (pág. 4).</li>
+<li><strong>Campos</strong>: <em>obligatorios/mandatorios</em> (p. ej. condición frente al IVA, sin la cual no se sabe qué factura emitir) y <em>opcionales</em> (nombre del contacto). Los <strong>campos clave</strong> son obligatorios y <strong>únicos</strong>: identifican unívocamente un registro (CUIT, número de comprobante).</li>
+<li><strong>Baja lógica</strong>: un producto, cliente o proveedor dado de baja <strong>no se borra</strong> ni se reutiliza su código; se marca (activo/baja o fecha y motivo), para poder recuperar sus transacciones (pág. 10, nota 5).</li>
+<li><strong>Campos protegidos</strong>: ciertos campos (como el código) no se pueden modificar, porque se perdería la trazabilidad de las transacciones.</li>
+<li><strong>Cuenta corriente</strong>: archivo que registra en forma resumida los movimientos que <strong>aumentan</strong> la deuda (facturas, notas de débito) o la <strong>disminuyen</strong> (notas de crédito, recibos) (pág. 21).</li>
+<li><strong>Remito</strong>: documento que acompaña la mercadería (letra «X», «documento no válido como factura»); <strong>sin precio ni condición de pago</strong>; se emite por duplicado y vuelve conformado por el cliente (págs. 17-18).</li>
+</ul>
+<h3 id="s-comercializacion-circuito-en-6-modulos-pags-8-23">Comercialización: circuito en 6 módulos (págs. 8-23) <a class="ancla" href="#s-comercializacion-circuito-en-6-modulos-pags-8-23" aria-label="Link a «Comercialización: circuito en 6 módulos (págs. 8-23)»">#</a></h3>
+<ol>
+<li><strong>Catalogación de productos</strong> (altas, bajas, modificaciones del ‘Catálogo’; control por ISBN, código de barras o descripción técnica; baja solo si no hay stock ni pedidos pendientes).</li>
+<li><strong>Registro y actualización de clientes</strong> (control por CUIT/CUIL; baja solo sin deudas ni pedidos pendientes).</li>
+<li><strong>Emisión del pedido</strong> (nota de pedido: verifica cliente, precios de lista, condición de pago, <strong>límite de crédito y deudas vencidas</strong>, y existencias; las unidades quedan <strong>reservadas/comprometidas</strong> y <strong>no se descuentan</strong> del stock hasta facturar).</li>
+<li><strong>Entrega del pedido</strong> (Almacenes arma el envío y emite el <strong>remito</strong>; actualiza ‘Stock’ y ‘cantidad entregada’).</li>
+<li><strong>Facturación y registración de la deuda</strong> (factura, nota de débito o nota de crédito, que actualizan existencias y ‘Cuenta Corriente de clientes’ y marcan el remito como facturado).</li>
+<li><strong>Control postventa / reportes de gestión</strong> (listados de ventas, pedidos pendientes, remitos sin facturar, existencias bajo el punto de pedido, etc.).</li>
+</ol>
+<p><strong>Archivos de la función (Comercialización)</strong>: ‘Catálogo’ (siempre guarda el <strong>último precio vigente</strong>; los anteriores van a ‘Precios históricos’), ‘Stock de productos terminados’ (registra <strong>existencias</strong>, no movimientos), ‘Movimientos de stock’, ‘Clientes’, ‘Vendedores’, ‘Pedidos’, ‘Remitos’, ‘Comprobantes de venta’ y ‘Cuenta Corriente de clientes’.</p>
+<p><strong>Campos del ‘Stock’</strong>: código de producto, depósito, ubicación (rack, fila, columna), existencia, <strong>punto de pedido</strong> (mínimo que alerta reposición), <strong>stock máximo</strong>, <strong>comprometido o reservado</strong> (evita que dos vendedores vendan el mismo lote).</p>
+<p><strong>Campos editoriales adicionales del ‘Catálogo’</strong> (pág. 11): colección, título, subtítulo, <strong>ISBN/ISSN</strong>, responsable (autor, compilador, coordinador, traductor, editor), precio de tapa, editorial, año y lugar de edición, tirada, tomo, páginas, encuadernación, peso.</p>
+<p><strong>Particularidades editoriales que señala el texto</strong>: es muy importante el movimiento de mercadería <strong>en consignación</strong> (admite devolución y no se factura de inmediato) y las entregas de libros para <strong>difusión y promoción</strong> (pág. 12). Y la <strong>liquidación de derechos de autor</strong> (pág. 23): requiere un <strong>registro maestro de autores</strong> con el porcentaje pactado por título y el precio de tapa; el sistema informa la cantidad de ejemplares sujetos a liquidación (desde facturación o existencias) y se lleva una <strong>cuenta corriente aparte</strong> por los adelantos y pagos.</p>
+<p><strong>Valuación de existencias</strong> (pág. 6): <strong>PEPS</strong> (primero entrado, primero salido: el inventario queda con lo más reciente; con inflación muestra valores más actualizados y, al costear lo vendido con lo más viejo, la utilidad es <strong>más alta</strong>), <strong>UEPS</strong> (último entrado, primero salido: inventario con lo comprado primero; costo de venta con valores recientes, <strong>utilidad e inventario más bajos</strong>) y <strong>PPP</strong> (precio promedio ponderado: costo promedio del ejercicio). Lo determina <strong>Finanzas</strong>; el criterio de Compras debe coincidir con el de productos terminados.</p>
+<p><strong>Facturación (págs. 19-20)</strong>: reglamentada por la Resolución de AFIP 1415. Numeración: <strong>4 dígitos</strong> de sucursal + <strong>8 dígitos</strong> secuenciales por tipo de factura; al menos por <strong>duplicado</strong>. Venta masiva a consumidores finales: <strong>controlador fiscal</strong> con <strong>memoria fiscal</strong>. Tipo de factura según la posición frente al IVA de emisor y receptor:
+| Emisor → receptor | Factura |
+|---|---|
+| Responsable inscripto → responsable inscripto | <strong>A</strong> (IVA discriminado) |
+| Inscripto → responsable no inscripto | <strong>A</strong> con alícuota + 50 % discriminado (21 % + 10,5 %) |
+| Inscripto → consumidor final, exento o monotributista | <strong>B</strong> (IVA sin discriminar) |
+| Operaciones con el exterior | <strong>E</strong> |
+| Emisor no inscripto, exento o monotributista | <strong>C</strong> |
+<strong>Nota de débito</strong> (gastos de flete, intereses, recargos) y <strong>nota de crédito</strong> (devoluciones) usan el mismo formulario. Alícuotas de IVA en la nota 4 (pág. 10): general <strong>21 %</strong>, reducida <strong>10,5 %</strong>, diferencial <strong>27 %</strong>, y <strong>0 %</strong> para artículos «socialmente prioritarios, como los libros o la leche». <strong>[verificar]</strong> estos porcentajes y el régimen vigente.</p>
+<h3 id="s-compras-circuito-en-8-modulos-pags-23-38">Compras: circuito en 8 módulos (págs. 23-38) <a class="ancla" href="#s-compras-circuito-en-8-modulos-pags-23-38" aria-label="Link a «Compras: circuito en 8 módulos (págs. 23-38)»">#</a></h3>
+<p>Ingreso y actualización de <strong>proveedores</strong> → catalogación de <strong>insumos</strong> → <strong>relación insumo-proveedor</strong> (de doble entrada: un insumo puede tener varios proveedores y viceversa) → <strong>detección de necesidad de compra</strong> → <strong>solicitud de cotizaciones</strong> → <strong>orden de compra</strong> → <strong>recepción</strong> → <strong>registración de la deuda</strong> con el proveedor.
+- Estructura de la función: <strong>centralizada</strong> (una sola planta; economía de registros y menos existencias), <strong>descentralizada</strong> (varias fábricas distantes) o <strong>combinada</strong> (centralizar lo común para mejor precio; lo local se compra localmente). Para compras muy grandes: <strong>licitación</strong> (sobre cerrado).
+- <strong>Tipos de compra</strong> (cuadro 5.6): <strong>normales</strong> (insumos habituales), <strong>especiales o mayores</strong> (inhabituales o de importe alto, p. ej. una máquina), <strong>menores</strong> (lapiceras, tóner, limpieza) y <strong>para mantenimiento de fábrica</strong>.
+- <strong>Disparadores de una compra</strong>: reposición automática al llegar al <strong>punto mínimo</strong>; <strong>pedidos internos</strong> de Producción en el «trabajo sobre pedido»; o una combinación. Registro en ‘Pedidos internos’.
+- <strong>Control de la factura del proveedor</strong> (pág. 37): cantidad facturada = informe de recepción; sin mercadería rechazada; precio, condiciones de pago y cargos coinciden con la <strong>orden de compra</strong>; totales e impuestos bien calculados. Recién entonces se registra la deuda.
+- <strong>Detalle legal</strong>: la deuda con el proveedor debe asentarse <strong>cuando los insumos ingresan</strong>, no cuando llega la factura (si llega solo el remito, se valoriza con la orden de compra y se ajusta después).
+- El <strong>IVA de ventas es débito fiscal</strong> y el <strong>IVA de compras, crédito fiscal</strong>; se compensan para calcular el IVA a pagar.</p>
+<h3 id="s-cobranzas-circuito-en-5-modulos-pags-38-44">Cobranzas: circuito en 5 módulos (págs. 38-44) <a class="ancla" href="#s-cobranzas-circuito-en-5-modulos-pags-38-44" aria-label="Link a «Cobranzas: circuito en 5 módulos (págs. 38-44)»">#</a></h3>
+<p>Asignación de recibos a cobradores → emisión del listado de cobranzas (vencimientos del día) → rendición de cobranzas → registración de valores (‘Cheques de terceros en cartera’, con numeración interna secuencial) → depósito bancario. Misión: transformar un <strong>crédito</strong> (deuda del cliente) en <strong>disponibilidad</strong> (dinero o cheques). Los valores se depositan <strong>el mismo día</strong> (control interno); el <strong>clearing</strong> es la demora para disponer de un cheque de otro banco. Cobranzas genera el <strong>saldo bancario</strong>, la cartera de valores (para Finanzas) y el <strong>índice de incobrabilidad</strong>.</p>
+<h3 id="s-pagos-circuito-en-4-modulos-pags-45-49">Pagos: circuito en 4 módulos (págs. 45-49) <a class="ancla" href="#s-pagos-circuito-en-4-modulos-pags-45-49" aria-label="Link a «Pagos: circuito en 4 módulos (págs. 45-49)»">#</a></h3>
+<p>Listado de vencimientos → <strong>orden de pago</strong> → actualización de la situación de valores → cancelación de la deuda. Misión: cancelar una obligación contraída con un proveedor. La <strong>orden de pago</strong> es el comprobante de control de <strong>todos los egresos de valores</strong>, <strong>numerado correlativamente</strong> (los cheques propios pueden tener numeración discontinua). Se registra después el <strong>recibo del proveedor</strong> como control de que recibió los valores. Se evita el pago doble marcando la deuda como cancelada al emitir la orden. Un recibo provisorio <strong>no tiene validez legal</strong>.</p>
+<h3 id="s-funcion-contable-pags-49-50">Función Contable (págs. 49-50) <a class="ancla" href="#s-funcion-contable-pags-49-50" aria-label="Link a «Función Contable (págs. 49-50)»">#</a></h3>
+<ul>
+<li>Jerárquicamente está <strong>por encima</strong> de las otras cuatro; <strong>no está orientada a transacciones</strong> sino al <strong>control y la toma de decisiones financieras</strong>; contiene información <strong>sumarizada</strong>, por eso Casanovas la categoriza como <strong>sistema de gestión</strong>.</li>
+<li>Produce el <strong>Balance general</strong> (situación patrimonial: <strong>activo</strong> – <strong>pasivo</strong> = <strong>patrimonio neto</strong>) y el <strong>Estado/Cuadro de resultados</strong> (pérdidas y ganancias del ejercicio, no el patrimonio).</li>
+<li><strong>Partida doble</strong>: los valores deben balancearse exactamente. <strong>Libros exigidos por ley</strong>: Diario general, Inventario, Sueldos y jornales, IVA de ventas, IVA de compras. <strong>Informes exigidos</strong>: Balance general anual y Estado de resultados.</li>
+<li>Hoy el detalle se registra de forma <strong>descentralizada</strong> en Compras, Ventas, Pagos y Cobranzas; Contabilidad recibe <strong>totales acumulados</strong> mediante un proceso automático que genera un <strong>asiento resumen</strong> en el Diario general. La <strong>marca contable</strong> impide transferir dos veces el mismo comprobante.</li>
+</ul>
+<h3 id="s-distinciones-tabla-2">Distinciones (tabla) <a class="ancla" href="#s-distinciones-tabla-2" aria-label="Link a «Distinciones (tabla)»">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Par</th>
+<th>A</th>
+<th>B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Archivo maestro vs. transaccional</td>
+<td>Datos permanentes, únicos, independientes de transacciones (Clientes, Productos)</td>
+<td>Un registro por transacción, con cabecera y detalle (Pedidos, Facturas)</td>
+</tr>
+<tr>
+<td>Cabecera vs. detalle</td>
+<td>Datos únicos del comprobante</td>
+<td>Ítems repetitivos</td>
+</tr>
+<tr>
+<td>Campo obligatorio vs. opcional vs. clave</td>
+<td>Sin él no funciona el sistema</td>
+<td>Puede quedar en blanco; clave = único, identifica el registro</td>
+</tr>
+<tr>
+<td>Pedido vs. remito vs. factura</td>
+<td>Pedido: reserva stock, no lo descuenta</td>
+<td>Remito: sale la mercadería, sin precios; factura: formaliza la venta y recién ahí se descuenta y se registra la deuda</td>
+</tr>
+<tr>
+<td>Stock vs. movimientos de stock</td>
+<td>Existencia actual</td>
+<td>Entradas, salidas y transferencias</td>
+</tr>
+<tr>
+<td>Nota de débito vs. nota de crédito</td>
+<td>Aumenta la deuda del cliente</td>
+<td>Disminuye la deuda (p. ej. devolución)</td>
+</tr>
+<tr>
+<td>Baja lógica vs. borrado</td>
+<td>Marca de baja; conserva historia</td>
+<td>Perdería la trazabilidad (no se hace)</td>
+</tr>
+<tr>
+<td>Compras centralizadas vs. descentralizadas</td>
+<td>Una planta, un responsable</td>
+<td>Varias fábricas, un responsable por cada una</td>
+</tr>
+<tr>
+<td>Cobranzas vs. Pagos</td>
+<td>Convierte deudas de clientes en dinero</td>
+<td>Cancela deudas con proveedores</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="s-cuadro-comparativo-de-tipos-de-sistemas-segun-saro">Cuadro comparativo de tipos de sistemas (según Saroka) <a class="ancla" href="#s-cuadro-comparativo-de-tipos-de-sistemas-segun-saro" aria-label="Link a «Cuadro comparativo de tipos de sistemas (según Saroka)»">#</a></h2>
+<p>Saroka distingue <strong>tres grandes familias</strong> (con modalidades). <strong>MIS no figura como tipo propio</strong>: lo rechaza (pág. 15) y lo reformula como «información para control operativo», que sale de los transaccionales. La última columna es mi aplicación a una editorial <strong>[ejemplo propio]</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Tipo de sistema</th>
+<th>Nivel / decisión</th>
+<th>Usuarios y datos</th>
+<th>Función</th>
+<th>Ejemplo en una editorial <strong>[ejemplo propio]</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Transaccional: TPS / OLTP</strong></td>
+<td><strong>Operativo</strong>; decisiones estructuradas y repetitivas</td>
+<td>Empleados y operarios; datos <strong>actuales</strong> detallados de cada transacción</td>
+<td>Capturar, validar y registrar operaciones; automatizar rutinas</td>
+<td>Cargar el pedido de una librería, emitir remito y factura, descontar stock, registrar un cobro o un pago</td>
+</tr>
+<tr>
+<td><strong>ERP</strong> (modalidad transaccional)</td>
+<td>Operativo, integrado a toda la empresa</td>
+<td>Toda la organización; <strong>base de datos central única</strong></td>
+<td>Integrar procesos (finanzas, ventas, compras, RR. HH., producción) con mejores prácticas</td>
+<td>Un paquete que une ventas, depósito, contabilidad y liquidación de derechos de autor; implica adaptar el modo de trabajo al sistema</td>
+</tr>
+<tr>
+<td><strong>CRM</strong> (modalidad transaccional; Saroka solo lo nombra y lo remite al módulo II, nota 7)</td>
+<td>Operativo</td>
+<td>Área comercial</td>
+<td>Gestión de la relación con clientes <strong>[reconstruido]</strong></td>
+<td>Registro de librerías, distribuidoras y bibliotecas con su historial de compras y contactos</td>
+</tr>
+<tr>
+<td><strong>Información para control operativo</strong> (lo que otros llaman <strong>MIS</strong>)</td>
+<td><strong>Control operativo / táctico</strong> (medio)</td>
+<td>Gerentes medios; informes periódicos, repetitivos, <strong>subproducto</strong> de los transaccionales</td>
+<td>Monitorear variables y compararlas con presupuestos</td>
+<td>Informe mensual de ventas por colección; pedidos pendientes de entrega; clientes con deuda de más de 90 días; libros bajo el punto de pedido</td>
+</tr>
+<tr>
+<td><strong>DSS / SAD</strong></td>
+<td><strong>Control operativo y táctico</strong>; decisiones <strong>semiestructuradas</strong></td>
+<td>Ejecutivos y analistas; <strong>datos + modelos</strong>; interactivo, a menudo hecho por el propio usuario en planilla</td>
+<td>Asistir (no reemplazar) el juicio con análisis <em>what-if</em></td>
+<td>Planilla para decidir tirada y precio de tapa de un título: simular ventas, costo de impresión, regalías y punto de equilibrio con distintos supuestos</td>
+</tr>
+<tr>
+<td><strong>EIS / ESS</strong></td>
+<td><strong>Estratégico</strong>; decisiones <strong>no estructuradas</strong></td>
+<td>Alta dirección; datos internos <strong>y externos</strong>; interfaz muy simple; información blanda y dura</td>
+<td>Monitorear indicadores clave (ligados a los FCE) y apoyar políticas, planes y presupuestos</td>
+<td>Tablero del director editorial con ventas por línea, rotación de stock, devoluciones, flujo de fondos y datos del mercado</td>
+</tr>
+<tr>
+<td><strong>BI</strong> (Business Intelligence) con <strong>data warehouse / data mart</strong></td>
+<td>Estratégico y táctico</td>
+<td>Usuarios de negocio y analistas; datos <strong>históricos, integrados y no volátiles</strong> de varios sistemas</td>
+<td>Explorar datos y tendencias; consultas, análisis multidimensional, data mining</td>
+<td>Data mart de ventas: cruzar títulos × canales × meses × regiones; descubrir qué títulos se compran juntos</td>
+</tr>
+<tr>
+<td><strong>OLAP</strong> (ROLAP/MOLAP)</td>
+<td>Analítico (gerencial)</td>
+<td>Analistas; estructura <strong>multidimensional</strong>; actualización periódica</td>
+<td>Análisis multidimensional (drill down/up/across, slice and dice)</td>
+<td>Cubo título × librería × mes: bajar de «ventas de narrativa» a «ventas de un autor» o a «una sucursal»</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Lectura rápida</strong>: cuanto más arriba en la pirámide → decisiones menos estructuradas, información más blanda, más datos externos, menos detalle y más agregación, menor frecuencia y más impacto. Cuanto más abajo → operaciones rutinarias, datos internos y detallados, respuesta inmediata.</p>
+<p><strong>Cuadro de Gorry y Scott-Morton</strong> (lectura complementaria, pág. 48; el .txt trae solo los extremos): nivel <strong>estratégico</strong> = largo plazo, riesgo alto, mucha complejidad, decisiones no estructuradas, creativas, innovadoras, no programables, no rutinarias; información <strong>externa y futura</strong>. Nivel <strong>operativo</strong> = corto plazo, riesgo bajo, poca complejidad, decisiones estructuradas, repetitivas, rutinarias, programables; información <strong>interna e histórica</strong>.</p>
+<h2 id="s-quien-dijo-que">Quién dijo qué <a class="ancla" href="#s-quien-dijo-que" aria-label="Link a «Quién dijo qué»">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Concepto</th>
+<th>Autor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pirámide de 4 niveles; rechazo de «MIS» → «información para control operativo»</td>
+<td><strong>Saroka</strong></td>
+</tr>
+<tr>
+<td>Método de los <strong>Factores Clave para el Éxito</strong> (FCE)</td>
+<td><strong>Rockart</strong> (citado por Saroka); antecedentes: Daniel (1961), Anthony, Dearden y Vancil (1971)</td>
+</tr>
+<tr>
+<td>Los tres métodos «tradicionales» (subproducto, enfoque vacío, principales indicadores)</td>
+<td><strong>Rockart</strong>, vía Saroka</td>
+</tr>
+<tr>
+<td>Definición de ERP citada («paquete de programas estandarizados…»)</td>
+<td><em>Gestión</em>, 1999, citada por Saroka; <strong>Davenport</strong> (1998) para la anatomía del ERP</td>
+</tr>
+<tr>
+<td>«La lógica incrustada en los ERP» (mejores prácticas)</td>
+<td><strong>Tesoro</strong> (1999), citado por Saroka</td>
+</tr>
+<tr>
+<td>Definición de BI</td>
+<td><strong>Plotkin</strong> (1999), citado por Saroka</td>
+</tr>
+<tr>
+<td>Cuatro métodos de análisis del data warehouse</td>
+<td><strong>Dyché</strong> (2000), citado por Saroka</td>
+</tr>
+<tr>
+<td>Matriz de niveles de decisión</td>
+<td><strong>Gorry y Scott-Morton</strong> (lectura complementaria de Saroka)</td>
+</tr>
+<tr>
+<td>Archivos maestros / transaccionales, cabecera / detalle; circuitos de Comercialización, Compras, Cobranzas y Pagos; función Contable</td>
+<td><strong>Casanovas</strong> (coord.); esquemas de circuitos de <strong>Gómez</strong> (2011)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="s-lo-imprescindible-repaso-de-5-minutos">Lo imprescindible (repaso de 5 minutos) <a class="ancla" href="#s-lo-imprescindible-repaso-de-5-minutos" aria-label="Link a «Lo imprescindible (repaso de 5 minutos)»">#</a></h2>
+<ul>
+<li>Cuatro niveles de la organización: operativo, control operativo, táctico, estratégico; más arriba = decisiones <strong>menos estructuradas</strong> (Saroka, pág. 1).</li>
+<li><strong>Transacción</strong> = intercambio usuario-sistema, breve, individual e indivisible. <strong>TPS</strong> = transaccional; <strong>OLTP</strong> = transaccional en tiempo real.</li>
+<li>Los transaccionales son <strong>los primeros</strong> sistemas computarizados y la <strong>fuente</strong> de datos de los demás.</li>
+<li><strong>ERP</strong>: integrado, base de datos única, mejores prácticas definidas por el proveedor, personalización limitada. Viene de MRP (60) → MRPII (80) → ERP (90). Cuesta <strong>3 a 5 veces</strong> las licencias. Se adapta el proceso al sistema, no al revés.</li>
+<li>Saroka <strong>rechaza MIS</strong>: es un subproducto de los transaccionales → «información para control operativo».</li>
+<li><strong>DSS/SAD</strong>: semiestructurado, <strong>datos + modelos</strong>, what-if, apoya y <strong>no reemplaza</strong> al decididor; lo distintivo es la administración de <strong>modelos</strong>.</li>
+<li><strong>EIS/ESS</strong>: para el <strong>nivel ejecutivo</strong>; interfaz fácil, datos externos, indicadores.</li>
+<li><strong>BI</strong> = proceso centrado en el usuario para explorar datos; <strong>data warehouse</strong>: orientado al tema, integrado, historiado, no volátil; <strong>data mart</strong> = versión parcial.</li>
+<li><strong>OLTP</strong> (procesos, bidimensional, respuesta crítica) vs. <strong>OLAP</strong> (tema, multidimensional, histórico, periódico).</li>
+<li><strong>FCE</strong> (Rockart): 3 a 6 por puesto, personales y cambiantes; 4 fuentes; seguimiento vs. transformación.</li>
+<li>Casanovas: <strong>maestros</strong> (permanentes) vs. <strong>transaccionales</strong> (cabecera + detalle); <strong>campo clave</strong> = único; <strong>baja lógica</strong>.</li>
+<li>Circuito de ventas: pedido (<strong>reserva</strong>) → remito (<strong>entrega</strong>) → factura (<strong>descuenta stock y genera deuda</strong>). Remito sin precios.</li>
+<li>Tipos de factura: A (inscripto-inscripto), B (consumidor final/exento/monotributista), C (emisor no inscripto/exento/monotributo), E (exterior).</li>
+<li>Cobranzas convierte deuda de clientes en dinero; Pagos cancela deudas con proveedores vía <strong>orden de pago</strong>; Contable recibe totales y es <strong>sistema de gestión</strong>.</li>
+<li>Editorial: ‘Catálogo’ con ISBN, consignación, y liquidación de <strong>derechos de autor</strong> con cuenta corriente aparte.</li>
+</ul>
+<h2 id="s-erratas-de-las-fuentes">Erratas de las fuentes <a class="ancla" href="#s-erratas-de-las-fuentes" aria-label="Link a «Erratas de las fuentes»">#</a></h2>
+<ul>
+<li><strong>Saroka, pág. 47</strong>: expande ERP como «Enterprise Resource <strong>Systems</strong>»; en la pág. 4 y en todo el texto es Enterprise Resource <strong>Planning</strong>. Usar <em>Planning</em>.</li>
+<li><strong>Saroka, pág. 4</strong>: dice que el ERP «poco tiene que ver con la planificación de los recursos» y a la vez deriva su nombre de MRP; no es contradicción sino aclaración del autor, pero conviene no confundir el nombre con la función.</li>
+<li><strong>Saroka, pág. 16 vs. pág. 47</strong>: el texto presenta a los DSS como asistentes de «un ejecutivo» / «ejecutivos de alto nivel» (págs. 16-17), pero en el esquema final los ubica en los niveles de control operativo y táctico (decisiones semiestructuradas). Para el examen, usar la ubicación del esquema final y recordar que el criterio es semiestructurado.</li>
+<li><strong>Saroka, pág. 47</strong>: el esquema final nombra <strong>CRM</strong> entre los transaccionales sin definirlo y lo remite al módulo II, unidad 2 (nota 7). La definición de la tabla es <strong>[reconstruido]</strong>.</li>
+<li><strong>Saroka, pág. 48 (Gorry y Scott-Morton)</strong>: la tabla está con OCR deteriorado; solo se recuperan con seguridad los niveles estratégico y operativo. El nivel táctico no se pudo leer.</li>
+<li><strong>Casanovas, pág. 50</strong>: dice que «los ingresos y pérdidas se registrarán en el <em>debe</em>, y los egresos y las ganancias en el <em>haber</em>». <strong>⚠ Es una errata conceptual</strong>: en partida doble, las pérdidas y egresos van al <em>debe</em> y los ingresos y ganancias al <em>haber</em>. <strong>[verificar]</strong> con la cátedra qué versión toman como válida.</li>
+<li><strong>Casanovas, pág. 19</strong>: el umbral para pedir autorización de impresión de facturas ($ 50.000.000 y 3.000 facturas A al año) y la Resolución AFIP 1415 son de un marco normativo de 2014; <strong>[verificar]</strong> vigencia. Lo mismo con las alícuotas de IVA de la nota 4 (pág. 10).</li>
+<li><strong>Casanovas, pág. 6</strong>: el cuadro 5.1 está desordenado por el OCR (descripciones de PEPS y UEPS cruzadas con las siglas). El contenido de este apunte se reconstruyó por lógica: PEPS = sale primero lo más viejo; UEPS = sale primero lo último comprado. <strong>[reconstruido]</strong></li>
+<li><strong>Casanovas, pág. 37 y 51 en adelante</strong>: el .txt termina en la función Contable. El tramo final sobre los <strong>sistemas integrados de software administrativo / ERP</strong>, anunciado en la introducción, no está en el archivo disponible.</li>
+</ul></article><section id="autoevaluacion"><h2>Autoevaluación</h2><p class="chico tenue">14 preguntas. Tocá «Ver respuesta» para comprobar. En Cursada podés responder con puntaje.</p><div class="tarjeta"><ol class="preguntas"><li class="pregunta"><p>Según Saroka, ¿qué rasgo caracteriza a los sistemas transaccionales (TPS)?</p><ul class="opciones-lectura"><li><b>a)</b> Integran datos históricos orientados al tema en un repositorio corporativo</li><li><b>b)</b> Están diseñados para asistir al ejecutivo con modelos y análisis what-if</li><li><b>c)</b> Satisfacen el nivel operativo con operaciones repetitivas y relativamente sencillas</li><li><b>d)</b> Producen indicadores externos para definir las políticas de la organización</li></ul><details><summary>Ver respuesta</summary><p class="chico"><b>c)</b> los TPS satisfacen el nivel operativo con operaciones repetitivas y sencillas (a es DSS, b es data warehouse, d es EIS/ESS).</p></details></li><li class="pregunta"><p>¿Qué es lo distintivo de un SAD/DSS, según Saroka?</p><ul class="opciones-lectura"><li><b>a)</b> La administración de cubos, que permite rotar los datos para cambiar de perspectiva</li><li><b>b)</b> La administración de modelos, que permite crear escenarios para explorar alternativas</li><li><b>c)</b> La administración de transacciones, que permite validar y registrar cada operación</li><li><b>d)</b> La administración de metadatos, que permite documentar el origen de cada dato</li></ul><details><summary>Ver respuesta</summary><p class="chico"><b>b)</b> «el sistema de administración de modelos es el que constituye la característica distintiva de los SAD» (pág. 19).</p></details></li><li class="pregunta"><p>¿Por qué Saroka prefiere evitar la expresión «MIS»?</p><ul class="opciones-lectura"><li><b>a)</b> Porque designa un sistema que solo existe en el nivel estratégico</li><li><b>b)</b> Porque fue inventada por los proveedores de ERP a fines de los años 90</li><li><b>c)</b> Porque reemplaza a los sistemas transaccionales en el nivel operativo</li><li><b>d)</b> Porque parece un sistema independiente, tiene varias acepciones y fue «bastardeada»</li></ul><details><summary>Ver respuesta</summary><p class="chico"><b>d)</b> parece independiente (es derivado de los transaccionales), no hay consenso en su significado y el término fue bastardeado (pág. 15).</p></details></li><li class="pregunta"><p>Según Saroka, ¿cuál es la diferencia básica entre los DSS y los EIS/ESS?</p><ul class="opciones-lectura"><li><b>a)</b> Los EIS/ESS están dirigidos al nivel ejecutivo, que requiere otra información y la trata distinto</li><li><b>b)</b> Los DSS usan bases de datos externas y los EIS solo datos internos</li><li><b>c)</b> Los EIS/ESS procesan transacciones y los DSS solo generan informes</li><li><b>d)</b> Los DSS se construyen con data warehouses y los EIS con planillas de cálculo</li></ul><details><summary>Ver respuesta</summary><p class="chico"><b>a)</b> la diferencia es el destinatario: el nivel ejecutivo (pág. 27).</p></details></li><li class="pregunta"><p>Para Saroka, con un ERP lo habitual es que los procesos de la empresa se modifiquen para ajustarse al software y no al revés.</p><p class="chico">Verdadero o falso.</p><details><summary>Ver respuesta</summary><p class="chico"><b>Verdadero.</b> con los ERP se invierte la secuencia: los procesos deben modificarse para ajustarse al sistema (pág. 7).</p></details></li><li class="pregunta"><p>Según Saroka, los factores clave para el éxito (FCE) son los mismos para todos los ejecutivos de una organización y no cambian con el tiempo.</p><p class="chico">Verdadero o falso.</p><details><summary>Ver respuesta</summary><p class="chico"><b>Falso.</b> los FCE son personales, varían de un ejecutivo a otro y cambian con el tiempo (pág. 26).</p></details></li><li class="pregunta"><p>¿Cuál de estas es una característica de los datos de un data warehouse según Saroka?</p><ul class="opciones-lectura"><li><b>a)</b> Se almacenan únicamente con el máximo nivel de detalle</li><li><b>b)</b> Son volátiles, porque se actualizan con cada transacción</li><li><b>c)</b> Son historiados y no volátiles</li><li><b>d)</b> Se organizan por proceso funcional, igual que en los transaccionales</li></ul><details><summary>Ver respuesta</summary><p class="chico"><b>c)</b> los datos del data warehouse son orientados al tema, integrados, historiados y no volátiles (págs. 30-31).</p></details></li><li class="pregunta"><p>Un usuario mira las ventas por marca, detecta una caída y pasa a ver las ventas de esa marca por región. ¿Qué mecanismo usó, según Saroka?</p><ul class="opciones-lectura"><li><b>a)</b> Drill up</li><li><b>b)</b> Slice and dice</li><li><b>c)</b> Drill across</li><li><b>d)</b> Drill down</li></ul><details><summary>Ver respuesta</summary><p class="chico"><b>d)</b> ir de lo agregado al detalle (marca → región) es drill down (pág. 39).</p></details></li><li class="pregunta"><p>En Casanovas, ¿qué distingue a un archivo maestro de uno transaccional?</p><ul class="opciones-lectura"><li><b>a)</b> El maestro registra todas las operaciones; el transaccional guarda datos de contacto</li><li><b>b)</b> El maestro guarda datos permanentes y únicos, como ‘Clientes’; el transaccional depende de operaciones, como ‘Facturas’</li><li><b>c)</b> El maestro se borra al dar de baja un registro; el transaccional conserva una marca de baja</li><li><b>d)</b> El maestro tiene cabecera y detalle; el transaccional tiene solo campos de identificación</li></ul><details><summary>Ver respuesta</summary><p class="chico"><b>b)</b> el maestro es permanente y único; el transaccional existe por una transacción y tiene cabecera y detalle (pág. 3-4).</p></details></li><li class="pregunta"><p>En el circuito de comercialización de Casanovas, ¿qué ocurre con el stock al emitir un pedido?</p><ul class="opciones-lectura"><li><b>a)</b> Se registra como comprometida o reservada, sin descontarla hasta facturar</li><li><b>b)</b> Se agrega la cantidad pedida a las existencias</li><li><b>c)</b> Se descuenta de inmediato la cantidad pedida</li><li><b>d)</b> No se modifica nada hasta que el cliente devuelve el remito</li></ul><details><summary>Ver respuesta</summary><p class="chico"><b>a)</b> queda reservada; recién se descuenta al facturar, porque físicamente sigue en la empresa (pág. 16).</p></details></li><li class="pregunta"><p>Según Casanovas, un remito debe incluir el precio y la condición de pago para que el cliente pueda conformarlo.</p><p class="chico">Verdadero o falso.</p><details><summary>Ver respuesta</summary><p class="chico"><b>Falso.</b> en un remito no deben figurar ni el precio ni la condición de pago (pág. 18).</p></details></li><li class="pregunta"><p>Una editorial recibe una devolución de libros ya facturados. ¿Qué comprobante emite para disminuir la deuda del cliente en la cuenta corriente, según Casanovas?</p><ul class="opciones-lectura"><li><b>a)</b> Orden de pago</li><li><b>b)</b> Nota de crédito</li><li><b>c)</b> Recibo provisorio</li><li><b>d)</b> Nota de débito</li></ul><details><summary>Ver respuesta</summary><p class="chico"><b>b)</b> la devolución disminuye la deuda mediante una nota de crédito (págs. 19-20).</p></details></li><li class="pregunta"><p>¿Qué caracteriza a la función Contable en Casanovas?</p><ul class="opciones-lectura"><li><b>a)</b> No está orientada a transacciones: recibe totales de los otros módulos y se la categoriza como sistema de gestión</li><li><b>b)</b> Emite remitos y facturas para cada venta</li><li><b>c)</b> Registra cada transacción en detalle y por separado, sin intervención de otros módulos</li><li><b>d)</b> Es un módulo equivalente a Cobranzas y Pagos dentro del circuito comercial</li></ul><details><summary>Ver respuesta</summary><p class="chico"><b>a)</b> la función Contable está por encima de los cuatro módulos, no está orientada a transacciones y recibe información sumarizada (pág. 49).</p></details></li><li class="pregunta"><p>En el ‘Catálogo’ de Casanovas, el último precio vigente sobrescribe al anterior, por lo que los precios previos se guardan en un archivo aparte de ‘Precios históricos’.</p><p class="chico">Verdadero o falso.</p><details><summary>Ver respuesta</summary><p class="chico"><b>Verdadero.</b> el ‘Catálogo’ guarda siempre el último precio vigente y los anteriores van a ‘Precios históricos’ (págs. 11-12).</p></details></li></ol></div></section><div class="tarjeta fin-apunte"><span class="crece"><b>Seguí en Cursada:</b> marcá el apunte como leído, respondé la autoevaluación con puntaje y buscá en todos los resúmenes.</span><a class="btn" href="/#resumenes/0916/e2-tipos-de-sistemas-de-informacion" data-abrir="0916/e2-tipos-de-sistemas-de-informacion" data-donde="abajo">Abrir en Cursada</a></div><nav class="fila vecinos" aria-label="Otros apuntes"><a href="/r/0916/e1-pensamiento-sistemico.html">← E1: Pensamiento sistémico</a><span class="crece"></span><a href="/r/0916/e3-informacion-en-la-empresa-cultural.html">E3: Cultura, tecnología e información →</a></nav><p class="chico"><a href="/r/0916/">Todos los apuntes de Informática para la Administración Editorial</a></p>
+</main>
+<footer class="pie">
+<p>Apuntes de Fidel Chaves, estudiante de Edición, hechos para estudiar: no reemplazan la bibliografía ni las clases. <a href="/">Cursada</a> es gratis y sin cuenta. No es un sitio oficial.
+Si aceptás las cookies, Google Analytics cuenta las visitas (<button class="enlace" type="button" id="cookies">cambiar</button>).</p>
+<p><a href="/r/">Todos los apuntes</a> · <a href="https://ficha.github.io/" rel="author">ficha.github.io</a></p>
+</footer>
+<script src="/r/lectura.js"></script>
+</body>
+</html>

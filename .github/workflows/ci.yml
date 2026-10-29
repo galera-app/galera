@@ -1,0 +1,37 @@
+# Galera: controles automáticos en cada PR. Si falla alguno, no se mergea (branch protection en main).
+# Requiere en el repo: tools/verificar_seo.py (copia de 404-personal-infra/calidad/verificar_seo.py).
+name: CI
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  controles:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # verificar_seo --solo-cambios compara contra origin/main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Los JSON de datos son válidos
+        run: |
+          python - <<'PY'
+          import json, pathlib, sys
+          malos = []
+          for p in pathlib.Path(".").rglob("*.json"):
+              if ".git" in p.parts: continue
+              try: json.loads(p.read_text(encoding="utf-8"))
+              except Exception as e: malos.append(f"{p}: {e}")
+          print("\n".join(malos) or "JSON ok")
+          sys.exit(1 if malos else 0)
+          PY
+      - name: La sintaxis de los JS es válida
+        run: for f in app.js horarios.js; do [ -f "$f" ] && node --check "$f"; done; true
+      - name: SEO y vista previa (cero fallas)
+        run: python tools/verificar_seo.py . --solo-cambios --dominio https://galera.com.ar

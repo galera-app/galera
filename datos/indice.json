@@ -1,0 +1,119 @@
+{
+ "carreras": [
+  {
+   "id": "edicion",
+   "nombre": "Edición (FFyL, UBA)",
+   "archivo": "edicion.json"
+  }
+ ],
+ "calendarios": [
+  {
+   "anio": 2026,
+   "archivo": "calendario-2026.json"
+  }
+ ],
+ "ofertas": [
+  {
+   "id": "2026-2C",
+   "nombre": "2.º cuatrimestre 2026",
+   "carrera": "edicion",
+   "archivo": "oferta-2026-2c.json"
+  }
+ ],
+ "mesas": [
+  {
+   "id": "2026-septiembre",
+   "nombre": "Turno septiembre 2026",
+   "carrera": "edicion",
+   "archivo": "mesas-2026-septiembre.json"
+  }
+ ],
+ "bibliografia": [
+  {
+   "codigo": "0902",
+   "anio": 2025,
+   "n": 41
+  },
+  {
+   "codigo": "0905",
+   "anio": 2025,
+   "n": 77
+  },
+  {
+   "codigo": "0909",
+   "anio": 2025,
+   "n": 49
+  },
+  {
+   "codigo": "0911",
+   "anio": 2025,
+   "n": 89
+  },
+  {
+   "codigo": "0912",
+   "anio": 2025,
+   "n": 37
+  },
+  {
+   "codigo": "0913",
+   "anio": 2025,
+   "n": 38
+  },
+  {
+   "codigo": "0914",
+   "anio": 2025,
+   "n": 56
+  },
+  {
+   "codigo": "0915",
+   "anio": 2025,
+   "n": 174
+  },
+  {
+   "codigo": "0916",
+   "anio": 2025,
+   "n": 78
+  },
+  {
+   "codigo": "0917",
+   "anio": 2025,
+   "n": 39
+  },
+  {
+   "codigo": "0918",
+   "anio": 2025,
+   "n": 116
+  },
+  {
+   "codigo": "0919",
+   "anio": 2025,
+   "n": 56
+  },
+  {
+   "codigo": "0920",
+   "anio": 2025,
+   "n": 36
+  },
+  {
+   "codigo": "0921",
+   "anio": 2025,
+   "n": 94
+  },
+  {
+   "codigo": "0922",
+   "anio": 2025,
+   "n": 45
+  },
+  {
+   "codigo": "0923",
+   "anio": 2025,
+   "n": 18
+  }
+ ],
+ "idiomas": [
+  {
+   "id": "2026-2C",
+   "archivo": "idiomas-2026-2c.json"
+  }
+ ]
+}

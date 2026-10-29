@@ -1,0 +1,1248 @@
+{
+ "id": "2026-2C",
+ "nombre": "Idiomas, 2.º cuatrimestre 2026",
+ "fuente": "https://lenguasmodernasuba.blogspot.com/search/label/Cursos%20Regulares",
+ "actualizado": "2026-10-20",
+ "nota": "Los cursos de Lenguas Modernas son de promoción directa, los niveles aprobados valen 4 años y no hay condición de oyente: hay que inscribirse por SUIGA («Otras materias, seminarios e idiomas») y no darse de baja. Los parciales de las comisiones virtuales son presenciales.",
+ "comisiones": [
+  {
+   "id": "idi-ale01",
+   "materia": "aleman",
+   "tipo": "Elemental",
+   "nombre": "Alemán elemental · 1",
+   "docente": "Beade, Gustavo / F. Polcuch, Martina",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 1,
+     "desde": "10:00",
+     "hasta": "12:00"
+    },
+    {
+     "dia": 3,
+     "desde": "10:00",
+     "hasta": "12:00"
+    }
+   ],
+   "suiga": "ALE01-LM10a12"
+  },
+  {
+   "id": "idi-ale02",
+   "materia": "aleman",
+   "tipo": "Elemental",
+   "nombre": "Alemán elemental · 2",
+   "docente": "Tellechea, María Graciela",
+   "aula": "",
+   "modalidad": "Presencial",
+   "bloques": [
+    {
+     "dia": 2,
+     "desde": "16:00",
+     "hasta": "20:00"
+    }
+   ],
+   "suiga": "ALE02-Ma16a20P"
+  },
+  {
+   "id": "idi-ale03",
+   "materia": "aleman",
+   "tipo": "Elemental",
+   "nombre": "Alemán elemental · 3",
+   "docente": "Wörbach, Mónica",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 3,
+     "desde": "16:00",
+     "hasta": "20:00"
+    }
+   ],
+   "suiga": "ALE03-Mi16a20"
+  },
+  {
+   "id": "idi-alm04",
+   "materia": "aleman",
+   "tipo": "Medio",
+   "nombre": "Alemán medio · 4",
+   "docente": "Aren, Fernanda",
+   "aula": "",
+   "modalidad": "Presencial",
+   "bloques": [
+    {
+     "dia": 1,
+     "desde": "10:00",
+     "hasta": "14:00"
+    }
+   ],
+   "suiga": "ALM04-Lu10a14P"
+  },
+  {
+   "id": "idi-alm05",
+   "materia": "aleman",
+   "tipo": "Medio",
+   "nombre": "Alemán medio · 5",
+   "docente": "Tellechea, María / F. Polcuch, M.",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico y asincrónico",
+   "bloques": [
+    {
+     "dia": 3,
+     "desde": "16:00",
+     "hasta": "20:00"
+    }
+   ],
+   "suiga": "ALM05-Mi16a20"
+  },
+  {
+   "id": "idi-als06",
+   "materia": "aleman",
+   "tipo": "Superior",
+   "nombre": "Alemán superior · 6",
+   "docente": "Rotemberg, Silvina",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 3,
+     "desde": "18:00",
+     "hasta": "22:00"
+    }
+   ],
+   "suiga": "ALS06-Mi18a22"
+  },
+  {
+   "id": "idi-als07",
+   "materia": "aleman",
+   "tipo": "Superior",
+   "nombre": "Alemán superior · 7",
+   "docente": "F. Polcuch, Martina",
+   "aula": "",
+   "modalidad": "Presencial",
+   "bloques": [
+    {
+     "dia": 4,
+     "desde": "12:00",
+     "hasta": "16:00"
+    }
+   ],
+   "suiga": "ALS07-Ju12a16P"
+  },
+  {
+   "id": "idi-fre01",
+   "materia": "frances",
+   "tipo": "Elemental",
+   "nombre": "Francés elemental · 1",
+   "docente": "Caputo, Jorge",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 1,
+     "desde": "14:00",
+     "hasta": "18:00"
+    }
+   ],
+   "suiga": "FRE01-Lu14a18"
+  },
+  {
+   "id": "idi-fre03",
+   "materia": "frances",
+   "tipo": "Elemental",
+   "nombre": "Francés elemental · 3",
+   "docente": "Elias, Yahel",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 3,
+     "desde": "12:00",
+     "hasta": "16:00"
+    }
+   ],
+   "suiga": "FRE03-Mi12a16"
+  },
+  {
+   "id": "idi-fre04",
+   "materia": "frances",
+   "tipo": "Elemental",
+   "nombre": "Francés elemental · 4",
+   "docente": "Caputo, Jorge",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 4,
+     "desde": "08:00",
+     "hasta": "12:00"
+    }
+   ],
+   "suiga": "FRE04-Ju8a12"
+  },
+  {
+   "id": "idi-fre05",
+   "materia": "frances",
+   "tipo": "Elemental",
+   "nombre": "Francés elemental · 5",
+   "docente": "Varia, Lucía",
+   "aula": "",
+   "modalidad": "Presencial",
+   "bloques": [
+    {
+     "dia": 4,
+     "desde": "12:00",
+     "hasta": "16:00"
+    }
+   ],
+   "suiga": "FRE05-Ju12a16P"
+  },
+  {
+   "id": "idi-fre06",
+   "materia": "frances",
+   "tipo": "Elemental",
+   "nombre": "Francés elemental · 6",
+   "docente": "Bariffi, Alejandra",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 4,
+     "desde": "18:00",
+     "hasta": "22:00"
+    }
+   ],
+   "suiga": "FRE06-Ju18a22"
+  },
+  {
+   "id": "idi-frm07a",
+   "materia": "frances",
+   "tipo": "Medio",
+   "nombre": "Francés medio · 7a",
+   "docente": "Zaparart, Ma. Julia",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 1,
+     "desde": "08:00",
+     "hasta": "12:00"
+    }
+   ],
+   "suiga": "FRM07a-Lu8a12"
+  },
+  {
+   "id": "idi-frm07b",
+   "materia": "frances",
+   "tipo": "Medio",
+   "nombre": "Francés medio · 7b",
+   "docente": "Elias, Yahel",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 1,
+     "desde": "12:00",
+     "hasta": "16:00"
+    }
+   ],
+   "suiga": "FRM07b-Lu12a16"
+  },
+  {
+   "id": "idi-frm08",
+   "materia": "frances",
+   "tipo": "Medio",
+   "nombre": "Francés medio · 8",
+   "docente": "Gambardella, Viviana",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 2,
+     "desde": "18:00",
+     "hasta": "22:00"
+    }
+   ],
+   "suiga": "FRM08-Ma18a22"
+  },
+  {
+   "id": "idi-frm09",
+   "materia": "frances",
+   "tipo": "Medio",
+   "nombre": "Francés medio · 9",
+   "docente": "Varia, Lucía",
+   "aula": "",
+   "modalidad": "Presencial",
+   "bloques": [
+    {
+     "dia": 3,
+     "desde": "14:00",
+     "hasta": "18:00"
+    }
+   ],
+   "suiga": "FRM09-Mi14a18P"
+  },
+  {
+   "id": "idi-frm10",
+   "materia": "frances",
+   "tipo": "Medio",
+   "nombre": "Francés medio · 10",
+   "docente": "Gaiotti, Claudia",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 5,
+     "desde": "10:00",
+     "hasta": "14:00"
+    }
+   ],
+   "suiga": "FRM10-Vi10a14"
+  },
+  {
+   "id": "idi-frs11",
+   "materia": "frances",
+   "tipo": "Superior",
+   "nombre": "Francés superior · 11",
+   "docente": "Labado, Silvia",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 1,
+     "desde": "12:00",
+     "hasta": "16:00"
+    }
+   ],
+   "suiga": "FRS11-Lu12a16"
+  },
+  {
+   "id": "idi-frs12",
+   "materia": "frances",
+   "tipo": "Superior",
+   "nombre": "Francés superior · 12",
+   "docente": "Gambardella, Viviana",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 1,
+     "desde": "18:00",
+     "hasta": "22:00"
+    }
+   ],
+   "suiga": "FRS12-Lu18a22"
+  },
+  {
+   "id": "idi-frs13",
+   "materia": "frances",
+   "tipo": "Superior",
+   "nombre": "Francés superior · 13",
+   "docente": "Lizzano, Mónica",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 3,
+     "desde": "14:00",
+     "hasta": "18:00"
+    }
+   ],
+   "suiga": "FRS13-Mi14a18"
+  },
+  {
+   "id": "idi-frs14",
+   "materia": "frances",
+   "tipo": "Superior",
+   "nombre": "Francés superior · 14",
+   "docente": "Lizzano, Mónica",
+   "aula": "",
+   "modalidad": "Presencial",
+   "bloques": [
+    {
+     "dia": 4,
+     "desde": "16:00",
+     "hasta": "20:00"
+    }
+   ],
+   "suiga": "FRS14-Ju16a20P"
+  },
+  {
+   "id": "idi-ine01",
+   "materia": "ingles1",
+   "tipo": "Comisión",
+   "nombre": "Inglés elemental · 1",
+   "docente": "Tumbeiro, Marisa",
+   "aula": "",
+   "modalidad": "Presencial",
+   "bloques": [
+    {
+     "dia": 1,
+     "desde": "08:00",
+     "hasta": "12:00"
+    }
+   ],
+   "suiga": "INE01-Lu8a12P"
+  },
+  {
+   "id": "idi-ine02",
+   "materia": "ingles1",
+   "tipo": "Comisión",
+   "nombre": "Inglés elemental · 2",
+   "docente": "Toscano y García, Sol",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 1,
+     "desde": "16:00",
+     "hasta": "20:00"
+    }
+   ],
+   "suiga": "INE02-Lu16a20"
+  },
+  {
+   "id": "idi-ine03",
+   "materia": "ingles1",
+   "tipo": "Comisión",
+   "nombre": "Inglés elemental · 3",
+   "docente": "Albini, Ma. Claudia",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 2,
+     "desde": "10:00",
+     "hasta": "14:00"
+    }
+   ],
+   "suiga": "INE03-Ma10a14"
+  },
+  {
+   "id": "idi-ine04",
+   "materia": "ingles1",
+   "tipo": "Comisión",
+   "nombre": "Inglés elemental · 4",
+   "docente": "Quinteros, Cynthia",
+   "aula": "",
+   "modalidad": "Virtual · asincrónico (100 % virtual, encuentros opcionales)",
+   "bloques": [
+    {
+     "dia": 2,
+     "desde": "14:00",
+     "hasta": "18:00"
+    }
+   ],
+   "suiga": "INE04-Ma14a18"
+  },
+  {
+   "id": "idi-ine05",
+   "materia": "ingles1",
+   "tipo": "Comisión",
+   "nombre": "Inglés elemental · 5",
+   "docente": "Caperochipe, Laura",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 2,
+     "desde": "18:00",
+     "hasta": "22:00"
+    }
+   ],
+   "suiga": "INE05-Ma18a22"
+  },
+  {
+   "id": "idi-ine06",
+   "materia": "ingles1",
+   "tipo": "Comisión",
+   "nombre": "Inglés elemental · 6",
+   "docente": "Atan, Gabriela",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 3,
+     "desde": "12:00",
+     "hasta": "16:00"
+    }
+   ],
+   "suiga": "INE06-Mi12a16"
+  },
+  {
+   "id": "idi-ine07",
+   "materia": "ingles1",
+   "tipo": "Comisión",
+   "nombre": "Inglés elemental · 7",
+   "docente": "Carrió, María Florencia",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 4,
+     "desde": "08:00",
+     "hasta": "12:00"
+    }
+   ],
+   "suiga": "INE07-Ju8a12"
+  },
+  {
+   "id": "idi-ine08",
+   "materia": "ingles1",
+   "tipo": "Comisión",
+   "nombre": "Inglés elemental · 8",
+   "docente": "Toscano y García, Sol",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 4,
+     "desde": "16:00",
+     "hasta": "20:00"
+    }
+   ],
+   "suiga": "INE08-Ju16a20"
+  },
+  {
+   "id": "idi-ine09",
+   "materia": "ingles1",
+   "tipo": "Comisión",
+   "nombre": "Inglés elemental · 9",
+   "docente": "Lasa, Cecilia",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 5,
+     "desde": "12:00",
+     "hasta": "16:00"
+    }
+   ],
+   "suiga": "INE09-Vi12a16"
+  },
+  {
+   "id": "idi-ine10",
+   "materia": "ingles1",
+   "tipo": "Comisión",
+   "nombre": "Inglés elemental · 10",
+   "docente": "Fullone, Mariana",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 5,
+     "desde": "18:00",
+     "hasta": "22:00"
+    }
+   ],
+   "suiga": "INE10-Vi18a22"
+  },
+  {
+   "id": "idi-ine11",
+   "materia": "ingles1",
+   "tipo": "Comisión",
+   "nombre": "Inglés elemental · 11",
+   "docente": "Carrió, María Florencia",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 6,
+     "desde": "10:00",
+     "hasta": "14:00"
+    }
+   ],
+   "suiga": "INE11-Sa10a14"
+  },
+  {
+   "id": "idi-inm12",
+   "materia": "ingles2",
+   "tipo": "Comisión",
+   "nombre": "Inglés medio · 12",
+   "docente": "Bron, Natalia",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 1,
+     "desde": "08:00",
+     "hasta": "12:00"
+    }
+   ],
+   "suiga": "INM12-Lu8a12"
+  },
+  {
+   "id": "idi-inm13",
+   "materia": "ingles2",
+   "tipo": "Comisión",
+   "nombre": "Inglés medio · 13",
+   "docente": "Bron, Natalia",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 1,
+     "desde": "12:00",
+     "hasta": "16:00"
+    }
+   ],
+   "suiga": "INM13-Lu12a16"
+  },
+  {
+   "id": "idi-inm14",
+   "materia": "ingles2",
+   "tipo": "Comisión",
+   "nombre": "Inglés medio · 14",
+   "docente": "Otero, Ana",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 2,
+     "desde": "08:00",
+     "hasta": "12:00"
+    }
+   ],
+   "suiga": "INM14-Ma8a12"
+  },
+  {
+   "id": "idi-inm15",
+   "materia": "ingles2",
+   "tipo": "Comisión",
+   "nombre": "Inglés medio · 15",
+   "docente": "Otero, Ana",
+   "aula": "",
+   "modalidad": "Virtual · asincrónico (100 % virtual, encuentros opcionales)",
+   "bloques": [
+    {
+     "dia": 2,
+     "desde": "12:00",
+     "hasta": "16:00"
+    }
+   ],
+   "suiga": "INM15-Ma12a16"
+  },
+  {
+   "id": "idi-inm16",
+   "materia": "ingles2",
+   "tipo": "Comisión",
+   "nombre": "Inglés medio · 16",
+   "docente": "Castiglioni / Roseti",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 2,
+     "desde": "18:00",
+     "hasta": "22:00"
+    }
+   ],
+   "suiga": "INM16-Ma18a22"
+  },
+  {
+   "id": "idi-inm17",
+   "materia": "ingles2",
+   "tipo": "Comisión",
+   "nombre": "Inglés medio · 17",
+   "docente": "Fernández, Victoria",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 3,
+     "desde": "14:00",
+     "hasta": "18:00"
+    }
+   ],
+   "suiga": "INM17-Mi14a18"
+  },
+  {
+   "id": "idi-inm18",
+   "materia": "ingles2",
+   "tipo": "Comisión",
+   "nombre": "Inglés medio · 18",
+   "docente": "Fernández, Victoria",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 3,
+     "desde": "18:00",
+     "hasta": "22:00"
+    }
+   ],
+   "suiga": "INM18-Mi18a22"
+  },
+  {
+   "id": "idi-inm19",
+   "materia": "ingles2",
+   "tipo": "Comisión",
+   "nombre": "Inglés medio · 19",
+   "docente": "Saubidet Oyhamburu, Stella M.",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 4,
+     "desde": "14:00",
+     "hasta": "18:00"
+    }
+   ],
+   "suiga": "INM19-Ju14a18"
+  },
+  {
+   "id": "idi-inm20",
+   "materia": "ingles2",
+   "tipo": "Comisión",
+   "nombre": "Inglés medio · 20",
+   "docente": "Saubidet Oyhamburu, Stella M.",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico y asincrónico",
+   "bloques": [
+    {
+     "dia": 4,
+     "desde": "18:00",
+     "hasta": "22:00"
+    }
+   ],
+   "suiga": "INM20-Ju18a22"
+  },
+  {
+   "id": "idi-inm21",
+   "materia": "ingles2",
+   "tipo": "Comisión",
+   "nombre": "Inglés medio · 21",
+   "docente": "Lasa, Cecilia",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 5,
+     "desde": "08:00",
+     "hasta": "12:00"
+    }
+   ],
+   "suiga": "INM21-Vi8a12"
+  },
+  {
+   "id": "idi-ins22",
+   "materia": "ingles3",
+   "tipo": "Comisión",
+   "nombre": "Inglés superior · 22",
+   "docente": "Tumbeiro, Marisa",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 1,
+     "desde": "18:00",
+     "hasta": "22:00"
+    }
+   ],
+   "suiga": "INS22-Lu18a22"
+  },
+  {
+   "id": "idi-ins23",
+   "materia": "ingles3",
+   "tipo": "Comisión",
+   "nombre": "Inglés superior · 23",
+   "docente": "Roseti, Laura",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 2,
+     "desde": "12:00",
+     "hasta": "16:00"
+    }
+   ],
+   "suiga": "INS23-Ma12a16"
+  },
+  {
+   "id": "idi-ins24",
+   "materia": "ingles3",
+   "tipo": "Comisión",
+   "nombre": "Inglés superior · 24",
+   "docente": "Jaschek, Stephanie",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 3,
+     "desde": "16:00",
+     "hasta": "20:00"
+    }
+   ],
+   "suiga": "INS24-Mi16a20"
+  },
+  {
+   "id": "idi-ins25",
+   "materia": "ingles3",
+   "tipo": "Comisión",
+   "nombre": "Inglés superior · 25",
+   "docente": "Roseti, Laura",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 3,
+     "desde": "18:00",
+     "hasta": "22:00"
+    }
+   ],
+   "suiga": "INS25-Mi18a22"
+  },
+  {
+   "id": "idi-ins27",
+   "materia": "ingles3",
+   "tipo": "Comisión",
+   "nombre": "Inglés superior · 27",
+   "docente": "De Francesco, Karina",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico y asincrónico",
+   "bloques": [
+    {
+     "dia": 4,
+     "desde": "14:00",
+     "hasta": "18:00"
+    }
+   ],
+   "suiga": "INS27-Ju14a18"
+  },
+  {
+   "id": "idi-ins28",
+   "materia": "ingles3",
+   "tipo": "Comisión",
+   "nombre": "Inglés superior · 28",
+   "docente": "Adem, Adriana",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 5,
+     "desde": "10:00",
+     "hasta": "14:00"
+    }
+   ],
+   "suiga": "INS28-Vi10a14"
+  },
+  {
+   "id": "idi-ins29",
+   "materia": "ingles3",
+   "tipo": "Comisión",
+   "nombre": "Inglés superior · 29",
+   "docente": "Fullone, Mariana",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 5,
+     "desde": "14:00",
+     "hasta": "18:00"
+    }
+   ],
+   "suiga": "INS29-Vi14a18"
+  },
+  {
+   "id": "idi-ins30",
+   "materia": "ingles3",
+   "tipo": "Comisión",
+   "nombre": "Inglés superior · 30",
+   "docente": "Adem, Adriana",
+   "aula": "",
+   "modalidad": "Presencial",
+   "bloques": [
+    {
+     "dia": 5,
+     "desde": "18:00",
+     "hasta": "22:00"
+    }
+   ],
+   "suiga": "INS30-VI18a22"
+  },
+  {
+   "id": "idi-ite01",
+   "materia": "italiano",
+   "tipo": "Elemental",
+   "nombre": "Italiano elemental · 1",
+   "docente": "F. Speier, Claudia",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 1,
+     "desde": "10:00",
+     "hasta": "12:00"
+    },
+    {
+     "dia": 3,
+     "desde": "10:00",
+     "hasta": "12:00"
+    }
+   ],
+   "suiga": "ITE01-LM10a12"
+  },
+  {
+   "id": "idi-ite02",
+   "materia": "italiano",
+   "tipo": "Elemental",
+   "nombre": "Italiano elemental · 2",
+   "docente": "Pandolfi, Gabriela",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 2,
+     "desde": "08:00",
+     "hasta": "12:00"
+    }
+   ],
+   "suiga": "ITE02-MA8a12"
+  },
+  {
+   "id": "idi-ite03",
+   "materia": "italiano",
+   "tipo": "Elemental",
+   "nombre": "Italiano elemental · 3",
+   "docente": "Caiazzo, Michela",
+   "aula": "",
+   "modalidad": "Presencial",
+   "bloques": [
+    {
+     "dia": 3,
+     "desde": "14:00",
+     "hasta": "18:00"
+    }
+   ],
+   "suiga": "ITE03-MI14a18P"
+  },
+  {
+   "id": "idi-ite04",
+   "materia": "italiano",
+   "tipo": "Elemental",
+   "nombre": "Italiano elemental · 4",
+   "docente": "Rossi, Yamila",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 3,
+     "desde": "18:00",
+     "hasta": "22:00"
+    }
+   ],
+   "suiga": "ITE04-MI18a22"
+  },
+  {
+   "id": "idi-ite05",
+   "materia": "italiano",
+   "tipo": "Elemental",
+   "nombre": "Italiano elemental · 5",
+   "docente": "Veronesi, Silvana",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 5,
+     "desde": "12:00",
+     "hasta": "16:00"
+    }
+   ],
+   "suiga": "ITE05-VI12a16"
+  },
+  {
+   "id": "idi-itm06",
+   "materia": "italiano",
+   "tipo": "Medio",
+   "nombre": "Italiano medio · 6",
+   "docente": "Massella, Carmen",
+   "aula": "",
+   "modalidad": "Presencial",
+   "bloques": [
+    {
+     "dia": 1,
+     "desde": "16:00",
+     "hasta": "20:00"
+    }
+   ],
+   "suiga": "ITM06-LU16a20P"
+  },
+  {
+   "id": "idi-itm07",
+   "materia": "italiano",
+   "tipo": "Medio",
+   "nombre": "Italiano medio · 7",
+   "docente": "Soria, Analía",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 2,
+     "desde": "08:00",
+     "hasta": "12:00"
+    }
+   ],
+   "suiga": "ITM07-MA8a12"
+  },
+  {
+   "id": "idi-itm08",
+   "materia": "italiano",
+   "tipo": "Medio",
+   "nombre": "Italiano medio · 8",
+   "docente": "Caiazzo, Michela",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 2,
+     "desde": "18:00",
+     "hasta": "22:00"
+    }
+   ],
+   "suiga": "ITM08-MA18a22"
+  },
+  {
+   "id": "idi-its09",
+   "materia": "italiano",
+   "tipo": "Superior",
+   "nombre": "Italiano superior · 9",
+   "docente": "Berardozzi, Julia",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 1,
+     "desde": "16:00",
+     "hasta": "18:00"
+    },
+    {
+     "dia": 3,
+     "desde": "16:00",
+     "hasta": "18:00"
+    }
+   ],
+   "suiga": "ITS09-LM16a18"
+  },
+  {
+   "id": "idi-its10",
+   "materia": "italiano",
+   "tipo": "Superior",
+   "nombre": "Italiano superior · 10",
+   "docente": "Pandolfi, Gabriela",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 3,
+     "desde": "12:00",
+     "hasta": "16:00"
+    }
+   ],
+   "suiga": "ITS10-MI12a16"
+  },
+  {
+   "id": "idi-its11",
+   "materia": "italiano",
+   "tipo": "Superior",
+   "nombre": "Italiano superior · 11",
+   "docente": "Veronesi, Silvana",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 5,
+     "desde": "16:00",
+     "hasta": "20:00"
+    }
+   ],
+   "suiga": "ITS11-VI16a20"
+  },
+  {
+   "id": "idi-poe01",
+   "materia": "portugues",
+   "tipo": "Elemental",
+   "nombre": "Portugués elemental · 1",
+   "docente": "Panto González, Carla",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 1,
+     "desde": "08:00",
+     "hasta": "12:00"
+    }
+   ],
+   "suiga": "POE01-Lu8a12"
+  },
+  {
+   "id": "idi-poe02",
+   "materia": "portugues",
+   "tipo": "Elemental",
+   "nombre": "Portugués elemental · 2",
+   "docente": "Panto González, Carla",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 1,
+     "desde": "12:00",
+     "hasta": "16:00"
+    }
+   ],
+   "suiga": "POE02-Lu12a16"
+  },
+  {
+   "id": "idi-poe03",
+   "materia": "portugues",
+   "tipo": "Elemental",
+   "nombre": "Portugués elemental · 3",
+   "docente": "Ortiz, Leonardo",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 1,
+     "desde": "18:00",
+     "hasta": "22:00"
+    }
+   ],
+   "suiga": "POE03-Lu18a22"
+  },
+  {
+   "id": "idi-poe04",
+   "materia": "portugues",
+   "tipo": "Elemental",
+   "nombre": "Portugués elemental · 4",
+   "docente": "Salto, Alba",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 4,
+     "desde": "08:00",
+     "hasta": "12:00"
+    }
+   ],
+   "suiga": "POE04-Ju8a12"
+  },
+  {
+   "id": "idi-poe05",
+   "materia": "portugues",
+   "tipo": "Elemental",
+   "nombre": "Portugués elemental · 5",
+   "docente": "Salto, Alba",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 5,
+     "desde": "18:00",
+     "hasta": "22:00"
+    }
+   ],
+   "suiga": "POE05-Vi18a22"
+  },
+  {
+   "id": "idi-pom06",
+   "materia": "portugues",
+   "tipo": "Medio",
+   "nombre": "Portugués medio · 6",
+   "docente": "Probo Chaves, Alzira",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 4,
+     "desde": "12:00",
+     "hasta": "16:00"
+    }
+   ],
+   "suiga": "POM06-Ju12a16"
+  },
+  {
+   "id": "idi-pom07",
+   "materia": "portugues",
+   "tipo": "Medio",
+   "nombre": "Portugués medio · 7",
+   "docente": "Probo Chaves, Alzira",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 4,
+     "desde": "16:00",
+     "hasta": "20:00"
+    }
+   ],
+   "suiga": "POM07-Ju16a20"
+  },
+  {
+   "id": "idi-pom08",
+   "materia": "portugues",
+   "tipo": "Medio",
+   "nombre": "Portugués medio · 8",
+   "docente": "Ortiz, Leonardo",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 5,
+     "desde": "18:00",
+     "hasta": "22:00"
+    }
+   ],
+   "suiga": "POM08-Vi18a22"
+  },
+  {
+   "id": "idi-pos09",
+   "materia": "portugues",
+   "tipo": "Superior",
+   "nombre": "Portugués superior · 9",
+   "docente": "Foigel, Natalia",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 2,
+     "desde": "10:00",
+     "hasta": "14:00"
+    }
+   ],
+   "suiga": "POS09-Ma10a14"
+  },
+  {
+   "id": "idi-pos10",
+   "materia": "portugues",
+   "tipo": "Superior",
+   "nombre": "Portugués superior · 10",
+   "docente": "Foigel, Natalia",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 2,
+     "desde": "14:00",
+     "hasta": "18:00"
+    }
+   ],
+   "suiga": "POS10-Ma14a18"
+  },
+  {
+   "id": "idi-pos11",
+   "materia": "portugues",
+   "tipo": "Superior",
+   "nombre": "Portugués superior · 11",
+   "docente": "Pasero, Carlos Alberto",
+   "aula": "",
+   "modalidad": "Virtual · sincrónico",
+   "bloques": [
+    {
+     "dia": 2,
+     "desde": "18:00",
+     "hasta": "22:00"
+    }
+   ],
+   "suiga": "POS11-Ma18a22"
+  }
+ ]
+}
