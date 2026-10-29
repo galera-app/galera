@@ -272,7 +272,7 @@ function elegirPerfil() {
 function vConfig() {
   const pr = esPro() ? 'profesional' : 'estudiante';
   const op = (p, ico, t, d) => `<button class="perfil ${pr === p ? 'on' : ''}" type="button" aria-pressed="${pr === p}" onclick="cambiarPerfil(${arg(p)})"><span class="perfil-ico" aria-hidden="true">${ico}</span><b>${t}</b><span class="chico tenue">${d}</span></button>`;
-  return `<div class="titulo-sec"><h2>Ajustes</h2></div>
+  return `<div class="titulo-sec"><h2>Configuración</h2></div><p class="chico tenue u-mt0">Tus datos viven en este dispositivo. Desde acá los movés o los borrás.</p>
     <div class="tarjeta"><h3>¿Qué te representa?</h3><p class="u-mt0 chico tenue">Elegí qué secciones ver. Podés volver acá cuando quieras.</p>
       <div class="perfiles">${op('estudiante', '🎓', 'Estudiante', 'Tu carrera de Edición: notas, horarios, calendario y resúmenes.')}${op('profesional', '📚', 'Profesional del libro', 'Herramientas, eventos de la industria y links del sector.')}</div></div>
     <div class="tarjeta"><h3>Tus datos</h3><p class="u-mt0 chico tenue">Se guardan solo en este navegador.</p>
@@ -359,7 +359,7 @@ function render() {
   dibujarPestanas();
   dibujarInferior();
   document.body.dataset.tab = V.tab;
-  $('#subtitulo').textContent = esPro() ? 'Herramientas, eventos y links para quienes trabajan con libros' : 'Tus materias, tu promedio y tus horarios de ' + D.plan.nombre;
+  $('#subtitulo').textContent = esPro() ? 'Herramientas, eventos y links para quienes trabajan con libros' : 'Tus materias, tu promedio y tus horarios de ' + (D.plan ? D.plan.nombre : 'Edición');
   document.title = tituloPagina();
   altoCab();
   const gr = grupoDe(V.tab); if (gr) (V.gUlt = V.gUlt || {})[gr[0]] = V.tab;
@@ -2986,14 +2986,14 @@ function vNovedades() {
   const N = D.novedades.novedades.filter(x => Number.isInteger(x.v) && perfilNovVisible(x)), vers = [...new Set(N.map(x => x.v))].sort((a, b) => b - a);
   const tema = Object.fromEntries(TEMAS_NOV.map(([k, t]) => [k, t.split(' ')[0]]));
   const hechos = (D.pedidos && D.pedidos.pedidos || []).filter(p => p.estado === 'hecho' && Number.isInteger(p.v));
-  const tarjeta = x => `<div class="tarjeta nov-item"><b class="nov-t">${esc(x.titulo)}</b>
-    ${x.texto ? `<p class="u-mt6 chico">${esc(x.texto)}</p>` : ''}
+  const tarjeta = x => `<div class="nov-item"><h3 class="nov-t">${esc(x.titulo)}</h3>
+    ${x.texto ? `<p class="u-mt6 nov-tx">${esc(x.texto)}</p>` : ''}
     ${hechos.filter(p => p.v === x.v).map(p => `<p class="u-mt6 chico"><span class="chip ok">Lo pidieron</span> «${esc(p.resumen)}» <a href="#novedades/pedidos" onclick="verNov('pedidos'); return false">Ver pedidos →</a></p>`).join('')}
     <p class="u-mt8 chico tenue">${tema[x.tipo] || ''} ${esc((TEMAS_NOV.find(t => t[0] === x.tipo) || ['', ''])[1].replace(/^\S+\s/, ''))}${x.para ? ' · Para: ' + esc(x.para) : ''}${enlaceNov(x.url)}</p></div>`;
-  return filtroNov() + `<p class="u-mt0 chico tenue">Todo lo que se fue sumando a Galera, desde la primera versión hasta hoy. Es lo mismo que te llega por mail los lunes.</p>
-    <p class="botones"><button class="btn ch" onclick="avisame()">🔔 Avisame por mail</button><button class="btn lin ch" onclick="idea()">💡 Pedir algo</button></p>` +
+  return filtroNov() + `<div class="nov-pag"><aside class="nov-lado tarjeta"><p class="nov-rot">Mail de los lunes</p><p class="u-mt0">Todo lo que se fue sumando a Galera, desde la primera versión hasta hoy. Es lo mismo que te llega por mail los lunes. Sin cuenta.</p>
+    <p class="botones"><button class="btn ch" onclick="avisame()">Avisame por mail</button><button class="btn lin ch" onclick="idea()">Pedir algo</button></p></aside><section class="nov-lista" aria-label="Versiones">` +
     vers.map(v => { const L = N.filter(x => x.v === v).sort((a, b) => a.fecha < b.fecha ? 1 : -1);
-      return `<div class="titulo-sec" id="nov-v${v}"><h2>v${v}${v === vers[0] ? ' <span class="chip ok">última</span>' : ''}</h2><span class="chico tenue">${fmtLarga(L[0].fecha)}</span></div>${L.map(tarjeta).join('')}`; }).join('');
+      return `<article class="nov-fila" id="nov-v${v}"><div class="nov-ver"><b>v${v}</b>${v === vers[0] ? ' <span class="chip ok">última</span>' : ''}<span>${fmtLarga(L[0].fecha)}</span></div><div>${L.map(tarjeta).join('')}</div></article>`; }).join('') + '</section></div>';
 }
 const enlaceNov = u => { const r = typeof u === 'string' && /^https:\/\/ficha\.github\.io\/cursada\/(#[a-z]+)?$/.test(u) ? u.replace(/^https:\/\/ficha\.github\.io\/cursada\//, '') : ''; return r && r !== '#donar' ? ` · <a href="${esc(r)}">Verlo en Galera →</a>` : ''; };
 const fmtLarga = s => { const d = fecha(s); return d.getDate() + ' de ' + MESES_LARGO[d.getMonth()] + ' de ' + d.getFullYear(); };
@@ -3024,9 +3024,9 @@ function vLinks() {
   return (G ? `<div class="titulo-sec"><h2>Lo básico de la cursada</h2></div><div class="tarjeta guia">${G.items.map(i => `<details><summary>${esc(i.t)}</summary><p class="chico">${esc(i.d)}</p></details>`).join('')}
     <p class="chico tenue u-margin-10px-0-0">${esc(G.fuente)}</p></div>` : '') +
     `<p class="chico tenue">Los sitios oficiales que más se usan durante la cursada. Si falta alguno, avisame con 💡 Sugerencias.</p>` +
-    (D.plan.links || []).map(g => `<div class="titulo-sec"><h2>${esc(g.grupo)}</h2></div><div class="tarjeta u-padding-6px-16px">
+    `<div class="links-g3">${(D.plan.links || []).map(g => `<div class="tarjeta u-padding-6px-16px"><p class="nov-rot">${esc(g.grupo)}</p>
       ${g.links.map(l => `<a class="evento u-text-decoration-none_color-inherit" href="${urlSegura(l.url)}" target="_blank" rel="noopener"><span class="crece"><b class="u-color-var-tinta">${esc(l.t)} ↗</b>
-        ${l.d ? `<span class="chico tenue u-display-block">${esc(l.d)}</span>` : ''}</span></a>`).join('')}</div>`).join('') +
+        ${l.d ? `<span class="chico tenue u-display-block">${esc(l.d)}</span>` : ''}</span></a>`).join('')}</div>`).join('')}</div>` +
     (D.plan.verificado ? `<p class="chico tenue verificado">✓ Links revisados el ${fmt(D.plan.verificado)}.</p>` : '');
 }
 // El sitio es estático: la sugerencia va a un buzón aparte (un Apps Script, ver 104-edicion-cursada/sugerencias)
