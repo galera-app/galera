@@ -2055,7 +2055,7 @@ function vTarifario() {
       ${f.controlado ? `<span class="chico tenue u-margin-left-8px">✓ Link revisado el ${fmt(f.controlado)}</span>` : ''}
     </article>`).join('') : '<p class="vacio">No hay tarifarios publicados para este rubro.</p>'}
     ${!sel && (T.huecos || []).length ? `<div class="titulo-sec"><h2>Lo que no se encontró</h2></div><div class="tarjeta"><ul class="u-margin-0_padding-left-18px">${T.huecos.map(h => `<li class="chico">${esc(h)}</li>`).join('')}</ul></div>` : ''}
-    <p class="chico tenue">Los valores son orientativos y no obligatorios. Si conocés otro tarifario público, contanoslo en 💡 Sugerencias.</p>`;
+    <p class="chico tenue">Los valores son orientativos y no obligatorios. Si conocés otro tarifario público, contámelo con 💡 Contame qué falta.</p>`;
 }
 
 // Los simuladores, por materia (el orden de la pestaña sale de acá).
@@ -2218,7 +2218,7 @@ function vEventos() {
     <p class="u-mt8 chico tenue"><span class="chip tin">${esc(e.ambito)}</span>${e.url ? ` · <a href="${urlSegura(e.url)}" target="_blank" rel="noopener">Sitio oficial ↗</a>` : ' · Sin sitio oficial verificado'}</p></div>`;
   let mes = '';
   const cuerpo = L.map(e => { const m = e.desde ? e.desde.slice(0, 7) : 'sin', cab = m !== mes ? (mes = m, `<div class="titulo-sec"><h2>${m === 'sin' ? 'Fecha por confirmar' : esc(MESES_LARGO[+m.slice(5) - 1][0].toUpperCase() + MESES_LARGO[+m.slice(5) - 1].slice(1) + ' de ' + m.slice(0, 4))}</h2></div>`) : ''; return cab + tarjeta(e); }).join('');
-  return `<p class="u-mt0 chico tenue">Ferias y fechas del mundo del libro que importan a quien edita, vende o publica. Solo cuento lo que confirma el organizador; lo demás figura «a confirmar». ¿Falta alguno? <a href="#" onclick="idea(); return false">Avisame con 💡 Sugerencias</a>.</p>
+  return `<p class="u-mt0 chico tenue">Ferias y fechas del mundo del libro que importan a quien edita, vende o publica. Solo cuento lo que confirma el organizador; lo demás figura «a confirmar». ¿Falta alguno? <a href="#" onclick="idea(); return false">Avisame con 💡 Contame qué falta</a>.</p>
     ${hayPas ? `<p class="u-mt0 botones"><button class="btn lin ch" aria-pressed="${!!V.evPas}" onclick="V.evPas=!V.evPas;render()">${V.evPas ? 'Ocultar los que ya pasaron' : 'Ver los que ya pasaron'}</button></p>` : ''}
     ${cuerpo || '<p class="vacio">No hay eventos por venir cargados.</p>'}
     ${D.eventos.actualizado ? `<p class="chico tenue verificado">Revisados el ${esc(fmtLarga(D.eventos.actualizado))}.</p>` : ''}`;
@@ -2579,7 +2579,7 @@ Object.assign(AYUDA, {
   pagCar: 'Caracteres con espacios de toda la obra (el procesador de texto los cuenta). Páginas del texto = caracteres ÷ caracteres por página, redondeado hacia arriba (cálculo tipográfico).',
   pagCaps: 'En cuántos capítulos se divide el texto. Las páginas se reparten en partes iguales (las que sobran van a los primeros).',
   pagRecto: 'En muchos libros cada capítulo abre en página impar (recto): si el anterior termina en recto, el dorso queda en blanco y eso suma páginas.',
-  pagPortadilla: 'Cada capítulo lleva una hoja con solo su título (en recto, con el dorso en blanco): 2 páginas más por capítulo.',
+  pagPortadilla: 'Cada capítulo lleva una hoja con solo su título (en recto, con el dorso en blanco): dos páginas más por capítulo.',
   pagMultiplo: 'El pliego de impresión define el múltiplo: el total de páginas se lleva al múltiplo de 8, 16, 32 o 64. Las que faltan son páginas en blanco al final (se pueden cubrir con paratextos o publicidad).',
   pagIni: 'Recto es la página impar (a la derecha al abrir el libro); verso, la par (a la izquierda). Si una parte debe abrir en recto y la página que sigue es par, queda una en blanco.'
 });
@@ -2974,8 +2974,8 @@ function sostenerHoras(H, R) {
     : `<p class="u-font-size-1-5rem_margin-0"><b>${esc(horasTxt(H.horas_totales))}</b></p>
     <p class="chico tenue u-margin-2px-0-8px">de trabajo desde el ${esc(fmtLarga(H.primer_commit))}, en ${esc(H.sesiones)} sesiones. Actualizado el ${esc(fmtLarga(H.generado))}.</p>`;
   const nota = rango
-    ? `<p class="u-m0 chico tenue">Cómo se cuenta: junto en una sola línea de tiempo cada cambio guardado en Galera y la hora de cada mensaje de mis sesiones de trabajo con Claude (solo la hora, nunca el contenido), y cuento una sesión mientras no pasen más de 10, 20 o 45 minutos sin actividad (más unos minutos de arranque). De ahí salen el mínimo, el valor central y el máximo. Es una estimación y no incluye el tiempo fuera de la pantalla, como pensar o probar en el celular. Solo con los cambios guardados, que cualquiera puede verificar en el <a href="https://github.com/Ficha/Ficha.github.io/commits/main/cursada" target="_blank" rel="noopener">historial público</a>, son ${esc(horasTxt(H.horas_totales))} (sesiones de hasta 2 horas entre cambios, más 30 minutos de arranque).</p>`
-    : `<p class="u-m0 chico tenue">Cómo se cuenta: se toman todos los cambios que se guardaron en Galera y se juntan en sesiones (si entre un cambio y el siguiente pasaron menos de 2 horas, es la misma sesión). A cada sesión se le suman 30 minutos de arranque. Es una estimación, y cualquiera puede verificarla en el <a href="https://github.com/Ficha/Ficha.github.io/commits/main/cursada" target="_blank" rel="noopener">historial público</a>.</p>`;
+    ? `<p class="u-m0 chico tenue">Cómo se cuenta: junto en una sola línea de tiempo cada cambio guardado en Galera y la hora de cada mensaje de mis sesiones de trabajo con Claude (solo la hora, nunca el contenido), y cuento una sesión mientras no pasen más de 10, 20 o 45 minutos sin actividad (más unos minutos de arranque). De ahí salen el mínimo, el valor central y el máximo. Es una estimación y no incluye el tiempo fuera de la pantalla, como pensar o probar en el celular. Solo con los cambios guardados, que cualquiera puede verificar en el <a href="https://github.com/Ficha/Ficha.github.io/commits/main/cursada" target="_blank" rel="noopener">historial público</a>, son ${esc(horasTxt(H.horas_totales))} (sesiones de hasta dos horas entre cambios, más 30 minutos de arranque).</p>`
+    : `<p class="u-m0 chico tenue">Cómo se cuenta: se toman todos los cambios que se guardaron en Galera y se juntan en sesiones (si entre un cambio y el siguiente pasaron menos de dos horas, es la misma sesión). A cada sesión se le suman 30 minutos de arranque. Es una estimación, y cualquiera puede verificarla en el <a href="https://github.com/Ficha/Ficha.github.io/commits/main/cursada" target="_blank" rel="noopener">historial público</a>.</p>`;
   return `${cabeza}
     ${rango ? '' : (meses ? `<ul class="chico u-margin-0-0-8px_padding-left-18px">${meses}</ul>` : '')}
     ${nota}`;
@@ -3110,7 +3110,7 @@ function idea(o) {
     <input id="i-c" aria-label="Tu mail (opcional)" class="u-width-100_margin-top-8px" maxlength="120" type="email" placeholder="Tu mail, solo si querés que te responda (opcional)" autocomplete="email">
     <div aria-hidden="true" class="u-oculto"><label>No completar<input id="i-w" tabindex="-1" autocomplete="off"></label></div>
     <div class="botones"><button class="btn" id="i-b" onclick="mandarIdea()">Enviar</button><button class="btn lin" onclick="cerrar()">Cancelar</button></div>
-    <p class="chico tenue" id="i-n">Le llega a Fidel. No se manda nada de tus notas ni de tus horarios. Si dejás un mail, se borra a los 6 meses. <a href="#novedades/pedidos" onclick="cerrar()">Mirá lo que ya pidieron</a>.</p>`);
+    <p class="chico tenue" id="i-n">Le llega a Fidel. No se manda nada de tus notas ni de tus horarios. Si dejás un mail, se borra a los seis meses. <a href="#novedades/pedidos" onclick="cerrar()">Mirá lo que ya pidieron</a>.</p>`);
   setTimeout(() => $('#i-t').focus(), 50);
 }
 async function mandarIdea() {
@@ -3260,7 +3260,7 @@ function abrirDatos() {
       <li>entrás desde otro dispositivo (el celular y la compu no se sincronizan) o desde otro navegador;</li>
       <li>usás una ventana de incógnito o privada: se borra al cerrarla;</li>
       <li>borrás los datos de navegación (cookies y datos de sitios) o desinstalás el navegador;</li>
-      <li>usás Safari (iPhone, iPad o Mac) y pasás más de 7 días sin entrar: Safari borra solo lo que guardan los sitios que no visitás (<a href="https://webkit.org/blog/10218/full-third-party-cookie-blocking-and-more/" target="_blank" rel="noopener">lo explica WebKit</a>).</li>
+      <li>usás Safari (iPhone, iPad o Mac) y pasás más de siete días sin entrar: Safari borra solo lo que guardan los sitios que no visitás (<a href="https://webkit.org/blog/10218/full-third-party-cookie-blocking-and-more/" target="_blank" rel="noopener">lo explica WebKit</a>).</li>
     </ul>
     </details>
     <div class="zona-borrar"><p class="u-mb8 chico tenue">¿Compu compartida? Al terminar, guardá tu copia y borrá todo: lo que cargás queda en este navegador.</p>
