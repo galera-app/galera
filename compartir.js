@@ -71,7 +71,7 @@ function bajarImagen() {
 function urlCompartible() {
   if (V.tab === 'resumenes' && V.res.materia) return urlRes(V.res.materia, V.res.apunte);
   if (V.tab === 'simuladores' && V.sim) return urlSim(V.sim);
-  return location.origin + location.pathname + (V.tab && V.tab !== 'carrera' ? '#' + hashActual() : '');
+  return location.origin + rutaActual().split('#')[0];
 }
 function copiarLink(url) {
   if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(() => aviso('Link copiado'), () => aviso('No se pudo copiar el link'));
@@ -253,7 +253,7 @@ function instalarApp() {
   const p = INSTALAR; INSTALAR = null; p.prompt(); cerrar();
 }
 const puedeInstalar = () => !!INSTALAR;
-if ('serviceWorker' in navigator && window.isSecureContext) window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => { }));
+if ('serviceWorker' in navigator && window.isSecureContext) window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => { }));
 
 // ---------- logros compartibles ----------
 // Se calculan siempre desde lo que ya está cargado: no se guarda nada aparte. La imagen lleva solo el logro, sin materias, notas ni nombre.

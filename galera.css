@@ -20,8 +20,8 @@ h1,h2,h3{letter-spacing:-.02em}
 .marca{max-width:1224px;flex-wrap:wrap}
 .marca .logo{display:none}
 .marca .nombre{padding:14px 24px 14px 0}
-.marca h1{font-family:var(--gotica);font-weight:400;font-size:32px;line-height:28px;letter-spacing:0;text-transform:none;display:inline-block}
-.marca h1::first-letter{color:var(--marca)}
+.marca .nombre-t{font-family:var(--gotica);font-weight:400;font-size:32px;line-height:28px;letter-spacing:0;text-transform:none;display:inline-block}
+.marca .nombre-t::first-letter{color:var(--marca)}
 .pestanas .tab{padding:14px 12px 16px;min-height:44px;font-size:14px;line-height:16px;font-family:inherit}
 .pestanas .tab[aria-current="page"]{font-weight:600}
 .pestanas .tab[aria-current="page"]::after{left:12px;right:12px;bottom:4px;height:5px;border-radius:0;background:radial-gradient(circle,var(--marca) 1.5px,transparent 1.9px) 0 0/6px 5px}

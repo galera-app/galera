@@ -485,7 +485,7 @@ a.gl-tapa:focus-visible{outline:2px solid var(--gl-ink);outline-offset:2px}
 .gl-v .gl-enlace{display:inline-flex}
 main:has(>.gl-v){max-width:1224px;padding:48px 16px 80px}
 @media (max-width:720px){main:has(>.gl-v){padding:20px 20px 32px}}
-.gl-v .gl-cab{display:flex;align-items:center;flex-wrap:wrap;gap:16px}.gl-v .gl-cab h2{margin:0}
+.gl-v .gl-cab{display:flex;align-items:center;flex-wrap:wrap;gap:16px}.gl-v .gl-cab h1,.gl-v .gl-cab h2{margin:0}
 .gl-busca .gl-rotulo{display:block;margin-bottom:4px}
 .gl-v .eco-zoom .gl-btn{min-width:44px;height:44px;padding:0 16px}
 /* v112 · Novedades, Links útiles y Configuración (hojas Novedades, Links y Config del lienzo) */

@@ -18,7 +18,7 @@ const TABS_PRO = tabsDe(MARCO.tabs.profesional);
 const TODAS_TABS = TABS.concat(tabsDe(MARCO.tabs_ocultas));   // el Arcade no tiene pestaña: se entra desde los Resúmenes de Corrección de Estilo
 const esPro = () => E.perfil === 'profesional';
 const tabsActivas = () => esPro() ? TABS_PRO : TABS;
-const ajustarTab = () => { if (esPro() && V.tab !== 'inicio' && !TABS_PRO.some(t => t[0] === V.tab)) { V.tab = 'simuladores'; V.sim = ''; } };
+const ajustarTab = () => { if (esPro() && V.tab !== 'inicio' && V.tab !== 'doc' && !TABS_PRO.some(t => t[0] === V.tab)) { V.tab = 'simuladores'; V.sim = ''; } };
 const CONTACTO = 'fidelchaves96@gmail.com'; // el mismo mail público de ficha.github.io
 const SOPORTE = 'soporte@galera.com.ar'; // errores y fallas de la app
 const V = { sim: '', nov: '', bib: 'libros', perIdi: 'es', perTipo: '', bl: { q: '', origen: '', tema: '', mat: '', n: 0 }, tab: 'inicio', cambiaPerfil: false, vista: 'tabla', oferta: '', verPasados: false, calFiltro: 'todo', sugeridas: null, verAprobadas: false, verSem: false,
@@ -188,7 +188,7 @@ function programas(m, o) {
 const nombreDe = m => { const o = opcion(m), e = E.materias[m.id] || {}; return o ? o.nombre : (m.libre && e.detalle ? 'Seminario: ' + e.detalle : m.nombre); };
 
 // ---------- carga de datos ----------
-async function json(archivo) { const r = await fetch('datos/' + archivo); if (!r.ok) throw new Error(archivo); return r.json(); }
+async function json(archivo) { const r = await fetch('/datos/' + archivo); if (!r.ok) throw new Error(archivo); return r.json(); }
 // Los idiomas no vienen en la planilla de la Facultad: los publica el Departamento de Lenguas Modernas (idiomas_lm.py).
 // Se suman como comisiones de la misma oferta; si no se pueden cargar, la oferta queda como estaba.
 async function conIdiomas(of) {
@@ -198,6 +198,7 @@ async function conIdiomas(of) {
   return of;
 }
 async function arrancar() {
+  V.docHtml = $('#main').innerHTML; V.docClase = $('#main').className; desdeUrl(); V.arrancando = true;
   try {
     D.indice = await json('indice.json');
     const c = D.indice.carreras.find(x => x.id === E.carrera) || D.indice.carreras[0];
@@ -210,20 +211,29 @@ async function arrancar() {
     D.plan = plan; D.calendario = cal; D.ofertas = of ? [await conIdiomas(of)] : []; D.mesas = mesas.filter(Boolean);
     V.oferta = of ? of.id : '';
   } catch (err) {
-    $('#main').innerHTML = '<p class="vacio">No pude cargar esto (' + esc(err.message) + '). Puede ser la conexión. <button class="btn sec" type="button" onclick="location.reload()">Probar de nuevo</button></p>';
+    if (document.querySelector('#main .cargando')) $('#main').innerHTML = '<p class="vacio">No pude cargar esto (' + esc(err.message) + '). Puede ser la conexión. <button class="btn sec" type="button" onclick="location.reload()">Probar de nuevo</button></p>';
     return;
   }
   $('#subtitulo').textContent = 'Tus materias, tu promedio y tus horarios de ' + D.plan.nombre;
   registrarVisita();
   document.querySelectorAll('[data-nov]').forEach(el => { el.hidden = !NOVEDADES; });
   if (DONAR.alias) $('#donar').innerHTML = `<button class="btn sec ch" type="button" onclick="ir('sostener')">Invitar un cafecito</button>`;
-  if (desdeHash() && V.tab === 'resumenes' && V.res.apunte) cargarApunte(); else render();
+  try { await precargar(); } catch (e) { /* cada vista muestra su propio aviso */ }
+  V.arrancando = false;
+  if (V.tab === 'resumenes' && V.res.apunte) cargarApunte(); else render();
+  if (location.hash && V.tab !== 'resumenes') { const el = document.getElementById(location.hash.slice(1)); if (el) el.scrollIntoView(); }
   iniciarPerfil();
   manejarLinkNov(); // links de los mails de novedades (#confirmar=, #novedades=, #baja=)
   cargarResumenes(); // índice chico: sirve para ofrecer los resúmenes desde la ficha de cada materia
 }
-// El hash dice dónde está cada quien: #pestaña, o #resumenes/materia/apunte/sección (links para compartir partes de un apunte).
-const hashActual = () => V.tab === 'resumenes' ? ['resumenes', V.res.materia, V.res.apunte, V.res.sec].filter(Boolean).join('/') : V.tab === 'simuladores' ? ['simuladores', V.sim].filter(Boolean).join('/') : V.tab === 'novedades' && V.nov ? 'novedades/' + V.nov : V.tab === 'biblioteca' && V.bib !== 'libros' ? ['biblioteca', V.bib, V.bib === 'per' && V.perIdi !== 'es' ? V.perIdi : ''].filter(Boolean).join('/') : V.tab;
+// Cada pantalla tiene su dirección real (/biblioteca/, /r/0911/, /simuladores/papel.html): la misma que Google, WhatsApp y los mails. Los # viejos (#biblioteca, #resumenes/…) redirigen acá.
+const urlTab = t => (MARCO.pantallas[t] || { url: t[0] === '/' ? t : '/' }).url;
+const rutaActual = () => V.tab === 'doc' ? location.pathname + location.search
+  : V.tab === 'resumenes' ? '/r/' + (V.res.materia ? V.res.materia + '/' + (V.res.apunte ? V.res.apunte + '.html' + (V.res.sec ? '#' + V.res.sec : '') : '') : '')
+  : V.tab === 'simuladores' ? '/simuladores/' + (V.sim ? V.sim + '.html' : '')
+  : V.tab === 'novedades' && V.nov ? '/novedades/?ver=pedidos'
+  : V.tab === 'biblioteca' && V.bib !== 'libros' ? '/biblioteca/?ver=per' + (V.perIdi !== 'es' ? '&idioma=' + V.perIdi : '')
+  : urlTab(V.tab);
 function desdeHash() {
   let p; try { p = decodeURIComponent(location.hash.slice(1)).split('/'); } catch (e) { return false; }
   if (p[0] === 'pedidos') p = ['novedades', 'pedidos'];   // la pestaña Pedidos pasó a Novedades (v14) y es su filtro "Lo que pidieron" (v20)
@@ -240,11 +250,58 @@ function desdeHash() {
   }
   return true;
 }
+function desdeRuta(ruta, buscar, hash) {
+  const q = new URLSearchParams(buscar || ''), p = (ruta || '/').replace(/index\.html$/, '');
+  let x;
+  V.sim = ''; V.nov = '';
+  if ((x = /^\/r\/(?:([\w.-]+)\/(?:([\w.-]+)\.html)?)?$/.exec(p))) { V.tab = 'resumenes'; V.res = { materia: x[1] || '', apunte: x[2] || '', sec: x[2] && hash ? hash.replace(/^#(s-)?/, '') : '' }; return; }
+  if ((x = /^\/simuladores\/(?:([\w-]+)\.html)?$/.exec(p))) { V.tab = 'simuladores'; V.sim = SIMULADORES.some(s => s.id === x[1]) ? x[1] : ''; return; }
+  const t = TODAS_TABS.find(([id]) => urlTab(id) === p);
+  V.tab = t ? t[0] : 'doc';
+  if (V.tab === 'novedades') V.nov = q.get('ver') === 'pedidos' ? 'pedidos' : '';
+  if (V.tab === 'biblioteca') { V.bib = q.get('ver') === 'per' ? 'per' : 'libros'; V.perIdi = ['es', 'en', 'pt', 'de', 'fr'].indexOf(q.get('idioma')) >= 0 ? q.get('idioma') : 'es'; }
+}
+// Primero el # viejo, si lo hay: se convierte en la dirección nueva sin dejar rastro en el historial.
+function desdeUrl() {
+  if (location.hash && desdeHash()) { history.replaceState(null, '', rutaActual()); return; }
+  desdeRuta(location.pathname, location.search, location.hash);
+}
+const esRutaApp = p => /^\/r\/(?:[\w.-]+\/(?:[\w.-]+\.html)?)?$/.test(p) || /^\/simuladores\/(?:[\w-]+\.html)?$/.test(p) || p === '/' || TODAS_TABS.some(([id]) => urlTab(id) === p);
+function abrirVista() { if (V.tab === 'resumenes' && V.res.apunte) return cargarApunte(); render(); window.scrollTo(0, 0); }
 const alCambiarHash = () => {
   if (/^#(datos|horario|desafio)=/.test(location.hash)) { manejarLinkNov(); return; }
-  if (location.hash.slice(1) === hashActual() || !desdeHash()) return;
-  if (V.tab === 'resumenes' && V.res.apunte) cargarApunte(); else { render(); window.scrollTo(0, 0); }
+  if (rutaActual().split('#')[0] === location.pathname + location.search && !(location.hash && TODAS_TABS.some(t => t[0] === location.hash.slice(1).split('/')[0]))) {
+    if (V.tab === 'resumenes' && V.res.apunte) { V.res.sec = location.hash.replace(/^#(s-)?/, ''); irSeccion(); }
+    return;
+  }
+  desdeUrl();
+  if (V.tab === 'doc') { location.reload(); return; }
+  abrirVista();
 };
+// Los enlaces internos son <a href> de verdad (los leen Google y quien abre en otra pestaña): acá se abren sin recargar.
+window.addEventListener('click', e => {
+  if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+  const a = e.composedPath().find(n => n.tagName === 'A' && n.href);
+  if (!a || a.target || a.hasAttribute('download')) return;
+  const u = new URL(a.href);
+  if (u.origin !== location.origin || !esRutaApp(u.pathname)) return;
+  if (u.pathname + u.search === location.pathname + location.search) { if (u.hash) return; e.preventDefault(); window.scrollTo(0, 0); return; }
+  e.preventDefault();
+  V.prac = null; V.errNota = null; V.gAbierto = '';
+  history.pushState(null, '', u.pathname + u.search + u.hash);
+  desdeUrl(); abrirVista();
+  focoTitulo();
+});
+// Lo que cada pantalla necesita antes de dibujarse: así la página que ya llegó armada no parpadea con un «Cargando…».
+function precargar() {
+  const t = V.tab;
+  if (t === 'resumenes') return cargarResumenes().then(() => V.res.apunte ? traerApunte().catch(() => {}) : null);
+  if (t === 'biblioteca') return Promise.all([cargarBiblioteca(), cargarBibExtra('sobre', 'libros-sobre-libros.json'), cargarBibExtra('prog', 'libros-programas.json'), V.bib === 'per' ? cargarBibExtra('per', 'periodicas.json') : null]);
+  const f = { glosario: cargarGlosario, directorio: cargarDirectorio, eventos: cargarEventos, sostener: cargarSostener, novedades: cargarNovedades, links: cargarLinksLibro, inicio: cargarNovedades }[t];
+  return f ? f() : null;
+}
+// Para tools/prerender.js: deja el estado como lo vería alguien sin datos que entra por esa dirección.
+async function prepararPrerender() { V.arrancando = true; desdeRuta(location.pathname, location.search, ''); await precargar(); V.arrancando = false; }
 window.addEventListener('hashchange', alCambiarHash);
 window.addEventListener('popstate', alCambiarHash);
 
@@ -307,7 +364,7 @@ function ponerPerfil(p) {
   E.perfil = p === 'profesional' ? 'profesional' : 'estudiante';
   guardar(true); cerrar();
   V.tab = V.tab === 'config' ? 'config' : esPro() ? 'simuladores' : 'carrera'; V.sim = '';
-  history.replaceState(null, '', '#' + hashActual()); render(); window.scrollTo(0, 0);
+  history.replaceState(null, '', rutaActual()); render(); window.scrollTo(0, 0);
   medir('perfil', { perfil: E.perfil });
 }
 function iniciarPerfil() {
@@ -334,15 +391,15 @@ const fechaLarga = s => { const d = fecha(s); return d.getDate() + ' de ' + MESE
 function elegirEnInicio(p) {
   E.perfil = p === 'profesional' ? 'profesional' : 'estudiante'; V.cambiaPerfil = false; guardar(true); render();
   medir('perfil', { perfil: E.perfil });
-  const h = document.querySelector('#main h2'); if (h) { h.tabIndex = -1; h.focus({ preventScroll: true }); }
+  const h = document.querySelector('#main h1, #main h2'); if (h) { h.tabIndex = -1; h.focus({ preventScroll: true }); }
 }
 function cambiarEnInicio() { V.cambiaPerfil = true; render(); const b = document.querySelector('.gl-perfil.on, .gl-perfil, .gl-cerr .gl-enlace'); if (b) b.focus({ preventScroll: true }); }
 // La última edición (fecha y cuántas novedades trae para este perfil) sale de novedades.json; mientras no llegó, el colofón no la nombra.
 function colofonInicio(per) {
   const lista = ((D.novedades && D.novedades.novedades) || []).filter(n => n.perfil === 'todos' || n.perfil === per);
   const f = lista.map(n => n.fecha).sort().pop(), n = lista.filter(x => x.fecha === f).length;
-  const ed = f ? `Esta edición de Galera se actualizó el ${fechaLarga(f)} y trae <a href="#novedades">${n === 1 ? 'una novedad' : (['', '', 'dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho', 'nueve'][n] || n) + ' novedades'}</a>. ` : '';
-  return `<p class="gl-colofon">${ed}Se compuso en Instrument Sans y Literata, con la g en UnifrakturMaguntia, y se hizo en CABA, Argentina. Se sostiene con <a href="#sostener">cafecitos</a>; tus datos quedan en este navegador (<a href="#config">ajustes</a>).</p>`;
+  const ed = f ? `Esta edición de Galera se actualizó el ${fechaLarga(f)} y trae <a href="/novedades/">${n === 1 ? 'una novedad' : (['', '', 'dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho', 'nueve'][n] || n) + ' novedades'}</a>. ` : '';
+  return `<p class="gl-colofon">${ed}Se compuso en Instrument Sans y Literata, con la g en UnifrakturMaguntia, y se hizo en CABA, Argentina. Se sostiene con <a href="/sostener/">cafecitos</a>; tus datos quedan en este navegador (<a href="/config/">ajustes</a>).</p>`;
 }
 function vInicio() {
   cargarNovedades();
@@ -355,9 +412,9 @@ function vInicio() {
   return `<div class="gl-lectura gl-inicio"><div class="gl-tope"><h2 class="gl-t1">¿Qué venís a hacer?</h2>${selector}</div>
     <div class="gl-sp"><div class="gl-dv" role="separator"><span class="fl"></span></div></div>
     <div class="gl-sumario"><h2 class="gl-rotulo">Índice</h2>${grupos.map(([n, ids], i) => `<section aria-labelledby="ig-${i}"><h3 class="gl-cap" id="ig-${i}"><span class="num" aria-hidden="true">${ROMANOS[i]}</span><span class="gn">${n}</span></h3>
-      <ul class="gl-lista">${ids.map(id => `<li><a class="gl-ent" href="#${id}"><span class="et"><b>${rotuloTab(id)}</b><span class="guia" aria-hidden="true"></span><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="${ICONO_INICIO[id]}"/></svg></span></span><span class="bj">${BAJADAS[per][id]}</span></a></li>`).join('')}</ul></section>`).join('')}</div>
+      <ul class="gl-lista">${ids.map(id => `<li><a class="gl-ent" href="${urlTab(id)}"><span class="et"><b>${rotuloTab(id)}</b><span class="guia" aria-hidden="true"></span><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="${ICONO_INICIO[id]}"/></svg></span></span><span class="bj">${BAJADAS[per][id]}</span></a></li>`).join('')}</ul></section>`).join('')}</div>
     <div class="gl-sp"><div class="gl-dv" role="separator"><span class="gl">· · ·</span></div></div>
-    <figure class="gl-sello"><img class="gl-sello-c" src="img/colofon-caballero.png" width="400" height="512" loading="lazy" decoding="async" alt="Ilustración de un caballero con un estandarte que lleva la g gótica de Galera"><img class="gl-sello-o" src="img/colofon-caballero-oscuro.png" width="400" height="512" loading="lazy" decoding="async" alt="Ilustración de un caballero con un estandarte que lleva la g gótica de Galera"></figure>
+    <figure class="gl-sello"><img class="gl-sello-c" src="/img/colofon-caballero.png" width="400" height="512" loading="lazy" decoding="async" alt="Ilustración de un caballero con un estandarte que lleva la g gótica de Galera"><img class="gl-sello-o" src="/img/colofon-caballero-oscuro.png" width="400" height="512" loading="lazy" decoding="async" alt="Ilustración de un caballero con un estandarte que lleva la g gótica de Galera"></figure>
     ${colofonInicio(per)}</div>`;
 }
 function ir(tab) {
@@ -366,11 +423,11 @@ function ir(tab) {
   if (tab === 'novedades') V.nov = '';   // tocar la pestaña vuelve a "Todo"
   V.prac = null; V.errNota = null; V.gAbierto = '';
   const cambia = V.tab !== tab;
-  V.tab = tab; history[cambia ? 'pushState' : 'replaceState'](null, '', '#' + hashActual()); render(); window.scrollTo(0, 0);
+  V.tab = tab; history[cambia ? 'pushState' : 'replaceState'](null, '', rutaActual()); render(); window.scrollTo(0, 0);
   if (cambia) focoTitulo();
 }
 // Al cambiar de pestaña el foco va al título de la pantalla nueva (quien usa lector de pantalla o teclado no queda en el botón anterior).
-function focoTitulo() { const h = document.querySelector('#main h2'); if (h) { h.tabIndex = -1; h.focus({ preventScroll: true }); } }
+function focoTitulo() { const h = document.querySelector('#main h1, #main h2'); if (h) { h.tabIndex = -1; h.focus({ preventScroll: true }); } }
 // Identifica un control para devolverle el foco después de redibujar (si no, quien navega con teclado lo pierde en cada cambio).
 const claveFoco = el => el.getAttribute('data-f') || el.id || ((el.getAttribute('aria-label') || el.textContent || '').trim().slice(0, 80) + '|' + el.tagName);
 function conFoco(raiz, dibujar) {
@@ -380,8 +437,16 @@ function conFoco(raiz, dibujar) {
 }
 // El título de la pestaña del navegador sigue al simulador abierto.
 const TITULO_BASE = document.title;
-const tituloPagina = () => { if (V.tab === 'arcade') return 'Arcade de Corrección de Estilo · Galera'; const x = V.tab === 'simuladores' && SIMULADORES.find(y => y.id === V.sim); return x ? x.t + ' · Galera' : V.tab === 'simuladores' ? 'Herramientas · Galera' : TITULO_BASE; };
+const tituloPagina = () => {
+  if (V.tab === 'doc') return TITULO_BASE;
+  const x = V.tab === 'simuladores' && SIMULADORES.find(y => y.id === V.sim); if (x) return x.t + ' · Galera';
+  if (V.tab === 'resumenes' && V.res.materia) { const k = V.res.materia + '/' + V.res.apunte, ap = V.res.apunte && D.apuntes[k], M = ((D.resumenes || {}).materias || []).find(y => y.id === V.res.materia); if (ap) return ap.titulo + ' · Galera'; if (M) return 'Resúmenes de ' + M.nombre + ' · Galera'; }
+  return (MARCO.pantallas[V.tab] || {}).titulo || TITULO_BASE;
+};
+// El título de cada pantalla es su <h1> (la marca de la cabecera ya no lo es): el primer <h2> de la vista.
+const conTitulo = html => /<h1[\s>]/.test(html) ? html : html.replace(/<h2\b([^>]*)>([\s\S]*?)<\/h2>/, '<h1$1>$2</h1>');
 function render() {
+  if (V.arrancando) return;
   ajustarTab();
   dibujarPestanas();
   dibujarInferior();
@@ -390,10 +455,13 @@ function render() {
   document.title = tituloPagina();
   altoCab();
   const gr = grupoDe(V.tab); if (gr) (V.gUlt = V.gUlt || {})[gr[0]] = V.tab;
-  conFoco($('#main'), () => { $('#main').innerHTML = (V.demo ? bandaEjemplo() : '') + subnav() + { inicio: vInicio, carrera: vCarrera, horarios: vHorarios, calendario: vCalendario, resumenes: vResumenes, biblioteca: vBiblioteca, simuladores: vSimuladores, glosario: vGlosario, directorio: vDirectorio, links: vLinks, novedades: vNovedades, sostener: vSostener, eventos: vEventos, arcade: vArcade, config: vConfig }[V.tab](); capitulares(); });
+  conFoco($('#main'), () => { $('#main').innerHTML = (V.demo ? bandaEjemplo() : '') + subnav() + conTitulo({ doc: () => V.docHtml, inicio: vInicio, carrera: vCarrera, horarios: vHorarios, calendario: vCalendario, resumenes: vResumenes, biblioteca: vBiblioteca, simuladores: vSimuladores, glosario: vGlosario, directorio: vDirectorio, links: vLinks, novedades: vNovedades, sostener: vSostener, eventos: vEventos, arcade: vArcade, config: vConfig }[V.tab]()); capitulares(); });
+  $('#main').className = V.tab === 'doc' ? V.docClase : '';
+  document.body.classList.toggle('lectura', V.tab === 'doc');
+  const can = document.querySelector('link[rel="canonical"]'); if (can && V.tab !== 'doc') can.href = 'https://galera.com.ar' + rutaActual().split('#')[0].split('?')[0];
 }
 // Capitular de Iniciales: solo en el título de la pantalla (no en subtítulos) y si empieza con mayúscula y minúscula (nunca en cifras ni siglas, como «2.º cuatrimestre» o «CBC»).
-function capitulares() { const h = document.querySelector('#main .titulo-sec h2'); if (h && /^[¿¡]?[A-ZÁÉÍÓÚÑ][a-záéíóúñü]/.test(h.textContent.trim())) h.classList.add('cap'); }
+function capitulares() { const h = document.querySelector('#main .titulo-sec h1, #main .titulo-sec h2'); if (h && /^[¿¡]?[A-ZÁÉÍÓÚÑ][a-záéíóúñü]/.test(h.textContent.trim())) h.classList.add('cap'); }
 // La banda del ejemplo queda fija justo debajo de la cabecera: se mide su alto.
 function altoCab() { const c = document.querySelector('.cabecera'); if (c) document.documentElement.style.setProperty('--alto-cab', c.offsetHeight + 'px'); }
 window.addEventListener('resize', altoCab);
@@ -421,7 +489,7 @@ function irGrupo(id) {
 function subnav() {
   const g = grupoDe(V.tab); if (!g || g[3].length < 2) return '';
   const rot = Object.fromEntries(tabsActivas());
-  return `<nav class="sn" aria-label="${g[1]}">${g[3].map(id => `<button type="button" ${V.tab === id ? 'aria-current="page"' : ''} onclick="ir(${arg(id)})">${rot[id]}</button>`).join('')}</nav>`;
+  return `<nav class="sn" aria-label="${g[1]}">${g[3].map(id => `<a href="${urlTab(id)}" ${V.tab === id ? 'aria-current="page"' : ''}>${rot[id]}</a>`).join('')}</nav>`;
 }
 const filaMas = (t, onclick, actual, sub) => `<li><button type="button" ${actual ? 'aria-current="page"' : ''} onclick="${onclick}"><span>${t}${sub ? `<small>${sub}</small>` : ''}</span><i aria-hidden="true"></i></button></li>`;
 function abrirMas() {
@@ -433,12 +501,12 @@ function abrirMas() {
 // Un grupo con una sola sección lleva directo a ella. En el celular se usa la barra inferior (GRUPOS).
 const GRUPOS_WEB = MARCO.menu;
 const rotuloTab = id => (MARCO.pantallas[id] || { t: id }).t;
-const itemMenu = (id, actual) => id[0] === '/' ? `<a href="${id}">${rotuloTab(id)}</a>` : `<button type="button" ${actual === id ? 'aria-current="page"' : ''} onclick="ir(${arg(id)})">${rotuloTab(id)}</button>`;
+const itemMenu = (id, actual) => `<a href="${urlTab(id)}" ${actual === id ? 'aria-current="page"' : ''}>${rotuloTab(id)}</a>`;
 const CHEVRON = '<svg class="cv" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>';
 function dibujarPestanas() {
   const G = GRUPOS_WEB[esPro() ? 'profesional' : 'estudiante'];
   $('#pestanas').innerHTML = G.map(([n, ids]) => ids.length === 1
-    ? `<button type="button" class="tab" ${V.tab === ids[0] ? 'aria-current="page"' : ''} onclick="ir(${arg(ids[0])})">${n}</button>`
+    ? `<a class="tab" href="${urlTab(ids[0])}" ${V.tab === ids[0] ? 'aria-current="page"' : ''}>${n}</a>`
     : `<button type="button" class="tab" ${ids.includes(V.tab) ? 'aria-current="page"' : ''} aria-expanded="${V.gAbierto === n}" aria-controls="sub" onclick="alternarGrupo(${arg(n)})">${n}${CHEVRON}</button>`).join('');
   const ab = G.find(g => g[0] === V.gAbierto);
   $('#subw').hidden = !ab;
@@ -708,7 +776,7 @@ function vPortada() {
     <p class="chico tenue">Gratis y sin cuenta: lo que cargás queda solo en este navegador. <button class="enlace" onclick="abrirDatos()">Cómo funciona</button></p>
     <p><button class="btn" onclick="marcarRapido()">Marcar las materias que ya aprobé</button></p>
     <p class="chico">¿Querés ver cómo queda antes de cargar nada? <button class="enlace" onclick="verEjemplo()">Miralo con un ejemplo</button>.</p>
-    <p class="chico">¿Recién empezás la carrera? <a href="ingresantes/">Mirá la guía del ingresante</a>: qué anotarte en el primer cuatrimestre.</p>
+    <p class="chico">¿Recién empezás la carrera? <a href="/ingresantes/">Mirá la guía del ingresante</a>: qué anotarte en el primer cuatrimestre.</p>
     ${proximo()}</div>`;
 }
 // Lo próximo que importa: la fecha más cercana de la persona o del calendario (inscripciones, exámenes y trámites).
@@ -1297,7 +1365,7 @@ function ayudaCalendario() {
 // =====================================================================
 function cargarResumenes() {
   return cargarResumenes.p = cargarResumenes.p || (async () => {
-    try { const r = await fetch('resumenes/indice.json'); if (!r.ok) throw new Error(); D.resumenes = await r.json(); }
+    try { const r = await fetch('/resumenes/indice.json'); if (!r.ok) throw new Error(); D.resumenes = await r.json(); }
     catch (e) { D.resumenes = { materias: [], error: true }; }
     if (V.tab === 'resumenes') render();
   })();
@@ -1306,18 +1374,19 @@ function cargarResumenes() {
 function verRes(materia = '', apunte = '', sec = '') {
   if (![materia, apunte, sec].every(x => !x || RE_ID.test(x))) return;
   V.res = { materia, apunte, sec }; V.prac = null;
-  history.pushState(null, '', '#' + hashActual());
+  history.pushState(null, '', rutaActual());
   if (apunte) medir('select_content', { content_type: 'apunte', item_id: materia + '/' + apunte });
   if (apunte && juegoOn()) { E.juego.ultimo = materia + '/' + apunte; guardar(true); }
   if (apunte) cargarApunte(); else { render(); window.scrollTo(0, 0); }
 }
 function abrirApunte(materia, id) { verRes(materia, id); }
+async function traerApunte() { const k = V.res.materia + '/' + V.res.apunte; if (!D.apuntes[k]) { const r = await fetch('/resumenes/' + k + '.json'); if (!r.ok) throw new Error(); D.apuntes[k] = await r.json(); } }
 async function cargarApunte() {
   const k = V.res.materia + '/' + V.res.apunte;
   if (!D.apuntes[k]) {
     render();
-    try { const r = await fetch('resumenes/' + k + '.json'); if (!r.ok) throw new Error(); D.apuntes[k] = await r.json(); }
-    catch (e) { V.res.apunte = V.res.sec = ''; history.replaceState(null, '', '#' + hashActual()); aviso('No se pudo abrir el apunte. Revisá la conexión y recargá la página.'); }
+    try { const r = await fetch('/resumenes/' + k + '.json'); if (!r.ok) throw new Error(); D.apuntes[k] = await r.json(); }
+    catch (e) { V.res.apunte = V.res.sec = ''; history.replaceState(null, '', rutaActual()); aviso('No se pudo abrir el apunte. Revisá la conexión y recargá la página.'); }
   }
   await cargarResumenes(); // sin el índice no se dibuja el apunte (y no hay a qué sección bajar)
   render(); irSeccion();
@@ -1327,7 +1396,7 @@ function irSeccion() {
   if (el) el.scrollIntoView(); else window.scrollTo(0, 0);
 }
 // Los links para compartir van a r/ (páginas con vista previa que arma resumenes_web.py): WhatsApp y las redes no leen el #.
-const urlRes = (m, a, sec) => location.origin + location.pathname.replace(/[^/]*$/, '') + 'r/' + (a ? m + '/' + a + '.html' + (sec ? '#' + sec : '') : m ? m + '/' : '');
+const urlRes = (m, a, sec) => location.origin + '/r/' + (a ? m + '/' + a + '.html' + (sec ? '#' + sec : '') : m ? m + '/' : '');
 // Analytics: solo eventos de uso (qué se lee, se comparte o se busca), nunca lo que la persona carga. Respeta el consentimiento (analitica.js).
 const medir = (ev, p) => { try { if (typeof gtag === 'function') gtag('event', ev, p || {}); } catch (e) { } };
 function compartir(url, titulo, tipo, id) {
@@ -1338,7 +1407,7 @@ function compartir(url, titulo, tipo, id) {
   else aviso('No se pudo copiar: el link quedó en la barra de direcciones');
 }
 function linkSeccion(sec, titulo) {
-  V.res.sec = sec; history.replaceState(null, '', '#' + hashActual());
+  V.res.sec = sec; history.replaceState(null, '', rutaActual());
   compartir(urlRes(V.res.materia, V.res.apunte, sec), titulo, sec ? 'seccion' : 'apunte', V.res.materia + '/' + V.res.apunte + (sec ? '#' + sec : ''));
 }
 // Cada h2/h3 del apunte recibe un id estable (sacado del título) y un botón para copiar su link.
@@ -1405,7 +1474,7 @@ function vMateriaRes(m) {
     <div class="tarjeta u-padding-6px-16px">${m.apuntes.map(a => `<button class="evento fila-boton" onclick="abrirApunte(${arg(m.id)},${arg(a.id)})">
       <span class="clave">${esc(a.clave)}</span><span class="crece"><b>${esc(a.t)}</b><span class="chico tenue u-display-block">${a.min} min de lectura${a.preguntas ? ' · ' + a.preguntas + ' preguntas para autoevaluarte' : ''}</span></span>${E.leidos[m.id + '/' + a.id] ? '<span class="chip ok">✓ leído</span>' : ''}${chipRepaso(m.id, a)}<span aria-hidden="true">›</span></button>`).join('')}</div>
     ${m.pdfs.length ? `<details class="tarjeta"><summary class="resumen-pdf"><b>Hojas de repaso para imprimir</b> <span class="chip">${m.pdfs.length} PDF</span></summary>
-      ${m.pdfs.map(p => `<a class="evento u-color-inherit_text-decoration-none" href="resumenes/${esc(encodeURI(p.archivo))}" target="_blank" rel="noopener">📄 <span class="crece">${esc(p.t)}</span> ↗</a>`).join('')}</details>` : ''}
+      ${m.pdfs.map(p => `<a class="evento u-color-inherit_text-decoration-none" href="/resumenes/${esc(encodeURI(p.archivo))}" target="_blank" rel="noopener">📄 <span class="crece">${esc(p.t)}</span> ↗</a>`).join('')}</details>` : ''}
     <div class="tarjeta fila"><span class="crece chico"><b>¿Tenés tu propio resumen de esta materia?</b><span class="tenue u-display-block">Sumalo para quien viene detrás. Lo reviso antes de publicarlo y te acredito si querés.</span></span>
       <button class="btn sec ch" onclick="sumarApunte(${arg(m.id)})">Sumá tu resumen</button></div>`;
 }
@@ -1430,7 +1499,7 @@ function imprimir(k) { medir('imprimir', { item_id: k }); window.print(); }
 function cargarBusqueda() {
   return cargarBusqueda.p = cargarBusqueda.p || (async () => {
     try {
-      const r = await fetch('resumenes/busqueda.json'); if (!r.ok) throw new Error();
+      const r = await fetch('/resumenes/busqueda.json'); if (!r.ok) throw new Error();
       const b = await r.json();
       b.s = b.s.map(([m, a, sec, t, x]) => ({ m, a, sec, t, x, nt: sinTildes(t + ' ' + (b.apuntes[m + '/' + a] || '')), nx: sinTildes(x) }));
       D.busqueda = b;
@@ -1540,12 +1609,12 @@ async function empezarPractica(materia) {
   const m = (D.resumenes.materias || []).find(x => x.id === materia);
   if (!m) return aviso('Esta materia todavía no tiene preguntas');
   cerrar();
-  V.tab = 'resumenes'; V.res = { materia, apunte: '', sec: '' }; history.replaceState(null, '', '#' + hashActual());
+  V.tab = 'resumenes'; V.res = { materia, apunte: '', sec: '' }; history.replaceState(null, '', rutaActual());
   V.prac = { materia, cargando: true }; render(); window.scrollTo(0, 0);
   try {
     await Promise.all(m.apuntes.map(async a => {
       const k = materia + '/' + a.id;
-      if (!D.apuntes[k]) { const r = await fetch('resumenes/' + k + '.json'); if (!r.ok) throw new Error(); D.apuntes[k] = await r.json(); }
+      if (!D.apuntes[k]) { const r = await fetch('/resumenes/' + k + '.json'); if (!r.ok) throw new Error(); D.apuntes[k] = await r.json(); }
     }));
   } catch (e) { V.prac = null; render(); return aviso('No pude cargar las preguntas. Puede ser la conexión.'); }
   if (!V.prac || V.prac.materia !== materia) return; // se fue a otro lado mientras cargaba
@@ -1777,7 +1846,7 @@ async function cargarBiblioteca() {
 // Tapa: la imagen guardada, o una tapa tipográfica si no hay (o si la imagen no carga).
 const tapa = (l, grande) => `<div class="tapa ${grande ? 'grande' : ''}" style="--tono:${COLORES[(l.t.length + l.autor.length) % COLORES.length]}">
   <span class="tapa-texto"><b>${esc(l.t)}</b><small>${esc(l.autor)}</small></span>
-  ${l.sinTapa ? '' : `<img src="biblioteca/${esc(l.id)}.jpg" alt="" loading="lazy" onerror="this.remove()">`}</div>`;
+  ${l.sinTapa ? '' : `<img src="/biblioteca/${esc(l.id)}.jpg" alt="" loading="lazy" onerror="this.remove()">`}</div>`;
 // Biblioteca tiene dos solapas: «Libros» (los recomendados, la colección «Libros sobre Libros» del FCE y los libros de la bibliografía de los programas, todo junto
 // y filtrable por origen, tema y materia) y las publicaciones periódicas del sector.
 const SOLAPAS_BIB = [['libros', 'Libros'], ['per', 'Publicaciones periódicas']];
@@ -1789,7 +1858,7 @@ async function cargarBibExtra(k, archivo) {
   try { D[k] = await json(archivo); } catch (e) { D[k] = { error: true, libros: [], publicaciones: [], idiomas: [], tipos: [], temas: [], materias: {} }; }
   if (V.tab === 'biblioteca') render();
 }
-function ponerBib(s) { V.bib = s; history.replaceState(null, '', '#' + hashActual()); render(); }
+function ponerBib(s) { V.bib = s; history.replaceState(null, '', rutaActual()); render(); }
 function vBiblioteca() {
   const solapas = `<div class="eligen u-margin-bottom-12px" role="group" aria-label="Biblioteca" >${SOLAPAS_BIB.map(([k, t]) => `<button class="btn ${V.bib === k ? '' : 'lin'} ch" aria-pressed="${V.bib === k}" data-f="bib-${k}" onclick="ponerBib(${arg(k)})">${t}</button>`).join('')}</div>`;
   if (V.bib === 'per') return solapas + vPeriodicas();
@@ -1851,7 +1920,7 @@ function vPeriodicas() {
   const L = delIdioma.filter(p => !V.perTipo || p.tipo === V.perTipo), tipos = P.tipos.filter(t => delIdioma.some(p => p.tipo === t.id));
   const nomTipo = id => (P.tipos.find(t => t.id === id) || {}).t || '';
   return `<p class="u-mt0 chico tenue">${esc(P.nota)}</p>
-    <div class="u-mb10 eligen" role="group" aria-label="Idioma de la publicación">${P.idiomas.map(i => `<button class="btn ${V.perIdi === i.id ? '' : 'lin'} ch" aria-pressed="${V.perIdi === i.id}" data-f="peri-${i.id}" onclick="V.perIdi=${arg(i.id)};V.perTipo='';history.replaceState(null,'','#'+hashActual());render()">${esc(i.t)} (${cuenta(i.id)})</button>`).join('')}</div>
+    <div class="u-mb10 eligen" role="group" aria-label="Idioma de la publicación">${P.idiomas.map(i => `<button class="btn ${V.perIdi === i.id ? '' : 'lin'} ch" aria-pressed="${V.perIdi === i.id}" data-f="peri-${i.id}" onclick="V.perIdi=${arg(i.id)};V.perTipo='';history.replaceState(null,'',rutaActual());render()">${esc(i.t)} (${cuenta(i.id)})</button>`).join('')}</div>
     ${tipos.length > 1 ? `<div class="eligen u-margin-bottom-12px" role="group" aria-label="Tipo de publicación" ><button class="btn ${V.perTipo ? 'lin' : ''} ch" aria-pressed="${!V.perTipo}" onclick="V.perTipo='';render()">Todas</button>${tipos.map(t => `<button class="btn ${V.perTipo === t.id ? '' : 'lin'} ch" aria-pressed="${V.perTipo === t.id}" onclick="V.perTipo=${arg(t.id)};render()">${esc(t.t)}</button>`).join('')}</div>` : ''}
     <p class="u-mb8 chico tenue" aria-live="polite">${L.length} publicacion${L.length === 1 ? '' : 'es'}</p>
     <div class="dir-grilla"><button class="dir-sumar" type="button" onclick="sugerirPeriodica()"><span>¿Falta alguna?<b>Sugerila.</b></span></button>${L.map(p => `<article class="tarjeta dir"><div class="fila"><h3 class="crece">${esc(p.t)}</h3><span class="chip tin">${esc(p.pais)}</span></div>
@@ -2203,7 +2272,7 @@ function vSimuladores() {
     const TEMAS = [['Producción y planificación', ['papel', 'paginacion', 'formatos', 'cronograma']], ['Costos y catálogo', ['escandallo', 'comparador']], ['Derecho', ['leyes', 'contratos']], ['Trabajo freelance', ['tarifario']], ['El sector', ['ecosistema']]];
     return `<p class="u-mt0 chico tenue">Calculadoras y mapas para quien hace libros. Tus cifras se guardan solo en este navegador.</p>
       <div class="titulo-sec"><h2>Planificar un libro</h2></div>
-      <div class="res-grilla"><a class="res-mat u-text-decoration-none_color-inherit" href="libro/cronograma/" ><span class="fila"><span class="clave">Nuevo</span></span><b>🗓️ Planificador de libros</b><span class="chico tenue">Del original a la reimpresión: Gantt, PERT y Roy, con feriados, dependencias, varios títulos y responsables.</span></a></div>` +
+      <div class="res-grilla"><a class="res-mat u-text-decoration-none_color-inherit" href="/libro/cronograma/" ><span class="fila"><span class="clave">Nuevo</span></span><b>🗓️ Planificador de libros</b><span class="chico tenue">Del original a la reimpresión: Gantt, PERT y Roy, con feriados, dependencias, varios títulos y responsables.</span></a></div>` +
       TEMAS.map(([t, ids]) => `<div class="titulo-sec"><h2>${esc(t)}</h2></div>
         <div class="res-grilla">${ids.map(i => SIMULADORES.find(x => x.id === i)).filter(Boolean).map(x => `<button class="res-mat" onclick="irSim(${arg(x.id)})"><b>${esc(x.t)}</b><span class="chico tenue">${esc(x.d)}</span></button>`).join('')}</div>`).join('');
   }
@@ -2253,9 +2322,9 @@ function vEventos() {
     ${D.eventos.actualizado ? `<p class="gl-chico gl-m32">Revisados el ${esc(fmtLarga(D.eventos.actualizado))}.</p>` : ''}</div>`;
 }
 // Los links para compartir van a la página propia de cada simulador (con vista previa para WhatsApp y Google): simuladores_web.py.
-const urlSim = id => location.origin + location.pathname.replace(/[^/]*$/, '') + 'simuladores/' + id + '.html';
+const urlSim = id => location.origin + '/simuladores/' + id + '.html';
 function irSim(id) {
-  V.tab = 'simuladores'; V.sim = id; history.replaceState(null, '', '#' + hashActual()); render(); window.scrollTo(0, 0);
+  V.tab = 'simuladores'; V.sim = id; history.replaceState(null, '', rutaActual()); render(); window.scrollTo(0, 0);
   if (id) medir('select_content', { content_type: 'simulador', item_id: id });
 }
 function vComparador() {
@@ -2928,7 +2997,7 @@ function directorioLista() {
 let mapaPidiendo = false;
 function cargarMapa() {
   if (mapaPidiendo) return; mapaPidiendo = true;
-  const s = document.createElement('script'); s.src = 'mapa-ar.js';
+  const s = document.createElement('script'); s.src = '/mapa-ar.js';
   s.onload = () => { const el = $('#dir-mapa'); if (el) el.innerHTML = directorioMapa(); };
   s.onerror = () => { mapaPidiendo = false; const el = $('#dir-mapa'); if (el) el.innerHTML = '<p class="chico tenue">No pudimos cargar el mapa. Podés filtrar por provincia con la lista.</p>'; };
   document.head.appendChild(s);
@@ -3051,9 +3120,9 @@ async function cargarPedidos() {
   if (V.tab === 'novedades') render();
 }
 const ESTADO_PEDIDO = { nuevo: ['Recibido', ''], proceso: ['En proceso', 'mos'], hecho: ['Hecho', 'ok'], no: ['No por ahora', 'tin'] };
-function verNov(modo) { V.nov = modo; history.replaceState(null, '', '#' + hashActual()); render(); }
+function verNov(modo) { V.nov = modo; history.replaceState(null, '', rutaActual()); render(); }
 function verVersionNov(v) {
-  V.nov = ''; history.replaceState(null, '', '#' + hashActual()); render();
+  V.nov = ''; history.replaceState(null, '', rutaActual()); render();
   const el = document.getElementById('nov-v' + v); if (el) el.scrollIntoView({ block: 'start' });
 }
 // Cada novedad lleva su perfil: estudiante (por defecto), profesional o todos. Cada perfil ve las suyas y las de todos.
@@ -3069,7 +3138,7 @@ function vPedidos() {
   const L = D.pedidos.pedidos.filter(p => ESTADO_PEDIDO[p.estado]).sort((a, b) => (orden[a.estado] - orden[b.estado]) || (a.fecha < b.fecha ? 1 : -1));
   const tarjeta = p => { const [t, c] = ESTADO_PEDIDO[p.estado];
     return `<li><div class="gl-tarjeta"><span class="gl-chip ${CHIP_PEDIDO[c] || 'gl-chip--neutro'}">${t}</span><p class="gl-nov-tx">${esc(p.resumen)}</p>
-      <p class="meta">Pedido el ${fmtLarga(p.fecha)}${p.estado === 'hecho' && Number.isInteger(p.v) && vers.has(p.v) ? ` · <a href="#novedades" onclick="verVersionNov(${arg(p.v)}); return false">Salió en v${p.v}</a>` : ''}</p></div></li>`; };
+      <p class="meta">Pedido el ${fmtLarga(p.fecha)}${p.estado === 'hecho' && Number.isInteger(p.v) && vers.has(p.v) ? ` · <a href="/novedades/" onclick="verVersionNov(${arg(p.v)}); return false">Salió en v${p.v}</a>` : ''}</p></div></li>`; };
   return `<div class="gl-v gl-nov">${cabNov}${filtroNov()}
     <p class="gl-baja">Lo que se pidió con «Contame qué falta», resumido y sin datos de quien lo mandó: primero lo que sigue pendiente, después lo que ya salió.</p>
     <p class="gl-nov-acc"><button class="gl-btn gl-btn--sec" type="button" onclick="idea()">Pedir algo</button></p>` +
@@ -3085,7 +3154,7 @@ function vNovedades() {
   const tarjeta = x => { const tm = (TEMAS_NOV.find(t => t[0] === x.tipo) || ['', ''])[1], meta = [tm, x.para ? 'Para: ' + esc(x.para) : ''].filter(Boolean).join(' · ');
     return `<div class="gl-nov-item"><h3 class="gl-nov-t">${esc(x.titulo)}</h3>
     ${x.texto ? `<p class="gl-nov-tx">${esc(x.texto)}</p>` : ''}
-    ${hechos.filter(p => p.v === x.v).map(p => `<p class="meta"><span class="gl-chip gl-chip--ok">Lo pidieron</span> «${esc(p.resumen)}» <a href="#novedades/pedidos" onclick="verNov('pedidos'); return false">Ver pedidos</a></p>`).join('')}
+    ${hechos.filter(p => p.v === x.v).map(p => `<p class="meta"><span class="gl-chip gl-chip--ok">Lo pidieron</span> «${esc(p.resumen)}» <a href="/novedades/?ver=pedidos" onclick="verNov('pedidos'); return false">Ver pedidos</a></p>`).join('')}
     ${(meta || enlaceNov(x.url)) ? `<p class="meta">${meta}${enlaceNov(x.url).replace(/^ · /, meta ? ' · ' : '')}</p>` : ''}</div>`; };
   return `<div class="gl-v gl-nov">${cabNov}${filtroNov()}<div class="gl-nov-pag"><aside class="gl-lateral" aria-label="Avisos"><div class="gl-tarjeta"><p class="gl-rotulo">Mail de los lunes</p><p>Las novedades y las mesas de la semana, en tu correo. Sin cuenta.</p>
     <button class="gl-btn" type="button" onclick="avisame()">Recibir novedades por mail</button></div></aside><section class="gl-nov-lista" aria-label="Versiones">` +
@@ -3141,7 +3210,7 @@ function idea(o) {
     <input id="i-c" aria-label="Tu mail (opcional)" class="u-width-100_margin-top-8px" maxlength="120" type="email" placeholder="Tu mail, solo si querés que te responda (opcional)" autocomplete="email">
     <div aria-hidden="true" class="u-oculto"><label>No completar<input id="i-w" tabindex="-1" autocomplete="off"></label></div>
     <div class="botones"><button class="btn" id="i-b" onclick="mandarIdea()">Enviar</button><button class="btn lin" onclick="cerrar()">Cancelar</button></div>
-    <p class="chico tenue" id="i-n">Le llega a Fidel. No se manda nada de tus notas ni de tus horarios. Si dejás un mail, se borra a los seis meses. <a href="#novedades/pedidos" onclick="cerrar()">Mirá lo que ya pidieron</a>.</p>`);
+    <p class="chico tenue" id="i-n">Le llega a Fidel. No se manda nada de tus notas ni de tus horarios. Si dejás un mail, se borra a los seis meses. <a href="/novedades/?ver=pedidos" onclick="cerrar()">Mirá lo que ya pidieron</a>.</p>`);
   setTimeout(() => $('#i-t').focus(), 50);
 }
 async function mandarIdea() {
@@ -3157,7 +3226,7 @@ async function mandarIdea() {
       body: JSON.stringify({ sitio: 'cursada', texto: (ideaPrefijo + texto).slice(0, 2000), contacto, web: val('i-w'), ms: Date.now() - ideaAbierta, seccion: V.tab }) });
     const j = await r.json();
     if (!j.ok) throw new Error(j.error || 'No se pudo enviar');
-    abrir(cab('Quedó anotado') + `<p class="u-mt0">${ideaPrefijo ? '¡Gracias por la recomendación!' : '¡Gracias!'} Cuando lo revise, vas a ver cómo va en <a href="#novedades/pedidos" onclick="cerrar()">Novedades → Lo que pidieron</a>.</p>
+    abrir(cab('Quedó anotado') + `<p class="u-mt0">${ideaPrefijo ? '¡Gracias por la recomendación!' : '¡Gracias!'} Cuando lo revise, vas a ver cómo va en <a href="/novedades/?ver=pedidos" onclick="cerrar()">Novedades → Lo que pidieron</a>.</p>
       <div class="botones"><button class="btn" onclick="cerrar()">Listo</button></div>`);
   } catch (e) {
     boton.disabled = false; boton.textContent = 'Enviar';
