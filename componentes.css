@@ -159,6 +159,13 @@ a.gl-cont::after{content:"";margin-left:auto;width:20px;height:20px;background:c
 .gl-ent .ico{display:grid;place-items:center;flex:none;color:var(--gl-lnk)}
 .gl-ent svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
 .gl-ent .bj{display:block;margin-top:2px;font:italic 400 15px/22px var(--gl-serif);color:var(--gl-t2)}
+/* Sello del colofón: un archivo por modo en img/ (se reemplaza por el logo de Sophie sin tocar nada más). */
+.gl-sello{margin:0 auto 24px;width:min(160px,40%);line-height:0}
+.gl-sello img{display:block;width:100%;height:auto}
+.gl-sello-o{display:none!important}
+:root[data-theme="dark"] .gl-sello-c{display:none}
+:root[data-theme="dark"] .gl-sello-o{display:block!important}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .gl-sello-c{display:none}:root:not([data-theme="light"]) .gl-sello-o{display:block!important}}
 .gl-colofon{margin:0 auto;max-width:52ch;text-align:center;font:italic 400 15px/24px var(--gl-serif);color:var(--gl-t2)}
 .gl-colofon a{color:var(--gl-lnk)}
 @media (max-width:720px){
