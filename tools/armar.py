@@ -2,7 +2,7 @@
 Fuente única: marco/sitio.json, marco/pie.tpl, marco/cabecera.tpl. También escribe marco.js, que lee la app.
 Uso: python tools/armar.py             aplica el marco (idempotente)
      python tools/armar.py --comprobar  no escribe; sale con 1 si algo se apartó del marco (lo corre el CI)
-Salta prueba/. libro/planificador-de-libros.html es un archivo descargable: lleva cabecera y pie, pero no el <head>."""
+Salta prueba/. libro/planificador-de-libros.html es un archivo descargable: lleva el pie, pero conserva su cabecera y su <head>."""
 import hashlib
 import json
 import re
@@ -161,7 +161,7 @@ def main():
         else:
             if rel != DESCARGABLE:
                 t = cabeza_estatica(t, S["csp"][CSP_PAGINA.get(rel, "estatica")])
-            t = re.sub(r'<header class="cabecera">.*?</header>', lambda m: cabecera(rel), t, count=1, flags=re.S)
+                t = re.sub(r'<header class="cabecera">.*?</header>', lambda m: cabecera(rel), t, count=1, flags=re.S)
             t = re.sub(r'<footer class="pie">.*?</footer>', lambda m: pie(), t, flags=re.S)
         escribir(p, versionar(t, p.parent))
 
