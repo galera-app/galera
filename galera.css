@@ -48,64 +48,13 @@ h2.cap{font-size:1.75rem;line-height:1.2;font-weight:600;letter-spacing:-.03em}
 /* Capital de párrafo (Iniciales): tres líneas de alto, solo en lectura larga */
 p.capital::first-letter{font-family:var(--gotica);float:left;font-size:90px;line-height:72px;padding:4px 10px 0 0;color:var(--marca)}
 
-/* Índice de inicio (lienzo InicioC-C1): columna de 828 px, perfiles en serif, capítulos con número romano, guía de puntos e ícono a la derecha */
-main:has(>.inicio){padding-top:56px;padding-bottom:64px}
-.inicio{max-width:828px}
-.inicio-tope{margin:0}
-.inicio-tope h2{font-size:44px;line-height:52px;font-weight:600;letter-spacing:-.03em}
-.inicio-tope h2::first-letter,h2.cap::first-letter{font-family:var(--gotica);font-weight:400;font-size:1.12em;letter-spacing:0;color:var(--marca)}
-.inicio-sub,.inicio-cerr{font-family:var(--serif);margin-left:auto;margin-right:auto;text-align:center;font-style:italic;font-size:18px;line-height:28px;color:var(--texto2)}
-.inicio-sub{margin-top:8px}
-.inicio-cerr{margin-top:12px;gap:6px;align-items:center;flex-wrap:nowrap}
-.inicio-cerr b{font-style:normal;font-weight:500;color:var(--texto)}
-.inicio-cerr .enlace{min-height:44px;display:inline-flex;align-items:center;padding:0 4px;font:400 15px/1 var(--fuente);color:var(--tinta);text-decoration:underline;text-underline-offset:3px}
-.inicio-sel{margin-top:40px}
-.op{gap:8px;padding:12px 32px 16px}
-.op b{font:400 30px/38px var(--serif);padding-bottom:4px;color:var(--texto)}
-.op.on b{border-bottom-color:var(--marca)}
-.op span{font-size:15px;line-height:22px}
-.inicio-sp{margin:40px 0}
-.inicio-dv{display:flex;justify-content:center;align-items:center;min-height:24px;color:var(--texto)}
-.inicio-dv .fl{display:block;width:48px;height:1px;background:currentColor;opacity:.55}
-.inicio-dv .gl{font-family:var(--serif);font-size:22px;line-height:24px;letter-spacing:.1em}
-.inicio-rot{margin:0;text-align:center;font:600 12px/16px var(--fuente);letter-spacing:.3em;text-transform:uppercase;color:var(--texto2)}
-.inicio-grupo{margin:40px 0 0}
-.inicio-grupo h3{align-items:baseline;gap:16px;margin:0 0 4px;padding-bottom:8px;border-bottom:1px solid var(--texto);font-size:18.72px;line-height:normal;letter-spacing:0}
-.inicio-grupo .num{width:32px;font:600 13px/16px var(--fuente);letter-spacing:.1em;color:var(--tenue)}
-.inicio-grupo .gn{font:500 30px/36px var(--serif);color:var(--texto)}
-.inicio-grupo .gn::first-letter{font-family:var(--gotica);font-size:1.25em;font-weight:400;color:var(--marca)}
-.inicio-grupo li a{padding:14px 0 14px 48px;border-bottom:1px solid var(--borde)}
-.inicio-grupo li a:hover b,.inicio-grupo li a:focus-visible b{color:var(--tinta)}
-.ent-t{gap:12px}
-.ent-t b{font-size:19px;line-height:26px;font-weight:600}
-.ent-t .guia{flex:1;height:2px;margin-top:10px;background:radial-gradient(circle,var(--tenue) .9px,transparent 1.2px) 0 0/7px 2px;opacity:.8}
-.ent-t .ent-ico{display:grid;place-items:center;flex:none;color:var(--tinta)}
-.ent-t svg{width:24px;height:24px;margin:0;stroke-width:1.5;color:inherit}
-.ent-b{margin-top:2px;font-size:15px;line-height:22px}
-.colofon{margin:0 auto;max-width:52ch;font-size:15px;line-height:24px}
-.colofon a{color:var(--tinta)}
-@media (max-width:720px){
-  main:has(>.inicio){padding-top:20px;padding-bottom:32px}
-  .inicio-tope h2{font-size:28px;line-height:34px}
-  .inicio-sub,.inicio-cerr{font-size:15px;line-height:22px}
-  .inicio-cerr{flex-wrap:wrap}
-  .inicio-sel{margin-top:20px}
-  .op{padding:8px 10px 12px;gap:4px}
-  .op b{font-size:20px;line-height:26px}
-  .op span{font-size:13px;line-height:18px}
-  .inicio-sp{margin:24px 0}
-  .inicio-grupo{margin-top:24px}
-  .inicio-grupo h3{gap:10px}
-  .inicio-grupo .num{width:24px}
-  .inicio-grupo .gn{font-size:24px;line-height:30px}
-  .inicio-grupo li a{padding:10px 0 10px 34px}
-  .ent-t b{font-size:16px;line-height:22px}
-  .ent-b{font-size:13px;line-height:18px}
-  .colofon{font-size:14px;line-height:22px}
-}
+/* Inicio: ahora en la capa gl- (componentes.css). Queda la inicial gótica de los títulos de pantalla. */
+h2.cap::first-letter{font-family:var(--gotica);font-weight:400;font-size:1.12em;letter-spacing:0;color:var(--marca)}
+main:has(>.gl-inicio){padding-top:56px;padding-bottom:64px}
+@media (max-width:720px){main:has(>.gl-inicio){padding-top:20px;padding-bottom:32px}}
 
 /* Títulos y destacados en sans (la serif queda para lectura de apuntes y bajadas) */
-h1,h2,h3,.portada h2,.practica h2,.nov-t,.perfil b,.avance b,.recorrido .area,.inicio-sel b{font-family:var(--fuente)}
+h1,h2,h3,.portada h2,.practica h2,.nov-t,.perfil b,.avance b,.recorrido .area{font-family:var(--fuente)}
 
 /* Páginas estáticas de lectura (resúmenes, biblioteca, glosario…): mismo nombre en la cabecera */
 .lectura .marca .nombre{font-family:var(--gotica);font-weight:400;font-size:32px;line-height:28px;letter-spacing:0;margin:0;padding:10px 20px 10px 0}
@@ -130,7 +79,7 @@ h1,h2,h3,.portada h2,.practica h2,.nov-t,.perfil b,.avance b,.recorrido .area,.i
 .pie-marca .pie-acciones{margin:0;max-width:none}
 .pie-acciones .btn.sec{display:none}
 .pie-nav h2,.pie-nav .rot{font:600 12px/16px var(--fuente);letter-spacing:.06em;text-transform:uppercase;color:var(--texto2);margin:0 0 12px}
-.pie-nav a,.pie-nav button{padding:6px 0;min-height:32px;font-family:inherit;font-size:14px;line-height:20px}
+.pie-nav a,.pie-nav button{padding:12px 0;min-height:44px;font-family:inherit;font-size:14px;line-height:20px}
 .pie .cafe,.pie #donar .btn{display:inline-flex;align-items:center;height:44px;padding:0 18px;border-radius:4px;background:#DBEDFF;color:#0053AD;font-weight:500;font-size:16px;text-decoration:none;border:0}
 .pie .cafe:hover,.pie #donar .btn:hover{background:var(--marca);color:#fff}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .pie .cafe,:root:not([data-theme="light"]) .pie #donar .btn{background:#12304F;color:#9CCBFA}}
@@ -312,3 +261,8 @@ h1,h2,h3,.portada h2,.practica h2,.nov-t,.perfil b,.avance b,.recorrido .area,.i
 .lectura-main h1{font-size:clamp(36px,4.4vw,56px);line-height:1.1;font-weight:600;letter-spacing:-.03em;margin:8px 0 0}
 .lectura-main h1:not(.sin-cap)::first-letter{font-family:var(--gotica);font-weight:400;font-size:1.12em;letter-spacing:0;color:var(--marca)}
 .lectura-main h1+p{margin:16px 0 0;max-width:64ch;font-size:16px;line-height:24px;color:var(--texto2)}
+
+.saltar{min-height:44px;display:inline-flex;align-items:center}
+.avisame .btn{min-height:44px}
+.pie-legal p.pie-enlaces{order:1;flex:1 0 100%;display:flex;flex-wrap:wrap;gap:0 20px;margin:0 0 16px;font-size:14px;line-height:20px}
+.pie-enlaces .enlace,.pie-enlaces a{display:inline-flex;align-items:center;min-height:44px;font-size:14px}
