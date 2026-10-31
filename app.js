@@ -3086,7 +3086,7 @@ function vNovedades() {
     return `<div class="gl-nov-item"><h3 class="gl-nov-t">${esc(x.titulo)}</h3>
     ${x.texto ? `<p class="gl-nov-tx">${esc(x.texto)}</p>` : ''}
     ${hechos.filter(p => p.v === x.v).map(p => `<p class="meta"><span class="gl-chip gl-chip--ok">Lo pidieron</span> «${esc(p.resumen)}» <a href="#novedades/pedidos" onclick="verNov('pedidos'); return false">Ver pedidos</a></p>`).join('')}
-    <p class="meta">${meta}${enlaceNov(x.url).replace(/^ · /, meta ? ' · ' : '')}</p></div>`; };
+    ${(meta || enlaceNov(x.url)) ? `<p class="meta">${meta}${enlaceNov(x.url).replace(/^ · /, meta ? ' · ' : '')}</p>` : ''}</div>`; };
   return `<div class="gl-v gl-nov">${cabNov}${filtroNov()}<div class="gl-nov-pag"><aside class="gl-lateral" aria-label="Avisos"><div class="gl-tarjeta"><p class="gl-rotulo">Mail de los lunes</p><p>Las novedades y las mesas de la semana, en tu correo. Sin cuenta.</p>
     <button class="gl-btn" type="button" onclick="avisame()">Recibir novedades por mail</button></div></aside><section class="gl-nov-lista" aria-label="Versiones">` +
     vers.map(v => { const L = N.filter(x => x.v === v).sort((a, b) => a.fecha < b.fecha ? 1 : -1);

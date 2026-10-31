@@ -862,7 +862,7 @@
    "tipo": "herramientas",
    "perfil": "estudiante",
    "titulo": "Resúmenes: buscador, apuntes leídos y links a cada parte",
-   "texto": "Ahora podés buscar una palabra en todos los resúmenes, marcar los apuntes que ya leíste (y ver cuánto te falta de cada materia) e imprimirlos con la clave de respuestas. Cada parte de un apunte tiene su link ( ), con vista previa en WhatsApp y las redes. Además, todas las materias están en tarjetas: en las que todavía no tienen resumen podés pedirlo o compartir tus apuntes.",
+   "texto": "Ahora podés buscar una palabra en todos los resúmenes, marcar los apuntes que ya leíste (y ver cuánto te falta de cada materia) e imprimirlos con la clave de respuestas. Cada parte de un apunte tiene su propio link, con vista previa en WhatsApp y las redes. Además, todas las materias están en tarjetas: en las que todavía no tienen resumen podés pedirlo o compartir tus apuntes.",
    "materias": [],
    "url": "https://galera.com.ar/#resumenes"
   },
