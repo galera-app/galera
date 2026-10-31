@@ -1,5 +1,4 @@
 /* Cursada: cuaderno académico. Azul tinta + mostaza, claro y oscuro. Los tokens (colores, radios, fuentes) están en tokens.css. */
-@import url("tokens.css?v=3");
 * { box-sizing: border-box; }
 html, body { margin: 0; background: var(--bg); color: var(--texto); font: 16px/1.5 var(--fuente); }
 a { color: var(--tinta); }

@@ -1,5 +1,6 @@
 # Cursada: trae la oferta horaria y las mesas de examen que publica la Facultad
 # (https://academica.filo.uba.ar/horarios-de-materias-y-seminarios) y actualiza datos/.
+# Los datos salen a producción sin aprobación; el código, no (ver publicar.yml).
 # Corre en los servidores de GitHub: no usa la PC de nadie. Solo commitea si los datos cambiaron
 # y si la planilla se pudo leer bien (si no, falla y deja todo como estaba).
 name: Cursada - datos de la Facultad
@@ -10,7 +11,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
   group: cursada-datos
@@ -20,8 +21,13 @@ jobs:
   actualizar:
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    outputs:
+      cambio: ${{ steps.commit.outputs.cambio }}
     steps:
+      # Clave de despliegue: es la única excepción a la regla de main (solo entra por PR).
       - uses: actions/checkout@v4
+        with:
+          ssh-key: ${{ secrets.DATOS_DEPLOY_KEY }}
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -30,7 +36,8 @@ jobs:
       - run: pip install pypdf==6.19.0
       - name: Leer las planillas de la Facultad
         run: python .github/scripts/cursada_datos.py
-      - name: Publicar si hubo cambios
+      - name: Guardar si hubo cambios
+        id: commit
         run: |
           git add datos
           if git diff --cached --quiet; then
@@ -40,4 +47,17 @@ jobs:
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git commit -m "Cursada: datos de la Facultad actualizados"
             git push
+            echo "cambio=si" >> "$GITHUB_OUTPUT"
           fi
+
+  # Salen a producción sin esperar aprobación, sobre el último código aprobado: las pantallas sin aprobar no se cuelan.
+  publicar:
+    needs: actualizar
+    if: needs.actualizar.outputs.cambio == 'si'
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    uses: ./.github/workflows/desplegar.yml
+    with:
+      codigo: produccion

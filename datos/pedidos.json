@@ -53,13 +53,19 @@
    "fecha": "2026-10-08",
    "resumen": "Poner los horarios de idiomas en el calendario.",
    "estado": "hecho",
-   "v": null
+   "v": 50
   },
   {
    "fecha": "2026-10-14",
    "resumen": "Planificador del proceso editorial para armar un Gantt.",
    "estado": "hecho",
    "v": 29
+  },
+  {
+   "fecha": "2026-10-22",
+   "resumen": "Sumar los apuntes de Edición Editorial para el segundo parcial.",
+   "estado": "hecho",
+   "v": 59
   }
  ]
 }
