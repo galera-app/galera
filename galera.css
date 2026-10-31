@@ -305,3 +305,10 @@ h1,h2,h3,.portada h2,.practica h2,.nov-t,.perfil b,.avance b,.recorrido .area,.i
 .resumen-sel.qc b{font-weight:500;font-size:16px;line-height:24px}
 .elige-color{width:12px;height:12px;border-radius:3px;flex:none}
 @media (max-width:760px){.cal-mes{order:-1}}
+
+/* Páginas estáticas: título, bajada y ancho como el lienzo (contenedor 1224, texto hasta 912) */
+.lectura-main{max-width:1224px;padding:48px 16px 80px}
+.lectura-main>article{max-width:912px}
+.lectura-main h1{font-size:clamp(36px,4.4vw,56px);line-height:1.1;font-weight:600;letter-spacing:-.03em;margin:8px 0 0}
+.lectura-main h1:not(.sin-cap)::first-letter{font-family:var(--gotica);font-weight:400;font-size:1.12em;letter-spacing:0;color:var(--marca)}
+.lectura-main h1+p{margin:16px 0 0;max-width:64ch;font-size:16px;line-height:24px;color:var(--texto2)}
