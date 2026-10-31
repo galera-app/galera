@@ -9,14 +9,14 @@
     {
       "id": "proporcion",
       "t": "Parte de ese gasto que va a Galera",
-      "monto": null,
-      "nota": "se calcula con un script local, próximamente"
+      "monto": "Sin calcular todavía",
+      "nota": "voy a medirlo con un script propio"
     },
     {
       "id": "dominio",
       "t": "Dominio galera.com.ar",
-      "monto": null,
-      "nota": "se renueva una vez por año en NIC Argentina"
+      "monto": "Un pago por año",
+      "nota": "se renueva en NIC Argentina"
     },
     {
       "id": "hosting",
