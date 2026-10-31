@@ -650,7 +650,7 @@ function faltanNotas() {
   const sin = D.plan.materias.filter(m => m.grupo !== 'idiomas' && (E.materias[m.id] || {}).estado === 'aprobada' && !num((E.materias[m.id] || {}).nota));
   if (!sin.length) return '';
   const cola = sin.length > 3 ? ' y ' + (sin.length - 3) + ' más' : '';
-  return `<div class="gl-tarjeta gl-faltan"><p class="gl-rotulo">Para calcular tu promedio</p>
+  return `<div class="gl-tarjeta"><p class="gl-rotulo">Para calcular tu promedio</p>
     <p class="gl-cuerpo">${sin.length === 1 ? 'Falta 1 nota' : 'Faltan ' + sin.length + ' notas'}: <b>${esc(sin.slice(0, 3).map(m => m.nombre).join(', '))}</b>${cola}.</p>
     <button class="gl-btn" type="button" onclick="abrirMateria(${arg(sin[0].id)})">Cargar nota</button></div>`;
 }
@@ -669,11 +669,11 @@ function carreraLateral() {
     p.idiomas[0] ? dato('Niveles de idioma', p.idiomas[0] + ' de ' + p.idiomas[1]) : '',
     p.cursando ? dato('Cursando ahora', p.cursando) : '', p.regulares ? dato('Finales pendientes', p.regulares) : '',
     p.final[0] ? dato('Pasantía o tesina', 'Aprobada') : ''].join('');
+  const extra = `${pr.nConCbc > n ? `Con el CBC: ${fmtProm(pr.conCbc)}, sobre ${notas(pr.nConCbc)}. ` : ''}${pr.aplazos ? `<b>Con ${pr.aplazos} ${pr.aplazos === 1 ? 'aplazo' : 'aplazos'}.</b> Sin contarlos: ${fmtProm(pr.sinCbcSinAplazos)} sin CBC y ${fmtProm(pr.conCbcSinAplazos)} con CBC. ` : ''}`;
   const prom = n ? `<div class="gl-tarjeta gl-prom"><p class="gl-rotulo">Promedio sin CBC</p>
       <p class="gl-prom-n">${fmtProm(pr.sinCbc)}</p><p class="gl-chico">sobre ${notas(n)}</p>
-      <p class="gl-chico">${pr.nConCbc > n ? `Con el CBC: ${fmtProm(pr.conCbc)}, sobre ${notas(pr.nConCbc)}. ` : ''}${pr.aplazos ? `<b>Con ${pr.aplazos} ${pr.aplazos === 1 ? 'aplazo' : 'aplazos'}.</b> Sin contarlos: ${fmtProm(pr.sinCbcSinAplazos)} sin CBC y ${fmtProm(pr.conCbcSinAplazos)} con CBC. ` : ''}
-        El promedio usa la nota final de cada materia aprobada${pr.aplazos ? '' : ' y los aplazos que cargues en cada materia'}; los idiomas no promedian.</p></div>`
-    : `<p class="gl-chico">Para ver tu promedio, cargá la nota de cada materia aprobada.</p>`;
+      <p class="gl-chico">${extra}El promedio usa la nota final de cada materia aprobada${pr.aplazos ? '' : ' y los aplazos que cargues en cada materia'}; los idiomas no promedian.</p></div>`
+    : `<p class="gl-chico">${extra}Para ver tu promedio, cargá la nota de cada materia aprobada.</p>`;
   return `<aside class="gl-lateral" aria-label="Resumen">${anillo}
     <p class="gl-cuerpo gl-m16"><b>${p.total[0]}</b> de ${p.total[1]} requisitos</p>
     <p class="gl-chico">de tu carrera aprobada${p.regulares ? ` · ${p.regulares} con el final pendiente (en mostaza)` : ''}</p>
