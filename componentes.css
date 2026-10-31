@@ -1,0 +1,132 @@
+/* Galera · capa de componentes (revamp, ticket 02). Prefijo gl-. No hereda nada de estilos.css.
+   Fuente: propuestas/2026-10-31-revamp-galera/wayfinder/INVENTARIO.md (lienzo, hojas Sistema y Componentes).
+   Una tarjeta es relleno Plata, sin borde ni sombra, radio 4. Un solo radio. Táctil mínimo 44. */
+@font-face{font-family:"Instrument Sans";src:url(fonts/instrument-sans.woff2) format("woff2");font-weight:400 700;font-display:swap}
+@font-face{font-family:"Literata";src:url(fonts/literata.woff2) format("woff2");font-weight:400 500;font-style:normal;font-display:swap}
+@font-face{font-family:"Literata";src:url(fonts/literata-italic.woff2) format("woff2");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"UnifrakturMaguntia";src:url(fonts/unifraktur.woff2) format("woff2");font-weight:400;font-display:swap}
+
+:root{
+  --gl-bg:#fff; --gl-card:#F5F7FA; --gl-line:#E3E8EE; --gl-bd:#89939E;
+  --gl-ink:#212121; --gl-t2:#4D4D4D; --gl-t3:#717171;
+  --gl-lnk:#0560C8; --gl-mark:#0671E0; --gl-sky:#DBEDFF; --gl-click:#0053AD; --gl-on-mark:#fff;
+  --gl-bad:#C33025; --gl-ok-full:#006B4A;
+  --gl-pen-bg:#F5F7FA; --gl-pen-fg:#4D4D4D; --gl-pen-ring:#8996A3;
+  --gl-cur-bg:#DBEDFF; --gl-cur-fg:#0053AD;
+  --gl-reg-bg:#FFEBC9; --gl-reg-fg:#7A4A00;
+  --gl-apr-bg:#CFF0E2; --gl-apr-fg:#00573B;
+  --gl-sans:"Instrument Sans",system-ui,sans-serif; --gl-serif:"Literata",Georgia,serif; --gl-got:"UnifrakturMaguntia",serif;
+  --gl-r:4px; --gl-gut:24px; --gl-marco:1224px; --gl-lectura:860px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --gl-bg:#14171A; --gl-card:#1D2125; --gl-line:#2E3338; --gl-bd:#6B747D;
+  --gl-ink:#ECEFF1; --gl-t2:#B7BDC4; --gl-t3:#9AA1A9;
+  --gl-lnk:#7DBBF8; --gl-mark:#5AA9F5; --gl-sky:#12304D; --gl-click:#9CCBF8; --gl-on-mark:#0B1620; --gl-bad:#F28B82;
+  --gl-pen-bg:#1D2125; --gl-pen-fg:#B7BDC4; --gl-pen-ring:#6B747D;
+  --gl-cur-bg:#12304D; --gl-cur-fg:#9CCBF8; --gl-reg-bg:#3F2E10; --gl-reg-fg:#F2C27A; --gl-apr-bg:#0F3A2B; --gl-apr-fg:#7FD9B5;
+}}
+:root[data-theme="dark"]{
+  --gl-bg:#14171A; --gl-card:#1D2125; --gl-line:#2E3338; --gl-bd:#6B747D;
+  --gl-ink:#ECEFF1; --gl-t2:#B7BDC4; --gl-t3:#9AA1A9;
+  --gl-lnk:#7DBBF8; --gl-mark:#5AA9F5; --gl-sky:#12304D; --gl-click:#9CCBF8; --gl-on-mark:#0B1620; --gl-bad:#F28B82;
+  --gl-pen-bg:#1D2125; --gl-pen-fg:#B7BDC4; --gl-pen-ring:#6B747D;
+  --gl-cur-bg:#12304D; --gl-cur-fg:#9CCBF8; --gl-reg-bg:#3F2E10; --gl-reg-fg:#F2C27A; --gl-apr-bg:#0F3A2B; --gl-apr-fg:#7FD9B5;
+}
+
+/* Contenedores: marco 1224, lectura 860, margen 16 (celular 20) */
+.gl-marco,.gl-lectura{margin-inline:auto;padding-inline:16px;width:100%}
+.gl-marco{max-width:calc(var(--gl-marco) + 32px)}
+.gl-lectura{max-width:calc(var(--gl-lectura) + 32px)}
+@media (max-width:600px){.gl-marco,.gl-lectura{padding-inline:20px}}
+
+/* Grilla: 12 columnas / gutter 24 en escritorio; 6 / 16 en celular */
+.gl-grilla{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--gl-gut)}
+@media (max-width:600px){.gl-grilla{grid-template-columns:repeat(6,minmax(0,1fr));gap:16px}}
+.gl-col-3{grid-column:span 3}.gl-col-4{grid-column:span 4}.gl-col-6{grid-column:span 6}.gl-col-8{grid-column:span 8}.gl-col-12{grid-column:1/-1}
+@media (max-width:760px){[class*="gl-col-"]{grid-column:1/-1}}
+
+/* Tres columnas de Mi carrera: lateral · principal · riel */
+.gl-tres{display:flex;gap:var(--gl-gut);align-items:flex-start;flex-wrap:wrap}
+.gl-tres>.gl-lateral,.gl-tres>.gl-riel{flex:1 1 240px;max-width:288px}
+.gl-tres>.gl-principal{flex:1 1 480px;max-width:600px;min-width:0}
+@media (max-width:760px){.gl-tres>*{max-width:none!important;flex-basis:100%}}
+
+/* Tipografía */
+.gl-rotulo{margin:0;font:600 12px/16px var(--gl-sans);letter-spacing:.06em;text-transform:uppercase;color:var(--gl-t2)}
+.gl-display,.gl-t1,.gl-t2,.gl-t3{margin:0;font-family:var(--gl-sans);font-weight:600;color:var(--gl-ink);letter-spacing:-.02em}
+.gl-display{font-size:56px;line-height:60px;letter-spacing:-.03em}
+.gl-t1{font-size:40px;line-height:44px}.gl-t2{font-size:28px;line-height:36px}.gl-t3{font-size:20px;line-height:28px}
+@media (max-width:600px){.gl-display{font-size:36px;line-height:40px}.gl-t1{font-size:32px;line-height:36px}.gl-t2{font-size:24px;line-height:30px}.gl-t3{font-size:18px;line-height:26px}}
+.gl-display::first-letter,.gl-t1::first-letter,.gl-t3.gl-inicial::first-letter{font-family:var(--gl-got);font-weight:400;font-size:1.12em;letter-spacing:0;color:var(--gl-mark)}
+.gl-sin-inicial::first-letter{font-family:inherit!important;font-weight:inherit!important;font-size:1em!important;color:inherit!important}
+.gl-cuerpo{font:400 16px/24px var(--gl-sans);color:var(--gl-ink)}
+.gl-chico{font:400 14px/20px var(--gl-sans);color:var(--gl-t2)}
+.gl-lectura-texto{font:400 18px/30px var(--gl-serif);max-width:66ch}
+.gl-num{font-variant-numeric:tabular-nums}
+
+/* Estado de materia: ícono + palabra + color (nunca solo color) */
+.gl-estado{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 8px;border-radius:var(--gl-r);font:500 12px/16px var(--gl-sans);white-space:nowrap}
+.gl-ic{width:24px;height:24px;border-radius:var(--gl-r);flex:none;display:inline-grid;place-items:center}
+.gl-estado .gl-ic{width:16px;height:16px;background:none!important;box-shadow:none!important}
+.gl-ic::before{content:"";width:16px;height:16px;background:currentColor;-webkit-mask:var(--ic) center/contain no-repeat;mask:var(--ic) center/contain no-repeat}
+.gl-estado .gl-ic::before{width:14px;height:14px}
+.gl-pen{--ic:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2'%3E%3Ccircle cx='12' cy='12' r='8'/%3E%3C/svg%3E");background:var(--gl-pen-bg);color:var(--gl-pen-fg);box-shadow:inset 0 0 0 1px var(--gl-pen-ring)}
+.gl-cur{--ic:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2'%3E%3Ccircle cx='12' cy='12' r='8'/%3E%3Cpath d='M12 4a8 8 0 0 1 8 8h-8z' fill='black'/%3E%3C/svg%3E");background:var(--gl-cur-bg);color:var(--gl-cur-fg)}
+.gl-reg{--ic:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2'%3E%3Ccircle cx='12' cy='12' r='8'/%3E%3Cpath d='M12 4a8 8 0 0 1 0 16a8 8 0 0 1-8-8h8z' fill='black'/%3E%3C/svg%3E");background:var(--gl-reg-bg);color:var(--gl-reg-fg)}
+.gl-apr{--ic:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' fill-rule='evenodd' d='M12 3a9 9 0 1 0 0 18a9 9 0 0 0 0-18zM7.6 12.4l1.4-1.4 2.2 2.2 4.6-4.6 1.4 1.4-6 6z'/%3E%3C/svg%3E");background:var(--gl-apr-bg);color:var(--gl-apr-fg)}
+
+/* Tarjeta: relleno Plata, sin borde ni sombra, radio 4 */
+.gl-tarjeta{display:flex;flex-direction:column;gap:8px;padding:16px;border:0;border-radius:var(--gl-r);background:var(--gl-card);color:var(--gl-ink)}
+.gl-tarjeta .gl-estado{align-self:flex-start}
+.gl-tarjeta-pie{display:flex;justify-content:space-between;align-items:center;margin-top:4px;padding-top:12px;border-top:1px solid var(--gl-line);font:500 12px/16px var(--gl-sans);color:var(--gl-t2)}
+/* Contenedor tocable: Plata; con enlace, cielo con flecha */
+.gl-cont{display:flex;align-items:center;gap:12px;min-height:56px;padding:12px 16px;border-radius:var(--gl-r);background:var(--gl-card);color:var(--gl-ink);font:400 16px/24px var(--gl-sans);text-decoration:none}
+a.gl-cont{background:var(--gl-sky);color:var(--gl-click);font-weight:500}
+a.gl-cont::after{content:"";margin-left:auto;width:20px;height:20px;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat}
+
+/* Aviso de horario */
+.gl-aviso{display:flex;gap:12px;align-items:flex-start;padding:12px 16px;border:1px solid var(--gl-bad);border-radius:var(--gl-r);color:var(--gl-ink)}
+.gl-aviso>svg{flex:none;color:var(--gl-bad)}
+.gl-aviso b{display:block;font:600 16px/24px var(--gl-sans)}
+
+/* Botones: 44 en toque, 40 compacto (solo escritorio con puntero) */
+.gl-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 20px;border:0;border-radius:var(--gl-r);font:500 16px/24px var(--gl-sans);background:var(--gl-mark);color:var(--gl-on-mark);cursor:pointer;text-decoration:none}
+.gl-btn--sec{background:var(--gl-sky);color:var(--gl-click)}
+.gl-btn--ter{background:none;color:var(--gl-lnk);text-decoration:underline;text-underline-offset:3px;padding:0 12px}
+@media (hover:hover) and (pointer:fine) and (min-width:761px){.gl-btn--c{height:40px;padding:0 14px;font-size:14px}}
+.gl-btn:disabled{background:var(--gl-card);color:var(--gl-t3);cursor:not-allowed}
+.gl-enlace{display:inline-flex;align-items:center;min-height:44px;padding:0;border:0;background:none;font:400 14px/20px var(--gl-sans);color:var(--gl-lnk);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+:where(.gl-btn,.gl-enlace,.gl-campo input,.gl-sel,.gl-fila):focus-visible{outline:2px solid var(--gl-ink);outline-offset:2px}
+
+/* Campo y ayuda */
+.gl-campo{display:block;margin:0 0 16px}
+.gl-campo label{display:block;margin-bottom:4px;font:500 14px/20px var(--gl-sans);color:var(--gl-ink)}
+.gl-campo input,.gl-campo select{width:100%;height:48px;padding:0 12px;border:1px solid var(--gl-bd);border-radius:var(--gl-r);background:transparent;color:var(--gl-ink);font:400 16px/24px var(--gl-sans)}
+.gl-ayuda{display:flex;align-items:center;flex-wrap:wrap;gap:4px 16px}
+
+/* Chip */
+.gl-chip{display:inline-flex;align-items:center;gap:4px;height:20px;padding:0 8px;border-radius:var(--gl-r);font:600 12px/20px var(--gl-sans);background:var(--gl-sky);color:var(--gl-click);white-space:nowrap}
+.gl-chip--aviso{background:var(--gl-reg-bg);color:var(--gl-reg-fg)}
+
+/* Anillo de avance (el SVG lo arma el HTML; acá el tamaño y la cifra) */
+.gl-anillo{position:relative;display:inline-block;flex:none}
+.gl-anillo svg{display:block}
+.gl-anillo .riel{stroke:var(--gl-line)}.gl-anillo .arco{stroke:var(--gl-mark)}.gl-anillo .arco.completo{stroke:var(--gl-ok-full)}
+.gl-anillo .cifra{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:1px;font:600 32px/1 var(--gl-sans);letter-spacing:-.04em;font-variant-numeric:tabular-nums;color:var(--gl-ink)}
+.gl-anillo--s .cifra{font-size:13px;letter-spacing:-.02em}
+.gl-anillo .cifra small{font-size:.5em;font-weight:500;color:var(--gl-t2)}
+
+/* Fila de materia: ícono · nombre+meta · cuatrimestre · estado · nota */
+.gl-fila{display:grid;grid-template-columns:24px minmax(0,1fr) 36px 128px 64px;gap:16px;align-items:center;padding:12px 0;border-top:1px solid var(--gl-line);min-height:56px}
+.gl-fila b{display:block;font:500 16px/24px var(--gl-sans)}
+.gl-fila .meta{font:400 14px/20px var(--gl-sans);color:var(--gl-t2)}
+@media (max-width:760px){.gl-fila{grid-template-columns:24px minmax(0,1fr) 128px}.gl-fila .cuat,.gl-fila .nota{display:none}}
+.gl-sel{display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%;height:44px;padding:0 12px;border:1px solid var(--gl-bd);border-radius:var(--gl-r);background:var(--gl-bg);color:var(--gl-ink);font:400 14px/20px var(--gl-sans);cursor:pointer}
+
+/* Capítulo del sumario (Inicio): número · título, filete inferior de tinta */
+.gl-cap{display:flex;align-items:baseline;gap:16px;margin:40px 0 4px;padding-bottom:8px;border-bottom:1px solid var(--gl-ink)}
+.gl-cap .num{width:32px;font:600 13px/16px var(--gl-sans);letter-spacing:.1em;color:var(--gl-t3)}
+@media (max-width:600px){.gl-cap{margin-top:24px;gap:10px}.gl-cap .num{width:24px}}
+
+body.gl{margin:0;background:var(--gl-bg);color:var(--gl-ink);font:400 16px/24px var(--gl-sans)}
+body.gl,body.gl *,body.gl *::before,body.gl *::after{box-sizing:border-box}
