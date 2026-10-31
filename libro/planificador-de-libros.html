@@ -1446,7 +1446,7 @@ if (typeof module !== 'undefined') module.exports = Cronograma;
       '<option value="_sin"' + (C.filtro === '_sin' ? ' selected' : '') + '>Sin responsable</option></select></div>' : '';
     return '<section class="tarjeta no-imprimir"><h2>Tus libros</h2>' +
       '<p class="chico tenue" style="margin:4px 0 8px">Cada libro tiene su cronograma. El <b>catálogo</b> los junta en una sola línea de tiempo, con una barra por título y sus hitos.</p>' +
-      '<div class="fila" role="group" aria-label="Libros">' + boton('catalogo', '📚 Catálogo', C.vista === 'catalogo' ? '' : 'sec', ' aria-pressed="' + (C.vista === 'catalogo') + '"') + chipsL +
+      '<div class="fila" role="group" aria-label="Libros">' + boton('catalogo', 'Catálogo', C.vista === 'catalogo' ? '' : 'sec', ' aria-pressed="' + (C.vista === 'catalogo') + '"') + chipsL +
       boton('nuevo', '+ Libro nuevo', 'lin') + boton('duplicar', 'Duplicar este', 'lin') + boton('borrar', 'Quitar este', 'lin') + '</div>' +
       '<div class="fila" style="margin:10px 0 0"><label class="elige"><input type="checkbox" data-f="verRol"' + (C.verRol ? ' checked' : '') + '> Mostrar responsables</label><label class="elige"><input type="checkbox" data-f="seguir"' + (C.seguir ? ' checked' : '') + '> Seguimiento (avance, fechas reales y línea base)</label></div>' + (filtro ? '<div class="dos">' + filtro + '</div>' : '') + '</section>';
   }
