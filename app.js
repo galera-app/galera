@@ -649,41 +649,63 @@ function faltanNotas() {
   if (V.demo) return '';
   const sin = D.plan.materias.filter(m => m.grupo !== 'idiomas' && (E.materias[m.id] || {}).estado === 'aprobada' && !num((E.materias[m.id] || {}).nota));
   if (!sin.length) return '';
-  return `<div class="recordatorio chico"><span class="crece">📝 <b>${sin.length === 1 ? 'Falta 1 nota' : 'Faltan ' + sin.length + ' notas'}</b> para tu promedio: ${esc(sin.slice(0, 3).map(m => m.nombre).join(', '))}${sin.length > 3 ? ' y ' + (sin.length - 3) + ' más' : ''}.</span>
-    <button class="btn ch" onclick="abrirMateria(${arg(sin[0].id)})">Cargar nota</button></div>`;
+  const cola = sin.length > 3 ? ' y ' + (sin.length - 3) + ' más' : '';
+  return `<div class="gl-tarjeta gl-faltan"><p class="gl-rotulo">Para calcular tu promedio</p>
+    <p class="gl-cuerpo">${sin.length === 1 ? 'Falta 1 nota' : 'Faltan ' + sin.length + ' notas'}: <b>${esc(sin.slice(0, 3).map(m => m.nombre).join(', '))}</b>${cola}.</p>
+    <button class="gl-btn" type="button" onclick="abrirMateria(${arg(sin[0].id)})">Cargar nota</button></div>`;
+}
+// Lateral: anillo de avance, cómo se calcula, indicadores y promedio.
+function carreraLateral() {
+  const p = progreso(), pr = promedios();
+  const av = Math.round(p.total[0] * 100 / p.total[1]), avReg = Math.round(p.regulares * 100 / p.total[1]);
+  const C = 490.1, arco = (pc, cls) => pc > 0 ? `<circle class="${cls}" cx="88" cy="88" r="78" fill="none" stroke-width="14" stroke-linecap="${cls === 'arco-reg' ? 'butt' : 'round'}" stroke-dasharray="${(C * pc / 100).toFixed(1)} ${C}" transform="rotate(${cls === 'arco-reg' ? -90 + av * 3.6 : -90} 88 88)"/>` : '';
+  const anillo = `<div class="gl-anillo gl-anillo--l" role="progressbar" aria-label="Avance de la carrera" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${av}" aria-valuetext="${p.total[0]} de ${p.total[1]} requisitos">
+    <svg width="176" height="176" viewBox="0 0 176 176" aria-hidden="true"><circle class="riel" cx="88" cy="88" r="78" fill="none" stroke-width="14"/>${arco(avReg, 'arco-reg')}${arco(av, av >= 100 ? 'arco completo' : 'arco')}</svg>
+    <div class="cifra">${av}<small>&#8239;%</small></div></div>`;
+  const falta = p.total[1] - p.total[0];
+  const dato = (t, v) => `<div><dt>${t}</dt><dd>${v}</dd></div>`;
+  const n = pr.nSinCbc, notas = k => k + (k === 1 ? ' nota' : ' notas');
+  const datos = [dato('Materias aprobadas', p.materias[0] + ' de ' + p.materias[1]),
+    p.idiomas[0] ? dato('Niveles de idioma', p.idiomas[0] + ' de ' + p.idiomas[1]) : '',
+    p.cursando ? dato('Cursando ahora', p.cursando) : '', p.regulares ? dato('Finales pendientes', p.regulares) : '',
+    p.final[0] ? dato('Pasantía o tesina', 'Aprobada') : ''].join('');
+  const prom = n ? `<div class="gl-tarjeta gl-prom"><p class="gl-rotulo">Promedio sin CBC</p>
+      <p class="gl-prom-n">${fmtProm(pr.sinCbc)}</p><p class="gl-chico">sobre ${notas(n)}</p>
+      <p class="gl-chico">${pr.nConCbc > n ? `Con el CBC: ${fmtProm(pr.conCbc)}, sobre ${notas(pr.nConCbc)}. ` : ''}${pr.aplazos ? `<b>Con ${pr.aplazos} ${pr.aplazos === 1 ? 'aplazo' : 'aplazos'}.</b> Sin contarlos: ${fmtProm(pr.sinCbcSinAplazos)} sin CBC y ${fmtProm(pr.conCbcSinAplazos)} con CBC. ` : ''}
+        El promedio usa la nota final de cada materia aprobada${pr.aplazos ? '' : ' y los aplazos que cargues en cada materia'}; los idiomas no promedian.</p></div>`
+    : `<p class="gl-chico">Para ver tu promedio, cargá la nota de cada materia aprobada.</p>`;
+  return `<aside class="gl-lateral" aria-label="Resumen">${anillo}
+    <p class="gl-cuerpo gl-m16"><b>${p.total[0]}</b> de ${p.total[1]} requisitos</p>
+    <p class="gl-chico">de tu carrera aprobada${p.regulares ? ` · ${p.regulares} con el final pendiente (en mostaza)` : ''}</p>
+    <details class="gl-calc"><summary class="gl-enlace">Cómo se calcula</summary>
+      <p class="gl-tip">Cada requisito del plan pesa lo mismo: 2 del CBC, las materias de grado, los niveles de idioma y la pasantía o la tesina. Cuentan los aprobados sobre el total del plan.</p></details>
+    ${falta > 0 ? `<button class="gl-enlace" type="button" onclick="V.vista='recorrido';render()">Te ${falta === 1 ? 'falta 1 requisito' : 'faltan ' + falta + ' requisitos'}: ver qué sigue</button>` : ''}
+    <dl class="gl-datos">${datos}</dl>${prom}${faltanNotas()}</aside>`;
+}
+// Riel: lo que viene, recordatorio de copia y compartir.
+function carreraRiel() {
+  return `<aside class="gl-riel" aria-label="Lo que viene y compartir">${proximoRiel()}${recordatorioCopia()}
+    <p class="gl-rotulo gl-m32">Compartir</p>
+    <div class="gl-compartir"><button class="gl-btn gl-btn--sec" type="button" onclick="compartirAvance()">Compartir mi avance</button>
+      <button class="gl-btn gl-btn--sec" type="button" onclick="abrirPasarAmigo()">Enviar mi plan a un amigo</button>
+      <button class="gl-btn gl-btn--sec" type="button" onclick="compartirCursada('carrera')">Pasásela por WhatsApp</button>
+      <button class="gl-enlace" type="button" onclick="abrirLogros()">Mis logros</button></div></aside>`;
 }
 function vCarrera() {
-  const h = [];
-  if (!conDatos()) h.push(vPortada());
-  else {
-    const p = progreso(), pr = promedios();
-    const dato = (n, t, barra) => `<div class="dato"><b>${n}</b><span>${t}</span>${barra != null ? `<div class="barra"><i style="width:${barra}%"></i></div>` : ''}</div>`;
-    // Avance: cada requisito del plan (CBC, materias de grado, niveles de idioma y pasantía o tesina) pesa lo mismo.
-    const av = Math.round(p.total[0] * 100 / p.total[1]), avReg = Math.round(p.regulares * 100 / p.total[1]);
-    const avance = `<div class="avance"><div class="aro" style="--p:${av};--r:${av + avReg}" role="progressbar" aria-label="Avance de la carrera" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${av}"><b>${av}&#8239;%</b></div>
-      <div class="crece"><b>Llevás el ${av} % de la carrera</b><span class="chico tenue">${p.total[0]} de ${p.total[1]} requisitos aprobados${p.regulares ? ` · ${p.regulares} con el final pendiente (en mostaza)` : ''}</span>
-        ${p.total[1] > p.total[0] ? `<span class="chico">Te ${p.total[1] - p.total[0] === 1 ? 'falta 1 requisito' : 'faltan ' + (p.total[1] - p.total[0]) + ' requisitos'}: <button class="enlace" type="button" onclick="V.vista='recorrido';render()">ver qué sigue</button></span>` : ''}</div></div>`;
-    const n = pr.nSinCbc, notas = k => k + (k === 1 ? ' nota' : ' notas');
-    // Solo los indicadores que dicen algo: los que están en cero no se muestran.
-    h.push(`<div class="tarjeta">${avance}<div class="resumen">
-      ${dato(p.materias[0] + '<small class="tenue u-font-size-1rem"> / ' + p.materias[1] + '</small>', 'materias aprobadas', Math.round(p.materias[0] * 100 / p.materias[1]))}
-      ${p.idiomas[0] ? dato(p.idiomas[0] + '<small class="tenue u-font-size-1rem"> / ' + p.idiomas[1] + '</small>', 'niveles de idioma', Math.round(p.idiomas[0] * 100 / p.idiomas[1])) : ''}
-      ${n ? dato(fmtProm(pr.sinCbc), 'promedio sin CBC · sobre ' + notas(n)) : ''}
-      ${p.cursando ? dato(p.cursando, 'cursando ahora') : ''}${p.regulares ? dato(p.regulares, 'finales pendientes') : ''}${p.final[0] ? dato('✓', 'pasantía o tesina') : ''}</div>
-      <p class="chico tenue u-margin-12px-0-0">${pr.nConCbc > n ? `Con el CBC: ${fmtProm(pr.conCbc)}, sobre ${notas(pr.nConCbc)}. ` : ''}${pr.aplazos ? `<b>Con ${pr.aplazos} ${pr.aplazos === 1 ? 'aplazo' : 'aplazos'}.</b> Sin contarlos: ${fmtProm(pr.sinCbcSinAplazos)} sin CBC y ${fmtProm(pr.conCbcSinAplazos)} con CBC. ` : ''}
-        ${n ? `El promedio usa la nota final de cada materia aprobada${pr.aplazos ? '' : ' y los aplazos que cargues en cada materia'}; los idiomas no promedian.` : 'Para ver tu promedio, cargá la nota de cada materia aprobada.'}</p>
-      ${faltanNotas()}
-      ${proximo()}${recordatorioCopia()}
-      <p class="chico compartir"><span class="tenue">¿Le sirve a alguien de tu cursada?</span> <button class="enlace" onclick="compartirCursada('carrera')">Pasásela por WhatsApp</button> · <button class="enlace" onclick="compartirAvance()">Mi avance en imagen</button> · <button class="enlace" onclick="abrirPasarAmigo()">Pasarle mi plan a un amigo</button> · <button class="enlace" onclick="abrirLogros()">Mis logros</button></p></div>`);
-  }
-  const lateral = conDatos() ? h.splice(0) : null;
-  h.push(`<div class="u-mb10 fila"><div class="seg" role="group" aria-label="Vista"><button class="${V.vista === 'tabla' ? 'on' : ''}" aria-pressed="${V.vista === 'tabla'}" onclick="V.vista='tabla';render()">Tabla</button>
-    <button class="${V.vista === 'recorrido' ? 'on' : ''}" aria-pressed="${V.vista === 'recorrido'}" onclick="V.vista='recorrido';render()">Recorrido sugerido</button></div><span class="crece"></span>
-    ${conDatos() ? '<button class="btn sec ch" onclick="exportar()">⬇ Guardar una copia</button>' : ''}<button class="btn lin ch" onclick="window.print()">Imprimir</button></div>
-    <p class="chico tenue u-margin-0-0-10px">${esc(D.plan.requisitos)} ${esc(D.plan.nota)}</p>`);
-  h.push(V.vista === 'recorrido' ? vRecorrido() : D.plan.grupos.map(vGrupo).join(''));
-  if (D.plan.verificado) h.push(`<p class="chico tenue verificado">✓ Datos verificados el ${fmt(D.plan.verificado)}. ${esc(D.plan.verificado_nota || '')}</p>`);
-  return `<div class="carrera-2${lateral ? '' : ' solo'}">${lateral ? `<aside class="lateral">${lateral.join('')}</aside>` : ''}<div class="plan">${h.join('')}</div></div>`;
+  const con = conDatos();
+  const estados = ['pendiente', 'cursando', 'regular', 'aprobada'];
+  const principal = `<section class="gl-principal" aria-label="Plan de la carrera">${con ? '' : vPortada()}
+    <div class="gl-barra"><div class="gl-seg" role="group" aria-label="Vista"><button type="button" class="${V.vista === 'tabla' ? 'on' : ''}" aria-pressed="${V.vista === 'tabla'}" onclick="V.vista='tabla';render()">Tabla</button>
+      <button type="button" class="${V.vista === 'recorrido' ? 'on' : ''}" aria-pressed="${V.vista === 'recorrido'}" onclick="V.vista='recorrido';render()">Recorrido sugerido</button></div>
+      <div class="gl-leyenda">${estados.map(k => `<span><span class="gl-ic ${glEst(k)}" aria-hidden="true"></span>${k === 'regular' ? 'Regular' : esc(ESTADOS[k])}</span>`).join('')}</div></div>
+    <details class="gl-calc"><summary class="gl-enlace">¿Qué significa cada estado?</summary>
+      <p class="gl-tip">Tocá el estado de una materia para cambiarlo. <b>Regular</b> quiere decir que ya aprobaste la cursada y te falta rendir el final. Todo se guarda solo en este navegador.</p></details>
+    <p class="gl-chico gl-m16">${esc(D.plan.requisitos)} ${esc(D.plan.nota)}</p>
+    ${V.vista === 'recorrido' ? vRecorrido() : D.plan.grupos.map(vGrupo).join('')}
+    ${D.plan.verificado ? `<p class="gl-chico gl-m32">Datos verificados el ${fmt(D.plan.verificado)}. ${esc(D.plan.verificado_nota || '')}</p>` : ''}</section>`;
+  return `<div class="gl-carrera"><div class="gl-cab"><h2 class="gl-display">Mi carrera</h2><span class="gl-crece"></span>
+    ${con ? '<button class="gl-btn gl-btn--sec gl-btn--c" type="button" onclick="exportar()">Guardar una copia</button>' : ''}<button class="gl-btn gl-btn--sec gl-btn--c" type="button" onclick="window.print()">Imprimir</button></div>
+    <div class="gl-tres${con ? '' : ' gl-tres--solo'}">${con ? carreraLateral() : ''}${principal}${con ? carreraRiel() : ''}</div></div>`;
 }
 // Primera vez (o sin nada cargado): qué gana la persona, una sola acción y, como mucho, lo próximo del calendario.
 function vPortada() {
@@ -695,21 +717,34 @@ function vPortada() {
     ${proximo()}</div>`;
 }
 // Lo próximo que importa: la fecha más cercana de la persona o del calendario (inscripciones, exámenes y trámites).
-function proximo() {
+function proxItem() {
   const t = hoy(), cal = ((D.calendario || {}).eventos || []).filter(e => ['inscripcion', 'examen', 'tramite'].indexOf(e.tipo) >= 0);
   const e = cal.concat(misFechas()).filter(x => x.hasta >= t).sort((a, b) => a.desde < b.desde ? -1 : a.desde > b.desde ? 1 : 0)[0];
-  const rep = repasos().find(r => r.desde === t);
+  return { t, e, rep: repasos().find(r => r.desde === t) };
+}
+function proximo() {
+  const { t, e, rep } = proxItem();
   if (!e && !rep) return '';
   return `<p class="proximo chico">${e ? `<span class="tenue">Lo que viene:</span> <b>${esc(e.t)}</b>, ${e.desde < t ? 'hasta el ' + fmt(e.hasta) : fmtRango(e.desde, e.hasta)}. <button class="enlace" onclick="ir('calendario')">Ver el calendario</button>` : ''}
-    ${rep ? `${e ? '<br>' : ''}<span aria-hidden="true">🧠</span> Hoy toca repasar ${esc(rep.nombre)}: <button class="enlace" onclick="empezarPractica(${arg(rep.res)})">practicar ${RONDA} preguntas</button>` : ''}</p>`;
+    ${rep ? `${e ? '<br>' : ''}Hoy toca repasar ${esc(rep.nombre)}: <button class="enlace" onclick="empezarPractica(${arg(rep.res)})">practicar ${RONDA} preguntas</button>` : ''}</p>`;
+}
+// Mi carrera, riel: la misma fecha que «proximo», con el día en grande.
+function proximoRiel() {
+  const { t, e, rep } = proxItem();
+  if (!e && !rep) return '';
+  const d = e ? fecha(e.desde >= t ? e.desde : e.hasta) : null;
+  return `<p class="gl-rotulo">Lo que viene</p>${e ? `<div class="gl-prox"><div class="dia"><b>${d.getDate()}</b>${MESES[d.getMonth()].toUpperCase()}</div>
+    <div class="gl-cuerpo">${esc(e.t)}<br><span class="gl-chico">${e.desde < t ? 'hasta el ' + fmt(e.hasta) : fmtRango(e.desde, e.hasta)}</span></div></div>
+    <button class="gl-enlace" type="button" onclick="ir('calendario')">Ver el calendario</button>` : ''}
+    ${rep ? `<p class="gl-chico">Hoy toca repasar ${esc(rep.nombre)}: <button class="gl-enlace" type="button" onclick="empezarPractica(${arg(rep.res)})">practicar ${RONDA} preguntas</button></p>` : ''}`;
 }
 // La copia, recordada donde sirve: cuando ya hay algo que perder y nunca se bajó, o cuando cambió desde la última (y pasó un mes).
 function recordatorioCopia() {
   if (V.demo) return '';
   const cargadas = Object.keys(E.materias).filter(id => E.materias[id].estado !== 'pendiente').length;
   if (cargadas < 3 || (E.copia && (E.modif <= E.copia || diasDesde(E.copia) < 30))) return '';
-  return `<div class="recordatorio chico"><span class="crece">💾 ${E.copia ? `Tu última copia es del ${fmt(E.copia)} y después cargaste cosas nuevas.` : `Ya cargaste ${cargadas} materias.`}
-    Con una copia las recuperás si cambiás de celular o se borran los datos del navegador.</span><button class="btn sec ch" onclick="exportar()">Guardar una copia</button></div>`;
+  return `<div class="gl-tarjeta gl-copia"><p class="gl-chico">${E.copia ? `Tu última copia es del ${fmt(E.copia)} y después cargaste cosas nuevas.` : `Ya cargaste ${cargadas} materias.`}
+    Con una copia las recuperás si cambiás de celular o se borran los datos del navegador.</p><button class="gl-btn gl-btn--sec" type="button" onclick="exportar()">Guardar una copia</button></div>`;
 }
 // Compartir: WhatsApp es por donde circula todo en la cursada. El mensaje es el mismo que el del mail de los lunes.
 const MSJ_COMPARTIR = 'Te paso Galera: llevás las materias de Edición, el promedio y armás los horarios sin superposiciones. Gratis y sin cuenta 👉 https://galera.com.ar/';
@@ -750,27 +785,29 @@ function verEjemplo() { if (V.demo) return; V.demo = E; E = ejemploCarrera(); V.
 function salirEjemplo() { if (!V.demo) return; E = V.demo; V.demo = null; render(); window.scrollTo(0, 0); }
 function proximaFecha(id) {
   const ex = ((E.materias[id] || {}).examenes || []).filter(x => x.fecha && x.fecha >= hoy()).sort((a, b) => a.fecha < b.fecha ? -1 : 1)[0];
-  return ex ? `<span class="chip mos">${esc(ex.tipo)}: ${fmt(ex.fecha)}</span>` : '';
+  return ex ? `<span class="gl-chip gl-chip--aviso">${esc(ex.tipo)}: ${fmt(ex.fecha)}</span>` : '';
 }
 function vGrupo(g) {
   const L = D.plan.materias.filter(m => m.grupo === g.id);
-  return `<div class="titulo-sec plan-h"><h2>${esc(g.nombre)}</h2><span class="chico tenue">${L.filter(m => (E.materias[m.id] || {}).estado === 'aprobada').length} de ${L.length}</span></div>
-    ${g.ayuda ? `<p class="chico tenue u-margin-4px-0-8px">${esc(g.ayuda)}</p>` : ''}
-    <div class="plan-tabla"><table class="tabla"><thead><tr><th>Materia</th><th>Se dicta</th><th>Estado</th><th>Nota</th><th><span class="solo-lector">Programa</span></th></tr></thead><tbody>
+  return `<h3 class="gl-grupo">${esc(g.nombre)}<span>${L.filter(m => (E.materias[m.id] || {}).estado === 'aprobada').length} de ${L.length}</span></h3>
+    ${g.ayuda ? `<p class="gl-chico gl-m4">${esc(g.ayuda)}</p>` : ''}
+    <div class="gl-tabla">
     ${L.map(m => {
       const e = E.materias[m.id] || { estado: 'pendiente' }, o = opcion(m);
       const cuat = (o && o.cuat) || m.cuat || [], reg = (o && o.regimen) || m.regimen, regNota = (o && o.regimen_nota) || m.regimen_nota, progs = programas(m, o);
       // Las electivas con opciones fijas se eligen acá mismo (los seminarios y la pasantía o tesina, desde su ficha).
-      const elige = m.opciones && m.id !== 'final' ? `<select class="elige-op" data-f="op${esc(m.id)}" aria-label="¿Cuál cursaste o vas a cursar? (${esc(m.nombre)})" onchange="campo(${arg(m.id)},'opcion',this.value)">
+      const elige = m.opciones && m.id !== 'final' ? `<select class="gl-elige" data-f="op${esc(m.id)}" aria-label="¿Cuál cursaste o vas a cursar? (${esc(m.nombre)})" onchange="campo(${arg(m.id)},'opcion',this.value)">
         <option value="">¿Cuál elegiste?</option>${m.opciones.map(x => `<option value="${esc(x.id)}" ${e.opcion === x.id ? 'selected' : ''}>${esc(x.nombre)}</option>`).join('')}</select>` : '';
-      return `<tr class="${e.estado}"><td class="plan-n">${iconoEstado(e.estado)}<div class="plan-c"><button class="nombre" onclick="abrirMateria(${arg(m.id)})">${esc(nombreDe(m))}</button>${elige}
-        <div class="chico tenue">${m.codigo || (o && o.codigo) ? esc(m.codigo || o.codigo) + ' · ' : ''}${m.electiva && !o && !(m.libre && e.detalle) && !elige ? 'A elegir · ' : ''}${reg ? esc(reg) : ''}${regNota ? ` <span class="chip ojo" title="${esc(regNota)}">cambió</span>` : ''} ${proximaFecha(m.id)}${(e.aplazos || []).length ? ` <span class="chip mal">${e.aplazos.length} ${e.aplazos.length === 1 ? 'aplazo' : 'aplazos'}</span>` : ''}</div></div></td>
-        <td class="ctl">${cuat.map(c => `<span class="chip">${c}</span>`).join(' ')}</td>
-        <td class="ctl" data-rot="Estado"><select aria-label="Estado de ${esc(m.nombre)}" onchange="setEstado(${arg(m.id)},this.value)">${Object.keys(ESTADOS).map(k => `<option value="${k}" ${e.estado === k ? 'selected' : ''}>${ESTADOS[k]}</option>`).join('')}</select></td>
-        <td class="ctl" data-rot="Nota"><input class="nota" maxlength="5" inputmode="decimal" placeholder="Nota" aria-label="Nota de ${esc(m.nombre)}" value="${esc(valorNota(m.id, e))}"${attrsNota(m.id)} onchange="setNota(${arg(m.id)},this.value)">${msgNota(m.id)}</td>
-        <td class="ctl">${progs.length === 1 ? `<a class="chico" href="${urlSegura(progs[0].url)}" target="_blank" rel="noopener">Programa</a>`
-          : progs.length ? `<button class="enlace chico" onclick="abrirMateria(${arg(m.id)})">Programas</button>` : ''}</td></tr>`;
-    }).join('')}</tbody></table></div>`;
+      const prog = progs.length === 1 ? `<a class="gl-enlace" href="${urlSegura(progs[0].url)}" target="_blank" rel="noopener">Programa</a>`
+        : progs.length ? `<button class="gl-enlace" type="button" onclick="abrirMateria(${arg(m.id)})">Programas</button>` : '';
+      return `<div class="gl-fila ${e.estado}"><span class="gl-ic ${glEst(e.estado)}" role="img" aria-label="${esc(ESTADOS[e.estado] || ESTADOS.pendiente)}"></span>
+        <div class="nm"><button class="gl-nombre" type="button" onclick="abrirMateria(${arg(m.id)})">${esc(nombreDe(m))}</button>${elige}
+          <span class="meta">${m.codigo || (o && o.codigo) ? esc(m.codigo || o.codigo) + ' · ' : ''}${m.electiva && !o && !(m.libre && e.detalle) && !elige ? 'A elegir · ' : ''}${reg ? esc(reg) : ''}${e.estado === 'regular' ? ' · Falta el final' : ''}${regNota ? ` <span class="gl-chip gl-chip--aviso" title="${esc(regNota)}">cambió</span>` : ''} ${proximaFecha(m.id)}${(e.aplazos || []).length ? ` <span class="gl-chip gl-chip--aviso">${e.aplazos.length} ${e.aplazos.length === 1 ? 'aplazo' : 'aplazos'}</span>` : ''}</span>
+          ${prog}${msgNota(m.id)}</div>
+        <span class="cuat">${cuat.join(' ')}</span>
+        <select class="gl-sel" aria-label="Estado de ${esc(m.nombre)}" onchange="setEstado(${arg(m.id)},this.value)">${Object.keys(ESTADOS).map(k => `<option value="${k}" ${e.estado === k ? 'selected' : ''}>${ESTADOS[k]}</option>`).join('')}</select>
+        <div class="nota"><input class="gl-nota" maxlength="5" inputmode="decimal" placeholder="Nota" aria-label="Nota de ${esc(m.nombre)}" value="${esc(valorNota(m.id, e))}"${attrsNota(m.id)} onchange="setNota(${arg(m.id)},this.value)"></div></div>`;
+    }).join('')}</div>`;
 }
 function setEstado(id, estado) { mat(id).estado = estado; guardar(); render(); }
 // El error de la nota se muestra junto al campo y conserva lo escrito (V.errNota = { id, v, msg, aplazo }).
@@ -799,6 +836,8 @@ const MARCA = { cursando: 'cursando', regular: 'regular', aprobada: 'aprobada' }
 // Íconos de estado de la hoja Marca: cuarto de círculo + palabra + color (se leen igual en escala de grises).
 const iconoEstado = est => `<span class="ge ${ESTADO_CLS[est] || 'pen'}" aria-hidden="true"></span>`;
 const ESTADO_CLS = { pendiente: 'pen', cursando: 'cur', regular: 'reg', aprobada: 'ok' };
+// Clase de la capa gl- para el ícono de estado (la capa llama «apr» a la aprobada).
+const glEst = est => 'gl-' + ({ pendiente: 'pen', cursando: 'cur', regular: 'reg', aprobada: 'apr' }[est] || 'pen');
 const chipEstado = est => `<span class="tag-est ${ESTADO_CLS[est] || 'pen'}">${iconoEstado(est)}${esc(ESTADOS[est] || ESTADOS.pendiente)}</span>`;
 function vRecorrido() {
   const celdas = [];
@@ -810,8 +849,7 @@ function vRecorrido() {
           return `<button class="mat ${est}" onclick="abrirMateria(${arg(m.id)})">${esc(nombreDe(m))}${est === 'pendiente' ? '' : `<span class="marca-estado">${iconoEstado(est)}${MARCA[est]}</span>`}</button>`; }).join('') + '</div>');
     }
   });
-  return `<p class="chico tenue">Orden sugerido por el Departamento de Edición, por áreas. No es obligatorio: la carrera no tiene correlatividades.
-    ${['pendiente', 'cursando', 'regular', 'aprobada'].map(chipEstado).join(' ')}</p>
+  return `<p class="chico tenue">Orden sugerido por el Departamento de Edición, por áreas. No es obligatorio: la carrera no tiene correlatividades.</p>
     <div class="recorrido"><div></div>${[1, 2, 3, 4].map(n => `<div class="cab">Módulo ${n}</div>`).join('')}${celdas.join('')}</div>
     <p class="chico tenue u-margin-top-12px">Idiomas y pasantía o tesina no figuran acá: se cursan en paralelo. Están en la vista Tabla.</p>`;
 }
