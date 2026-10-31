@@ -173,3 +173,51 @@ a.gl-cont::after{content:"";margin-left:auto;width:20px;height:20px;background:c
 
 body.gl{margin:0;background:var(--gl-bg);color:var(--gl-ink);font:400 16px/24px var(--gl-sans)}
 body.gl,body.gl *,body.gl *::before,body.gl *::after{box-sizing:border-box}
+
+/* Mi carrera (ticket 04). Tablero Main / Movil. */
+.gl-carrera .gl-cab{display:flex;align-items:center;flex-wrap:wrap;gap:16px;margin-bottom:48px}
+.gl-crece{flex:1}
+.gl-carrera .gl-tres{gap:32px 24px;justify-content:center}
+.gl-tres--solo>.gl-principal{flex:0 1 600px}
+.gl-m4{margin:4px 0 0}.gl-m16{margin:16px 0 0}.gl-m32{margin:32px 0 0}
+.gl-lateral>*+*,.gl-riel>*+*{margin-top:12px}
+.gl-lateral>.gl-calc,.gl-lateral>.gl-chico{margin-top:0}
+.gl-anillo--l .cifra{font-size:48px}.gl-anillo--l .cifra small{font-size:24px}
+.gl-anillo .arco-reg{stroke:var(--gl-reg-fg);opacity:.5}
+.gl-calc summary{list-style:none;cursor:pointer}.gl-calc summary::-webkit-details-marker{display:none}
+.gl-tip{margin:4px 0 0;padding:12px 16px;border-left:2px solid var(--gl-mark);background:var(--gl-card);font:400 14px/20px var(--gl-sans);color:var(--gl-t2);max-width:none}
+.gl-datos{margin:24px 0 0;display:grid;gap:8px}.gl-datos>div{display:flex;justify-content:space-between;gap:8px;font:400 14px/20px var(--gl-sans)}
+.gl-datos dt{color:var(--gl-t2)}.gl-datos dd{margin:0;font-weight:600;font-variant-numeric:tabular-nums}
+.gl-lateral .gl-tarjeta{margin-top:24px}.gl-lateral .gl-tarjeta .gl-btn{align-self:flex-start;margin-top:8px}
+.gl-prom-n{margin:0;font:600 40px/44px var(--gl-sans);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.gl-barra{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:8px}
+.gl-seg{display:inline-flex;border:1px solid var(--gl-bd);border-radius:var(--gl-r);padding:2px;background:var(--gl-bg)}
+.gl-seg button{height:40px;padding:0 16px;border:0;border-radius:var(--gl-r);background:none;font:400 14px/20px var(--gl-sans);cursor:pointer;color:var(--gl-t2)}
+.gl-seg button.on{background:var(--gl-ink);color:var(--gl-bg)}
+.gl-seg button:focus-visible{outline:2px solid var(--gl-ink);outline-offset:2px}
+.gl-leyenda{display:flex;flex-wrap:wrap;gap:8px 16px}.gl-leyenda>span{display:flex;align-items:center;gap:8px;font:400 14px/20px var(--gl-sans);color:var(--gl-t2)}
+.gl-grupo{display:flex;align-items:baseline;gap:12px;margin:48px 0 0;font:600 28px/36px var(--gl-sans);letter-spacing:-.02em}
+.gl-grupo span{font:400 14px/20px var(--gl-sans);letter-spacing:0;color:var(--gl-t3)}
+.gl-tabla{margin-top:16px;border-bottom:1px solid var(--gl-line)}
+.gl-fila .nm{min-width:0}
+.gl-nombre{display:block;padding:0;border:0;background:none;color:var(--gl-ink);font:500 16px/24px var(--gl-sans);text-align:left;cursor:pointer;text-decoration:underline;text-decoration-color:transparent;text-underline-offset:3px}
+.gl-nombre:hover{text-decoration-color:currentColor}.gl-nombre:focus-visible{outline:2px solid var(--gl-ink);outline-offset:2px}
+.gl-fila .meta{display:inline}
+.gl-fila .nm .gl-enlace{margin-left:8px;min-height:24px}
+.gl-fila .cuat{font:500 12px/16px var(--gl-sans);color:var(--gl-t3)}
+.gl-fila .nota{text-align:right}
+.gl-nota{width:64px;height:44px;padding:0 8px;border:1px solid var(--gl-bd);border-radius:var(--gl-r);background:transparent;color:var(--gl-ink);font:400 14px/20px var(--gl-sans);text-align:center}
+.gl-nota:focus-visible,.gl-elige:focus-visible{outline:2px solid var(--gl-ink);outline-offset:2px}
+.gl-nota[aria-invalid="true"]{border-color:var(--gl-bad)}
+.gl-elige{display:block;margin:4px 0;max-width:100%;height:44px;border:1px solid var(--gl-bd);border-radius:var(--gl-r);background:var(--gl-bg);color:var(--gl-ink);font:400 14px/20px var(--gl-sans)}
+select.gl-sel{appearance:none;-webkit-appearance:none;padding-right:32px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2389939E' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;background-size:14px}
+.gl-fila .err-nota{display:block;margin-top:4px;font:400 14px/20px var(--gl-sans);color:var(--gl-bad)}
+.gl-prox{display:flex;gap:16px;padding:16px;border-radius:var(--gl-r);background:var(--gl-card)}
+.gl-prox .dia{flex:none;width:48px;text-align:center;font:600 12px/16px var(--gl-sans);color:var(--gl-lnk)}
+.gl-prox .dia b{display:block;font:600 24px/28px var(--gl-sans);letter-spacing:-.02em;color:var(--gl-ink)}
+.gl-copia{margin-top:24px}.gl-copia .gl-btn{align-self:flex-start}
+.gl-compartir{display:flex;flex-direction:column;gap:8px;align-items:stretch}
+@media (max-width:760px){.gl-nombre{min-height:44px;display:flex;align-items:center}.gl-grupo{font-size:24px;line-height:30px}.gl-carrera .gl-cab{margin-bottom:24px}}
+main:has(>.gl-carrera){max-width:1224px;padding:48px 16px 80px}
+@media (max-width:720px){main:has(>.gl-carrera){padding:20px 20px 32px}}
+@media (max-width:760px){.gl-seg button{height:44px}.gl-fila .nm .gl-enlace{min-height:44px;margin-left:0}}
