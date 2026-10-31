@@ -6,7 +6,7 @@ import urllib.error
 import urllib.parse
 import urllib.request
 
-RUTAS = ["/", "/legal/", "/glosario/", "/biblioteca/", "/resumenes/", "/simuladores/",
+RUTAS = ["/", "/legal/", "/glosario/", "/biblioteca/", "/simuladores/",
          "/datos/indice.json", "/datos/novedades.json", "/sitemap.xml"]
 
 
@@ -27,6 +27,8 @@ def main(base):
         estado, cuerpo = pedir(base + ruta)
         if estado != 200:
             fallas.append(f"{ruta}: {estado}")
+        elif "Directory listing for" in cuerpo:  # http.server del CI lista carpetas sin index.html; en producción son 404
+            fallas.append(f"{ruta}: sin index.html")
         for rec in re.findall(r'(?:src|href)="([^"#]+\.(?:js|css)(?:\?[^"]*)?)"', cuerpo):
             url = urllib.parse.urljoin(base + ruta, rec)
             if url.startswith(base):
