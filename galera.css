@@ -73,7 +73,7 @@ h1,h2,h3,.portada h2,.practica h2,.nov-t,.perfil b,.avance b,.recorrido .area{fo
 .pie-nombre{font-family:var(--gotica);font-weight:400;font-size:32px;line-height:28px;letter-spacing:0;margin:0}
 .pie-nombre .logo{display:none}
 .pie-nombre a{color:var(--texto);text-decoration:none}
-.pie-nombre::first-letter,.pie-nombre a::first-letter{color:var(--marca)}
+.pie-nombre .g{color:var(--marca)}
 .pie-marca p{max-width:28ch;margin:16px 0 24px;font-size:14px;line-height:20px;color:var(--texto2)}
 .pie-marca .pie-nombre{max-width:none;margin:0;font-size:32px;line-height:28px;color:var(--texto)}
 .pie-marca .pie-acciones{margin:0;max-width:none}
