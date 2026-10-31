@@ -39,12 +39,24 @@ jobs:
             | grep -E '^datos/(oferta-.*|mesas-.*|calendario-.*|indice|pedidos)\.json$' \
             | xargs -r git checkout origin/main --
           git diff --cached --stat
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      # Las páginas del repo llevan marcas; tools/armar.py arma el sitio en dist/. Los códigos anteriores al marco único
+      # ya traen las páginas armadas y se publican tal cual (esta rama sobra cuando `produccion` ya incluya armar.py).
+      - name: Armar el sitio
+        run: |
+          if grep -q '<!--marco:' index.html; then
+            python tools/armar.py --salida dist
+          else
+            mkdir dist && git ls-files -z | grep -zv '^\.github/' | xargs -0 cp --parents -t dist
+          fi
       # _headers es del sitio de prueba (Cloudflare); en producción sería un archivo público más.
-      - run: rm -f _headers
+      - run: rm -f dist/_headers
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: dist
       - id: deploy
         uses: actions/deploy-pages@v4
       - name: Producción responde
