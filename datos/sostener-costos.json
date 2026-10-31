@@ -1,9 +1,27 @@
 {
-  "actualizado": "2026-10-15",
+  "actualizado": "2026-10-31",
   "items": [
-    {"id": "claude", "t": "Claude Pro (la herramienta con la que se arma Cursada)", "monto": "USD 20 por mes + impuestos vigentes"},
-    {"id": "proporcion", "t": "Parte de ese gasto que va a Cursada", "monto": null, "nota": "se calcula con un script local, próximamente"},
-    {"id": "dominio", "t": "Dominio", "monto": "$0"},
-    {"id": "hosting", "t": "GitHub Pages (donde vive la página)", "monto": "$0"}
+    {
+      "id": "claude",
+      "t": "Claude Pro (la herramienta con la que se arma Galera)",
+      "monto": "USD 20 por mes + impuestos vigentes"
+    },
+    {
+      "id": "proporcion",
+      "t": "Parte de ese gasto que va a Galera",
+      "monto": null,
+      "nota": "se calcula con un script local, próximamente"
+    },
+    {
+      "id": "dominio",
+      "t": "Dominio galera.com.ar",
+      "monto": null,
+      "nota": "se renueva una vez por año en NIC Argentina"
+    },
+    {
+      "id": "hosting",
+      "t": "GitHub Pages y Cloudflare (donde vive la página y los correos)",
+      "monto": "$0"
+    }
   ]
 }
