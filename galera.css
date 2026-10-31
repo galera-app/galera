@@ -59,6 +59,7 @@ h1,h2,h3,.portada h2,.practica h2,.nov-t,.perfil b,.avance b,.recorrido .area{fo
 /* Páginas estáticas de lectura (resúmenes, biblioteca, glosario…): mismo nombre en la cabecera */
 .lectura .marca .nombre{font-family:var(--gotica);font-weight:400;font-size:32px;line-height:28px;letter-spacing:0;margin:0;padding:10px 20px 10px 0}
 .lectura .marca .nombre a::first-letter{color:var(--marca)}
+.lectura .marca .nombre a{display:inline-block;padding:8px 0}
 .lectura .apunte h1,.lectura .apunte h2,.lectura .apunte h3{font-family:var(--fuente)}
 
 /* Cinta de puntos sobre la cabecera y dentro del pie (lienzo Cabecera y Pie) */
@@ -73,6 +74,7 @@ h1,h2,h3,.portada h2,.practica h2,.nov-t,.perfil b,.avance b,.recorrido .area{fo
 .pie-nombre{font-family:var(--gotica);font-weight:400;font-size:32px;line-height:28px;letter-spacing:0;margin:0}
 .pie-nombre .logo{display:none}
 .pie-nombre a{color:var(--texto);text-decoration:none}
+.pie-nombre a{display:inline-flex;align-items:center;min-height:44px}
 .pie-nombre .g{color:var(--marca)}
 .pie-marca p{max-width:28ch;margin:16px 0 24px;font-size:14px;line-height:20px;color:var(--texto2)}
 .pie-marca .pie-nombre{max-width:none;margin:0;font-size:32px;line-height:28px;color:var(--texto)}
