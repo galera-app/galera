@@ -1,4 +1,4 @@
-# Galera: controles automáticos en cada PR. Si falla alguno, no se mergea (branch protection en main).
+# Galera: controles automáticos en cada PR. Si falla alguno, no se mergea (regla «main» del repo).
 # Requiere en el repo: tools/verificar_seo.py (copia de 404-personal-infra/calidad/verificar_seo.py).
 name: CI
 
@@ -32,6 +32,11 @@ jobs:
           sys.exit(1 if malos else 0)
           PY
       - name: La sintaxis de los JS es válida
-        run: for f in app.js horarios.js; do [ -f "$f" ] && node --check "$f"; done; true
+        run: git ls-files '*.js' | xargs -n1 node --check
+      - name: Las pantallas clave responden
+        run: |
+          python -m http.server 8000 >/dev/null 2>&1 &
+          sleep 2
+          python tools/humo.py http://localhost:8000
       - name: SEO y vista previa (cero fallas)
         run: python tools/verificar_seo.py . --solo-cambios --dominio https://galera.com.ar
