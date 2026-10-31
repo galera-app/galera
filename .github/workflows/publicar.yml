@@ -1,0 +1,45 @@
+# Galera: cada merge a main queda esperando aprobación (entorno `produccion`). Cloudflare ya lo publicó en
+# prueba.galera.com.ar. Al aprobar sale a galera.com.ar y el tag `produccion` marca el último código aprobado.
+# Si hay un merge nuevo, reemplaza al que esperaba: aprobar el último incluye los anteriores.
+name: Publicar
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  aprobar:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: aprobacion
+      cancel-in-progress: true
+    environment:
+      name: produccion
+    steps:
+      - run: echo "Aprobado ${{ github.sha }}"
+
+  publicar:
+    needs: aprobar
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    uses: ./.github/workflows/desplegar.yml
+    with:
+      codigo: ${{ github.sha }}
+
+  marcar:
+    needs: publicar
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+      - run: |
+          git tag -f produccion "$GITHUB_SHA"
+          git push -f origin refs/tags/produccion

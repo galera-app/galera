@@ -1,0 +1,51 @@
+# Galera: el único camino a producción. Publica el código de `codigo` con los datos más nuevos de la Facultad.
+# Lo llaman publicar.yml (código aprobado) y datos.yml (datos nuevos sobre el último código aprobado).
+name: Desplegar
+
+on:
+  workflow_call:
+    inputs:
+      codigo:
+        description: Commit o tag con el código que se publica
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  desplegar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.codigo }}
+          fetch-depth: 0
+      # Solo lo que escribe el bot (.github/scripts/cursada_datos.py). novedades.json queda afuera a propósito:
+      # lo editan los PR y anunciaría versiones sin aprobar.
+      - name: Sumar los datos más nuevos de la Facultad
+        run: |
+          git fetch -q origin main
+          git ls-tree -r --name-only origin/main -- datos \
+            | grep -E '^datos/(oferta-.*|mesas-.*|calendario-.*|indice|pedidos)\.json$' \
+            | xargs git checkout origin/main --
+          git diff --cached --stat
+      # _headers es del sitio de prueba (Cloudflare); en producción sería un archivo público más.
+      - run: rm -f _headers
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - id: deploy
+        uses: actions/deploy-pages@v4
+      - name: Producción responde
+        run: python3 tools/humo.py https://galera.com.ar

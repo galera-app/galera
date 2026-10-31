@@ -1,0 +1,5 @@
+# Solo lo lee Cloudflare Pages, o sea el sitio de prueba y las vistas previas. En producción no se publica.
+# noindex: que no aparezca en Google. CSP: sin Analytics y sin escribir en el buzón ni en el arcade reales.
+/*
+  X-Robots-Tag: noindex
+  Content-Security-Policy: connect-src 'self'; script-src 'self' 'unsafe-inline'
