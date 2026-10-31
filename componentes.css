@@ -36,7 +36,7 @@
 /* Contenedores: marco 1224, lectura 860, margen 16 (celular 20) */
 .gl-marco,.gl-lectura{margin-inline:auto;padding-inline:16px;width:100%}
 .gl-marco{max-width:calc(var(--gl-marco) + 32px)}
-.gl-lectura{max-width:calc(var(--gl-lectura) + 32px)}
+.gl-lectura{max-width:var(--gl-lectura)}
 @media (max-width:600px){.gl-marco,.gl-lectura{padding-inline:20px}}
 
 /* Grilla: 12 columnas / gutter 24 en escritorio; 6 / 16 en celular */
@@ -161,7 +161,7 @@ a.gl-cont::after{content:"";margin-left:auto;width:20px;height:20px;background:c
 .gl-ent .bj{display:block;margin-top:2px;font:italic 400 15px/22px var(--gl-serif);color:var(--gl-t2)}
 .gl-colofon{margin:0 auto;max-width:52ch;text-align:center;font:italic 400 15px/24px var(--gl-serif);color:var(--gl-t2)}
 .gl-colofon a{color:var(--gl-lnk)}
-@media (max-width:600px){
+@media (max-width:720px){
   .gl-tope h2{font-size:28px;line-height:34px}
   .gl-sub,.gl-cerr{font-size:15px;line-height:22px}.gl-cerr{flex-wrap:wrap}
   .gl-perfiles{margin-top:20px}.gl-perfil{padding:8px 10px 12px;gap:4px}
