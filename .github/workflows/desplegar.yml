@@ -37,7 +37,7 @@ jobs:
           git fetch -q origin main
           git ls-tree -r --name-only origin/main -- datos \
             | grep -E '^datos/(oferta-.*|mesas-.*|calendario-.*|indice|pedidos)\.json$' \
-            | xargs git checkout origin/main --
+            | xargs -r git checkout origin/main --
           git diff --cached --stat
       # _headers es del sitio de prueba (Cloudflare); en producción sería un archivo público más.
       - run: rm -f _headers
@@ -48,4 +48,5 @@ jobs:
       - id: deploy
         uses: actions/deploy-pages@v4
       - name: Producción responde
-        run: python3 tools/humo.py https://galera.com.ar
+        # Desde main: el código publicado puede ser un tag anterior a este script.
+        run: git show origin/main:tools/humo.py | python3 - https://galera.com.ar
