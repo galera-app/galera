@@ -335,27 +335,27 @@ function elegirEnInicio(p) {
   medir('perfil', { perfil: E.perfil });
   const h = document.querySelector('#main h2'); if (h) { h.tabIndex = -1; h.focus({ preventScroll: true }); }
 }
-function cambiarEnInicio() { V.cambiaPerfil = true; render(); const b = document.querySelector('.op.on, .op'); if (b) b.focus({ preventScroll: true }); }
+function cambiarEnInicio() { V.cambiaPerfil = true; render(); const b = document.querySelector('.gl-perfil.on, .gl-perfil, .gl-cerr .gl-enlace'); if (b) b.focus({ preventScroll: true }); }
 // La última edición (fecha y cuántas novedades trae para este perfil) sale de novedades.json; mientras no llegó, el colofón no la nombra.
 function colofonInicio(per) {
   const lista = ((D.novedades && D.novedades.novedades) || []).filter(n => n.perfil === 'todos' || n.perfil === per);
   const f = lista.map(n => n.fecha).sort().pop(), n = lista.filter(x => x.fecha === f).length;
   const ed = f ? `Esta edición de Galera se actualizó el ${fechaLarga(f)} y trae <a href="#novedades">${n === 1 ? 'una novedad' : (['', '', 'dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho', 'nueve'][n] || n) + ' novedades'}</a>. ` : '';
-  return `<p class="colofon">${ed}Se compuso en Instrument Sans y Literata, con la g en UnifrakturMaguntia, y se hizo en CABA, Argentina. Se sostiene con <a href="#sostener">cafecitos</a>; tus datos quedan en este navegador (<a href="#config">ajustes</a>).</p>`;
+  return `<p class="gl-colofon">${ed}Se compuso en Instrument Sans y Literata, con la g en UnifrakturMaguntia, y se hizo en CABA, Argentina. Se sostiene con <a href="#sostener">cafecitos</a>; tus datos quedan en este navegador (<a href="#config">ajustes</a>).</p>`;
 }
 function vInicio() {
   cargarNovedades();
   const per = esPro() ? 'profesional' : 'estudiante', abierto = !E.perfil || V.cambiaPerfil;
   const grupos = GRUPOS_WEB[per].filter(g => g[0] !== 'Galera');
   const selector = abierto
-    ? `<p class="inicio-sub">Elegí tu perfil: el índice se ordena según lo que hacés.</p>
-      <div class="inicio-sel" role="group" aria-label="Perfil">${PERFILES_INICIO.map(([id, t, s]) => `<button type="button" class="op ${E.perfil === id ? 'on' : ''}" aria-pressed="${E.perfil === id}" onclick="elegirEnInicio(${arg(id)})"><b>${t}</b><span>${s}</span></button>`).join('')}</div>`
-    : `<p class="inicio-cerr">Índice para <b>${PLURAL_PERFIL[per]}</b> · <button class="enlace" type="button" onclick="cambiarEnInicio()">Cambiar</button></p>`;
-  return `<div class="inicio"><div class="inicio-tope"><h2>¿Qué venís a hacer?</h2>${selector}</div>
-    <div class="inicio-sp"><div class="inicio-dv" role="separator"><span class="fl"></span></div></div>
-    <div class="inicio-sumario"><h2 class="inicio-rot">Índice</h2>${grupos.map(([n, ids], i) => `<section class="inicio-grupo" aria-labelledby="ig-${i}"><h3 id="ig-${i}"><span class="num" aria-hidden="true">${ROMANOS[i]}</span><span class="gn">${n}</span></h3>
-      <ul>${ids.map(id => `<li><a href="#${id}"><span class="ent-t"><b>${rotuloTab(id)}</b><span class="guia" aria-hidden="true"></span><span class="ent-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="${ICONO_INICIO[id]}"/></svg></span></span><span class="ent-b">${BAJADAS[per][id]}</span></a></li>`).join('')}</ul></section>`).join('')}</div>
-    <div class="inicio-sp"><div class="inicio-dv" role="separator"><span class="gl">· · ·</span></div></div>
+    ? `<p class="gl-sub">Elegí tu perfil: el índice se ordena según lo que hacés.</p>
+      <div class="gl-perfiles" role="group" aria-label="Perfil">${PERFILES_INICIO.map(([id, t, s]) => `<button type="button" class="gl-perfil ${E.perfil === id ? 'on' : ''}" aria-pressed="${E.perfil === id}" onclick="elegirEnInicio(${arg(id)})"><span class="pn">${t}</span><span class="ps">${s}</span></button>`).join('')}</div>`
+    : `<p class="gl-cerr">Índice para <b>${PLURAL_PERFIL[per]}</b> · <button class="gl-enlace" type="button" onclick="cambiarEnInicio()">Cambiar</button></p>`;
+  return `<div class="gl-lectura gl-inicio"><div class="gl-tope"><h2 class="gl-t1">¿Qué venís a hacer?</h2>${selector}</div>
+    <div class="gl-sp"><div class="gl-dv" role="separator"><span class="fl"></span></div></div>
+    <div class="gl-sumario"><h2 class="gl-rotulo">Índice</h2>${grupos.map(([n, ids], i) => `<section aria-labelledby="ig-${i}"><h3 class="gl-cap" id="ig-${i}"><span class="num" aria-hidden="true">${ROMANOS[i]}</span><span class="gn">${n}</span></h3>
+      <ul class="gl-lista">${ids.map(id => `<li><a class="gl-ent" href="#${id}"><span class="et"><b>${rotuloTab(id)}</b><span class="guia" aria-hidden="true"></span><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="${ICONO_INICIO[id]}"/></svg></span></span><span class="bj">${BAJADAS[per][id]}</span></a></li>`).join('')}</ul></section>`).join('')}</div>
+    <div class="gl-sp"><div class="gl-dv" role="separator"><span class="gl">· · ·</span></div></div>
     ${colofonInicio(per)}</div>`;
 }
 function ir(tab) {

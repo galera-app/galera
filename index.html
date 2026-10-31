@@ -31,8 +31,9 @@
 <meta name="theme-color" content="#0560C8">
 <script>try{var t=localStorage.getItem("cursada.tema");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}</script>
 <link rel="stylesheet" href="tokens.css?v=6">
-<link rel="stylesheet" href="estilos.css?v=50">
-<link rel="stylesheet" href="galera.css?v=21">
+<link rel="stylesheet" href="estilos.css?v=51">
+<link rel="stylesheet" href="galera.css?v=22">
+<link rel="stylesheet" href="componentes.css?v=2">
 <link rel="preload" href="datos/indice.json" as="fetch">
 <script defer src="analitica.js?v=4"></script>
 </head>
@@ -59,17 +60,18 @@
 <footer class="pie">
   <div class="avisame" data-nov hidden><div class="crece"><b>¿Querés que te avise cuando agregue algo?</b>
     <p>Los lunes a las 8:00, solo las novedades que te importan. Gratis.</p></div>
-    <button class="btn" type="button" onclick="avisame()"><span aria-hidden="true">🔔</span> Avisame por mail</button></div>
+    <button class="btn" type="button" onclick="avisame()">Avisame por mail</button></div>
   <div class="pie-cols">
     <div class="pie-marca">
       <p class="pie-nombre"><span class="logo" aria-hidden="true"></span>galera</p>
       <p>Gratis, sin cuenta y sin publicidad. Para quienes estudian Edición (UBA).</p>
-      <p class="pie-acciones"><span id="donar"></span><button class="btn sec" type="button" onclick="compartirCursada('pie')"><span aria-hidden="true">💬</span> Pasásela a alguien</button></p>
+      <p class="pie-acciones"><span id="donar"></span><button class="btn sec" type="button" onclick="compartirCursada('pie')">Pasásela a alguien</button></p>
     </div>
     <div class="pie-nav" id="pie-nav"></div>
   </div>
   <div class="pie-legal">
-    <p>No es un sitio oficial: verificá en SIU Guaraní y en el <a href="https://edicion.filo.uba.ar/" target="_blank" rel="noopener">Departamento de Edición</a>. Los resúmenes salen de apuntes propios y pueden tener errores. Tus datos quedan en este navegador, sin cuentas; con tu permiso, Google Analytics cuenta visitas (<button class="enlace" type="button" id="cookies">cambiar</button>). <button class="enlace" type="button" onclick="abrirDatos()">Tus datos</button> · <button class="enlace" type="button" onclick="idea()">Contame qué falta</button> · <a href="ingresantes/">Guía del ingresante</a></p>
+    <p>No es un sitio oficial: verificá en SIU Guaraní y en el <a href="https://edicion.filo.uba.ar/" target="_blank" rel="noopener">Departamento de Edición</a>. Los resúmenes salen de apuntes propios y pueden tener errores. Tus datos quedan en este navegador, sin cuentas; con tu permiso, Google Analytics cuenta visitas.</p>
+    <p class="pie-enlaces"><button class="enlace" type="button" id="cookies">Cambiar cookies</button><button class="enlace" type="button" onclick="abrirDatos()">Tus datos</button><button class="enlace" type="button" onclick="idea()">Contame qué falta</button><a href="ingresantes/">Guía del ingresante</a></p>
     <p>Hecho por <a href="https://ficha.github.io/" rel="author">Fidel Chaves</a> · 2026</p>
   </div>
 </footer>
@@ -93,6 +95,6 @@
 <script defer src="arcade-ui.js?v=2"></script>
 <script defer src="traspaso.js?v=1"></script>
 <script defer src="compartir.js?v=6"></script>
-<script defer src="app.js?v=82"></script>
+<script defer src="app.js?v=83"></script>
 </body>
 </html>
