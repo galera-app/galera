@@ -273,26 +273,26 @@ function elegirPerfil() {
 // Configuración: el perfil y los accesos a lo personal (datos, ajustes, cookies).
 function vConfig() {
   const pr = esPro() ? 'profesional' : 'estudiante';
-  const op = (p, ico, t, d) => `<button class="perfil ${pr === p ? 'on' : ''}" type="button" aria-pressed="${pr === p}" onclick="cambiarPerfil(${arg(p)})"><b>${t}</b><span class="chico tenue">${d}</span></button>`;
+  const op = (p, t, d) => `<button class="gl-perfil ${pr === p ? 'on' : ''}" type="button" aria-pressed="${pr === p}" onclick="cambiarPerfil(${arg(p)})"><span class="pn">${t}</span><span class="ps">${d}</span></button>`;
   let guardado = ''; try { guardado = localStorage.getItem('cursada.tema') || ''; } catch (e) { }
   const tema = guardado === 'dark' || guardado === 'light' ? guardado : 'auto';
-  const sw = (id, on, t, d, fn) => `<div class="cfg-fila"><div class="crece"><b>${t}</b><span class="chico tenue">${d}</span></div><button class="sw" type="button" role="switch" id="${id}" aria-checked="${on}" aria-label="${esc(t)}" onclick="${fn}"></button></div>`;
+  const sw = (id, on, t, d, fn) => `<div class="gl-cfg-fila"><div class="gl-crece"><b>${t}</b><span>${d}</span></div><button class="gl-sw" type="button" role="switch" id="${id}" aria-checked="${on}" aria-label="${esc(t)}" onclick="${fn}"></button></div>`;
   const stats = !!(window.galeraConsent && galeraConsent.on());
-  return `<div class="titulo-sec"><h2>Configuración</h2></div><p class="chico tenue u-mt0">Tus datos viven en este dispositivo. Desde acá los movés o los borrás.</p>
-    <div class="cfg-pag"><aside class="cfg-lado" aria-label="Secciones"><nav class="cfg-nav" aria-label="Configuración"><a href="#cfg-perfil" onclick="cfgIr(event,'cfg-perfil')">Perfil</a><a href="#cfg-apariencia" onclick="cfgIr(event,'cfg-apariencia')">Apariencia</a><a href="#cfg-avisos" onclick="cfgIr(event,'cfg-avisos')">Avisos</a><a href="#cfg-datos" onclick="cfgIr(event,'cfg-datos')">Datos</a></nav></aside>
-    <div class="cfg-cuerpo">
-      <section id="cfg-perfil"><h3>¿Qué te representa?</h3><p class="u-mt0 chico tenue">Elegí qué secciones ver. Podés volver acá cuando quieras.</p>
-        <div class="perfiles">${op('estudiante', '🎓', 'Estudiante', 'Tu carrera de Edición: notas, horarios, calendario y resúmenes.')}${op('profesional', '📚', 'Profesional del libro', 'Herramientas, eventos de la industria y links del sector.')}</div></section>
-      <section id="cfg-apariencia"><h3>Apariencia</h3>
-        <div class="seg" role="group" aria-label="Tema">${[['auto', 'Automática'], ['light', 'Clara'], ['dark', 'Oscura']].map(([k, n]) => `<button type="button" class="${tema === k ? 'on' : ''}" aria-pressed="${tema === k}" onclick="ponerTema(${arg(k)})">${n}</button>`).join('')}</div>
-        <p class="chico tenue">«Automática» sigue la configuración de tu dispositivo.</p></section>
-      <section id="cfg-avisos"><h3>Avisos</h3>
+  return `<div class="gl-v gl-cfg"><div class="gl-cab"><h2 class="gl-display">Configuración</h2></div><p class="gl-baja">Tus datos viven en este dispositivo. Desde acá los movés o los borrás.</p>
+    <div class="gl-cfg-pag"><aside class="gl-lateral" aria-label="Secciones"><nav class="gl-toc" aria-label="Configuración"><a href="#cfg-perfil" onclick="cfgIr(event,'cfg-perfil')">Perfil</a><a href="#cfg-apariencia" onclick="cfgIr(event,'cfg-apariencia')">Apariencia</a><a href="#cfg-avisos" onclick="cfgIr(event,'cfg-avisos')">Avisos</a><a href="#cfg-datos" onclick="cfgIr(event,'cfg-datos')">Datos</a></nav></aside>
+    <div class="gl-cfg-cuerpo">
+      <section id="cfg-perfil"><h3 class="gl-t2">¿Qué te representa?</h3><p class="gl-cfg-p">Elegí qué secciones ver. Podés volver acá cuando quieras.</p>
+        <div class="gl-perfiles">${op('estudiante', 'Estudiante', 'Tu carrera de Edición: notas, horarios, calendario y resúmenes.')}${op('profesional', 'Profesional del libro', 'Herramientas, eventos de la industria y links del sector.')}</div></section>
+      <section id="cfg-apariencia"><h3 class="gl-t2">Apariencia</h3>
+        <div class="gl-seg" role="group" aria-label="Tema">${[['auto', 'Automática'], ['light', 'Clara'], ['dark', 'Oscura']].map(([k, n]) => `<button type="button" class="${tema === k ? 'on' : ''}" aria-pressed="${tema === k}" onclick="ponerTema(${arg(k)})">${n}</button>`).join('')}</div>
+        <p class="gl-chico">«Automática» sigue la configuración de tu dispositivo.</p></section>
+      <section id="cfg-avisos"><h3 class="gl-t2">Avisos</h3><div class="gl-cfg-filas">
         ${sw('sw-juego', !!E.juego.on, 'Avisos de progreso y retos', 'Cierres de ronda, repasos y registro de lo que hiciste. Sin puntos ni rachas.', 'setJuegoCfg(this)')}
         ${sw('sw-stats', stats, 'Estadísticas anónimas', 'Google Analytics cuenta visitas: no ve tus notas ni tus horarios.', 'setStats(this)')}
-        <div class="cfg-fila"><div class="crece"><b>Mail de los lunes</b><span class="chico tenue">Novedades y mesas de la semana, solo lo que te importa.</span></div><button class="btn sec ch" type="button" onclick="avisame()">Configurar</button></div></section>
-      <section id="cfg-datos"><h3>Datos</h3><p class="u-mt0 chico tenue">Se guardan solo en este navegador.${E.copia ? ' Tu última copia es del ' + fmt(E.copia) + '.' : ''}</p>
-        <p class="fila"><button class="btn sec" type="button" onclick="abrirDatos()">Guardar una copia</button><button class="btn sec" type="button" onclick="abrirTraspaso()">Pasar a otro dispositivo</button><button class="btn pel" type="button" onclick="borrarTodo()">Borrar mis datos</button></p></section>
-    </div></div>`;
+        <div class="gl-cfg-fila"><div class="gl-crece"><b>Mail de los lunes</b><span>Novedades y mesas de la semana, solo lo que te importa.</span></div><button class="gl-btn gl-btn--sec" type="button" onclick="avisame()">Configurar</button></div></div></section>
+      <section id="cfg-datos"><h3 class="gl-t2">Datos</h3><p class="gl-cfg-p">Se guardan solo en este navegador.${E.copia ? ' Tu última copia es del ' + fmt(E.copia) + '.' : ''}</p>
+        <div class="gl-cfg-acc"><button class="gl-btn gl-btn--sec" type="button" onclick="abrirDatos()">Guardar una copia</button><button class="gl-btn gl-btn--sec" type="button" onclick="abrirTraspaso()">Pasar a otro dispositivo</button><button class="gl-btn gl-btn--pel" type="button" onclick="borrarTodo()">Borrar mis datos</button></div></section>
+    </div></div></div>`;
 }
 function cfgIr(e, id) { e.preventDefault(); const el = document.getElementById(id); if (el) el.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' }); }
 function ponerTema(k) {
@@ -3058,36 +3058,39 @@ function verVersionNov(v) {
 }
 // Cada novedad lleva su perfil: estudiante (por defecto), profesional o todos. Cada perfil ve las suyas y las de todos.
 const perfilNovVisible = x => { const p = x.perfil || 'estudiante'; return p === 'todos' || p === (esPro() ? 'profesional' : 'estudiante'); };
-const filtroNov = () => `<p class="u-mt0 botones" role="group" aria-label="Qué ver en Novedades">${[['', 'Todo'], ['pedidos', 'Lo que pidieron']].map(([k, t]) =>
-  `<button class="btn ch ${V.nov === k ? '' : 'lin'}" aria-pressed="${V.nov === k}" onclick="verNov(${arg(k)})">${t}</button>`).join('')}</p>`;
+const filtroNov = () => `<div class="gl-barra"><div class="gl-filtros" role="group" aria-label="Qué ver en Novedades">${[['', 'Todo'], ['pedidos', 'Lo que pidieron']].map(([k, t]) =>
+  `<button type="button" aria-pressed="${V.nov === k}" onclick="verNov(${arg(k)})">${t}</button>`).join('')}</div></div>`;
+const CHIP_PEDIDO = { '': 'gl-chip--neutro', mos: 'gl-chip--aviso', ok: 'gl-chip--ok', tin: 'gl-chip--neutro' };
+const cabNov = '<div class="gl-cab"><h2 class="gl-display">Novedades</h2></div><p class="gl-baja">Lo último que se publicó en el sitio, de lo más nuevo a lo más viejo.</p>';
 function vPedidos() {
-  if (!D.pedidos || !D.novedades) { cargarPedidos(); cargarNovedades(); return '<p class="cargando">Cargando los pedidos…</p>'; }
-  if (D.pedidos.error) return '<p class="vacio">No pude cargar esto. Puede ser la conexión. <button class="btn sec" type="button" onclick="location.reload()">Probar de nuevo</button></p>';
+  if (!D.pedidos || !D.novedades) { cargarPedidos(); cargarNovedades(); return `<div class="gl-v gl-nov">${cabNov}${filtroNov()}<p class="gl-vacio" role="status">Cargando los pedidos…</p></div>`; }
+  if (D.pedidos.error) return `<div class="gl-v gl-nov">${cabNov}${filtroNov()}<p class="gl-vacio" role="alert">No pude cargar esto. Puede ser la conexión. <button class="gl-btn gl-btn--sec" type="button" onclick="location.reload()">Probar de nuevo</button></p></div>`;
   const vers = new Set(D.novedades.novedades.map(x => x.v)), orden = { nuevo: 0, proceso: 0, hecho: 1, no: 2 };
   const L = D.pedidos.pedidos.filter(p => ESTADO_PEDIDO[p.estado]).sort((a, b) => (orden[a.estado] - orden[b.estado]) || (a.fecha < b.fecha ? 1 : -1));
   const tarjeta = p => { const [t, c] = ESTADO_PEDIDO[p.estado];
-    return `<div class="tarjeta nov-item"><p class="u-m0">${esc(p.resumen)}</p>
-      <p class="u-mt8 chico tenue"><span class="chip ${c}">${t}</span> · Pedido el ${fmtLarga(p.fecha)}${p.estado === 'hecho' && Number.isInteger(p.v) && vers.has(p.v) ? ` · <a href="#novedades" onclick="verVersionNov(${arg(p.v)}); return false">Salió en v${p.v} →</a>` : ''}</p></div>`; };
-  return `<p class="u-mt0 chico tenue">Lo que se pidió con 💡 Contame qué falta, resumido y sin datos de quien lo mandó: primero lo que sigue pendiente, después lo que ya salió.</p>
-    <p class="u-mt0 botones"><button class="btn lin ch" onclick="idea()">💡 Pedir algo</button></p>` +
-    (L.length ? L.map(tarjeta).join('') : '<p class="vacio">Todavía nadie pidió nada. Estrenalo vos.</p>');
+    return `<li><div class="gl-tarjeta"><span class="gl-chip ${CHIP_PEDIDO[c] || 'gl-chip--neutro'}">${t}</span><p class="gl-nov-tx">${esc(p.resumen)}</p>
+      <p class="meta">Pedido el ${fmtLarga(p.fecha)}${p.estado === 'hecho' && Number.isInteger(p.v) && vers.has(p.v) ? ` · <a href="#novedades" onclick="verVersionNov(${arg(p.v)}); return false">Salió en v${p.v}</a>` : ''}</p></div></li>`; };
+  return `<div class="gl-v gl-nov">${cabNov}${filtroNov()}
+    <p class="gl-baja">Lo que se pidió con «Contame qué falta», resumido y sin datos de quien lo mandó: primero lo que sigue pendiente, después lo que ya salió.</p>
+    <p class="gl-nov-acc"><button class="gl-btn gl-btn--sec" type="button" onclick="idea()">Pedir algo</button></p>` +
+    (L.length ? `<ul class="gl-rejilla gl-rejilla--2">${L.map(tarjeta).join('')}</ul>` : '<p class="gl-vacio">Todavía nadie pidió nada. Estrenalo vos.</p>') + '</div>';
 }
 function vNovedades() {
-  if (V.nov === 'pedidos') return filtroNov() + vPedidos();
+  if (V.nov === 'pedidos') return vPedidos();
   cargarPedidos();   // para marcar en cada novedad los pedidos que respondió (el vínculo vive en pedidos.json: estado hecho + v)
-  if (!D.novedades) { cargarNovedades(); return filtroNov() + '<p class="cargando">Cargando las novedades…</p>'; }
-  if (D.novedades.error) return filtroNov() + '<p class="vacio">No pude cargar esto. Puede ser la conexión. <button class="btn sec" type="button" onclick="location.reload()">Probar de nuevo</button></p>';
+  if (!D.novedades) { cargarNovedades(); return `<div class="gl-v gl-nov">${cabNov}${filtroNov()}<p class="gl-vacio" role="status">Cargando las novedades…</p></div>`; }
+  if (D.novedades.error) return `<div class="gl-v gl-nov">${cabNov}${filtroNov()}<p class="gl-vacio" role="alert">No pude cargar esto. Puede ser la conexión. <button class="gl-btn gl-btn--sec" type="button" onclick="location.reload()">Probar de nuevo</button></p></div>`;
   const N = D.novedades.novedades.filter(x => Number.isInteger(x.v) && perfilNovVisible(x)), vers = [...new Set(N.map(x => x.v))].sort((a, b) => b - a);
-  const tema = Object.fromEntries(TEMAS_NOV.map(([k, t]) => [k, t.split(' ')[0]]));
   const hechos = (D.pedidos && D.pedidos.pedidos || []).filter(p => p.estado === 'hecho' && Number.isInteger(p.v));
-  const tarjeta = x => `<div class="nov-item"><h3 class="nov-t">${esc(x.titulo)}</h3>
-    ${x.texto ? `<p class="u-mt6 nov-tx">${esc(x.texto)}</p>` : ''}
-    ${hechos.filter(p => p.v === x.v).map(p => `<p class="u-mt6 chico"><span class="chip ok">Lo pidieron</span> «${esc(p.resumen)}» <a href="#novedades/pedidos" onclick="verNov('pedidos'); return false">Ver pedidos →</a></p>`).join('')}
-    <p class="u-mt8 chico tenue">${tema[x.tipo] || ''} ${esc((TEMAS_NOV.find(t => t[0] === x.tipo) || ['', ''])[1].replace(/^\S+\s/, ''))}${x.para ? ' · Para: ' + esc(x.para) : ''}${enlaceNov(x.url)}</p></div>`;
-  return filtroNov() + `<div class="nov-pag"><aside class="nov-lado tarjeta"><p class="nov-rot">Mail de los lunes</p><p class="u-mt0">Todo lo que se fue sumando a Galera, desde la primera versión hasta hoy. Es lo mismo que te llega por mail los lunes. Sin cuenta.</p>
-    <p class="botones"><button class="btn ch" onclick="avisame()">Avisame por mail</button><button class="btn lin ch" onclick="idea()">Pedir algo</button></p></aside><section class="nov-lista" aria-label="Versiones">` +
+  const tarjeta = x => { const tm = (TEMAS_NOV.find(t => t[0] === x.tipo) || ['', ''])[1], meta = [tm, x.para ? 'Para: ' + esc(x.para) : ''].filter(Boolean).join(' · ');
+    return `<div class="gl-nov-item"><h3 class="gl-nov-t">${esc(x.titulo)}</h3>
+    ${x.texto ? `<p class="gl-nov-tx">${esc(x.texto)}</p>` : ''}
+    ${hechos.filter(p => p.v === x.v).map(p => `<p class="meta"><span class="gl-chip gl-chip--ok">Lo pidieron</span> «${esc(p.resumen)}» <a href="#novedades/pedidos" onclick="verNov('pedidos'); return false">Ver pedidos</a></p>`).join('')}
+    ${(meta || enlaceNov(x.url)) ? `<p class="meta">${meta}${enlaceNov(x.url).replace(/^ · /, meta ? ' · ' : '')}</p>` : ''}</div>`; };
+  return `<div class="gl-v gl-nov">${cabNov}${filtroNov()}<div class="gl-nov-pag"><aside class="gl-lateral" aria-label="Avisos"><div class="gl-tarjeta"><p class="gl-rotulo">Mail de los lunes</p><p>Las novedades y las mesas de la semana, en tu correo. Sin cuenta.</p>
+    <button class="gl-btn" type="button" onclick="avisame()">Recibir novedades por mail</button></div></aside><section class="gl-nov-lista" aria-label="Versiones">` +
     vers.map(v => { const L = N.filter(x => x.v === v).sort((a, b) => a.fecha < b.fecha ? 1 : -1);
-      return `<article class="nov-fila" id="nov-v${v}"><div class="nov-ver"><b>v${v}</b>${v === vers[0] ? ' <span class="chip ok">última</span>' : ''}<span>${fmtLarga(L[0].fecha)}</span></div><div>${L.map(tarjeta).join('')}</div></article>`; }).join('') + '</section></div>';
+      return `<article class="gl-nov-fila" id="nov-v${v}"><div class="gl-nov-ver"><b>v${v}</b>${v === vers[0] ? '<span class="gl-chip gl-chip--ok">Última</span>' : ''}<span>${fmtLarga(L[0].fecha)}</span></div><div>${L.map(tarjeta).join('')}</div></article>`; }).join('') + '</section></div></div>';
 }
 const enlaceNov = u => { const r = typeof u === 'string' && /^https:\/\/ficha\.github\.io\/cursada\/(#[a-z]+)?$/.test(u) ? u.replace(/^https:\/\/ficha\.github\.io\/cursada\//, '') : ''; return r && r !== '#donar' ? ` · <a href="${esc(r)}">Verlo en Galera →</a>` : ''; };
 const fmtLarga = s => { const d = fecha(s); return d.getDate() + ' de ' + MESES_LARGO[d.getMonth()] + ' de ' + d.getFullYear(); };
@@ -3099,29 +3102,28 @@ async function cargarLinksLibro() {
   try { D.linksLibro = await json('links-libro.json'); } catch (e) { D.linksLibro = { grupos: [], error: true }; }
   if (V.tab === 'links') render();
 }
+const ICO_EXT = '<svg class="gl-ext" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2"/></svg>';
+const ICO_INT = '<svg class="gl-ext" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2"/></svg>';
+const linkExt = l => `<a class="gl-lk" href="${urlSegura(l.url)}" target="_blank" rel="noopener"><span class="gl-crece"><b>${esc(l.t)}<span class="solo-lector"> (se abre en otra pestaña)</span></b>${l.d ? `<span>${esc(l.d)}</span>` : ''}</span>${ICO_EXT}</a>`;
+const linkInt = (t, d, js, href) => `<a class="gl-lk" href="${href}"${js ? ` onclick="${js}; return false"` : ''}><span class="gl-crece"><b>${t}</b><span>${d}</span></span>${ICO_INT}</a>`;
+const cabLinks = '<div class="gl-cab"><h2 class="gl-display">Links útiles</h2></div>';
+const grupoLinks = (t, filas) => `<div class="gl-tarjeta"><p class="gl-rotulo">${t}</p><div class="gl-lks">${filas}</div></div>`;
 function vLinksPro() {
-  if (!D.linksLibro) { cargarLinksLibro(); return '<p class="cargando">Cargando los links…</p>'; }
-  if (D.linksLibro.error) return '<p class="vacio">No pude cargar esto. Puede ser la conexión. <button class="btn sec" type="button" onclick="location.reload()">Probar de nuevo</button></p>';
-  return `<p class="chico tenue">Los sitios oficiales que más se usan para registrar, informarse y moverse en el sector del libro. Si falta alguno, avisame con «Contame qué falta».</p>` +
-    D.linksLibro.grupos.map(g => `<div class="titulo-sec"><h2>${esc(g.grupo)}</h2></div><div class="tarjeta u-padding-6px-16px">
-      ${g.links.map(l => `<a class="evento u-text-decoration-none_color-inherit" href="${urlSegura(l.url)}" target="_blank" rel="noopener"><span class="crece"><b class="u-color-var-tinta">${esc(l.t)} ↗</b>
-        ${l.d ? `<span class="chico tenue u-display-block">${esc(l.d)}</span>` : ''}</span></a>`).join('')}</div>`).join('') +
-    `<div class="titulo-sec"><h2>En Galera</h2></div><div class="tarjeta u-padding-6px-16px">
-      <a class="evento u-text-decoration-none_color-inherit" href="#simuladores/leyes" onclick="irSim('leyes'); return false"><span class="crece"><b class="u-color-var-tinta">Leyes del libro</b><span class="chico tenue u-display-block">La pirámide de normas y el traductor jurídico.</span></span></a>
-      <a class="evento u-text-decoration-none_color-inherit" href="#simuladores/contratos" onclick="irSim('contratos'); return false"><span class="crece"><b class="u-color-var-tinta">Contratos modelo</b><span class="chico tenue u-display-block">Borrador de contrato de traducción o de edición, con la fuente de cada cláusula.</span></span></a>
-      <a class="evento u-text-decoration-none_color-inherit" href="libro/cronograma/"><span class="crece"><b class="u-color-var-tinta">Planificador de libros</b><span class="chico tenue u-display-block">Del original a la reimpresión, con Gantt, PERT y Roy.</span></span></a></div>` +
-    (D.linksLibro.verificado ? `<p class="chico tenue verificado">✓ Links revisados el ${fmt(D.linksLibro.verificado)}.</p>` : '');
+  if (!D.linksLibro) { cargarLinksLibro(); return `<div class="gl-v gl-links">${cabLinks}<p class="gl-vacio" role="status">Cargando los links…</p></div>`; }
+  if (D.linksLibro.error) return `<div class="gl-v gl-links">${cabLinks}<p class="gl-vacio" role="alert">No pude cargar esto. Puede ser la conexión. <button class="gl-btn gl-btn--sec" type="button" onclick="location.reload()">Probar de nuevo</button></p></div>`;
+  return `<div class="gl-v gl-links">${cabLinks}<p class="gl-baja">Los sitios oficiales que más se usan para registrar, informarse y moverse en el sector del libro. Los de afuera se abren en una pestaña nueva. Si falta alguno, avisame con «Contame qué falta».</p>
+    <div class="gl-links-g">` + D.linksLibro.grupos.map(g => grupoLinks(esc(g.grupo), g.links.map(linkExt).join(''))).join('') +
+    grupoLinks('En Galera', linkInt('Leyes del libro', 'La pirámide de normas y el traductor jurídico.', "irSim('leyes')", '#simuladores/leyes') + linkInt('Contratos modelo', 'Borrador de contrato de traducción o de edición, con la fuente de cada cláusula.', "irSim('contratos')", '#simuladores/contratos') + linkInt('Planificador de libros', 'Del original a la reimpresión, con Gantt, PERT y Roy.', '', 'libro/cronograma/')) + '</div>' +
+    (D.linksLibro.verificado ? `<p class="gl-chico gl-m32">Links revisados el ${fmt(D.linksLibro.verificado)}.</p>` : '') + '</div>';
 }
 function vLinks() {
   if (esPro()) return vLinksPro();
   const G = D.plan.guia;
-  return (G ? `<div class="titulo-sec"><h2>Lo básico de la cursada</h2></div><div class="tarjeta guia">${G.items.map(i => `<details><summary>${esc(i.t)}</summary><p class="chico">${esc(i.d)}</p></details>`).join('')}
-    <p class="chico tenue u-margin-10px-0-0">${esc(G.fuente)}</p></div>` : '') +
-    `<p class="chico tenue">Los sitios oficiales que más se usan durante la cursada. Si falta alguno, avisame con «Contame qué falta».</p>` +
-    `<div class="links-g3">${(D.plan.links || []).map(g => `<div class="tarjeta u-padding-6px-16px"><p class="nov-rot">${esc(g.grupo)}</p>
-      ${g.links.map(l => `<a class="evento u-text-decoration-none_color-inherit" href="${urlSegura(l.url)}" target="_blank" rel="noopener"><span class="crece"><b class="u-color-var-tinta">${esc(l.t)} ↗</b>
-        ${l.d ? `<span class="chico tenue u-display-block">${esc(l.d)}</span>` : ''}</span></a>`).join('')}</div>`).join('')}</div>` +
-    (D.plan.verificado ? `<p class="chico tenue verificado">✓ Links revisados el ${fmt(D.plan.verificado)}.</p>` : '');
+  return `<div class="gl-v gl-links">${cabLinks}<p class="gl-baja">Los sitios oficiales que más se usan durante la cursada. Los de afuera se abren en una pestaña nueva. Si falta alguno, avisame con «Contame qué falta».</p>` +
+    (G ? `<div class="gl-tarjeta gl-guia"><p class="gl-rotulo">Lo básico de la cursada</p>${G.items.map(i => `<details><summary>${esc(i.t)}</summary><p class="meta">${esc(i.d)}</p></details>`).join('')}<p class="meta">${esc(G.fuente)}</p></div>` : '') +
+    `<div class="gl-links-g">${(D.plan.links || []).map(g => grupoLinks(esc(g.grupo), g.links.map(linkExt).join(''))).join('')}` +
+    grupoLinks('En Galera', linkInt('Biblioteca', 'La bibliografía de cada materia.', "ir('biblioteca')", '#biblioteca') + linkInt('Glosario', 'Términos de la carrera.', "ir('glosario')", '#glosario') + linkInt('Directorio de editoriales', 'Ciudad, tipo y sitio web.', "ir('directorio')", '#directorio')) + '</div>' +
+    (D.plan.verificado ? `<p class="gl-chico gl-m32">Links revisados el ${fmt(D.plan.verificado)}.</p>` : '') + '</div>';
 }
 // El sitio es estático: la sugerencia va a un buzón aparte (un Apps Script, ver 104-edicion-cursada/sugerencias)
 // que filtra bots y la anota en una planilla de Fidel. No viaja ningún dato de notas ni de horarios.
@@ -3134,7 +3136,7 @@ let ideaAbierta = 0, ideaPrefijo = '';
 function idea(o) {
   o = o && typeof o === 'object' ? o : {};
   ideaAbierta = Date.now(); ideaPrefijo = o.prefijo || '';
-  abrir(cab(esc(o.titulo || '💡 Contame qué falta')) + `<p class="u-mt0 chico tenue">${esc(o.intro || '¿Falta algo, hay un dato viejo o un error? ¿Se te ocurre una mejora? Escribilo y listo.')}</p>
+  abrir(cab(esc(o.titulo || 'Contame qué falta')) + `<p class="u-mt0 chico tenue">${esc(o.intro || '¿Falta algo, hay un dato viejo o un error? ¿Se te ocurre una mejora? Escribilo y listo.')}</p>
     <textarea id="i-t" aria-label="Tu sugerencia" maxlength="2000" class="u-min-height-130px" placeholder="${esc(o.ejemplo || 'Ej.: cambió el horario de la comisión 3 de Corrección; estaría bueno poder…')}"></textarea>
     <input id="i-c" aria-label="Tu mail (opcional)" class="u-width-100_margin-top-8px" maxlength="120" type="email" placeholder="Tu mail, solo si querés que te responda (opcional)" autocomplete="email">
     <div aria-hidden="true" class="u-oculto"><label>No completar<input id="i-w" tabindex="-1" autocomplete="off"></label></div>
@@ -3155,7 +3157,7 @@ async function mandarIdea() {
       body: JSON.stringify({ sitio: 'cursada', texto: (ideaPrefijo + texto).slice(0, 2000), contacto, web: val('i-w'), ms: Date.now() - ideaAbierta, seccion: V.tab }) });
     const j = await r.json();
     if (!j.ok) throw new Error(j.error || 'No se pudo enviar');
-    abrir(cab('Quedó anotado ✍️') + `<p class="u-mt0">${ideaPrefijo ? '¡Gracias por la recomendación!' : '¡Gracias!'} Cuando lo revise, vas a ver cómo va en <a href="#novedades/pedidos" onclick="cerrar()">Novedades → Lo que pidieron</a>.</p>
+    abrir(cab('Quedó anotado') + `<p class="u-mt0">${ideaPrefijo ? '¡Gracias por la recomendación!' : '¡Gracias!'} Cuando lo revise, vas a ver cómo va en <a href="#novedades/pedidos" onclick="cerrar()">Novedades → Lo que pidieron</a>.</p>
       <div class="botones"><button class="btn" onclick="cerrar()">Listo</button></div>`);
   } catch (e) {
     boton.disabled = false; boton.textContent = 'Enviar';
@@ -3174,7 +3176,7 @@ async function mandarIdea() {
 // =====================================================================
 // Apagado hasta desplegar Novedades.gs en el script del buzón (ver 104-edicion-cursada/REFERENCIA.md); con false no se ve el botón ni el cartel.
 const NOVEDADES = true;
-const TEMAS_NOV = [['herramientas', '🛠️ Funciones y herramientas nuevas'], ['resumenes', '📚 Resúmenes y apuntes nuevos'], ['fechas', '📅 Cambios en fechas, mesas de examen y horarios'], ['profesional', '💼 Novedades para profesionales del libro']];
+const TEMAS_NOV = [['herramientas', 'Funciones y herramientas nuevas'], ['resumenes', 'Resúmenes y apuntes nuevos'], ['fechas', 'Cambios en fechas, mesas de examen y horarios'], ['profesional', 'Novedades para profesionales del libro']];
 let novAbierta = 0, novToken = '';
 async function postNov(cuerpo) {
   // text/plain evita la consulta previa (preflight) del navegador, que Apps Script no responde.
