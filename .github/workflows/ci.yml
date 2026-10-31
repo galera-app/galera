@@ -33,12 +33,14 @@ jobs:
           PY
       - name: La sintaxis de los JS es válida
         run: git ls-files '*.js' | xargs -n1 node --check
-      - name: Cabecera, pie, CSP y versiones siguen a marco/
+      - name: Las páginas llevan marcas y el armado de marco/ funciona
         run: python tools/armar.py --comprobar
+      - name: Armar el sitio publicable (dist/)
+        run: python tools/armar.py --salida dist
       - name: Las pantallas clave responden
         run: |
-          python -m http.server 8000 >/dev/null 2>&1 &
+          python -m http.server 8000 --directory dist >/dev/null 2>&1 &
           sleep 2
           python tools/humo.py http://localhost:8000
       - name: SEO y vista previa (cero fallas)
-        run: python tools/verificar_seo.py . --solo-cambios --dominio https://galera.com.ar
+        run: python tools/verificar_seo.py dist --dominio https://galera.com.ar

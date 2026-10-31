@@ -2925,7 +2925,7 @@ function directorioLista() {
 let mapaPidiendo = false;
 function cargarMapa() {
   if (mapaPidiendo) return; mapaPidiendo = true;
-  const s = document.createElement('script'); s.src = 'mapa-ar.js?v=37424151';
+  const s = document.createElement('script'); s.src = 'mapa-ar.js';
   s.onload = () => { const el = $('#dir-mapa'); if (el) el.innerHTML = directorioMapa(); };
   s.onerror = () => { mapaPidiendo = false; const el = $('#dir-mapa'); if (el) el.innerHTML = '<p class="chico tenue">No pudimos cargar el mapa. Podés filtrar por provincia con la lista.</p>'; };
   document.head.appendChild(s);
