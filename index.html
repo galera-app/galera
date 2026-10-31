@@ -30,12 +30,12 @@
 <link rel="apple-touch-icon" href="img/icono-180.png">
 <meta name="theme-color" content="#0560C8">
 <script>try{var t=localStorage.getItem("cursada.tema");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}</script>
-<link rel="stylesheet" href="tokens.css?v=6">
-<link rel="stylesheet" href="estilos.css?v=51">
-<link rel="stylesheet" href="galera.css?v=23">
-<link rel="stylesheet" href="componentes.css?v=4">
+<link rel="stylesheet" href="tokens.css?v=78237026">
+<link rel="stylesheet" href="estilos.css?v=34373457">
+<link rel="stylesheet" href="galera.css?v=66014311">
+<link rel="stylesheet" href="componentes.css?v=94039667">
 <link rel="preload" href="datos/indice.json" as="fetch">
-<script defer src="analitica.js?v=4"></script>
+<script defer src="analitica.js?v=39830606"></script>
 </head>
 <body>
 <a class="saltar" href="#main">Ir al contenido</a>
@@ -58,43 +58,47 @@
 <noscript><p style="max-width:600px;margin:40px auto;padding:0 16px">Galera necesita JavaScript: todo se calcula en tu navegador, nada viaja a un servidor.</p></noscript>
 
 <footer class="pie">
-  <div class="avisame" data-nov hidden><div class="crece"><b>¿Querés que te avise cuando agregue algo?</b>
-    <p>Los lunes a las 8:00, solo las novedades que te importan. Gratis.</p></div>
-    <button class="btn" type="button" onclick="avisame()">Avisame por mail</button></div>
-  <div class="pie-cols">
-    <div class="pie-marca">
-      <p class="pie-nombre"><span class="logo" aria-hidden="true"></span><span class="g">g</span>alera</p>
-      <p>Gratis, sin cuenta y sin publicidad. Para quienes estudian Edición (UBA).</p>
-      <p class="pie-acciones"><span id="donar"></span><button class="btn sec" type="button" onclick="compartirCursada('pie')">Pasásela a alguien</button></p>
-    </div>
-    <div class="pie-nav" id="pie-nav"></div>
-  </div>
-  <div class="pie-legal">
-    <p>No es un sitio oficial: verificá en SIU Guaraní y en el <a href="https://edicion.filo.uba.ar/" target="_blank" rel="noopener">Departamento de Edición</a>. Los resúmenes salen de apuntes propios y pueden tener errores. Tus datos quedan en este navegador, sin cuentas; con tu permiso, Google Analytics cuenta visitas.</p>
-    <p class="pie-enlaces"><button class="enlace" type="button" id="cookies">Cambiar cookies</button><button class="enlace" type="button" onclick="abrirDatos()">Tus datos</button><button class="enlace" type="button" onclick="idea()">Contame qué falta</button><a href="ingresantes/">Guía del ingresante</a><a href="legal/">Privacidad y términos</a></p>
-    <p>Hecho por <a href="https://ficha.github.io/" rel="author">Fidel Chaves</a> · 2026</p>
-  </div>
+<div class="avisame" data-nov hidden><div class="crece"><b>¿Querés que te avise cuando agregue algo?</b>
+<p>Los lunes a las 8:00, solo las novedades que te importan. Gratis.</p></div>
+<button class="btn" type="button" onclick="avisame()">Avisame por mail</button></div>
+<div class="pie-cols">
+<div class="pie-marca">
+<p class="pie-nombre"><a href="/" aria-label="Galera, ir al inicio"><span class="g">g</span>alera</a></p>
+<p>Gratis, sin cuenta y sin publicidad. Para quienes estudian Edición (UBA).</p>
+<p class="pie-acciones"><span id="donar"></span><button class="btn sec" type="button" onclick="compartirCursada('pie')">Pasásela a alguien</button></p>
+</div>
+<div class="pie-nav" id="pie-nav"><nav aria-label="Planificar"><h2>Planificar</h2><a href="/#carrera">Mi carrera</a><a href="/#horarios">Horarios</a><a href="/#calendario">Calendario</a></nav>
+<nav aria-label="Estudiar"><h2>Estudiar</h2><a href="/r/">Resúmenes</a><a href="/biblioteca/">Biblioteca</a><a href="/simuladores/">Simuladores</a><a href="/glosario/">Glosario</a></nav>
+<nav aria-label="Descubrir"><h2>Descubrir</h2><a href="/eventos/">Eventos</a><a href="/directorio/">Directorio</a><a href="/#links">Links útiles</a></nav>
+<nav aria-label="Galera"><h2>Galera</h2><a href="/#novedades">Novedades</a><a href="/sostener/">Cómo se sostiene</a><a href="/#config">Configuración</a><a href="/fuentes/">Fuentes</a><a href="mailto:hola@galera.com.ar">Escribir a Fidel</a></nav></div>
+</div>
+<div class="pie-legal">
+<p>No es un sitio oficial: verificá en SIU Guaraní y en el <a href="https://edicion.filo.uba.ar/" target="_blank" rel="noopener">Departamento de Edición</a>. Los resúmenes salen de apuntes de Fidel Chaves, estudiante de Edición, y pueden tener errores: no reemplazan la bibliografía ni las clases. Tus datos quedan en este navegador, sin cuentas; con tu permiso, Google Analytics cuenta visitas.</p>
+<p class="pie-enlaces"><button class="enlace" type="button" id="cookies">Cambiar cookies</button><button class="enlace" type="button" onclick="abrirDatos()">Tus datos</button><button class="enlace" type="button" onclick="idea()">Contame qué falta</button><a href="/ingresantes/">Guía del ingresante</a><a href="/legal/">Privacidad y términos</a></p>
+<p>Hecho por <a href="https://ficha.github.io/" rel="author">Fidel Chaves</a> · 2026</p>
+</div>
 </footer>
 
 <nav class="inferior" id="inferior" aria-label="Secciones principales"></nav>
 <dialog id="dlg" aria-labelledby="dlg-t"></dialog>
 <div class="aviso" id="aviso" role="status" aria-live="polite"></div>
-<script defer src="horarios.js?v=5"></script>
-<script defer src="num.js?v=1"></script>
-<script defer src="escandallo.js?v=3"></script>
-<script defer src="papel.js?v=2"></script>
-<script defer src="paginacion.js?v=2"></script>
-<script defer src="cronograma.js?v=3"></script>
-<script defer src="ecosistema.js?v=3"></script>
-<script defer src="grafo.js?v=1"></script>
-<script defer src="formatos.js?v=2"></script>
-<script defer src="leyes.js?v=1"></script>
-<script defer src="contratos.js?v=1"></script>
-<script defer src="retos.js?v=1"></script>
-<script defer src="arcade.js?v=1"></script>
-<script defer src="arcade-ui.js?v=2"></script>
-<script defer src="traspaso.js?v=1"></script>
-<script defer src="compartir.js?v=6"></script>
-<script defer src="app.js?v=87"></script>
+<script defer src="marco.js?v=20358336"></script>
+<script defer src="horarios.js?v=40176136"></script>
+<script defer src="num.js?v=87478364"></script>
+<script defer src="escandallo.js?v=94575971"></script>
+<script defer src="papel.js?v=62212498"></script>
+<script defer src="paginacion.js?v=44968985"></script>
+<script defer src="cronograma.js?v=99978329"></script>
+<script defer src="ecosistema.js?v=35819458"></script>
+<script defer src="grafo.js?v=2224182"></script>
+<script defer src="formatos.js?v=86788484"></script>
+<script defer src="leyes.js?v=33059602"></script>
+<script defer src="contratos.js?v=54666431"></script>
+<script defer src="retos.js?v=63177423"></script>
+<script defer src="arcade.js?v=12798187"></script>
+<script defer src="arcade-ui.js?v=35281668"></script>
+<script defer src="traspaso.js?v=92401720"></script>
+<script defer src="compartir.js?v=20480995"></script>
+<script defer src="app.js?v=1672125"></script>
 </body>
 </html>
