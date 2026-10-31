@@ -1,6 +1,7 @@
 {
  "nota": "Lo que va en el mail de los lunes (Novedades.gs) y en la pestaña Novedades. v: número de versión (obligatorio; ver CHANGELOG.md). tipo: herramientas | resumenes | fechas. perfil: estudiante (por defecto) | profesional | todos; el mail y la pestaña Novedades lo usan para mostrar a cada perfil lo suyo. materias: ids del plan (vacío = para todas). url: solo links a galera.com.ar/. Sumar una entrada por cada cosa que se publica; el script manda solo lo posterior al último envío de cada persona, así que las viejas no se reenvían.",
  "novedades": [
+   {"v": 112, "fecha": "2026-10-31", "tipo": "herramientas", "perfil": "todos", "materias": [], "titulo": "Novedades, Links útiles y Configuración, rehechas", "texto": "Las tres pantallas tienen título, grilla y tarjetas del resto del sitio. Los links se agrupan en tarjetas y suman accesos a Galera; Configuración tiene interruptores de 44 px y sin emojis.", "url": "https://galera.com.ar/"},
    {"v": 111, "fecha": "2026-10-31", "tipo": "herramientas", "perfil": "todos", "materias": [], "titulo": "Glosario, Eventos y Directorio con el estilo nuevo", "texto": "El glosario, las ferias y eventos y el directorio del libro tienen la grilla, las tarjetas y los filtros del resto del sitio, con búsqueda en cada uno.", "url": "https://galera.com.ar/"},
    {"v": 110, "fecha": "2026-10-31", "tipo": "herramientas", "perfil": "todos", "materias": [], "titulo": "Un caballero en el inicio", "texto": "El inicio cierra con una ilustración de un caballero con estandarte, en azul de Galera y con su versión para el modo oscuro.", "url": "https://galera.com.ar/"},
    {"v": 109, "fecha": "2026-10-31", "tipo": "herramientas", "perfil": "todos", "materias": [], "titulo": "Resúmenes, Simuladores y Biblioteca, rehechas", "texto": "Las tres pantallas tienen la grilla y las tarjetas del resto del sitio, con filtros y búsqueda en Resúmenes y Biblioteca. «Simuladores» ya se lee bien en el título, y las páginas de cada simulador no llevan emojis.", "url": "https://galera.com.ar/r/"},
@@ -330,7 +331,7 @@
    "tipo": "herramientas",
    "perfil": "estudiante",
    "titulo": "Arcade: ya hay top de todos",
-   "texto": "Las marcas del Arcade de Corrección de Estilo se suman a un top compartido con tres letras. Para verlo, tocá 🏆 Top en cada tablero.",
+   "texto": "Las marcas del Arcade de Corrección de Estilo se suman a un top compartido con tres letras. Para verlo, tocá Top en cada tablero.",
    "materias": [
     "0911"
    ],
@@ -861,7 +862,7 @@
    "tipo": "herramientas",
    "perfil": "estudiante",
    "titulo": "Resúmenes: buscador, apuntes leídos y links a cada parte",
-   "texto": "Ahora podés buscar una palabra en todos los resúmenes, marcar los apuntes que ya leíste (y ver cuánto te falta de cada materia) e imprimirlos con la clave de respuestas. Cada parte de un apunte tiene su link (🔗), con vista previa en WhatsApp y las redes. Además, todas las materias están en tarjetas: en las que todavía no tienen resumen podés pedirlo o compartir tus apuntes.",
+   "texto": "Ahora podés buscar una palabra en todos los resúmenes, marcar los apuntes que ya leíste (y ver cuánto te falta de cada materia) e imprimirlos con la clave de respuestas. Cada parte de un apunte tiene su link ( ), con vista previa en WhatsApp y las redes. Además, todas las materias están en tarjetas: en las que todavía no tienen resumen podés pedirlo o compartir tus apuntes.",
    "materias": [],
    "url": "https://galera.com.ar/#resumenes"
   },
