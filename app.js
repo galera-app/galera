@@ -19,6 +19,7 @@ const esPro = () => E.perfil === 'profesional';
 const tabsActivas = () => esPro() ? TABS_PRO : TABS;
 const ajustarTab = () => { if (esPro() && V.tab !== 'inicio' && !TABS_PRO.some(t => t[0] === V.tab)) { V.tab = 'simuladores'; V.sim = ''; } };
 const CONTACTO = 'fidelchaves96@gmail.com'; // el mismo mail público de ficha.github.io
+const SOPORTE = 'soporte@galera.com.ar'; // errores y fallas de la app
 const V = { sim: '', nov: '', bib: 'libros', perIdi: 'es', perTipo: '', bl: { q: '', origen: '', tema: '', mat: '', n: 0 }, tab: 'inicio', cambiaPerfil: false, vista: 'tabla', oferta: '', verPasados: false, calFiltro: 'todo', sugeridas: null, verAprobadas: false, verSem: false,
   res: { materia: '', apunte: '', sec: '' }, busq: '', quiz: {}, ayuda: {}, tema: '', glo: { q: '', mat: '', vista: 'lista', sel: -1, vb: null }, dir: { tipo: 'editorial', q: '', prov: '', linea: '', web: false, letra: '' },
   demo: null, prac: null, retos: false, ausencia: 0, retomado: false, recNota: false }; // demo: el estado real guardado aparte mientras se mira el ejemplo; prac: la ronda de práctica en curso
@@ -449,7 +450,7 @@ function dibujarPestanas() {
   // Pie del lienzo: Planificar, Estudiar, Descubrir y Galera (las mismas columnas que el pie de las páginas estáticas).
   const PIE = esPro() ? [['Descubrir', ['eventos', 'directorio', 'links']], ['Consultar', ['resumenes', 'glosario', 'biblioteca', 'simuladores']], ['Galera', ['novedades', 'sostener', 'config']]]
     : [['Planificar', ['carrera', 'horarios', 'calendario']], ['Estudiar', ['resumenes', 'biblioteca', 'simuladores', 'glosario']], ['Descubrir', ['directorio', 'links']], ['Galera', ['novedades', 'sostener', 'config']]];
-  $('#pie-nav').innerHTML = PIE.map(([n, ids]) => `<nav aria-label="${n}"><h2>${n}</h2>${ids.map(id => `<button type="button" onclick="ir(${arg(id)})">${({ simuladores: 'Simuladores', config: 'Configuración' })[id] || rotuloTab(id)}</button>`).join('')}${n === 'Galera' ? '<a href="mailto:hola@galera.com.ar">Escribir a Fidel</a>' : ''}</nav>`).join('');
+  $('#pie-nav').innerHTML = PIE.map(([n, ids]) => `<nav aria-label="${n}"><h2>${n}</h2>${ids.map(id => `<button type="button" onclick="ir(${arg(id)})">${({ simuladores: 'Simuladores', config: 'Configuración' })[id] || rotuloTab(id)}</button>`).join('')}${n === 'Galera' ? '<a href="mailto:hola@galera.com.ar">Escribir a Fidel</a><a href="mailto:soporte@galera.com.ar">Soporte</a><a href="/legal/#privacidad">Privacidad</a>' : ''}</nav>`).join('');
   pintarTema(); altoCab();
 }
 function alternarGrupo(n) { V.gAbierto = V.gAbierto === n ? '' : n; dibujarPestanas(); }
@@ -3133,7 +3134,7 @@ async function mandarIdea() {
   } catch (e) {
     boton.disabled = false; boton.textContent = 'Enviar';
     // Si el buzón no responde, queda el plan B: el mail de siempre, con el texto ya cargado.
-    $('#i-n').innerHTML = `No se pudo enviar (${esc(e.message || 'sin conexión')}). Probá de nuevo o <a href="mailto:${CONTACTO}?subject=${encodeURIComponent('Galera: sugerencia')}&body=${encodeURIComponent(texto)}">mandala por mail</a>.`;
+    $('#i-n').innerHTML = `No se pudo enviar (${esc(e.message || 'sin conexión')}). Probá de nuevo o <a href="mailto:${SOPORTE}?subject=${encodeURIComponent('Galera: sugerencia')}&body=${encodeURIComponent(texto)}">mandala por mail</a>.`;
   }
 }
 
@@ -3186,7 +3187,7 @@ async function enviarAviso() {
       <div class="botones"><button class="btn" onclick="cerrar()">Listo</button></div>`, 'nov');
   } catch (e) {
     boton.disabled = false; boton.textContent = 'Suscribirme';
-    $('#n-n').innerHTML = `<span class="alerta">${esc(e.message || 'Sin conexión')}</span> Probá de nuevo en un rato, o escribime a <a href="mailto:${CONTACTO}">${CONTACTO}</a>.`;
+    $('#n-n').innerHTML = `<span class="alerta">${esc(e.message || 'Sin conexión')}</span> Probá de nuevo en un rato, o escribime a <a href="mailto:${SOPORTE}">${SOPORTE}</a>.`;
   }
 }
 // Los links de los mails: se leen una vez y se borran de la barra de direcciones.
@@ -3209,7 +3210,7 @@ function manejarLinkNov() {
   ({ confirmar: confirmarNov, baja: pedirBaja, novedades: verPrefsNov }[m[1]])();
   return true;
 }
-const errNov = e => `<p class="alerta">${esc(e.message || 'Sin conexión')}</p><p class="chico tenue">Probá de nuevo más tarde o escribime a <a href="mailto:${CONTACTO}">${CONTACTO}</a>.</p><div class="botones"><button class="btn" onclick="cerrar()">Cerrar</button></div>`;
+const errNov = e => `<p class="alerta">${esc(e.message || 'Sin conexión')}</p><p class="chico tenue">Probá de nuevo más tarde o escribime a <a href="mailto:${SOPORTE}">${SOPORTE}</a>.</p><div class="botones"><button class="btn" onclick="cerrar()">Cerrar</button></div>`;
 async function confirmarNov() {
   abrir(cab('🔔 Novedades de Galera') + '<p class="cargando">Confirmando tu mail…</p>', 'nov');
   try {
