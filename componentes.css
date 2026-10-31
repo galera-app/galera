@@ -221,3 +221,102 @@ select.gl-sel{appearance:none;-webkit-appearance:none;padding-right:32px;backgro
 main:has(>.gl-carrera){max-width:1224px;padding:48px 16px 80px}
 @media (max-width:720px){main:has(>.gl-carrera){padding:20px 20px 32px}}
 @media (max-width:760px){.gl-seg button{height:44px}.gl-fila .nm .gl-enlace{min-height:44px;margin-left:0}}
+
+/* Horarios y Calendario (ticket 07). Tablero Horarios / Calendario. */
+.gl-hor,.gl-calx{max-width:1224px}
+.gl-hor .gl-cab,.gl-calx .gl-cab{display:flex;align-items:center;flex-wrap:wrap;gap:16px;margin-bottom:24px}
+.gl-hor>*+*{margin-top:16px}
+.gl-hor>.gl-cab+.gl-oferta{margin-top:0}
+.gl-flex{display:flex;align-items:center;flex-wrap:wrap;gap:8px 16px}
+.gl-sec{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px 16px;margin-top:40px!important}
+.gl-sec .botones{display:flex;flex-wrap:wrap;gap:8px}
+.gl-hor .gl-tarjeta,.gl-calx .gl-tarjeta{margin:0}
+.gl-hor select.gl-sel{width:auto;min-width:200px;max-width:100%}
+.gl-chip--ok{background:var(--gl-apr-bg);color:var(--gl-apr-fg)}
+.gl-chip--mal{background:var(--gl-reg-bg);color:var(--gl-bad)}
+.gl-chip--neutro{background:var(--gl-card);color:var(--gl-t2)}
+.gl-aviso>div{min-width:0}.gl-aviso .gl-chico{display:block}
+/* Materias a elegir: filas lisas con casilla de 20 en fila de 48 */
+.gl-eligen{display:block;max-width:520px}
+.gl-elige-m{display:flex;align-items:center;gap:12px;min-height:48px;padding:0 4px;border-top:1px solid var(--gl-line);font:400 16px/24px var(--gl-sans);color:var(--gl-ink);cursor:pointer}
+.gl-elige-m:last-child{border-bottom:1px solid var(--gl-line)}
+.gl-elige-m:has(input:checked){font-weight:500}
+.gl-elige-m input,.gl-com input,.gl-hor label input[type=checkbox]{width:20px;height:20px;margin:0;flex:none;accent-color:var(--gl-mark)}
+.gl-ecolor{width:12px;height:12px;border-radius:var(--gl-r);flex:none}
+.gl-sems{margin-top:16px}.gl-sems summary{min-height:44px;display:flex;align-items:center;gap:8px;cursor:pointer;font:500 16px/24px var(--gl-sans)}
+.gl-com{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-top:1px solid var(--gl-line);cursor:pointer;min-height:44px}
+.gl-com .gl-chico{display:block}
+.gl-hor .gl-tarjeta>b{font:600 16px/24px var(--gl-sans)}
+.gl-sug{padding:12px 0;border-top:1px solid var(--gl-line)}
+.gl-sug--mejor{box-shadow:inset 3px 0 0 var(--gl-apr-fg);padding-left:12px}
+.gl-resumen{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:8px}
+.gl-resumen li{border-left:4px solid var(--gl-line);padding:2px 0 2px 12px}.gl-resumen li .gl-chico{display:block}
+.gl-semana{list-style:none;margin:16px 0 0;padding:0;font:400 14px/20px var(--gl-sans)}
+.gl-semana li{padding:12px 0;border-top:1px solid var(--gl-line)}
+.gl-semana li b{display:inline-block;min-width:96px;font-weight:600}
+.gl-semana li span{display:block;color:var(--gl-t2)}
+/* Semana: grilla de horas */
+.gl-sem{display:grid;grid-template-columns:48px repeat(6,minmax(92px,1fr));overflow-x:auto;border-radius:var(--gl-r);background:var(--gl-card)}
+.gl-sem .gl-sdia{padding:12px 0;text-align:center;font:600 12px/16px var(--gl-sans);letter-spacing:.06em;text-transform:uppercase;color:var(--gl-t2);border-bottom:1px solid var(--gl-line)}
+.gl-scol{position:relative;border-left:1px solid var(--gl-line)}
+.gl-shora{padding-right:6px;text-align:right;transform:translateY(-8px);font:400 12px/16px var(--gl-sans);color:var(--gl-t3);font-variant-numeric:tabular-nums}
+.gl-sln{border-top:1px solid var(--gl-line)}
+.gl-bq{position:absolute;left:3px;right:3px;overflow:hidden;padding:6px 8px;border-radius:var(--gl-r);font:500 12px/16px var(--gl-sans);color:#fff;text-align:left}
+.gl-bq b{display:block;font-weight:600}
+.gl-bq--choque{box-shadow:inset 0 0 0 2px var(--gl-bad);background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.35) 0 1.5px,transparent 1.5px 6px)}
+.gl-bq--bloq{background:repeating-linear-gradient(45deg,var(--gl-card),var(--gl-card) 6px,var(--gl-line) 6px,var(--gl-line) 8px);color:var(--gl-t2)}
+/* Calendario */
+.gl-calx>*+*{margin-top:16px}.gl-calx>.gl-cab{margin-top:0}
+.gl-barra-p{height:8px;margin-top:8px;border-radius:var(--gl-r);background:var(--gl-line);overflow:hidden}.gl-barra-p i{display:block;height:100%}
+.gl-ev{display:flex;gap:16px;align-items:center;padding:12px 0;border-top:1px solid var(--gl-line)}
+.gl-ev:first-child{border-top:0}
+.gl-ev.hoy{box-shadow:inset 3px 0 0 var(--gl-mark);padding-left:12px}
+.gl-pasado{opacity:.7}
+.gl-cuando{flex:none;width:120px;font:600 14px/20px var(--gl-sans);font-variant-numeric:tabular-nums}
+.gl-ev .gl-crece{min-width:0}.gl-ev .gl-chico{display:block}
+.gl-cal-pag{display:flex;flex-wrap:wrap;gap:32px 24px;align-items:flex-start;justify-content:center;margin-top:24px}
+.gl-cal-lado,.gl-cal-rail{flex:1 1 240px;max-width:288px}
+.gl-cal-mes{flex:1 1 480px;min-width:0;max-width:648px}
+.gl-cal-nav{margin-bottom:16px;gap:8px}
+.gl-cal-tit{min-width:9ch;text-align:center;font:600 20px/28px var(--gl-sans);letter-spacing:-.02em}
+.gl-cal-grilla{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));border-radius:var(--gl-r);overflow:hidden;background:var(--gl-card)}
+.gl-cal-dia{padding:10px 0;text-align:center;font:600 12px/16px var(--gl-sans);letter-spacing:.08em;color:var(--gl-t2);border-bottom:1px solid var(--gl-line)}
+.gl-cal-cel{min-height:96px;padding:8px;border-right:1px solid var(--gl-line);border-bottom:1px solid var(--gl-line);display:flex;flex-direction:column;gap:6px;font:400 14px/20px var(--gl-sans);min-width:0}
+.gl-cal-cel:nth-child(7n){border-right:0}
+.gl-cal-cel b{font-weight:500}
+.gl-cal-cel.hoy b{display:inline-grid;place-items:center;width:28px;height:28px;margin:-4px 0 0 -4px;border-radius:50%;background:var(--gl-ink);color:var(--gl-bg)}
+.gl-cal-ev{display:flex;gap:6px;align-items:flex-start;font:400 12px/16px var(--gl-sans);min-width:0;overflow-wrap:break-word;hyphens:auto}
+.gl-cal-ev .gl-cal-pt{margin-top:4px}
+.gl-cal-pt{width:8px;height:8px;border-radius:50%;background:var(--gl-mark);flex:none;display:inline-block}
+.gl-cal-pt.r{background:none;border:1.5px solid var(--gl-mark)}
+.gl-cal-pt.s{background:repeating-linear-gradient(45deg,var(--gl-mark) 0 1.5px,transparent 1.5px 3px)}
+.gl-cal-ref{display:flex;flex-direction:column;gap:10px}.gl-cal-ref .gl-flex{gap:10px}
+.gl-cal-lado .gl-rotulo,.gl-cal-rail .gl-rotulo{margin-bottom:8px}
+.gl-cal-ck{width:20px;height:20px;border:1px solid var(--gl-bd);border-radius:var(--gl-r);flex:none}
+.gl-cal-ck.on{border-color:var(--gl-mark);background:radial-gradient(circle,var(--gl-mark) 1.3px,transparent 1.7px) 0 0/4px 4px}
+.gl-cal-opt{display:flex;align-items:center;gap:12px;min-height:48px;padding:0 4px;border:0;border-top:1px solid var(--gl-line);background:none;width:100%;text-align:left;font:400 16px/24px var(--gl-sans);color:var(--gl-ink);cursor:pointer}
+.gl-cal-opt:last-of-type{border-bottom:1px solid var(--gl-line)}
+.gl-cal-opt.on{font-weight:500}
+.gl-cal-opt:focus-visible{outline:2px solid var(--gl-ink);outline-offset:2px}
+.gl-cal-ag{display:flex;gap:16px;padding:16px;background:var(--gl-card);border-radius:var(--gl-r)}
+.gl-cal-ag+.gl-cal-ag{margin-top:8px}
+.gl-cal-fe{width:48px;flex:none;text-align:center;font:600 12px/16px var(--gl-sans);color:var(--gl-lnk)}
+.gl-cal-fe b{display:block;font:600 24px/28px var(--gl-sans);letter-spacing:-.02em;color:var(--gl-ink)}
+.gl-cal-rail .gl-btn{width:100%;margin-top:16px}
+@media (max-width:760px){
+  .gl-cal-lado,.gl-cal-rail,.gl-cal-mes{max-width:none}.gl-cal-mes{order:-1}
+  .gl-cal-cel{min-height:56px;padding:4px}.gl-cal-ev>span:last-child{display:none}.gl-cal-ev{justify-content:center}.gl-cal-cel b{font-size:13px}
+  .gl-cuando{width:96px}.gl-sec{margin-top:32px!important}
+  .gl-elige-m,.gl-com,.gl-hor label{min-height:48px}
+}
+main:has(>.gl-hor),main:has(>.gl-calx){max-width:1224px;padding:48px 16px 80px}
+@media (max-width:720px){main:has(>.gl-hor),main:has(>.gl-calx){padding:20px 20px 32px}}
+/* Casillas y radios con área táctil de 44 (la marca visible es de 20) */
+.gl-elige-m input,.gl-hor label input[type=checkbox],.gl-com input{appearance:none;-webkit-appearance:none;width:44px;height:44px;min-height:44px;margin:0 -12px;flex:none;border:12px solid transparent;border-radius:4px;background:var(--gl-bg) padding-box;box-shadow:inset 0 0 0 1px var(--gl-bd);cursor:pointer}
+.gl-com input{border-radius:50%}
+.gl-elige-m input:checked,.gl-hor label input[type=checkbox]:checked{background:var(--gl-mark) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='white' stroke-width='2.4'%3E%3Cpath d='M4.5 10.5l3.5 3.5 7.5-8'/%3E%3C/svg%3E") center/20px no-repeat padding-box;box-shadow:inset 0 0 0 1px var(--gl-mark)}
+.gl-com input:checked{background:radial-gradient(circle,var(--gl-mark) 0 5px,var(--gl-bg) 6px) padding-box;box-shadow:inset 0 0 0 1px var(--gl-mark)}
+.gl-elige-m input:focus-visible,.gl-com input:focus-visible,.gl-hor label input[type=checkbox]:focus-visible{outline:2px solid var(--gl-ink);outline-offset:-10px}
+.gl-cal-ag .gl-chico{display:block}.gl-hor .gl-tarjeta>.gl-cuerpo,.gl-calx .gl-tarjeta>.gl-cuerpo{margin:0}
+.gl-hor label.gl-chico{display:inline-flex;align-items:center;gap:8px;min-height:44px}
+@media (max-width:760px){.gl-cal-nav .gl-seg{flex-basis:auto}.gl-cal-nav .gl-crece{flex-basis:100%;height:0}.gl-cal-nav .gl-cal-tit{flex:1;min-width:0}}
