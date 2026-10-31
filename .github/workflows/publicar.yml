@@ -12,6 +12,8 @@ permissions:
 
 jobs:
   aprobar:
+    # Los commits del bot de datos no piden aprobación: datos.yml ya los publica.
+    if: github.event.head_commit.author.name != 'github-actions[bot]'
     runs-on: ubuntu-latest
     concurrency:
       group: aprobacion

@@ -21,12 +21,13 @@ jobs:
   actualizar:
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    permissions:
-      contents: write
     outputs:
       cambio: ${{ steps.commit.outputs.cambio }}
     steps:
+      # Clave de despliegue: es la única excepción a la regla de main (solo entra por PR).
       - uses: actions/checkout@v4
+        with:
+          ssh-key: ${{ secrets.DATOS_DEPLOY_KEY }}
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
