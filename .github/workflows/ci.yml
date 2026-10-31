@@ -33,6 +33,8 @@ jobs:
           PY
       - name: La sintaxis de los JS es válida
         run: git ls-files '*.js' | xargs -n1 node --check
+      - name: Cabecera, pie, CSP y versiones siguen a marco/
+        run: python tools/armar.py --comprobar
       - name: Las pantallas clave responden
         run: |
           python -m http.server 8000 >/dev/null 2>&1 &

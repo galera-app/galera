@@ -11,10 +11,11 @@ const MESES = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'o
 const DIAS_C = ['dom.', 'lun.', 'mar.', 'mié.', 'jue.', 'vie.', 'sáb.']; // con punto: "mar. 3 mar" (martes 3 de marzo) no se confunde
 const COLORES = ['#1a5f78', '#7b4592', '#a8470f', '#276b44', '#a03352', '#4a59b8', '#7a5f12', '#2f6a70']; // todos con contraste de 5:1 o más contra texto blanco
 const D = { busqueda: null, plan: null, calendario: null, ofertas: [], ofertasMeta: [], mesas: [], indice: null, resumenes: null, apuntes: {}, biblioteca: null, glosario: null, directorio: null, novedades: null, pedidos: null, sostener: null };
-const TABS = [['carrera', 'Mi carrera'], ['horarios', 'Horarios'], ['calendario', 'Calendario'], ['resumenes', 'Resúmenes'], ['biblioteca', 'Biblioteca'], ['simuladores', 'Simuladores'], ['glosario', 'Glosario'], ['directorio', 'Directorio'], ['links', 'Links útiles'], ['novedades', 'Novedades'], ['sostener', 'Sostener'], ['config', 'Ajustes']];
+const tabsDe = ids => ids.map(id => [id, MARCO.pantallas[id].t]);   // Rótulos, menús y simuladores: marco/sitio.json (tools/armar.py escribe marco.js).
+const TABS = tabsDe(MARCO.tabs.estudiante);
 // Perfil (E.perfil): «Estudiante» ve la carrera; «Profesional del libro» ve herramientas, eventos de la industria y links del sector.
-const TABS_PRO = [['simuladores', 'Simuladores'], ['eventos', 'Eventos'], ['resumenes', 'Resúmenes'], ['biblioteca', 'Biblioteca'], ['glosario', 'Glosario'], ['directorio', 'Directorio'], ['links', 'Links útiles'], ['novedades', 'Novedades'], ['sostener', 'Sostener'], ['config', 'Ajustes']];
-const TODAS_TABS = TABS.concat([['eventos', 'Eventos'], ['arcade', 'Arcade'], ['inicio', 'Inicio']]);   // el Arcade no tiene pestaña: se entra desde los Resúmenes de Corrección de Estilo
+const TABS_PRO = tabsDe(MARCO.tabs.profesional);
+const TODAS_TABS = TABS.concat(tabsDe(MARCO.tabs_ocultas));   // el Arcade no tiene pestaña: se entra desde los Resúmenes de Corrección de Estilo
 const esPro = () => E.perfil === 'profesional';
 const tabsActivas = () => esPro() ? TABS_PRO : TABS;
 const ajustarTab = () => { if (esPro() && V.tab !== 'inicio' && !TABS_PRO.some(t => t[0] === V.tab)) { V.tab = 'simuladores'; V.sim = ''; } };
@@ -400,10 +401,7 @@ const ICONO = { carrera: 'M4 11l8-6 8 6v8a1 1 0 0 1-1 1h-4v-5H9v5H5a1 1 0 0 1-1-
   calendario: 'M5 4h14v16H5zM5 9h14M9 13h2M13 13h2M9 16h2', simuladores: 'M6 3h12a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM8 7h8M8 11h2M12 11h2M8 15h2M12 15h2', eventos: 'M5 4h14v16H5zM5 9h14M12 12v5M9.5 14.5h5', glosario: 'M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3zM9 8h6M9 12h6', links: 'M9 15l6-6M10 7l1-1a3.5 3.5 0 0 1 5 5l-1 1M14 17l-1 1a3.5 3.5 0 0 1-5-5l1-1', resumenes: 'M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3zM5 17a3 3 0 0 1 3-3h11', mas: 'M5 12h.01M12 12h.01M19 12h.01' };
 // Grupos de navegación (v66). Mismos nombres para los dos perfiles, con otro contenido; en el celular cada grupo es un botón de la barra y
 // sus pestañas aparecen como subnavegación fija arriba. Herramientas (los antiguos Simuladores) es un grupo propio y compartido.
-const GRUPOS = {
-  estudiante: [['planificar', 'Planificar', 'carrera', ['carrera', 'horarios', 'calendario']], ['estudiar', 'Estudiar', 'resumenes', ['resumenes', 'biblioteca', 'simuladores', 'glosario']]],
-  profesional: [['herramientas', 'Herramientas', 'simuladores', ['simuladores']], ['descubrir', 'Eventos', 'eventos', ['eventos', 'directorio', 'links']], ['consultar', 'Consultar', 'resumenes', ['resumenes', 'glosario', 'biblioteca']]]
-};
+const GRUPOS = MARCO.barra_celular;
 const gruposActivos = () => GRUPOS[esPro() ? 'profesional' : 'estudiante'];
 const grupoDe = tab => gruposActivos().find(g => g[3].includes(tab));
 const svgIcono = d => `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="${d}"/></svg>`;
@@ -432,12 +430,8 @@ function abrirMas() {
 }
 // Navegación de escritorio (v70, del design system nuevo): grupos en la cabecera, con su fila de secciones debajo; los mismos grupos arman las columnas del pie.
 // Un grupo con una sola sección lleva directo a ella. En el celular se usa la barra inferior (GRUPOS).
-const GRUPOS_WEB = {
-  estudiante: [['Planificar', ['carrera', 'horarios', 'calendario']], ['Estudiar', ['resumenes', 'biblioteca', 'simuladores', 'glosario']], ['Descubrir', ['eventos', 'directorio', 'links']], ['Galera', ['novedades', 'sostener', 'config', '/fuentes/', '/legal/']]],
-  profesional: [['Herramientas', ['simuladores']], ['Descubrir', ['eventos', 'directorio', 'links']], ['Consultar', ['resumenes', 'glosario', 'biblioteca']], ['Galera', ['novedades', 'sostener', 'config', '/fuentes/', '/legal/']]]
-};
-const ENLACES = { '/fuentes/': 'Fuentes', '/legal/': 'Legal' };   // páginas estáticas que el menú enlaza como cualquier pestaña
-const rotuloTab = id => ENLACES[id] || (TODAS_TABS.find(t => t[0] === id) || [id, id])[1];
+const GRUPOS_WEB = MARCO.menu;
+const rotuloTab = id => (MARCO.pantallas[id] || { t: id }).t;
 const itemMenu = (id, actual) => id[0] === '/' ? `<a href="${id}">${rotuloTab(id)}</a>` : `<button type="button" ${actual === id ? 'aria-current="page"' : ''} onclick="ir(${arg(id)})">${rotuloTab(id)}</button>`;
 const CHEVRON = '<svg class="cv" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>';
 function dibujarPestanas() {
@@ -449,10 +443,8 @@ function dibujarPestanas() {
   $('#subw').hidden = !ab;
   $('#sub').setAttribute('aria-label', ab ? ab[0] : 'Secciones del grupo');
   $('#sub').innerHTML = ab ? ab[1].map(id => itemMenu(id, V.tab)).join('') : '';
-  // Pie del lienzo: Planificar, Estudiar, Descubrir y Galera (las mismas columnas que el pie de las páginas estáticas).
-  const PIE = esPro() ? [['Herramientas', ['simuladores']], ['Descubrir', ['eventos', 'directorio', 'links']], ['Consultar', ['resumenes', 'glosario', 'biblioteca']], ['Galera', ['novedades', 'sostener', 'config', '/fuentes/']]]
-    : [['Planificar', ['carrera', 'horarios', 'calendario']], ['Estudiar', ['resumenes', 'biblioteca', 'simuladores', 'glosario']], ['Descubrir', ['eventos', 'directorio', 'links']], ['Galera', ['novedades', 'sostener', 'config', '/fuentes/']]];
-  $('#pie-nav').innerHTML = PIE.map(([n, ids]) => `<nav aria-label="${n}"><h2>${n}</h2>${ids.map(id => id[0] === '/' ? itemMenu(id) : `<button type="button" onclick="ir(${arg(id)})">${({ simuladores: 'Simuladores', config: 'Configuración' })[id] || rotuloTab(id)}</button>`).join('')}${n === 'Galera' ? '<a href="mailto:hola@galera.com.ar">Escribir a Fidel</a>' : ''}</nav>`).join('');
+  // Las columnas del pie son las del menú, menos lo que va solo en el menú (Legal, que el pie enlaza abajo).
+  $('#pie-nav').innerHTML = G.map(([n, ids]) => `<nav aria-label="${n}"><h2>${n}</h2>${ids.filter(id => !MARCO.pantallas[id].solo_menu).map(id => itemMenu(id)).join('')}${n === 'Galera' ? `<a href="${MARCO.escribir.url}">${MARCO.escribir.t}</a>` : ''}</nav>`).join('');
   pintarTema(); altoCab();
 }
 function alternarGrupo(n) { V.gAbierto = V.gAbierto === n ? '' : n; dibujarPestanas(); }
@@ -2102,18 +2094,7 @@ function vTarifario() {
 }
 
 // Los simuladores, por materia (el orden de la pestaña sale de acá).
-const SIMULADORES = [
-  { id: 'ecosistema', materia: '0902', ico: '🕸️', t: 'Ecosistema del libro', d: 'Los actores del mundo editorial como nodos de un grafo: quién se relaciona con quién y para qué. Seguí el recorrido de un libro o practicá quién es quién.' },
-  { id: 'paginacion', materia: '0905', ico: '📑', t: 'Esquema de paginación', d: 'Las partes del libro, tildadas una por una: cuántas páginas lleva cada una, en recto o verso, y cuántas quedan en blanco hasta el múltiplo del pliego.' },
-  { id: 'tarifario', materia: '0909', ico: '💲', t: 'Tarifario de referencia', d: 'Quién publica tarifas orientativas para traducción, corrección, diseño e ilustración: unidad, fecha de edición y link a la fuente. Sin montos copiados: se leen en el original.' },
-  { id: 'contratos', materia: '0919', ico: '📝', t: 'Contratos modelo: traducción y edición', d: 'Completá los datos y armá un borrador de contrato de traducción (según el modelo de la AATI) o de edición (según los arts. 37 a 44 de la Ley 11.723), con la fuente de cada cláusula. Para descargar.' },
-  { id: 'leyes', materia: '0919', ico: '⚖️', t: 'Leyes: jerarquía de normas y traductor jurídico', d: 'Las normas del derecho de autor y editorial ordenadas en una pirámide (qué manda sobre qué) y un traductor de términos jurídicos a castellano común, con ejemplos de editorial.' },
-  { id: 'formatos', materia: '0905', ico: '📐', t: 'Formatos de papel y serie A', d: 'Los tamaños de FPI a escala (serie A, pliegos y libros) y por qué la serie A conserva su forma al doblarse: la relación de aspecto √2.' },
-  { id: 'papel', materia: '0905', ico: '📄', t: 'Cálculo de papel e imposición', d: 'Pliegos, resmas, kilos y costo de los interiores o de la tapa, con pinza, cola, calles e imposición. Compara los formatos de pliego.' },
-  { id: 'escandallo', materia: '0909', ico: '🧮', t: 'Escandallo de un título', d: 'Si el precio de un libro es viable: del PVP al margen de contribución, con los puntos de equilibrio.' },
-  { id: 'cronograma', materia: '0905', ico: '🗓️', t: 'Cronograma: Gantt, PERT y Roy', d: 'Planificá la producción de un libro con tres métodos sobre las mismas tareas: barras de Gantt, red PERT con probabilidad de llegar a tiempo y red de Roy con ruta crítica y holguras. Usá cada uno o compará.' },
-  { id: 'comparador', materia: '0909', ico: '⚖️', t: 'Comparador de títulos', d: 'Qué hacer con cada título del catálogo: dejarlo, bajarle costos, empujarlo o discontinuarlo.' }
-];
+const SIMULADORES = MARCO.simuladores;
 // Explicaciones mínimas de cada concepto, según la cátedra de Administración de la Empresa Editorial.
 const AYUDA = {
   pvp: 'Precio de venta al público. Lo fija el editor entre un piso (que cubra los costos) y un techo (lo que el mercado está dispuesto a pagar). El escandallo arranca acá.',
@@ -2942,7 +2923,7 @@ function directorioLista() {
 let mapaPidiendo = false;
 function cargarMapa() {
   if (mapaPidiendo) return; mapaPidiendo = true;
-  const s = document.createElement('script'); s.src = 'mapa-ar.js?v=1';
+  const s = document.createElement('script'); s.src = 'mapa-ar.js?v=37424151';
   s.onload = () => { const el = $('#dir-mapa'); if (el) el.innerHTML = directorioMapa(); };
   s.onerror = () => { mapaPidiendo = false; const el = $('#dir-mapa'); if (el) el.innerHTML = '<p class="chico tenue">No pudimos cargar el mapa. Podés filtrar por provincia con la lista.</p>'; };
   document.head.appendChild(s);
