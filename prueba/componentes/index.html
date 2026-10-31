@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Galera · Componentes del sistema</title>
+<meta name="description" content="Muestra interna de los componentes del nuevo sistema de diseño de Galera: estados, tarjetas, botones, campos y filas.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="canonical" href="https://galera.com.ar/prueba/componentes/">
+<meta property="og:title" content="Galera · Componentes del sistema">
+<meta property="og:description" content="Muestra interna de los componentes del nuevo sistema de diseño de Galera.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://galera.com.ar/prueba/componentes/">
+<meta property="og:site_name" content="Galera">
+<meta property="og:locale" content="es_AR">
+<meta property="og:image" content="https://galera.com.ar/img/cursada.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Galera: tu carrera de Edición, en orden. Notas, horarios, resúmenes y simuladores.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../../componentes.css?v=1">
+</head>
+<body class="gl">
+<main class="gl-marco" style="padding-block:56px 80px">
+<p class="gl-rotulo">Galera · Sistema</p>
+<h1 class="gl-display" style="margin-top:8px">Componentes</h1>
+<p class="gl-cuerpo gl-chico" style="max-width:66ch;margin-top:16px">Capa nueva, con prefijo «gl-». Cuatro estados, tarjeta Plata, anillo con cifra, un solo radio de 4 y táctiles de 44.</p>
+
+<div class="gl-cap"><span class="num">01</span><h2 class="gl-t2">Estados de una materia</h2></div>
+<div class="gl-grilla" style="margin-top:16px">
+ <div class="gl-col-6" style="display:flex;flex-direction:column;align-items:flex-start;gap:12px"><span class="gl-estado gl-pen"><span class="gl-ic gl-pen"></span>Pendiente</span><span class="gl-estado gl-cur"><span class="gl-ic gl-cur"></span>Cursando</span><span class="gl-estado gl-reg"><span class="gl-ic gl-reg"></span>Regular · falta el final</span><span class="gl-estado gl-apr"><span class="gl-ic gl-apr"></span>Aprobada</span></div>
+ <div class="gl-col-6"><div class="gl-aviso"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l10 18H2z"/><path d="M12 10v5M12 18v.01"/></svg><div><b>Se superponen dos materias.</b><p class="gl-chico" style="margin:4px 0 0">Producción de Impresos y Diseño Gráfico coinciden los lunes de 18 a 20 h.</p><button class="gl-enlace" type="button">Ver en Horarios</button></div></div></div>
+</div>
+
+<div class="gl-cap"><span class="num">02</span><h2 class="gl-t2">Avance</h2></div>
+<div style="display:flex;gap:24px;align-items:center;margin-top:16px;flex-wrap:wrap"><span class="gl-anillo" style="width:132px;height:132px" role="img" aria-label="Avance: 62 %"><svg width="132" height="132" viewBox="0 0 132 132" aria-hidden="true"><circle class="riel" cx="66.0" cy="66.0" r="58" fill="none" stroke-width="11"/><circle class="arco" cx="66.0" cy="66.0" r="58" fill="none" stroke-width="11" stroke-linecap="round" stroke-dasharray="225.9 364.4" transform="rotate(-90 66.0 66.0)"/></svg><span class="cifra">62<small>%</small></span></span><span class="gl-anillo gl-anillo--s" style="width:56px;height:56px" role="img" aria-label="Avance: 8 de 8"><svg width="56" height="56" viewBox="0 0 56 56" aria-hidden="true"><circle class="riel" cx="28.0" cy="28.0" r="24.5" fill="none" stroke-width="7"/><circle class="arco completo" cx="28.0" cy="28.0" r="24.5" fill="none" stroke-width="7" stroke-linecap="round" stroke-dasharray="153.9 153.9" transform="rotate(-90 28.0 28.0)"/></svg><span class="cifra">8/8</span></span><span class="gl-anillo gl-anillo--s" style="width:56px;height:56px" role="img" aria-label="Avance: 5 de 8"><svg width="56" height="56" viewBox="0 0 56 56" aria-hidden="true"><circle class="riel" cx="28.0" cy="28.0" r="24.5" fill="none" stroke-width="7"/><circle class="arco" cx="28.0" cy="28.0" r="24.5" fill="none" stroke-width="7" stroke-linecap="round" stroke-dasharray="97.0 153.9" transform="rotate(-90 28.0 28.0)"/></svg><span class="cifra">5/8</span></span></div>
+
+<div class="gl-cap"><span class="num">03</span><h2 class="gl-t2">Tarjetas y contenedores</h2></div>
+<div class="gl-grilla" style="margin-top:16px">
+ <article class="gl-tarjeta gl-col-4"><span class="gl-estado gl-cur"><span class="gl-ic gl-cur"></span>Cursando</span><h3 class="gl-t3 gl-inicial">Producción de Impresos</h3><span class="gl-chico">Lunes y miércoles · 18 h</span><div class="gl-tarjeta-pie"><span>Parcial 1</span><span>12/11</span></div></article>
+ <article class="gl-tarjeta gl-col-4"><span class="gl-estado gl-apr"><span class="gl-ic gl-apr"></span>Aprobada · 8</span><h3 class="gl-t3 gl-inicial">Corrección de Estilo</h3><span class="gl-chico">0919 · 2.º cuatrimestre</span><div class="gl-tarjeta-pie"><span>Final aprobado</span><span>17/7</span></div></article>
+ <div class="gl-col-4" style="display:flex;flex-direction:column;gap:8px"><div class="gl-cont">Mis materias</div><a class="gl-cont" href="#">Ir a Resúmenes</a></div>
+</div>
+
+<div class="gl-cap"><span class="num">04</span><h2 class="gl-t2">Botones, campo y ayuda</h2></div>
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:16px"><button class="gl-btn" type="button">Cargar nota</button><button class="gl-btn gl-btn--sec" type="button">Ver mesas</button><button class="gl-btn gl-btn--ter" type="button">Cancelar</button><button class="gl-btn gl-btn--c" type="button">Compacto</button><button class="gl-btn" type="button" disabled>Deshabilitado</button></div>
+<div style="max-width:420px;margin-top:24px"><div class="gl-campo"><label for="b">Buscar un resumen</label><input id="b" value="Producción de Impresos"></div><div class="gl-ayuda"><span class="gl-chico">de tu carrera aprobada</span><button class="gl-enlace" type="button">Cómo se calcula</button></div></div>
+
+<div class="gl-cap"><span class="num">05</span><h2 class="gl-t2">Filas de materia</h2></div>
+<div style="margin-top:8px"><div class="gl-fila"><span class="gl-ic gl-apr"></span><span><b>Introducción al Pensamiento Científico</b><span class="meta">CBC</span></span><span class="cuat gl-chico">—</span><button class="gl-sel" type="button">Aprobada</button><span class="nota gl-num"></span></div><div class="gl-fila"><span class="gl-ic gl-cur"></span><span><b>Producción de Impresos</b><span class="meta">0916</span></span><span class="cuat gl-chico">2C</span><button class="gl-sel" type="button">Cursando</button><span class="nota gl-num"></span></div><div class="gl-fila"><span class="gl-ic gl-reg"></span><span><b>Teoría de los Medios y de la Cultura</b><span class="meta">0913</span></span><span class="cuat gl-chico">2C</span><button class="gl-sel" type="button">Regular</button><span class="nota gl-num"></span></div><div class="gl-fila"><span class="gl-ic gl-pen"></span><span><b>Registro y Organización de Materiales</b><span class="meta">0915</span></span><span class="cuat gl-chico">1C</span><button class="gl-sel" type="button">Pendiente</button><span class="nota gl-num"></span></div></div>
+</main>
+</body>
+</html>
