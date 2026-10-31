@@ -402,7 +402,7 @@ const ICONO = { carrera: 'M4 11l8-6 8 6v8a1 1 0 0 1-1 1h-4v-5H9v5H5a1 1 0 0 1-1-
 // sus pestañas aparecen como subnavegación fija arriba. Herramientas (los antiguos Simuladores) es un grupo propio y compartido.
 const GRUPOS = {
   estudiante: [['planificar', 'Planificar', 'carrera', ['carrera', 'horarios', 'calendario']], ['estudiar', 'Estudiar', 'resumenes', ['resumenes', 'biblioteca', 'simuladores', 'glosario']]],
-  profesional: [['descubrir', 'Eventos', 'eventos', ['eventos', 'directorio', 'links']], ['consultar', 'Consultar', 'resumenes', ['resumenes', 'glosario', 'biblioteca', 'simuladores']]]
+  profesional: [['herramientas', 'Herramientas', 'simuladores', ['simuladores']], ['descubrir', 'Eventos', 'eventos', ['eventos', 'directorio', 'links']], ['consultar', 'Consultar', 'resumenes', ['resumenes', 'glosario', 'biblioteca']]]
 };
 const gruposActivos = () => GRUPOS[esPro() ? 'profesional' : 'estudiante'];
 const grupoDe = tab => gruposActivos().find(g => g[3].includes(tab));
@@ -433,10 +433,12 @@ function abrirMas() {
 // Navegación de escritorio (v70, del design system nuevo): grupos en la cabecera, con su fila de secciones debajo; los mismos grupos arman las columnas del pie.
 // Un grupo con una sola sección lleva directo a ella. En el celular se usa la barra inferior (GRUPOS).
 const GRUPOS_WEB = {
-  estudiante: [['Planificar', ['carrera', 'horarios', 'calendario']], ['Estudiar', ['resumenes', 'biblioteca', 'simuladores', 'glosario']], ['Descubrir', ['directorio', 'links']], ['Galera', ['novedades', 'sostener', 'config']]],
-  profesional: [['Descubrir', ['eventos', 'directorio', 'links']], ['Consultar', ['resumenes', 'glosario', 'biblioteca', 'simuladores']], ['Galera', ['novedades', 'sostener', 'config']]]
+  estudiante: [['Planificar', ['carrera', 'horarios', 'calendario']], ['Estudiar', ['resumenes', 'biblioteca', 'simuladores', 'glosario']], ['Descubrir', ['eventos', 'directorio', 'links']], ['Galera', ['novedades', 'sostener', 'config', '/fuentes/', '/legal/']]],
+  profesional: [['Herramientas', ['simuladores']], ['Descubrir', ['eventos', 'directorio', 'links']], ['Consultar', ['resumenes', 'glosario', 'biblioteca']], ['Galera', ['novedades', 'sostener', 'config', '/fuentes/', '/legal/']]]
 };
-const rotuloTab = id => (TODAS_TABS.find(t => t[0] === id) || [id, id])[1];
+const ENLACES = { '/fuentes/': 'Fuentes', '/legal/': 'Legal' };   // páginas estáticas que el menú enlaza como cualquier pestaña
+const rotuloTab = id => ENLACES[id] || (TODAS_TABS.find(t => t[0] === id) || [id, id])[1];
+const itemMenu = (id, actual) => id[0] === '/' ? `<a href="${id}">${rotuloTab(id)}</a>` : `<button type="button" ${actual === id ? 'aria-current="page"' : ''} onclick="ir(${arg(id)})">${rotuloTab(id)}</button>`;
 const CHEVRON = '<svg class="cv" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>';
 function dibujarPestanas() {
   const G = GRUPOS_WEB[esPro() ? 'profesional' : 'estudiante'];
@@ -446,11 +448,11 @@ function dibujarPestanas() {
   const ab = G.find(g => g[0] === V.gAbierto);
   $('#subw').hidden = !ab;
   $('#sub').setAttribute('aria-label', ab ? ab[0] : 'Secciones del grupo');
-  $('#sub').innerHTML = ab ? ab[1].map(id => `<button type="button" ${V.tab === id ? 'aria-current="page"' : ''} onclick="ir(${arg(id)})">${rotuloTab(id)}</button>`).join('') : '';
+  $('#sub').innerHTML = ab ? ab[1].map(id => itemMenu(id, V.tab)).join('') : '';
   // Pie del lienzo: Planificar, Estudiar, Descubrir y Galera (las mismas columnas que el pie de las páginas estáticas).
-  const PIE = esPro() ? [['Descubrir', ['eventos', 'directorio', 'links']], ['Consultar', ['resumenes', 'glosario', 'biblioteca', 'simuladores']], ['Galera', ['novedades', 'sostener', 'config']]]
-    : [['Planificar', ['carrera', 'horarios', 'calendario']], ['Estudiar', ['resumenes', 'biblioteca', 'simuladores', 'glosario']], ['Descubrir', ['directorio', 'links']], ['Galera', ['novedades', 'sostener', 'config']]];
-  $('#pie-nav').innerHTML = PIE.map(([n, ids]) => `<nav aria-label="${n}"><h2>${n}</h2>${ids.map(id => `<button type="button" onclick="ir(${arg(id)})">${({ simuladores: 'Simuladores', config: 'Configuración' })[id] || rotuloTab(id)}</button>`).join('')}${n === 'Galera' ? '<a href="mailto:hola@galera.com.ar">Escribir a Fidel</a><a href="mailto:soporte@galera.com.ar">Soporte</a><a href="/legal/#privacidad">Privacidad</a>' : ''}</nav>`).join('');
+  const PIE = esPro() ? [['Herramientas', ['simuladores']], ['Descubrir', ['eventos', 'directorio', 'links']], ['Consultar', ['resumenes', 'glosario', 'biblioteca']], ['Galera', ['novedades', 'sostener', 'config', '/fuentes/']]]
+    : [['Planificar', ['carrera', 'horarios', 'calendario']], ['Estudiar', ['resumenes', 'biblioteca', 'simuladores', 'glosario']], ['Descubrir', ['eventos', 'directorio', 'links']], ['Galera', ['novedades', 'sostener', 'config', '/fuentes/']]];
+  $('#pie-nav').innerHTML = PIE.map(([n, ids]) => `<nav aria-label="${n}"><h2>${n}</h2>${ids.map(id => id[0] === '/' ? itemMenu(id) : `<button type="button" onclick="ir(${arg(id)})">${({ simuladores: 'Simuladores', config: 'Configuración' })[id] || rotuloTab(id)}</button>`).join('')}${n === 'Galera' ? '<a href="mailto:hola@galera.com.ar">Escribir a Fidel</a><a href="mailto:soporte@galera.com.ar">Soporte</a><a href="/legal/#privacidad">Privacidad</a><a href="/legal/#terminos">Términos</a>' : ''}</nav>`).join('');
   pintarTema(); altoCab();
 }
 function alternarGrupo(n) { V.gAbierto = V.gAbierto === n ? '' : n; dibujarPestanas(); }
