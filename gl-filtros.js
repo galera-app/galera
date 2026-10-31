@@ -12,7 +12,7 @@
   function aplicar() {
     var q = sin(busca && busca.value).trim(), n = 0, total = 0;
     items.forEach(function (el) {
-      var ok = (filtro === 'todos' || el.getAttribute('data-cat') === filtro) && (!q || sin(el.getAttribute('data-t')).indexOf(q) >= 0);
+      var ok = (filtro === 'todos' || el.getAttribute('data-cat') === filtro) && (!q || sin(el.getAttribute('data-t') || el.textContent).indexOf(q) >= 0);
       el.hidden = !ok;
       if (ok) n++;
       total++;
