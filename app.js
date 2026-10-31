@@ -2093,7 +2093,7 @@ function vTarifario() {
       ${f.controlado ? `<span class="chico tenue u-margin-left-8px">✓ Link revisado el ${fmt(f.controlado)}</span>` : ''}
     </article>`).join('') : '<p class="vacio">No hay tarifarios publicados para este rubro.</p>'}
     ${!sel && (T.huecos || []).length ? `<div class="titulo-sec"><h2>Lo que no se encontró</h2></div><div class="tarjeta"><ul class="u-margin-0_padding-left-18px">${T.huecos.map(h => `<li class="chico">${esc(h)}</li>`).join('')}</ul></div>` : ''}
-    <p class="chico tenue">Los valores son orientativos y no obligatorios. Si conocés otro tarifario público, contámelo con 💡 Contame qué falta.</p>`;
+    <p class="chico tenue">Los valores son orientativos y no obligatorios. Si conocés otro tarifario público, contámelo con «Contame qué falta».</p>`;
 }
 
 // Los simuladores, por materia (el orden de la pestaña sale de acá).

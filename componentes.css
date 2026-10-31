@@ -552,7 +552,7 @@ main:has(>.gl-v){max-width:1224px;padding:48px 16px 80px}
 button.enlace{min-height:44px;display:inline-flex;align-items:center}
 main summary{padding-block:10px;min-height:44px;box-sizing:border-box}
 .fila.vecinos a{display:inline-flex;align-items:center;min-height:44px}
-.apunte{overflow-wrap:anywhere}
+.apunte{overflow-wrap:break-word}
 .apunte li,.apunte p,.apunte ul,.apunte ol{min-width:0}
 .apunte pre,.apunte code{overflow-wrap:normal}
 }
