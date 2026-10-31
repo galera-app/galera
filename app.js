@@ -357,6 +357,7 @@ function vInicio() {
     <div class="gl-sumario"><h2 class="gl-rotulo">Índice</h2>${grupos.map(([n, ids], i) => `<section aria-labelledby="ig-${i}"><h3 class="gl-cap" id="ig-${i}"><span class="num" aria-hidden="true">${ROMANOS[i]}</span><span class="gn">${n}</span></h3>
       <ul class="gl-lista">${ids.map(id => `<li><a class="gl-ent" href="#${id}"><span class="et"><b>${rotuloTab(id)}</b><span class="guia" aria-hidden="true"></span><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="${ICONO_INICIO[id]}"/></svg></span></span><span class="bj">${BAJADAS[per][id]}</span></a></li>`).join('')}</ul></section>`).join('')}</div>
     <div class="gl-sp"><div class="gl-dv" role="separator"><span class="gl">· · ·</span></div></div>
+    <figure class="gl-sello"><img class="gl-sello-c" src="img/colofon-caballero.png" width="400" height="512" loading="lazy" decoding="async" alt="Ilustración de un caballero con un estandarte que lleva la g gótica de Galera"><img class="gl-sello-o" src="img/colofon-caballero-oscuro.png" width="400" height="512" loading="lazy" decoding="async" alt="Ilustración de un caballero con un estandarte que lleva la g gótica de Galera"></figure>
     ${colofonInicio(per)}</div>`;
 }
 function ir(tab) {
