@@ -11,9 +11,9 @@ const MESES = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'o
 const DIAS_C = ['dom.', 'lun.', 'mar.', 'mié.', 'jue.', 'vie.', 'sáb.']; // con punto: "mar. 3 mar" (martes 3 de marzo) no se confunde
 const COLORES = ['#1a5f78', '#7b4592', '#a8470f', '#276b44', '#a03352', '#4a59b8', '#7a5f12', '#2f6a70']; // todos con contraste de 5:1 o más contra texto blanco
 const D = { busqueda: null, plan: null, calendario: null, ofertas: [], ofertasMeta: [], mesas: [], indice: null, resumenes: null, apuntes: {}, biblioteca: null, glosario: null, directorio: null, novedades: null, pedidos: null, sostener: null };
-const TABS = [['carrera', 'Mi carrera'], ['horarios', 'Horarios'], ['calendario', 'Calendario'], ['resumenes', 'Resúmenes'], ['biblioteca', 'Biblioteca'], ['simuladores', 'Herramientas'], ['glosario', 'Glosario'], ['directorio', 'Directorio'], ['links', 'Links útiles'], ['novedades', 'Novedades'], ['sostener', 'Sostener'], ['config', 'Ajustes']];
+const TABS = [['carrera', 'Mi carrera'], ['horarios', 'Horarios'], ['calendario', 'Calendario'], ['resumenes', 'Resúmenes'], ['biblioteca', 'Biblioteca'], ['simuladores', 'Simuladores'], ['glosario', 'Glosario'], ['directorio', 'Directorio'], ['links', 'Links útiles'], ['novedades', 'Novedades'], ['sostener', 'Sostener'], ['config', 'Ajustes']];
 // Perfil (E.perfil): «Estudiante» ve la carrera; «Profesional del libro» ve herramientas, eventos de la industria y links del sector.
-const TABS_PRO = [['simuladores', 'Herramientas'], ['eventos', 'Eventos'], ['resumenes', 'Resúmenes'], ['biblioteca', 'Biblioteca'], ['glosario', 'Glosario'], ['directorio', 'Directorio'], ['links', 'Links útiles'], ['novedades', 'Novedades'], ['sostener', 'Sostener'], ['config', 'Ajustes']];
+const TABS_PRO = [['simuladores', 'Simuladores'], ['eventos', 'Eventos'], ['resumenes', 'Resúmenes'], ['biblioteca', 'Biblioteca'], ['glosario', 'Glosario'], ['directorio', 'Directorio'], ['links', 'Links útiles'], ['novedades', 'Novedades'], ['sostener', 'Sostener'], ['config', 'Ajustes']];
 const TODAS_TABS = TABS.concat([['eventos', 'Eventos'], ['arcade', 'Arcade'], ['inicio', 'Inicio']]);   // el Arcade no tiene pestaña: se entra desde los Resúmenes de Corrección de Estilo
 const esPro = () => E.perfil === 'profesional';
 const tabsActivas = () => esPro() ? TABS_PRO : TABS;
@@ -264,14 +264,14 @@ function elegirPerfil() {
   abrir(`<div class="cab"><h2 class="crece" id="dlg-t">¿Qué te representa?</h2><button class="x" onclick="cerrar()" aria-label="Cerrar">✕</button></div>
     <p class="u-mt0 chico tenue">Así te muestro solo lo que te sirve. Lo podés cambiar cuando quieras desde «Más».</p>
     <div class="perfiles">
-      <button class="perfil ${esPro() ? 'on' : ''}" type="button" onclick="ponerPerfil('profesional')"><span class="perfil-ico" aria-hidden="true">📚</span><b>Profesional del libro</b><span class="chico tenue">Herramientas, eventos de la industria y links del sector.</span></button>
-      <button class="perfil ${E.perfil === 'estudiante' ? 'on' : ''}" type="button" onclick="ponerPerfil('estudiante')"><span class="perfil-ico" aria-hidden="true">🎓</span><b>Estudiante</b><span class="chico tenue">Tu carrera de Edición: notas, horarios, calendario y resúmenes.</span></button>
+      <button class="perfil ${esPro() ? 'on' : ''}" type="button" onclick="ponerPerfil('profesional')"><b>Profesional del libro</b><span class="chico tenue">Herramientas, eventos de la industria y links del sector.</span></button>
+      <button class="perfil ${E.perfil === 'estudiante' ? 'on' : ''}" type="button" onclick="ponerPerfil('estudiante')"><b>Estudiante</b><span class="chico tenue">Tu carrera de Edición: notas, horarios, calendario y resúmenes.</span></button>
     </div>`, 'perfil');
 }
 // Configuración: el perfil y los accesos a lo personal (datos, ajustes, cookies).
 function vConfig() {
   const pr = esPro() ? 'profesional' : 'estudiante';
-  const op = (p, ico, t, d) => `<button class="perfil ${pr === p ? 'on' : ''}" type="button" aria-pressed="${pr === p}" onclick="cambiarPerfil(${arg(p)})"><span class="perfil-ico" aria-hidden="true">${ico}</span><b>${t}</b><span class="chico tenue">${d}</span></button>`;
+  const op = (p, ico, t, d) => `<button class="perfil ${pr === p ? 'on' : ''}" type="button" aria-pressed="${pr === p}" onclick="cambiarPerfil(${arg(p)})"><b>${t}</b><span class="chico tenue">${d}</span></button>`;
   let guardado = ''; try { guardado = localStorage.getItem('cursada.tema') || ''; } catch (e) { }
   const tema = guardado === 'dark' || guardado === 'light' ? guardado : 'auto';
   const sw = (id, on, t, d, fn) => `<div class="cfg-fila"><div class="crece"><b>${t}</b><span class="chico tenue">${d}</span></div><button class="sw" type="button" role="switch" id="${id}" aria-checked="${on}" aria-label="${esc(t)}" onclick="${fn}"></button></div>`;
@@ -345,7 +345,7 @@ function colofonInicio(per) {
 function vInicio() {
   cargarNovedades();
   const per = esPro() ? 'profesional' : 'estudiante', abierto = !E.perfil || V.cambiaPerfil;
-  const grupos = GRUPOS_WEB[per].filter(g => g[0] !== 'El sitio');
+  const grupos = GRUPOS_WEB[per].filter(g => g[0] !== 'Galera');
   const selector = abierto
     ? `<p class="inicio-sub">Elegí tu perfil: el índice se ordena según lo que hacés.</p>
       <div class="inicio-sel" role="group" aria-label="Perfil">${PERFILES_INICIO.map(([id, t, s]) => `<button type="button" class="op ${E.perfil === id ? 'on' : ''}" aria-pressed="${E.perfil === id}" onclick="elegirEnInicio(${arg(id)})"><b>${t}</b><span>${s}</span></button>`).join('')}</div>`
@@ -400,8 +400,8 @@ const ICONO = { carrera: 'M4 11l8-6 8 6v8a1 1 0 0 1-1 1h-4v-5H9v5H5a1 1 0 0 1-1-
 // Grupos de navegación (v66). Mismos nombres para los dos perfiles, con otro contenido; en el celular cada grupo es un botón de la barra y
 // sus pestañas aparecen como subnavegación fija arriba. Herramientas (los antiguos Simuladores) es un grupo propio y compartido.
 const GRUPOS = {
-  estudiante: [['planificar', 'Planificar', 'carrera', ['carrera', 'horarios', 'calendario']], ['estudiar', 'Estudiar', 'resumenes', ['resumenes', 'biblioteca', 'glosario']], ['herramientas', 'Herramientas', 'simuladores', ['simuladores']]],
-  profesional: [['herramientas', 'Herramientas', 'simuladores', ['simuladores']], ['descubrir', 'Eventos', 'eventos', ['eventos', 'directorio', 'links']], ['consultar', 'Consultar', 'resumenes', ['resumenes', 'glosario', 'biblioteca']]]
+  estudiante: [['planificar', 'Planificar', 'carrera', ['carrera', 'horarios', 'calendario']], ['estudiar', 'Estudiar', 'resumenes', ['resumenes', 'biblioteca', 'simuladores', 'glosario']]],
+  profesional: [['descubrir', 'Eventos', 'eventos', ['eventos', 'directorio', 'links']], ['consultar', 'Consultar', 'resumenes', ['resumenes', 'glosario', 'biblioteca', 'simuladores']]]
 };
 const gruposActivos = () => GRUPOS[esPro() ? 'profesional' : 'estudiante'];
 const grupoDe = tab => gruposActivos().find(g => g[3].includes(tab));
@@ -432,8 +432,8 @@ function abrirMas() {
 // Navegación de escritorio (v70, del design system nuevo): grupos en la cabecera, con su fila de secciones debajo; los mismos grupos arman las columnas del pie.
 // Un grupo con una sola sección lleva directo a ella. En el celular se usa la barra inferior (GRUPOS).
 const GRUPOS_WEB = {
-  estudiante: [['Planificar', ['carrera', 'horarios', 'calendario']], ['Estudiar', ['resumenes', 'biblioteca', 'glosario']], ['Herramientas', ['simuladores']], ['Descubrir', ['directorio', 'links']], ['El sitio', ['novedades', 'sostener', 'config']]],
-  profesional: [['Herramientas', ['simuladores']], ['Descubrir', ['eventos', 'directorio', 'links']], ['Consultar', ['resumenes', 'glosario', 'biblioteca']], ['El sitio', ['novedades', 'sostener', 'config']]]
+  estudiante: [['Planificar', ['carrera', 'horarios', 'calendario']], ['Estudiar', ['resumenes', 'biblioteca', 'simuladores', 'glosario']], ['Descubrir', ['directorio', 'links']], ['Galera', ['novedades', 'sostener', 'config']]],
+  profesional: [['Descubrir', ['eventos', 'directorio', 'links']], ['Consultar', ['resumenes', 'glosario', 'biblioteca', 'simuladores']], ['Galera', ['novedades', 'sostener', 'config']]]
 };
 const rotuloTab = id => (TODAS_TABS.find(t => t[0] === id) || [id, id])[1];
 const CHEVRON = '<svg class="cv" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>';
@@ -449,7 +449,7 @@ function dibujarPestanas() {
   // Pie del lienzo: Planificar, Estudiar, Descubrir y Galera (las mismas columnas que el pie de las páginas estáticas).
   const PIE = esPro() ? [['Descubrir', ['eventos', 'directorio', 'links']], ['Consultar', ['resumenes', 'glosario', 'biblioteca', 'simuladores']], ['Galera', ['novedades', 'sostener', 'config']]]
     : [['Planificar', ['carrera', 'horarios', 'calendario']], ['Estudiar', ['resumenes', 'biblioteca', 'simuladores', 'glosario']], ['Descubrir', ['directorio', 'links']], ['Galera', ['novedades', 'sostener', 'config']]];
-  $('#pie-nav').innerHTML = PIE.map(([n, ids]) => `<nav aria-label="${n}"><h2>${n}</h2>${ids.map(id => `<button type="button" onclick="ir(${arg(id)})">${({ simuladores: 'Simuladores', config: 'Configuración' })[id] || rotuloTab(id)}</button>`).join('')}${n === 'Galera' ? '<a href="fuentes/">Fuentes</a>' : ''}</nav>`).join('');
+  $('#pie-nav').innerHTML = PIE.map(([n, ids]) => `<nav aria-label="${n}"><h2>${n}</h2>${ids.map(id => `<button type="button" onclick="ir(${arg(id)})">${({ simuladores: 'Simuladores', config: 'Configuración' })[id] || rotuloTab(id)}</button>`).join('')}${n === 'Galera' ? '<a href="mailto:hola@galera.com.ar">Escribir a Fidel</a>' : ''}</nav>`).join('');
   pintarTema(); altoCab();
 }
 function alternarGrupo(n) { V.gAbierto = V.gAbierto === n ? '' : n; dibujarPestanas(); }
@@ -2180,7 +2180,7 @@ function vSimuladores() {
       <div class="titulo-sec"><h2>Planificar un libro</h2></div>
       <div class="res-grilla"><a class="res-mat u-text-decoration-none_color-inherit" href="libro/cronograma/" ><span class="fila"><span class="clave">Nuevo</span></span><b>🗓️ Planificador de libros</b><span class="chico tenue">Del original a la reimpresión: Gantt, PERT y Roy, con feriados, dependencias, varios títulos y responsables.</span></a></div>` +
       TEMAS.map(([t, ids]) => `<div class="titulo-sec"><h2>${esc(t)}</h2></div>
-        <div class="res-grilla">${ids.map(i => SIMULADORES.find(x => x.id === i)).filter(Boolean).map(x => `<button class="res-mat" onclick="irSim(${arg(x.id)})"><b>${x.ico} ${esc(x.t)}</b><span class="chico tenue">${esc(x.d)}</span></button>`).join('')}</div>`).join('');
+        <div class="res-grilla">${ids.map(i => SIMULADORES.find(x => x.id === i)).filter(Boolean).map(x => `<button class="res-mat" onclick="irSim(${arg(x.id)})"><b>${esc(x.t)}</b><span class="chico tenue">${esc(x.d)}</span></button>`).join('')}</div>`).join('');
   }
   const est = id => (E.materias[id] || {}).estado, marca = id => est(id) === 'cursando' ? '<span class="chip">la cursás</span>' : est(id) === 'regular' ? '<span class="chip">te falta el final</span>' : '';
   const materias = [...new Set(SIMULADORES.map(x => x.materia))].sort();
@@ -2189,7 +2189,7 @@ function vSimuladores() {
       const p = plan(id);
       return `<div class="titulo-sec"><h2>${esc(p.nombre)}</h2></div>
         <div class="res-grilla">${SIMULADORES.filter(x => x.materia === id).map(x => `<button class="res-mat" onclick="irSim(${arg(x.id)})"><span class="fila"><span class="clave">${esc(p.sigla)}</span><span class="crece"></span>${marca(id)}</span>
-          <b>${x.ico} ${esc(x.t)}</b><span class="chico tenue">${esc(x.d)}</span></button>`).join('')}</div>`;
+          <b>${esc(x.t)}</b><span class="chico tenue">${esc(x.d)}</span></button>`).join('')}</div>`;
     }).join('');
 }
 // =====================================================================
