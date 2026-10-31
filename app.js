@@ -2865,7 +2865,7 @@ function gloGrafoHtml() {
   return `<div class="eco-scroll"><div class="eco-zoom" role="group" aria-label="Zoom del grafo">
       <button class="gl-btn gl-btn--sec" type="button" onclick="ecoZoom(1.4)">Acercar</button><button class="gl-btn gl-btn--sec" type="button" onclick="ecoZoom(1/1.4)">Alejar</button><button class="gl-btn gl-btn--sec" type="button" onclick="ecoAjustar()">Ver todo</button></div>
     <svg class="eco glo-g ${vb[2] < W - 1 ? 'zoom' : ''}" viewBox="${vb.map(n => +n.toFixed(1)).join(' ')}" data-k="glo" data-z="${vb[2] < W * 0.45 ? 2 : vb[2] < W - 1 ? 1 : 0}" data-fx="${fx}" data-fy="${fy}" data-fw="${W}" data-fh="${H}" aria-hidden="true">${lineas}${nodos}</svg></div>
-    <p class="u-mb6 chico tenue">Acercá con «Acercar» o pellizcando para ver más nombres; arrastrá para moverte («Ver todo» vuelve a la vista completa). La lista tiene lo mismo: cada término trae su «Relacionado con».</p>
+    <p class="gl-chico gl-m16">Acercá con «Acercar» o pellizcando para ver más nombres; arrastrá para moverte («Ver todo» vuelve a la vista completa). La lista tiene lo mismo: cada término trae su «Relacionado con».</p>
     <div class="eco-leyendas">${ley}</div>${panel}`;
 }
 function glosarioCuerpo() { return V.glo.vista === 'grafo' ? gloGrafoHtml() : glosarioLista(); }
@@ -2921,7 +2921,7 @@ function directorioLista() {
       ${(a.ferias || []).length ? `<p class="meta gl-tenue">Estuvo en la ${esc(a.ferias.join(' y '))}</p>` : ''}
       ${lin.length ? `<p class="glo-tags">${lin.slice(0, 4).map(x => `<span class="gl-chip gl-chip--neutro">${esc(x)}</span>`).join(' ')}${lin.length > 4 ? ` <span class="gl-chip gl-chip--neutro" title="${esc(lin.slice(4).join(', '))}">+${lin.length - 4}</span>` : ''}</p>` : ''}
       ${(a.servicios || []).length ? `<p class="meta gl-tenue">Servicios: ${esc(a.servicios.join(', '))}</p>` : ''}
-      <p class="meta">${a.web ? `<a href="${urlSegura(a.web)}" target="_blank" rel="noopener">Sitio</a> · ` : ''}${f.url ? `<a href="${urlSegura(f.url)}" target="_blank" rel="noopener">Fuente</a>` : ''}${f.fecha ? ` <span class="tenue">(leída el ${esc(f.fecha.split('-').reverse().join('/'))})</span>` : ''}</p></article></li>`;
+      <p class="meta">${a.web ? `<a href="${urlSegura(a.web)}" target="_blank" rel="noopener">Sitio</a> · ` : ''}${f.url ? `<a href="${urlSegura(f.url)}" target="_blank" rel="noopener">Fuente</a>` : ''}${f.fecha ? ` <span class="gl-tenue">(leída el ${esc(f.fecha.split('-').reverse().join('/'))})</span>` : ''}</p></article></li>`;
   }).join('')}</ul>${mas}`;
 }
 // Los trazos del mapa pesan 50 KB y solo los usa el Directorio: se bajan la primera vez que se abre.
