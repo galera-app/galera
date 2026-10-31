@@ -1,40 +1,34 @@
-"""Arma el marco común de Galera desde marco/: cabecera, pie, recursos del <head>, CSP y versiones ?v=.
-Fuente única: marco/sitio.json, marco/pie.tpl, marco/cabecera.tpl. También escribe marco.js, que lee la app.
-Uso: python tools/armar.py             aplica el marco (idempotente)
-     python tools/armar.py --comprobar  no escribe; sale con 1 si algo se apartó del marco (lo corre el CI)
-Salta prueba/. libro/planificador-de-libros.html es un archivo descargable: lleva el pie, pero conserva su cabecera y su <head>."""
+"""Arma Galera desde marco/: cabecera, pie, recursos del <head>, CSP y versiones ?v=. Una sola fuente, un solo armado.
+Las páginas del repo llevan marcas en vez del marco repetido:
+    <!--marco:csp-->  <!--marco:meta-->  <!--marco:recursos-->  <!--marco:cabecera-->  <!--marco:pie-->
+El build las expande en la carpeta de salida (dist/); eso es lo que publican Cloudflare y GitHub Pages.
+Fuente única: marco/sitio.json, marco/pie.tpl, marco/cabecera.tpl. También escribe marco.js (lo lee la app).
+
+Uso: python tools/armar.py [--salida dist]   arma el sitio publicable (stdlib, sin dependencias)
+     python tools/armar.py --servir 8772      lo arma en dist/ y lo sirve en http://127.0.0.1:8772 (para mirar cambios)
+     python tools/armar.py --marcar          pasa a marcas las páginas que traen el marco escrito (salida de los generadores)
+     python tools/armar.py --comprobar        no escribe; sale con 1 si hay páginas con el marco escrito o si el armado falla (lo corre el CI)
+No toca prueba/. libro/planificador-de-libros.html es un archivo descargable: lleva el pie, pero conserva su cabecera y su <head>."""
 import hashlib
 import json
 import re
+import shutil
 import sys
+import tempfile
 from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
 M = RAIZ / "marco"
 S = json.loads((M / "sitio.json").read_text(encoding="utf-8"))
-COMPROBAR = "--comprobar" in sys.argv
 CHEV = '<svg class="cv" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>'
 CSP_PAGINA = {"index.html": "app", "libro/cronograma/index.html": "estatica_estilos"}
 DESCARGABLE = "libro/planificador-de-libros.html"
 CSS = ["tokens.css", "estilos.css", "galera.css", "componentes.css"]
 GRUPOS = S["menu"]["estudiante"]
 ACTUAL = ' aria-current="page"'
-distintos = []
-memoria = {}  # en modo comprobar, el contenido que tendría cada archivo: las huellas se calculan sobre eso
-
-
-def leer(p):
-    return memoria.get(p) or p.read_text(encoding="utf-8")
-
-
-def escribir(p, t):
-    """Escribe solo si cambió; en modo comprobar anota la diferencia."""
-    if p.exists() and p.read_text(encoding="utf-8") == t:
-        return
-    distintos.append(p.relative_to(RAIZ).as_posix())
-    memoria[p] = t
-    if not COMPROBAR:
-        p.write_text(t, encoding="utf-8", newline="\n")
+# Lo que no se publica: control de versiones, CI, herramientas y las fuentes del marco.
+NO_PUBLICAR = {".git", ".github", "tools", "marco", "dist", "__pycache__"}
+MARCAS = ("csp", "meta", "recursos", "cabecera", "pie")
 
 
 def plantilla(nombre, **datos):
@@ -105,72 +99,118 @@ RECURSOS = ('<link rel="icon" type="image/png" href="/img/favicon-32.png">\n'
             '<link rel="apple-touch-icon" href="/img/icono-180.png">\n'
             + "\n".join(f'<link rel="stylesheet" href="/{c}">' for c in CSS)
             + '\n<script src="/menu.js" defer></script>\n<script src="/analitica.js"></script>')
+QUITAR_CSP = re.compile(r'<meta http-equiv="Content-Security-Policy"[^>]*>')
 QUITAR_META = re.compile(r'<meta (?:http-equiv="Content-Security-Policy"|name="referrer"|name="author"|name="color-scheme")[^>]*>\n')
 QUITAR_REC = re.compile(r'<link rel="(?:icon|apple-touch-icon)"[^>]*>\n|'
                         r'<link rel="stylesheet" href="/(?:' + "|".join(re.escape(c) for c in CSS) + r')[^"]*">\n|'
                         r'<script src="/menu\.js[^"]*" defer></script>\n|<script src="/analitica\.js[^"]*"></script>\n')
+VERSION = re.compile(r'((?:src|href)="[^":?#]+\.(?:css|js))\?v=\w+"')
 
 
-def cabeza_estatica(t, csp):
-    meta = f'<meta http-equiv="Content-Security-Policy" content="{csp}">\n{META_COMUN}\n'
-    fin = t.index("</head>")
-    h, resto = t[:fin], t[fin:]
-    h = QUITAR_META.sub("", h)
-    h = re.sub(r'(<meta name="viewport"[^>]*>\n)', lambda m: m.group(1) + meta, h, count=1)
-    m = QUITAR_REC.search(h)
-    pos = m.start() if m else len(h)
-    h = h[:pos] + "\0" + h[pos:]
-    h = QUITAR_REC.sub("", h).replace("\0", RECURSOS + "\n")
-    return h + resto
+def expandir(t, rel):
+    """Marcas -> marco. En index.html el pie es el de la app."""
+    csp = S["csp"][CSP_PAGINA.get(rel, "estatica")]
+    reemplazos = {"csp": f'<meta http-equiv="Content-Security-Policy" content="{csp}">', "meta": META_COMUN, "recursos": RECURSOS,
+                  "cabecera": cabecera(rel), "pie": pie(app=rel == "index.html")}
+    for k, v in reemplazos.items():
+        t = t.replace(f"<!--marco:{k}-->", v)
+    return t
+
+
+def marcar(t, rel):
+    """Marco escrito -> marcas (idempotente). Es la forma en que se guarda en el repo."""
+    if rel == "index.html":
+        t = QUITAR_CSP.sub("<!--marco:csp-->", t, count=1)
+    else:
+        if rel != DESCARGABLE and "<!--marco:recursos-->" not in t:
+            fin = t.index("</head>")
+            h, resto = t[:fin], t[fin:]
+            h = QUITAR_META.sub("", h)
+            h = re.sub(r'(<meta name="viewport"[^>]*>\n)', lambda m: m.group(1) + "<!--marco:csp-->\n<!--marco:meta-->\n", h, count=1)
+            m = QUITAR_REC.search(h)
+            pos = m.start() if m else len(h)
+            h = h[:pos] + "\0" + h[pos:]
+            h = QUITAR_REC.sub("", h).replace("\0", "<!--marco:recursos-->\n")
+            t = h + resto
+        if rel != DESCARGABLE:
+            t = re.sub(r'<header class="cabecera">.*?</header>', "<!--marco:cabecera-->", t, count=1, flags=re.S)
+    t = re.sub(r'<footer class="pie">.*?</footer>', "<!--marco:pie-->", t, flags=re.S)
+    return VERSION.sub(r'\1"', t)
 
 
 def huella(p):
     """Número derivado del contenido. read_text unifica los saltos de línea: da igual en Windows y en el CI."""
-    return str(int(hashlib.sha256(leer(p).encode()).hexdigest(), 16) % 10**8)
+    return str(int(hashlib.sha256(p.read_text(encoding="utf-8").encode()).hexdigest(), 16) % 10**8)
 
 
-def versionar(t, base):
+def versionar(t, base, raiz):
     def rep(m):
         ruta = m.group(2)
-        p = RAIZ / ruta.lstrip("/") if ruta.startswith("/") else base / ruta
+        p = raiz / ruta.lstrip("/") if ruta.startswith("/") else base / ruta
         return f'{m.group(1)}{ruta}?v={huella(p)}"' if p.is_file() else m.group(0)
     return re.sub(r'((?:src|href)=")([^":?#]+\.(?:css|js))(?:\?v=\w+)?"', rep, t)
 
 
-def paginas():
-    for p in sorted(RAIZ.rglob("*.html")):
-        rel = p.relative_to(RAIZ).as_posix()
-        if not rel.startswith(("prueba/", ".")):
+def paginas(raiz):
+    for p in sorted(raiz.rglob("*.html")):
+        rel = p.relative_to(raiz).as_posix()
+        if not rel.startswith(("prueba/", ".", "dist/")):
             yield p, rel
 
 
-def main():
-    # Primero lo que entra en las huellas: marco.js y la carga diferida de app.js.
+def escribir(p, t):
+    p.write_text(t, encoding="utf-8", newline="\n")
+
+
+def construir(salida):
+    """Copia el repo a `salida` sin lo que no se publica, escribe marco.js y expande las marcas."""
+    if salida.exists():
+        shutil.rmtree(salida)
+    shutil.copytree(RAIZ, salida, ignore=lambda d, nombres: [n for n in nombres if n in NO_PUBLICAR and Path(d) == RAIZ])
     publico = {k: S[k] for k in ("pantallas", "tabs", "tabs_ocultas", "menu", "barra_celular", "simuladores")}
     publico["escribir"] = S["pie"]["escribir"]
-    escribir(RAIZ / "marco.js", "// Lo escribe tools/armar.py desde marco/sitio.json: no editar a mano.\nconst MARCO = "
+    escribir(salida / "marco.js", "// Lo escribe tools/armar.py desde marco/sitio.json: no editar a mano.\nconst MARCO = "
              + json.dumps(publico, ensure_ascii=False, separators=(",", ":")) + ";\n")
-    app = (RAIZ / "app.js").read_text(encoding="utf-8")
-    escribir(RAIZ / "app.js", re.sub(r"mapa-ar\.js\?v=\w+", "mapa-ar.js?v=" + huella(RAIZ / "mapa-ar.js"), app))
+    app = salida / "app.js"
+    escribir(app, re.sub(r"s\.src = 'mapa-ar\.js[^']*'", "s.src = 'mapa-ar.js?v=" + huella(salida / "mapa-ar.js") + "'", app.read_text(encoding="utf-8")))
+    sobran = []
+    for p, rel in paginas(salida):
+        t = expandir(p.read_text(encoding="utf-8"), rel)
+        if "<!--marco:" in t:
+            sobran.append(rel)
+        escribir(p, versionar(t, p.parent, salida))
+    return sobran
 
-    for p, rel in paginas():
-        t = p.read_text(encoding="utf-8")
-        if rel == "index.html":
-            t = re.sub(r'(Content-Security-Policy" content=")[^"]*', lambda m: m.group(1) + S["csp"]["app"], t)
-            t = re.sub(r'<footer class="pie">.*?</footer>', lambda m: pie(app=True), t, flags=re.S)
-        else:
-            if rel != DESCARGABLE:
-                t = cabeza_estatica(t, S["csp"][CSP_PAGINA.get(rel, "estatica")])
-                t = re.sub(r'<header class="cabecera">.*?</header>', lambda m: cabecera(rel), t, count=1, flags=re.S)
-            t = re.sub(r'<footer class="pie">.*?</footer>', lambda m: pie(), t, flags=re.S)
-        escribir(p, versionar(t, p.parent))
 
-    if COMPROBAR:
-        print("\n".join(f"se apartó del marco: {d}" for d in distintos[:20]) or "marco ok")
-        if distintos:
-            print(f"{len(distintos)} archivos. Corré: python tools/armar.py")
-        return 1 if distintos else 0
-    print(f"marco aplicado: {len(distintos)} archivos cambiados")
+def main():
+    args = sys.argv[1:]
+    if "--marcar" in args or "--comprobar" in args:
+        cambian = []
+        for p, rel in paginas(RAIZ):
+            t = p.read_text(encoding="utf-8")
+            nuevo = marcar(t, rel)
+            if nuevo != t:
+                cambian.append(rel)
+                if "--marcar" in args:
+                    escribir(p, nuevo)
+        if "--marcar" in args:
+            print(f"marcadas: {len(cambian)} páginas")
+            return 0
+        print("\n".join(f"trae el marco escrito: {d}" for d in cambian[:20]))
+        if cambian:
+            print(f"{len(cambian)} páginas. Corré: python tools/armar.py --marcar")
+        with tempfile.TemporaryDirectory() as tmp:
+            sobran = construir(Path(tmp) / "sitio")
+        print("\n".join(f"marca sin expandir: {d}" for d in sobran))
+        if not cambian and not sobran:
+            print("marco ok")
+        return 1 if cambian or sobran else 0
+    salida = Path(args[args.index("--salida") + 1]) if "--salida" in args else RAIZ / "dist"
+    sobran = construir(salida.resolve())
+    if sobran:
+        print("marca sin expandir en:", ", ".join(sobran))
+        return 1
+    print(f"sitio armado en {salida}")
     return 0
 
 
