@@ -49,7 +49,7 @@ const espera = async () => { do { await new Promise(r => setImmediate(r)); await
   for (const s of scripts) vm.runInContext(fs.readFileSync(path.join(raiz, s), 'utf8'), ctx, { filename: s });
   await espera();
   const ev = c => vm.runInContext(c, ctx);
-  const rutas = pedidas[0] && pedidas[0][0] === '@' ? fs.readFileSync(pedidas[0].slice(1), 'utf8').split('\n').filter(Boolean) : pedidas;
+  const rutas = pedidas[0] && pedidas[0][0] === '@' ? fs.readFileSync(pedidas[0].slice(1), 'utf8').split(/\r?\n/).filter(Boolean) : pedidas;
   const fuera = {};
   for (const r of rutas) {
     pon(r);
