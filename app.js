@@ -1004,72 +1004,72 @@ function vHorarios() {
   // Con los horarios confirmados, la oferta y los avisos se pliegan en un resumen: queda a la vista solo la semana.
   const listo = h.listo && sel.length > 0;
   const out = [];
-  out.push(`<div class="u-mb10 fila">${D.ofertasMeta.length > 1 ? `<select aria-label="Cuatrimestre" onchange="cambiarOferta(this.value)">${D.ofertasMeta.map(o => `<option value="${o.id}" ${o.id === V.oferta ? 'selected' : ''}>${esc(o.nombre)}</option>`).join('')}</select>` : `<h2>${esc(of.nombre)}</h2>`}
-    <span class="crece"></span>${listo ? '' : '<button class="btn sec ch" onclick="horarioPropio()">＋ Cargar un horario a mano</button>'}</div>`);
+  out.push(`<div class="gl-cab"><h2 class="gl-display">Horarios</h2><span class="gl-crece"></span>${listo ? '' : '<button class="gl-btn gl-btn--sec gl-btn--c" type="button" onclick="horarioPropio()">Cargar un horario a mano</button>'}</div>
+    <div class="gl-flex gl-oferta">${D.ofertasMeta.length > 1 ? `<select class="gl-sel" aria-label="Cuatrimestre" onchange="cambiarOferta(this.value)">${D.ofertasMeta.map(o => `<option value="${o.id}" ${o.id === V.oferta ? 'selected' : ''}>${esc(o.nombre)}</option>`).join('')}</select>` : `<p class="gl-t3 gl-sin-inicial">${esc(of.nombre)}</p>`}</div>`);
   if (listo) out.push(vListo(sel, of));
   else {
-  if (of.nota && !of.comisiones.length) out.push(`<div class="tarjeta chico">${esc(of.nota)}</div>`);
-  if (of.fuente) out.push(`<p class="chico tenue">Oferta publicada por la Facultad${of.actualizado ? ', cargada el ' + fmt(of.actualizado) : ''}. <a href="${urlSegura(of.fuente)}" target="_blank" rel="noopener">Ver la planilla original</a>. Puede haber cambios de último momento.</p>`);
-  if (of.idiomas) out.push(`<p class="chico tenue">Los idiomas (inglés, francés, alemán, italiano y portugués) los publica el Departamento de Lenguas Modernas${of.idiomas.actualizado ? ', cargados el ' + fmt(of.idiomas.actualizado) : ''}. <a href="${urlSegura(of.idiomas.fuente)}" target="_blank" rel="noopener">Ver el blog del Departamento</a>. Se inscriben por SUIGA, en «Otras materias, seminarios e idiomas».</p>`);
+  if (of.nota && !of.comisiones.length) out.push(`<div class="gl-tarjeta gl-chico">${esc(of.nota)}</div>`);
+  if (of.fuente) out.push(`<p class="gl-chico">Oferta publicada por la Facultad${of.actualizado ? ', cargada el ' + fmt(of.actualizado) : ''}. <a href="${urlSegura(of.fuente)}" target="_blank" rel="noopener">Ver la planilla original</a>. Puede haber cambios de último momento.</p>`);
+  if (of.idiomas) out.push(`<p class="gl-chico">Los idiomas (inglés, francés, alemán, italiano y portugués) los publica el Departamento de Lenguas Modernas${of.idiomas.actualizado ? ', cargados el ' + fmt(of.idiomas.actualizado) : ''}. <a href="${urlSegura(of.idiomas.fuente)}" target="_blank" rel="noopener">Ver el blog del Departamento</a>. Se inscriben por SUIGA, en «Otras materias, seminarios e idiomas».</p>`);
 
   // 1. Qué materias.
-  out.push(`<div class="titulo-sec"><h2>1. ¿Qué querés cursar?</h2></div><div class="tarjeta">`);
+  out.push(`<div class="gl-sec"><h2 class="gl-t2 gl-sin-inicial">1. ¿Qué querés cursar?</h2></div><div class="gl-tarjeta">`);
   // Las que ya aprobaste no aparecen, salvo que las pidas o ya las hayas elegido. Los seminarios van aparte, plegados.
   const ocultas = disponibles.filter(id => yaAprobada(id) && h.materias.indexOf(id) < 0);
   const visibles = V.verAprobadas ? disponibles : disponibles.filter(id => ocultas.indexOf(id) < 0);
-  const opcionMat = id => `<label class="elige">
-      <input type="checkbox" data-f="q${esc(id)}" ${h.materias.indexOf(id) >= 0 ? 'checked' : ''} onchange="quieroCursar(${arg(id)},this.checked)">${h.materias.indexOf(id) >= 0 ? `<i class="elige-color" style="background:${colorDe(id)}" aria-hidden="true"></i>` : ''}<span>${esc(nombreMateria(id))}${yaAprobada(id) ? ' <small>(aprobada)</small>' : ''}</span></label>`;
+  const opcionMat = id => `<label class="gl-elige-m">
+      <input type="checkbox" data-f="q${esc(id)}" ${h.materias.indexOf(id) >= 0 ? 'checked' : ''} onchange="quieroCursar(${arg(id)},this.checked)">${h.materias.indexOf(id) >= 0 ? `<i class="gl-ecolor" style="background:${colorDe(id)}" aria-hidden="true"></i>` : ''}<span>${esc(nombreMateria(id))}${yaAprobada(id) ? ' <small>(aprobada)</small>' : ''}</span></label>`;
   const sems = visibles.filter(id => extra(id)), mats = visibles.filter(id => !extra(id));
   const semAbierto = V.verSem || sems.some(id => h.materias.indexOf(id) >= 0);
-  out.push(disponibles.length ? `<div class="eligen">${mats.map(opcionMat).join('')}</div>
-    ${sems.length ? `<details class="sems" ${semAbierto ? 'open' : ''} ontoggle="V.verSem=this.open"><summary>Seminarios y PST <span class="chip">${sems.length}</span></summary><div class="eligen">${sems.map(opcionMat).join('')}</div></details>` : ''}
-    ${ocultas.length ? `<p class="chico tenue u-margin-10px-0-0">${V.verAprobadas ? 'Se muestran también las que ya aprobaste.' : `No muestro ${ocultas.length === 1 ? 'una materia que ya aprobaste' : ocultas.length + ' materias que ya aprobaste'}.`}
-      <button class="enlace" onclick="V.verAprobadas=!V.verAprobadas;render()">${V.verAprobadas ? 'Ocultarlas' : 'Mostrarlas'}</button></p>` : ''}`
-    : '<p class="vacio u-padding-10px">No hay horarios cargados para este cuatrimestre. Cargá los de tus materias con «Cargar un horario a mano».</p>');
+  out.push(disponibles.length ? `<div class="gl-eligen">${mats.map(opcionMat).join('')}</div>
+    ${sems.length ? `<details class="gl-sems" ${semAbierto ? 'open' : ''} ontoggle="V.verSem=this.open"><summary>Seminarios y PST <span class="gl-chip">${sems.length}</span></summary><div class="gl-eligen">${sems.map(opcionMat).join('')}</div></details>` : ''}
+    ${ocultas.length ? `<p class="gl-chico">${V.verAprobadas ? 'Se muestran también las que ya aprobaste.' : `No muestro ${ocultas.length === 1 ? 'una materia que ya aprobaste' : ocultas.length + ' materias que ya aprobaste'}.`}
+      <button class="gl-enlace" onclick="V.verAprobadas=!V.verAprobadas;render()">${V.verAprobadas ? 'Ocultarlas' : 'Mostrarlas'}</button></p>` : ''}`
+    : '<p class="gl-chico">No hay horarios cargados para este cuatrimestre. Cargá los de tus materias con «Cargar un horario a mano».</p>');
   out.push('</div>');
 
   // 2. Comisiones.
   if (h.materias.length) {
-    out.push(`<div class="titulo-sec"><h2>2. Elegí comisiones</h2><span class="u-m0 botones"><button class="btn lin ch" onclick="bloqueo()">＋ Horario en que no puedo</button><button class="btn ch" onclick="sugerir()">✨ Sugerir combinaciones</button></span></div>
-      <p class="u-mb8 chico tenue">Para sugerir, tengo en cuenta los horarios en que no podés${h.bloqueos.length ? ` (cargaste ${h.bloqueos.length})` : ''}. <label class="chico u-white-space-nowrap"><input type="checkbox" class="u-min-height-0" ${h.sinSabado ? 'checked' : ''} onchange="hor().sinSabado=this.checked;guardar();render()"> Evitar sábados</label></p>`);
+    out.push(`<div class="gl-sec"><h2 class="gl-t2 gl-sin-inicial">2. Elegí comisiones</h2><span class="botones"><button class="gl-btn gl-btn--ter gl-btn--c" onclick="bloqueo()">Horario en que no puedo</button><button class="gl-btn gl-btn--c" onclick="sugerir()">Sugerir combinaciones</button></span></div>
+      <p class="gl-chico">Para sugerir, tengo en cuenta los horarios en que no podés${h.bloqueos.length ? ` (cargaste ${h.bloqueos.length})` : ''}. <label class="gl-chico"><input type="checkbox" class="" ${h.sinSabado ? 'checked' : ''} onchange="hor().sinSabado=this.checked;guardar();render()"> Evitar sábados</label></p>`);
     if (V.sugeridas) out.push(vSugeridas());
     Horarios.grupos(h.materias, C).forEach(g => {
       const clave = g.materia + '|' + g.tipo;
-      out.push(`<div class="tarjeta" style="border-left:5px solid ${colorDe(g.materia)}"><b>${esc(nombreMateria(g.materia))}</b> <span class="chip">${esc(g.tipo)}</span>
-        ${g.opciones.map(c => `<label class="comision"><input type="radio" data-f="r${esc(c.id)}" name="${esc(clave)}" ${h.elegidas[clave] === c.id ? 'checked' : ''} onchange="elegirComision(${arg(clave)},${arg(c.id)})">
-          <span class="crece"><b>${esc(c.nombre || 'Única')}</b> · ${c.bloques.map(b => Horarios.DIAS[b.dia] + ' ' + b.desde + '-' + b.hasta).join(' y ')}
-          <span class="chico tenue u-display-block">${[c.docente, c.aula, c.modalidad].filter(Boolean).map(esc).join(' · ')}${c.propia ? ' · cargado por vos' : ''}</span></span>
-          ${c.propia ? `<button class="btn lin ch" onclick="event.preventDefault();borrarPropia(${arg(c.id)})" aria-label="Borrar este horario">✕</button>` : ''}</label>`).join('')}</div>`);
+      out.push(`<div class="gl-tarjeta" style="border-left:5px solid ${colorDe(g.materia)}"><b>${esc(nombreMateria(g.materia))}</b> <span class="gl-chip">${esc(g.tipo)}</span>
+        ${g.opciones.map(c => `<label class="gl-com"><input type="radio" data-f="r${esc(c.id)}" name="${esc(clave)}" ${h.elegidas[clave] === c.id ? 'checked' : ''} onchange="elegirComision(${arg(clave)},${arg(c.id)})">
+          <span class="gl-crece"><b>${esc(c.nombre || 'Única')}</b> · ${c.bloques.map(b => Horarios.DIAS[b.dia] + ' ' + b.desde + '-' + b.hasta).join(' y ')}
+          <span class="gl-chico">${[c.docente, c.aula, c.modalidad].filter(Boolean).map(esc).join(' · ')}${c.propia ? ' · cargado por vos' : ''}</span></span>
+          ${c.propia ? `<button class="gl-btn gl-btn--ter gl-btn--c" onclick="event.preventDefault();borrarPropia(${arg(c.id)})" aria-label="Borrar este horario">Quitar</button>` : ''}</label>`).join('')}</div>`);
     });
-    if (sel.length) out.push(`<div class="fila u-justify-content-flex-end_margin-top-4px"><span class="chico tenue">Se guarda solo. Cuando termines, plegá la oferta y quedate con tu semana.</span>
-      <button class="btn" onclick="horariosListos()">✓ Listo, guardar mis horarios</button></div>`);
+    if (sel.length) out.push(`<div class="gl-flex"><span class="gl-chico">Se guarda solo. Cuando termines, plegá la oferta y quedate con tu semana.</span>
+      <button class="gl-btn" onclick="horariosListos()">Listo, guardar mis horarios</button></div>`);
   }
   }
 
   // 3. La semana.
-  out.push(`<div class="titulo-sec"><h2>${h.materias.length && !listo ? '3. ' : ''}Tu semana</h2>${h.materias.length ? '' : '<button class="btn lin ch" onclick="bloqueo()">＋ Horario en que no puedo</button>'}</div>`);
-  if (ch.length) out.push(`<div class="tarjeta u-border-color-var-mal_background-var-mal-suave"><b>⚠ ${ch.length === 1 ? 'Hay una superposición' : 'Hay ' + ch.length + ' superposiciones'}</b>
-    ${ch.map(x => `<div class="chico">${Horarios.DIAS[x.dia]} ${x.desde}-${x.hasta}: ${esc(siglaMateria(x.a.materia))} (${esc(x.a.tipo)}) con ${esc(siglaMateria(x.b.materia))} (${esc(x.b.tipo)})</div>`).join('')}</div>`);
-  if (r.enBloqueo) out.push(`<div class="tarjeta u-border-color-var-ojo_background-var-ojo-suave"><b>Se pisa con un horario en que no podés</b> (${Math.round(r.enBloqueo / 60 * 10) / 10} h).</div>`);
-  if (sel.length) out.push(`<p class="chico tenue">${r.dias.length} ${r.dias.length === 1 ? 'día' : 'días'} por semana (${r.dias.map(d => Horarios.DIAS[d].toLowerCase()).join(', ')}) · ${Math.round(r.clase / 60 * 10) / 10} h de clase${r.huecos ? ' · ' + Math.round(r.huecos / 60 * 10) / 10 + ' h de huecos' : ''}</p>`);
+  out.push(`<div class="gl-sec"><h2 class="gl-t2 gl-sin-inicial">${h.materias.length && !listo ? '3. ' : ''}Tu semana</h2>${h.materias.length ? '' : '<button class="gl-btn gl-btn--ter gl-btn--c" onclick="bloqueo()">Horario en que no puedo</button>'}</div>`);
+  if (ch.length) out.push(`<div class="gl-aviso" role="alert"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2.5 20h19zM12 10v4.5M12 17.2v.1"/></svg><div><b>${ch.length === 1 ? 'Hay una superposición' : 'Hay ' + ch.length + ' superposiciones'}</b>
+    ${ch.map(x => `<div class="gl-chico">${Horarios.DIAS[x.dia]} ${x.desde}-${x.hasta}: ${esc(siglaMateria(x.a.materia))} (${esc(x.a.tipo)}) con ${esc(siglaMateria(x.b.materia))} (${esc(x.b.tipo)})</div>`).join('')}</div></div>`);
+  if (r.enBloqueo) out.push(`<div class="gl-aviso" role="alert"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2.5 20h19zM12 10v4.5M12 17.2v.1"/></svg><div><b>Se pisa con un horario en que no podés</b> <span class="gl-chico">(${Math.round(r.enBloqueo / 60 * 10) / 10} h)</span></div></div>`);
+  if (sel.length) out.push(`<p class="gl-chico">${r.dias.length} ${r.dias.length === 1 ? 'día' : 'días'} por semana (${r.dias.map(d => Horarios.DIAS[d].toLowerCase()).join(', ')}) · ${Math.round(r.clase / 60 * 10) / 10} h de clase${r.huecos ? ' · ' + Math.round(r.huecos / 60 * 10) / 10 + ' h de huecos' : ''}</p>`);
   out.push(grilla(sel, h.bloqueos, ch) + listaSemana(sel));
   const p = sel.length && periodoDe(V.oferta);
-  if (p) out.push(`<div class="tarjeta fila u-margin-top-12px"><span class="crece chico u-min-width-220px">Llevá estas clases a Google Calendar u otro calendario: se repiten cada semana del ${fmt(p.desde)} al ${fmt(p.hasta)}${feriadosEn(p).length ? ', sin los feriados' : ''}.</span>
-    <button class="btn sec ch" onclick="ayudaCalendario()">📅 Llevar a mi calendario</button></div>`);
-  if (h.materias.length) out.push(`<div class="tarjeta fila u-margin-top-12px"><span class="crece chico u-min-width-220px">Pasale al grupo lo que vas a cursar${sel.length ? ' y tu semana: una imagen para las historias o un link que se abre solo para mirar' : ''}.</span>
-    <button class="btn sec ch" onclick="abrirQueCursar()">💬 Qué voy a cursar</button>${sel.length ? '<button class="btn sec ch" onclick="imagenSemana()">📷 Mi semana en imagen</button><button class="btn sec ch" onclick="linkSemana()">🔗 Link para mirar</button>' : ''}</div>`);
-  if (h.bloqueos.length) out.push(`<p class="chico tenue u-margin-top-8px">No puedo: ${h.bloqueos.map((b, i) => `${esc(b.t || '')} ${Horarios.DIAS[b.dia].toLowerCase()} ${b.desde}-${b.hasta} <button class="enlace" onclick="borrarBloqueo(${i})">quitar</button>`).join(' · ')}</p>`);
-  return out.join('');
+  if (p) out.push(`<div class="gl-tarjeta gl-flex"><span class="gl-crece gl-chico">Llevá estas clases a Google Calendar u otro calendario: se repiten cada semana del ${fmt(p.desde)} al ${fmt(p.hasta)}${feriadosEn(p).length ? ', sin los feriados' : ''}.</span>
+    <button class="gl-btn gl-btn--sec gl-btn--c" onclick="ayudaCalendario()">Llevar a mi calendario</button></div>`);
+  if (h.materias.length) out.push(`<div class="gl-tarjeta gl-flex"><span class="gl-crece gl-chico">Pasale al grupo lo que vas a cursar${sel.length ? ' y tu semana: una imagen para las historias o un link que se abre solo para mirar' : ''}.</span>
+    <button class="gl-btn gl-btn--sec gl-btn--c" onclick="abrirQueCursar()">Qué voy a cursar</button>${sel.length ? '<button class="gl-btn gl-btn--sec gl-btn--c" onclick="imagenSemana()">Mi semana en imagen</button><button class="gl-btn gl-btn--sec gl-btn--c" onclick="linkSemana()">Link para mirar</button>' : ''}</div>`);
+  if (h.bloqueos.length) out.push(`<p class="gl-chico">No puedo: ${h.bloqueos.map((b, i) => `${esc(b.t || '')} ${Horarios.DIAS[b.dia].toLowerCase()} ${b.desde}-${b.hasta} <button class="gl-enlace" onclick="borrarBloqueo(${i})">quitar</button>`).join(' · ')}</p>`);
+  return `<div class="gl-hor">${out.join('')}</div>`;
 }
 function vListo(sel, of) {
   const h = hor(), por = {};
   sel.forEach(c => { (por[c.materia] = por[c.materia] || []).push(c); });
-  return `<div class="tarjeta"><div class="fila"><b>✓ Tus horarios están guardados</b><span class="crece"></span>
-      <button class="btn lin ch" onclick="editarHorarios()">✏️ Cambiar materias o comisiones</button></div>
-    <ul class="resumen-sel">${Object.keys(por).map(m => `<li style="border-left-color:${colorDe(m)}"><b>${esc(nombreMateria(m))}</b>
-      <span class="chico tenue">${por[m].map(c => esc(c.tipo) + (c.nombre ? ' ' + esc(c.nombre) : '')).join(' · ')}</span></li>`).join('')}</ul>
-    ${h.materias.length > Object.keys(por).length ? `<p class="chico u-margin-6px-0-0_color-var-ojo">Hay materias marcadas sin comisión elegida.</p>` : ''}
-    ${of.fuente ? `<p class="u-mt6 chico tenue">Oferta${of.actualizado ? ' del ' + fmt(of.actualizado) : ''}, sujeta a cambios: <a href="${urlSegura(of.fuente)}" target="_blank" rel="noopener">planilla de la Facultad</a>.</p>` : ''}</div>`;
+  return `<div class="gl-tarjeta"><div class="gl-flex"><b>Tus horarios están guardados</b><span class="gl-crece"></span>
+      <button class="gl-btn gl-btn--ter gl-btn--c" onclick="editarHorarios()">Cambiar materias o comisiones</button></div>
+    <ul class="gl-resumen">${Object.keys(por).map(m => `<li style="border-left-color:${colorDe(m)}"><b>${esc(nombreMateria(m))}</b>
+      <span class="gl-chico">${por[m].map(c => esc(c.tipo) + (c.nombre ? ' ' + esc(c.nombre) : '')).join(' · ')}</span></li>`).join('')}</ul>
+    ${h.materias.length > Object.keys(por).length ? `<p class="gl-chico">Hay materias marcadas sin comisión elegida.</p>` : ''}
+    ${of.fuente ? `<p class="gl-chico">Oferta${of.actualizado ? ' del ' + fmt(of.actualizado) : ''}, sujeta a cambios: <a href="${urlSegura(of.fuente)}" target="_blank" rel="noopener">planilla de la Facultad</a>.</p>` : ''}</div>`;
 }
 function horariosListos() {
   const h = hor(), faltan = Horarios.grupos(h.materias, comisiones()).filter(g => !h.elegidas[g.materia + '|' + g.tipo]);
@@ -1080,7 +1080,7 @@ function editarHorarios() { hor().listo = false; guardar(); render(); }
 function listaSemana(sel) {
   const dias = [1, 2, 3, 4, 5, 6].map(d => [d, sel.flatMap(c => c.bloques.filter(b => b.dia === d).map(b => ({ c, b }))).sort((x, y) => x.b.desde < y.b.desde ? -1 : 1)]).filter(x => x[1].length);
   if (!dias.length) return '';
-  return `<ul class="semana">${dias.map(([d, L]) => `<li><b>${Horarios.DIAS[d]}</b>${L.map(({ c, b }) => `<span>${b.desde}-${b.hasta} · ${esc(nombreMateria(c.materia))} (${esc(c.tipo.toLowerCase())}${c.nombre ? ' ' + esc(c.nombre) : ''})${c.aula ? ' · aula ' + esc(c.aula) : c.modalidad ? ' · ' + esc(c.modalidad.toLowerCase()) : ''}</span>`).join('')}</li>`).join('')}</ul>`;
+  return `<ul class="gl-semana">${dias.map(([d, L]) => `<li><b>${Horarios.DIAS[d]}</b>${L.map(({ c, b }) => `<span>${b.desde}-${b.hasta} · ${esc(nombreMateria(c.materia))} (${esc(c.tipo.toLowerCase())}${c.nombre ? ' ' + esc(c.nombre) : ''})${c.aula ? ' · aula ' + esc(c.aula) : c.modalidad ? ' · ' + esc(c.modalidad.toLowerCase()) : ''}</span>`).join('')}</li>`).join('')}</ul>`;
 }
 function grilla(sel, bloqueos, ch) {
   const todos = sel.flatMap(c => c.bloques).concat(bloqueos);
@@ -1089,12 +1089,12 @@ function grilla(sel, bloqueos, ch) {
   const PX = 0.8, alto = (hasta - desde) * PX;
   const enChoque = new Set(ch.flatMap(x => [x.a.id, x.b.id]));
   const horas = []; for (let m = desde; m <= hasta; m += 60) horas.push(m);
-  const col = d => `<div class="col" style="height:${alto}px">${horas.slice(0, -1).map(m => `<div class="linea" style="position:absolute;left:0;right:0;top:${(m - desde) * PX}px"></div>`).join('')}
-    ${bloqueos.filter(b => b.dia === d).map(b => `<div class="bloque bloqueo" style="top:${(Horarios.min(b.desde) - desde) * PX}px;height:${(Horarios.min(b.hasta) - Horarios.min(b.desde)) * PX}px">${esc(b.t || 'No puedo')}</div>`).join('')}
-    ${sel.flatMap(c => c.bloques.filter(b => b.dia === d).map(b => `<div class="bloque ${enChoque.has(c.id) ? 'choque' : ''}" title="${esc(nombreMateria(c.materia))} · ${esc(c.tipo)} ${esc(c.nombre || '')}" style="background:${colorDe(c.materia)};top:${(Horarios.min(b.desde) - desde) * PX}px;height:${(Horarios.min(b.hasta) - Horarios.min(b.desde)) * PX}px">
+  const col = d => `<div class="gl-scol" style="height:${alto}px">${horas.slice(0, -1).map(m => `<div class="gl-sln" style="position:absolute;left:0;right:0;top:${(m - desde) * PX}px"></div>`).join('')}
+    ${bloqueos.filter(b => b.dia === d).map(b => `<div class="gl-bq gl-bq--bloq" style="top:${(Horarios.min(b.desde) - desde) * PX}px;height:${(Horarios.min(b.hasta) - Horarios.min(b.desde)) * PX}px">${esc(b.t || 'No puedo')}</div>`).join('')}
+    ${sel.flatMap(c => c.bloques.filter(b => b.dia === d).map(b => `<div class="gl-bq ${enChoque.has(c.id) ? 'gl-bq--choque' : ''}" title="${esc(nombreMateria(c.materia))} · ${esc(c.tipo)} ${esc(c.nombre || '')}" style="background:${colorDe(c.materia)};top:${(Horarios.min(b.desde) - desde) * PX}px;height:${(Horarios.min(b.hasta) - Horarios.min(b.desde)) * PX}px">
       <b>${esc(siglaMateria(c.materia))}</b>${esc(c.tipo)}<br>${b.desde}-${b.hasta}${c.aula ? '<br>' + esc(c.aula) : ''}</div>`)).join('')}</div>`;
-  return `<div class="grilla" aria-hidden="true"><div class="dia"></div>${[1, 2, 3, 4, 5, 6].map(d => `<div class="dia">${Horarios.DIAS[d]}</div>`).join('')}
-    <div style="height:${alto}px;position:relative">${horas.map(m => `<div class="hora" style="position:absolute;right:0;top:${(m - desde) * PX}px">${Horarios.hhmm(m)}</div>`).join('')}</div>
+  return `<div class="gl-sem" aria-hidden="true"><div class="gl-sdia"></div>${[1, 2, 3, 4, 5, 6].map(d => `<div class="gl-sdia">${Horarios.DIAS[d]}</div>`).join('')}
+    <div style="height:${alto}px;position:relative">${horas.map(m => `<div class="gl-shora" style="position:absolute;right:0;top:${(m - desde) * PX}px">${Horarios.hhmm(m)}</div>`).join('')}</div>
     ${[1, 2, 3, 4, 5, 6].map(col).join('')}</div>`;
 }
 async function cambiarOferta(id) {
@@ -1114,30 +1114,30 @@ function sugerir() {
 }
 function vSugeridas() {
   const s = V.sugeridas, h = hor();
-  if (!s.combinaciones.length) return '<div class="tarjeta">No hay comisiones para combinar.</div>';
-  return `<div class="tarjeta"><div class="fila"><b class="crece">Las mejores combinaciones</b>
-    <label class="chico"><input type="checkbox" class="u-min-height-0" ${h.sinSabado ? 'checked' : ''} onchange="hor().sinSabado=this.checked;guardar();sugerir()"> Evitar sábados</label>
-    <button class="btn lin ch" onclick="V.sugeridas=null;render()">Cerrar</button></div>
-    <p class="chico tenue u-margin-4px-0-10px">${s.recortado ? 'Revisé una parte de las' : 'Revisé las'} ${s.total.toLocaleString('es-AR')} combinaciones posibles${s.sinChoques ? ' y me quedé con las que no tienen superposiciones' : '; ninguna está libre de superposiciones'}. Primero evito superposiciones, después tus horarios ocupados, y después busco menos días y menos huecos.</p>
-    ${s.combinaciones.map((c, i) => `<div class="sugerencia ${i === 0 && !c.choques.length ? 'mejor' : ''}"><div class="fila"><span class="crece">
-      ${c.choques.length ? `<span class="chip mal">${c.choques.length} superposición${c.choques.length > 1 ? 'es' : ''}</span>` : '<span class="chip ok">Sin superposiciones</span>'}
-      ${c.resumen.enBloqueo ? '<span class="chip ojo">pisa un horario ocupado</span>' : ''}
-      <span class="chip">${c.resumen.dias.length} días</span> <span class="chip">${Math.round(c.resumen.huecos / 60 * 10) / 10} h de huecos</span>
-      <span class="chico tenue u-display-block_margin-top-4px">${c.comisiones.map(x => esc(siglaMateria(x.materia)) + ' ' + esc(x.tipo.slice(0, 1)) + (x.nombre ? ' ' + esc(x.nombre) : '') + ': ' + x.bloques.map(b => Horarios.DIAS[b.dia].slice(0, 2) + ' ' + b.desde).join('+')).join(' · ')}</span></span>
-      <button class="btn ch" onclick="usarSugerida(${i})">Usar esta</button></div></div>`).join('')}</div>`;
+  if (!s.combinaciones.length) return '<div class="gl-tarjeta">No hay comisiones para combinar.</div>';
+  return `<div class="gl-tarjeta"><div class="gl-flex"><b class="gl-crece">Las mejores combinaciones</b>
+    <label class="gl-chico"><input type="checkbox" class="" ${h.sinSabado ? 'checked' : ''} onchange="hor().sinSabado=this.checked;guardar();sugerir()"> Evitar sábados</label>
+    <button class="gl-btn gl-btn--ter gl-btn--c" onclick="V.sugeridas=null;render()">Cerrar</button></div>
+    <p class="gl-chico">${s.recortado ? 'Revisé una parte de las' : 'Revisé las'} ${s.total.toLocaleString('es-AR')} combinaciones posibles${s.sinChoques ? ' y me quedé con las que no tienen superposiciones' : '; ninguna está libre de superposiciones'}. Primero evito superposiciones, después tus horarios ocupados, y después busco menos días y menos huecos.</p>
+    ${s.combinaciones.map((c, i) => `<div class="gl-sug ${i === 0 && !c.choques.length ? 'gl-sug--mejor' : ''}"><div class="gl-flex"><span class="gl-crece">
+      ${c.choques.length ? `<span class="gl-chip gl-chip--mal">${c.choques.length} superposición${c.choques.length > 1 ? 'es' : ''}</span>` : '<span class="gl-chip gl-chip--ok">Sin superposiciones</span>'}
+      ${c.resumen.enBloqueo ? '<span class="gl-chip gl-chip--aviso">pisa un horario ocupado</span>' : ''}
+      <span class="gl-chip">${c.resumen.dias.length} días</span> <span class="gl-chip">${Math.round(c.resumen.huecos / 60 * 10) / 10} h de huecos</span>
+      <span class="gl-chico">${c.comisiones.map(x => esc(siglaMateria(x.materia)) + ' ' + esc(x.tipo.slice(0, 1)) + (x.nombre ? ' ' + esc(x.nombre) : '') + ': ' + x.bloques.map(b => Horarios.DIAS[b.dia].slice(0, 2) + ' ' + b.desde).join('+')).join(' · ')}</span></span>
+      <button class="gl-btn gl-btn--c" onclick="usarSugerida(${i})">Usar esta</button></div></div>`).join('')}</div>`;
 }
 function usarSugerida(i) { const h = hor(); V.sugeridas.combinaciones[i].comisiones.forEach(c => { h.elegidas[c.materia + '|' + c.tipo] = c.id; }); V.sugeridas = null; guardar(); render(); aviso('Combinación aplicada'); }
 const opcionesDia = d => [1, 2, 3, 4, 5, 6].map(n => `<option value="${n}" ${n === d ? 'selected' : ''}>${Horarios.DIAS[n]}</option>`).join('');
 function horarioPropio() {
   const planOps = D.plan.materias.flatMap(m => m.opciones && m.opciones.some(o => o.codigo) ? m.opciones.filter(o => o.codigo).map(o => [o.id, o.nombre]) : [[m.id, m.nombre]]);
-  abrir(cab('Cargar un horario') + `<label class="c">Materia</label><select id="h-m" class="u-w100">${planOps.map(([id, n]) => `<option value="${id}">${esc(n)}</option>`).join('')}<option value="__otra">Otra (escribila abajo)</option></select>
-    <input id="h-otra" class="u-width-100_margin-top-6px" maxlength="120" aria-label="Nombre de la materia, si no está en la lista" placeholder="Nombre, si no está en la lista">
-    <div class="fila"><div class="crece"><label class="c">Tipo</label><select id="h-t" class="u-w100"><option>Teórico</option><option>Práctico</option><option>Teórico-práctico</option></select></div>
-      <div class="crece"><label class="c">Comisión</label><input id="h-c" maxlength="20" class="u-w100" placeholder="Ej.: 2"></div></div>
-    <div class="fila"><div><label class="c">Día</label><select id="h-d">${opcionesDia(1)}</select></div><div><label class="c">Desde</label><input type="time" id="h-a" value="19:00" step="900"></div><div><label class="c">Hasta</label><input type="time" id="h-b" value="21:00" step="900"></div></div>
-    <div class="fila"><div class="crece"><label class="c">Docente (opcional)</label><input id="h-doc" maxlength="120" class="u-w100"></div><div class="crece"><label class="c">Aula o modalidad (opcional)</label><input id="h-aula" maxlength="60" class="u-w100"></div></div>
-    <p class="chico tenue">Si la comisión cursa dos días, cargala dos veces con el mismo número de comisión: se juntan solas.</p>
-    <div class="botones"><button class="btn" onclick="guardarPropio()">Agregar</button><button class="btn lin" onclick="cerrar()">Cancelar</button></div>`);
+  abrir(cab('Cargar un horario') + `<label class="c">Materia</label><select id="h-m" class="">${planOps.map(([id, n]) => `<option value="${id}">${esc(n)}</option>`).join('')}<option value="__otra">Otra (escribila abajo)</option></select>
+    <input id="h-otra" class="" maxlength="120" aria-label="Nombre de la materia, si no está en la lista" placeholder="Nombre, si no está en la lista">
+    <div class="gl-flex"><div class="gl-crece"><label class="c">Tipo</label><select id="h-t" class=""><option>Teórico</option><option>Práctico</option><option>Teórico-práctico</option></select></div>
+      <div class="gl-crece"><label class="c">Comisión</label><input id="h-c" maxlength="20" class="" placeholder="Ej.: 2"></div></div>
+    <div class="gl-flex"><div><label class="c">Día</label><select id="h-d">${opcionesDia(1)}</select></div><div><label class="c">Desde</label><input type="time" id="h-a" value="19:00" step="900"></div><div><label class="c">Hasta</label><input type="time" id="h-b" value="21:00" step="900"></div></div>
+    <div class="gl-flex"><div class="gl-crece"><label class="c">Docente (opcional)</label><input id="h-doc" maxlength="120" class=""></div><div class="gl-crece"><label class="c">Aula o modalidad (opcional)</label><input id="h-aula" maxlength="60" class=""></div></div>
+    <p class="gl-chico">Si la comisión cursa dos días, cargala dos veces con el mismo número de comisión: se juntan solas.</p>
+    <div class="botones"><button class="gl-btn" onclick="guardarPropio()">Agregar</button><button class="gl-btn gl-btn--ter" onclick="cerrar()">Cancelar</button></div>`);
 }
 function guardarPropio() {
   const a = val('h-a'), b = val('h-b');
@@ -1155,11 +1155,11 @@ function guardarPropio() {
 }
 function borrarPropia(id) { const h = hor(); h.propias = h.propias.filter(c => c.id !== id); Object.keys(h.elegidas).forEach(k => { if (h.elegidas[k] === id) delete h.elegidas[k]; }); guardar(); render(); }
 function bloqueo() {
-  abrir(cab('Horario en que no puedo') + `<p class="u-mt0 chico tenue">Trabajo, otra cursada, lo que sea. Se tiene en cuenta al sugerir combinaciones.</p>
-    <label class="c">Qué es (opcional)</label><input id="b-t" maxlength="40" class="u-w100" placeholder="Trabajo">
-    <div class="fila"><div><label class="c">Día</label><select id="b-d"><option value="0">Lunes a viernes</option>${opcionesDia(0)}</select></div>
+  abrir(cab('Horario en que no puedo') + `<p class="gl-chico">Trabajo, otra cursada, lo que sea. Se tiene en cuenta al sugerir combinaciones.</p>
+    <label class="c">Qué es (opcional)</label><input id="b-t" maxlength="40" class="" placeholder="Trabajo">
+    <div class="gl-flex"><div><label class="c">Día</label><select id="b-d"><option value="0">Lunes a viernes</option>${opcionesDia(0)}</select></div>
       <div><label class="c">Desde</label><input type="time" id="b-a" value="09:00" step="900"></div><div><label class="c">Hasta</label><input type="time" id="b-b" value="18:00" step="900"></div></div>
-    <div class="botones"><button class="btn" onclick="guardarBloqueo()">Agregar</button><button class="btn lin" onclick="cerrar()">Cancelar</button></div>`);
+    <div class="botones"><button class="gl-btn" onclick="guardarBloqueo()">Agregar</button><button class="gl-btn gl-btn--ter" onclick="cerrar()">Cancelar</button></div>`);
 }
 function guardarBloqueo() {
   const a = val('b-a'), b = val('b-b'), d = Number(val('b-d'));
@@ -1175,7 +1175,9 @@ function borrarBloqueo(i) { hor().bloqueos.splice(i, 1); V.sugeridas = null; gua
 function misFechas() {
   return D.plan.materias.flatMap(m => ((E.materias[m.id] || {}).examenes || []).filter(x => x.fecha).map(x => ({ t: x.tipo + ' de ' + nombreDe(m) + (x.detalle ? ' (' + x.detalle + ')' : ''), tipo: 'mio', desde: x.fecha, hasta: x.fecha, hora: x.hora, materia: m.id })));
 }
-function vCalendario() {
+function calCab(extra) { return `<div class="gl-cab"><h2 class="gl-display">Calendario</h2><span class="gl-crece"></span>${extra || ''}</div>`; }
+function vCalendario() { return `<div class="gl-calx">${vCalendarioIn()}</div>`; }
+function vCalendarioIn() {
   const c = D.calendario, t = hoy();
   // De las mesas publicadas, al calendario van solo las de las materias que tenés regulares o en curso.
   const mias = D.plan.materias.filter(m => ['regular', 'cursando'].indexOf((E.materias[m.id] || {}).estado) >= 0)
@@ -1187,31 +1189,31 @@ function vCalendario() {
   const visibles = todos.filter(e => filtro === 'todo' || (filtro === 'mias') === (MIO.indexOf(e.tipo) >= 0));
   const futuros = visibles.filter(e => e.hasta >= t), pasados = visibles.filter(e => e.hasta < t);
   const periodo = c.periodos.find(p => p.desde <= t && p.hasta >= t);
-  const chip = { examen: ['mal', 'Exámenes'], inscripcion: ['tin', 'Inscripción'], cursada: ['ok', 'Cursada'], tramite: ['ojo', 'Trámite'], info: ['', 'Info'], mio: ['mos', 'Tuyo'], mesa: ['mal', 'Mesa'], feriado: ['ojo', 'Feriado'], repaso: ['tin', 'Repaso'], especial: ['ojo', 'Feriado'] };
-  const turnos = D.mesas.map(tn => `<details class="tarjeta"><summary class="u-cursor-pointer"><b>Mesas de examen: ${esc(tn.nombre)}</b> <span class="chico tenue">(${tn.mesas.length}, cargadas el ${fmt(tn.actualizado)})</span></summary>
-    <p class="chico tenue">${esc(tn.nota)} <a href="${urlSegura(tn.fuente)}" target="_blank" rel="noopener">Ver la planilla de la Facultad</a>.</p>
-    ${tn.mesas.map(x => `<div class="evento"><div class="cuando">${fmt(x.fecha)}</div><div class="crece">${esc(x.nombre)}<span class="chico tenue u-display-block">${[x.hora && x.hora + ' h', x.aula && 'aula ' + x.aula, x.llamado].filter(Boolean).map(esc).join(' · ')}</span></div></div>`).join('')}</details>`).join('');
-  const fila = e => { const enCurso = e.desde <= t && e.hasta >= t; return `<div class="evento ${enCurso ? 'hoy' : ''} ${e.hasta < t ? 'pasado' : ''}"><div class="cuando">${fmtRango(e.desde, e.hasta)}</div>
-    <div class="crece">${e.res ? `${esc(e.t)}: <button class="enlace" onclick="empezarPractica(${arg(e.res)})">practicar ${RONDA} preguntas</button>` : e.materia ? `<button class="enlace" onclick="abrirMateria(${arg(e.materia)})">${esc(e.t)}</button>` : esc(e.t)}${e.hora ? ' · ' + esc(e.hora) + ' h' : ''}${enCurso && e.desde !== e.hasta ? ' <span class="chico tenue">(en curso)</span>' : ''}</div>
-    <span class="chip ${(chip[e.tipo] || chip.info)[0]}">${(chip[e.tipo] || chip.info)[1]}</span></div>`; };
+  const chip = { examen: ['gl-chip--mal', 'Exámenes'], inscripcion: ['', 'Inscripción'], cursada: ['gl-chip--ok', 'Cursada'], tramite: ['gl-chip--aviso', 'Trámite'], info: ['gl-chip--neutro', 'Info'], mio: ['gl-chip--aviso', 'Tuyo'], mesa: ['gl-chip--mal', 'Mesa'], feriado: ['gl-chip--aviso', 'Feriado'], repaso: ['', 'Repaso'], especial: ['gl-chip--aviso', 'Feriado'] };
+  const turnos = D.mesas.map(tn => `<details class="gl-tarjeta"><summary class=""><b>Mesas de examen: ${esc(tn.nombre)}</b> <span class="gl-chico">(${tn.mesas.length}, cargadas el ${fmt(tn.actualizado)})</span></summary>
+    <p class="gl-chico">${esc(tn.nota)} <a href="${urlSegura(tn.fuente)}" target="_blank" rel="noopener">Ver la planilla de la Facultad</a>.</p>
+    ${tn.mesas.map(x => `<div class="gl-ev"><div class="gl-cuando">${fmt(x.fecha)}</div><div class="gl-crece">${esc(x.nombre)}<span class="gl-chico">${[x.hora && x.hora + ' h', x.aula && 'aula ' + x.aula, x.llamado].filter(Boolean).map(esc).join(' · ')}</span></div></div>`).join('')}</details>`).join('');
+  const fila = e => { const enCurso = e.desde <= t && e.hasta >= t; return `<div class="gl-ev ${enCurso ? 'hoy' : ''} ${e.hasta < t ? 'gl-pasado' : ''}"><div class="gl-cuando">${fmtRango(e.desde, e.hasta)}</div>
+    <div class="gl-crece">${e.res ? `${esc(e.t)}: <button class="gl-enlace" onclick="empezarPractica(${arg(e.res)})">practicar ${RONDA} preguntas</button>` : e.materia ? `<button class="gl-enlace" onclick="abrirMateria(${arg(e.materia)})">${esc(e.t)}</button>` : esc(e.t)}${e.hora ? ' · ' + esc(e.hora) + ' h' : ''}${enCurso && e.desde !== e.hasta ? ' <span class="gl-chico">(en curso)</span>' : ''}</div>
+    <span class="gl-chip ${(chip[e.tipo] || chip.info)[0]}">${(chip[e.tipo] || chip.info)[1]}</span></div>`; };
   let semana = '';
-  if (periodo) { const n = Math.floor((fecha(t) - fecha(periodo.desde)) / 6048e5) + 1, tot = Math.ceil((fecha(periodo.hasta) - fecha(periodo.desde)) / 6048e5); semana = `<div class="tarjeta"><b>${esc(periodo.nombre)}</b>: semana ${n} de ${tot}<div class="barra"><i style="width:${Math.round(n * 100 / tot)}%;background:var(--tinta)"></i></div></div>`; }
+  if (periodo) { const n = Math.floor((fecha(t) - fecha(periodo.desde)) / 6048e5) + 1, tot = Math.ceil((fecha(periodo.hasta) - fecha(periodo.desde)) / 6048e5); semana = `<div class="gl-tarjeta"><p class="gl-cuerpo"><b>${esc(periodo.nombre)}</b>: semana ${n} de ${tot}</p><div class="gl-barra-p"><i style="width:${Math.round(n * 100 / tot)}%;background:var(--tinta)"></i></div></div>`; }
   if ((V.calVista || 'mes') === 'mes') return calMes(todos, t, semana, turnos);
-  return `${semana}<div class="titulo-sec"><h2>Lo que viene</h2><span class="fila">${V.oferta && E.horarios[V.oferta] && elegidas().length && periodoDe(V.oferta) ? '<button class="btn sec ch" onclick="ayudaCalendario()">📅 Llevar mi cursada al calendario</button>' : ''}${misFechas().length ? '<button class="btn sec ch" onclick="exportarIcs()">Llevar mis fechas al calendario (.ics)</button>' : ''}</span></div>
-    <div class="u-mb10 fila">${calVistaSeg()}<div class="seg" role="group" aria-label="Qué fechas ver">${[['todo', 'Todo'], ['mias', 'Mis fechas'], ['oficial', 'Oficial']].map(([k, n]) => `<button class="${filtro === k ? 'on' : ''}" aria-pressed="${filtro === k}" onclick="V.calFiltro=${arg(k)};render()">${n}</button>`).join('')}</div>
-      <span class="crece"></span><button class="btn lin ch" onclick="ir(${arg('links')})">Cómo inscribirse y trámites</button></div>
-    <p class="chico tenue u-margin-4px-0-8px">Calendario académico ${c.anio} de la Facultad más tus parciales y finales (se cargan desde cada materia, en Mi carrera). ${esc(c.nota)}
+  return `${calCab()}${semana}<div class="gl-sec"><h2 class="gl-t2 gl-sin-inicial">Lo que viene</h2><span class="gl-flex">${V.oferta && E.horarios[V.oferta] && elegidas().length && periodoDe(V.oferta) ? '<button class="gl-btn gl-btn--sec gl-btn--c" onclick="ayudaCalendario()">Llevar mi cursada al calendario</button>' : ''}${misFechas().length ? '<button class="gl-btn gl-btn--sec gl-btn--c" onclick="exportarIcs()">Llevar mis fechas al calendario (.ics)</button>' : ''}</span></div>
+    <div class="gl-flex">${calVistaSeg()}<div class="gl-seg" role="group" aria-label="Qué fechas ver">${[['todo', 'Todo'], ['mias', 'Mis fechas'], ['oficial', 'Oficial']].map(([k, n]) => `<button class="${filtro === k ? 'on' : ''}" aria-pressed="${filtro === k}" onclick="V.calFiltro=${arg(k)};render()">${n}</button>`).join('')}</div>
+      <span class="gl-crece"></span><button class="gl-btn gl-btn--ter gl-btn--c" onclick="ir(${arg('links')})">Cómo inscribirse y trámites</button></div>
+    <p class="gl-chico">Calendario académico ${c.anio} de la Facultad más tus parciales y finales (se cargan desde cada materia, en Mi carrera). ${esc(c.nota)}
       ${repasos().length ? 'Antes de cada parcial o final de una materia con resumen, te sugiero tres repasos cortos: una semana, tres días y un día antes.' : ''}</p>
-    <div class="tarjeta u-padding-6px-16px">${futuros.map(fila).join('') || '<p class="vacio">' + (filtro === 'mias' ? 'Todavía no cargaste fechas propias: se suman desde cada materia, en Mi carrera.' : 'No queda nada en el calendario de este año.') + '</p>'}</div>
+    <div class="gl-tarjeta">${futuros.map(fila).join('') || '<p class="gl-chico">' + (filtro === 'mias' ? 'Todavía no cargaste fechas propias: se suman desde cada materia, en Mi carrera.' : 'No queda nada en el calendario de este año.') + '</p>'}</div>
     ${turnos}
-    ${pasados.length ? `<button class="btn lin ch" onclick="V.verPasados=!V.verPasados;render()">${V.verPasados ? 'Ocultar' : 'Ver'} lo que ya pasó (${pasados.length})</button>${V.verPasados ? `<div class="tarjeta u-padding-6px-16px_margin-top-10px">${pasados.map(fila).join('')}</div>` : ''}` : ''}
-    ${c.consultado ? `<p class="chico tenue verificado">✓ Calendario cotejado con la <a href="${urlSegura(c.fuente.url)}" target="_blank" rel="noopener">Secretaría Académica</a> el ${fmt(c.consultado)}. Los feriados salen de argentina.gob.ar y se actualizan solos (incluye los de la Ciudad, donde está la Facultad).</p>` : ''}`;
+    ${pasados.length ? `<button class="gl-btn gl-btn--ter gl-btn--c" onclick="V.verPasados=!V.verPasados;render()">${V.verPasados ? 'Ocultar' : 'Ver'} lo que ya pasó (${pasados.length})</button>${V.verPasados ? `<div class="gl-tarjeta">${pasados.map(fila).join('')}</div>` : ''}` : ''}
+    ${c.consultado ? `<p class="gl-chico">Calendario cotejado con la <a href="${urlSegura(c.fuente.url)}" target="_blank" rel="noopener">Secretaría Académica</a> el ${fmt(c.consultado)}. Los feriados salen de argentina.gob.ar y se actualizan solos (incluye los de la Ciudad, donde está la Facultad).</p>` : ''}`;
 }
 // Calendario en vista de mes (lienzo): filtros por tipo a un costado, cuadrícula y «Lo que viene» en la columna derecha.
 const CAL_GRUPOS = [['fechas', 'Parciales e inscripciones', ['inscripcion', 'cursada', 'tramite', 'info', 'mio', 'repaso']], ['mesas', 'Mesas de examen', ['mesa', 'examen']], ['feriados', 'Feriados', ['feriado', 'especial']]];
 const calGrupo = tipo => (CAL_GRUPOS.find(g => g[2].indexOf(tipo) >= 0) || CAL_GRUPOS[0])[0];
 const calMarca = tipo => ({ mesas: 'r', feriados: 's' })[calGrupo(tipo)] || '';
-function calVistaSeg() { const v = V.calVista || 'mes'; return `<div class="seg" role="group" aria-label="Vista">${[['mes', 'Mes'], ['lista', 'Lista']].map(([k, n]) => `<button type="button" class="${v === k ? 'on' : ''}" aria-pressed="${v === k}" onclick="V.calVista=${arg(k)};render()">${n}</button>`).join('')}</div>`; }
+function calVistaSeg() { const v = V.calVista || 'mes'; return `<div class="gl-seg" role="group" aria-label="Vista">${[['mes', 'Mes'], ['lista', 'Lista']].map(([k, n]) => `<button type="button" class="${v === k ? 'on' : ''}" aria-pressed="${v === k}" onclick="V.calVista=${arg(k)};render()">${n}</button>`).join('')}</div>`; }
 function calMover(d) {
   const [y, m] = (V.calMes || hoy().slice(0, 7)).split('-').map(Number), n = new Date(y, m - 1 + d, 1);
   V.calMes = iso(n).slice(0, 7); render();
@@ -1225,26 +1227,26 @@ function calMes(todos, t, previo, turnos) {
   vis.forEach(e => { [e.desde, e.hasta].filter((x, i, a) => a.indexOf(x) === i).forEach(d => { (porDia[d] = porDia[d] || []).push(e); }); });
   const primero = new Date(y, m - 1, 1), vacios = (primero.getDay() + 6) % 7, dias = new Date(y, m, 0).getDate();
   const celdas = [];
-  for (let i = 0; i < vacios; i++) celdas.push('<div class="cal-cel vacia" aria-hidden="true"></div>');
+  for (let i = 0; i < vacios; i++) celdas.push('<div class="gl-cal-cel vacia" aria-hidden="true"></div>');
   for (let d = 1; d <= dias; d++) {
     const k = mes + '-' + String(d).padStart(2, '0'), ev = porDia[k] || [];
-    celdas.push(`<div class="cal-cel ${k === t ? 'hoy' : ''}"><b>${d}</b>${ev.slice(0, 3).map(e => `<span class="cal-ev"><i class="cal-pt ${calMarca(e.tipo)}" aria-hidden="true"></i><span>${esc(e.t)}</span></span>`).join('')}${ev.length > 3 ? `<span class="chico tenue">+${ev.length - 3} más</span>` : ''}</div>`);
+    celdas.push(`<div class="gl-cal-cel ${k === t ? 'hoy' : ''}"><b>${d}</b>${ev.slice(0, 3).map(e => `<span class="gl-cal-ev"><i class="gl-cal-pt ${calMarca(e.tipo)}" aria-hidden="true"></i><span>${esc(e.t)}</span></span>`).join('')}${ev.length > 3 ? `<span class="gl-chico">+${ev.length - 3} más</span>` : ''}</div>`);
   }
   const prox = vis.filter(e => e.hasta >= t).slice(0, 5);
-  const opc = (g, n) => { const on = ocultos.indexOf(g) < 0; return `<button type="button" class="cal-opt ${on ? 'on' : ''}" aria-pressed="${on}" onclick="calAlternar(${arg(g)})"><i class="cal-ck ${on ? 'on' : ''}" aria-hidden="true"></i>${n}</button>`; };
-  const ag = e => { const d = fecha(e.desde); return `<div class="cal-ag"><div class="cal-fe"><b>${d.getDate()}</b>${MESES[d.getMonth()].toUpperCase()}</div><div><span>${esc(e.t)}</span><span class="chico tenue u-display-block">${[e.hasta !== e.desde && 'hasta el ' + fmt(e.hasta), e.hora && e.hora + ' h'].filter(Boolean).join(' · ') || ({ mesas: 'Mesa de examen', feriados: 'Feriado' })[calGrupo(e.tipo)] || 'Fecha'}</span></div></div>`; };
-  const ref = (c, n) => `<span class="fila"><i class="cal-pt ${c}" aria-hidden="true"></i>${n}</span>`;
-  return `${previo}<div class="titulo-sec"><h2>Calendario</h2><span class="fila">${V.oferta && E.horarios[V.oferta] && elegidas().length && periodoDe(V.oferta) ? '<button class="btn sec ch" onclick="ayudaCalendario()">📅 Llevar mi cursada al calendario</button>' : ''}</span></div>
-    <p class="chico tenue u-mt0">Calendario académico ${D.calendario.anio} de la Facultad, tus fechas, las mesas de tus materias y los feriados. Los marcadores dicen qué hay cada día.</p>
-    <div class="cal-pag"><aside class="cal-lado" aria-label="Filtros"><div class="nov-rot">Qué mostrar</div>${CAL_GRUPOS.map(g => opc(g[0], g[1])).join('')}
-      <button type="button" class="cal-opt ${soloMias ? 'on' : ''}" aria-pressed="${soloMias}" onclick="V.calFiltro=${arg(soloMias ? 'todo' : 'mias')};render()"><i class="cal-ck ${soloMias ? 'on' : ''}" aria-hidden="true"></i>Solo mis fechas</button>
-      <div class="nov-rot u-margin-top-24px">Referencias</div><div class="cal-ref chico tenue">${ref('', 'Parcial o inscripción')}${ref('r', 'Mesa de examen')}${ref('s', 'Feriado')}</div></aside>
-    <section class="cal-mes" aria-label="Mes"><div class="fila cal-nav">${calVistaSeg()}<span class="crece"></span>
-      <button class="btn sec ch" type="button" aria-label="Mes anterior" onclick="calMover(-1)">‹</button><b class="cal-tit">${MESES_LARGOS[m - 1]} ${y}</b><button class="btn sec ch" type="button" aria-label="Mes siguiente" onclick="calMover(1)">›</button>${mes !== t.slice(0, 7) ? '<button class="btn lin ch" type="button" onclick="V.calMes=null;render()">Hoy</button>' : ''}</div>
-      <div class="cal-grilla" role="grid">${['L', 'M', 'X', 'J', 'V', 'S', 'D'].map(x => `<div class="cal-dia" role="columnheader">${x}</div>`).join('')}${celdas.join('')}</div>
-      <p class="chico tenue">Los feriados salen de argentina.gob.ar.</p></section>
-    <aside class="cal-rail" aria-label="Lo que viene"><div class="nov-rot">Lo que viene</div>${prox.map(ag).join('') || '<p class="vacio">No queda nada con estos filtros.</p>'}
-      <p><button class="btn sec u-w100" onclick="V.calVista=${arg('lista')};render()">Ver todo en lista</button></p></aside></div>${turnos}`;
+  const opc = (g, n) => { const on = ocultos.indexOf(g) < 0; return `<button type="button" class="gl-cal-opt ${on ? 'on' : ''}" aria-pressed="${on}" onclick="calAlternar(${arg(g)})"><i class="gl-cal-ck ${on ? 'on' : ''}" aria-hidden="true"></i>${n}</button>`; };
+  const ag = e => { const d = fecha(e.desde); return `<div class="gl-cal-ag"><div class="gl-cal-fe"><b>${d.getDate()}</b>${MESES[d.getMonth()].toUpperCase()}</div><div><span>${esc(e.t)}</span><span class="gl-chico">${[e.hasta !== e.desde && 'hasta el ' + fmt(e.hasta), e.hora && e.hora + ' h'].filter(Boolean).join(' · ') || ({ mesas: 'Mesa de examen', feriados: 'Feriado' })[calGrupo(e.tipo)] || 'Fecha'}</span></div></div>`; };
+  const ref = (c, n) => `<span class="gl-flex"><i class="gl-cal-pt ${c}" aria-hidden="true"></i>${n}</span>`;
+  return `${calCab(`${V.oferta && E.horarios[V.oferta] && elegidas().length && periodoDe(V.oferta) ? '<button class="gl-btn gl-btn--sec gl-btn--c" onclick="ayudaCalendario()">Llevar mi cursada al calendario</button>' : ''}`)}${previo}
+    <p class="gl-chico">Calendario académico ${D.calendario.anio} de la Facultad, tus fechas, las mesas de tus materias y los feriados. Los marcadores dicen qué hay cada día.</p>
+    <div class="gl-cal-pag"><aside class="gl-cal-lado" aria-label="Filtros"><div class="gl-rotulo">Qué mostrar</div>${CAL_GRUPOS.map(g => opc(g[0], g[1])).join('')}
+      <button type="button" class="gl-cal-opt ${soloMias ? 'on' : ''}" aria-pressed="${soloMias}" onclick="V.calFiltro=${arg(soloMias ? 'todo' : 'mias')};render()"><i class="gl-cal-ck ${soloMias ? 'on' : ''}" aria-hidden="true"></i>Solo mis fechas</button>
+      <div class="gl-rotulo">Referencias</div><div class="gl-cal-ref gl-chico">${ref('', 'Parcial o inscripción')}${ref('r', 'Mesa de examen')}${ref('s', 'Feriado')}</div></aside>
+    <section class="gl-cal-mes" aria-label="Mes"><div class="gl-flex gl-cal-nav">${calVistaSeg()}<span class="gl-crece"></span>
+      <button class="gl-btn gl-btn--sec gl-btn--c" type="button" aria-label="Mes anterior" onclick="calMover(-1)">‹</button><b class="gl-cal-tit">${MESES_LARGOS[m - 1]} ${y}</b><button class="gl-btn gl-btn--sec gl-btn--c" type="button" aria-label="Mes siguiente" onclick="calMover(1)">›</button>${mes !== t.slice(0, 7) ? '<button class="gl-btn gl-btn--ter gl-btn--c" type="button" onclick="V.calMes=null;render()">Hoy</button>' : ''}</div>
+      <div class="gl-cal-grilla" role="grid">${['L', 'M', 'X', 'J', 'V', 'S', 'D'].map(x => `<div class="gl-cal-dia" role="columnheader">${x}</div>`).join('')}${celdas.join('')}</div>
+      <p class="gl-chico">Los feriados salen de argentina.gob.ar.</p></section>
+    <aside class="gl-cal-rail" aria-label="Lo que viene"><div class="gl-rotulo">Lo que viene</div>${prox.map(ag).join('') || '<p class="gl-chico">No queda nada con estos filtros.</p>'}
+      <p><button class="gl-btn gl-btn--sec" onclick="V.calVista=${arg('lista')};render()">Ver todo en lista</button></p></aside></div>${turnos}`;
 }
 function calAlternar(g) { const o = V.calOcultos = V.calOcultos || [], i = o.indexOf(g); if (i >= 0) o.splice(i, 1); else o.push(g); render(); }
 // Repaso espaciado: antes de cada parcial o final de una materia con resumen, tres repasos cortos (7, 3 y 1 día antes).
