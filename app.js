@@ -297,7 +297,7 @@ function precargar() {
   const t = V.tab;
   if (t === 'resumenes') return cargarResumenes().then(() => V.res.apunte ? traerApunte().catch(() => {}) : null);
   if (t === 'biblioteca') return Promise.all([cargarBiblioteca(), cargarBibExtra('sobre', 'libros-sobre-libros.json'), cargarBibExtra('prog', 'libros-programas.json'), V.bib === 'per' ? cargarBibExtra('per', 'periodicas.json') : null]);
-  const f = { glosario: cargarGlosario, directorio: cargarDirectorio, eventos: cargarEventos, sostener: cargarSostener, novedades: cargarNovedades, links: cargarLinksLibro, inicio: cargarNovedades }[t];
+  const f = { simuladores: cargarSimInfo, glosario: cargarGlosario, directorio: cargarDirectorio, eventos: cargarEventos, sostener: cargarSostener, novedades: cargarNovedades, links: cargarLinksLibro, inicio: cargarNovedades }[t];
   return f ? f() : null;
 }
 // Para tools/prerender.js: deja el estado como lo vería alguien sin datos que entra por esa dirección.
@@ -491,11 +491,20 @@ function subnav() {
   const rot = Object.fromEntries(tabsActivas());
   return `<nav class="sn" aria-label="${g[1]}">${g[3].map(id => `<a href="${urlTab(id)}" ${V.tab === id ? 'aria-current="page"' : ''}>${rot[id]}</a>`).join('')}</nav>`;
 }
-const filaMas = (t, onclick, actual, sub) => `<li><button type="button" ${actual ? 'aria-current="page"' : ''} onclick="${onclick}"><span>${t}${sub ? `<small>${sub}</small>` : ''}</span><i aria-hidden="true"></i></button></li>`;
+// Hoja «Más» (lienzo MMas): cada fila con su ícono y una bajada; las acciones personales van abajo, y después la apariencia.
+const MAS_INFO = {
+  biblioteca: ['Libros y manuales para consultar', 'M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3zM9 8h6'], simuladores: ['Calculadoras para las cuentas del libro', ICONO.simuladores], glosario: ['Términos de edición', ICONO.glosario],
+  directorio: ['Editoriales de Argentina', 'M12 21s-6-5.5-6-10a6 6 0 0 1 12 0c0 4.5-6 10-6 10zM12 9v3'], links: ['Sitios y trámites de la carrera', ICONO.links], resumenes: ['Apuntes por materia', ICONO.resumenes],
+  novedades: ['Lo último que se publicó', 'M6 17h12l-1.5-2v-4a4.5 4.5 0 0 0-9 0v4zM10 20h4'], sostener: ['Aportes y cuentas claras', 'M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.6-7 10-7 10z'],
+  config: ['Tus datos y la apariencia', 'M5 7h9M18 7h1M5 17h1M10 17h9M14 5v4M6 15v4'], eventos: ['Ferias y fechas del libro', ICONO.eventos], carrera: ['Tus materias y tu promedio', ICONO.carrera], horarios: ['Armá tu semana', ICONO.horarios], calendario: ['Fechas y mesas', ICONO.calendario] };
+const filaMas = (t, onclick, actual, sub, ico) => `<li><button type="button" ${actual ? 'aria-current="page"' : ''} onclick="${onclick}">${ico ? `<span class="mas-ico">${svgIcono(ico)}</span>` : ''}<span class="mas-t">${t}${sub ? `<small>${sub}</small>` : ''}</span><i aria-hidden="true"></i></button></li>`;
 function abrirMas() {
   const otras = tabsActivas().filter(([id]) => !grupoDe(id));
-  abrir(`${cab('Más')}<ul class="lista-mas">${otras.map(([id, t]) => filaMas(t, `cerrar();ir(${arg(id)})`, V.tab === id)).join('')}</ul>
-    <ul class="lista-mas">${filaMas('Cambiar de perfil', 'cerrar();elegirPerfil()', false, esPro() ? 'Ahora: profesional del libro' : 'Ahora: estudiante')}${filaMas('Tus datos', 'abrirDatos()', false, E.copia ? 'Última: ' + fmt(E.copia) : 'Nunca')}${filaMas('Avisame por mail', 'avisame()', false, 'Los lunes, lo nuevo del sitio')}${filaMas('Avisos de progreso', 'abrirAjustes()')}${filaMas('Compartir esta pantalla', 'compartirPantalla()')}${filaMas('Código QR de esta pantalla', 'abrirQRPantalla()', false, 'Para pegar en una cartelera o un apunte')}${puedeInstalar() ? filaMas('Instalar en el celular', 'instalarApp()', false, 'Se abre como una app, también sin conexión') : ''}${filaMas('Sumá tu resumen', 'sumarApunte()', false, 'Para quien viene detrás; lo reviso antes de publicarlo')}${filaMas('Contame qué falta', 'idea()')}</ul>`, 'mas');
+  let guardado = ''; try { guardado = localStorage.getItem('cursada.tema') || ''; } catch (e) { }
+  const tema = guardado === 'dark' || guardado === 'light' ? guardado : 'auto';
+  abrir(`${cab('Más')}<ul class="lista-mas">${otras.map(([id, t]) => { const [b, ic] = MAS_INFO[id] || []; return filaMas(t, `cerrar();ir(${arg(id)})`, V.tab === id, b, ic); }).join('')}</ul>
+    <ul class="lista-mas">${filaMas('Cambiar de perfil', 'cerrar();elegirPerfil()', false, esPro() ? 'Ahora: profesional del libro' : 'Ahora: estudiante')}${filaMas('Tus datos', 'abrirDatos()', false, E.copia ? 'Última: ' + fmt(E.copia) : 'Nunca')}${filaMas('Avisame por mail', 'avisame()', false, 'Los lunes, lo nuevo del sitio')}${filaMas('Avisos de progreso', 'abrirAjustes()')}${filaMas('Compartir esta pantalla', 'compartirPantalla()')}${filaMas('Código QR de esta pantalla', 'abrirQRPantalla()', false, 'Para pegar en una cartelera o un apunte')}${puedeInstalar() ? filaMas('Instalar en el celular', 'instalarApp()', false, 'Se abre como una app, también sin conexión') : ''}${filaMas('Sumá tu resumen', 'sumarApunte()', false, 'Para quien viene detrás; lo reviso antes de publicarlo')}${filaMas('Contame qué falta', 'idea()')}</ul>
+    <p class="gl-rotulo">Apariencia</p><div class="gl-seg" role="group" aria-label="Apariencia">${[['auto', 'Automática'], ['light', 'Clara'], ['dark', 'Oscura']].map(([k, n]) => `<button type="button" class="${tema === k ? 'on' : ''}" aria-pressed="${tema === k}" onclick="ponerTema(${arg(k)});abrirMas()">${n}</button>`).join('')}</div>`, 'mas');
 }
 // Navegación de escritorio (v70, del design system nuevo): grupos en la cabecera, con su fila de secciones debajo; los mismos grupos arman las columnas del pie.
 // Un grupo con una sola sección lleva directo a ella. En el celular se usa la barra inferior (GRUPOS).
@@ -627,7 +636,7 @@ function repasoDe(mid, a) {
 function chipRepaso(mid, a) {
   if (!juegoOn()) return '';
   const r = repasoDe(mid, a);
-  return r === 'fresco' ? '<span class="chip ok">repaso: fresco</span>' : r ? '<span class="chip tin">repaso: podés repasar</span>' : E.leidos[mid + '/' + a.id] ? '' : '<span class="chico tenue">sin ver</span>';
+  return r === 'fresco' ? ' <span class="gl-chip gl-chip--ok">repaso: fresco</span>' : r ? ' <span class="gl-chip gl-chip--aviso">repaso: podés repasar</span>' : E.leidos[mid + '/' + a.id] ? '' : ' <span class="gl-chip gl-chip--neutro">sin ver</span>';
 }
 // Al volver después de unos días: un solo aviso, sin conteo de días, dentro de Resúmenes (no en la pantalla de inicio).
 function retomar() {
@@ -1421,11 +1430,12 @@ function seccionar(a) {
     let id = slug(html); if (usados[id]) id += '-' + (++usados[id]); else usados[id] = 1;
     const t = sinEtiquetas(html);
     a.secciones.push({ id, t, n: Number(n) });
-    return `<h${n} id="s-${id}">${html}<button class="ancla" onclick="linkSeccion(${arg(id)},${arg(t)})" aria-label="Copiar el link a «${esc(t)}»" title="Copiar el link a esta parte">🔗</button></h${n}>`;
+    return `<h${n} id="s-${id}">${html}<button class="ancla" onclick="linkSeccion(${arg(id)},${arg(t)})" aria-label="Copiar el link a «${esc(t)}»" title="Copiar el link a esta parte">#</button></h${n}>`;
   });
   return a;
 }
-// Todas las materias de grado como tarjetas: arriba las que tienen resumen; abajo, en punteado, las que faltan.
+// Todas las materias de grado como tarjetas: arriba las que tienen resumen; abajo, las que faltan (v114: diseño del lienzo, una sola versión para la app y la página).
+const PLACAS = [['2.2px', '8px'], ['1.8px', '7px'], ['2.6px', '9px']];
 function vResumenes() {
   if (!D.resumenes) { cargarResumenes(); return '<p class="cargando">Cargando los resúmenes…</p>'; }
   if (V.prac) return vPractica();
@@ -1439,55 +1449,67 @@ function vResumenes() {
   // Las que la persona cursa o tiene para final van primero.
   const est = id => (E.materias[id] || {}).estado, suya = id => est(id) === 'cursando' || est(id) === 'regular';
   const primero = L => L.slice().sort((x, y) => suya(y.id) - suya(x.id));
-  const marca = id => est(id) === 'cursando' ? '<span class="chip">la cursás</span>' : est(id) === 'regular' ? '<span class="chip">te falta el final</span>' : '';
-  const cabeza = p => `<span class="fila">${p.sigla ? `<span class="clave">${esc(p.sigla)}</span>` : ''}<span class="crece"></span>${marca(p.id)}</span>`;
-  return retomar() + `<p class="chico tenue">Mis apuntes de cada materia, hechos para estudiar: con preguntas para autoevaluarte y para practicar de a ${RONDA}.</p>
-    <div class="busca-res"><label for="res-q">Buscar en los resúmenes</label>
-      <input id="res-q" maxlength="100" type="search" autocomplete="off" placeholder="gramaje, punto de equilibrio…" aria-label="Buscar en los resúmenes" value="${esc(V.busq)}" onfocus="cargarBusqueda()" oninput="buscarRes(this.value)"></div>
+  const marca = id => est(id) === 'cursando' ? '<span class="gl-chip">la cursás</span>' : est(id) === 'regular' ? '<span class="gl-chip gl-chip--aviso">te falta el final</span>' : '';
+  const nAp = R.materias.reduce((t, r) => t + r.apuntes.length, 0), nPr = R.materias.reduce((t, r) => t + r.apuntes.reduce((s, a) => s + (a.preguntas || 0), 0), 0);
+  const solo = V.resFiltro === 'con', total = R.materias.length + faltan.length;
+  const con = primero(R.materias).map((r, k) => {
+    const preg = r.apuntes.reduce((t, a) => t + (a.preguntas || 0), 0), p = plan(r.id), [d, s] = PLACAS[k % 3];
+    return `<li><div class="gl-tarjeta gl-mat"><div class="placa" style="--d:${d};--s:${s}"></div><div class="cuerpo"><span class="meta gl-num">${esc(p.sigla || r.id)}</span>
+      <h2 class="gl-t3 gl-inicial"><a class="cubre" href="/r/${esc(r.id)}/">${esc(r.nombre)}</a></h2><span class="crece"></span>
+      <span class="etiquetas"><span class="gl-chip">Apuntes</span>${preg ? '<span class="gl-chip">Simulacros</span>' : ''}${marca(r.id)}</span>
+      <span class="meta gl-num">${r.apuntes.length} apuntes${preg ? ` · ${preg} preguntas` : ''}${r.pdfs.length ? ` · ${r.pdfs.length} PDF` : ''}</span>
+      <span class="meta">Para ${esc(r.examen)} · ${r.anio}</span>${avanceLectura(r)}</div></div></li>`;
+  }).join('');
+  const sin = solo ? '' : primero(faltan).map(p => `<li><div class="gl-tarjeta gl-mat gl-mat--vacia"><div class="placa"></div><div class="cuerpo"><span class="meta gl-num">${esc(p.sigla || p.id)}</span>
+      <h2 class="gl-t3 gl-inicial">${esc(p.nombre)}</h2><span class="crece"></span><span class="etiquetas">${marca(p.id)}</span>
+      <span class="meta">Todavía sin resúmenes</span><button class="gl-enlace" type="button" onclick="pedirResumen(${arg(p.id)})">Pedila o compartí tus apuntes</button></div></div></li>`).join('');
+  // Los enlaces a cada apunte, a la vista para quien los busca y para los buscadores.
+  const todos = R.materias.map(r => `<h3 class="gl-t3">${esc(r.nombre)}</h3><ul class="gl-apuntes">${r.apuntes.map(a => `<li><span class="clave">${esc(a.clave)}</span><a href="/r/${esc(r.id)}/${esc(a.id)}.html">${esc(a.t)}</a>
+      <span class="meta gl-num">${a.min} min${a.preguntas ? ' · ' + a.preguntas + ' preguntas' : ''}</span></li>`).join('')}</ul>`).join('');
+  const filtro = (k, t) => `<button type="button" aria-pressed="${solo === (k === 'con')}" onclick="V.resFiltro=${arg(k)};render()">${t}</button>`;
+  return `<div class="gl-v gl-res">${retomar()}<div class="gl-cab"><h1 class="gl-display">Resúmenes</h1><span class="gl-crece"></span><button class="gl-btn" type="button" onclick="sumarApunte()">Sumá tu resumen</button></div>
+    <p class="gl-baja">Apuntes por materia de la carrera de Edición (FFyL, UBA): ${nAp} resúmenes y ${nPr} preguntas para autoevaluarte, con buscador. Son apuntes propios para estudiar: no reemplazan la bibliografía ni las clases.</p>
+    <div class="gl-barra"><label class="gl-busca"><span class="gl-rotulo">Buscar en los resúmenes</span>
+      <input id="res-q" maxlength="100" type="search" autocomplete="off" placeholder="gramaje, punto de equilibrio…" value="${esc(V.busq)}" onfocus="cargarBusqueda()" oninput="buscarRes(this.value)"></label>
+      <div class="gl-filtros" role="group" aria-label="Filtro">${filtro('todos', 'Todas')}${filtro('con', 'Con resúmenes')}</div></div>
     <div id="res-resultados" aria-live="polite">${resultadosRes()}</div>
-    <p class="chico tenue"><a href="r/">Todos los apuntes en versión para leer</a> (sin abrir la app, para compartir o buscar en Google).</p>
     <div id="res-tarjetas" ${V.busq.trim().length >= 3 ? 'hidden' : ''}>
-    <div class="titulo-sec"><h2>Con resumen</h2><span class="chico tenue">${R.materias.length} de ${R.materias.length + faltan.length} materias</span></div>
-    <div class="res-grilla">${primero(R.materias).map(r => {
-      const preg = r.apuntes.reduce((t, a) => t + (a.preguntas || 0), 0);
-      return `<button class="res-mat" onclick="verRes(${arg(r.id)})">${cabeza(plan(r.id))}<b>${esc(r.nombre)}</b>
-        <span class="chico tenue">${r.apuntes.length} apuntes${preg ? ` · ${preg} preguntas` : ''}${r.pdfs.length ? ` · ${r.pdfs.length} PDF` : ''}</span>
-        <span class="chico tenue">Para ${esc(r.examen)} · ${r.anio}</span>${avanceLectura(r)}</button>`;
-    }).join('')}</div>
-    ${faltan.length ? `<div class="titulo-sec"><h2>Todavía sin resumen</h2><span class="chico tenue">Se suman a medida que las curso</span></div>
-    <div class="res-grilla chica">${primero(faltan).map(p => `<div class="res-mat falta">${cabeza(p)}<b>${esc(p.nombre)}</b>
-      <button class="enlace chico" onclick="pedirResumen(${arg(p.id)})">Pedila o compartí tus apuntes</button></div>`).join('')}</div>` : ''}</div>`;
+    <p class="gl-cuenta gl-m16">${solo ? `${R.materias.length} de ${total} materias` : `${total} materias`}</p>
+    <ul class="gl-rejilla">${con}${sin}</ul>
+    <details class="gl-todos"><summary class="gl-enlace">Ver todos los apuntes</summary>${todos}</details></div></div>`;
 }
 function vMateriaRes(m) {
-  return `<div class="fila"><button class="btn lin ch" onclick="verRes()">← Todas las materias</button><span class="crece"></span>
-      <button class="btn lin ch" onclick="compartir(urlRes(${arg(m.id)}),${arg('Resúmenes de ' + m.nombre)},'materia',${arg(m.id)})">🔗 Compartir</button>
-      <button class="btn lin ch" onclick="abrirQR(urlRes(${arg(m.id)}),${arg('Resúmenes de ' + m.nombre)},'materia',${arg(m.id)})" aria-label="Código QR de los resúmenes de ${esc(m.nombre)}">▦ QR</button></div>
-    <div class="titulo-sec"><h2>${esc(m.nombre)}</h2><span class="chico tenue">Para ${esc(m.examen)} · ${m.anio}${leidosDe(m) ? ` · ✓ ${leidosDe(m)} de ${m.apuntes.length} leídos` : ''}</span></div>
-    ${m.aviso ? `<div class="tarjeta" role="note"><p class="chico u-my6"><b>⚠️ Por verificar.</b> ${esc(m.aviso)}</p></div>` : ''}
-    ${(m.faltan || []).length ? `<div class="tarjeta" role="note"><p class="chico u-my6"><b>📎 Textos que todavía no tengo</b> y que faltan en estos apuntes:</p>
-      <ul class="biblio">${m.faltan.map(r => `<li>${esc(r)} <button class="enlace chico" onclick="tengoTexto(${arg(r)})">¿Tenés este texto? Mandámelo</button></li>`).join('')}</ul></div>` : ''}
-    ${(n => n ? `<div class="tarjeta practicar fila"><span class="crece"><b><span aria-hidden="true">🧠</span> Practicar</b><span class="chico tenue u-display-block">${n} preguntas de todos los apuntes, de a ${RONDA}: primero las que nunca te salieron o te salieron mal.</span></span>
-      <button class="btn" onclick="empezarPractica(${arg(m.id)})">Empezar</button></div>` : '')(m.apuntes.reduce((t, a) => t + (a.preguntas || 0), 0))}
-    ${m.id === '0911' ? `<div class="tarjeta practicar fila"><span class="crece"><b><span aria-hidden="true">🕹️</span> Arcade</b><span class="chico tenue u-display-block">Una sala aparte y opcional, con puntos y récords: preguntas con tres vidas y racha, o tocar el error en un texto.</span></span>
-      <button class="btn sec" onclick="irArcade()">Entrar</button></div>` : ''}
-    ${m.id === '0909' ? `<p class="chico u-margin-4px-0-8px">🧮 Para practicar el escandallo con tus números: <button class="enlace" onclick="irSim('escandallo')">simulador de escandallo</button>.</p>` : ''}
-    <div class="tarjeta u-padding-6px-16px">${m.apuntes.map(a => `<button class="evento fila-boton" onclick="abrirApunte(${arg(m.id)},${arg(a.id)})">
-      <span class="clave">${esc(a.clave)}</span><span class="crece"><b>${esc(a.t)}</b><span class="chico tenue u-display-block">${a.min} min de lectura${a.preguntas ? ' · ' + a.preguntas + ' preguntas para autoevaluarte' : ''}</span></span>${E.leidos[m.id + '/' + a.id] ? '<span class="chip ok">✓ leído</span>' : ''}${chipRepaso(m.id, a)}<span aria-hidden="true">›</span></button>`).join('')}</div>
-    ${m.pdfs.length ? `<details class="tarjeta"><summary class="resumen-pdf"><b>Hojas de repaso para imprimir</b> <span class="chip">${m.pdfs.length} PDF</span></summary>
-      ${m.pdfs.map(p => `<a class="evento u-color-inherit_text-decoration-none" href="/resumenes/${esc(encodeURI(p.archivo))}" target="_blank" rel="noopener">📄 <span class="crece">${esc(p.t)}</span> ↗</a>`).join('')}</details>` : ''}
-    <div class="tarjeta fila"><span class="crece chico"><b>¿Tenés tu propio resumen de esta materia?</b><span class="tenue u-display-block">Sumalo para quien viene detrás. Lo reviso antes de publicarlo y te acredito si querés.</span></span>
-      <button class="btn sec ch" onclick="sumarApunte(${arg(m.id)})">Sumá tu resumen</button></div>`;
+  const preg = m.apuntes.reduce((t, a) => t + (a.preguntas || 0), 0), tit = 'Resúmenes de ' + m.nombre;
+  return `<div class="gl-v gl-res"><p class="gl-chico gl-m4"><a class="gl-enlace" href="/r/">← Todas las materias</a></p>
+    <div class="gl-cab"><h1 class="gl-t1">${esc(tit)}</h1><span class="gl-crece"></span>
+      <button class="gl-btn gl-btn--sec" type="button" onclick="compartir(urlRes(${arg(m.id)}),${arg(tit)},'materia',${arg(m.id)})">Compartir</button>
+      <button class="gl-btn gl-btn--sec" type="button" onclick="abrirQR(urlRes(${arg(m.id)}),${arg(tit)},'materia',${arg(m.id)})" aria-label="Código QR de los resúmenes de ${esc(m.nombre)}">QR</button></div>
+    <p class="gl-baja">Para ${esc(m.examen)} · ${m.anio} · ${m.apuntes.length} apunte${m.apuntes.length === 1 ? '' : 's'}${preg ? ` y ${preg} preguntas para autoevaluarte` : ''}${leidosDe(m) ? ` · ${leidosDe(m)} de ${m.apuntes.length} leídos` : ''}.</p>
+    ${m.aviso ? `<div class="gl-aviso gl-m16" role="note"><div><b>Por verificar</b><span class="gl-chico">${esc(m.aviso)}</span></div></div>` : ''}
+    ${(m.faltan || []).length ? `<div class="gl-tarjeta gl-m16" role="note"><b>Textos que todavía no tengo</b><span class="gl-chico">Faltan en estos apuntes:</span>
+      <ul class="gl-faltan">${m.faltan.map(r => `<li>${esc(r)} <button class="gl-enlace" type="button" onclick="tengoTexto(${arg(r)})">¿Tenés este texto? Mandámelo</button></li>`).join('')}</ul></div>` : ''}
+    ${preg ? `<div class="gl-tarjeta gl-accion gl-m16"><div><b>Practicar</b><span class="gl-chico">${preg} preguntas de todos los apuntes, de a ${RONDA}: primero las que nunca te salieron o te salieron mal.</span></div>
+      <button class="gl-btn" type="button" onclick="empezarPractica(${arg(m.id)})">Empezar</button></div>` : ''}
+    ${m.id === '0911' ? `<div class="gl-tarjeta gl-accion gl-m16"><div><b>Arcade</b><span class="gl-chico">Una sala aparte y opcional, con puntos y récords: preguntas con tres vidas y racha, o tocar el error en un texto.</span></div>
+      <a class="gl-btn gl-btn--sec" href="/arcade/">Entrar</a></div>` : ''}
+    ${m.id === '0909' ? `<p class="gl-chico gl-m16">Para practicar el escandallo con tus números: <a class="gl-enlace" href="/simuladores/escandallo.html">simulador de escandallo</a>.</p>` : ''}
+    <ol class="gl-apuntes">${m.apuntes.map(a => `<li><span class="clave">${esc(a.clave)}</span><a href="/r/${esc(m.id)}/${esc(a.id)}.html">${esc(a.t)}</a>
+      <span class="meta gl-num">${a.min} min${a.preguntas ? ' · ' + a.preguntas + ' preguntas' : ''}${E.leidos[m.id + '/' + a.id] ? ' <span class="gl-chip gl-chip--ok">leído</span>' : ''}${chipRepaso(m.id, a)}</span></li>`).join('')}</ol>
+    ${m.pdfs.length ? `<details class="gl-todos"><summary class="gl-enlace">Hojas de repaso para imprimir (${m.pdfs.length} PDF)</summary>
+      <ul class="gl-libros">${m.pdfs.map(p => `<li><a href="/resumenes/${esc(encodeURI(p.archivo))}" target="_blank" rel="noopener">${esc(p.t)} (se abre aparte)</a></li>`).join('')}</ul></details>` : ''}
+    <div class="gl-tarjeta gl-accion gl-m32"><div><b>¿Tenés tu propio resumen de esta materia?</b><span class="gl-chico">Sumalo para quien viene detrás. Lo reviso antes de publicarlo y te acredito si querés.</span></div>
+      <button class="gl-btn gl-btn--sec" type="button" onclick="sumarApunte(${arg(m.id)})">Sumá tu resumen</button></div></div>`;
 }
 const leidosDe = m => m.apuntes.filter(a => E.leidos[m.id + '/' + a.id]).length;
 function avanceLectura(m) {
   const n = leidosDe(m);
-  return n ? `<span class="chico">✓ ${n} de ${m.apuntes.length} leídos</span><span class="barra" aria-hidden="true"><i style="width:${Math.round(n / m.apuntes.length * 100)}%"></i></span>` : '';
+  return n ? `<span class="meta gl-num">${n} de ${m.apuntes.length} leídos</span><span class="gl-barra-p" aria-hidden="true"><i style="width:${Math.round(n / m.apuntes.length * 100)}%"></i></span>` : '';
 }
 function marcarLeido(k) {
   if (!/^[\w.-]{1,60}\/[\w.-]{1,60}$/.test(k)) return;
   if (E.leidos[k]) delete E.leidos[k];
   else {
-    E.leidos[k] = hoy(); medir('marcar_leido', { item_id: k }); aviso('✓ Marcado como leído');
+    E.leidos[k] = hoy(); medir('marcar_leido', { item_id: k }); aviso('Marcado como leído');
     const M = ((D.resumenes || {}).materias || []).find(x => x.id === k.split('/')[0]);
     if (M && leidosDe(M) === M.apuntes.length) hito(M.apuntes.length > 1 ? `Terminaste los ${M.apuntes.length} apuntes de ${M.nombre}` : `Terminaste el apunte de ${M.nombre}`);
   }
@@ -1540,15 +1562,14 @@ function resultadosRes() {
   if (!hallados.length) return `<p class="vacio">No encontré «${esc(V.busq.trim())}» en los resúmenes. Probá con otra palabra o sin tildes.</p>`;
   hallados.sort((a, b) => b[0] - a[0]);
   const plan = id => (D.plan.materias.find(x => x.id === id) || {}).sigla || '';
-  return `<p class="chico tenue">${hallados.length > 40 ? 'Los 40 más relevantes de ' : ''}${hallados.length} resultado${hallados.length === 1 ? '' : 's'}</p>
-    <div class="tarjeta u-padding-6px-16px">${hallados.slice(0, 40).map(([, s]) => {
+  return `<p class="gl-cuenta gl-m16">${hallados.length > 40 ? 'Los 40 más relevantes de ' : ''}${hallados.length} resultado${hallados.length === 1 ? '' : 's'}</p>
+    <ul class="gl-apuntes gl-hits">${hallados.slice(0, 40).map(([, s]) => {
       const i = Math.max(0, ...pals.map(p => s.nx.indexOf(p)).filter(i => i >= 0).slice(0, 1)), desde = Math.max(0, i - 60), hasta = Math.min(s.x.length, i + 140);
       const ap = D.busqueda.apuntes[s.m + '/' + s.a] || '';
-      return `<button class="evento fila-boton" onclick="verRes(${arg(s.m)},${arg(s.a)},${arg(s.sec)})">
-        <span class="clave">${esc(plan(s.m))}</span><span class="crece"><b>${esc(s.t || ap)}</b>
-        <span class="chico tenue u-display-block">${esc(D.busqueda.materias[s.m] || '')}${s.t ? ' · ' + esc(ap) : ''}</span>
-        ${s.x ? `<span class="chico extracto">${desde ? '…' : ''}${resaltar(s.x, s.nx, pals, desde, hasta)}${hasta < s.x.length ? '…' : ''}</span>` : ''}</span><span aria-hidden="true">›</span></button>`;
-    }).join('')}</div>`;
+      return `<li><span class="clave">${esc(plan(s.m))}</span><a class="gl-hit" href="/r/${esc(s.m)}/${esc(s.a)}.html${s.sec ? '#' + esc(s.sec) : ''}"><b>${esc(s.t || ap)}</b>
+        <span class="meta">${esc(D.busqueda.materias[s.m] || '')}${s.t ? ' · ' + esc(ap) : ''}</span>
+        ${s.x ? `<span class="extracto">${desde ? '…' : ''}${resaltar(s.x, s.nx, pals, desde, hasta)}${hasta < s.x.length ? '…' : ''}</span>` : ''}</a></li>`;
+    }).join('')}</ul>`;
 }
 function pedirResumen(id) {
   const p = D.plan.materias.find(x => x.id === id) || { nombre: id };
@@ -1560,9 +1581,10 @@ const LETRAS = 'abcd';
 function vApunte() {
   const { materia, apunte } = V.res, k = materia + '/' + apunte, a = D.apuntes[k];
   const m = D.resumenes.materias.find(x => x.id === materia) || { nombre: '', apuntes: [] };
-  const volver = `<button class="btn lin ch" onclick="verRes(${arg(materia)})">← ${esc(m.nombre) || 'Resúmenes'}</button>`;
-  if (!a) return `<div class="fila">${volver}</div><p class="cargando">Cargando el apunte…</p>`;
-  const i = m.apuntes.findIndex(x => x.id === apunte), ant = m.apuntes[i - 1], sig = m.apuntes[i + 1];
+  const migas = (fin) => `<nav class="gl-migas gl-chico no-imprimir" aria-label="Ruta"><a href="/">Galera</a> › <a href="/r/">Resúmenes</a> › ${fin ? `<a href="/r/${esc(materia)}/">${esc(m.nombre) || esc(materia)}</a>` : `<span>${esc(m.nombre) || esc(materia)}</span>`}</nav>`;
+  const volver = `<a class="gl-btn gl-btn--ter" href="/r/${esc(materia)}/">← ${esc(m.nombre) || 'Resúmenes'}</a>`;
+  if (!a) return `<div class="gl-v gl-res">${migas(false)}<div class="gl-cab">${volver}</div><p class="cargando">Cargando el apunte…</p></div>`;
+  const i = m.apuntes.findIndex(x => x.id === apunte), ant = m.apuntes[i - 1], sig = m.apuntes[i + 1], ap = m.apuntes[i];
   const q = V.quiz[k] = V.quiz[k] || {};
   const cerradas = a.preguntas.filter(p => p.tipo !== 'abierta'), hechas = cerradas.filter(p => q[p.n] != null), bien = hechas.filter(p => q[p.n] === p.correcta);
   const pregunta = (p, j) => {
@@ -1570,32 +1592,33 @@ function vApunte() {
     if (p.tipo === 'abierta') return `<div class="pregunta"><p><b>${j + 1}.</b> ${p.texto}</p><details><summary>Ver respuesta</summary><div class="chico">${p.respuesta}</div></details></div>`;
     const ops = p.tipo === 'vf' ? ['Verdadero', 'Falso'] : p.opciones;
     const correcta = p.tipo === 'vf' ? ops[p.correcta] : LETRAS[p.correcta] + ')';
-    return `<div class="pregunta"><p><b>${j + 1}.</b> ${p.tipo === 'vf' ? '<span class="chip">V o F</span> ' : ''}${p.texto}</p>
+    return `<div class="pregunta"><p><b>${j + 1}.</b> ${p.tipo === 'vf' ? '<span class="gl-chip">V o F</span> ' : ''}${p.texto}</p>
       <div class="opciones ${p.tipo}">${ops.map((o, x) => `<button class="opcion ${ya ? (x === p.correcta ? 'bien' : x === r ? 'mal' : 'apagada') : ''}" ${ya ? 'aria-disabled="true"' : ''}
         data-f="q${p.n}-${x}" onclick="responder(${arg(k)},${p.n},${x})">${p.tipo === 'opcion' ? `<b>${LETRAS[x]})</b> ` : ''}${p.tipo === 'vf' ? esc(o) : o}</button>`).join('')}</div>
-      ${ya ? `<p class="chico devolucion ${r === p.correcta ? 'ok' : 'no'}" role="status"><b>${r === p.correcta ? '✓ ¡Bien!' : '✗ Era ' + correcta}</b> ${p.respuesta}</p>` : ''}</div>`;
+      ${ya ? `<p class="chico devolucion ${r === p.correcta ? 'ok' : 'no'}" role="status"><b>${r === p.correcta ? '¡Bien!' : 'Era ' + correcta}</b> ${p.respuesta}</p>` : ''}</div>`;
   };
   seccionar(a);
-  const base = `#resumenes/${esc(materia)}/${esc(apunte)}/`;
-  const indice = a.secciones.length > 2 ? `<details class="indice-apunte"><summary>En este apunte <span class="chip">${a.secciones.length} partes</span></summary><ol>
-    ${a.secciones.map(x => `<li class="${x.n === 3 ? 'sub' : ''}"><a href="${base}${esc(x.id)}">${esc(x.t)}</a></li>`).join('')}
-    ${a.preguntas.length ? `<li><a href="${base}autoevaluacion">Autoevaluación</a></li>` : ''}</ol></details>` : '';
+  const indice = a.secciones.length > 2 ? `<details class="indice-apunte"><summary>En este apunte <span class="gl-chip">${a.secciones.length} partes</span></summary><ol>
+    ${a.secciones.map(x => `<li class="${x.n === 3 ? 'sub' : ''}"><a href="#s-${esc(x.id)}">${esc(x.t)}</a></li>`).join('')}
+    ${a.preguntas.length ? '<li><a href="#autoevaluacion">Autoevaluación</a></li>' : ''}</ol></details>` : '';
   const leido = !!E.leidos[k];
-  const botonLeido = donde => `<button class="btn ${leido ? 'sec' : 'lin'} ch" data-f="leido-${donde}" aria-pressed="${leido}" onclick="marcarLeido(${arg(k)})">${leido ? '✓ Leído' : 'Marcar como leído'}</button>`;
+  const botonLeido = donde => `<button class="gl-btn ${leido ? 'gl-btn--sec' : 'gl-btn--ter'}" type="button" data-f="leido-${donde}" aria-pressed="${leido}" onclick="marcarLeido(${arg(k)})">${leido ? 'Leído' : 'Marcar como leído'}</button>`;
   const clave = a.preguntas.length ? `<section class="solo-imprimir"><h2>Respuestas</h2><ol>${a.preguntas.map(p => `<li>${p.tipo === 'abierta' ? '' : `<b>${p.tipo === 'vf' ? ['Verdadero', 'Falso'][p.correcta] : LETRAS[p.correcta] + ')'}</b> `}${p.respuesta}</li>`).join('')}</ol></section>` : '';
-  return `<div class="fila no-imprimir">${volver}<span class="crece"></span>${botonLeido('arriba')}
-      <button class="btn lin ch" onclick="imprimir(${arg(k)})" aria-label="Imprimir o guardar como PDF">🖨️</button>
-      <button class="btn lin ch" onclick="linkSeccion('',${arg(a.titulo)})">🔗 Compartir</button>
-      <button class="btn lin ch" onclick="abrirQR(urlRes(${arg(materia)},${arg(apunte)}),${arg(a.titulo)},'apunte',${arg(k)})" aria-label="Código QR de este apunte">▦ QR</button></div>
-    <article class="tarjeta apunte"><p class="solo-imprimir chico">${esc(m.nombre)} · Resúmenes de Galera (galera.com.ar)</p><h2>${esc(a.titulo)}</h2>${indice}${a.cuerpoConIds}</article>
-    ${a.preguntas.length ? `<div class="titulo-sec" id="autoevaluacion"><h2>Autoevaluación <button class="ancla" onclick="linkSeccion('autoevaluacion','Autoevaluación')" aria-label="Copiar el link a la autoevaluación" title="Copiar el link a esta parte">🔗</button></h2>
-      ${cerradas.length ? `<span class="chico">${hechas.length ? `<b>${bien.length} de ${hechas.length}</b> bien` : 'Tocá la opción que te parezca correcta'}${hechas.length ? ` · <button class="enlace" onclick="V.quiz[${arg(k)}]={};render()">Empezar de nuevo</button>` : ''}</span>` : ''}</div>
-      <div class="tarjeta">${a.preguntas.map(pregunta).join('')}</div>${bloqueFinAuto(materia, apunte, bien.length, hechas.length, cerradas.length)}` : ''}
+  return `<div class="gl-v gl-res">${migas(true)}
+    <div class="gl-barra-apunte no-imprimir">${volver}<span class="gl-crece"></span>${botonLeido('arriba')}
+      <button class="gl-btn gl-btn--ter" type="button" onclick="imprimir(${arg(k)})" aria-label="Imprimir o guardar como PDF">Imprimir</button>
+      <button class="gl-btn gl-btn--ter" type="button" onclick="linkSeccion('',${arg(a.titulo)})">Compartir</button>
+      <button class="gl-btn gl-btn--ter" type="button" onclick="abrirQR(urlRes(${arg(materia)},${arg(apunte)}),${arg(a.titulo)},'apunte',${arg(k)})" aria-label="Código QR de este apunte">QR</button></div>
+    <article class="gl-tarjeta apunte"><p class="solo-imprimir chico">${esc(m.nombre)} · Resúmenes de Galera (galera.com.ar)</p>
+      <p class="gl-chico gl-m4 no-imprimir">${esc(m.nombre)}${ap ? ' · ' + ap.min + ' min de lectura' : ''}</p><h1>${esc(a.titulo)}</h1>${indice}${a.cuerpoConIds}</article>
+    ${a.preguntas.length ? `<section id="autoevaluacion" class="gl-auto"><div class="gl-cab"><h2 class="gl-t2">Autoevaluación <button class="ancla" type="button" onclick="linkSeccion('autoevaluacion','Autoevaluación')" aria-label="Copiar el link a la autoevaluación" title="Copiar el link a esta parte">#</button></h2><span class="gl-crece"></span>
+      ${cerradas.length ? `<span class="gl-chico">${hechas.length ? `<b>${bien.length} de ${hechas.length}</b> bien` : 'Tocá la opción que te parezca correcta'}${hechas.length ? ` · <button class="gl-enlace" type="button" onclick="V.quiz[${arg(k)}]={};render()">Empezar de nuevo</button>` : ''}</span>` : ''}</div>
+      <div class="gl-tarjeta">${a.preguntas.map(pregunta).join('')}</div>${bloqueFinAuto(materia, apunte, bien.length, hechas.length, cerradas.length)}</section>` : ''}
     ${clave}
-    <div class="tarjeta fin-apunte no-imprimir"><span class="crece">${leido ? '¡Listo! Lo tenés marcado como leído.' : '¿Terminaste de leerlo?'}</span>${botonLeido('abajo')}</div>
+    <div class="gl-tarjeta gl-accion fin-apunte no-imprimir gl-m32"><div>${leido ? '¡Listo! Lo tenés marcado como leído.' : '¿Terminaste de leerlo?'}</div>${botonLeido('abajo')}</div>
     <p class="solo-imprimir chico">Apunte de Fidel Chaves, hecho para estudiar: no reemplaza la bibliografía ni las clases. ${esc(urlRes(materia, apunte))}</p>
-    <div class="fila no-imprimir u-margin-top-12px">${ant ? `<button class="btn lin ch" onclick="abrirApunte(${arg(materia)},${arg(ant.id)})">← ${esc(ant.clave)}</button>` : ''}<span class="crece"></span>
-      ${sig ? `<button class="btn sec ch" onclick="abrirApunte(${arg(materia)},${arg(sig.id)})">${esc(sig.clave)}: ${esc(sig.t)} →</button>` : ''}</div>`;
+    <nav class="gl-vecinos no-imprimir" aria-label="Apunte anterior y siguiente">${ant ? `<a class="gl-btn gl-btn--ter" href="/r/${esc(materia)}/${esc(ant.id)}.html">← ${esc(ant.clave)}: ${esc(ant.t)}</a>` : '<span></span>'}
+      ${sig ? `<a class="gl-btn gl-btn--sec" href="/r/${esc(materia)}/${esc(sig.id)}.html">${esc(sig.clave)}: ${esc(sig.t)} →</a>` : ''}</nav></div>`;
 }
 function irResumenes(materia) { V.tab = 'resumenes'; verRes(materia); }
 function responder(k, n, x) { const q = V.quiz[k] = V.quiz[k] || {}; if (q[n] != null) return; q[n] = Number(x); render(); }
@@ -1860,9 +1883,10 @@ async function cargarBibExtra(k, archivo) {
 }
 function ponerBib(s) { V.bib = s; history.replaceState(null, '', rutaActual()); render(); }
 function vBiblioteca() {
-  const solapas = `<div class="eligen u-margin-bottom-12px" role="group" aria-label="Biblioteca" >${SOLAPAS_BIB.map(([k, t]) => `<button class="btn ${V.bib === k ? '' : 'lin'} ch" aria-pressed="${V.bib === k}" data-f="bib-${k}" onclick="ponerBib(${arg(k)})">${t}</button>`).join('')}</div>`;
-  if (V.bib === 'per') return solapas + vPeriodicas();
-  return solapas + vLibros();
+  const solapas = `<div class="gl-filtros" role="group" aria-label="Biblioteca">${SOLAPAS_BIB.map(([k, t]) => `<button type="button" aria-pressed="${V.bib === k}" data-f="bib-${k}" onclick="ponerBib(${arg(k)})">${t}</button>`).join('')}</div>`;
+  return `<div class="gl-v gl-bib"><div class="gl-cab"><h1 class="gl-display">Biblioteca</h1></div>
+    <p class="gl-baja">Libros para editar, libros sobre libros, la bibliografía de la carrera y revistas y medios del sector editorial, con su link oficial. Buscá por título o autor; las tapas llevan a la ficha del libro.</p>
+    <div class="gl-barra">${solapas}</div>${V.bib === 'per' ? vPeriodicas() : vLibros()}</div>`;
 }
 // Un solo catálogo con la misma forma para los tres orígenes. La clave k es única (r:, f:, p:) y es la que usa la ficha.
 function catalogoLibros() {
@@ -1881,10 +1905,10 @@ function librosFiltrados() {
     && (!q || sinTildes([l.t, l.autor, l.editorial || ''].join(' ')).indexOf(q) >= 0));
 }
 function estanteLibros() {
-  const L = librosFiltrados(), tope = V.bl.n || 48;
-  if (!L.length) return '<p class="vacio">No hay libros con ese filtro.</p>';
-  const mas = L.length > tope ? `<p class="u-margin-12px-0"><button class="btn sec" type="button" onclick="V.bl.n=${tope + 96};$('#bl-lista').innerHTML=estanteLibros()">Mostrar más (${L.length - tope} restantes)</button></p>` : '';
-  return `<p class="u-mb8 chico tenue" aria-live="polite">${L.length} libro${L.length === 1 ? '' : 's'}</p><div class="estante">
+  const L = librosFiltrados(), tope = typeof PRERENDER !== 'undefined' ? Infinity : (V.bl.n || 48);
+  if (!L.length) return '<p class="gl-vacio" role="status">No hay libros con ese filtro.</p>';
+  const mas = L.length > tope ? `<p class="gl-m16"><button class="gl-btn gl-btn--sec" type="button" onclick="V.bl.n=${tope + 96};$('#bl-lista').innerHTML=estanteLibros()">Mostrar más (${L.length - tope} restantes)</button></p>` : '';
+  return `<p class="gl-cuenta gl-m16" aria-live="polite">${L.length} libro${L.length === 1 ? '' : 's'}</p><div class="estante">
     <button class="libro sumar" onclick="sugerirLibro()"><span class="tapa"><span>¿Falta algún libro para recomendar?<b>Avisame.</b></span></span></button>
     ${L.slice(0, tope).map(l => `<button class="libro" onclick="abrirLibro(${arg(l.k)})" aria-label="${esc(l.t)}, de ${esc(l.autor)}: ver ficha">${tapa(l)}
       <span class="libro-t">${esc(l.t)}</span><span class="libro-a">${esc(l.autor)}</span></button>`).join('')}</div>${mas}`;
@@ -1897,18 +1921,16 @@ function vLibros() {
   if (!B.libros.length) return '<p class="vacio">No se pudo cargar la biblioteca. <button class="btn sec" type="button" onclick="location.reload()">Probar de nuevo</button></p>';
   const todos = catalogoLibros(), temas = [...new Set(todos.map(l => l.tema))].sort((a, b) => a.localeCompare(b, 'es'));
   const mats = D.prog.materias || {}, cuenta = o => todos.filter(l => l.origen === o).length;
-  const chip = (k, t, v, n) => `<button class="btn ${f[k] === v ? '' : 'lin'} ch" aria-pressed="${f[k] === v}" data-f="bl-${k}-${esc(v)}" onclick="V.bl.${k}=${arg(v)};V.bl.n=0;render()">${esc(t)}${n === undefined ? '' : ' (' + n + ')'}</button>`;
-  return `<p class="u-mt0 chico tenue">${esc(B.nota)} Sumamos la colección «Libros sobre Libros» del Fondo de Cultura Económica y los libros de la bibliografía de los programas de la carrera, con las materias que los piden. Tocá una tapa para ver la ficha.</p>
-    <div class="u-mb10 eligen" role="group" aria-label="Origen del libro">${chip('origen', 'Todos', '', todos.length)}${Object.keys(ORIGEN_LIBRO).map(o => chip('origen', ORIGEN_LIBRO[o], o, cuenta(o))).join('')}</div>
-    <div class="dir-filtros u-margin-bottom-12px">
-      <label class="solo-lector" for="bl-q">Buscar por título, autor o editorial</label>
-      <input id="bl-q" type="search" autocomplete="off" placeholder="Buscar por título, autor o editorial" value="${esc(f.q)}" oninput="V.bl.q=this.value;V.bl.n=0;$('#bl-lista').innerHTML=estanteLibros()">
-      <label class="solo-lector" for="bl-tema">Tema</label>
-      <select id="bl-tema" onchange="V.bl.tema=this.value;V.bl.n=0;render()"><option value="">Todos los temas</option>${temas.map(t => `<option ${f.tema === t ? 'selected' : ''}>${esc(t)}</option>`).join('')}</select>
-      <label class="solo-lector" for="bl-mat">Materia</label>
-      <select id="bl-mat" onchange="V.bl.mat=this.value;V.bl.n=0;render()"><option value="">Todas las materias</option>${Object.keys(mats).sort().map(c => `<option value="${esc(c)}" ${f.mat === c ? 'selected' : ''}>${esc(c + ' · ' + mats[c])}</option>`).join('')}</select></div>
+  const chip = (k, t, v, n) => `<button type="button" aria-pressed="${f[k] === v}" data-f="bl-${k}-${esc(v)}" onclick="V.bl.${k}=${arg(v)};V.bl.n=0;render()">${esc(t)}${n === undefined ? '' : ' (' + n + ')'}</button>`;
+  return `<p class="gl-chico gl-m16">${esc(B.nota)} Sumamos la colección «Libros sobre Libros» del Fondo de Cultura Económica y los libros de la bibliografía de los programas de la carrera, con las materias que los piden. Tocá una tapa para ver la ficha.</p>
+    <div class="gl-barra gl-barra--b"><div class="gl-filtros" role="group" aria-label="Origen del libro">${chip('origen', 'Todos', '', todos.length)}${Object.keys(ORIGEN_LIBRO).map(o => chip('origen', ORIGEN_LIBRO[o], o, cuenta(o))).join('')}</div></div>
+    <div class="gl-barra gl-barra--b">
+      <label class="gl-busca"><span class="gl-rotulo">Buscar por título, autor o editorial</span>
+        <input id="bl-q" type="search" autocomplete="off" placeholder="Título, autor o editorial" value="${esc(f.q)}" oninput="V.bl.q=this.value;V.bl.n=0;$('#bl-lista').innerHTML=estanteLibros()"></label>
+      <label class="gl-campo-sel"><span class="gl-rotulo">Tema</span><select id="bl-tema" onchange="V.bl.tema=this.value;V.bl.n=0;render()"><option value="">Todos los temas</option>${temas.map(t => `<option ${f.tema === t ? 'selected' : ''}>${esc(t)}</option>`).join('')}</select></label>
+      <label class="gl-campo-sel"><span class="gl-rotulo">Materia</span><select id="bl-mat" onchange="V.bl.mat=this.value;V.bl.n=0;render()"><option value="">Todas las materias</option>${Object.keys(mats).sort().map(c => `<option value="${esc(c)}" ${f.mat === c ? 'selected' : ''}>${esc(c + ' · ' + mats[c])}</option>`).join('')}</select></label></div>
     <div id="bl-lista">${estanteLibros()}</div>
-    <p class="chico tenue">Libros sobre Libros: datos bibliográficos de <a href="https://fce.com.ar/colecciones/libros-sobre-libros/" target="_blank" rel="noopener">Fondo de Cultura Económica Argentina</a>. Bibliografía de la carrera: tomada de los programas de cada materia; los datos de edición son los que figuran en el programa y puede haber ediciones más nuevas.</p>`;
+    <p class="gl-chico gl-m32">Libros sobre Libros: datos bibliográficos de <a href="https://fce.com.ar/colecciones/libros-sobre-libros/" target="_blank" rel="noopener">Fondo de Cultura Económica Argentina</a>. Bibliografía de la carrera: tomada de los programas de cada materia; los datos de edición son los que figuran en el programa y puede haber ediciones más nuevas.</p>`;
 }
 const fechaCorta = f => f ? f.split('-').reverse().join('/') : '';
 function vPeriodicas() {
@@ -1919,15 +1941,14 @@ function vPeriodicas() {
   const delIdioma = P.publicaciones.filter(p => p.idioma === V.perIdi);
   const L = delIdioma.filter(p => !V.perTipo || p.tipo === V.perTipo), tipos = P.tipos.filter(t => delIdioma.some(p => p.tipo === t.id));
   const nomTipo = id => (P.tipos.find(t => t.id === id) || {}).t || '';
-  return `<p class="u-mt0 chico tenue">${esc(P.nota)}</p>
-    <div class="u-mb10 eligen" role="group" aria-label="Idioma de la publicación">${P.idiomas.map(i => `<button class="btn ${V.perIdi === i.id ? '' : 'lin'} ch" aria-pressed="${V.perIdi === i.id}" data-f="peri-${i.id}" onclick="V.perIdi=${arg(i.id)};V.perTipo='';history.replaceState(null,'',rutaActual());render()">${esc(i.t)} (${cuenta(i.id)})</button>`).join('')}</div>
-    ${tipos.length > 1 ? `<div class="eligen u-margin-bottom-12px" role="group" aria-label="Tipo de publicación" ><button class="btn ${V.perTipo ? 'lin' : ''} ch" aria-pressed="${!V.perTipo}" onclick="V.perTipo='';render()">Todas</button>${tipos.map(t => `<button class="btn ${V.perTipo === t.id ? '' : 'lin'} ch" aria-pressed="${V.perTipo === t.id}" onclick="V.perTipo=${arg(t.id)};render()">${esc(t.t)}</button>`).join('')}</div>` : ''}
-    <p class="u-mb8 chico tenue" aria-live="polite">${L.length} publicacion${L.length === 1 ? '' : 'es'}</p>
-    <div class="dir-grilla"><button class="dir-sumar" type="button" onclick="sugerirPeriodica()"><span>¿Falta alguna?<b>Sugerila.</b></span></button>${L.map(p => `<article class="tarjeta dir"><div class="fila"><h3 class="crece">${esc(p.t)}</h3><span class="chip tin">${esc(p.pais)}</span></div>
-      <p class="chico tenue u-margin-2px-0-6px">${esc(nomTipo(p.tipo))} · ${esc(p.editor)}${p.aa ? ' · acceso abierto' : ''}</p>
-      <p class="u-mb8">${esc(p.d)}</p>
-      <p class="u-m0 chico"><a href="${urlSegura(p.url)}" target="_blank" rel="noopener">Sitio oficial ↗</a></p></article>`).join('')}</div>
-    <p class="chico tenue">Revisadas el ${esc(fechaCorta(P.actualizado))}.</p>`;
+  return `<p class="gl-chico gl-m16">${esc(P.nota)}</p>
+    <div class="gl-barra gl-barra--b"><div class="gl-filtros" role="group" aria-label="Idioma de la publicación">${P.idiomas.map(i => `<button type="button" aria-pressed="${V.perIdi === i.id}" data-f="peri-${i.id}" onclick="V.perIdi=${arg(i.id)};V.perTipo='';history.replaceState(null,'',rutaActual());render()">${esc(i.t)} (${cuenta(i.id)})</button>`).join('')}</div></div>
+    ${tipos.length > 1 ? `<div class="gl-barra gl-barra--b"><div class="gl-filtros" role="group" aria-label="Tipo de publicación"><button type="button" aria-pressed="${!V.perTipo}" onclick="V.perTipo='';render()">Todas</button>${tipos.map(t => `<button type="button" aria-pressed="${V.perTipo === t.id}" onclick="V.perTipo=${arg(t.id)};render()">${esc(t.t)}</button>`).join('')}</div></div>` : ''}
+    <p class="gl-cuenta gl-m16" aria-live="polite">${L.length} publicacion${L.length === 1 ? '' : 'es'}</p>
+    <ul class="gl-rejilla gl-rejilla--3"><li><div class="gl-tarjeta gl-sumar"><b>¿Falta alguna?</b><span class="meta">Contame el nombre y el sitio.</span><button class="gl-btn gl-btn--sec" type="button" onclick="sugerirPeriodica()">Sugerila</button></div></li>
+    ${L.map(p => `<li><article class="gl-tarjeta"><h3 class="gl-t3">${esc(p.t)}</h3><span class="meta">${esc(p.pais)} · ${esc(nomTipo(p.tipo))} · ${esc(p.editor)}${p.aa ? ' · acceso abierto' : ''}</span>
+      <p class="gl-chico gl-m4">${esc(p.d)}</p><div class="gl-tarjeta-pie"><a href="${urlSegura(p.url)}" target="_blank" rel="noopener">Sitio oficial (se abre aparte)</a></div></article></li>`).join('')}</ul>
+    <p class="gl-chico gl-m32">Revisadas el ${esc(fechaCorta(P.actualizado))}.</p>`;
 }
 function sugerirPeriodica() {
   idea({ titulo: '📰 Sugerir una publicación periódica', intro: 'Contame el nombre, el idioma y el sitio oficial de la revista o el medio del sector que sumarías.',
@@ -2257,34 +2278,41 @@ function vEscandalloUno() {
 }
 // ---------- Comparador de títulos ----------
 const cmpS = () => (E.comparador = E.comparador || JSON.parse(JSON.stringify(Escandallo.EJEMPLO_COMPARADOR)));
-// ---------- Pestaña Simuladores: una tarjeta por simulador, agrupadas por materia ----------
+// ---------- Pestaña Simuladores: una tarjeta por simulador, agrupadas por tema (v114: una sola portada para los dos perfiles) ----------
+// «Cómo funciona»: el texto de cada simulador (datos/simuladores-info.json), que antes vivía en una página aparte. Se baja una vez.
+async function cargarSimInfo() {
+  if (D.simInfo || cargarSimInfo.va) return;
+  cargarSimInfo.va = true;
+  try { D.simInfo = await json('simuladores-info.json'); } catch (e) { D.simInfo = {}; }
+  if (V.tab === 'simuladores' && V.sim) render();
+}
+const TEMAS_SIM = [['Producción y planificación', ['papel', 'paginacion', 'formatos', 'cronograma']], ['Costos y catálogo', ['escandallo', 'comparador']], ['Derecho', ['leyes', 'contratos']], ['Trabajo freelance', ['tarifario']], ['El sector', ['ecosistema']]];
 function vSimuladores() {
   const sim = SIMULADORES.find(x => x.id === V.sim);
   const plan = id => D.plan.materias.find(x => x.id === id) || { id, nombre: id, sigla: '' };
   if (sim) {
-    const p = plan(sim.materia);
-    return `<div class="fila"><button class="btn lin ch" onclick="irSim('')">← Todas las herramientas</button><span class="crece"></span>
-        <button class="btn lin ch" onclick="compartir(urlSim(${arg(sim.id)}),${arg(sim.t)},'simulador',${arg(sim.id)})">🔗 Compartir</button>
-        <button class="btn lin ch" onclick="abrirQR(urlSim(${arg(sim.id)}),${arg(sim.t)},'simulador',${arg(sim.id)})" aria-label="Código QR de este simulador">▦ QR</button></div>
-      <div class="titulo-sec"><h2>${esc(sim.t)}</h2>${esPro() ? '' : `<span class="chico tenue">${esc(p.nombre)}</span>`}</div>` + (esPro() ? '' : vRetos(sim.id)) + { escandallo: vEscandalloUno, comparador: vComparador, papel: vPapel, paginacion: vPaginacion, cronograma: vCronograma, ecosistema: vEcosistema, formatos: vFormatos, leyes: vLeyes, contratos: vContratos, tarifario: vTarifario }[sim.id]();
+    const p = plan(sim.materia), info = (D.simInfo || {})[sim.id];
+    if (!D.simInfo) cargarSimInfo();
+    const como = info ? `<section class="gl-como" aria-labelledby="como-t"><h2 class="gl-t2" id="como-t">Cómo funciona</h2><p class="gl-chico">${esc(info.titulo)}</p>${info.html.replace(/<(\/?)h2>/g, '<$1h3>')}</section>` : '';
+    return `<div class="gl-v gl-sim"><p class="gl-chico gl-m4"><a class="gl-enlace" href="/simuladores/">← Todos los simuladores</a></p>
+      <div class="gl-cab"><h1 class="gl-t1 sin-cap">${esc(sim.t)}</h1><span class="gl-crece"></span>
+        <button class="gl-btn gl-btn--sec" type="button" onclick="compartir(urlSim(${arg(sim.id)}),${arg(sim.t)},'simulador',${arg(sim.id)})">Compartir</button>
+        <button class="gl-btn gl-btn--sec" type="button" onclick="abrirQR(urlSim(${arg(sim.id)}),${arg(sim.t)},'simulador',${arg(sim.id)})" aria-label="Código QR de este simulador">QR</button></div>
+      <p class="gl-baja">${esc(p.sigla ? p.sigla + ' · ' : '')}${esc(p.nombre)}. ${esc(sim.d)}</p>
+      <div class="gl-sim-uso">` + (esPro() ? '' : vRetos(sim.id)) + { escandallo: vEscandalloUno, comparador: vComparador, papel: vPapel, paginacion: vPaginacion, cronograma: vCronograma, ecosistema: vEcosistema, formatos: vFormatos, leyes: vLeyes, contratos: vContratos, tarifario: vTarifario }[sim.id]() + `</div>${como}</div>`;
   }
-  if (esPro()) {
-    const TEMAS = [['Producción y planificación', ['papel', 'paginacion', 'formatos', 'cronograma']], ['Costos y catálogo', ['escandallo', 'comparador']], ['Derecho', ['leyes', 'contratos']], ['Trabajo freelance', ['tarifario']], ['El sector', ['ecosistema']]];
-    return `<p class="u-mt0 chico tenue">Calculadoras y mapas para quien hace libros. Tus cifras se guardan solo en este navegador.</p>
-      <div class="titulo-sec"><h2>Planificar un libro</h2></div>
-      <div class="res-grilla"><a class="res-mat u-text-decoration-none_color-inherit" href="/libro/cronograma/" ><span class="fila"><span class="clave">Nuevo</span></span><b>🗓️ Planificador de libros</b><span class="chico tenue">Del original a la reimpresión: Gantt, PERT y Roy, con feriados, dependencias, varios títulos y responsables.</span></a></div>` +
-      TEMAS.map(([t, ids]) => `<div class="titulo-sec"><h2>${esc(t)}</h2></div>
-        <div class="res-grilla">${ids.map(i => SIMULADORES.find(x => x.id === i)).filter(Boolean).map(x => `<button class="res-mat" onclick="irSim(${arg(x.id)})"><b>${esc(x.t)}</b><span class="chico tenue">${esc(x.d)}</span></button>`).join('')}</div>`).join('');
-  }
-  const est = id => (E.materias[id] || {}).estado, marca = id => est(id) === 'cursando' ? '<span class="chip">la cursás</span>' : est(id) === 'regular' ? '<span class="chip">te falta el final</span>' : '';
-  const materias = [...new Set(SIMULADORES.map(x => x.materia))].sort();
-  return `<p class="u-mt0 chico tenue">Calculadoras y mapas para las materias de Edición. Cada uno está basado en lo que enseña su cátedra, y tus cifras se guardan solo en este navegador.</p>` +
-    materias.map(id => {
-      const p = plan(id);
-      return `<div class="titulo-sec"><h2>${esc(p.nombre)}</h2></div>
-        <div class="res-grilla">${SIMULADORES.filter(x => x.materia === id).map(x => `<button class="res-mat" onclick="irSim(${arg(x.id)})"><span class="fila"><span class="clave">${esc(p.sigla)}</span><span class="crece"></span>${marca(id)}</span>
-          <b>${esc(x.t)}</b><span class="chico tenue">${esc(x.d)}</span></button>`).join('')}</div>`;
-    }).join('');
+  cargarSimInfo();
+  const est = id => (E.materias[id] || {}).estado, marca = id => est(id) === 'cursando' ? '<span class="gl-chip">la cursás</span>' : est(id) === 'regular' ? '<span class="gl-chip gl-chip--aviso">te falta el final</span>' : '';
+  const tarjeta = x => { const p = plan(x.materia); return `<li><div class="gl-tarjeta gl-mat" style="min-height:208px"><div class="cuerpo"><span class="meta">${esc(p.sigla ? p.sigla + ' · ' : '')}${esc(p.nombre)}</span>
+      <h3 class="gl-t3 gl-inicial"><a class="cubre" href="/simuladores/${esc(x.id)}.html">${esc(x.t)}</a></h3><span class="meta">${esc(x.d)}</span><span class="crece"></span>
+      <span class="etiquetas">${marca(x.materia)}</span><span class="pie"><span>Calculadora</span></span></div></div></li>`; };
+  const planif = `<li><div class="gl-tarjeta gl-mat" style="min-height:208px"><div class="cuerpo"><span class="meta">Fundamentos de la Producción de Impresos</span>
+      <h3 class="gl-t3 gl-inicial"><a class="cubre" href="/libro/cronograma/">Planificador de libros</a></h3><span class="meta">Del original a la reimpresión: Gantt, PERT y Roy, con feriados, dependencias, varios títulos y responsables.</span><span class="crece"></span>
+      <span class="etiquetas"><span class="gl-chip">Nuevo</span></span><span class="pie"><span>Herramienta completa</span></span></div></div></li>`;
+  return `<div class="gl-v gl-sim"><div class="gl-cab"><h1 class="gl-display sin-cap">Simuladores</h1></div>
+    <p class="gl-baja">Calculadoras basadas en lo que enseñan las cátedras de Edición (FFyL, UBA), para hacer las cuentas de papel, de costos y de catálogo, y un mapa de los actores del libro. Gratis, sin cuenta, y lo que cargás queda en tu navegador.</p>
+    <h2 class="gl-grupo-h">Planificar un libro<span>1</span></h2><ul class="gl-rejilla gl-rejilla--2">${planif}</ul>` +
+    TEMAS_SIM.map(([t, ids]) => { const L = ids.map(i => SIMULADORES.find(x => x.id === i)).filter(Boolean); return `<h2 class="gl-grupo-h">${esc(t)}<span>${L.length}</span></h2><ul class="gl-rejilla gl-rejilla--2">${L.map(tarjeta).join('')}</ul>`; }).join('') + '</div>';
 }
 // =====================================================================
 // EVENTOS DE LA INDUSTRIA (perfil profesional): datos/eventos.json, solo fuentes oficiales; lo que no confirmó el organizador se marca «a confirmar».
@@ -2888,21 +2916,28 @@ const gloChips = ids => ids.map(id => `<span class="gl-chip" title="${esc((D.glo
 const gloVec = () => D.glosario._v || (D.glosario._v = Grafo.vecinos(D.glosario));
 const gloDisp = () => D.glosario._g || (D.glosario._g = Grafo.armar(D.glosario));
 const gloEnlaces = (L, f) => L.map(j => `<button class="gl-enlace" type="button" onclick="${f}(${j})">${esc(D.glosario.terminos[j].t)}</button>`).join(', ');
+// Lista del glosario (lienzo Glosario): una sección por letra, con la inicial en gótica y cada término con su definición en Literata.
 function glosarioLista() {
   const G = D.glosario, L = glosarioFiltrado(), v = gloVec();
   if (!L.length) return '<p class="gl-vacio">No hay términos con ese filtro.</p>';
   const grupos = [];
-  L.forEach(i => { const ini = sinTildes(G.terminos[i].t).charAt(0).toUpperCase(); let g = grupos[grupos.length - 1]; if (!g || g.ini !== ini) grupos.push(g = { ini, L: [] }); g.L.push(i); });
-  const card = i => {
+  L.forEach(i => { const ini = inicialGlo(G.terminos[i].t); let g = grupos[grupos.length - 1]; if (!g || g.ini !== ini) grupos.push(g = { ini, L: [] }); g.L.push(i); });
+  const fila = i => {
     const x = G.terminos[i], rel = Grafo.juntos(v, i), multi = x.acepciones.length > 1;
-    return `<li><article class="gl-tarjeta gl-term" id="glo-t-${i}" tabindex="-1"><h3 class="gl-t3">${esc(x.t)}${x.sigla ? ` <span class="gl-tenue">(${esc(x.sigla)})</span>` : ''}</h3>
+    return `<article class="gl-termino" id="glo-t-${i}" tabindex="-1"><h3 class="gl-t4">${esc(x.t)}${x.sigla ? ` <span class="gl-tenue">(${esc(x.sigla)})</span>` : ''}</h3>
       <p class="glo-tags">${gloChips(x.materias)}</p>
-      ${multi ? `<p class="meta gl-tenue">Significa algo distinto según la materia:</p>` : ''}
-      ${x.acepciones.map((a, k) => `<p class="meta">${multi ? `<span class="glo-ac">${k + 1}. ${gloChips(a.materias)}</span> ` : ''}${esc(a.def)}</p>`).join('')}
-      <span class="gl-crece"></span><p class="meta">${rel.length ? `<span class="gl-tenue">Relacionado con:</span> ${gloEnlaces(rel, 'gloIr')} · ` : ''}<button class="gl-enlace" type="button" onclick="gloVer(${i})">Ver en el grafo</button></p></article></li>`;
+      ${multi ? `<p class="gl-chico">Significa algo distinto según la materia:</p>` : ''}
+      ${x.acepciones.map((a, k) => `<p class="gl-lit">${multi ? `<span class="glo-ac">${k + 1}. ${gloChips(a.materias)}</span> ` : ''}${esc(a.def)}</p>`).join('')}
+      <p class="gl-chico gl-rel">${rel.length ? `<span class="gl-tenue">Relacionado con:</span> ${gloEnlaces(rel, 'gloIr')} · ` : ''}<button class="gl-enlace" type="button" onclick="gloVer(${i})">Ver en el grafo</button></p></article>`;
   };
-  return `<p class="gl-cuenta gl-m16" aria-live="polite">${L.length} de ${G.terminos.length} términos</p>`
-    + grupos.map(g => `<h2 class="gl-grupo-h">${esc(g.ini)}<span>${g.L.length}</span></h2><ul class="gl-rejilla gl-rejilla--3">${g.L.map(card).join('')}</ul>`).join('');
+  return `<p class="gl-cuenta" aria-live="polite">${L.length} de ${G.terminos.length} términos</p>`
+    + grupos.map(g => `<section class="gl-letra" id="glo-${esc(g.ini)}"><h2 class="gl-letra-h" aria-label="Letra ${esc(g.ini)}">${esc(g.ini)}</h2>${g.L.map(fila).join('')}</section>`).join('');
+}
+const inicialGlo = t => { const c = sinTildes(t).replace(/[^a-z0-9]/g, '').charAt(0).toUpperCase(); return /[A-Z]/.test(c) ? c : '#'; };
+// «Ir a la letra»: las letras con términos (según lo que se está viendo) son enlaces; las demás quedan apagadas.
+function gloAz() {
+  const hay = new Set(glosarioFiltrado().map(i => inicialGlo(D.glosario.terminos[i].t)));
+  return 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map(l => hay.has(l) ? `<a class="gl-az" href="#glo-${l}">${l}</a>` : `<span class="gl-az off" aria-hidden="true">${l}</span>`).join('');
 }
 // Grafo: los términos son nodos y se unen cuando la definición de uno nombra al otro (datos/glosario.json, «relaciones»; lo arma glosario.py).
 // La disposición sale de grafo.js; el zoom y el arrastre son los del mapa del Ecosistema (ecoSetVB y los eventos de svg.eco).
@@ -2949,12 +2984,15 @@ function vGlosario() {
   if (!D.glosario) { cargarGlosario(); return '<div class="gl-v"><p class="gl-vacio" role="status">Cargando el glosario…</p></div>'; }
   const G = D.glosario;
   if (!G.terminos.length) return '<div class="gl-v"><p class="gl-vacio" role="alert">No se pudo cargar el glosario. <button class="gl-btn gl-btn--sec" type="button" onclick="location.reload()">Probar de nuevo</button></p></div>';
-  const mats = [{ id: '', corto: 'Todas' }].concat(G.materias), vista = V.glo.vista === 'grafo' ? 'grafo' : 'lista';
-  return `<div class="gl-v"><div class="gl-cab"><h2 class="gl-display">Glosario de edición</h2></div><p class="gl-baja">Los términos clave de cada materia, para buscar rápido. Si una palabra se usa en más de una materia, aparece con la etiqueta de cada una; si significa algo distinto en cada una, se separan las acepciones. Armado a partir de mis apuntes.</p>
-    <div class="gl-barra"><label class="gl-busca" for="glo-q"><span class="gl-rotulo">Buscar</span><input id="glo-q" maxlength="100" type="search" autocomplete="off" placeholder="Un término o parte de su definición" value="${esc(V.glo.q)}" oninput="V.glo.q=this.value;$('#glo-lista').innerHTML=glosarioCuerpo()"></label>
-      <div class="gl-filtros" role="group" aria-label="Cómo ver el glosario"><button type="button" aria-pressed="${vista === 'lista'}" data-f="glo-vista-lista" onclick="gloVista('lista')">Lista</button><button type="button" aria-pressed="${vista === 'grafo'}" data-f="glo-vista-grafo" onclick="gloVista('grafo')">Grafo de conceptos</button></div></div>
-    <div class="gl-barra gl-barra--b"><div class="gl-filtros" role="group" aria-label="Filtrar por materia">${mats.map(m => `<button type="button" aria-pressed="${V.glo.mat === m.id}" data-f="glo-${esc(m.id)}" title="${esc(m.nombre || '')}" onclick="V.glo.mat=${arg(m.id)};render()">${esc(m.corto)}</button>`).join('')}</div></div>
-    <div id="glo-lista">${glosarioCuerpo()}</div></div>`;
+  const mats = [{ id: '', corto: 'Todas' }].concat(G.materias), grafo = V.glo.vista === 'grafo';
+  const filtro = `<div class="gl-barra gl-barra--b"><div class="gl-filtros" role="group" aria-label="Filtrar por materia">${mats.map(m => `<button type="button" aria-pressed="${V.glo.mat === m.id}" data-f="glo-${esc(m.id)}" title="${esc(m.nombre || '')}" onclick="V.glo.mat=${arg(m.id)};render()">${esc(m.corto)}</button>`).join('')}</div></div>`;
+  return `<div class="gl-v gl-glo"><div class="gl-cab"><h1 class="gl-display">Glosario de edición</h1><span class="gl-crece"></span>
+      ${grafo ? `<button class="gl-btn gl-btn--sec" type="button" data-f="glo-vista-lista" onclick="gloVista('lista')">Volver a la lista</button>` : `<button class="gl-btn gl-btn--sec" type="button" data-f="glo-vista-grafo" onclick="gloVista('grafo')">Ver el grafo de conceptos</button>`}</div>
+    <p class="gl-baja">Los términos clave de cada materia, para buscar rápido. Si una palabra se usa en más de una materia, aparece con la etiqueta de cada una; si significa algo distinto en cada una, se separan las acepciones. Armado a partir de mis apuntes.</p>
+    <div class="gl-glo-pag"><aside class="gl-glo-lado" aria-label="Índice">
+      <label class="gl-busca" for="glo-q"><span class="gl-rotulo">Buscar un término</span><input id="glo-q" maxlength="100" type="search" autocomplete="off" placeholder="Un término o parte de su definición" value="${esc(V.glo.q)}" oninput="V.glo.q=this.value;$('#glo-lista').innerHTML=glosarioCuerpo();{const z=$('#glo-az');if(z)z.innerHTML=gloAz()}"></label>
+      ${grafo ? '' : `<p class="gl-rotulo gl-m16">Ir a la letra</p><div class="gl-azs" id="glo-az">${gloAz()}</div>`}</aside>
+    <section class="gl-glo-main" aria-label="Definiciones">${filtro}<div id="glo-lista">${glosarioCuerpo()}</div></section></div></div>`;
 }
 
 // =====================================================================
@@ -2978,20 +3016,23 @@ function directorioFiltrado(sinProv) {
     && (!q || sinTildes([a.n, a.provincia, a.localidad || '', (a.linea || []).join(' '), (a.servicios || []).join(' '), (a.ferias || []).join(' ')].join(' ')).indexOf(q) >= 0));
 }
 function directorioLista() {
-  const L = directorioFiltrado(), t = (D.directorio.tipos.find(x => x.id === V.dir.tipo) || {}).t || '';
-  const sumar = `<button class="gl-tarjeta gl-sumar" type="button" onclick="sugerirActor()"><span class="meta">¿Falta alguien?</span><b>Sugerí un actor.</b></button>`;
-  if (!L.length) return `<p class="gl-vacio">${actoresDelTipo().length ? 'No hay fichas con ese filtro.' : esc(t) + ': todavía no hay fichas cargadas.'}</p><ul class="gl-rejilla gl-rejilla--3"><li>${sumar}</li></ul>`;
-  const tope = V.dir.n || 60, vis = L.slice(0, tope);
+  const L = directorioFiltrado().sort((a, b) => sinTildes(a.n) < sinTildes(b.n) ? -1 : 1), t = (D.directorio.tipos.find(x => x.id === V.dir.tipo) || {}).t || '';
+  if (!L.length) return `<p class="gl-vacio">${actoresDelTipo().length ? 'No hay fichas con ese filtro.' : esc(t) + ': todavía no hay fichas cargadas.'}</p>`;
+  const tope = typeof PRERENDER !== 'undefined' ? Infinity : (V.dir.n || 60), vis = L.slice(0, tope);
   const mas = L.length > tope ? `<p class="gl-m16"><button class="gl-btn gl-btn--sec" type="button" onclick="V.dir.n=${tope + 120};$('#dir-lista').innerHTML=directorioLista()">Mostrar más (${L.length - tope} restantes)</button></p>` : '';
-  return `<p class="gl-cuenta gl-m16" aria-live="polite">${L.length} ficha${L.length === 1 ? '' : 's'}</p><ul class="gl-rejilla gl-rejilla--3"><li>${sumar}</li>${vis.map(a => {
-    const lin = a.linea || [], f = a.fuente || (D.directorio.fuentes || {})[a.fx] || {};
-    return `<li><article class="gl-tarjeta gl-term"><h3 class="gl-t3">${esc(a.n)}</h3>${a.provincia ? `<p class="glo-tags"><span class="gl-chip">${esc(nombreProv(a.provincia))}</span></p>` : ''}
-      ${a.localidad ? `<p class="meta gl-tenue">${esc(a.localidad)}</p>` : ''}
-      ${(a.ferias || []).length ? `<p class="meta gl-tenue">Estuvo en la ${esc(a.ferias.join(' y '))}</p>` : ''}
-      ${lin.length ? `<p class="glo-tags">${lin.slice(0, 4).map(x => `<span class="gl-chip gl-chip--neutro">${esc(x)}</span>`).join(' ')}${lin.length > 4 ? ` <span class="gl-chip gl-chip--neutro" title="${esc(lin.slice(4).join(', '))}">+${lin.length - 4}</span>` : ''}</p>` : ''}
-      ${(a.servicios || []).length ? `<p class="meta gl-tenue">Servicios: ${esc(a.servicios.join(', '))}</p>` : ''}
-      <p class="meta">${a.web ? `<a href="${urlSegura(a.web)}" target="_blank" rel="noopener">Sitio</a> · ` : ''}${f.url ? `<a href="${urlSegura(f.url)}" target="_blank" rel="noopener">Fuente</a>` : ''}${f.fecha ? ` <span class="gl-tenue">(leída el ${esc(f.fecha.split('-').reverse().join('/'))})</span>` : ''}</p></article></li>`;
-  }).join('')}</ul>${mas}`;
+  let ini = '';
+  const filas = vis.map(a => {
+    const lin = a.linea || [], f = a.fuente || (D.directorio.fuentes || {})[a.fx] || {}, letra = inicialDir(a);
+    const cab = letra !== ini ? (ini = letra, `<li class="gl-dir-letra" id="dir-${esc(letra === '#' ? 'num' : letra)}" aria-hidden="true">${esc(letra)}</li>`) : '';
+    return `${cab}<li class="gl-dir-fila"><div class="gl-crece"><h3 class="gl-t4">${esc(a.n)}</h3>
+      <span class="meta">${a.localidad ? esc(a.localidad) + ', ' : ''}${esc(nombreProv(a.provincia || ''))}${a.provincia ? ' · ' : ''}${esc(t)}</span>
+      ${(a.ferias || []).length ? `<span class="meta gl-tenue">Estuvo en la ${esc(a.ferias.join(' y '))}</span>` : ''}
+      ${lin.length ? `<span class="glo-tags">${lin.slice(0, 4).map(x => `<span class="gl-chip gl-chip--neutro">${esc(x)}</span>`).join(' ')}${lin.length > 4 ? ` <span class="gl-chip gl-chip--neutro" title="${esc(lin.slice(4).join(', '))}">+${lin.length - 4}</span>` : ''}</span>` : ''}
+      ${(a.servicios || []).length ? `<span class="meta gl-tenue">Servicios: ${esc(a.servicios.join(', '))}</span>` : ''}
+      ${f.url ? `<span class="meta gl-tenue"><a href="${urlSegura(f.url)}" target="_blank" rel="noopener">Fuente</a>${f.fecha ? ` (leída el ${esc(f.fecha.split('-').reverse().join('/'))})` : ''}</span>` : ''}</div>
+      ${a.web ? `<a class="gl-dir-sitio" href="${urlSegura(a.web)}" target="_blank" rel="noopener">Sitio<span class="solo-lector"> de ${esc(a.n)} (se abre aparte)</span></a>` : ''}</li>`;
+  }).join('');
+  return `<p class="gl-cuenta" aria-live="polite">${L.length} ficha${L.length === 1 ? '' : 's'}</p><ul class="gl-dir-lista">${filas}</ul>${mas}`;
 }
 // Los trazos del mapa pesan 50 KB y solo los usa el Directorio: se bajan la primera vez que se abre.
 let mapaPidiendo = false;
@@ -3021,23 +3062,27 @@ function vDirectorio() {
   const lineas = [...new Set(actoresDelTipo().flatMap(a => a.linea || []))].sort((a, b) => a.localeCompare(b, 'es'));
   const letras = [...new Set(actoresDelTipo().map(inicialDir))].sort();
   const provs = [...new Set(actoresDelTipo().map(a => a.provincia).filter(Boolean))].sort((a, b) => a.localeCompare(b, 'es'));
-  return `<div class="gl-v"><div class="gl-cab"><h2 class="gl-display">Directorio del libro en Argentina</h2></div><p class="gl-baja">${esc(Dd.nota)}</p>
-    <div class="gl-barra"><div class="gl-filtros" role="group" aria-label="Tipo de actor">${Dd.tipos.map(t => `<button type="button" aria-pressed="${V.dir.tipo === t.id}" data-f="dirt-${esc(t.id)}" onclick="V.dir={tipo:${arg(t.id)},q:'',prov:'',linea:'',web:false,letra:''};render()">${esc(t.t)} (${Dd.actores.filter(a => a.tipo === t.id).length})</button>`).join('')}</div></div>
-    <p class="gl-aviso-cob"><b>Cobertura.</b> ${esc(tipo.cobertura)}</p>
-    <div class="dir-cab">
-      <div class="dir-filtros">
-        <label class="solo-lector" for="dir-q">Buscar por nombre o línea</label>
-        <input id="dir-q" type="search" autocomplete="off" placeholder="Buscar por nombre o línea" value="${esc(V.dir.q)}" oninput="V.dir.q=this.value;V.dir.n=0;$('#dir-lista').innerHTML=directorioLista();$('#dir-mapa').innerHTML=directorioMapa()">
-        ${lineas.length ? `<label class="solo-lector" for="dir-linea">Línea</label><select id="dir-linea" onchange="V.dir.linea=this.value;V.dir.n=0;render()"><option value="">Todas las líneas</option>${lineas.map(l => `<option value="${esc(l)}" ${V.dir.linea === l ? 'selected' : ''}>${esc(l)}</option>`).join('')}</select>` : ''}
-        ${provs.length > 1 ? `<label class="solo-lector" for="dir-prov">Provincia</label><select id="dir-prov" onchange="V.dir.prov=this.value;V.dir.n=0;render()"><option value="">Todo el país</option>${provs.map(p => `<option value="${esc(p)}" ${V.dir.prov === p ? 'selected' : ''}>${esc(nombreProv(p))}</option>`).join('')}</select>` : ''}
-        ${letras.length > 1 && actoresDelTipo().length > 60 ? `<div class="dir-letras" role="group" aria-label="Ir a la letra">${letras.map(l => `<button type="button" class="${V.dir.letra === l ? 'on' : ''}" aria-pressed="${V.dir.letra === l}" onclick="V.dir.letra=${arg(V.dir.letra === l ? '' : l)};V.dir.n=0;render()">${l}</button>`).join('')}</div>` : ''}
-        <div class="gl-filtros" role="group" aria-label="Sitio web"><button type="button" aria-pressed="${!!V.dir.web}" data-f="dir-web" onclick="V.dir.web=!V.dir.web;V.dir.n=0;render()">Solo las que tienen sitio web</button></div>
-        ${(V.dir.prov || V.dir.linea || V.dir.web || V.dir.q || V.dir.letra) ? `<button class="gl-btn gl-btn--ter" type="button" onclick="V.dir={tipo:V.dir.tipo,q:'',prov:'',linea:'',web:false,letra:''};render()">Limpiar filtros</button>` : ''}
-      </div>
-      <div id="dir-mapa">${directorioMapa()}</div>
-    </div>
-    <div id="dir-lista">${directorioLista()}</div></div>`;
+  const reset = `V.dir={tipo:V.dir.tipo,q:'',prov:'',linea:'',web:false,letra:'',mapa:V.dir.mapa};render()`;
+  return `<div class="gl-v gl-dir"><div class="gl-cab"><h1 class="gl-display">Directorio del libro en Argentina</h1></div><p class="gl-baja">${esc(Dd.nota)}</p>
+    <div class="gl-dir-pag">
+      <aside class="gl-dir-lado" aria-label="Filtros">
+        <label class="gl-busca" for="dir-q"><span class="gl-rotulo">Buscar por nombre o línea</span>
+          <input id="dir-q" type="search" autocomplete="off" placeholder="Buscar por nombre o línea" value="${esc(V.dir.q)}" oninput="V.dir.q=this.value;V.dir.n=0;$('#dir-lista').innerHTML=directorioLista();$('#dir-mapa').innerHTML=directorioMapaVista()"></label>
+        <p class="gl-rotulo gl-m32">Tipo</p>
+        <div class="gl-opts" role="group" aria-label="Tipo de actor">${Dd.tipos.map(t => `<button type="button" class="gl-opt" aria-pressed="${V.dir.tipo === t.id}" data-f="dirt-${esc(t.id)}" onclick="V.dir={tipo:${arg(t.id)},q:'',prov:'',linea:'',web:false,letra:'',mapa:V.dir.mapa};render()"><span class="gl-opt-g" aria-hidden="true"></span>${esc(t.t)} (${Dd.actores.filter(a => a.tipo === t.id).length})</button>`).join('')}</div>
+        ${lineas.length ? `<label class="gl-campo-sel gl-m16"><span class="gl-rotulo">Línea</span><select id="dir-linea" onchange="V.dir.linea=this.value;V.dir.n=0;render()"><option value="">Todas las líneas</option>${lineas.map(l => `<option value="${esc(l)}" ${V.dir.linea === l ? 'selected' : ''}>${esc(l)}</option>`).join('')}</select></label>` : ''}
+        ${provs.length > 1 ? `<label class="gl-campo-sel gl-m16"><span class="gl-rotulo">Provincia</span><select id="dir-prov" onchange="V.dir.prov=this.value;V.dir.n=0;render()"><option value="">Todo el país</option>${provs.map(p => `<option value="${esc(p)}" ${V.dir.prov === p ? 'selected' : ''}>${esc(nombreProv(p))}</option>`).join('')}</select></label>` : ''}
+        <div class="gl-opts gl-m16"><button type="button" class="gl-opt" aria-pressed="${!!V.dir.web}" data-f="dir-web" onclick="V.dir.web=!V.dir.web;V.dir.n=0;render()"><span class="gl-opt-g" aria-hidden="true"></span>Solo las que tienen sitio web</button></div>
+        ${(V.dir.prov || V.dir.linea || V.dir.web || V.dir.q || V.dir.letra) ? `<p class="gl-m16"><button class="gl-btn gl-btn--ter" type="button" onclick="${reset}">Limpiar filtros</button></p>` : ''}
+        <p class="gl-aviso-cob"><b>Cobertura.</b> ${esc(tipo.cobertura)}</p></aside>
+      <section class="gl-dir-main" aria-label="Fichas"><div id="dir-lista">${directorioLista()}</div></section>
+      <aside class="gl-dir-riel" aria-label="Índice y mapa">
+        ${letras.length > 1 && actoresDelTipo().length > 60 ? `<p class="gl-rotulo">Ir a la letra</p><div class="dir-letras" role="group" aria-label="Ir a la letra">${letras.map(l => `<button type="button" class="${V.dir.letra === l ? 'on' : ''}" aria-pressed="${V.dir.letra === l}" onclick="V.dir.letra=${arg(V.dir.letra === l ? '' : l)};V.dir.n=0;render()">${l}</button>`).join('')}</div>` : ''}
+        <div class="gl-tarjeta gl-m16"><b>¿Falta una?</b><span class="gl-chico">Sugerí una editorial, imprenta o librería que no esté.</span><button class="gl-btn gl-btn--sec" type="button" onclick="sugerirActor()">Sugerí un actor</button></div>
+        <button class="gl-btn gl-btn--sec gl-m16" type="button" aria-pressed="${!!V.dir.mapa}" data-f="dir-ver-mapa" onclick="V.dir.mapa=!V.dir.mapa;render()">${V.dir.mapa ? 'Ocultar el mapa' : 'Ver el mapa'}</button>
+        <div id="dir-mapa">${directorioMapaVista()}</div></aside></div></div>`;
 }
+const directorioMapaVista = () => V.dir.mapa ? directorioMapa() : '';
 function sugerirActor() {
   const t = ({ editorial: 'una editorial', imprenta: 'una imprenta', distribuidora: 'una distribuidora', libreria: 'una librería', papel: 'un productor de papel' })[V.dir.tipo] || 'un actor';
   idea({ titulo: 'Sugerir ' + t, intro: 'Contame el nombre, la provincia y el sitio web o la red pública donde figura. Solo datos de empresas o proyectos públicos: nada de domicilios ni teléfonos de particulares.',
@@ -3055,53 +3100,65 @@ async function cargarSostener() {
   if (D.sostener || cargarSostener.va) return;
   cargarSostener.va = true;
   const leer = a => json(a).catch(() => null);
-  const [horas, costos, plan, claude] = await Promise.all([leer('sostener.json'), leer('sostener-costos.json'), leer('plan.json'), leer('sostener-claude.json')]);
-  D.sostener = { horas, costos, plan, claude };
+  const [horas, costos, plan, claude, mecenas] = await Promise.all([leer('sostener.json'), leer('sostener-costos.json'), leer('plan.json'), leer('sostener-claude.json'), leer('mecenas.json')]);
+  D.sostener = { horas, costos, plan, claude, mecenas };
   if (V.tab === 'sostener') render();
 }
-const ESTADO_PLAN = { planeado: ['Planeado', 'tin'], 'en curso': ['En curso', 'mos'], listo: ['Listo', 'ok'] };
+const ESTADO_PLAN = { planeado: ['Planeado', 'gl-chip gl-chip--neutro'], 'en curso': ['En curso', 'gl-chip'], listo: ['Listo', 'gl-chip gl-chip--ok'] };
 const MESES_ES = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
 const horasTxt = h => String(h).replace('.', ',') + (Number(h) === 1 ? ' hora' : ' horas');
+const HOLA = 'hola@galera.com.ar', HISTORIAL_GH = 'https://github.com/Ficha/Ficha.github.io/commits/main/cursada';
 function sostenerHoras(H, R) {
-  if (!H || typeof H.horas_totales !== 'number') return '<p class="chico tenue">Las horas no se pudieron cargar ahora. Probá de nuevo más tarde.</p>';
-  const meses = Object.entries(H.horas_por_mes || {}).map(([m, h]) => { const [a, n] = m.split('-'); return `<li>${esc(MESES_ES[Number(n) - 1] || m)} de ${esc(a)}: ${esc(horasTxt(h))}</li>`; }).join('');
+  if (!H || typeof H.horas_totales !== 'number') return '<p class="gl-chico">Las horas no se pudieron cargar ahora. Probá de nuevo más tarde.</p>';
   const rango = R && R.minimo > 0 && R.maximo >= R.minimo;
-  const cabeza = rango
-    ? `<p class="u-font-size-1-5rem_margin-0"><b>Entre ${esc(R.minimo)} y ${esc(R.maximo)} horas</b></p>
-    <p class="chico tenue u-margin-2px-0-8px">de trabajo desde el ${esc(fmtLarga(H.primer_commit))}; lo más probable, unas ${esc(R.central)}. Actualizado el ${esc(fmtLarga(R.generado))}.</p>`
-    : `<p class="u-font-size-1-5rem_margin-0"><b>${esc(horasTxt(H.horas_totales))}</b></p>
-    <p class="chico tenue u-margin-2px-0-8px">de trabajo desde el ${esc(fmtLarga(H.primer_commit))}, en ${esc(H.sesiones)} sesiones. Actualizado el ${esc(fmtLarga(H.generado))}.</p>`;
+  const cifra = rango ? `Entre ${R.minimo} y ${R.maximo} horas` : horasTxt(H.horas_totales);
+  const sub = rango ? `de trabajo entre el ${fmtLarga(R.desde)} y el ${fmtLarga(R.hasta)}; lo más probable, unas ${R.central}. Actualizado el ${fmtLarga(R.generado)}.`
+    : `de trabajo desde el ${fmtLarga(H.primer_commit)}, en ${H.sesiones} sesiones. Actualizado el ${fmtLarga(H.generado)}.`;
   const nota = rango
-    ? `<p class="u-m0 chico tenue">Cómo se cuenta: junto en una sola línea de tiempo cada cambio guardado en Galera y la hora de cada mensaje de mis sesiones de trabajo con Claude (solo la hora, nunca el contenido), y cuento una sesión mientras no pasen más de 10, 20 o 45 minutos sin actividad (más unos minutos de arranque). De ahí salen el mínimo, el valor central y el máximo. Es una estimación y no incluye el tiempo fuera de la pantalla, como pensar o probar en el celular. Solo con los cambios guardados, que cualquiera puede verificar en el <a href="https://github.com/Ficha/Ficha.github.io/commits/main/cursada" target="_blank" rel="noopener">historial público</a>, son ${esc(horasTxt(H.horas_totales))} (sesiones de hasta dos horas entre cambios, más 30 minutos de arranque).</p>`
-    : `<p class="u-m0 chico tenue">Cómo se cuenta: se toman todos los cambios que se guardaron en Galera y se juntan en sesiones (si entre un cambio y el siguiente pasaron menos de dos horas, es la misma sesión). A cada sesión se le suman 30 minutos de arranque. Es una estimación, y cualquiera puede verificarla en el <a href="https://github.com/Ficha/Ficha.github.io/commits/main/cursada" target="_blank" rel="noopener">historial público</a>.</p>`;
-  return `${cabeza}
-    ${rango ? '' : (meses ? `<ul class="chico u-margin-0-0-8px_padding-left-18px">${meses}</ul>` : '')}
-    ${nota}`;
+    ? `Cómo se cuenta: junto en una sola línea de tiempo cada cambio guardado en Galera y la hora de cada mensaje de mis sesiones de trabajo con Claude (solo la hora, nunca el contenido), y cuento una sesión mientras no pasen más de 10, 20 o 45 minutos sin actividad (más unos minutos de arranque). De ahí salen el mínimo, el valor central y el máximo. Es una estimación y no incluye el tiempo fuera de la pantalla, como pensar o probar en el celular. Solo con los cambios guardados, que cualquiera puede verificar en el <a href="${HISTORIAL_GH}" target="_blank" rel="noopener">historial público</a>, son ${horasTxt(H.horas_totales)} (sesiones de hasta dos horas entre cambios, más 30 minutos de arranque).`
+    : `Cómo se cuenta: se toman todos los cambios que se guardaron en Galera y se juntan en sesiones (si entre un cambio y el siguiente pasaron menos de dos horas, es la misma sesión). A cada sesión se le suman 30 minutos de arranque. Es una estimación, y cualquiera puede verificarla en el <a href="${HISTORIAL_GH}" target="_blank" rel="noopener">historial público</a>.`;
+  return `<p class="gl-cifra">${esc(cifra)}</p><p>${esc(sub)}</p><p class="gl-chico">${nota}</p>`;
 }
 function sostenerCostos(C) {
-  if (!C || !Array.isArray(C.items)) return '<p class="chico tenue">Los costos no se pudieron cargar ahora.</p>';
-  return `<ul class="lista-costos">${C.items.map(i => `<li><span>${esc(i.t)}${i.nota ? `<small class="tenue"> (${esc(i.nota)})</small>` : ''}</span><b>${i.monto == null ? 'a calcular' : esc(i.monto)}</b></li>`).join('')}</ul>
-    ${C.actualizado ? `<p class="u-mt8 chico tenue">Actualizado el ${esc(fmtLarga(C.actualizado))}.</p>` : ''}`;
+  if (!C || !Array.isArray(C.items)) return '<p class="gl-chico">Los costos no se pudieron cargar ahora.</p>';
+  const nota = n => n ? ` <span class="gl-chico">${esc(n[0].toUpperCase() + n.slice(1))}.</span>` : '';
+  return `<ul class="gl-renglones">${C.items.map(i => `<li><span>${esc(i.t)}${nota(i.nota)}</span><b>${i.monto == null ? 'a calcular' : esc(i.monto)}</b></li>`).join('')}</ul>
+    ${C.actualizado ? `<p class="gl-chico">Actualizado el ${esc(fmtLarga(C.actualizado))}.</p>` : ''}`;
 }
 function sostenerPlan(P) {
   if (!P || !Array.isArray(P.etapas)) return '';
-  return `<div class="titulo-sec"><h2>Tu ayuda me permitiría seguir con este plan:</h2></div>` + P.etapas.map(e => `<div class="tarjeta"><h3 class="u-mb6">${esc(e.t)}</h3>
-    ${(e.items || []).map(i => { const [t, c] = ESTADO_PLAN[i.estado] || ESTADO_PLAN.planeado; return `<div class="plan-item"><div class="crece"><b>${esc(i.t)}</b><p class="chico tenue u-margin-2px-0-0">${esc(i.d)}</p></div><span class="chip ${c}">${t}</span></div>`; }).join('')}</div>`).join('');
+  return `<h2 id="plan">Tu ayuda me permitiría seguir con este plan</h2>` + P.etapas.map(e => `<h3>${esc(e.t)}</h3><ul class="gl-plan">
+    ${(e.items || []).map(i => { const [t, c] = ESTADO_PLAN[i.estado] || ESTADO_PLAN.planeado; return `<li><div><b>${esc(i.t)}</b><p>${esc(i.d)}</p></div><span class="${c}">${t}</span></li>`; }).join('')}</ul>`).join('');
+}
+function sostenerMecenas(M) {
+  const L = M && Array.isArray(M.mecenas) ? M.mecenas : [];
+  if (!L.length) return `<div class="gl-mecenas"><b>Todavía no hay mecenas.</b><p>Acá van a figurar quienes apoyen a Galera con un aporte y quieran que se sepa. Nadie figura sin que lo pida. Si hacés un aporte y querés estar, escribime a <a href="mailto:${HOLA}">${HOLA}</a> con el nombre que prefieras.</p></div>`;
+  return `<p>Estas personas apoyaron a Galera y aceptaron figurar acá. Gracias.</p><ul class="gl-mecenas-lista">${L.map(m => {
+    const [a, mes] = String(m.desde || '').split('-'), nombre = m.enlace ? `<a href="${urlSegura(m.enlace)}" target="_blank" rel="noopener">${esc(m.nombre)}</a>` : esc(m.nombre);
+    return `<li>${nombre}${a && MESES_ES[Number(mes) - 1] ? `<small>Desde ${MESES_ES[Number(mes) - 1]} de ${esc(a)}</small>` : ''}</li>`;
+  }).join('')}</ul><p class="gl-chico">Si querés figurar, escribime a <a href="mailto:${HOLA}">${HOLA}</a> con el nombre que quieras que aparezca.</p>`;
 }
 function vSostener() {
   if (!D.sostener) { cargarSostener(); return '<p class="cargando">Cargando…</p>'; }
-  const S = D.sostener, fila = (t, v) => `<div class="donar-fila"><span class="chico tenue">${t}</span><code>${esc(v)}</code><button class="btn sec" type="button" onclick="copiar(${arg(v)})">Copiar</button></div>`;
-  return `<div class="titulo-sec"><h2>Cómo se sostiene Galera</h2></div>
-    <p class="capital">Galera es gratis, no pide cuenta y no tiene publicidad. La hago yo, Fidel, estudiante de Edición, y esta pantalla cuenta cuánto trabajo lleva, cuánto cuesta y cómo ayudar si querés.</p>
-    <div class="titulo-sec"><h2>Horas de trabajo</h2></div><div class="tarjeta">${sostenerHoras(S.horas, S.claude)}</div>
-    <div class="titulo-sec"><h2>Costos</h2></div><div class="tarjeta">${sostenerCostos(S.costos)}
-      <p class="u-margin-12px-0-0">Con más apoyo podría pagar un plan superior de Claude y avanzar más frentes por semana.</p></div>
-    <div class="titulo-sec"><h2>Cómo ayudar</h2></div><div class="tarjeta">
-      <p class="u-mt0">Si Galera te sirve, podés transferir lo que quieras desde cualquier banco o billetera: sin comisión y llega al instante.</p>
-      ${DONAR.alias ? fila('Alias', DONAR.alias) : ''}${DONAR.cvu ? fila('CVU', DONAR.cvu) : ''}
-      <div class="donar-fila"><span class="chico tenue">Cafecito</span><code>cafecito.app/fidelchaves</code><a class="btn sec" href="${urlSegura(DONAR.cafecito)}" target="_blank" rel="noopener">Abrir</a></div>
-      <p class="chico u-margin-12px-0-0">¿Querés ayudar de otra forma? <a href="mailto:${CONTACTO}?subject=${encodeURIComponent('Galera: quiero ayudar')}">Escribime</a>.</p></div>
-    ${sostenerPlan(S.plan)}`;
+  const S = D.sostener, fila = (t, v) => `<div class="gl-donar"><span class="gl-chico">${t}</span><code>${esc(v)}</code><button class="gl-btn gl-btn--sec" type="button" onclick="copiar(${arg(v)})">Copiar</button></div>`;
+  return `<div class="gl-v gl-sost"><div class="gl-cab"><h1 class="gl-display">Cómo se sostiene</h1></div>
+    <p class="gl-baja">Galera es gratis, no pide cuenta y no tiene publicidad. Acá está cuánto trabajo lleva, qué cuesta y cómo ayudar.</p>
+    <div class="gl-doc gl-doc--izq"><div class="gl-principal">
+      <p class="capital gl-lead">Galera la hago yo, Fidel Chaves, estudiante de Edición, en mi tiempo libre. No pide registro ni vende datos: lo que cargás queda en tu dispositivo.</p>
+      <h2 id="horas">Horas de trabajo</h2>${sostenerHoras(S.horas, S.claude)}
+      <h2 id="costos">Qué cuesta</h2>${sostenerCostos(S.costos)}
+      <p>Con más apoyo podría pagar un plan superior de Claude y avanzar más frentes por semana.</p>
+      <h2 id="ayudar">Trabajar conmigo y colaborar</h2><p>Hay tres maneras de ayudar. Todas son opcionales.</p>
+      <ul class="gl-formas">
+        <li><b>Con plata</b><p>Un aporte único, del monto que quieras, por <a href="${urlSegura(DONAR.cafecito)}" target="_blank" rel="noopener">Cafecito</a> o por transferencia al alias <b>${esc(DONAR.alias)}</b>, sin comisión. Los datos para copiar están a un costado.</p></li>
+        <li><b>Con tiempo</b><p>Avisame de un error, sugerime lo que falta o mandame tus apuntes para sumarlos: los reviso a mano antes de publicarlos. Se hace desde «Contame qué falta» o por mail.</p></li>
+        <li><b>Un proyecto en común</b><p>Si tenés un proyecto editorial en el que pueda sumar con corrección, redacción o armado de contenidos, contame. Escribime a <a href="mailto:${HOLA}">${HOLA}</a>.</p></li></ul>
+      <h2 id="mecenas">Mecenas</h2>${sostenerMecenas(S.mecenas)}
+      ${sostenerPlan(S.plan)}</div>
+    <aside class="gl-riel" aria-label="Ayudar">
+      <div class="gl-tarjeta"><h3>Invitame un cafecito</h3><p>Un aporte único, del monto que quieras.</p><a class="gl-btn" href="${urlSegura(DONAR.cafecito)}" target="_blank" rel="noopener">Ir a Cafecito</a></div>
+      <div class="gl-tarjeta"><h3>Transferencia</h3><p>Sin comisión, desde cualquier banco o billetera.</p>${DONAR.alias ? fila('Alias', DONAR.alias) : ''}${DONAR.cvu ? fila('CVU', DONAR.cvu) : ''}</div>
+      <div class="gl-tarjeta"><h3>Escribime</h3><p>Para colaborar, sumar tus apuntes o proponer algo.</p><a class="gl-btn gl-btn--sec" href="mailto:${HOLA}">${HOLA}</a></div></aside></div></div>`;
 }
 
 // =====================================================================
@@ -3182,7 +3239,7 @@ function vLinksPro() {
   if (D.linksLibro.error) return `<div class="gl-v gl-links">${cabLinks}<p class="gl-vacio" role="alert">No pude cargar esto. Puede ser la conexión. <button class="gl-btn gl-btn--sec" type="button" onclick="location.reload()">Probar de nuevo</button></p></div>`;
   return `<div class="gl-v gl-links">${cabLinks}<p class="gl-baja">Los sitios oficiales que más se usan para registrar, informarse y moverse en el sector del libro. Los de afuera se abren en una pestaña nueva. Si falta alguno, avisame con «Contame qué falta».</p>
     <div class="gl-links-g">` + D.linksLibro.grupos.map(g => grupoLinks(esc(g.grupo), g.links.map(linkExt).join(''))).join('') +
-    grupoLinks('En Galera', linkInt('Leyes del libro', 'La pirámide de normas y el traductor jurídico.', "irSim('leyes')", '#simuladores/leyes') + linkInt('Contratos modelo', 'Borrador de contrato de traducción o de edición, con la fuente de cada cláusula.', "irSim('contratos')", '#simuladores/contratos') + linkInt('Planificador de libros', 'Del original a la reimpresión, con Gantt, PERT y Roy.', '', 'libro/cronograma/')) + '</div>' +
+    grupoLinks('En Galera', linkInt('Leyes del libro', 'La pirámide de normas y el traductor jurídico.', "irSim('leyes')", '/simuladores/leyes.html') + linkInt('Contratos modelo', 'Borrador de contrato de traducción o de edición, con la fuente de cada cláusula.', "irSim('contratos')", '/simuladores/contratos.html') + linkInt('Planificador de libros', 'Del original a la reimpresión, con Gantt, PERT y Roy.', '', 'libro/cronograma/')) + '</div>' +
     (D.linksLibro.verificado ? `<p class="gl-chico gl-m32">Links revisados el ${fmt(D.linksLibro.verificado)}.</p>` : '') + '</div>';
 }
 function vLinks() {
@@ -3191,7 +3248,7 @@ function vLinks() {
   return `<div class="gl-v gl-links">${cabLinks}<p class="gl-baja">Los sitios oficiales que más se usan durante la cursada. Los de afuera se abren en una pestaña nueva. Si falta alguno, avisame con «Contame qué falta».</p>` +
     (G ? `<div class="gl-tarjeta gl-guia"><p class="gl-rotulo">Lo básico de la cursada</p>${G.items.map(i => `<details><summary>${esc(i.t)}</summary><p class="meta">${esc(i.d)}</p></details>`).join('')}<p class="meta">${esc(G.fuente)}</p></div>` : '') +
     `<div class="gl-links-g">${(D.plan.links || []).map(g => grupoLinks(esc(g.grupo), g.links.map(linkExt).join(''))).join('')}` +
-    grupoLinks('En Galera', linkInt('Biblioteca', 'La bibliografía de cada materia.', "ir('biblioteca')", '#biblioteca') + linkInt('Glosario', 'Términos de la carrera.', "ir('glosario')", '#glosario') + linkInt('Directorio de editoriales', 'Ciudad, tipo y sitio web.', "ir('directorio')", '#directorio')) + '</div>' +
+    grupoLinks('En Galera', linkInt('Biblioteca', 'La bibliografía de cada materia.', "ir('biblioteca')", '/biblioteca/') + linkInt('Glosario', 'Términos de la carrera.', "ir('glosario')", '/glosario/') + linkInt('Directorio de editoriales', 'Ciudad, tipo y sitio web.', "ir('directorio')", '/directorio/')) + '</div>' +
     (D.plan.verificado ? `<p class="gl-chico gl-m32">Links revisados el ${fmt(D.plan.verificado)}.</p>` : '') + '</div>';
 }
 // El sitio es estático: la sugerencia va a un buzón aparte (un Apps Script, ver 104-edicion-cursada/sugerencias)

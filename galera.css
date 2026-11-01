@@ -104,9 +104,6 @@ h1,h2,h3,.portada h2,.practica h2,.nov-t,.perfil b,.avance b,.recorrido .area{fo
 /* Menú con grupos de las páginas estáticas (el lienzo: Cabecera) */
 .sub a{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border-radius:4px;color:var(--texto);text-decoration:none}
 .sub a:hover{color:var(--tinta)}
-.lectura .cabecera .pestanas{display:flex}
-.lectura .cabecera .subw:not([hidden]){display:block}
-@media (max-width:720px){.lectura .cabecera .marca{flex-wrap:wrap}.lectura .cabecera .pestanas{flex-basis:100%;order:3}}
 
 /* Íconos de estado de la hoja Marca: pendiente, cursando, regular y aprobada */
 .ge{width:16px;height:16px;flex:none;display:inline-block;vertical-align:-3px;margin-right:6px;background:currentColor;-webkit-mask:var(--ic) center/contain no-repeat;mask:var(--ic) center/contain no-repeat}
@@ -268,3 +265,5 @@ h1,h2,h3,.portada h2,.practica h2,.nov-t,.perfil b,.avance b,.recorrido .area{fo
 .avisame .btn{min-height:44px}
 .pie-legal p.pie-enlaces{order:1;flex:1 0 100%;display:flex;flex-wrap:wrap;gap:0 20px;margin:0 0 16px;font-size:14px;line-height:20px}
 .pie-enlaces .enlace,.pie-enlaces a{display:inline-flex;align-items:center;min-height:44px;font-size:14px}
+
+.lectura-main .migas{display:none}

@@ -120,9 +120,9 @@ function compartirResultado(materia, apunte, bien, total) {
 // Se muestra al final de cada autoevaluación.
 function bloqueFinAuto(materia, apunte, bien, hechas, total) {
   const completa = total > 0 && hechas === total;
-  return `<div class="tarjeta fila no-imprimir" style="margin-top:12px"><span class="crece chico">${completa ? `Terminaste: <b>${bien} de ${total}</b>.` : ''} <span class="tenue">¿Le sirve a alguien de tu cursada?</span></span>
-    ${completa ? `<button class="btn sec ch" onclick="compartirResultado(${arg(materia)},${arg(apunte)},${bien},${total})">📷 Mi resultado en imagen</button>` : ''}
-    <button class="btn lin ch" onclick="mandarApunte(${arg(materia)},${arg(apunte)})">Mandale este apunte por WhatsApp</button></div>`;
+  return `<div class="gl-tarjeta gl-accion no-imprimir gl-m16"><div>${completa ? `Terminaste: <b>${bien} de ${total}</b>. ` : ''}<span class="gl-chico">¿Le sirve a alguien de tu cursada?</span></div>
+    ${completa ? `<button class="gl-btn gl-btn--sec" type="button" onclick="compartirResultado(${arg(materia)},${arg(apunte)},${bien},${total})">Mi resultado en imagen</button>` : ''}
+    <button class="gl-btn gl-btn--ter" type="button" onclick="mandarApunte(${arg(materia)},${arg(apunte)})">Mandale este apunte por WhatsApp</button></div>`;
 }
 
 // ---------- mi avance ----------
