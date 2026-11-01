@@ -1,26 +1,206 @@
 {
  "nota": "Lo que va en el mail de los lunes (Novedades.gs) y en la pestaña Novedades. v: número de versión (obligatorio; ver CHANGELOG.md). tipo: herramientas | resumenes | fechas. perfil: estudiante (por defecto) | profesional | todos; el mail y la pestaña Novedades lo usan para mostrar a cada perfil lo suyo. materias: ids del plan (vacío = para todas). url: solo links a galera.com.ar/. Sumar una entrada por cada cosa que se publica; el script manda solo lo posterior al último envío de cada persona, así que las viejas no se reenvían.",
  "novedades": [
-   {"v": 113, "fecha": "2026-10-31", "tipo": "herramientas", "perfil": "todos", "materias": [], "titulo": "Apuntes sin emojis y más fáciles de tocar en el celular", "texto": "Los avisos de borrador y los links de los apuntes dejan los emojis, los botones y desplegables miden 44 px en el celular y las tablas largas ya no ensanchan la página.", "url": "https://galera.com.ar/"},
-   {"v": 112, "fecha": "2026-10-31", "tipo": "herramientas", "perfil": "todos", "materias": [], "titulo": "Novedades, Links útiles y Configuración, rehechas", "texto": "Las tres pantallas tienen título, grilla y tarjetas del resto del sitio. Los links se agrupan en tarjetas y suman accesos a Galera; Configuración tiene interruptores de 44 px y sin emojis.", "url": "https://galera.com.ar/"},
-   {"v": 111, "fecha": "2026-10-31", "tipo": "herramientas", "perfil": "todos", "materias": [], "titulo": "Glosario, Eventos y Directorio con el estilo nuevo", "texto": "El glosario, las ferias y eventos y el directorio del libro tienen la grilla, las tarjetas y los filtros del resto del sitio, con búsqueda en cada uno.", "url": "https://galera.com.ar/"},
-   {"v": 110, "fecha": "2026-10-31", "tipo": "herramientas", "perfil": "todos", "materias": [], "titulo": "Un caballero en el inicio", "texto": "El inicio cierra con una ilustración de un caballero con estandarte, en azul de Galera y con su versión para el modo oscuro.", "url": "https://galera.com.ar/"},
-   {"v": 109, "fecha": "2026-10-31", "tipo": "herramientas", "perfil": "todos", "materias": [], "titulo": "Resúmenes, Simuladores y Biblioteca, rehechas", "texto": "Las tres pantallas tienen la grilla y las tarjetas del resto del sitio, con filtros y búsqueda en Resúmenes y Biblioteca. «Simuladores» ya se lee bien en el título, y las páginas de cada simulador no llevan emojis.", "url": "https://galera.com.ar/r/"},
-   {"v": 108, "fecha": "2026-10-31", "tipo": "herramientas", "perfil": "todos", "materias": [], "titulo": "Privacidad y «Cómo se sostiene», rehechas", "texto": "Privacidad y términos se lee mejor, en claro y en oscuro. «Cómo se sostiene» suma formas de colaborar con plata o con tiempo, un lugar para los mecenas y el plan al día, con lo que ya está hecho y lo que sigue.", "url": "https://galera.com.ar/sostener/"},
-   {"v": 106, "fecha": "2026-10-31", "tipo": "herramientas", "perfil": "todos", "materias": [], "titulo": "Menú y pie iguales en todo el sitio", "texto": "El menú, el pie y los nombres de las secciones dicen lo mismo en todas las páginas. Arreglo: «Mi carrera» en el menú y el pie de los resúmenes, el glosario y las demás páginas ahora abre tu carrera.", "url": "https://galera.com.ar/#carrera"},
-   {"v": 105, "fecha": "2026-10-31", "tipo": "herramientas", "perfil": "todos", "materias": [], "titulo": "Horarios y Calendario rehechos", "texto": "Horarios y Calendario tienen el diseño nuevo: elegís materias y comisiones en filas simples, ves tu semana en la grilla y el calendario muestra el mes con filtros y lo que viene. Sin emojis; tus horarios guardados siguen igual.", "url": "https://galera.com.ar/#horarios"},
-   {"v": 104, "fecha": "2026-10-31", "tipo": "herramientas", "perfil": "todos", "materias": [], "titulo": "Un solo enlace para privacidad y términos", "texto": "El pie junta privacidad y términos de uso en un solo enlace, a la derecha de la guía del ingresante, y la g de galera va en azul.", "url": "https://galera.com.ar/legal/"},
-   {"v": 103, "fecha": "2026-10-31", "tipo": "herramientas", "perfil": "todos", "materias": [], "titulo": "Eventos, Fuentes y Legal en el menú", "texto": "Eventos, Fuentes y Legal (con privacidad y términos de uso) tienen su lugar en el menú y en el pie. Para quienes trabajan con libros, Herramientas vuelve a ser un grupo propio.", "url": "https://galera.com.ar/legal/"},
-   {"v": 102, "fecha": "2026-10-31", "tipo": "herramientas", "perfil": "todos", "materias": [], "titulo": "Mi carrera, rehecha", "texto": "Mi carrera tiene el orden del diseño nuevo: tu avance y promedio a la izquierda, el plan al centro y lo que viene y cómo compartir a la derecha. Tus datos no cambian.", "url": "https://galera.com.ar/"},
-   {"v": 101, "fecha": "2026-10-31", "tipo": "herramientas", "perfil": "todos", "materias": [], "titulo": "Retoques de ancho y pie", "texto": "El inicio tiene el ancho exacto del diseño y cambia a la versión de celular a los 720 px. Las páginas de resúmenes, glosario y demás suman al pie la fila de enlaces (cookies, tus datos, contanos qué falta).", "url": "https://galera.com.ar/"},
-   {"v": 100, "fecha": "2026-10-31", "tipo": "herramientas", "perfil": "todos", "materias": [], "titulo": "Inicio rehecho", "texto": "La pantalla de inicio se rearmó con los componentes nuevos del diseño: mismo índice, mejor orden y botones más fáciles de tocar en el celular.", "url": "https://galera.com.ar/"},
-   {"v": 99, "fecha": "2026-10-31", "tipo": "herramientas", "perfil": "todos", "materias": [], "titulo": "Nuevos componentes del diseño", "texto": "Base del rediseño de Galera: estados, tarjetas, botones y filas con la misma forma en todas las pantallas. Todavía no cambia lo que ves.", "url": "https://galera.com.ar/"},
-   {"v": 98, "fecha": "2026-10-31", "tipo": "herramientas", "perfil": "todos", "materias": [], "titulo": "Baja del aviso por mail, explicada", "texto": "La página Legal aclara que cada mail de novedades trae el enlace para darte de baja.", "url": "https://galera.com.ar/legal/"},
-   {"v": 97, "fecha": "2026-10-31", "tipo": "herramientas", "perfil": "todos", "materias": [], "titulo": "Privacidad y direcciones de contacto", "texto": "La página Legal explica qué datos guarda Galera y a quién escribir según el tema (privacidad, soporte, prensa). El pie suma Soporte y Privacidad.", "url": "https://galera.com.ar/legal/"},
-   {"v": 96, "fecha": "2026-10-30", "tipo": "herramientas", "perfil": "todos", "materias": [], "titulo": "Página Legal y aviso de página inexistente", "texto": "Galera tiene una página Legal con qué datos guarda y cómo cambiar tus permisos, y un aviso propio cuando entrás a un enlace que no existe.", "url": "https://galera.com.ar/legal/"},
-   {"v": 95, "fecha": "2026-10-30", "tipo": "herramientas", "perfil": "todos", "materias": [], "titulo": "Menú y pie como en el diseño", "texto": "El menú tiene cuatro grupos (Planificar, Estudiar, Descubrir y Galera) y los Simuladores pasaron a Estudiar. El pie suma «Escribir a Fidel» y los íconos de colores salieron de Simuladores y de la elección de perfil.", "url": "https://galera.com.ar/"},
-   {"v": 94, "fecha": "2026-10-30", "tipo": "herramientas", "perfil": "todos", "materias": [], "titulo": "Títulos de las páginas, como el diseño", "texto": "Las páginas de Glosario, Biblioteca, Directorio, Simuladores, Cómo se sostiene y los resúmenes tienen el título más grande, con inicial gótica, y el contenido más ancho.", "url": "https://galera.com.ar/"},
-   {
+  {
+   "v": 114,
+   "fecha": "2026-10-31",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "titulo": "Una sola versión de cada pantalla",
+   "texto": "Cada pantalla tiene ahora una dirección propia y un solo diseño, llegues desde el inicio, el menú, el pie o un link. En el celular, la barra de abajo está siempre y suma Descubrir. Glosario y Directorio se ordenan por letra."
+  },
+  {
+   "v": 113,
+   "fecha": "2026-10-31",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "titulo": "Apuntes sin emojis y más fáciles de tocar en el celular",
+   "texto": "Los avisos de borrador y los links de los apuntes dejan los emojis, los botones y desplegables miden 44 px en el celular y las tablas largas ya no ensanchan la página.",
+   "url": "https://galera.com.ar/"
+  },
+  {
+   "v": 112,
+   "fecha": "2026-10-31",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "titulo": "Novedades, Links útiles y Configuración, rehechas",
+   "texto": "Las tres pantallas tienen título, grilla y tarjetas del resto del sitio. Los links se agrupan en tarjetas y suman accesos a Galera; Configuración tiene interruptores de 44 px y sin emojis.",
+   "url": "https://galera.com.ar/"
+  },
+  {
+   "v": 111,
+   "fecha": "2026-10-31",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "titulo": "Glosario, Eventos y Directorio con el estilo nuevo",
+   "texto": "El glosario, las ferias y eventos y el directorio del libro tienen la grilla, las tarjetas y los filtros del resto del sitio, con búsqueda en cada uno.",
+   "url": "https://galera.com.ar/"
+  },
+  {
+   "v": 110,
+   "fecha": "2026-10-31",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "titulo": "Un caballero en el inicio",
+   "texto": "El inicio cierra con una ilustración de un caballero con estandarte, en azul de Galera y con su versión para el modo oscuro.",
+   "url": "https://galera.com.ar/"
+  },
+  {
+   "v": 109,
+   "fecha": "2026-10-31",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "titulo": "Resúmenes, Simuladores y Biblioteca, rehechas",
+   "texto": "Las tres pantallas tienen la grilla y las tarjetas del resto del sitio, con filtros y búsqueda en Resúmenes y Biblioteca. «Simuladores» ya se lee bien en el título, y las páginas de cada simulador no llevan emojis.",
+   "url": "https://galera.com.ar/r/"
+  },
+  {
+   "v": 108,
+   "fecha": "2026-10-31",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "titulo": "Privacidad y «Cómo se sostiene», rehechas",
+   "texto": "Privacidad y términos se lee mejor, en claro y en oscuro. «Cómo se sostiene» suma formas de colaborar con plata o con tiempo, un lugar para los mecenas y el plan al día, con lo que ya está hecho y lo que sigue.",
+   "url": "https://galera.com.ar/sostener/"
+  },
+  {
+   "v": 106,
+   "fecha": "2026-10-31",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "titulo": "Menú y pie iguales en todo el sitio",
+   "texto": "El menú, el pie y los nombres de las secciones dicen lo mismo en todas las páginas. Arreglo: «Mi carrera» en el menú y el pie de los resúmenes, el glosario y las demás páginas ahora abre tu carrera.",
+   "url": "https://galera.com.ar/#carrera"
+  },
+  {
+   "v": 105,
+   "fecha": "2026-10-31",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "titulo": "Horarios y Calendario rehechos",
+   "texto": "Horarios y Calendario tienen el diseño nuevo: elegís materias y comisiones en filas simples, ves tu semana en la grilla y el calendario muestra el mes con filtros y lo que viene. Sin emojis; tus horarios guardados siguen igual.",
+   "url": "https://galera.com.ar/#horarios"
+  },
+  {
+   "v": 104,
+   "fecha": "2026-10-31",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "titulo": "Un solo enlace para privacidad y términos",
+   "texto": "El pie junta privacidad y términos de uso en un solo enlace, a la derecha de la guía del ingresante, y la g de galera va en azul.",
+   "url": "https://galera.com.ar/legal/"
+  },
+  {
+   "v": 103,
+   "fecha": "2026-10-31",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "titulo": "Eventos, Fuentes y Legal en el menú",
+   "texto": "Eventos, Fuentes y Legal (con privacidad y términos de uso) tienen su lugar en el menú y en el pie. Para quienes trabajan con libros, Herramientas vuelve a ser un grupo propio.",
+   "url": "https://galera.com.ar/legal/"
+  },
+  {
+   "v": 102,
+   "fecha": "2026-10-31",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "titulo": "Mi carrera, rehecha",
+   "texto": "Mi carrera tiene el orden del diseño nuevo: tu avance y promedio a la izquierda, el plan al centro y lo que viene y cómo compartir a la derecha. Tus datos no cambian.",
+   "url": "https://galera.com.ar/"
+  },
+  {
+   "v": 101,
+   "fecha": "2026-10-31",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "titulo": "Retoques de ancho y pie",
+   "texto": "El inicio tiene el ancho exacto del diseño y cambia a la versión de celular a los 720 px. Las páginas de resúmenes, glosario y demás suman al pie la fila de enlaces (cookies, tus datos, contanos qué falta).",
+   "url": "https://galera.com.ar/"
+  },
+  {
+   "v": 100,
+   "fecha": "2026-10-31",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "titulo": "Inicio rehecho",
+   "texto": "La pantalla de inicio se rearmó con los componentes nuevos del diseño: mismo índice, mejor orden y botones más fáciles de tocar en el celular.",
+   "url": "https://galera.com.ar/"
+  },
+  {
+   "v": 99,
+   "fecha": "2026-10-31",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "titulo": "Nuevos componentes del diseño",
+   "texto": "Base del rediseño de Galera: estados, tarjetas, botones y filas con la misma forma en todas las pantallas. Todavía no cambia lo que ves.",
+   "url": "https://galera.com.ar/"
+  },
+  {
+   "v": 98,
+   "fecha": "2026-10-31",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "titulo": "Baja del aviso por mail, explicada",
+   "texto": "La página Legal aclara que cada mail de novedades trae el enlace para darte de baja.",
+   "url": "https://galera.com.ar/legal/"
+  },
+  {
+   "v": 97,
+   "fecha": "2026-10-31",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "titulo": "Privacidad y direcciones de contacto",
+   "texto": "La página Legal explica qué datos guarda Galera y a quién escribir según el tema (privacidad, soporte, prensa). El pie suma Soporte y Privacidad.",
+   "url": "https://galera.com.ar/legal/"
+  },
+  {
+   "v": 96,
+   "fecha": "2026-10-30",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "titulo": "Página Legal y aviso de página inexistente",
+   "texto": "Galera tiene una página Legal con qué datos guarda y cómo cambiar tus permisos, y un aviso propio cuando entrás a un enlace que no existe.",
+   "url": "https://galera.com.ar/legal/"
+  },
+  {
+   "v": 95,
+   "fecha": "2026-10-30",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "titulo": "Menú y pie como en el diseño",
+   "texto": "El menú tiene cuatro grupos (Planificar, Estudiar, Descubrir y Galera) y los Simuladores pasaron a Estudiar. El pie suma «Escribir a Fidel» y los íconos de colores salieron de Simuladores y de la elección de perfil.",
+   "url": "https://galera.com.ar/"
+  },
+  {
+   "v": 94,
+   "fecha": "2026-10-30",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "titulo": "Títulos de las páginas, como el diseño",
+   "texto": "Las páginas de Glosario, Biblioteca, Directorio, Simuladores, Cómo se sostiene y los resúmenes tienen el título más grande, con inicial gótica, y el contenido más ancho.",
+   "url": "https://galera.com.ar/"
+  },
+  {
    "v": 93,
    "fecha": "2026-10-30",
    "tipo": "herramientas",
@@ -29,8 +209,8 @@
    "titulo": "Galera, igual que el diseño",
    "texto": "La cabecera, el índice de inicio y el pie quedaron con las medidas, la tipografía (ahora con Literata) y los puntos del diseño original.",
    "url": "https://galera.com.ar/"
- },
-   {
+  },
+  {
    "v": 92,
    "fecha": "2026-10-30",
    "tipo": "herramientas",
@@ -39,8 +219,8 @@
    "titulo": "Textos revisados en toda la app",
    "texto": "Pasamos por la hoja de estilo los avisos y las explicaciones de Galera: números en letras, el mismo nombre para el botón de sugerencias y frases más claras.",
    "url": "https://galera.com.ar/"
-   },
-   {
+  },
+  {
    "v": 91,
    "fecha": "2026-10-29",
    "tipo": "herramientas",
@@ -49,8 +229,8 @@
    "titulo": "Títulos con inicial gótica y pie más claro",
    "texto": "Cada pantalla abre con su inicial en gótica, el pie quedó más corto y la barra de estadísticas se ve mejor alineada. El modo oscuro ajustó sus colores.",
    "url": "https://galera.com.ar/"
-   },
-   {
+  },
+  {
    "v": 90,
    "fecha": "2026-10-29",
    "tipo": "herramientas",
@@ -59,8 +239,8 @@
    "titulo": "Calendario, Mi carrera y Configuración con la cara de Galera",
    "texto": "El calendario se ve por mes, con filtros y «Lo que viene» al costado; Mi carrera muestra cada materia con su ícono de estado; y en Configuración elegís el tema, los avisos y las estadísticas con interruptores.",
    "url": "https://galera.com.ar/"
-   },
-   {
+  },
+  {
    "v": 89,
    "fecha": "2026-10-29",
    "tipo": "herramientas",
@@ -69,8 +249,8 @@
    "titulo": "Novedades, Links, Configuración y Horarios con la cara de Galera",
    "texto": "Novedades se lee por versión, con el aviso del mail al costado; los links se ordenan en tres columnas y Ajustes pasa a llamarse Configuración.",
    "url": "https://galera.com.ar/"
-   },
-   {
+  },
+  {
    "v": 88,
    "fecha": "2026-10-29",
    "tipo": "herramientas",
@@ -79,8 +259,8 @@
    "titulo": "Galera se ve igual en todo el sitio",
    "texto": "El nombre ya dice Galera en todas las páginas, las materias muestran sus estados con íconos, las páginas de lectura tienen el menú con grupos y las vistas previas al compartir llevan la marca nueva.",
    "url": "https://galera.com.ar/"
-   },
-   {
+  },
+  {
    "v": 87,
    "fecha": "2026-10-29",
    "tipo": "herramientas",
@@ -89,8 +269,8 @@
    "titulo": "Galera estrena ícono, cinta y pie",
    "texto": "El ícono es ahora la g gótica en azul, la cabecera lleva una cinta de puntos y el pie se reordena con todas las secciones a mano.",
    "url": "https://galera.com.ar/"
-   },
-   {
+  },
+  {
    "v": 86,
    "fecha": "2026-10-29",
    "tipo": "resumenes",
@@ -99,8 +279,8 @@
    "titulo": "Resúmenes, Biblioteca y Glosario con la cara de Galera",
    "texto": "Los resúmenes, la biblioteca y el glosario ya se ven con el estilo nuevo: el nombre en letra gótica y el azul de Galera, en claro y en oscuro.",
    "url": "https://galera.com.ar/r/"
-   },
-   {
+  },
+  {
    "v": 85,
    "fecha": "2026-10-29",
    "tipo": "herramientas",
@@ -109,13 +289,15 @@
    "titulo": "Algo está en preprensa",
    "texto": "Se viene algo nuevo. Todavía no salió de la imprenta, pero ya se puede espiar.",
    "url": "https://ficha.github.io/cursada/preprensa/"
-   },
-   {
+  },
+  {
    "v": 84,
    "fecha": "2026-10-29",
    "tipo": "resumenes",
    "perfil": "estudiante",
-   "materias": ["digital"],
+   "materias": [
+    "digital"
+   ],
    "titulo": "Arreglo del nombre de Edición de Publicaciones Periódicas",
    "texto": "En Resúmenes, la materia 0922 figuraba con otro nombre y como «Para los parciales»; ahora se llama Edición de Publicaciones Periódicas y dice «Para el final»."
   },

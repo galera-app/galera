@@ -26,25 +26,9 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Cronograma de un libro: Gantt, PERT y Roy (MPM)", "description": "Planificá la producción de un libro con Gantt, PERT y Roy sobre las mismas tareas: ruta crítica, holguras y la probabilidad de llegar a tiempo.", "url": "https://galera.com.ar/simuladores/cronograma.html", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "browserRequirements": "Requiere JavaScript", "inLanguage": "es-AR", "isAccessibleForFree": true, "image": "https://galera.com.ar/simuladores/img/cronograma.jpg", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "ARS"}, "author": {"@type": "Person", "name": "Fidel Chaves", "url": "https://ficha.github.io/"}, "isPartOf": {"@type": "WebApplication", "name": "Galera", "url": "https://galera.com.ar/"}, "audience": {"@type": "EducationalAudience", "educationalRole": "student"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Galera", "item": "https://galera.com.ar/"}, {"@type": "ListItem", "position": 2, "name": "Simuladores", "item": "https://galera.com.ar/simuladores/"}, {"@type": "ListItem", "position": 3, "name": "Cronograma: Gantt, PERT y Roy", "item": "https://galera.com.ar/simuladores/cronograma.html"}]}</script>
 </head>
-<body class="lectura">
+<body>
 <!--marco:cabecera-->
-<main id="main" class="lectura-main">
-<nav class="migas chico tenue" aria-label="Ruta"><a href="/">Galera</a> › <a href="/simuladores/">Simuladores</a> › <span>Cronograma: Gantt, PERT y Roy</span></nav>
-<article class="tarjeta apunte"><p class="chico tenue">Simulador · Fundamentos de la Producción de Impresos</p><h1>Cronograma de un libro: Gantt, PERT y Roy (MPM)</h1>
-<p>Cargá las tareas de la producción de un libro (contratación, edición, corrección, diseño, diagramación, imprenta…), con su duración y de cuáles dependen, y mirá el cronograma con tres métodos: Gantt (barras en el calendario), PERT (tres estimaciones por tarea y probabilidad de terminar a tiempo) y Roy o método de los potenciales (red con fechas tempranas y tardías). Podés usar cada uno por separado o compararlos.</p>
-<p class="acciones"><a class="btn" href="/#simuladores/cronograma" data-abrir="simulador/cronograma" data-donde="arriba">Abrir el simulador</a></p>
-<h2>Qué hace</h2>
-<ul><li>Calcula la ruta crítica: la cadena de tareas que, si se atrasa una, atrasa todo el libro.</li><li>Gantt: dibuja cada tarea como una barra en el tiempo, con la ruta crítica resaltada y el margen de las que tienen holgura.</li><li>Roy (MPM): arma la red de tareas y muestra, en cada una, el inicio y el fin más tempranos y más tardíos, y la holgura.</li><li>PERT: con tareas de duración incierta, calcula la duración esperada, el desvío y la probabilidad de llegar en el plazo que pongas.</li><li>Compara los tres con las mismas tareas y pasa los días hábiles a fechas, salteando fines de semana y feriados.</li></ul>
-<h2>Las cuentas, a mano</h2>
-<ul><li>Inicio más temprano = el mayor fin de sus tareas previas. Fin = inicio + duración.</li><li>Inicio más tardío = fin más tardío − duración. Holgura = inicio más tardío − inicio más temprano. La ruta crítica es la de holgura 0.</li><li>PERT: duración esperada = (optimista + 4 × probable + pesimista) ÷ 6. Varianza = ((pesimista − optimista) ÷ 6)².</li><li>Probabilidad de llegar al plazo T = distribución normal de (T − duración esperada) ÷ desvío de la ruta crítica.</li></ul>
-<p class="chico tenue">Método de la ruta crítica (CPM), PERT y método de los potenciales de Roy (MPM), tal como se enseñan en planificación y control de proyectos. Las duraciones del ejemplo son orientativas: ajustalas a tu libro y a tu imprenta.</p>
-<h2>Cómo se usa</h2>
-<p>Es gratis y no pide cuenta: tus cifras quedan solo en tu navegador. Cargá tus datos o apretá «Cargar el ejemplo» para ver un caso resuelto, y tocá el <b>?</b> al lado de cada dato para ver qué es.</p>
-<p class="acciones"><a class="btn" href="/#simuladores/cronograma" data-abrir="simulador/cronograma" data-donde="abajo">Abrir el simulador</a></p>
-</article>
-<section><h2>Otros simuladores de Galera</h2><ul><li><a href="/simuladores/paginacion.html">Esquema de paginación</a> <span class="tenue">(FPI)</span></li><li><a href="/simuladores/formatos.html">Formatos de papel y serie A</a> <span class="tenue">(FPI)</span></li><li><a href="/simuladores/leyes.html">Leyes: jerarquía y traductor jurídico</a> <span class="tenue">(DEA)</span></li><li><a href="/simuladores/tarifario.html">Tarifario de referencia</a> <span class="tenue">(AEE)</span></li><li><a href="/simuladores/contratos.html">Contratos modelo: traducción y edición</a> <span class="tenue">(DEA)</span></li><li><a href="/simuladores/papel.html">Cálculo de papel e imposición</a> <span class="tenue">(FPI)</span></li><li><a href="/simuladores/escandallo.html">Escandallo de un título</a> <span class="tenue">(AEE)</span></li><li><a href="/simuladores/comparador.html">Comparador de títulos</a> <span class="tenue">(AEE)</span></li><li><a href="/simuladores/ecosistema.html">Ecosistema del libro</a> <span class="tenue">(IAE)</span></li><li><a href="/simuladores/">Todos los simuladores</a></li></ul></section>
-</main>
+<main id="main" tabindex="-1"><!--marco:vista--></main>
 <!--marco:pie-->
-<script src="/r/lectura.js"></script>
 </body>
 </html>

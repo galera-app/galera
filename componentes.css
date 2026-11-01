@@ -485,7 +485,7 @@ a.gl-tapa:focus-visible{outline:2px solid var(--gl-ink);outline-offset:2px}
 .gl-v .gl-enlace{display:inline-flex}
 main:has(>.gl-v){max-width:1224px;padding:48px 16px 80px}
 @media (max-width:720px){main:has(>.gl-v){padding:20px 20px 32px}}
-.gl-v .gl-cab{display:flex;align-items:center;flex-wrap:wrap;gap:16px}.gl-v .gl-cab h2{margin:0}
+.gl-v .gl-cab{display:flex;align-items:center;flex-wrap:wrap;gap:16px}.gl-v .gl-cab h1,.gl-v .gl-cab h2{margin:0}
 .gl-busca .gl-rotulo{display:block;margin-bottom:4px}
 .gl-v .eco-zoom .gl-btn{min-width:44px;height:44px;padding:0 16px}
 /* v112 · Novedades, Links útiles y Configuración (hojas Novedades, Links y Config del lienzo) */
@@ -556,3 +556,113 @@ main summary{padding-block:10px;min-height:44px;box-sizing:border-box}
 .apunte li,.apunte p,.apunte ul,.apunte ol{min-width:0}
 .apunte pre,.apunte code{overflow-wrap:normal}
 }
+
+/* v114 · una sola versión de cada pantalla: Resúmenes, apuntes, Biblioteca, Simuladores, Sostener, Glosario, Directorio y «Más» (diseño del lienzo dentro de la app) */
+.gl-tenue{color:var(--gl-t3)}
+.gl-t4{margin:0;font:600 20px/28px var(--gl-sans);letter-spacing:-.01em;color:var(--gl-ink)}
+.gl-lit{margin:8px 0 0;max-width:60ch;font:400 16px/26px var(--gl-serif);color:var(--gl-ink)}
+.gl-barra-p i{background:var(--gl-mark)}
+.gl-accion{flex-direction:row;align-items:center;flex-wrap:wrap;gap:12px 24px}
+.gl-accion>div{flex:1 1 280px;min-width:0}
+.gl-accion b{display:block;font:600 16px/24px var(--gl-sans);color:var(--gl-ink)}
+.gl-accion .gl-chico{display:block}
+.gl-faltan{margin:8px 0 0;padding:0;list-style:none;display:grid;gap:4px}
+.gl-faltan li{font:400 14px/20px var(--gl-sans);color:var(--gl-t2)}
+.gl-res .gl-aviso{align-items:flex-start}
+.gl-todos{margin:32px 0 0}
+.gl-todos>summary{cursor:pointer;list-style:revert}
+.gl-todos h3{margin:32px 0 0}
+.gl-hits .clave{align-self:start;padding-top:12px}
+.gl-hits a.gl-hit{display:block;padding:8px 0}
+.gl-hit b{display:block;font:500 16px/24px var(--gl-sans);color:var(--gl-ink)}
+.gl-hit .meta{display:block;text-align:left}
+.gl-hit .extracto{display:block;margin-top:4px;font:400 14px/20px var(--gl-sans);color:var(--gl-t2)}
+.gl-hit mark{background:var(--gl-sky);color:inherit;border-radius:2px}
+.gl-res .gl-apuntes .meta .gl-chip{margin-left:6px}
+.gl-migas{margin:0 0 8px}
+.gl-migas a{color:var(--gl-lnk);text-underline-offset:3px}
+.gl-barra-apunte{display:flex;align-items:center;flex-wrap:wrap;gap:8px 12px;margin:8px 0 16px}
+.gl-res article.apunte{padding:24px;max-width:760px}
+.gl-res .apunte h1{margin:4px 0 16px;font:600 32px/38px var(--gl-sans);letter-spacing:-.02em;color:var(--gl-ink)}
+.gl-auto{margin-top:48px;max-width:760px}
+.gl-auto .gl-cab{margin-bottom:16px}
+.gl-res .fin-apunte{max-width:760px}
+.gl-vecinos{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-top:32px;max-width:760px}
+.gl-vecinos .gl-btn{height:auto;min-height:44px;padding-block:8px;text-align:left}
+.gl-campo-sel{display:block}
+.gl-campo-sel select{min-width:200px;max-width:100%}
+.gl-sim-uso{margin-top:24px}
+.gl-como{margin-top:56px;max-width:760px}
+.gl-como h3{margin:32px 0 0;font:600 20px/28px var(--gl-sans);color:var(--gl-ink)}
+.gl-como p,.gl-como li{font:400 16px/26px var(--gl-sans);color:var(--gl-t2)}
+.gl-como ul{padding-left:20px}
+.gl-donar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin-top:12px}
+.gl-donar code{flex:1 1 160px;min-width:0;overflow-wrap:anywhere;font:500 14px/20px var(--gl-sans)}
+.gl-sost .gl-doc{margin-top:32px}
+.gl-bib .gl-barra--b{margin-top:16px}
+/* Glosario */
+.gl-glo-pag,.gl-dir-pag{display:flex;flex-wrap:wrap;gap:32px 24px;align-items:flex-start;margin-top:40px}
+.gl-glo-lado{flex:1 1 240px;max-width:288px;position:sticky;top:88px}
+.gl-glo-main{flex:1 1 480px;min-width:0;max-width:912px}
+.gl-glo-main>.gl-barra{margin-top:0}
+.gl-azs{display:flex;flex-wrap:wrap}
+.gl-az{display:grid;place-items:center;width:44px;height:44px;border-radius:var(--gl-r);font:500 14px var(--gl-sans);color:var(--gl-ink);text-decoration:none}
+a.gl-az:hover{background:var(--gl-sky);color:var(--gl-click)}
+.gl-az.off{color:var(--gl-bd)}
+.gl-az:focus-visible{outline:2px solid var(--gl-ink);outline-offset:2px}
+.gl-letra{margin-top:40px;scroll-margin-top:88px}
+.gl-letra:first-of-type{margin-top:24px}
+.gl-letra-h{margin:0;font:400 48px/56px var(--gl-got);color:var(--gl-mark)}
+.gl-termino{padding:20px 0;border-top:1px solid var(--gl-line);scroll-margin-top:88px}
+.gl-termino:focus-visible{outline:2px solid var(--gl-ink);outline-offset:2px}
+.gl-termino .glo-tags{margin-top:6px}
+.gl-termino .gl-rel{margin:8px 0 0}
+.glo-ac{font:600 12px/16px var(--gl-sans);color:var(--gl-t3)}
+.gl-glo-main>.gl-cuenta{margin-bottom:8px}
+/* Directorio: 288 + 568 + 288 */
+.gl-dir-pag{justify-content:center}
+.gl-dir-lado,.gl-dir-riel{flex:1 1 240px;max-width:288px}
+.gl-dir-main{flex:1 1 480px;min-width:0;max-width:568px}
+.gl-dir-lado .gl-aviso-cob{margin-top:24px}
+.gl-opts{display:grid;border-bottom:1px solid var(--gl-line)}
+.gl-opt{display:flex;align-items:center;gap:12px;min-height:48px;padding:0 4px;border:0;border-top:1px solid var(--gl-line);background:none;width:100%;text-align:left;font:400 16px/24px var(--gl-sans);color:var(--gl-ink);cursor:pointer}
+.gl-opt-g{flex:none;width:16px;height:16px;border:1px solid var(--gl-bd);border-radius:3px}
+.gl-opt[aria-pressed="true"]{font-weight:500}
+.gl-opt[aria-pressed="true"] .gl-opt-g{border-color:var(--gl-lnk);background:radial-gradient(circle,var(--gl-mark) 1.3px,transparent 1.7px) 0 0/4px 4px}
+.gl-opt:focus-visible{outline:2px solid var(--gl-ink);outline-offset:2px}
+.gl-dir-lista{margin:8px 0 0;padding:0;list-style:none}
+.gl-dir-letra{padding:24px 0 8px;font:600 12px/16px var(--gl-sans);letter-spacing:.08em;color:var(--gl-lnk);scroll-margin-top:88px}
+.gl-dir-fila{display:flex;align-items:flex-start;gap:16px;min-height:72px;padding:12px 0;border-top:1px solid var(--gl-line)}
+.gl-dir-fila .gl-crece{display:flex;flex-direction:column;gap:2px;min-width:0}
+.gl-dir-fila h3{overflow-wrap:anywhere;font-size:18px;line-height:24px}
+.gl-dir-fila .meta{font:400 14px/20px var(--gl-sans);color:var(--gl-t2)}
+.gl-dir-fila .meta a{color:var(--gl-lnk);text-underline-offset:3px}
+.gl-dir-sitio{flex:none;display:inline-flex;align-items:center;min-height:44px;font:500 14px/20px var(--gl-sans);color:var(--gl-lnk);text-decoration:underline;text-underline-offset:3px}
+.gl-dir-riel .dir-letras{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px}
+.gl-dir-riel #dir-mapa{margin-top:16px}
+.gl-dir-riel .dir-mapa{max-width:100%;height:auto}
+/* Hoja «Más» */
+dialog .lista-mas{margin:0 0 16px;border-radius:var(--gl-r);background:var(--gl-card)}
+dialog .lista-mas button{min-height:56px;border-top-color:var(--gl-line);font:500 16px/22px var(--gl-sans);color:var(--gl-ink)}
+dialog .lista-mas button[aria-current]{color:var(--gl-lnk)}
+dialog .lista-mas small{font:400 13px/18px var(--gl-sans);color:var(--gl-t2)}
+dialog .lista-mas i{border-color:var(--gl-t3)}
+.mas-ico{flex:none;display:grid;place-items:center;width:24px;color:var(--gl-lnk)}
+.mas-ico svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.mas-t{flex:1;min-width:0;text-align:left}
+dialog .gl-seg{margin-top:8px}
+@media (max-width:760px){
+  .gl-glo-lado,.gl-dir-lado,.gl-dir-riel{max-width:none;position:static;flex-basis:100%}
+  .gl-glo-main,.gl-dir-main{flex-basis:100%;max-width:none}
+  .gl-res .apunte h1{font-size:26px;line-height:32px}
+  .gl-res article.apunte{padding:16px}
+  .gl-letra-h{font-size:40px;line-height:48px}
+  .gl-dir-fila{flex-wrap:wrap}
+}
+.gl-display.sin-cap::first-letter,.gl-t1.sin-cap::first-letter{font-family:inherit;font-weight:inherit;font-size:inherit;letter-spacing:inherit;color:inherit}
+.gl-vecinos .gl-btn--sec{margin-left:auto}
+/* v114: el subnav son enlaces; los select largos no ensanchan la página */
+.sn a{text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+.gl-campo-sel{min-width:0;max-width:100%}.gl-campo-sel select{width:100%;min-width:0;max-width:100%}
+/* v114: con datos guardados, la página pre-renderizada (estado vacío) no se ve hasta el primer render */
+html.con-datos body[data-tab=carrera] #main,html.con-datos body[data-tab=horarios] #main,html.con-datos body[data-tab=calendario] #main{visibility:hidden}

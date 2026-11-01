@@ -1,6 +1,6 @@
 // Galera sin conexión: primero la red (así cada publicación llega al instante) y, si no hay, lo último que se vio.
 // Solo guarda páginas y archivos de este sitio; el buzón de Apps Script y Analytics (otros orígenes) no pasan por acá.
-const CACHE = 'cursada-sw-1';
+const CACHE = 'galera-sw-2';
 self.addEventListener('install', () => self.skipWaiting());
 self.addEventListener('activate', e => e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== CACHE).map(k => caches.delete(k)))).then(() => self.clients.claim())));
 self.addEventListener('fetch', e => {

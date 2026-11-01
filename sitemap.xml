@@ -785,4 +785,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
+  <url><loc>https://galera.com.ar/carrera/</loc></url>
+  <url><loc>https://galera.com.ar/horarios/</loc></url>
+  <url><loc>https://galera.com.ar/calendario/</loc></url>
+  <url><loc>https://galera.com.ar/links/</loc></url>
+  <url><loc>https://galera.com.ar/novedades/</loc></url>
 </urlset>

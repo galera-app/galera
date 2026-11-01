@@ -10,7 +10,7 @@ const ARC_PRAC_RE = /^[a-z0-9][\w.-]{0,39}$/;
 async function arcDatos() {
   if (ARC) return ARC;
   let d = {};
-  try { const r = await fetch('datos/arcade-0911.json'); if (!r.ok) throw new Error(); d = await r.json(); } catch (e) { d = {}; }
+  try { const r = await fetch('/datos/arcade-0911.json'); if (!r.ok) throw new Error(); d = await r.json(); } catch (e) { d = {}; }
   const dif = Array.isArray(d.dificiles) ? d.dificiles.filter(p => Arcade.valida(p)) : [];
   const prac = [];
   (Array.isArray(d.practicos) ? d.practicos : []).forEach(x => {
@@ -114,7 +114,7 @@ function vArcade() {
   </div>`;
 }
 function arcVerTop(t) { arcS().top = t; render(); const p = document.querySelector('.arc-panel'); if (p) p.scrollIntoView({ block: 'start' }); }
-function irArcade() { V.tab = 'arcade'; const A = arcS(); A.vista = 'sala'; history.replaceState(null, '', '#arcade'); render(); window.scrollTo(0, 0); }
+function irArcade() { V.tab = 'arcade'; const A = arcS(); A.vista = 'sala'; history.replaceState(null, '', urlTab('arcade')); render(); window.scrollTo(0, 0); }
 function arcSala() { arcS().vista = 'sala'; render(); window.scrollTo(0, 0); }
 
 // ---------- teórico ----------
@@ -126,7 +126,7 @@ async function arcEmpezarTeo(tablero, semilla, objetivo) {
     const m = D.resumenes.materias.find(x => x.id === Arcade.MATERIA), ids = Arcade.apuntesDe(tablero, m.apuntes.map(a => a.id));
     await Promise.all(ids.map(async id => {
       const k = Arcade.MATERIA + '/' + id;
-      if (!D.apuntes[k]) { const r = await fetch('resumenes/' + k + '.json'); if (!r.ok) throw new Error(); D.apuntes[k] = await r.json(); }
+      if (!D.apuntes[k]) { const r = await fetch('/resumenes/' + k + '.json'); if (!r.ok) throw new Error(); D.apuntes[k] = await r.json(); }
     }));
     const ap = {}; ids.forEach(id => { ap[id] = D.apuntes[Arcade.MATERIA + '/' + id]; });
     const dat = await arcDatos(), b = Arcade.banco(tablero, ap, dat.dificiles);

@@ -13,6 +13,7 @@ import hashlib
 import json
 import re
 import shutil
+import subprocess
 import sys
 import tempfile
 from pathlib import Path
@@ -21,14 +22,16 @@ RAIZ = Path(__file__).resolve().parent.parent
 M = RAIZ / "marco"
 S = json.loads((M / "sitio.json").read_text(encoding="utf-8"))
 CHEV = '<svg class="cv" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>'
-CSP_PAGINA = {"index.html": "app", "libro/cronograma/index.html": "estatica_estilos"}
+# Solo el planificador y su archivo descargable son independientes de la app: todo lo demás lleva la cabecera, el pie y los guiones de la app.
+SUELTAS = {"libro/cronograma/index.html", "libro/planificador-de-libros.html", "prueba/index.html", "prueba/componentes/index.html"}
+CSP_PAGINA = {"libro/cronograma/index.html": "estatica_estilos"}
 DESCARGABLE = "libro/planificador-de-libros.html"
 CSS = ["tokens.css", "estilos.css", "galera.css", "componentes.css"]
 GRUPOS = S["menu"]["estudiante"]
 ACTUAL = ' aria-current="page"'
 # Lo que no se publica: control de versiones, CI, herramientas y las fuentes del marco.
 NO_PUBLICAR = {".git", ".github", "tools", "marco", "dist", "__pycache__"}
-MARCAS = ("csp", "meta", "recursos", "cabecera", "pie")
+MARCAS = ("csp", "meta", "recursos", "cabecera", "pie", "vista")
 
 
 def plantilla(nombre, **datos):
@@ -67,7 +70,7 @@ def pie(app=False):
                                  '<button class="enlace" type="button" onclick="idea()">Contame qué falta</button>' + extra)
     return plantilla("pie.tpl", id_nav="", avisame="", **comun,
                      acciones='<a class="cafe" href="/sostener/">Invitar un cafecito</a>',
-                     enlaces=cookies + '<a href="/#config">Tus datos</a><a href="mailto:hola@galera.com.ar">Contame qué falta</a>' + extra)
+                     enlaces=cookies + '<a href="/config/">Tus datos</a><a href="mailto:hola@galera.com.ar">Contame qué falta</a>' + extra)
 
 
 def cabecera(rel):
@@ -95,6 +98,10 @@ def cabecera(rel):
 META_COMUN = ('<meta name="referrer" content="strict-origin-when-cross-origin">\n'
               '<meta name="author" content="Fidel Chaves">\n'
               '<meta name="color-scheme" content="light dark">')
+RECURSOS_APP = ('<link rel="icon" type="image/png" href="/img/favicon-32.png">\n'
+                '<link rel="apple-touch-icon" href="/img/icono-180.png">\n<link rel="manifest" href="/manifest.webmanifest">\n<meta name="theme-color" content="#0560C8">\n'
+                '<script>try{var t=localStorage.getItem("cursada.tema");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t;if(localStorage.getItem("cursada.v1"))document.documentElement.classList.add("con-datos")}catch(e){}</script>\n'
+                + "\n".join(f'<link rel="stylesheet" href="/{c}">' for c in CSS) + '\n<script defer src="/analitica.js"></script>')
 RECURSOS = ('<link rel="icon" type="image/png" href="/img/favicon-32.png">\n'
             '<link rel="apple-touch-icon" href="/img/icono-180.png">\n'
             + "\n".join(f'<link rel="stylesheet" href="/{c}">' for c in CSS)
@@ -108,20 +115,46 @@ VERSION = re.compile(r'((?:src|href)="[^":?#]+\.(?:css|js))\?v=\w+"')
 
 
 def expandir(t, rel):
-    """Marcas -> marco. En index.html el pie es el de la app."""
-    csp = S["csp"][CSP_PAGINA.get(rel, "estatica")]
-    reemplazos = {"csp": f'<meta http-equiv="Content-Security-Policy" content="{csp}">', "meta": META_COMUN, "recursos": RECURSOS,
-                  "cabecera": cabecera(rel), "pie": pie(app=rel == "index.html")}
+    """Marcas -> marco. Toda página es la app, salvo las sueltas."""
+    suelta = rel in SUELTAS
+    csp = S["csp"][CSP_PAGINA.get(rel, "estatica" if suelta else "app")]
+    reemplazos = {"csp": f'<meta http-equiv="Content-Security-Policy" content="{csp}">', "meta": META_COMUN, "recursos": RECURSOS if suelta else RECURSOS_APP,
+                  "cabecera": cabecera(rel) if suelta else plantilla("app-cabecera.tpl"), "pie": pie() if suelta else pie(app=True) + "\n" + plantilla("app-cierre.tpl")}
     for k, v in reemplazos.items():
         t = t.replace(f"<!--marco:{k}-->", v)
     return t
 
 
+def ruta_de(rel):
+    return "/" + rel.removesuffix("index.html")
+
+
+def prerender(salida):
+    """Corre las vistas de app.js sobre el sitio armado y vuelca el HTML en cada página con <!--marco:vista-->. Las demás reciben solo los menús."""
+    vistas = {rel: p for p, rel in paginas(salida) if "<!--marco:vista-->" in p.read_text(encoding="utf-8")}
+    with tempfile.TemporaryDirectory() as tmp:
+        lista, sal = Path(tmp) / "rutas.txt", Path(tmp) / "pre.json"
+        lista.write_text("\n".join(ruta_de(r) for r in vistas), encoding="utf-8")
+        subprocess.run(["node", str(RAIZ / "tools" / "prerender.js"), str(salida), str(sal), "@" + str(lista)], check=True, timeout=300)
+        pre = json.loads(sal.read_text(encoding="utf-8"))
+    inicio = pre["/"]
+
+    def menus(t, d):
+        t = t.replace('id="pestanas" aria-label="Secciones"></nav>', f'id="pestanas" aria-label="Secciones">{d["pestanas"]}</nav>')
+        return t.replace('id="inferior" aria-label="Secciones principales"></nav>', f'id="inferior" aria-label="Secciones principales">{d["inferior"]}</nav>')
+    for p, rel in paginas(salida):
+        if rel in SUELTAS:
+            continue
+        t = p.read_text(encoding="utf-8")
+        d = pre.get(ruta_de(rel), inicio) if rel in vistas else inicio
+        if rel in vistas:
+            t = t.replace("<!--marco:vista-->", d["main"]).replace("<body>", f'<body data-tab="{d["tab"]}">', 1)
+        escribir(p, menus(t, d))
+
+
 def marcar(t, rel):
     """Marco escrito -> marcas (idempotente). Es la forma en que se guarda en el repo."""
-    if rel == "index.html":
-        t = QUITAR_CSP.sub("<!--marco:csp-->", t, count=1)
-    else:
+    if "<!--marco:vista-->" not in t:
         if rel != DESCARGABLE and "<!--marco:recursos-->" not in t:
             fin = t.index("</head>")
             h, resto = t[:fin], t[fin:]
@@ -172,13 +205,14 @@ def construir(salida):
     escribir(salida / "marco.js", "// Lo escribe tools/armar.py desde marco/sitio.json: no editar a mano.\nconst MARCO = "
              + json.dumps(publico, ensure_ascii=False, separators=(",", ":")) + ";\n")
     app = salida / "app.js"
-    escribir(app, re.sub(r"s\.src = 'mapa-ar\.js[^']*'", "s.src = 'mapa-ar.js?v=" + huella(salida / "mapa-ar.js") + "'", app.read_text(encoding="utf-8")))
+    escribir(app, re.sub(r"s\.src = '/mapa-ar\.js[^']*'", "s.src = '/mapa-ar.js?v=" + huella(salida / "mapa-ar.js") + "'", app.read_text(encoding="utf-8")))
     sobran = []
     for p, rel in paginas(salida):
-        t = expandir(p.read_text(encoding="utf-8"), rel)
-        if "<!--marco:" in t:
+        escribir(p, versionar(expandir(p.read_text(encoding="utf-8"), rel), p.parent, salida))
+    prerender(salida)
+    for p, rel in paginas(salida):
+        if "<!--marco:" in p.read_text(encoding="utf-8"):
             sobran.append(rel)
-        escribir(p, versionar(t, p.parent, salida))
     return sobran
 
 
