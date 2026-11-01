@@ -114,7 +114,7 @@ function vArcade() {
   </div>`;
 }
 function arcVerTop(t) { arcS().top = t; render(); const p = document.querySelector('.arc-panel'); if (p) p.scrollIntoView({ block: 'start' }); }
-function irArcade() { V.tab = 'arcade'; const A = arcS(); A.vista = 'sala'; history.replaceState(null, '', '#arcade'); render(); window.scrollTo(0, 0); }
+function irArcade() { V.tab = 'arcade'; const A = arcS(); A.vista = 'sala'; history.replaceState(null, '', urlTab('arcade')); render(); window.scrollTo(0, 0); }
 function arcSala() { arcS().vista = 'sala'; render(); window.scrollTo(0, 0); }
 
 // ---------- teórico ----------

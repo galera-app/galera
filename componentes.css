@@ -664,3 +664,5 @@ dialog .gl-seg{margin-top:8px}
 /* v114: el subnav son enlaces; los select largos no ensanchan la página */
 .sn a{text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
 .gl-campo-sel{min-width:0;max-width:100%}.gl-campo-sel select{width:100%;min-width:0;max-width:100%}
+/* v114: con datos guardados, la página pre-renderizada (estado vacío) no se ve hasta el primer render */
+html.con-datos body[data-tab=carrera] #main,html.con-datos body[data-tab=horarios] #main,html.con-datos body[data-tab=calendario] #main{visibility:hidden}

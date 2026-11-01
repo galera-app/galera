@@ -197,7 +197,11 @@ async function conIdiomas(of) {
   try { const i = await json(m.archivo); of.comisiones = of.comisiones.concat(i.comisiones || []); of.idiomas = { fuente: i.fuente, actualizado: i.actualizado }; } catch (e) { /* sin idiomas */ }
   return of;
 }
-async function arrancar() {
+// Con datos guardados, el HTML pre-renderizado (estado vacío) se oculta hasta el primer render: nunca debe quedar oculto.
+const mostrarMain = () => document.documentElement.classList.remove('con-datos');
+setTimeout(mostrarMain, 6000);
+async function arrancar() { try { await arrancarVista(); } finally { mostrarMain(); } }
+async function arrancarVista() {
   V.docHtml = $('#main').innerHTML; V.docClase = $('#main').className; V.docRuta = location.pathname + location.search; desdeUrl(); V.arrancando = true;
   try {
     D.indice = await json('indice.json');
@@ -443,6 +447,23 @@ const tituloPagina = () => {
   if (V.tab === 'resumenes' && V.res.materia) { const k = V.res.materia + '/' + V.res.apunte, ap = V.res.apunte && D.apuntes[k], M = ((D.resumenes || {}).materias || []).find(y => y.id === V.res.materia); if (ap) return ap.titulo + ' · Galera'; if (M) return 'Resúmenes de ' + M.nombre + ' · Galera'; }
   return (MARCO.pantallas[V.tab] || {}).titulo || TITULO_BASE;
 };
+// Descripción de la pestaña actual (la misma que lleva su página de entrada); se asigna con setAttribute, nunca como HTML.
+function descripcionPagina() {
+  const sim = V.tab === 'simuladores' && V.sim && (D.simInfo || {})[V.sim];
+  if (V.tab === 'simuladores' && V.sim) { const x = SIMULADORES.find(y => y.id === V.sim), p = sim && /<p>([\s\S]*?)<\/p>/.exec(sim.html || ''); return p ? p[1].replace(/<[^>]*>/g, '').trim().slice(0, 200) : (x ? x.t : '') + ': simulador para editores. Gratis, en Galera.'; }
+  if (V.tab === 'resumenes' && V.res.materia) {
+    const ap = V.res.apunte && (D.apuntes || {})[V.res.materia + '/' + V.res.apunte], M = ((D.resumenes || {}).materias || []).find(y => y.id === V.res.materia);
+    if (ap) return ap.titulo + ': resumen y preguntas para autoevaluarte. Gratis, en Galera.';
+    if (M) return 'Resúmenes de ' + M.nombre + ' (Edición, UBA): apuntes y preguntas para autoevaluarte. Gratis, en Galera.';
+  }
+  return (MARCO.pantallas[V.tab] || {}).desc || '';
+}
+function ponerMeta() {
+  if (V.tab === 'doc') return;
+  const url = 'https://galera.com.ar' + rutaActual().split('#')[0].split('?')[0], tit = tituloPagina(), des = descripcionPagina();
+  const poner = (sel, v) => { const el = document.querySelector(sel); if (el && v) el.setAttribute('content', v); };
+  poner('meta[name="description"]', des); poner('meta[property="og:title"]', tit); poner('meta[property="og:description"]', des); poner('meta[property="og:url"]', url);
+}
 // El título de cada pantalla es su <h1> (la marca de la cabecera ya no lo es): el primer <h2> de la vista.
 const conTitulo = html => /<h1[\s>]/.test(html) ? html : html.replace(/<h2\b([^>]*)>([\s\S]*?)<\/h2>/, '<h1$1>$2</h1>');
 const arcadeInfo = () => D.simInfo && D.simInfo.arcade ? `<section class="gl-v gl-sim-info">${D.simInfo.arcade.html}</section>` : '';
@@ -460,6 +481,8 @@ function render() {
   $('#main').className = V.tab === 'doc' ? V.docClase : '';
   document.body.classList.toggle('lectura', V.tab === 'doc');
   const can = document.querySelector('link[rel="canonical"]'); if (can && V.tab !== 'doc') can.href = 'https://galera.com.ar' + rutaActual().split('#')[0].split('?')[0];
+  ponerMeta();
+  mostrarMain();
 }
 // Capitular de Iniciales: solo en el título de la pantalla (no en subtítulos) y si empieza con mayúscula y minúscula (nunca en cifras ni siglas, como «2.º cuatrimestre» o «CBC»).
 function capitulares() { const h = document.querySelector('#main .titulo-sec h1, #main .titulo-sec h2'); if (h && /^[¿¡]?[A-ZÁÉÍÓÚÑ][a-záéíóúñü]/.test(h.textContent.trim())) h.classList.add('cap'); }

@@ -100,7 +100,7 @@ META_COMUN = ('<meta name="referrer" content="strict-origin-when-cross-origin">\
               '<meta name="color-scheme" content="light dark">')
 RECURSOS_APP = ('<link rel="icon" type="image/png" href="/img/favicon-32.png">\n'
                 '<link rel="apple-touch-icon" href="/img/icono-180.png">\n<link rel="manifest" href="/manifest.webmanifest">\n<meta name="theme-color" content="#0560C8">\n'
-                '<script>try{var t=localStorage.getItem("cursada.tema");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}</script>\n'
+                '<script>try{var t=localStorage.getItem("cursada.tema");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t;if(localStorage.getItem("cursada.v1"))document.documentElement.classList.add("con-datos")}catch(e){}</script>\n'
                 + "\n".join(f'<link rel="stylesheet" href="/{c}">' for c in CSS) + '\n<script defer src="/analitica.js"></script>')
 RECURSOS = ('<link rel="icon" type="image/png" href="/img/favicon-32.png">\n'
             '<link rel="apple-touch-icon" href="/img/icono-180.png">\n'
@@ -201,8 +201,6 @@ def construir(salida):
         shutil.rmtree(salida)
     shutil.copytree(RAIZ, salida, ignore=lambda d, nombres: [n for n in nombres if n in NO_PUBLICAR and Path(d) == RAIZ])
     publico = {k: S[k] for k in ("pantallas", "tabs", "tabs_ocultas", "menu", "barra_celular", "simuladores")}
-    for v in publico["pantallas"].values():
-        v.pop("desc", None)
     publico["escribir"] = S["pie"]["escribir"]
     escribir(salida / "marco.js", "// Lo escribe tools/armar.py desde marco/sitio.json: no editar a mano.\nconst MARCO = "
              + json.dumps(publico, ensure_ascii=False, separators=(",", ":")) + ";\n")

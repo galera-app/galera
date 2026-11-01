@@ -22,32 +22,38 @@
   "resumenes": {
    "t": "Resúmenes",
    "url": "/r/",
-   "titulo": "Resúmenes de Edición (UBA): todos los apuntes"
+   "titulo": "Resúmenes de Edición (UBA): todos los apuntes",
+   "desc": "Apuntes de 10 materias de Edición (FFyL, UBA): 119 resúmenes y 1293 preguntas para autoevaluarte, con buscador. Gratis, en Galera."
   },
   "biblioteca": {
    "t": "Biblioteca",
    "url": "/biblioteca/",
-   "titulo": "Biblioteca del libro: libros y revistas del sector · Galera"
+   "titulo": "Biblioteca del libro: libros y revistas del sector · Galera",
+   "desc": "Libros para editar, libros sobre libros (FCE), libros de la bibliografía de la carrera y revistas y medios del sector editorial en español, inglés, portugués, alemán y francés, con su link oficial."
   },
   "simuladores": {
    "t": "Simuladores",
    "url": "/simuladores/",
-   "titulo": "Simuladores para editores: papel, paginación y costos · Galera"
+   "titulo": "Simuladores para editores: papel, paginación y costos · Galera",
+   "desc": "Calculadoras y mapas para estudiantes y editores: papel e imposición, formatos y serie A, paginación, leyes del libro, escandallo, comparador de títulos y ecosistema del libro. Gratis y sin cuenta."
   },
   "glosario": {
    "t": "Glosario",
    "url": "/glosario/",
-   "titulo": "Glosario de edición y grafo de conceptos · Galera"
+   "titulo": "Glosario de edición y grafo de conceptos · Galera",
+   "desc": "210 términos clave de la carrera de Edición (UBA), con su definición, la materia de cada uno y un grafo de conceptos que muestra cómo se conectan. Gratis y sin cuenta."
   },
   "eventos": {
    "t": "Eventos",
    "url": "/eventos/",
-   "titulo": "Ferias y eventos del libro en Argentina y el mundo · Galera"
+   "titulo": "Ferias y eventos del libro en Argentina y el mundo · Galera",
+   "desc": "Calendario de ferias, convocatorias y subsidios de la industria del libro (Buenos Aires, Guadalajara, Bolonia, Fráncfort, FNA, CONABIP), con la fuente oficial de cada una y lo que falta confirmar. Gratis."
   },
   "directorio": {
    "t": "Directorio",
    "url": "/directorio/",
-   "titulo": "Directorio del libro en Argentina: editoriales y librerías"
+   "titulo": "Directorio del libro en Argentina: editoriales y librerías",
+   "desc": "Directorio de editoriales, imprentas, distribuidoras, librerías y productores de papel de Argentina, con la fuente pública de cada ficha. Cobertura parcial."
   },
   "links": {
    "t": "Links útiles",
@@ -64,7 +70,8 @@
   "sostener": {
    "t": "Cómo se sostiene",
    "url": "/sostener/",
-   "titulo": "Cómo se sostiene Galera: horas, costos y plan"
+   "titulo": "Cómo se sostiene Galera: horas, costos y plan",
+   "desc": "Cuántas horas de trabajo lleva Galera, qué cuesta, cómo ayudar con plata o con tiempo y el plan de lo que viene. Gratis, sin cuenta y sin publicidad."
   },
   "config": {
    "t": "Configuración",
@@ -75,21 +82,25 @@
   "arcade": {
    "t": "Arcade",
    "url": "/arcade/",
-   "titulo": "Arcade de Corrección de Estilo: preguntas y errores · Galera"
+   "titulo": "Arcade de Corrección de Estilo: preguntas y errores · Galera",
+   "desc": "Jugá para el parcial de Corrección de Estilo (Edición, UBA): preguntas con tres vidas y racha, o tocá el error en un texto. Récords en tu navegador. Gratis."
   },
   "inicio": {
    "t": "Inicio",
    "url": "/",
-   "titulo": "Galera: tu carrera de Edición, en orden (UBA)"
+   "titulo": "Galera: tu carrera de Edición, en orden (UBA)",
+   "desc": "Tus notas, fechas de examen, horarios sin superposiciones, resúmenes con autoevaluación y simuladores para la carrera de Edición (FFyL, UBA). Gratis y sin cuenta."
   },
   "/fuentes/": {
    "t": "Fuentes",
-   "url": "/fuentes/"
+   "url": "/fuentes/",
+   "desc": "Todas las fuentes de Galera, el gestor para estudiantes de Edición de la UBA: plan, calendario, horarios, mesas, directorio, eventos, tarifas y leyes."
   },
   "/legal/": {
    "t": "Legal",
    "url": "/legal/",
-   "solo_menu": true
+   "solo_menu": true,
+   "desc": "Qué datos guarda Galera, para qué y bajo qué condiciones se usa. Sitio gratuito, sin cuentas ni publicidad, para estudiantes de Edición (UBA)."
   }
  },
  "tabs": {
