@@ -666,3 +666,31 @@ dialog .gl-seg{margin-top:8px}
 .gl-campo-sel{min-width:0;max-width:100%}.gl-campo-sel select{width:100%;min-width:0;max-width:100%}
 /* v114: con datos guardados, la página pre-renderizada (estado vacío) no se ve hasta el primer render */
 html.con-datos body[data-tab=carrera] #main,html.con-datos body[data-tab=horarios] #main,html.con-datos body[data-tab=calendario] #main{visibility:hidden}
+/* v115: tapas tipográficas de la Biblioteca (lienzo), plan compacto y «Qué se viene» en Novedades */
+.gl-estante{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:20px 16px;margin-top:16px}
+.gl-libro{display:block;padding:0;border:0;background:none;text-align:left;color:inherit;font:inherit;cursor:pointer;min-width:0}
+.gl-tapa{display:block;position:relative;aspect-ratio:2/3;border:1px solid var(--gl-line);border-radius:var(--gl-r);background:var(--gl-card);overflow:hidden;transition:border-color .15s}
+.gl-libro:hover .gl-tapa,.gl-libro:focus-visible .gl-tapa{border-color:var(--gl-lnk)}
+.gl-libro:focus-visible{outline:2px solid var(--gl-ink);outline-offset:2px}
+.gl-tapa .lomo{position:absolute;left:0;top:0;bottom:0;width:10px;background:radial-gradient(circle,var(--gl-mark) 1.6px,transparent 2px) 0 0/6px 6px}
+.gl-tapa .ti{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:6;overflow:hidden;padding:16px 12px 0 24px;font:500 17px/22px var(--gl-serif);color:var(--gl-ink)}
+.gl-tapa .au{position:absolute;left:24px;right:12px;bottom:12px;z-index:1;font:400 12px/16px var(--gl-sans);color:var(--gl-t2)}
+.gl-tapa .tr{position:absolute;left:10px;right:0;bottom:0;height:34%;background:radial-gradient(circle,var(--gl-bd) 1.6px,transparent 2px) 0 0/var(--s,6px) var(--s,6px);opacity:.45;-webkit-mask-image:linear-gradient(0deg,#000,transparent);mask-image:linear-gradient(0deg,#000,transparent)}
+.gl-tapa img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2}
+.gl-tapa.sumar{border-style:dashed;display:grid;place-items:center;text-align:center;padding:16px;font:400 15px/22px var(--gl-sans);color:var(--gl-t2)}
+.gl-tapa.sumar b{display:block;font-weight:500;color:var(--gl-lnk)}
+.ficha-libro .gl-tapa.grande{flex:none;width:130px}
+.ficha-libro .gl-tapa.grande .ti{font-size:12px;line-height:16px;padding:12px 8px 0 18px}
+.ficha-libro .gl-tapa.grande .au{display:none}
+.ficha-libro .gl-tapa.grande .lomo{width:8px}
+@media (max-width:480px){.gl-estante{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 12px}.ficha-libro .gl-tapa.grande{width:96px}}
+.gl-plan li{padding:10px 0;gap:4px 12px}
+.gl-plan b{font-size:15px;line-height:22px}
+.gl-doc .gl-plan p{font-size:13px;line-height:18px;margin:0}
+.gl-doc h3+.gl-plan{margin-top:4px}
+.gl-plan-listos{margin-top:20px}
+.gl-plan-listos summary{cursor:pointer;min-height:44px;display:flex;align-items:center;font:600 15px/22px var(--gl-sans);color:var(--gl-lnk)}
+.gl-plan-listos summary:focus-visible{outline:2px solid var(--gl-ink);outline-offset:2px}
+.gl-viene{margin:8px 0 16px;padding:0;list-style:none}
+.gl-viene li{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;padding:8px 0;border-top:1px solid var(--gl-line);font:500 14px/20px var(--gl-sans)}
+.gl-viene .gl-chip{flex:none}

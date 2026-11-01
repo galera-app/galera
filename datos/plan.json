@@ -1,94 +1,27 @@
 {
   "etapas": [
-    {
-      "id": "ahora",
-      "t": "Ahora",
-      "items": [
-        {
-          "id": "sostener",
-          "t": "Cómo se sostiene",
-          "d": "Esta pantalla: cuántas horas lleva Galera, qué cuesta y cómo ayudar.",
-          "estado": "listo"
-        },
-        {
-          "id": "leyes",
-          "t": "Fichas de leyes del libro y del autor",
-          "d": "Un resumen en palabras simples de las leyes que importan en edición. Ya hay una primera tanda publicada.",
-          "estado": "en curso"
-        },
-        {
-          "id": "resumenes-derecho",
-          "t": "Resúmenes de Derechos Editoriales y del Autor",
-          "d": "Apuntes para estudiar la materia, con autoevaluación. Ya están los doce apuntes; faltan confirmar algunos datos marcados.",
-          "estado": "en curso"
-        },
-        {
-          "id": "compartir",
-          "t": "Botón Compartir",
-          "d": "Mandar por WhatsApp o copiar el link de la pantalla que estás viendo.",
-          "estado": "listo"
-        }
-      ]
-    },
-    {
-      "id": "verano",
-      "t": "Verano",
-      "items": [
-        {
-          "id": "simuladores-nuevos",
-          "t": "Simuladores nuevos",
-          "d": "Más calculadoras y mapas para hacer las cuentas del oficio. Ya están papel, formatos, paginación, cronograma, escandallo, comparador y ecosistema.",
-          "estado": "en curso"
-        },
-        {
-          "id": "contratos",
-          "t": "Generador de contratos para profesionales",
-          "d": "Armar un borrador de contrato de edición o de traducción a partir de modelos, para revisarlo con un abogado.",
-          "estado": "listo"
-        },
-        {
-          "id": "tarifario",
-          "t": "Tarifario del sector",
-          "d": "Cuánto se cobra por corrección, traducción, diseño y otras tareas editoriales.",
-          "estado": "listo"
-        },
-        {
-          "id": "mapa-editoriales",
-          "t": "Mapa de editoriales argentinas",
-          "d": "Dónde están las editoriales del país y qué publican, en el mapa del Directorio.",
-          "estado": "listo"
-        },
-        {
-          "id": "cinco-secciones",
-          "t": "Menú ordenado con buscador único",
-          "d": "Encontrar todo más rápido. El menú ya está ordenado en cuatro grupos; falta el buscador único.",
-          "estado": "en curso"
-        },
-        {
-          "id": "otro-dispositivo",
-          "t": "Pasar tus datos a otro dispositivo",
-          "d": "Seguir en el celular lo que hiciste en la compu, con un link o un código QR.",
-          "estado": "listo"
-        }
-      ]
-    },
-    {
-      "id": "cuat1-2027",
-      "t": "1.er cuatrimestre 2027",
-      "items": [
-        {
-          "id": "herramientas-libro",
-          "t": "Herramientas del libro para profesionales",
-          "d": "Utilidades para quienes ya trabajan en edición, más allá de la cursada. Ya está el planificador de libros.",
-          "estado": "en curso"
-        },
-        {
-          "id": "mas-resumenes",
-          "t": "Más resúmenes según los aportes",
-          "d": "Se suman materias y apuntes a medida que llegan textos para armarlos. Hoy hay diez materias.",
-          "estado": "en curso"
-        }
-      ]
-    }
+    {"id": "ahora", "t": "Ahora", "items": [
+      {"id": "rediseno", "t": "Galera con la cara nueva", "d": "Todas las pantallas se están rehaciendo con el mismo diseño; ya salieron casi todas.", "estado": "en curso"},
+      {"id": "dominio", "t": "Mudanza a galera.com.ar", "d": "El sitio ya responde en la dirección nueva; falta que la dirección vieja te lleve sola.", "estado": "en curso"},
+      {"id": "resumenes-pdf", "t": "Resúmenes para imprimir", "d": "Apuntes en PDF de tamaño A5, pensados para llevar en papel.", "estado": "en curso"},
+      {"id": "buscador", "t": "Un buscador único", "d": "Encontrar apuntes, términos, libros y editoriales desde un solo lugar.", "estado": "planeado"},
+      {"id": "sostener", "t": "Cómo se sostiene", "d": "Horas de trabajo, costos y formas de ayudar.", "estado": "listo"},
+      {"id": "compartir", "t": "Botón Compartir", "d": "Mandar por WhatsApp o copiar el link de la pantalla que estás viendo.", "estado": "listo"},
+      {"id": "otro-dispositivo", "t": "Pasar tus datos a otro dispositivo", "d": "Seguir en el celular lo que hiciste en la compu, con un link o un código QR.", "estado": "listo"},
+      {"id": "leyes", "t": "Fichas de leyes del libro y del autor", "d": "Las leyes que importan en edición, en palabras simples.", "estado": "listo"},
+      {"id": "tarifario", "t": "Tarifario del sector", "d": "Cuánto se cobra por corrección, traducción, diseño y otras tareas editoriales.", "estado": "listo"},
+      {"id": "contratos", "t": "Contratos modelo", "d": "Borradores de contrato de traducción y de edición, para revisar con un abogado.", "estado": "listo"},
+      {"id": "mapa-editoriales", "t": "Mapa de editoriales argentinas", "d": "Dónde están las editoriales del país y qué publican.", "estado": "listo"},
+      {"id": "resumenes-derecho", "t": "Resúmenes de Derechos Editoriales y del Autor", "d": "Nueve unidades con autoevaluación. Es un borrador, a la espera de una revisión del área.", "estado": "listo"}
+    ]},
+    {"id": "proximo", "t": "Lo que sigue", "items": [
+      {"id": "aviso-mail", "t": "El aviso de los lunes, con otra cara", "d": "Un mail más cuidado, con «Verlo online» y la posibilidad de invitar a alguien.", "estado": "planeado"},
+      {"id": "redes", "t": "Galera en las redes", "d": "Cuentas propias para enterarte de las novedades sin entrar al sitio.", "estado": "planeado"},
+      {"id": "simuladores-nuevos", "t": "Simuladores nuevos", "d": "Más calculadoras y mapas para hacer las cuentas del oficio.", "estado": "planeado"}
+    ]},
+    {"id": "cuat1-2027", "t": "1.er cuatrimestre 2027", "items": [
+      {"id": "herramientas-libro", "t": "Herramientas del libro para profesionales", "d": "Utilidades para quienes ya trabajan en edición, más allá de la cursada.", "estado": "en curso"},
+      {"id": "mas-resumenes", "t": "Más resúmenes según los aportes", "d": "Se suman materias y apuntes a medida que llegan textos para armarlos.", "estado": "planeado"}
+    ]}
   ]
 }
