@@ -297,7 +297,7 @@ function precargar() {
   const t = V.tab;
   if (t === 'resumenes') return cargarResumenes().then(() => V.res.apunte ? traerApunte().catch(() => {}) : null);
   if (t === 'biblioteca') return Promise.all([cargarBiblioteca(), cargarBibExtra('sobre', 'libros-sobre-libros.json'), cargarBibExtra('prog', 'libros-programas.json'), V.bib === 'per' ? cargarBibExtra('per', 'periodicas.json') : null]);
-  const f = { simuladores: cargarSimInfo, glosario: cargarGlosario, directorio: cargarDirectorio, eventos: cargarEventos, sostener: cargarSostener, novedades: cargarNovedades, links: cargarLinksLibro, inicio: cargarNovedades }[t];
+  const f = { simuladores: cargarSimInfo, arcade: cargarSimInfo, glosario: cargarGlosario, directorio: cargarDirectorio, eventos: cargarEventos, sostener: cargarSostener, novedades: cargarNovedades, links: cargarLinksLibro, inicio: cargarNovedades }[t];
   return f ? f() : null;
 }
 // Para tools/prerender.js: deja el estado como lo vería alguien sin datos que entra por esa dirección.
@@ -445,6 +445,7 @@ const tituloPagina = () => {
 };
 // El título de cada pantalla es su <h1> (la marca de la cabecera ya no lo es): el primer <h2> de la vista.
 const conTitulo = html => /<h1[\s>]/.test(html) ? html : html.replace(/<h2\b([^>]*)>([\s\S]*?)<\/h2>/, '<h1$1>$2</h1>');
+const arcadeInfo = () => D.simInfo && D.simInfo.arcade ? `<section class="gl-v gl-sim-info">${D.simInfo.arcade.html}</section>` : '';
 function render() {
   if (V.arrancando) return;
   ajustarTab();
@@ -455,7 +456,7 @@ function render() {
   document.title = tituloPagina();
   altoCab();
   const gr = grupoDe(V.tab); if (gr) (V.gUlt = V.gUlt || {})[gr[0]] = V.tab;
-  conFoco($('#main'), () => { $('#main').innerHTML = (V.demo ? bandaEjemplo() : '') + subnav() + conTitulo({ doc: () => V.docHtml, inicio: vInicio, carrera: vCarrera, horarios: vHorarios, calendario: vCalendario, resumenes: vResumenes, biblioteca: vBiblioteca, simuladores: vSimuladores, glosario: vGlosario, directorio: vDirectorio, links: vLinks, novedades: vNovedades, sostener: vSostener, eventos: vEventos, arcade: vArcade, config: vConfig }[V.tab]()); capitulares(); });
+  conFoco($('#main'), () => { $('#main').innerHTML = (V.demo ? bandaEjemplo() : '') + subnav() + conTitulo({ doc: () => V.docHtml, inicio: vInicio, carrera: vCarrera, horarios: vHorarios, calendario: vCalendario, resumenes: vResumenes, biblioteca: vBiblioteca, simuladores: vSimuladores, glosario: vGlosario, directorio: vDirectorio, links: vLinks, novedades: vNovedades, sostener: vSostener, eventos: vEventos, arcade: () => vArcade() + arcadeInfo(), config: vConfig }[V.tab]()); capitulares(); });
   $('#main').className = V.tab === 'doc' ? V.docClase : '';
   document.body.classList.toggle('lectura', V.tab === 'doc');
   const can = document.querySelector('link[rel="canonical"]'); if (can && V.tab !== 'doc') can.href = 'https://galera.com.ar' + rutaActual().split('#')[0].split('?')[0];
@@ -2333,7 +2334,7 @@ function vEventos() {
   if (!D.eventos) { cargarEventos(); return '<div class="gl-v"><p class="gl-vacio" role="status">Cargando los eventos…</p></div>'; }
   if (D.eventos.error) return '<div class="gl-v"><p class="gl-vacio" role="alert">No pude cargar esto. Puede ser la conexión. <button class="gl-btn gl-btn--sec" type="button" onclick="location.reload()">Probar de nuevo</button></p></div>';
   const h = hoy(), todos = D.eventos.eventos, pasado = e => e.desde && (e.hasta || e.desde) < h, hayPas = todos.some(pasado);
-  const L = todos.filter(e => V.evPas || !pasado(e)).sort((a, b) => (a.desde || '9999') < (b.desde || '9999') ? -1 : 1);
+  const L = todos.filter(e => (V.evPas || !pasado(e)) && (!V.evConf || (V.evConf === 'conf') === !!e.confirmada)).sort((a, b) => (a.desde || '9999') < (b.desde || '9999') ? -1 : 1);
   const tarjeta = e => `<li><div class="gl-tarjeta gl-feria"><div class="gl-fila-ev"><span class="gl-chip ${e.confirmada ? 'gl-chip--ok' : 'gl-chip--aviso'}">${e.confirmada ? 'Confirmada' : 'A confirmar'}</span><span class="gl-chip gl-chip--neutro">${esc(e.ambito)}</span></div>
     <h3 class="gl-t3">${esc(e.t)}</h3>
     <p class="meta"><b>${e.desde ? esc(rangoEv(e.desde, e.hasta)) : 'Fecha por confirmar'}</b>${e.lugar ? ' · ' + esc(e.lugar) : ''}</p>
@@ -2345,6 +2346,7 @@ function vEventos() {
   const cuerpo = grupos.map(g => `<h2 class="gl-grupo-h">${g.m === 'sin' ? 'Fecha por confirmar' : esc(MESES_LARGO[+g.m.slice(5) - 1][0].toUpperCase() + MESES_LARGO[+g.m.slice(5) - 1].slice(1) + ' de ' + g.m.slice(0, 4))}<span>${g.L.length}</span></h2>
     <ul class="gl-rejilla gl-rejilla--2">${g.L.map(tarjeta).join('')}</ul>`).join('');
   return `<div class="gl-v"><div class="gl-cab"><h2 class="gl-display">Ferias y eventos del libro</h2></div><p class="gl-baja">Ferias y fechas del mundo del libro que importan a quien edita, vende o publica. Solo cuento lo que confirma el organizador; lo demás figura «a confirmar». ¿Falta alguno? <a href="#" onclick="idea(); return false">Avisame con «Contame qué falta»</a>.</p>
+    <div class="gl-barra"><div class="gl-filtros" role="group" aria-label="Filtrar por confirmación">${[['', 'Todas'], ['conf', 'Confirmadas'], ['aconf', 'A confirmar']].map(([k, t]) => `<button type="button" aria-pressed="${(V.evConf || '') === k}" onclick="V.evConf=${arg(k)};render()">${t}</button>`).join('')}</div></div>
     ${hayPas ? `<div class="gl-barra"><div class="gl-filtros" role="group" aria-label="Fechas pasadas"><button type="button" aria-pressed="${!!V.evPas}" onclick="V.evPas=!V.evPas;render()">${V.evPas ? 'Ocultar los que ya pasaron' : 'Ver los que ya pasaron'}</button></div></div>` : ''}
     ${cuerpo || '<p class="gl-vacio">No hay eventos por venir cargados.</p>'}
     ${D.eventos.actualizado ? `<p class="gl-chico gl-m32">Revisados el ${esc(fmtLarga(D.eventos.actualizado))}.</p>` : ''}</div>`;
