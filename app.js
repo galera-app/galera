@@ -198,7 +198,7 @@ async function conIdiomas(of) {
   return of;
 }
 async function arrancar() {
-  V.docHtml = $('#main').innerHTML; V.docClase = $('#main').className; desdeUrl(); V.arrancando = true;
+  V.docHtml = $('#main').innerHTML; V.docClase = $('#main').className; V.docRuta = location.pathname + location.search; desdeUrl(); V.arrancando = true;
   try {
     D.indice = await json('indice.json');
     const c = D.indice.carreras.find(x => x.id === E.carrera) || D.indice.carreras[0];
@@ -228,7 +228,7 @@ async function arrancar() {
 }
 // Cada pantalla tiene su dirección real (/biblioteca/, /r/0911/, /simuladores/papel.html): la misma que Google, WhatsApp y los mails. Los # viejos (#biblioteca, #resumenes/…) redirigen acá.
 const urlTab = t => (MARCO.pantallas[t] || { url: t[0] === '/' ? t : '/' }).url;
-const rutaActual = () => V.tab === 'doc' ? location.pathname + location.search
+const rutaActual = () => V.tab === 'doc' ? V.docRuta
   : V.tab === 'resumenes' ? '/r/' + (V.res.materia ? V.res.materia + '/' + (V.res.apunte ? V.res.apunte + '.html' + (V.res.sec ? '#' + V.res.sec : '') : '') : '')
   : V.tab === 'simuladores' ? '/simuladores/' + (V.sim ? V.sim + '.html' : '')
   : V.tab === 'novedades' && V.nov ? '/novedades/?ver=pedidos'
@@ -270,7 +270,7 @@ const esRutaApp = p => /^\/r\/(?:[\w.-]+\/(?:[\w.-]+\.html)?)?$/.test(p) || /^\/
 function abrirVista() { if (V.tab === 'resumenes' && V.res.apunte) return cargarApunte(); render(); window.scrollTo(0, 0); }
 const alCambiarHash = () => {
   if (/^#(datos|horario|desafio)=/.test(location.hash)) { manejarLinkNov(); return; }
-  if (rutaActual().split('#')[0] === location.pathname + location.search && !(location.hash && TODAS_TABS.some(t => t[0] === location.hash.slice(1).split('/')[0]))) {
+  if (rutaActual().split('#')[0] === location.pathname + location.search && !(location.hash && (/^#(pedidos|herramientas|escandallo)(\/|$)/.test(location.hash) || TODAS_TABS.some(t => t[0] === location.hash.slice(1).split('/')[0])))) {
     if (V.tab === 'resumenes' && V.res.apunte) { V.res.sec = location.hash.replace(/^#(s-)?/, ''); irSeccion(); }
     return;
   }

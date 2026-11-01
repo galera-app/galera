@@ -791,8 +791,8 @@ input[aria-invalid="true"] { border-color: var(--mal); }
 .sn { display: none; }
 @media (max-width: 720px) {
   .sn { display: flex; margin: -6px 0 14px; border-bottom: 1px solid var(--borde); }
-  .sn button { flex: 1; min-height: 44px; padding: 0 4px; border: 0; border-bottom: 3px solid transparent; background: none; color: var(--texto2); font: 600 .9rem/1.1 var(--fuente); cursor: pointer; }
-  .sn button[aria-current="page"] { color: var(--tinta); border-color: var(--mostaza); }
+  .sn a { flex: 1; min-height: 44px; padding: 0 4px; border: 0; border-bottom: 3px solid transparent; background: none; color: var(--texto2); font: 600 .9rem/1.1 var(--fuente); cursor: pointer; }
+  .sn a[aria-current="page"] { color: var(--tinta); border-color: var(--mostaza); }
 }
 @media print { .sn { display: none !important; } }
 /* Primera visita: franja que ofrece el perfil profesional (sin modal) */
