@@ -1891,9 +1891,8 @@ async function cargarBiblioteca() {
   if (V.tab === 'biblioteca') render();
 }
 // Tapa: la imagen guardada, o una tapa tipográfica si no hay (o si la imagen no carga).
-const tapa = (l, grande) => `<div class="tapa ${grande ? 'grande' : ''}" style="--tono:${COLORES[(l.t.length + l.autor.length) % COLORES.length]}">
-  <span class="tapa-texto"><b>${esc(l.t)}</b><small>${esc(l.autor)}</small></span>
-  ${l.sinTapa ? '' : `<img src="/biblioteca/${esc(l.id)}.jpg" alt="" loading="lazy" onerror="this.remove()">`}</div>`;
+const tapa = (l, grande) => `<span class="gl-tapa${grande ? ' grande' : ''}"><span class="lomo"></span><span class="ti">${esc(l.t)}</span><span class="au">${esc(l.autor)}</span><span class="tr" style="--s:${6 + (l.t.length % 3)}px"></span>
+  ${grande && !l.sinTapa ? `<img src="/biblioteca/${esc(l.id)}.jpg" alt="" loading="lazy" onerror="this.remove()">` : ''}</span>`;
 // Biblioteca tiene dos solapas: «Libros» (los recomendados, la colección «Libros sobre Libros» del FCE y los libros de la bibliografía de los programas, todo junto
 // y filtrable por origen, tema y materia) y las publicaciones periódicas del sector.
 const SOLAPAS_BIB = [['libros', 'Libros'], ['per', 'Publicaciones periódicas']];
@@ -1932,10 +1931,9 @@ function estanteLibros() {
   const L = librosFiltrados(), tope = typeof PRERENDER !== 'undefined' ? Infinity : (V.bl.n || 48);
   if (!L.length) return '<p class="gl-vacio" role="status">No hay libros con ese filtro.</p>';
   const mas = L.length > tope ? `<p class="gl-m16"><button class="gl-btn gl-btn--sec" type="button" onclick="V.bl.n=${tope + 96};$('#bl-lista').innerHTML=estanteLibros()">Mostrar más (${L.length - tope} restantes)</button></p>` : '';
-  return `<p class="gl-cuenta gl-m16" aria-live="polite">${L.length} libro${L.length === 1 ? '' : 's'}</p><div class="estante">
-    <button class="libro sumar" onclick="sugerirLibro()"><span class="tapa"><span>¿Falta algún libro para recomendar?<b>Avisame.</b></span></span></button>
-    ${L.slice(0, tope).map(l => `<button class="libro" onclick="abrirLibro(${arg(l.k)})" aria-label="${esc(l.t)}, de ${esc(l.autor)}: ver ficha">${tapa(l)}
-      <span class="libro-t">${esc(l.t)}</span><span class="libro-a">${esc(l.autor)}</span></button>`).join('')}</div>${mas}`;
+  return `<p class="gl-cuenta gl-m16" aria-live="polite">${L.length} libro${L.length === 1 ? '' : 's'}</p><div class="gl-estante">
+    ${L.slice(0, tope).map(l => `<button class="gl-libro" type="button" onclick="abrirLibro(${arg(l.k)})" aria-label="${esc(l.t)}, de ${esc(l.autor)}: ver ficha">${tapa(l)}</button>`).join('')}
+    <button class="gl-libro" type="button" onclick="sugerirLibro()"><span class="gl-tapa sumar"><span>¿Falta un libro?<b>Sugerir un libro</b></span></span></button></div>${mas}`;
 }
 function vLibros() {
   if (!D.biblioteca) { cargarBiblioteca(); return '<p class="cargando">Cargando la biblioteca…</p>'; }
@@ -3127,7 +3125,7 @@ async function cargarSostener() {
   const leer = a => json(a).catch(() => null);
   const [horas, costos, plan, claude, mecenas] = await Promise.all([leer('sostener.json'), leer('sostener-costos.json'), leer('plan.json'), leer('sostener-claude.json'), leer('mecenas.json')]);
   D.sostener = { horas, costos, plan, claude, mecenas };
-  if (V.tab === 'sostener') render();
+  if (V.tab === 'sostener' || V.tab === 'novedades') render();
 }
 const ESTADO_PLAN = { planeado: ['Planeado', 'gl-chip gl-chip--neutro'], 'en curso': ['En curso', 'gl-chip'], listo: ['Listo', 'gl-chip gl-chip--ok'] };
 const MESES_ES = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
@@ -3150,10 +3148,23 @@ function sostenerCostos(C) {
   return `<ul class="gl-renglones">${C.items.map(i => `<li><span>${esc(i.t)}${nota(i.nota)}</span><b>${i.monto == null ? 'a calcular' : esc(i.monto)}</b></li>`).join('')}</ul>
     ${C.actualizado ? `<p class="gl-chico">Actualizado el ${esc(fmtLarga(C.actualizado))}.</p>` : ''}`;
 }
+// El plan se muestra compacto: primero lo que falta (en curso y planeado), y lo que ya salió, plegado. Novedades lee el mismo plan.json (planPendiente).
+const planItems = P => P && Array.isArray(P.etapas) ? P.etapas.flatMap(e => (e.items || []).map(i => ({ ...i, etapa: e.t }))) : [];
+function planPendiente(P) { return planItems(P).filter(i => i.estado !== 'listo').sort((a, b) => (a.estado === 'en curso' ? 0 : 1) - (b.estado === 'en curso' ? 0 : 1)); }
 function sostenerPlan(P) {
   if (!P || !Array.isArray(P.etapas)) return '';
-  return `<h2 id="plan">Tu ayuda me permitiría seguir con este plan</h2>` + P.etapas.map(e => `<h3>${esc(e.t)}</h3><ul class="gl-plan">
-    ${(e.items || []).map(i => { const [t, c] = ESTADO_PLAN[i.estado] || ESTADO_PLAN.planeado; return `<li><div><b>${esc(i.t)}</b><p>${esc(i.d)}</p></div><span class="${c}">${t}</span></li>`; }).join('')}</ul>`).join('');
+  const fila = i => { const [t, c] = ESTADO_PLAN[i.estado] || ESTADO_PLAN.planeado; return `<li><div><b>${esc(i.t)}</b><p>${esc(i.d)}</p></div><span class="${c}">${t}</span></li>`; };
+  const listos = planItems(P).filter(i => i.estado === 'listo');
+  return `<h2 id="plan">Qué se viene</h2><p>Esto es lo que tengo en el plan. Con tu ayuda llego más rápido; el orden puede cambiar según lo que me pidan.</p>` +
+    P.etapas.map(e => { const L = (e.items || []).filter(i => i.estado !== 'listo'); return L.length ? `<h3>${esc(e.t)}</h3><ul class="gl-plan">${L.map(fila).join('')}</ul>` : ''; }).join('') +
+    (listos.length ? `<details class="gl-plan-listos"><summary>Ya salió (${listos.length})</summary><ul class="gl-plan">${listos.map(fila).join('')}</ul></details>` : '');
+}
+// Para Novedades: lo que viene, en breve, con el enlace al plan completo.
+function planBreve(P) {
+  const L = planPendiente(P).slice(0, 4);
+  if (!L.length) return '';
+  return `<div class="gl-tarjeta"><p class="gl-rotulo">Qué se viene</p><ul class="gl-viene">${L.map(i => `<li><b>${esc(i.t)}</b><span class="${(ESTADO_PLAN[i.estado] || ESTADO_PLAN.planeado)[1]}">${(ESTADO_PLAN[i.estado] || ESTADO_PLAN.planeado)[0]}</span></li>`).join('')}</ul>
+    <a class="gl-btn gl-btn--sec" href="/sostener/#plan">Ver el plan completo</a></div>`;
 }
 function sostenerMecenas(M) {
   const L = M && Array.isArray(M.mecenas) ? M.mecenas : [];
@@ -3228,6 +3239,7 @@ function vPedidos() {
 }
 function vNovedades() {
   if (V.nov === 'pedidos') return vPedidos();
+  cargarSostener();   // el plan (planBreve) vive en plan.json
   cargarPedidos();   // para marcar en cada novedad los pedidos que respondió (el vínculo vive en pedidos.json: estado hecho + v)
   if (!D.novedades) { cargarNovedades(); return `<div class="gl-v gl-nov">${cabNov}${filtroNov()}<p class="gl-vacio" role="status">Cargando las novedades…</p></div>`; }
   if (D.novedades.error) return `<div class="gl-v gl-nov">${cabNov}${filtroNov()}<p class="gl-vacio" role="alert">No pude cargar esto. Puede ser la conexión. <button class="gl-btn gl-btn--sec" type="button" onclick="location.reload()">Probar de nuevo</button></p></div>`;
@@ -3239,7 +3251,7 @@ function vNovedades() {
     ${hechos.filter(p => p.v === x.v).map(p => `<p class="meta"><span class="gl-chip gl-chip--ok">Lo pidieron</span> «${esc(p.resumen)}» <a href="/novedades/?ver=pedidos" onclick="verNov('pedidos'); return false">Ver pedidos</a></p>`).join('')}
     ${(meta || enlaceNov(x.url)) ? `<p class="meta">${meta}${enlaceNov(x.url).replace(/^ · /, meta ? ' · ' : '')}</p>` : ''}</div>`; };
   return `<div class="gl-v gl-nov">${cabNov}${filtroNov()}<div class="gl-nov-pag"><aside class="gl-lateral" aria-label="Avisos"><div class="gl-tarjeta"><p class="gl-rotulo">Mail de los lunes</p><p>Las novedades y las mesas de la semana, en tu correo. Sin cuenta.</p>
-    <button class="gl-btn" type="button" onclick="avisame()">Recibir novedades por mail</button></div></aside><section class="gl-nov-lista" aria-label="Versiones">` +
+    <button class="gl-btn" type="button" onclick="avisame()">Recibir novedades por mail</button></div>${planBreve(D.sostener && D.sostener.plan)}</aside><section class="gl-nov-lista" aria-label="Versiones">` +
     vers.map(v => { const L = N.filter(x => x.v === v).sort((a, b) => a.fecha < b.fecha ? 1 : -1);
       return `<article class="gl-nov-fila" id="nov-v${v}"><div class="gl-nov-ver"><b>v${v}</b>${v === vers[0] ? '<span class="gl-chip gl-chip--ok">Última</span>' : ''}<span>${fmtLarga(L[0].fecha)}</span></div><div>${L.map(tarjeta).join('')}</div></article>`; }).join('') + '</section></div></div>';
 }
