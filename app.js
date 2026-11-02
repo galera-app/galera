@@ -377,7 +377,7 @@ function iniciarPerfil() {
   // Sin datos ni perfil: la primera visita queda en el inicio con la pregunta abierta (v77; reemplaza al modal y a la franja).
 }
 // INICIO (v77): la portada reparte a las demás pantallas. El selector de perfil se pliega al elegir (queda una línea bajo el título) y tiene un «Cambiar».
-const PERFILES_INICIO = [['estudiante', 'Estudiar', 'Para estudiantes de Edición: plan, notas, horarios y apuntes de la carrera.'], ['profesional', 'Trabajar', 'Para profesionales del libro: herramientas, eventos, contactos y los apuntes de Edición para tener la teoría a mano.']];
+const PERFILES_INICIO = [['estudiante', 'Estudiar', 'Para estudiantes de Edición: plan, notas, horarios y apuntes de la carrera.'], ['profesional', 'Trabajar', 'Para profesionales del libro: herramientas, eventos, contactos y los apuntes de Edición.']];
 const PLURAL_PERFIL = { estudiante: 'estudiantes', profesional: 'profesionales del libro' };
 const BAJADAS = {
   estudiante: { eventos: 'Ferias, jornadas y convocatorias del libro.', carrera: 'Tus materias, notas y lo que te falta para recibirte.', horarios: 'Armá tu cuatrimestre y mirá si se pisan los horarios.', calendario: 'Inscripciones, mesas de final y feriados del año.', resumenes: 'Apuntes por materia y simulacros de parcial.', biblioteca: 'La bibliografía de cada materia, en un solo lugar.', glosario: 'Los términos de la carrera, explicados en corto.', simuladores: 'Papel, imposición, escandallo, cronogramas y contratos.', directorio: 'Editoriales de todo el país, de la A a la Z.', links: 'Campus, SIU Guaraní y trámites de la facultad.' },
@@ -1098,61 +1098,68 @@ function vHorarios() {
   // Con los horarios confirmados, la oferta y los avisos se pliegan en un resumen: queda a la vista solo la semana.
   const listo = h.listo && sel.length > 0;
   const out = [];
-  out.push(`<div class="gl-cab"><h2 class="gl-display">Horarios</h2><span class="gl-crece"></span>${listo ? '' : '<button class="gl-btn gl-btn--sec gl-btn--c" type="button" onclick="horarioPropio()">Cargar un horario a mano</button>'}</div>
+  const diasChoque = [...new Set(ch.map(x => Horarios.DIAS[x.dia].toLowerCase()))];
+  out.push(`<div class="gl-cab"><h2 class="gl-display">Horarios</h2><span class="gl-crece"></span>${ch.length ? `<span class="gl-hchoque"><i aria-hidden="true"></i>${ch.length === 1 ? '1 superposición' : ch.length + ' superposiciones'}: ${diasChoque.join(', ')}</span>` : ''}</div>
+    <p class="gl-bajada">Marcá las materias que querés cursar y mirá cómo quedan en la semana. Si dos se pisan, aparecen con rayas rojas.</p>
     <div class="gl-flex gl-oferta">${D.ofertasMeta.length > 1 ? `<select class="gl-sel" aria-label="Cuatrimestre" onchange="cambiarOferta(this.value)">${D.ofertasMeta.map(o => `<option value="${o.id}" ${o.id === V.oferta ? 'selected' : ''}>${esc(o.nombre)}</option>`).join('')}</select>` : `<p class="gl-t3 gl-sin-inicial">${esc(of.nombre)}</p>`}</div>`);
-  if (listo) out.push(vListo(sel, of));
-  else {
+  const enChoqueMat = new Set(ch.flatMap(x => [x.a.materia, x.b.materia]));
+  const lado = [], centro = [], resto = [];
+  if (!listo) {
   if (of.nota && !of.comisiones.length) out.push(`<div class="gl-tarjeta gl-chico">${esc(of.nota)}</div>`);
   if (of.fuente) out.push(`<p class="gl-chico">Oferta publicada por la Facultad${of.actualizado ? ', cargada el ' + fmt(of.actualizado) : ''}. <a href="${urlSegura(of.fuente)}" target="_blank" rel="noopener">Ver la planilla original</a>. Puede haber cambios de último momento.</p>`);
   if (of.idiomas) out.push(`<p class="gl-chico">Los idiomas (inglés, francés, alemán, italiano y portugués) los publica el Departamento de Lenguas Modernas${of.idiomas.actualizado ? ', cargados el ' + fmt(of.idiomas.actualizado) : ''}. <a href="${urlSegura(of.idiomas.fuente)}" target="_blank" rel="noopener">Ver el blog del Departamento</a>. Se inscriben por SUIGA, en «Otras materias, seminarios e idiomas».</p>`);
+  }
 
-  // 1. Qué materias.
-  out.push(`<div class="gl-sec"><h2 class="gl-t2 gl-sin-inicial">1. ¿Qué querés cursar?</h2></div><div class="gl-tarjeta">`);
+  // Columna lateral: qué materias (o el resumen, con los horarios confirmados).
+  if (listo) lado.push(vListo(sel, of));
+  else {
+  lado.push(`<p class="gl-rotulo">Qué querés cursar</p>`);
   // Las que ya aprobaste no aparecen, salvo que las pidas o ya las hayas elegido. Los seminarios van aparte, plegados.
   const ocultas = disponibles.filter(id => yaAprobada(id) && h.materias.indexOf(id) < 0);
   const visibles = V.verAprobadas ? disponibles : disponibles.filter(id => ocultas.indexOf(id) < 0);
-  const opcionMat = id => `<label class="gl-elige-m">
-      <input type="checkbox" data-f="q${esc(id)}" ${h.materias.indexOf(id) >= 0 ? 'checked' : ''} onchange="quieroCursar(${arg(id)},this.checked)">${h.materias.indexOf(id) >= 0 ? `<i class="gl-ecolor" style="background:${colorDe(id)}" aria-hidden="true"></i>` : ''}<span>${esc(nombreMateria(id))}${yaAprobada(id) ? ' <small>(aprobada)</small>' : ''}</span></label>`;
+  const opcionMat = id => `<label class="gl-elige-m ${h.materias.indexOf(id) >= 0 && enChoqueMat.has(id) ? 'gl-elige-m--mal' : ''}">
+      <input type="checkbox" data-f="q${esc(id)}" ${h.materias.indexOf(id) >= 0 ? 'checked' : ''} onchange="quieroCursar(${arg(id)},this.checked)"><span>${esc(nombreMateria(id))}${yaAprobada(id) ? ' <small>(aprobada)</small>' : ''}</span></label>`;
   const sems = visibles.filter(id => extra(id)), mats = visibles.filter(id => !extra(id));
   const semAbierto = V.verSem || sems.some(id => h.materias.indexOf(id) >= 0);
-  out.push(disponibles.length ? `<div class="gl-eligen">${mats.map(opcionMat).join('')}</div>
+  lado.push(disponibles.length ? `<div class="gl-eligen">${mats.map(opcionMat).join('')}</div>
     ${sems.length ? `<details class="gl-sems" ${semAbierto ? 'open' : ''} ontoggle="V.verSem=this.open"><summary>Seminarios y PST <span class="gl-chip">${sems.length}</span></summary><div class="gl-eligen">${sems.map(opcionMat).join('')}</div></details>` : ''}
     ${ocultas.length ? `<p class="gl-chico">${V.verAprobadas ? 'Se muestran también las que ya aprobaste.' : `No muestro ${ocultas.length === 1 ? 'una materia que ya aprobaste' : ocultas.length + ' materias que ya aprobaste'}.`}
       <button class="gl-enlace" onclick="V.verAprobadas=!V.verAprobadas;render()">${V.verAprobadas ? 'Ocultarlas' : 'Mostrarlas'}</button></p>` : ''}`
     : '<p class="gl-chico">No hay horarios cargados para este cuatrimestre. Cargá los de tus materias con «Cargar un horario a mano».</p>');
-  out.push('</div>');
+  lado.push(`<button class="gl-btn gl-btn--sec gl-btn--c" type="button" onclick="horarioPropio()">+ Cargar un horario a mano</button>`);
+  }
 
-  // 2. Comisiones.
-  if (h.materias.length) {
-    out.push(`<div class="gl-sec"><h2 class="gl-t2 gl-sin-inicial">2. Elegí comisiones</h2><span class="botones"><button class="gl-btn gl-btn--ter gl-btn--c" onclick="bloqueo()">Horario en que no puedo</button><button class="gl-btn gl-btn--c" onclick="sugerir()">Sugerir combinaciones</button></span></div>
+  // Columna central: la semana y, debajo, las comisiones.
+  if (ch.length) centro.push(`<div class="gl-aviso" role="alert"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2.5 20h19zM12 10v4.5M12 17.2v.1"/></svg><div><b>${ch.length === 1 ? 'Hay una superposición' : 'Hay ' + ch.length + ' superposiciones'}</b>
+    ${ch.map(x => `<div class="gl-chico">${Horarios.DIAS[x.dia]} ${x.desde}-${x.hasta}: ${esc(siglaMateria(x.a.materia))} (${esc(x.a.tipo)}) con ${esc(siglaMateria(x.b.materia))} (${esc(x.b.tipo)})</div>`).join('')}</div></div>`);
+  if (r.enBloqueo) centro.push(`<div class="gl-aviso" role="alert"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2.5 20h19zM12 10v4.5M12 17.2v.1"/></svg><div><b>Se pisa con un horario en que no podés</b> <span class="gl-chico">(${Math.round(r.enBloqueo / 60 * 10) / 10} h)</span></div></div>`);
+  if (sel.length) centro.push(`<p class="gl-chico">${r.dias.length} ${r.dias.length === 1 ? 'día' : 'días'} por semana (${r.dias.map(d => Horarios.DIAS[d].toLowerCase()).join(', ')}) · ${Math.round(r.clase / 60 * 10) / 10} h de clase${r.huecos ? ' · ' + Math.round(r.huecos / 60 * 10) / 10 + ' h de huecos' : ''}</p>`);
+  centro.push(diasSemana(sel, h.bloqueos, ch) + grilla(sel, h.bloqueos, ch));
+  if (sel.length) centro.push(`<details class="gl-hlista"><summary>Ver la semana como lista</summary>${listaSemana(sel)}</details>`);
+  if (!listo && h.materias.length) {
+    resto.push(`<div class="gl-sec"><h2 class="gl-t2 gl-sin-inicial">Elegí comisiones</h2><span class="botones"><button class="gl-btn gl-btn--ter gl-btn--c" onclick="bloqueo()">Horario en que no puedo</button><button class="gl-btn gl-btn--c" onclick="sugerir()">Sugerir combinaciones</button></span></div>
       <p class="gl-chico">Para sugerir, tengo en cuenta los horarios en que no podés${h.bloqueos.length ? ` (cargaste ${h.bloqueos.length})` : ''}. <label class="gl-chico"><input type="checkbox" class="" ${h.sinSabado ? 'checked' : ''} onchange="hor().sinSabado=this.checked;guardar();render()"> Evitar sábados</label></p>`);
-    if (V.sugeridas) out.push(vSugeridas());
+    if (V.sugeridas) resto.push(vSugeridas());
     Horarios.grupos(h.materias, C).forEach(g => {
       const clave = g.materia + '|' + g.tipo;
-      out.push(`<div class="gl-tarjeta" style="border-left:5px solid ${colorDe(g.materia)}"><b>${esc(nombreMateria(g.materia))}</b> <span class="gl-chip">${esc(g.tipo)}</span>
+      resto.push(`<div class="gl-tarjeta gl-hcom"><div class="gl-hcomh"><b>${esc(nombreMateria(g.materia))}</b><span class="gl-chip">${esc(g.tipo)}</span></div>
         ${g.opciones.map(c => `<label class="gl-com"><input type="radio" data-f="r${esc(c.id)}" name="${esc(clave)}" ${h.elegidas[clave] === c.id ? 'checked' : ''} onchange="elegirComision(${arg(clave)},${arg(c.id)})">
           <span class="gl-crece"><b>${esc(c.nombre || 'Única')}</b> · ${c.bloques.map(b => Horarios.DIAS[b.dia] + ' ' + b.desde + '-' + b.hasta).join(' y ')}
           <span class="gl-chico">${[c.docente, c.aula, c.modalidad].filter(Boolean).map(esc).join(' · ')}${c.propia ? ' · cargado por vos' : ''}</span></span>
           ${c.propia ? `<button class="gl-btn gl-btn--ter gl-btn--c" onclick="event.preventDefault();borrarPropia(${arg(c.id)})" aria-label="Borrar este horario">Quitar</button>` : ''}</label>`).join('')}</div>`);
     });
-    if (sel.length) out.push(`<div class="gl-flex"><span class="gl-chico">Se guarda solo. Cuando termines, plegá la oferta y quedate con tu semana.</span>
+    if (sel.length) resto.push(`<div class="gl-flex"><span class="gl-chico">Se guarda solo. Cuando termines, plegá la oferta y quedate con tu semana.</span>
       <button class="gl-btn" onclick="horariosListos()">Listo, guardar mis horarios</button></div>`);
+  } else {
+    resto.push(`<div><button class="gl-btn gl-btn--ter gl-btn--c" onclick="bloqueo()">Horario en que no puedo</button></div>`);
   }
-  }
-
-  // 3. La semana.
-  out.push(`<div class="gl-sec"><h2 class="gl-t2 gl-sin-inicial">${h.materias.length && !listo ? '3. ' : ''}Tu semana</h2>${h.materias.length ? '' : '<button class="gl-btn gl-btn--ter gl-btn--c" onclick="bloqueo()">Horario en que no puedo</button>'}</div>`);
-  if (ch.length) out.push(`<div class="gl-aviso" role="alert"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2.5 20h19zM12 10v4.5M12 17.2v.1"/></svg><div><b>${ch.length === 1 ? 'Hay una superposición' : 'Hay ' + ch.length + ' superposiciones'}</b>
-    ${ch.map(x => `<div class="gl-chico">${Horarios.DIAS[x.dia]} ${x.desde}-${x.hasta}: ${esc(siglaMateria(x.a.materia))} (${esc(x.a.tipo)}) con ${esc(siglaMateria(x.b.materia))} (${esc(x.b.tipo)})</div>`).join('')}</div></div>`);
-  if (r.enBloqueo) out.push(`<div class="gl-aviso" role="alert"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2.5 20h19zM12 10v4.5M12 17.2v.1"/></svg><div><b>Se pisa con un horario en que no podés</b> <span class="gl-chico">(${Math.round(r.enBloqueo / 60 * 10) / 10} h)</span></div></div>`);
-  if (sel.length) out.push(`<p class="gl-chico">${r.dias.length} ${r.dias.length === 1 ? 'día' : 'días'} por semana (${r.dias.map(d => Horarios.DIAS[d].toLowerCase()).join(', ')}) · ${Math.round(r.clase / 60 * 10) / 10} h de clase${r.huecos ? ' · ' + Math.round(r.huecos / 60 * 10) / 10 + ' h de huecos' : ''}</p>`);
-  out.push(grilla(sel, h.bloqueos, ch) + listaSemana(sel));
   const p = sel.length && periodoDe(V.oferta);
-  if (p) out.push(`<div class="gl-tarjeta gl-flex"><span class="gl-crece gl-chico">Llevá estas clases a Google Calendar u otro calendario: se repiten cada semana del ${fmt(p.desde)} al ${fmt(p.hasta)}${feriadosEn(p).length ? ', sin los feriados' : ''}.</span>
+  if (p) resto.push(`<div class="gl-tarjeta gl-flex"><span class="gl-crece gl-chico">Llevá estas clases a Google Calendar u otro calendario: se repiten cada semana del ${fmt(p.desde)} al ${fmt(p.hasta)}${feriadosEn(p).length ? ', sin los feriados' : ''}.</span>
     <button class="gl-btn gl-btn--sec gl-btn--c" onclick="ayudaCalendario()">Llevar a mi calendario</button></div>`);
-  if (h.materias.length) out.push(`<div class="gl-tarjeta gl-flex"><span class="gl-crece gl-chico">Pasale al grupo lo que vas a cursar${sel.length ? ' y tu semana: una imagen para las historias o un link que se abre solo para mirar' : ''}.</span>
+  if (h.materias.length) resto.push(`<div class="gl-tarjeta gl-flex"><span class="gl-crece gl-chico">Pasale al grupo lo que vas a cursar${sel.length ? ' y tu semana: una imagen para las historias o un link que se abre solo para mirar' : ''}.</span>
     <button class="gl-btn gl-btn--sec gl-btn--c" onclick="abrirQueCursar()">Qué voy a cursar</button>${sel.length ? '<button class="gl-btn gl-btn--sec gl-btn--c" onclick="imagenSemana()">Mi semana en imagen</button><button class="gl-btn gl-btn--sec gl-btn--c" onclick="linkSemana()">Link para mirar</button>' : ''}</div>`);
-  if (h.bloqueos.length) out.push(`<p class="gl-chico">No puedo: ${h.bloqueos.map((b, i) => `${esc(b.t || '')} ${Horarios.DIAS[b.dia].toLowerCase()} ${b.desde}-${b.hasta} <button class="gl-enlace" onclick="borrarBloqueo(${i})">quitar</button>`).join(' · ')}</p>`);
+  if (h.bloqueos.length) resto.push(`<p class="gl-chico">No puedo: ${h.bloqueos.map((b, i) => `${esc(b.t || '')} ${Horarios.DIAS[b.dia].toLowerCase()} ${b.desde}-${b.hasta} <button class="gl-enlace" onclick="borrarBloqueo(${i})">quitar</button>`).join(' · ')}</p>`);
+  out.push(`<div class="gl-hcols"><aside class="gl-hside" aria-label="Materias">${lado.join('')}</aside><section class="gl-hmain" aria-label="Tu semana"><div class="gl-hsem">${centro.join('')}</div><div class="gl-hrest">${resto.join('')}</div></section></div>`);
   return `<div class="gl-hor">${out.join('')}</div>`;
 }
 function vListo(sel, of) {
@@ -1160,7 +1167,7 @@ function vListo(sel, of) {
   sel.forEach(c => { (por[c.materia] = por[c.materia] || []).push(c); });
   return `<div class="gl-tarjeta"><div class="gl-flex"><b>Tus horarios están guardados</b><span class="gl-crece"></span>
       <button class="gl-btn gl-btn--ter gl-btn--c" onclick="editarHorarios()">Cambiar materias o comisiones</button></div>
-    <ul class="gl-resumen">${Object.keys(por).map(m => `<li style="border-left-color:${colorDe(m)}"><b>${esc(nombreMateria(m))}</b>
+    <ul class="gl-resumen">${Object.keys(por).map(m => `<li><b>${esc(nombreMateria(m))}</b>
       <span class="gl-chico">${por[m].map(c => esc(c.tipo) + (c.nombre ? ' ' + esc(c.nombre) : '')).join(' · ')}</span></li>`).join('')}</ul>
     ${h.materias.length > Object.keys(por).length ? `<p class="gl-chico">Hay materias marcadas sin comisión elegida.</p>` : ''}
     ${of.fuente ? `<p class="gl-chico">Oferta${of.actualizado ? ' del ' + fmt(of.actualizado) : ''}, sujeta a cambios: <a href="${urlSegura(of.fuente)}" target="_blank" rel="noopener">planilla de la Facultad</a>.</p>` : ''}</div>`;
@@ -1178,18 +1185,33 @@ function listaSemana(sel) {
 }
 function grilla(sel, bloqueos, ch) {
   const todos = sel.flatMap(c => c.bloques).concat(bloqueos);
-  let desde = 8 * 60, hasta = 23 * 60;
-  if (todos.length) { desde = Math.min(desde, ...todos.map(b => Math.floor(Horarios.min(b.desde) / 60) * 60)); hasta = Math.max(21 * 60, ...todos.map(b => Math.ceil(Horarios.min(b.hasta) / 60) * 60)); }
-  const PX = 0.8, alto = (hasta - desde) * PX;
+  let desde = 8 * 60, hasta = 22 * 60;
+  if (todos.length) { desde = Math.min(desde, ...todos.map(b => Math.floor(Horarios.min(b.desde) / 60) * 60)); hasta = Math.max(hasta, ...todos.map(b => Math.ceil(Horarios.min(b.hasta) / 60) * 60)); }
+  const PX = 44 / 60, alto = (hasta - desde) * PX;
   const enChoque = new Set(ch.flatMap(x => [x.a.id, x.b.id]));
-  const horas = []; for (let m = desde; m <= hasta; m += 60) horas.push(m);
-  const col = d => `<div class="gl-scol" style="height:${alto}px">${horas.slice(0, -1).map(m => `<div class="gl-sln" style="position:absolute;left:0;right:0;top:${(m - desde) * PX}px"></div>`).join('')}
-    ${bloqueos.filter(b => b.dia === d).map(b => `<div class="gl-bq gl-bq--bloq" style="top:${(Horarios.min(b.desde) - desde) * PX}px;height:${(Horarios.min(b.hasta) - Horarios.min(b.desde)) * PX}px">${esc(b.t || 'No puedo')}</div>`).join('')}
-    ${sel.flatMap(c => c.bloques.filter(b => b.dia === d).map(b => `<div class="gl-bq ${enChoque.has(c.id) ? 'gl-bq--choque' : ''}" title="${esc(nombreMateria(c.materia))} · ${esc(c.tipo)} ${esc(c.nombre || '')}" style="background:${colorDe(c.materia)};top:${(Horarios.min(b.desde) - desde) * PX}px;height:${(Horarios.min(b.hasta) - Horarios.min(b.desde)) * PX}px">
-      <b>${esc(siglaMateria(c.materia))}</b>${esc(c.tipo)}<br>${b.desde}-${b.hasta}${c.aula ? '<br>' + esc(c.aula) : ''}</div>`)).join('')}</div>`;
-  return `<div class="gl-sem" aria-hidden="true"><div class="gl-sdia"></div>${[1, 2, 3, 4, 5, 6].map(d => `<div class="gl-sdia">${Horarios.DIAS[d]}</div>`).join('')}
-    <div style="height:${alto}px;position:relative">${horas.map(m => `<div class="gl-shora" style="position:absolute;right:0;top:${(m - desde) * PX}px">${Horarios.hhmm(m)}</div>`).join('')}</div>
+  const horas = []; for (let m = desde; m < hasta; m += 60) horas.push(m);
+  const pos = b => `top:${(Horarios.min(b.desde) - desde) * PX}px;height:${(Horarios.min(b.hasta) - Horarios.min(b.desde)) * PX - 2}px`;
+  const col = d => `<div class="gl-scol" style="height:${alto}px">
+    ${bloqueos.filter(b => b.dia === d).map(b => `<div class="gl-bq gl-bq--bloq" style="${pos(b)}"><span>${esc(b.t || 'No puedo')}</span><span class="gl-bh">${b.desde} – ${b.hasta}</span></div>`).join('')}
+    ${sel.flatMap(c => c.bloques.filter(b => b.dia === d).map(b => `<div class="gl-bq ${enChoque.has(c.id) ? 'gl-bq--choque' : ''}" title="${esc(nombreMateria(c.materia))} · ${esc(c.tipo)} ${esc(c.nombre || '')}" style="${pos(b)}">
+      <span>${esc(nombreMateria(c.materia))}</span><span class="gl-bh">${b.desde} – ${b.hasta} · ${esc(c.tipo.toLowerCase())}${c.aula ? ' · ' + esc(c.aula) : ''}</span></div>`)).join('')}</div>`;
+  return `<div class="gl-sem" aria-hidden="true"><div class="gl-sdia"></div>${[1, 2, 3, 4, 5, 6].map(d => `<div class="gl-sdia">${Horarios.DIAS[d].slice(0, 3)}</div>`).join('')}
+    <div class="gl-shoras" style="height:${alto}px">${horas.filter(m => (m / 60) % 2 === 0).map(m => `<span class="gl-shora" style="top:${(m - desde) * PX}px">${String(m / 60).padStart(2, '0')}</span>`).join('')}</div>
     ${[1, 2, 3, 4, 5, 6].map(col).join('')}</div>`;
+}
+// Celular: el día elegido, con sus clases en bloques (la grilla de la semana queda para pantallas anchas).
+function diasSemana(sel, bloqueos, ch) {
+  const clases = d => sel.flatMap(c => c.bloques.filter(b => b.dia === d).map(b => ({ c, b }))).sort((x, y) => Horarios.min(x.b.desde) - Horarios.min(y.b.desde));
+  let d = V.hdia;
+  if (!d) { const hoy = new Date().getDay(); d = hoy >= 1 && hoy <= 6 && clases(hoy).length ? hoy : [1, 2, 3, 4, 5, 6].find(x => clases(x).length) || 1; }
+  const enChoque = new Set(ch.flatMap(x => [x.a.id, x.b.id])), delDia = clases(d), pisa = ch.filter(x => x.dia === d);
+  const bq = bloqueos.filter(b => b.dia === d);
+  return `<div class="gl-hdia"><div class="gl-dias" role="group" aria-label="Día">${[1, 2, 3, 4, 5, 6].map(n => `<button type="button" class="${n === d ? 'on' : ''}" aria-pressed="${n === d}" aria-label="${Horarios.DIAS[n]}" onclick="V.hdia=${n};render()">${'LMXJVS'[n - 1]}</button>`).join('')}</div>
+    ${pisa.length ? `<div class="gl-aviso" role="alert"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2.5 20h19zM12 10v4.5M12 17.2v.1"/></svg><div>${pisa.map(x => `Se pisan ${esc(siglaMateria(x.a.materia))} y ${esc(siglaMateria(x.b.materia))} el ${Horarios.DIAS[d].toLowerCase()} de ${x.desde} a ${x.hasta}.`).join(' ')}</div></div>` : ''}
+    ${delDia.map(({ c, b }) => `<div class="gl-blk ${enChoque.has(c.id) ? 'gl-blk--mal' : ''}"><b>${esc(nombreMateria(c.materia))}</b><span class="gl-chico">${b.desde} a ${b.hasta}${c.aula ? ' · ' + esc(c.aula) : c.modalidad ? ' · ' + esc(c.modalidad.toLowerCase()) : ''}</span>
+      <span class="gl-chip ${enChoque.has(c.id) ? 'gl-chip--mal' : ''}">${enChoque.has(c.id) ? 'Superposición' : esc(c.tipo) + (c.nombre ? ' ' + esc(c.nombre) : '')}</span></div>`).join('')}
+    ${bq.map(b => `<div class="gl-blk gl-blk--bloq"><b>${esc(b.t || 'No puedo')}</b><span class="gl-chico">${b.desde} a ${b.hasta}</span></div>`).join('')}
+    ${delDia.length || bq.length ? '' : `<p class="gl-chico">${sel.length ? 'Ese día no tenés clases.' : 'Todavía no elegiste comisiones.'}</p>`}</div>`;
 }
 async function cambiarOferta(id) {
   V.oferta = id; V.sugeridas = null;
@@ -3098,14 +3120,13 @@ function vDirectorio() {
         <div class="gl-opts gl-m16"><button type="button" class="gl-opt" aria-pressed="${!!V.dir.web}" data-f="dir-web" onclick="V.dir.web=!V.dir.web;V.dir.n=0;render()"><span class="gl-opt-g" aria-hidden="true"></span>Solo las que tienen sitio web</button></div>
         ${(V.dir.prov || V.dir.linea || V.dir.web || V.dir.q || V.dir.letra) ? `<p class="gl-m16"><button class="gl-btn gl-btn--ter" type="button" onclick="${reset}">Limpiar filtros</button></p>` : ''}
         <p class="gl-aviso-cob"><b>Cobertura.</b> ${esc(tipo.cobertura)}</p></aside>
-      <section class="gl-dir-main" aria-label="Fichas"><div id="dir-lista">${directorioLista()}</div></section>
-      <aside class="gl-dir-riel" aria-label="Índice y mapa">
+      <section class="gl-dir-main" aria-label="Mapa y fichas"><div id="dir-mapa">${directorioMapaVista()}</div><div id="dir-lista">${directorioLista()}</div></section>
+      <aside class="gl-dir-riel" aria-label="Índice">
         ${letras.length > 1 && actoresDelTipo().length > 60 ? `<p class="gl-rotulo">Ir a la letra</p><div class="dir-letras" role="group" aria-label="Ir a la letra">${letras.map(l => `<button type="button" class="${V.dir.letra === l ? 'on' : ''}" aria-pressed="${V.dir.letra === l}" onclick="V.dir.letra=${arg(V.dir.letra === l ? '' : l)};V.dir.n=0;render()">${l}</button>`).join('')}</div>` : ''}
         <div class="gl-tarjeta gl-m16"><b>¿Falta una?</b><span class="gl-chico">Sugerí una editorial, imprenta o librería que no esté.</span><button class="gl-btn gl-btn--sec" type="button" onclick="sugerirActor()">Sugerí un actor</button></div>
-        <button class="gl-btn gl-btn--sec gl-m16" type="button" aria-pressed="${!!V.dir.mapa}" data-f="dir-ver-mapa" onclick="V.dir.mapa=!V.dir.mapa;render()">${V.dir.mapa ? 'Ocultar el mapa' : 'Ver el mapa'}</button>
-        <div id="dir-mapa">${directorioMapaVista()}</div></aside></div></div>`;
+        </aside></div></div>`;
 }
-const directorioMapaVista = () => V.dir.mapa ? directorioMapa() : '';
+const directorioMapaVista = () => directorioMapa();   // siempre arriba de las fichas, en la columna central
 function sugerirActor() {
   const t = ({ editorial: 'una editorial', imprenta: 'una imprenta', distribuidora: 'una distribuidora', libreria: 'una librería', papel: 'un productor de papel' })[V.dir.tipo] || 'un actor';
   idea({ titulo: 'Sugerir ' + t, intro: 'Contame el nombre, la provincia y el sitio web o la red pública donde figura. Solo datos de empresas o proyectos públicos: nada de domicilios ni teléfonos de particulares.',
@@ -3130,7 +3151,7 @@ async function cargarSostener() {
 const ESTADO_PLAN = { planeado: ['Planeado', 'gl-chip gl-chip--neutro'], 'en curso': ['En curso', 'gl-chip'], listo: ['Listo', 'gl-chip gl-chip--ok'] };
 const MESES_ES = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
 const horasTxt = h => String(h).replace('.', ',') + (Number(h) === 1 ? ' hora' : ' horas');
-const HOLA = 'hola@galera.com.ar', HISTORIAL_GH = 'https://github.com/Ficha/Ficha.github.io/commits/main/cursada';
+const HOLA = 'hola@galera.com.ar', HISTORIAL_GH = 'https://github.com/galera-app/galera/commits/main';
 function sostenerHoras(H, R) {
   if (!H || typeof H.horas_totales !== 'number') return '<p class="gl-chico">Las horas no se pudieron cargar ahora. Probá de nuevo más tarde.</p>';
   const rango = R && R.minimo > 0 && R.maximo >= R.minimo;

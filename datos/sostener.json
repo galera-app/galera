@@ -1,15 +1,16 @@
 {
-  "horas_totales": 46.5,
+  "horas_totales": 80.8,
   "horas_por_mes": {
     "2026-09": 1.8,
-    "2026-10": 44.7
+    "2026-10": 75.5,
+    "2026-11": 3.5
   },
-  "sesiones": 30,
-  "commits": 129,
+  "sesiones": 44,
+  "commits": 272,
   "primer_commit": "2026-09-30",
   "metodo": {
     "hueco_horas": 2,
     "arranque_minutos": 30
   },
-  "generado": "2026-10-26"
+  "generado": "2026-11-02"
 }
