@@ -843,7 +843,7 @@ function recordatorioCopia() {
     Con una copia las recuperás si cambiás de celular o se borran los datos del navegador.</p><button class="gl-btn gl-btn--sec" type="button" onclick="exportar()">Guardar una copia</button></div>`;
 }
 // Compartir: WhatsApp es por donde circula todo en la cursada. El mensaje es el mismo que el del mail de los lunes.
-const MSJ_COMPARTIR = 'Te paso Galera: llevás las materias de Edición, el promedio y armás los horarios sin superposiciones. Gratis y sin cuenta 👉 https://galera.com.ar/';
+const MSJ_COMPARTIR = 'Te paso Galera: llevás las materias de Edición, el promedio y armás los horarios sin superposiciones. Gratis y sin cuenta: https://galera.com.ar/';
 function compartirCursada(donde) {
   medir('share', { method: 'whatsapp', content_type: 'cursada', item_id: donde });
   window.open('https://wa.me/?text=' + encodeURIComponent(MSJ_COMPARTIR), '_blank', 'noopener');
@@ -1362,7 +1362,7 @@ function repasos() {
 function descargar(nombre, texto, tipo) { const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([texto], { type: tipo })); a.download = nombre; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 2000); }
 function exportarIcs() {
   const evs = misFechas().map((e, i) => ({ uid: 'cursada-' + i + '-' + e.desde.replace(/-/g, '') + '@ficha.github.io', t: e.t, fecha: e.desde, desde: /^\d\d?:\d\d$/.test(e.hora || '') ? e.hora.padStart(5, '0') : '' }));
-  descargar('mis-fechas-cursada.ics', Horarios.ics(evs, hoy()), 'text/calendar');
+  descargar('mis-fechas-galera.ics', Horarios.ics(evs, hoy()), 'text/calendar');
 }
 // La cursada elegida en Horarios, como clases que se repiten cada semana entre el inicio y el fin del cuatrimestre
 // (según el calendario académico) y sin los feriados que trae el calendario.
@@ -1382,7 +1382,7 @@ function exportarCursada() {
       x.sin.length ? 'Sin clase: ' + x.sin.map(s => fmt(s) + ' (' + fer.find(f => f.fecha === s).t + ')').join(', ') + '.' : '',
       'Horarios sujetos a cambios: confirmá en la planilla de la Facultad. Armado con Galera, galera.com.ar/'].filter(Boolean).join('\n')
   }));
-  descargar('cursada-' + V.oferta.toLowerCase() + '.ics', Horarios.ics(evs, hoy()), 'text/calendar');
+  descargar('galera-' + V.oferta.toLowerCase() + '.ics', Horarios.ics(evs, hoy()), 'text/calendar');
   aviso(evs.length === 1 ? 'Se bajó 1 clase semanal' : 'Se bajaron ' + evs.length + ' clases semanales');
 }
 function ayudaCalendario() {
@@ -1598,7 +1598,7 @@ function resultadosRes() {
 function pedirResumen(id) {
   const p = D.plan.materias.find(x => x.id === id) || { nombre: id };
   medir('pedir_resumen', { item_id: id });
-  idea({ titulo: '📚 ' + p.nombre, intro: 'Todavía no hay resumen de esta materia. Contame si te serviría (y para cuándo), o si tenés apuntes propios que quieras compartir.',
+  idea({ titulo: p.nombre, intro: 'Todavía no hay resumen de esta materia. Contame si te serviría (y para cuándo), o si tenés apuntes propios que quieras compartir.',
     ejemplo: 'Ej.: la curso este cuatrimestre y me vendría bien para el primer parcial…', prefijo: '[Resúmenes] ' + (p.sigla || p.nombre) + ': ' });
 }
 const LETRAS = 'abcd';
@@ -1992,7 +1992,7 @@ function abrirLibro(k) {
     <div class="botones"><button class="btn" onclick="cerrar()">Listo</button></div>`, 'l:' + k);
 }
 function sugerirLibro() {
-  idea({ titulo: '📚 Recomendar un libro', intro: '¿Qué libro sumarías a la biblioteca? Contame el título, quién lo escribió y por qué sirve para editar.',
+  idea({ titulo: 'Recomendar un libro', intro: '¿Qué libro sumarías a la biblioteca? Contame el título, quién lo escribió y por qué sirve para editar.',
     ejemplo: 'Ej.: «Manual de edición», de tal autora: lo usé para…', prefijo: '[Biblioteca] ' });
 }
 
@@ -3463,7 +3463,7 @@ function abrirDatos() {
 function exportar() {
   if (V.demo) return aviso('Estás viendo el ejemplo: salí del ejemplo para descargar tu copia');
   E.copia = hoy(); guardar(true);
-  descargar('cursada-' + hoy() + '.json', JSON.stringify(E, null, 1), 'application/json');
+  descargar('galera-' + hoy() + '.json', JSON.stringify(E, null, 1), 'application/json');
   aviso('Copia guardada en tus descargas: ponela en un lugar seguro (la nube, un pendrive)');
   if (V.tab === 'carrera') render(); // se va el recordatorio de la copia
 }
@@ -3481,7 +3481,7 @@ function importar(archivo) {
     if (hay) {
       confirmar('Esto reemplaza lo que tenés ahora (' + Object.keys(E.materias).length + ' materias con datos). Antes te bajo una copia de lo actual, por las dudas.', 'Reemplazar', 'Mejor no').then(ok => {
         if (!ok) return;
-        descargar('cursada-antes-de-importar-' + hoy() + '.json', JSON.stringify(E, null, 1), 'application/json');
+        descargar('galera-antes-de-importar-' + hoy() + '.json', JSON.stringify(E, null, 1), 'application/json');
         E = e; guardar(); cerrar(); render(); aviso('Copia cargada');
       });
       return;
@@ -3534,7 +3534,7 @@ async function recibirTraspaso(t) {
 function aceptarTraspaso() {
   if (!traspasoRecibido) return cerrar();
   if (V.demo) { E = V.demo; V.demo = null; }
-  if (hayDatosCargados(E)) descargar('cursada-antes-de-importar-' + hoy() + '.json', JSON.stringify(E, null, 1), 'application/json');
+  if (hayDatosCargados(E)) descargar('galera-antes-de-importar-' + hoy() + '.json', JSON.stringify(E, null, 1), 'application/json');
   E = traspasoRecibido; traspasoRecibido = null; guardar(); cerrar(); render(); aviso('Datos cargados');
 }
 function borrarTodo() { confirmar('¿Borrar todas tus notas, fechas y horarios de este navegador? No se puede deshacer.', 'Borrar todo', 'Mejor no').then(ok => { if (ok) borrarTodoYa(); }); }
