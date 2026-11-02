@@ -392,20 +392,20 @@
    "texto": "En la portada, el listado de todo el sitio por grupos pasa a llamarse «Índice» en lugar de «Sumario»."
   },
   {
-   "v": 77,
-   "fecha": "2026-10-27",
-   "tipo": "herramientas",
-   "perfil": "todos",
-   "titulo": "Una portada para empezar",
-   "texto": "Cursada abre ahora en un inicio con todo el sitio ordenado por grupos. Elegís si sos estudiante o profesional del libro y el índice se ordena según lo que hacés; el perfil se cambia cuando quieras."
-  },
-  {
    "v": 76,
    "fecha": "2026-10-27",
    "tipo": "herramientas",
    "perfil": "todos",
    "titulo": "Avisos de error más claros",
    "texto": "Los avisos de fecha y horario dicen qué falla, el botón de reintento dice «Probar de nuevo» y las comillas son las latinas «así»."
+  },
+  {
+   "v": 77,
+   "fecha": "2026-10-27",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "titulo": "Una portada para empezar",
+   "texto": "Cursada abre ahora en un inicio con todo el sitio ordenado por grupos. Elegís si sos estudiante o profesional del libro y el índice se ordena según lo que hacés; el perfil se cambia cuando quieras."
   },
   {
    "v": 75,
