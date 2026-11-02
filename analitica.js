@@ -6,7 +6,7 @@ window.dataLayer = window.dataLayer || [];
 function gtag() { dataLayer.push(arguments); }
 gtag('consent', 'default', { analytics_storage: 'denied', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
 
-const ID_GA = 'G-631LPGC1XE';
+const ID_GA = 'G-TW9SWXVJK8';
 function cargarGA() {
   if (cargarGA.ok) return;
   cargarGA.ok = true;
