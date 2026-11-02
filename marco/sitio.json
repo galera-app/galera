@@ -288,7 +288,13 @@
   "legal": {
    "t": "Privacidad y términos",
    "url": "/legal/"
-  }
+  },
+  "redes": [
+   {"t": "Instagram", "url": "https://www.instagram.com/galeraedicion/"},
+   {"t": "LinkedIn", "url": "https://www.linkedin.com/company/galeraedicion/"},
+   {"t": "YouTube", "url": "https://www.youtube.com/@GaleraEdicion"},
+   {"t": "WhatsApp", "url": "https://whatsapp.com/channel/0029VbDtM8N4Y9ltamYJyY02"}
+  ]
  },
  "csp": {
   "estatica": "default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self'; img-src 'self' data: https://*.google-analytics.com https://www.googletagmanager.com; connect-src 'self' https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com; object-src 'none'; base-uri 'none'; form-action 'none'",
