@@ -3098,14 +3098,13 @@ function vDirectorio() {
         <div class="gl-opts gl-m16"><button type="button" class="gl-opt" aria-pressed="${!!V.dir.web}" data-f="dir-web" onclick="V.dir.web=!V.dir.web;V.dir.n=0;render()"><span class="gl-opt-g" aria-hidden="true"></span>Solo las que tienen sitio web</button></div>
         ${(V.dir.prov || V.dir.linea || V.dir.web || V.dir.q || V.dir.letra) ? `<p class="gl-m16"><button class="gl-btn gl-btn--ter" type="button" onclick="${reset}">Limpiar filtros</button></p>` : ''}
         <p class="gl-aviso-cob"><b>Cobertura.</b> ${esc(tipo.cobertura)}</p></aside>
-      <section class="gl-dir-main" aria-label="Fichas"><div id="dir-lista">${directorioLista()}</div></section>
-      <aside class="gl-dir-riel" aria-label="Índice y mapa">
+      <section class="gl-dir-main" aria-label="Mapa y fichas"><div id="dir-mapa">${directorioMapaVista()}</div><div id="dir-lista">${directorioLista()}</div></section>
+      <aside class="gl-dir-riel" aria-label="Índice">
         ${letras.length > 1 && actoresDelTipo().length > 60 ? `<p class="gl-rotulo">Ir a la letra</p><div class="dir-letras" role="group" aria-label="Ir a la letra">${letras.map(l => `<button type="button" class="${V.dir.letra === l ? 'on' : ''}" aria-pressed="${V.dir.letra === l}" onclick="V.dir.letra=${arg(V.dir.letra === l ? '' : l)};V.dir.n=0;render()">${l}</button>`).join('')}</div>` : ''}
         <div class="gl-tarjeta gl-m16"><b>¿Falta una?</b><span class="gl-chico">Sugerí una editorial, imprenta o librería que no esté.</span><button class="gl-btn gl-btn--sec" type="button" onclick="sugerirActor()">Sugerí un actor</button></div>
-        <button class="gl-btn gl-btn--sec gl-m16" type="button" aria-pressed="${!!V.dir.mapa}" data-f="dir-ver-mapa" onclick="V.dir.mapa=!V.dir.mapa;render()">${V.dir.mapa ? 'Ocultar el mapa' : 'Ver el mapa'}</button>
-        <div id="dir-mapa">${directorioMapaVista()}</div></aside></div></div>`;
+        </aside></div></div>`;
 }
-const directorioMapaVista = () => V.dir.mapa ? directorioMapa() : '';
+const directorioMapaVista = () => directorioMapa();   // siempre arriba de las fichas, en la columna central
 function sugerirActor() {
   const t = ({ editorial: 'una editorial', imprenta: 'una imprenta', distribuidora: 'una distribuidora', libreria: 'una librería', papel: 'un productor de papel' })[V.dir.tipo] || 'un actor';
   idea({ titulo: 'Sugerir ' + t, intro: 'Contame el nombre, la provincia y el sitio web o la red pública donde figura. Solo datos de empresas o proyectos públicos: nada de domicilios ni teléfonos de particulares.',
