@@ -1,0 +1,67 @@
+# Galera: cuenta las horas de trabajo («Cómo se sostiene») cada lunes antes del mail de novedades (8:00 de Buenos Aires)
+# y guarda el rango medido con Claude que manda horas_reales.py desde la PC de Fidel (workflow_dispatch, entrada «claude»).
+# Los datos salen a producción sin aprobación, sobre el último código aprobado (igual que datos.yml).
+name: Galera - horas de trabajo
+
+on:
+  schedule:
+    - cron: "40 10 * * 1"   # lunes, 7:40 de Buenos Aires
+  workflow_dispatch:
+    inputs:
+      claude:
+        description: "Rango de horas medido con Claude (JSON de horas_reales.py); vacío = solo contar commits"
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+
+concurrency:
+  group: galera-sostener
+  cancel-in-progress: false
+
+jobs:
+  contar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      cambio: ${{ steps.commit.outputs.cambio }}
+    steps:
+      # Clave de despliegue: la misma excepción a la regla de main que usa datos.yml.
+      - uses: actions/checkout@v4
+        with:
+          ssh-key: ${{ secrets.DATOS_DEPLOY_KEY }}
+          fetch-depth: 0   # hace falta todo el historial (todas las ramas) para contar los commits
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Contar las horas por commits
+        run: python .github/scripts/sostener_horas.py
+      - name: Guardar el rango de Claude
+        env:
+          CLAUDE_JSON: ${{ github.event.inputs.claude }}
+        run: python .github/scripts/sostener_claude.py
+      - name: Guardar si hubo cambios
+        id: commit
+        run: |
+          git add datos/sostener.json datos/sostener-claude.json
+          if git diff --cached --quiet; then
+            echo "Sin cambios."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -m "Galera: horas de trabajo actualizadas"
+            git push
+            echo "cambio=si" >> "$GITHUB_OUTPUT"
+          fi
+
+  publicar:
+    needs: contar
+    if: needs.contar.outputs.cambio == 'si'
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    uses: ./.github/workflows/desplegar.yml
+    with:
+      codigo: produccion
