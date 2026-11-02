@@ -2,40 +2,61 @@
 // Sin servidores ni terceros: las imágenes salen de un canvas, el QR es el del traspaso y los links llevan todo en el #.
 // Nada de lo que se comparte lleva nombre ni datos personales. Las funciones se llaman desde app.js y arcade-ui.js.
 const BRAND = { nombre: 'Galera', sitio: 'galera.com.ar', url: 'https://galera.com.ar/' };
-const CV_FONDO = '#1f3a5f', CV_ACENTO = '#f2c14e', CV_FUENTE = 'system-ui, -apple-system, "Segoe UI", Roboto, sans-serif';
+// Sistema de Galera: fondo blanco, tinta #212121, azul #0671E0, cinta de puntos arriba, «galera» en gótica con la g azul.
+const CV = { fondo: '#fff', tinta: '#212121', t2: '#4D4D4D', t3: '#717171', linea: '#E3E8EE', punto: '#ABBED1', acento: '#0671E0', mal: '#C33025' };
+const CV_FUENTE = '"Instrument Sans", system-ui, sans-serif', CV_GOTICA = '"UnifrakturMaguntia", "Times New Roman", serif';
+// Las fuentes ya están en la página; esto solo pide que estén listas antes de dibujar.
+['400 20px "UnifrakturMaguntia"', '400 20px "Instrument Sans"', '600 20px "Instrument Sans"', '700 20px "Instrument Sans"'].forEach(f => { try { document.fonts.load(f); } catch (e) { } });
 
 // ---------- canvas ----------
+// Hilera de puntos de radio r y paso p dentro de un rectángulo (barras y cintas del sistema).
+function cvPuntos(c, x, y, w, h, color, p, r) {
+  c.fillStyle = color;
+  for (let j = 0; j + p <= h + 0.5; j += p) for (let i = 0; i + p <= w + 0.5; i += p) { c.beginPath(); c.arc(x + i + p / 2, y + j + p / 2, r, 0, 7); c.fill(); }
+}
 function cvBase(w, h) {
   const cv = document.createElement('canvas'); cv.width = w; cv.height = h;
-  const c = cv.getContext('2d'); c.fillStyle = CV_FONDO; c.fillRect(0, 0, w, h);
+  const c = cv.getContext('2d'); c.fillStyle = CV.fondo; c.fillRect(0, 0, w, h);
+  // Cinta de puntos que se apaga hacia la derecha, como en las imágenes del sitio.
+  for (let j = 0; j < 4; j++) for (let i = 0; i < w / 12; i++) {
+    const a = Math.max(0, 1 - (i * 12) / (w * 0.6)) * 0.45;
+    if (a > 0.02) { c.fillStyle = `rgba(33,33,33,${a.toFixed(2)})`; c.beginPath(); c.arc(i * 12 + 6, j * 12 + 8, 3, 0, 7); c.fill(); }
+  }
   return [cv, c];
 }
 function cvTexto(c, t, x, y, px, peso, color, align) {
-  c.font = `${peso} ${px}px ${CV_FUENTE}`; c.fillStyle = color || '#fff'; c.textAlign = align || 'left'; c.textBaseline = 'alphabetic'; c.fillText(t, x, y);
+  c.font = `${Math.min(peso, 700)} ${px}px ${CV_FUENTE}`; c.fillStyle = color || CV.tinta; c.textAlign = align || 'left'; c.textBaseline = 'alphabetic'; c.fillText(t, x, y);
 }
 function cvLineas(c, texto, maxW, px, peso) {
-  c.font = `${peso || 600} ${px}px ${CV_FUENTE}`;
+  c.font = `${Math.min(peso || 600, 700)} ${px}px ${CV_FUENTE}`;
   const out = []; let l = '';
   String(texto).split(/\s+/).forEach(p => { const t = l ? l + ' ' + p : p; if (l && c.measureText(t).width > maxW) { out.push(l); l = p; } else l = t; });
   if (l) out.push(l);
   return out;
 }
+// «galera» en gótica con la g azul; devuelve el ancho para poner algo al lado.
+function cvMarca(c, x, y, px, align) {
+  c.font = `400 ${px}px ${CV_GOTICA}`; c.textBaseline = 'alphabetic';
+  const g = c.measureText('g').width, r = c.measureText('alera').width;
+  const x0 = align === 'right' ? x - g - r : x;
+  c.textAlign = 'left'; c.fillStyle = CV.acento; c.fillText('g', x0, y); c.fillStyle = CV.tinta; c.fillText('alera', x0 + g, y);
+}
 function cvPie(c, w, h) {
-  c.fillStyle = CV_ACENTO; c.fillRect(80, h - 150, 110, 8);
-  cvTexto(c, BRAND.nombre, 80, h - 82, 46, 800);
-  cvTexto(c, BRAND.sitio, 80, h - 38, 30, 400, 'rgba(255,255,255,.78)');
+  c.fillStyle = CV.linea; c.fillRect(80, h - 140, w - 160, 2);
+  cvMarca(c, 80, h - 52, 76);
+  cvTexto(c, BRAND.sitio, w - 80, h - 56, 30, 400, CV.t2, 'right');
 }
 // Tarjeta cuadrada con un dato grande al centro.
 function cvDato({ kicker, grande, lineas, barra }) {
   const [cv, c] = cvBase(1080, 1080);
-  cvTexto(c, kicker.toUpperCase(), 80, 150, 34, 700, CV_ACENTO);
-  cvTexto(c, grande, 80, 470, grande.length > 5 ? 190 : 250, 800);
+  cvTexto(c, kicker.toUpperCase(), 80, 170, 30, 600, CV.t2);
+  cvTexto(c, grande, 80, 480, grande.length > 5 ? 180 : 240, 600, CV.tinta);
   if (barra != null) {
-    c.fillStyle = 'rgba(255,255,255,.18)'; c.fillRect(80, 520, 920, 28);
-    c.fillStyle = CV_ACENTO; c.fillRect(80, 520, Math.max(6, 920 * barra / 100), 28);
+    cvPuntos(c, 80, 530, 920, 27, CV.punto, 9, 3.4);
+    cvPuntos(c, 80, 530, Math.max(18, Math.round(920 * barra / 100 / 9) * 9), 27, CV.acento, 9, 3.4);
   }
-  let y = barra != null ? 650 : 580;
-  lineas.forEach(([t, px, peso]) => { cvLineas(c, t, 920, px, peso).slice(0, 4).forEach(l => { cvTexto(c, l, 80, y, px, peso); y += px * 1.3; }); y += 10; });
+  let y = barra != null ? 660 : 590;
+  lineas.forEach(([t, px, peso]) => { cvLineas(c, t, 920, px, peso).slice(0, 4).forEach(l => { cvTexto(c, l, 80, y, px, peso, peso < 600 ? CV.t2 : CV.tinta); y += px * 1.3; }); y += 10; });
   cvPie(c, 1080, 1080);
   return cv;
 }
@@ -93,18 +114,18 @@ function bajarQR() {
   if (!QR_ACTUAL) return;
   const { m, titulo } = QR_ACTUAL, n = m.length, k = Math.max(6, Math.ceil(900 / (n + 8))), lado = (n + 8) * k, banda = 150;
   const cv = document.createElement('canvas'); cv.width = lado; cv.height = lado + banda;
-  const c = cv.getContext('2d'); c.fillStyle = '#fff'; c.fillRect(0, 0, cv.width, cv.height); c.fillStyle = '#000';
+  const c = cv.getContext('2d'); c.fillStyle = '#fff'; c.fillRect(0, 0, cv.width, cv.height); c.fillStyle = CV.tinta;
   m.forEach((fila, y) => fila.forEach((v, x) => { if (v) c.fillRect((x + 4) * k, (y + 4) * k, k, k); }));
   const px = Math.min(44, Math.floor(lado / 16));
-  cvLineas(c, titulo, lado - 80, px, 700).slice(0, 2).forEach((l, i) => cvTexto(c, l, lado / 2, lado + 6 + px * (i + 1) * 1.15, px, 700, '#000', 'center'));
-  cvTexto(c, BRAND.sitio, lado / 2, lado + banda - 18, Math.floor(px * .7), 400, '#444', 'center');
-  cv.toBlob(b => { if (!b) return; const a = document.createElement('a'); a.href = URL.createObjectURL(b); a.download = 'cursada-qr.png'; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 4000); }, 'image/png');
+  cvLineas(c, titulo, lado - 80, px, 700).slice(0, 2).forEach((l, i) => cvTexto(c, l, lado / 2, lado + 6 + px * (i + 1) * 1.15, px, 700, CV.tinta, 'center'));
+  cvMarca(c, lado / 2, lado + banda - 14, Math.floor(px * 1.1), 'center');
+  cv.toBlob(b => { if (!b) return; const a = document.createElement('a'); a.href = URL.createObjectURL(b); a.download = 'galera-qr.png'; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 4000); }, 'image/png');
 }
 
 // ---------- autoevaluación: resultado e invitación ----------
 function mandarApunte(materia, apunte) {
   const m = (D.resumenes.materias || []).find(x => x.id === materia), a = D.apuntes[materia + '/' + apunte];
-  const txt = `Te paso este apunte${m ? ' de ' + m.nombre : ''}${a ? ': ' + a.titulo : ''}, con autoevaluación. Gratis y sin cuenta 👉 ${urlRes(materia, apunte)}`;
+  const txt = `Te paso este apunte${m ? ' de ' + m.nombre : ''}${a ? ': ' + a.titulo : ''}, con autoevaluación. Gratis y sin cuenta: ${urlRes(materia, apunte)}`;
   medir('share', { method: 'whatsapp', content_type: 'apunte', item_id: materia + '/' + apunte });
   window.open('https://wa.me/?text=' + encodeURIComponent(txt), '_blank', 'noopener');
 }
@@ -113,7 +134,7 @@ function compartirResultado(materia, apunte, bien, total) {
   if (!a) return;
   const cv = cvDato({ kicker: 'Autoevaluación · ' + m.nombre, grande: bien + ' de ' + total, barra: total ? Math.round(bien * 100 / total) : 0,
     lineas: [[a.titulo, 50, 700], [bien === total ? '¡Todas bien!' : 'Sigo practicando.', 38, 400]] });
-  abrirImagen(cv, { archivo: 'cursada-resultado.png', titulo: 'Mi resultado', tipo: 'resultado', id: materia + '/' + apunte,
+  abrirImagen(cv, { archivo: 'galera-resultado.png', titulo: 'Mi resultado', tipo: 'resultado', id: materia + '/' + apunte,
     intro: 'Es solo el puntaje y el nombre del apunte: no lleva tu nombre ni otros datos.', texto: `Me salió ${bien} de ${total} en la autoevaluación de «${a.titulo}». ¿Y a vos? ${urlRes(materia, apunte)}`,
     alt: `Tarjeta con el resultado: ${bien} de ${total} en la autoevaluación de ${a.titulo} (${m.nombre}), en Galera.` });
 }
@@ -129,7 +150,7 @@ function bloqueFinAuto(materia, apunte, bien, hechas, total) {
 function compartirAvance() {
   const p = progreso(), av = Math.round(p.total[0] * 100 / p.total[1]);
   const cv = cvDato({ kicker: 'Mi carrera de Edición', grande: av + ' %', barra: av, lineas: [['Llevo el ' + av + ' % de la carrera.', 54, 700], [p.total[0] + ' de ' + p.total[1] + ' requisitos aprobados.', 38, 400]] });
-  abrirImagen(cv, { archivo: 'cursada-avance.png', titulo: 'Mi avance', tipo: 'avance', id: String(av),
+  abrirImagen(cv, { archivo: 'galera-avance.png', titulo: 'Mi avance', tipo: 'avance', id: String(av),
     intro: 'Solo el porcentaje: sin materias, notas ni nombre. Vos decidís si la compartís.', texto: `Llevo el ${av} % de la carrera de Edición. ${BRAND.url}`,
     alt: `Tarjeta: llevo el ${av} % de la carrera de Edición, ${p.total[0]} de ${p.total[1]} requisitos aprobados. Galera.` });
 }
@@ -139,26 +160,28 @@ function compartirAvance() {
 function cvSemana(sel, titulo) {
   const [cv, c] = cvBase(1080, 1080);
   const bl = sel.flatMap(x => x.bloques.map(b => ({ x, b, d: b.dia, a: Horarios.min(b.desde), z: Horarios.min(b.hasta) })));
-  const mats = [...new Set(sel.map(x => x.materia))];
   const dias = bl.some(e => e.d === 6) ? [1, 2, 3, 4, 5, 6] : [1, 2, 3, 4, 5];
   const ini = Math.min(...bl.map(e => Math.floor(e.a / 60))), fin = Math.max(Math.max(...bl.map(e => Math.ceil(e.z / 60))), ini + 6);
-  const X = 150, Y = 270, W = 1000 - X, H = 900 - Y, cw = W / dias.length, ch = H / (fin - ini);
-  cvTexto(c, 'MI CURSADA', 80, 120, 34, 700, CV_ACENTO);
-  cvTexto(c, titulo, 80, 190, 56, 800);
-  dias.forEach((d, i) => cvTexto(c, Horarios.DIAS[d].slice(0, 3), X + cw * i + cw / 2, 255, 26, 700, 'rgba(255,255,255,.85)', 'center'));
-  c.strokeStyle = 'rgba(255,255,255,.14)'; c.lineWidth = 1;
+  const X = 150, Y = 270, W = 1000 - X, H = 880 - Y, cw = W / dias.length, ch = H / (fin - ini);
+  cvTexto(c, 'MI CURSADA', 80, 120, 30, 600, CV.t2);
+  cvTexto(c, titulo, 80, 190, 56, 600);
+  dias.forEach((d, i) => cvTexto(c, Horarios.DIAS[d].slice(0, 3).toUpperCase(), X + cw * i + cw / 2, 255, 22, 600, CV.t2, 'center'));
+  c.strokeStyle = CV.punto; c.lineWidth = 2; c.beginPath(); c.moveTo(X, Y); c.lineTo(X + W, Y); c.stroke();
+  c.strokeStyle = CV.linea; c.lineWidth = 1;
   for (let h = ini; h <= fin; h++) {
     const y = Y + (h - ini) * ch; c.beginPath(); c.moveTo(X, y); c.lineTo(X + W, y); c.stroke();
-    if ((h - ini) % 2 === 0 || fin - ini <= 8) cvTexto(c, String(h).padStart(2, '0') + ':00', X - 12, y + 9, 22, 400, 'rgba(255,255,255,.7)', 'right');
+    if ((h - ini) % 2 === 0 || fin - ini <= 8) cvTexto(c, String(h).padStart(2, '0'), X - 14, y + 8, 22, 400, CV.t3, 'right');
   }
+  for (let i = 0; i <= dias.length; i++) { c.beginPath(); c.moveTo(X + cw * i, Y); c.lineTo(X + cw * i, Y + H); c.stroke(); }
   bl.forEach(({ x, b, d, a, z }) => {
     const i = dias.indexOf(d); if (i < 0) return;
-    const bx = X + cw * i + 4, by = Y + (a / 60 - ini) * ch + 2, bw = cw - 8, bh = Math.max(34, (z - a) / 60 * ch - 4);
-    c.fillStyle = COLORES[mats.indexOf(x.materia) % COLORES.length];
-    c.beginPath(); c.roundRect ? c.roundRect(bx, by, bw, bh, 12) : c.rect(bx, by, bw, bh); c.fill();
+    const bx = X + cw * i + 5, by = Y + (a / 60 - ini) * ch + 2, bw = cw - 10, bh = Math.max(34, (z - a) / 60 * ch - 4);
+    c.fillStyle = CV.fondo; c.strokeStyle = CV.acento; c.lineWidth = 2;
+    c.beginPath(); c.roundRect ? c.roundRect(bx, by, bw, bh, 4) : c.rect(bx, by, bw, bh); c.fill(); c.stroke();
     c.save(); c.beginPath(); c.rect(bx, by, bw, bh); c.clip();
-    cvTexto(c, siglaMateria(x.materia), bx + 12, by + 34, 28, 800);
-    if (bh > 70) cvTexto(c, b.desde + '-' + b.hasta, bx + 12, by + 62, 21, 400, 'rgba(255,255,255,.9)');
+    cvPuntos(c, bx + 1, by + 1, 15, bh - 2, CV.acento, 5, 1.4);
+    cvTexto(c, siglaMateria(x.materia), bx + 24, by + 32, 26, 700);
+    if (bh > 70) cvTexto(c, b.desde + '-' + b.hasta, bx + 24, by + 60, 20, 400, CV.t3);
     c.restore();
   });
   cvPie(c, 1080, 1080);
@@ -168,8 +191,8 @@ function imagenSemana() {
   const sel = elegidas();
   if (!sel.length) return aviso('Elegí primero tus comisiones');
   const nombre = oferta().nombre || 'Mi semana';
-  abrirImagen(cvSemana(sel, nombre), { archivo: 'cursada-mi-semana.png', titulo: 'Mi semana', tipo: 'horario', id: V.oferta,
-    intro: 'Sin tu nombre ni tus notas: solo las materias y los horarios.', texto: 'Así me queda el cuatrimestre. Armalo vos también 👉 ' + BRAND.url,
+  abrirImagen(cvSemana(sel, nombre), { archivo: 'galera-mi-semana.png', titulo: 'Mi semana', tipo: 'horario', id: V.oferta,
+    intro: 'Sin tu nombre ni tus notas: solo las materias y los horarios.', texto: 'Así me queda el cuatrimestre. Armalo vos también: ' + BRAND.url,
     alt: 'Grilla semanal con las clases: ' + [...new Set(sel.map(x => siglaMateria(x.materia)))].join(', ') + '.' });
 }
 // Link de solo lectura: lleva la oferta y los ids de las comisiones elegidas, nada más.
@@ -277,7 +300,7 @@ function compartirLogro(id) {
   const g = logros().find(x => x.id === id);
   if (!g) return aviso('Ese logro todavía no está');
   const cv = cvDato({ kicker: g.kicker, grande: g.grande, barra: g.barra == null ? null : g.barra, lineas: [[g.frase, 54, 700], [g.detalle || '', 36, 400]].filter(l => l[0]) });
-  abrirImagen(cv, { archivo: 'cursada-logro-' + id + '.png', titulo: 'Mi logro', tipo: 'logro', id,
+  abrirImagen(cv, { archivo: 'galera-logro-' + id + '.png', titulo: 'Mi logro', tipo: 'logro', id,
     intro: 'Solo el logro: sin materias, notas ni nombre. Vos decidís si lo compartís.', texto: g.texto,
     alt: `Tarjeta con el logro: ${g.frase} ${g.detalle || ''} Galera.` });
 }
@@ -332,7 +355,7 @@ document.getElementById('dlg').addEventListener('close', () => { if (FELIC) setT
 function sumarApunte(id) {
   if (V.demo) return aviso('Estás viendo el ejemplo: salí del ejemplo para sumar tu resumen');
   const L = D.plan.materias.filter(m => m.grupo === 'cbc' || m.grupo === 'grado');
-  abrir(cab('📚 Sumá tu resumen') + `<p class="chico tenue" style="margin-top:0">Si tenés un resumen de una materia que ya cursaste, mandámelo por mail para quien viene detrás. <b>Lo reviso antes de publicarlo</b> (que sea correcto, que sea tuyo y que cite la bibliografía) y te aviso si hace falta algún cambio.</p>
+  abrir(cab('Sumá tu resumen') + `<p class="chico tenue" style="margin-top:0">Si tenés un resumen de una materia que ya cursaste, mandámelo por mail para quien viene detrás. <b>Lo reviso antes de publicarlo</b> (que sea correcto, que sea tuyo y que cite la bibliografía) y te aviso si hace falta algún cambio.</p>
     <label class="c">Materia</label><select id="a-m" style="width:100%">${L.map(m => `<option value="${esc(m.id)}" ${m.id === id ? 'selected' : ''}>${esc(nombreDe(m))}</option>`).join('')}</select>
     <p class="chico tenue">Se abre tu programa de correo con el mensaje armado. Pegá el link a tu resumen (Drive, Docs…) o adjuntá el archivo, y aclarame cómo querés que te acredite.</p>
     <div class="botones"><button class="btn" onclick="mailApunte()">Escribirme por mail</button><button class="btn lin" onclick="cerrar()">Cancelar</button></div>
@@ -356,7 +379,7 @@ Es un resumen mío (o tengo permiso de quien lo hizo) y acepto que se publique e
 function queCursarDatos() {
   const h = hor(), of = oferta(), nombres = h.materias.map(nombreMateria);
   const lista = nombres.length > 1 ? nombres.slice(0, -1).join(', ') + ' y ' + nombres[nombres.length - 1] : nombres[0] || '';
-  return { nombres, of, texto: `Esto pienso cursar${of.nombre ? ' en ' + of.nombre : ' el próximo cuatrimestre'}: ${lista}. ¿Coincidimos en alguna? Armá el tuyo sin superposiciones 👉 ${BRAND.url}` };
+  return { nombres, of, texto: `Esto pienso cursar${of.nombre ? ' en ' + of.nombre : ' el próximo cuatrimestre'}: ${lista}. ¿Coincidimos en alguna? Armá el tuyo sin superposiciones: ${BRAND.url}` };
 }
 function abrirQueCursar() {
   const { nombres, of, texto } = queCursarDatos();
@@ -364,7 +387,7 @@ function abrirQueCursar() {
   const hay = elegidas().length > 0;
   abrir(cab('Qué voy a cursar') + `<p class="chico tenue" style="margin-top:0">${esc(of.nombre || 'Próximo cuatrimestre')}. Para pasarle al grupo lo que pensás cursar y ver con quién coincidís: solo las materias, sin notas ni datos personales.</p>
     <ul class="resumen-sel qc">${nombres.map(n => `<li><span class="ge pen" aria-hidden="true"></span><b>${esc(n)}</b></li>`).join('')}</ul>
-    <div class="botones"><button class="btn" onclick="mandarQueCursar()">Mandar por WhatsApp</button><button class="btn sec" onclick="copiarQueCursar()">Copiar el texto</button><button class="btn sec" onclick="imagenQueCursar()">📷 En imagen</button>${hay ? '<button class="btn sec" onclick="linkSemana()">🔗 Link para mirar mi semana</button>' : ''}<button class="btn lin" onclick="cerrar()">Cerrar</button></div>
+    <div class="botones"><button class="btn" onclick="mandarQueCursar()">Mandar por WhatsApp</button><button class="btn sec" onclick="copiarQueCursar()">Copiar el texto</button><button class="btn sec" onclick="imagenQueCursar()">En imagen</button>${hay ? '<button class="btn sec" onclick="linkSemana()">🔗 Link para mirar mi semana</button>' : ''}<button class="btn lin" onclick="cerrar()">Cerrar</button></div>
     ${hay ? '' : '<p class="chico tenue">Cuando elijas las comisiones, también podés pasar el link de tu semana.</p>'}`, 'que-cursar');
 }
 function mandarQueCursar() {
@@ -379,14 +402,14 @@ function copiarQueCursar() {
 function imagenQueCursar() {
   const { nombres, of, texto } = queCursarDatos();
   const [cv, c] = cvBase(1080, 1080);
-  cvTexto(c, (of.nombre || 'Próximo cuatrimestre').toUpperCase(), 80, 150, 34, 700, CV_ACENTO);
-  cvTexto(c, 'Voy a cursar', 80, 260, 100, 800);
+  cvTexto(c, (of.nombre || 'Próximo cuatrimestre').toUpperCase(), 80, 150, 30, 600, CV.t2);
+  cvTexto(c, 'Voy a cursar', 80, 260, 100, 600);
   const px = nombres.length > 7 ? 36 : 44;
   let y = 360;
-  nombres.slice(0, 9).forEach(n => { cvLineas(c, n, 900, px, 600).slice(0, 2).forEach((l, i) => { cvTexto(c, (i ? '   ' : '•  ') + l, 80, y, px, 600); y += px * 1.3; }); y += 14; });
-  if (nombres.length > 9) cvTexto(c, 'y ' + (nombres.length - 9) + ' más', 80, y, px, 400, 'rgba(255,255,255,.78)');
+  nombres.slice(0, 9).forEach(n => { cvLineas(c, n, 880, px, 500).slice(0, 2).forEach((l, i) => { if (!i) cvPuntos(c, 80, y - px * .8, 18, 18, CV.acento, 6, 2); cvTexto(c, l, 120, y, px, 500); y += px * 1.3; }); y += 14; });
+  if (nombres.length > 9) cvTexto(c, 'y ' + (nombres.length - 9) + ' más', 120, y, px, 400, CV.t2);
   cvPie(c, 1080, 1080);
-  abrirImagen(cv, { archivo: 'cursada-que-cursar.png', titulo: 'Qué voy a cursar', tipo: 'que_cursar', id: V.oferta,
+  abrirImagen(cv, { archivo: 'galera-que-cursar.png', titulo: 'Qué voy a cursar', tipo: 'que_cursar', id: V.oferta,
     intro: 'Solo los nombres de las materias: sin docentes, notas ni datos personales.', texto,
     alt: 'Tarjeta con las materias que pienso cursar: ' + nombres.join(', ') + '. Galera.' });
 }
@@ -403,7 +426,7 @@ function arcDesafiar() {
   const A = arcS(), r = A.res;
   if (!A.semilla || !r || !Arcade.EJES[A.tablero]) return;
   DESAFIO_URL = location.origin + location.pathname + '#desafio=' + A.tablero + '.' + A.semilla + '.' + r.puntos;
-  const txt = `Hice ${arcCero(r.puntos)} en el Arcade de Corrección de Estilo (${arcNombre(A.tablero)}). ¿Me superás? 👉 ${DESAFIO_URL}`;
+  const txt = `Hice ${arcCero(r.puntos)} en el Arcade de Corrección de Estilo (${arcNombre(A.tablero)}). ¿Me superás? ${DESAFIO_URL}`;
   medir('share', { method: 'whatsapp', content_type: 'desafio', item_id: A.tablero });
   window.open('https://wa.me/?text=' + encodeURIComponent(txt), '_blank', 'noopener');
 }
@@ -411,7 +434,7 @@ function arcDesafiar() {
 function abrirDesafio(tablero, semilla, puntos) {
   if (!Arcade.EJES[tablero] || !/^[a-z0-9]{4,10}$/.test(semilla) || !(puntos > 0 && puntos <= 999999)) return false;
   irArcade();
-  abrir(cab('🕹️ Te desafiaron') + `<p style="margin-top:0">Alguien hizo <b>${arcCero(puntos)}</b> en el Arcade de Corrección de Estilo (${esc(arcNombre(tablero))}). Es el mismo tablero, con las mismas preguntas en el mismo orden.</p>
+  abrir(cab('Te desafiaron') + `<p style="margin-top:0">Alguien hizo <b>${arcCero(puntos)}</b> en el Arcade de Corrección de Estilo (${esc(arcNombre(tablero))}). Es el mismo tablero, con las mismas preguntas en el mismo orden.</p>
     <div class="botones"><button class="btn" onclick="cerrar();arcEmpezarTeo(${arg(tablero)},${arg(semilla)},${puntos})">Aceptar el desafío</button><button class="btn lin" onclick="cerrar()">Ahora no</button></div>`, 'desafio');
   return true;
 }
