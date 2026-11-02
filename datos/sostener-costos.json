@@ -1,21 +1,15 @@
 {
-  "actualizado": "2026-10-31",
+  "actualizado": "2026-11-02",
   "items": [
     {
       "id": "claude",
       "t": "Claude Pro (la herramienta con la que se arma Galera)",
-      "monto": "USD 20 por mes + impuestos vigentes"
-    },
-    {
-      "id": "proporcion",
-      "t": "Parte de ese gasto que va a Galera",
-      "monto": "Sin calcular todavía",
-      "nota": "voy a medirlo con un script propio"
+      "monto": "USD 20 por mes"
     },
     {
       "id": "dominio",
       "t": "Dominio galera.com.ar",
-      "monto": "Un pago por año",
+      "monto": "$8.500 por año",
       "nota": "se renueva en NIC Argentina"
     },
     {

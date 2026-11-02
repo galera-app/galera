@@ -12,6 +12,25 @@
    "url": "https://galera.com.ar/directorio/"
   },
   {
+   "v": 118,
+   "fecha": "2026-11-02",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "titulo": "Horas y costos al día, y Prensa en el pie",
+   "texto": "«Cómo se sostiene» tiene las horas de trabajo actualizadas y se van a actualizar solas cada lunes, con el costo del dominio y sin los impuestos. Y el pie suma el enlace a la página de Prensa.",
+   "url": "https://galera.com.ar/sostener/"
+  },
+  {
+   "v": 117,
+   "fecha": "2026-11-02",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "titulo": "Un texto más corto en el perfil Trabajar",
+   "texto": "La descripción del perfil Trabajar, en el inicio, queda más corta y directa."
+  },
+  {
    "v": 116,
    "fecha": "2026-11-02",
    "tipo": "herramientas",

@@ -377,7 +377,7 @@ function iniciarPerfil() {
   // Sin datos ni perfil: la primera visita queda en el inicio con la pregunta abierta (v77; reemplaza al modal y a la franja).
 }
 // INICIO (v77): la portada reparte a las demás pantallas. El selector de perfil se pliega al elegir (queda una línea bajo el título) y tiene un «Cambiar».
-const PERFILES_INICIO = [['estudiante', 'Estudiar', 'Para estudiantes de Edición: plan, notas, horarios y apuntes de la carrera.'], ['profesional', 'Trabajar', 'Para profesionales del libro: herramientas, eventos, contactos y los apuntes de Edición para tener la teoría a mano.']];
+const PERFILES_INICIO = [['estudiante', 'Estudiar', 'Para estudiantes de Edición: plan, notas, horarios y apuntes de la carrera.'], ['profesional', 'Trabajar', 'Para profesionales del libro: herramientas, eventos, contactos y los apuntes de Edición.']];
 const PLURAL_PERFIL = { estudiante: 'estudiantes', profesional: 'profesionales del libro' };
 const BAJADAS = {
   estudiante: { eventos: 'Ferias, jornadas y convocatorias del libro.', carrera: 'Tus materias, notas y lo que te falta para recibirte.', horarios: 'Armá tu cuatrimestre y mirá si se pisan los horarios.', calendario: 'Inscripciones, mesas de final y feriados del año.', resumenes: 'Apuntes por materia y simulacros de parcial.', biblioteca: 'La bibliografía de cada materia, en un solo lugar.', glosario: 'Los términos de la carrera, explicados en corto.', simuladores: 'Papel, imposición, escandallo, cronogramas y contratos.', directorio: 'Editoriales de todo el país, de la A a la Z.', links: 'Campus, SIU Guaraní y trámites de la facultad.' },
@@ -3129,7 +3129,7 @@ async function cargarSostener() {
 const ESTADO_PLAN = { planeado: ['Planeado', 'gl-chip gl-chip--neutro'], 'en curso': ['En curso', 'gl-chip'], listo: ['Listo', 'gl-chip gl-chip--ok'] };
 const MESES_ES = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
 const horasTxt = h => String(h).replace('.', ',') + (Number(h) === 1 ? ' hora' : ' horas');
-const HOLA = 'hola@galera.com.ar', HISTORIAL_GH = 'https://github.com/Ficha/Ficha.github.io/commits/main/cursada';
+const HOLA = 'hola@galera.com.ar', HISTORIAL_GH = 'https://github.com/galera-app/galera/commits/main';
 function sostenerHoras(H, R) {
   if (!H || typeof H.horas_totales !== 'number') return '<p class="gl-chico">Las horas no se pudieron cargar ahora. Probá de nuevo más tarde.</p>';
   const rango = R && R.minimo > 0 && R.maximo >= R.minimo;
