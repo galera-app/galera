@@ -699,3 +699,57 @@ html.con-datos body[data-tab=carrera] #main,html.con-datos body[data-tab=horario
 .gl-dir-main #dir-mapa{margin-bottom:24px}
 .gl-dir-main #dir-mapa:empty{display:none}
 .gl-dir-main .dir-mapa{display:block;margin:0 auto;max-width:100%;max-height:520px;height:auto}
+/* Horarios al estilo del tablero (v120): materias a un lado (288), semana al otro (hasta 912); en celular, un día por vez. */
+.gl-hor .gl-bajada{margin:16px 0 0;max-width:64ch;font:400 16px/24px var(--gl-sans);color:var(--gl-t2)}
+.gl-hor .gl-oferta{margin-top:8px}.gl-hor .gl-oferta p{margin:0;font:400 14px/20px var(--gl-sans);color:var(--gl-t3)}
+.gl-hor .gl-hchoque{display:inline-flex;align-items:center;gap:8px;font:400 12px/16px var(--gl-sans);color:var(--gl-bad)}
+.gl-hchoque i{width:14px;height:14px;border:1px solid var(--gl-bad);border-radius:var(--gl-r);background:repeating-linear-gradient(135deg,var(--gl-bad) 0 1.4px,transparent 1.4px 4px)}
+.gl-hor>.gl-hcols{margin-top:40px}
+.gl-hcols{display:flex;flex-wrap:wrap;gap:32px 24px;align-items:flex-start}
+.gl-hside{flex:1 1 240px;max-width:288px;min-width:0}
+.gl-hside>*+*{margin-top:16px}.gl-hside>.gl-rotulo+*{margin-top:12px}
+.gl-hmain{flex:1 1 560px;max-width:912px;min-width:0}
+.gl-hor .gl-hmain>*+*{margin-top:16px}.gl-hmain>.gl-sec{margin-top:40px!important}
+.gl-hside .gl-eligen{max-width:none}
+.gl-hside .gl-tarjeta{margin:0}
+.gl-hcomh{display:flex;align-items:center;gap:8px}.gl-hcomh .gl-chip{flex:none}
+/* casilla del tablero: marco azul con puntos cuando está marcada, rayas rojas si se pisa */
+.gl-hor label.gl-elige-m input[type=checkbox]:checked{background:radial-gradient(circle,var(--gl-mark) 1.3px,transparent 1.7px) 0 0/4px 4px,var(--gl-bg);background-clip:padding-box;box-shadow:inset 0 0 0 1px var(--gl-mark)}
+.gl-hor label.gl-elige-m--mal input[type=checkbox]:checked{background:repeating-linear-gradient(135deg,var(--gl-bad) 0 1.4px,transparent 1.4px 4px),var(--gl-bg);background-clip:padding-box;box-shadow:inset 0 0 0 1px var(--gl-bad)}
+/* semana */
+.gl-sem{grid-template-columns:48px repeat(6,minmax(0,1fr));overflow:hidden;border:1px solid var(--gl-line);background:var(--gl-bg)}
+.gl-sem .gl-sdia{padding:12px 0;border-bottom:1px solid var(--gl-bd);background:var(--gl-bg)}
+.gl-scol{background:linear-gradient(var(--gl-line) 1px,transparent 1px) 0 0/100% 44px}
+.gl-shoras{position:relative}.gl-shoras .gl-shora{position:absolute;right:8px;padding:0;transform:translateY(-6px)}
+.gl-bq{left:4px;right:4px;border:1px solid var(--gl-mark);background:var(--gl-bg);color:var(--gl-ink);padding:6px 8px 6px 14px}
+.gl-bq::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:radial-gradient(circle,var(--gl-mark) 1.3px,transparent 1.7px) 0 0/5px 5px}
+.gl-bq span{display:block}.gl-bq .gl-bh{margin-top:2px;font-weight:400;color:var(--gl-t3)}
+.gl-bq--choque{box-shadow:none;border-color:var(--gl-bad);background:repeating-linear-gradient(135deg,rgba(195,48,37,.16) 0 1.5px,transparent 1.5px 6px),var(--gl-bg)}
+.gl-bq--choque::before{background:var(--gl-bad)}
+.gl-bq--bloq{border-color:var(--gl-bd);border-style:dashed;background:repeating-linear-gradient(45deg,var(--gl-card),var(--gl-card) 6px,var(--gl-line) 6px,var(--gl-line) 8px);color:var(--gl-t2)}
+.gl-bq--bloq::before{display:none}
+.gl-hlista{font:400 14px/20px var(--gl-sans)}.gl-hlista summary{min-height:44px;display:flex;align-items:center;cursor:pointer;font:500 16px/24px var(--gl-sans)}
+/* celular: un día por vez, en bloques */
+.gl-hdia{display:none}
+.gl-dias{display:flex;gap:6px}
+.gl-dias button{flex:1;height:44px;border:1px solid var(--gl-bd);border-radius:var(--gl-r);background:none;font:400 14px/20px var(--gl-sans);color:var(--gl-t2);cursor:pointer}
+.gl-dias button.on{background:var(--gl-ink);border-color:var(--gl-ink);color:var(--gl-bg);font-weight:500}
+.gl-dias button:focus-visible{outline:2px solid var(--gl-ink);outline-offset:2px}
+.gl-hdia{flex-direction:column;gap:10px}.gl-hdia>*{margin:0!important}
+.gl-blk{position:relative;overflow:hidden;padding:12px 14px 12px 22px;border:1px solid var(--gl-line);border-left:0;border-radius:var(--gl-r);background:var(--gl-card)}
+.gl-blk::before{content:"";position:absolute;left:0;top:0;bottom:0;width:8px;background:radial-gradient(circle,var(--gl-mark) 1.4px,transparent 1.8px) 0 0/5px 5px}
+.gl-blk b{display:block;font:600 16px/22px var(--gl-sans)}.gl-blk .gl-chico{display:block}.gl-blk .gl-chip{margin-top:6px}
+.gl-blk--mal{border-color:var(--gl-bad)}.gl-blk--mal::before{background:repeating-linear-gradient(0deg,var(--gl-bad) 0 2px,transparent 2px 5px)}
+.gl-blk--bloq::before{background:repeating-linear-gradient(0deg,var(--gl-bd) 0 2px,transparent 2px 5px)}
+.gl-hsem>*+*,.gl-hrest>*+*{margin-top:16px}.gl-hrest{margin-top:16px}
+.gl-hor .gl-tarjeta.gl-flex{flex-direction:row;align-items:center;gap:8px 16px}
+.gl-resumen li{border-left-color:var(--gl-mark)}
+@media (max-width:760px){
+  .gl-hside,.gl-hmain{max-width:none}
+  .gl-sem,.gl-hlista{display:none}
+  .gl-hdia{display:flex}
+  .gl-hcols{flex-direction:column;gap:24px}
+  .gl-hmain{display:contents}
+  .gl-hsem{order:1}.gl-hside{order:2;width:100%}.gl-hrest{order:3;margin-top:0}
+  .gl-hor .gl-tarjeta.gl-flex{flex-wrap:wrap}
+}
