@@ -57,7 +57,7 @@ def nav_pie():
 
 def pie(app=False):
     P = S["pie"]
-    extra = "".join(f'<a href="{P[k]["url"]}">{P[k]["t"]}</a>' for k in ("ingresantes", "legal"))
+    extra = "".join(f'<a href="{P[k]["url"]}">{P[k]["t"]}</a>' for k in ("ingresantes", "legal", "prensa"))
     extra += "".join(f'<a href="{r["url"]}" rel="me noopener" target="_blank">{r["t"]}</a>' for r in P["redes"])
     cookies = '<button class="enlace" type="button" id="cookies">Cambiar cookies</button>'
     comun = dict(bajada=P["bajada"], aviso=P["aviso"], nav=nav_pie())

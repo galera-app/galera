@@ -289,6 +289,10 @@
    "t": "Privacidad y términos",
    "url": "/legal/"
   },
+  "prensa": {
+   "t": "Prensa",
+   "url": "/prensa/"
+  },
   "redes": [
    {"t": "Instagram", "url": "https://www.instagram.com/galeraedicion/"},
    {"t": "LinkedIn", "url": "https://www.linkedin.com/company/galeraedicion/"},

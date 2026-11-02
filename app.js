@@ -3130,7 +3130,7 @@ async function cargarSostener() {
 const ESTADO_PLAN = { planeado: ['Planeado', 'gl-chip gl-chip--neutro'], 'en curso': ['En curso', 'gl-chip'], listo: ['Listo', 'gl-chip gl-chip--ok'] };
 const MESES_ES = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
 const horasTxt = h => String(h).replace('.', ',') + (Number(h) === 1 ? ' hora' : ' horas');
-const HOLA = 'hola@galera.com.ar', HISTORIAL_GH = 'https://github.com/Ficha/Ficha.github.io/commits/main/cursada';
+const HOLA = 'hola@galera.com.ar', HISTORIAL_GH = 'https://github.com/galera-app/galera/commits/main';
 function sostenerHoras(H, R) {
   if (!H || typeof H.horas_totales !== 'number') return '<p class="gl-chico">Las horas no se pudieron cargar ahora. Probá de nuevo más tarde.</p>';
   const rango = R && R.minimo > 0 && R.maximo >= R.minimo;
