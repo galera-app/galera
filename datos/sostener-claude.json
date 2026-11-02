@@ -1,11 +1,11 @@
 {
-  "minimo": 25,
-  "central": 30,
-  "maximo": 36,
-  "ventanas": 49,
-  "mensajes": 5863,
+  "minimo": 72,
+  "central": 86,
+  "maximo": 104,
+  "ventanas": 128,
+  "mensajes": 19800,
   "desde": "2026-09-30",
-  "hasta": "2026-10-20",
+  "hasta": "2026-11-02",
   "metodo": {
     "hueco_min": [
       10,
@@ -18,5 +18,5 @@
       20
     ]
   },
-  "generado": "2026-10-20"
+  "generado": "2026-11-02"
 }

@@ -695,6 +695,10 @@ html.con-datos body[data-tab=carrera] #main,html.con-datos body[data-tab=horario
 .gl-viene li{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;padding:8px 0;border-top:1px solid var(--gl-line);font:500 14px/20px var(--gl-sans)}
 .gl-viene .gl-chip{flex:none}
 
+/* v119: el mapa del Directorio vuelve a la columna central, arriba de las fichas. */
+.gl-dir-main #dir-mapa{margin-bottom:24px}
+.gl-dir-main #dir-mapa:empty{display:none}
+.gl-dir-main .dir-mapa{display:block;margin:0 auto;max-width:100%;max-height:520px;height:auto}
 /* Horarios al estilo del tablero (v120): materias a un lado (288), semana al otro (hasta 912); en celular, un día por vez. */
 .gl-hor .gl-bajada{margin:16px 0 0;max-width:64ch;font:400 16px/24px var(--gl-sans);color:var(--gl-t2)}
 .gl-hor .gl-oferta{margin-top:8px}.gl-hor .gl-oferta p{margin:0;font:400 14px/20px var(--gl-sans);color:var(--gl-t3)}

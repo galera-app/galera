@@ -377,7 +377,7 @@ function iniciarPerfil() {
   // Sin datos ni perfil: la primera visita queda en el inicio con la pregunta abierta (v77; reemplaza al modal y a la franja).
 }
 // INICIO (v77): la portada reparte a las demás pantallas. El selector de perfil se pliega al elegir (queda una línea bajo el título) y tiene un «Cambiar».
-const PERFILES_INICIO = [['estudiante', 'Estudiar', 'Para estudiantes de Edición: plan, notas, horarios y apuntes de la carrera.'], ['profesional', 'Trabajar', 'Para profesionales del libro: herramientas, eventos, contactos y los apuntes de Edición para tener la teoría a mano.']];
+const PERFILES_INICIO = [['estudiante', 'Estudiar', 'Para estudiantes de Edición: plan, notas, horarios y apuntes de la carrera.'], ['profesional', 'Trabajar', 'Para profesionales del libro: herramientas, eventos, contactos y los apuntes de Edición.']];
 const PLURAL_PERFIL = { estudiante: 'estudiantes', profesional: 'profesionales del libro' };
 const BAJADAS = {
   estudiante: { eventos: 'Ferias, jornadas y convocatorias del libro.', carrera: 'Tus materias, notas y lo que te falta para recibirte.', horarios: 'Armá tu cuatrimestre y mirá si se pisan los horarios.', calendario: 'Inscripciones, mesas de final y feriados del año.', resumenes: 'Apuntes por materia y simulacros de parcial.', biblioteca: 'La bibliografía de cada materia, en un solo lugar.', glosario: 'Los términos de la carrera, explicados en corto.', simuladores: 'Papel, imposición, escandallo, cronogramas y contratos.', directorio: 'Editoriales de todo el país, de la A a la Z.', links: 'Campus, SIU Guaraní y trámites de la facultad.' },
@@ -3120,14 +3120,13 @@ function vDirectorio() {
         <div class="gl-opts gl-m16"><button type="button" class="gl-opt" aria-pressed="${!!V.dir.web}" data-f="dir-web" onclick="V.dir.web=!V.dir.web;V.dir.n=0;render()"><span class="gl-opt-g" aria-hidden="true"></span>Solo las que tienen sitio web</button></div>
         ${(V.dir.prov || V.dir.linea || V.dir.web || V.dir.q || V.dir.letra) ? `<p class="gl-m16"><button class="gl-btn gl-btn--ter" type="button" onclick="${reset}">Limpiar filtros</button></p>` : ''}
         <p class="gl-aviso-cob"><b>Cobertura.</b> ${esc(tipo.cobertura)}</p></aside>
-      <section class="gl-dir-main" aria-label="Fichas"><div id="dir-lista">${directorioLista()}</div></section>
-      <aside class="gl-dir-riel" aria-label="Índice y mapa">
+      <section class="gl-dir-main" aria-label="Mapa y fichas"><div id="dir-mapa">${directorioMapaVista()}</div><div id="dir-lista">${directorioLista()}</div></section>
+      <aside class="gl-dir-riel" aria-label="Índice">
         ${letras.length > 1 && actoresDelTipo().length > 60 ? `<p class="gl-rotulo">Ir a la letra</p><div class="dir-letras" role="group" aria-label="Ir a la letra">${letras.map(l => `<button type="button" class="${V.dir.letra === l ? 'on' : ''}" aria-pressed="${V.dir.letra === l}" onclick="V.dir.letra=${arg(V.dir.letra === l ? '' : l)};V.dir.n=0;render()">${l}</button>`).join('')}</div>` : ''}
         <div class="gl-tarjeta gl-m16"><b>¿Falta una?</b><span class="gl-chico">Sugerí una editorial, imprenta o librería que no esté.</span><button class="gl-btn gl-btn--sec" type="button" onclick="sugerirActor()">Sugerí un actor</button></div>
-        <button class="gl-btn gl-btn--sec gl-m16" type="button" aria-pressed="${!!V.dir.mapa}" data-f="dir-ver-mapa" onclick="V.dir.mapa=!V.dir.mapa;render()">${V.dir.mapa ? 'Ocultar el mapa' : 'Ver el mapa'}</button>
-        <div id="dir-mapa">${directorioMapaVista()}</div></aside></div></div>`;
+        </aside></div></div>`;
 }
-const directorioMapaVista = () => V.dir.mapa ? directorioMapa() : '';
+const directorioMapaVista = () => directorioMapa();   // siempre arriba de las fichas, en la columna central
 function sugerirActor() {
   const t = ({ editorial: 'una editorial', imprenta: 'una imprenta', distribuidora: 'una distribuidora', libreria: 'una librería', papel: 'un productor de papel' })[V.dir.tipo] || 'un actor';
   idea({ titulo: 'Sugerir ' + t, intro: 'Contame el nombre, la provincia y el sitio web o la red pública donde figura. Solo datos de empresas o proyectos públicos: nada de domicilios ni teléfonos de particulares.',
@@ -3152,7 +3151,7 @@ async function cargarSostener() {
 const ESTADO_PLAN = { planeado: ['Planeado', 'gl-chip gl-chip--neutro'], 'en curso': ['En curso', 'gl-chip'], listo: ['Listo', 'gl-chip gl-chip--ok'] };
 const MESES_ES = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
 const horasTxt = h => String(h).replace('.', ',') + (Number(h) === 1 ? ' hora' : ' horas');
-const HOLA = 'hola@galera.com.ar', HISTORIAL_GH = 'https://github.com/Ficha/Ficha.github.io/commits/main/cursada';
+const HOLA = 'hola@galera.com.ar', HISTORIAL_GH = 'https://github.com/galera-app/galera/commits/main';
 function sostenerHoras(H, R) {
   if (!H || typeof H.horas_totales !== 'number') return '<p class="gl-chico">Las horas no se pudieron cargar ahora. Probá de nuevo más tarde.</p>';
   const rango = R && R.minimo > 0 && R.maximo >= R.minimo;
