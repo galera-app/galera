@@ -3009,12 +3009,22 @@ function vaciarCr() { E.cronograma = null; guardar(); render(); }
 // Convive con el buscador propio de los Resúmenes (V.busq, resumenes/busqueda.json): no lo reemplaza.
 // ======================================================================
 // Si el índice no está publicado (build sin Pagefind) se distingue de un corte de conexión: ahí el archivo da 404 o devuelve otra cosa que JavaScript.
-const pagefind = () => pagefind.p || (pagefind.p = import('/pagefind/pagefind.js').then(async m => { await m.options({ excerptLength: 22 }); return m; }, async e => {
-  pagefind.p = null;
-  const r = await fetch('/pagefind/pagefind.js', { method: 'HEAD' }).catch(() => null);
-  e.sinIndice = !!r && (!r.ok || !/javascript/.test(r.headers.get('content-type') || ''));
-  throw e;
-}));
+const pagefind = () => {
+  if (pagefind.p) return pagefind.p;
+  const cargar = new Promise((ok, mal) => {
+    window.addEventListener('pagefind-listo', () => ok(window.pagefindMod), { once: true });
+    window.addEventListener('pagefind-error', () => mal(new Error('no cargó')), { once: true });
+    const s = document.createElement('script');
+    s.src = '/buscador.js'; s.onerror = () => mal(new Error('no cargó'));
+    document.head.appendChild(s);
+  });
+  return pagefind.p = cargar.then(async m => { await m.options({ excerptLength: 22 }); return m; }, async e => {
+    pagefind.p = null;
+    const r = await fetch('/pagefind/pagefind.js', { method: 'HEAD' }).catch(() => null);
+    e.sinIndice = !!r && (!r.ok || !/javascript/.test(r.headers.get('content-type') || ''));
+    throw e;
+  });
+};
 const busQ = () => V.bus.q.trim();
 // Cada archivo del índice es una página con su <h1> como título y su <main> como cuerpo.
 async function buscarPf(q) {
