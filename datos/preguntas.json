@@ -1,0 +1,650 @@
+{
+ "actualizado": "2026-11-04",
+ "temas": [
+  {
+   "id": "empezar",
+   "titulo": "Empezar la carrera",
+   "preguntas": [
+    {
+     "id": "primero-materias",
+     "pregunta": "¿Qué materias conviene cursar primero?",
+     "variantes": [
+      "por cuál materia empiezo",
+      "orden recomendado de cursada",
+      "qué me anoto en el primer cuatrimestre",
+      "materias para ingresantes",
+      "guía de cursada para ingresantes",
+      "orden de las materias de Edición"
+     ],
+     "respuesta": "La carrera no tiene correlatividades: el orden es una sugerencia del Departamento de Edición, no una obligación. El primer módulo del plan incluye Introducción al Pensamiento Científico y Introducción al Conocimiento de la Sociedad y el Estado (las dos del CBC), Introducción a la Actividad Editorial (si arrancás en el 1.er cuatrimestre) o Administración de la Empresa Editorial (si arrancás en el 2.º), y Teoría y Análisis Literario o Semiología. La [Guía del ingresante](/ingresantes/) trae el mapa completo por área y módulo, y en [Mi carrera](/carrera/) lo ves como «Recorrido sugerido». Los idiomas se cursan en paralelo."
+    },
+    {
+     "id": "correlatividades",
+     "pregunta": "¿Hay correlatividades? ¿Necesito saber algo antes de cursar una materia?",
+     "variantes": [
+      "correlativas",
+      "puedo hacer X sin haber hecho Y",
+      "qué materias necesito antes de otra",
+      "si vengo de otra carrera puedo hacer X",
+      "qué materias conviene dejar para el final",
+      "me recomiendan hacer una antes que otra"
+     ],
+     "respuesta": "No hay correlatividades: no hace falta tener aprobada una materia para anotarte en otra. Igual, algunas suponen contenidos de otras: Edición Editorial, de Introducción a la Actividad Editorial; Informática Aplicada a la Administración Editorial, de Administración de la Empresa Editorial; y Marketing Editorial, de casi todas, por eso conviene dejarla para el final. A Corrección de Estilo la ayuda haber cursado Semiología, y a Informática Aplicada a la Producción Editorial, Fundamentos de Diseño Gráfico para Editores. Cada ficha de [Mi carrera](/carrera/) trae esa sugerencia."
+    },
+    {
+     "id": "requisitos-recibirse",
+     "pregunta": "¿Qué tengo que aprobar para recibirme de Editor/a?",
+     "variantes": [
+      "cuántas materias tiene la carrera",
+      "qué pide el plan de estudios",
+      "cuántas materias me faltan para recibirme",
+      "porcentaje de la carrera aprobado",
+      "cuántos niveles de idioma piden",
+      "plan de estudios de Edición"
+     ],
+     "respuesta": "El plan pide dos materias del CBC, 16 materias de grado, tres niveles de inglés, un nivel de otro idioma y una pasantía o tesina. En [Mi carrera](/carrera/) marcás el estado de cada materia y ves cuánto avanzaste. El plan que figura en Galera es el de 1997 y se verifica contra el Departamento de Edición; el original está en su [plan de estudios](https://edicion.filo.uba.ar/content/plan-de-estudios)."
+    },
+    {
+     "id": "electivas",
+     "pregunta": "¿Qué materias son electivas y cómo elijo?",
+     "variantes": [
+      "Semiología o Teoría y Análisis Literario",
+      "es obligatoria Semiología",
+      "Edición Electrónica o Periódicas, cuál hago",
+      "métodos de investigación o epistemología",
+      "optativas de la carrera",
+      "electivas"
+     ],
+     "respuesta": "Hay tres pares de los que se aprueba uno: Semiología (CBC) o Teoría y Análisis Literario (Letras); Edición Electrónica y Multimedia o Edición de Publicaciones Periódicas; y Epistemología y Métodos de la Investigación Social (Antropología) o Métodos de Investigación en Bibliotecología. Semiología ayuda mucho para Corrección de Estilo. En [Mi carrera](/carrera/) cada electiva te deja marcar cuál elegiste, y los programas de las dos opciones están en su ficha."
+    },
+    {
+     "id": "cbc-sin-terminar",
+     "pregunta": "¿Puedo cursar materias de Edición sin haber terminado el CBC?",
+     "variantes": [
+      "me falta una materia del CBC",
+      "CBC incompleto",
+      "empezar la carrera sin terminar UBA XXI",
+      "cuándo tengo que tener el CBC",
+      "dónde cursar las materias del CBC",
+      "las del CBC se pueden cursar después"
+     ],
+     "respuesta": "En el plan que figura en Galera, las dos materias del CBC (Introducción al Pensamiento Científico e Introducción al Conocimiento de la Sociedad y el Estado) se pueden cursar en cualquier momento de la carrera, y la carrera no tiene correlatividades. El CBC tiene su propio calendario y su propio SIU Guaraní. Los enlaces al [CBC y a sus contenidos mínimos](/links/) están en Links útiles."
+    },
+    {
+     "id": "siglas",
+     "pregunta": "¿Qué significan las siglas de las materias (IAE, AEE, FPI, EE…)?",
+     "variantes": [
+      "qué es IAE",
+      "qué es FDGE",
+      "significado de EEM y EPP",
+      "qué es TMC",
+      "sigla de cada materia",
+      "no entiendo las siglas del grupo"
+     ],
+     "respuesta": "Cada materia figura con su sigla en [Mi carrera](/carrera/) y en la [Guía del ingresante](/ingresantes/): por ejemplo, IAE es Introducción a la Actividad Editorial, AEE es Administración de la Empresa Editorial, FPI es Fundamentos de la Producción de Impresos y EE es Edición Editorial (EEM es Edición Electrónica y Multimedia). Si lo que no entendés es un término del oficio, el [Glosario](/glosario/) junta los de cada materia, con buscador."
+    }
+   ]
+  },
+  {
+   "id": "cursada",
+   "titulo": "Cursada: teóricos, prácticos y regímenes",
+   "preguntas": [
+    {
+     "id": "teoricos-practicos",
+     "pregunta": "¿Los teóricos y los prácticos son obligatorios? ¿Cuánto duran?",
+     "variantes": [
+      "asistencia obligatoria",
+      "hay que ir a los teóricos",
+      "cuántas horas dura el teórico",
+      "qué es una comisión",
+      "sirven los teóricos o alcanza con el práctico",
+      "porcentaje de asistencia"
+     ],
+     "respuesta": "Los teóricos duran cuatro horas y tienen un solo horario, porque hay una sola cátedra por materia. Los prácticos (comisiones) duran dos horas, son obligatorios y tienen cupo; los teórico-prácticos son optativos. Para regularizar una materia con final se pide 75 % de asistencia a los prácticos; para la promoción directa, 80 % a teóricos y prácticos. En lo virtual o híbrido, cada cátedra fija sus condiciones. Está resumido en la [Guía del ingresante](/ingresantes/)."
+    },
+    {
+     "id": "promocion-final",
+     "pregunta": "¿Qué materias son de promoción directa y cuáles tienen final?",
+     "variantes": [
+      "promoción directa",
+      "PD",
+      "con final o sin final",
+      "qué materias son promocionales",
+      "documento que diga qué materias se promocionan",
+      "cambió el régimen de una materia"
+     ],
+     "respuesta": "Cada materia muestra su régimen (promoción directa o final obligatorio) en la tabla y en la ficha de [Mi carrera](/carrera/). Puede cambiar de un año a otro según la cátedra: Galera muestra el de la última cursada y marca con «cambió» las que se modificaron. Si cursaste otro año, vale el régimen de tu cursada, que está en el programa de ese año. La promoción directa es sin final, con 80 % de asistencia, promedio de siete o más y ningún aplazo."
+    },
+    {
+     "id": "regular-libre-aprobada",
+     "pregunta": "¿Qué quiere decir regular, libre o aprobada?",
+     "variantes": [
+      "qué es una materia regular",
+      "qué pasa si abandono sin renunciar",
+      "regularizar una materia",
+      "cuándo quedo libre",
+      "diferencia entre regular y aprobada",
+      "requisitos para regularizar"
+     ],
+     "respuesta": "Regular es que cumpliste los requisitos de la cursada y te queda el final. Libre es que no los cumpliste o abandonaste sin renunciar. Aprobada es que rendiste el final o promocionaste. Para regularizar una materia con final se piden 75 % de asistencia a los prácticos, todas las evaluaciones aprobadas con cuatro o más y promedio de cuatro o más. Está en «Lo básico de la cursada», en [Links útiles](/links/)."
+    },
+    {
+     "id": "modalidad",
+     "pregunta": "¿Las clases son presenciales o virtuales?",
+     "variantes": [
+      "el teórico es virtual",
+      "la materia tiene cursada presencial",
+      "cursada virtual en idiomas",
+      "los parciales son presenciales",
+      "teórico por Zoom",
+      "modalidad de cada comisión"
+     ],
+     "respuesta": "Cuando la Facultad informa la modalidad, [Horarios](/horarios/) la muestra en cada comisión, junto con el aula y el docente. En los idiomas, los parciales de las comisiones virtuales son presenciales. En lo virtual o híbrido, cada cátedra fija sus condiciones de promoción."
+    },
+    {
+     "id": "comisiones-cupo",
+     "pregunta": "¿Cómo funcionan las comisiones de prácticos y los cupos?",
+     "variantes": [
+      "cuándo me anoto a los prácticos",
+      "inscripción a prácticos",
+      "voy directo al práctico o me anoto antes",
+      "se llenó el práctico",
+      "cuándo abre la inscripción a comisiones",
+      "no pude ir al teórico, cómo me anoto"
+     ],
+     "respuesta": "Los prácticos (comisiones) son obligatorios y tienen cupo, y cada cátedra abre por su cuenta la inscripción a comisiones, así que conviene estar atento. La clave de matriculación del aula virtual de cada materia llega por mail. En [Horarios](/horarios/) ves las comisiones de cada materia con sus días y podés armar alternativas para comparar."
+    },
+    {
+     "id": "verano",
+     "pregunta": "¿Se puede cursar idiomas o seminarios en verano?",
+     "variantes": [
+      "seminarios de verano",
+      "idiomas en verano",
+      "intensivo de invierno",
+      "materias en verano",
+      "cursar en las vacaciones",
+      "cuatrimestre de verano"
+     ],
+     "respuesta": "En el plan que figura en Galera, los tres niveles de inglés, el otro idioma y el seminario de grado figuran con cursada también en verano. Qué comisiones se abren cada vez lo ves en [Horarios](/horarios/) cuando la Facultad publica la oferta. El plan completo está en [Mi carrera](/carrera/)."
+    }
+   ]
+  },
+  {
+   "id": "inscripcion-horarios",
+   "titulo": "Inscripción, horarios y calendario",
+   "preguntas": [
+    {
+     "id": "fechas-inscripcion",
+     "pregunta": "¿Cuándo me inscribo a materias, seminarios e idiomas?",
+     "variantes": [
+      "cuándo abre el SIU",
+      "fechas de inscripción",
+      "a qué hora abre la inscripción",
+      "cuándo es la inscripción a idiomas",
+      "hasta cuándo puedo anotarme",
+      "cuándo se publica la oferta de materias"
+     ],
+     "respuesta": "La inscripción a materias, seminarios e idiomas se hace por SUIGA, y sus fechas figuran en [Calendario](/calendario/), igual que el día en que la Facultad publica la oferta de asignaturas. Calendario aclara también a qué hora empieza y termina cada inscripción. Cuando ya está la oferta, en [Horarios](/horarios/) podés armar tu semana antes de anotarte."
+    },
+    {
+     "id": "donde-horarios",
+     "pregunta": "¿Dónde veo los horarios y la oferta del cuatrimestre?",
+     "variantes": [
+      "hay un PDF con los horarios",
+      "oferta horaria",
+      "horario de las materias",
+      "horarios de idiomas",
+      "en qué aula se cursa",
+      "qué días se cursa una materia"
+     ],
+     "respuesta": "En [Horarios](/horarios/): ahí está la oferta de la Facultad, con días, aula y docente de cada comisión, y los idiomas que publica el Departamento de Lenguas Modernas. Se actualiza sola los lunes y los jueves, y cada cuatrimestre figura con la fecha en que se cargó. Como la cartelera puede cambiar, Galera enlaza a la planilla original para confirmar."
+    },
+    {
+     "id": "armar-sin-superposicion",
+     "pregunta": "¿Cómo armo mis horarios sin que se superpongan?",
+     "variantes": [
+      "se me superponen dos materias",
+      "armar el cuatrimestre",
+      "marcar horarios en que no puedo",
+      "combinar teóricos y prácticos",
+      "sugerir combinaciones de comisiones",
+      "llevar mis horarios al calendario"
+     ],
+     "respuesta": "En [Horarios](/horarios/) marcás las materias que querés cursar, elegís una comisión de cada una y ves la semana armada: si dos clases se pisan, aparecen con rayas rojas y un aviso. Podés cargar «Horario en que no puedo» y pedir combinaciones sugeridas que lo tengan en cuenta. Cuando termines, Galera puede llevar tus clases a Google Calendar u otro calendario, o armar una imagen o un link para compartir."
+    },
+    {
+     "id": "superposicion-error",
+     "pregunta": "Se me superponen dos clases: ¿puede ser un error de la cartelera?",
+     "variantes": [
+      "puede ser un error de horario",
+      "el teórico se pisa con el práctico",
+      "no puedo ir al único práctico",
+      "cambió el horario del teórico",
+      "confirmar contra la oferta oficial",
+      "me aparece una superposición"
+     ],
+     "respuesta": "Puede ser. La cartelera de la Facultad está sujeta a cambios y Galera la copia tal como se publica, así que ante una superposición conviene confirmar en la planilla original, que [Horarios](/horarios/) enlaza. Los datos se actualizan solos los lunes y los jueves, y cada cuatrimestre indica cuándo se cargó."
+    },
+    {
+     "id": "en-que-cuatrimestre",
+     "pregunta": "¿En qué cuatrimestre se dicta cada materia?",
+     "variantes": [
+      "es siempre del segundo cuatri",
+      "varía según el año",
+      "cuándo se cursa una materia",
+      "primer o segundo cuatrimestre",
+      "en qué cuatrimestre arranco",
+      "el año que viene se dicta en el primero"
+     ],
+     "respuesta": "El mapa de la [Guía del ingresante](/ingresantes/) indica el cuatrimestre habitual de cada materia, y la ficha de [Mi carrera](/carrera/) también. Es el plan habitual: lo que se abre en cada cuatrimestre lo confirma la oferta publicada en [Horarios](/horarios/). Los idiomas se dictan todos los cuatrimestres."
+    },
+    {
+     "id": "fechas-anio",
+     "pregunta": "¿Dónde veo cuándo empieza y termina el cuatrimestre, las renuncias y los feriados?",
+     "variantes": [
+      "cuándo empiezan las clases",
+      "cuándo empieza la cursada",
+      "hasta cuándo puedo darme de baja",
+      "feriados del año",
+      "cuándo termina el cuatrimestre",
+      "calendario académico"
+     ],
+     "respuesta": "En [Calendario](/calendario/): el calendario académico de la Facultad, con los períodos de cursada, las inscripciones, las renuncias a inscripciones y a la regularidad, los turnos de examen y los feriados nacionales, más tus propias fechas. El calendario sale de la Secretaría de Asuntos Académicos y los feriados, de argentina.gob.ar."
+    }
+   ]
+  },
+  {
+   "id": "idiomas",
+   "titulo": "Idiomas",
+   "preguntas": [
+    {
+     "id": "cuantos-idiomas",
+     "pregunta": "¿Cuántos idiomas y niveles necesito?",
+     "variantes": [
+      "cuántos niveles de inglés",
+      "solo un nivel de francés",
+      "qué otros idiomas puedo elegir",
+      "italiano o portugués",
+      "idiomas obligatorios",
+      "los idiomas son de lectocomprensión"
+     ],
+     "respuesta": "El plan pide tres niveles de inglés y un nivel de otro idioma, que puede ser francés, alemán, portugués o italiano. Son cursos de lectocomprensión del Departamento de Lenguas Modernas, y se pueden cursar en cualquier momento de la carrera o rendir libres. Los horarios de cada cuatrimestre están en [Horarios](/horarios/), y el plan, en [Mi carrera](/carrera/)."
+    },
+    {
+     "id": "inscripcion-idiomas",
+     "pregunta": "¿Cómo me inscribo a idiomas y por qué cuesta conseguir lugar en inglés?",
+     "variantes": [
+      "cómo me anoto a inglés",
+      "ya pasó la inscripción a idiomas",
+      "hay condición de oyente",
+      "inglés en el primer cuatrimestre",
+      "darse de baja de un idioma",
+      "dónde me inscribo a idiomas"
+     ],
+     "respuesta": "Los idiomas se inscriben por SUIGA, en «Otras materias, seminarios e idiomas», y hay que anotarse y no darse de baja: no existe la condición de oyente. Hay mucha demanda: como ingresante solo te podés anotar el último día de la inscripción, así que conviene no contar con Inglés en el primer cuatrimestre. Las fechas están en [Calendario](/calendario/) y las comisiones, en [Horarios](/horarios/). Los cursos de Lenguas Modernas son de promoción directa."
+    },
+    {
+     "id": "vigencia-idiomas",
+     "pregunta": "¿Cuánto duran los niveles de idioma aprobados?",
+     "variantes": [
+      "vigencia de los idiomas",
+      "vencen a los cuatro años",
+      "se me vence un nivel",
+      "cuánto tiempo hay entre un nivel y el siguiente",
+      "caducan los idiomas aprobados"
+     ],
+     "respuesta": "Según la nota del Departamento de Lenguas Modernas que Galera copia en sus datos de idiomas, los niveles aprobados valen cuatro años. Para confirmarlo, [Horarios](/horarios/) enlaza al blog del Departamento, de donde sale ese dato."
+    },
+    {
+     "id": "idioma-libre",
+     "pregunta": "¿Cómo rindo un idioma libre?",
+     "variantes": [
+      "inglés libre",
+      "rendir el nivel 3 de inglés",
+      "francés libre",
+      "cuándo me anoto al libre",
+      "exámenes libres de idiomas",
+      "fechas de los libres"
+     ],
+     "respuesta": "Los tres niveles de inglés y el otro idioma se pueden rendir libres, con el programa vigente ese cuatrimestre. Cada turno de examen tiene sus fechas de exámenes libres de idiomas, además de las de inscripción: las ves en [Calendario](/calendario/). El Departamento de Lenguas Modernas publica los cursos y los libres en su [sitio](https://lenguasmodernas.filo.uba.ar/)."
+    },
+    {
+     "id": "laboratorio-idiomas",
+     "pregunta": "¿Sirve el Laboratorio de Idiomas para los niveles de la carrera?",
+     "variantes": [
+      "laboratorio de idiomas de Filo",
+      "cursos de extensión de idiomas",
+      "dónde estudio idiomas",
+      "es lo mismo que Lenguas Modernas",
+      "el laboratorio cuenta como nivel"
+     ],
+     "respuesta": "No: según Galera, el Laboratorio de Idiomas ofrece cursos y talleres de extensión, que no son los niveles que pide el plan. Los niveles de la carrera son los cursos de lectocomprensión del Departamento de Lenguas Modernas. Los dos están enlazados en [Links útiles](/links/)."
+    }
+   ]
+  },
+  {
+   "id": "finales",
+   "titulo": "Finales, mesas y seminario",
+   "preguntas": [
+    {
+     "id": "fechas-mesas",
+     "pregunta": "¿Cuándo son las mesas de final?",
+     "variantes": [
+      "fechas de los finales",
+      "mesas de diciembre",
+      "cuándo rindo una materia",
+      "listado con la fecha de cada materia",
+      "turnos de examen",
+      "mesa de septiembre"
+     ],
+     "respuesta": "Los turnos son en marzo, mayo, julio, septiembre y diciembre. Las fechas de cada turno están en [Calendario](/calendario/), y las mesas publicadas por materia (día, hora y aula) figuran en «Mesas de examen» de esa pantalla y en la ficha de cada materia de [Mi carrera](/carrera/). La cartelera puede cambiar: Galera enlaza a la planilla de la Facultad para confirmar."
+    },
+    {
+     "id": "inscribirme-final",
+     "pregunta": "¿Cómo me inscribo a un final?",
+     "variantes": [
+      "anotarme a la mesa",
+      "inscripción a finales",
+      "una sola inscripción para los tres llamados",
+      "cuándo cierra la inscripción al final",
+      "me anoté y no figuro"
+     ],
+     "respuesta": "Hay que anotarse antes en SUIGA: cada turno tiene su período de inscripción, que figura en [Calendario](/calendario/) como «inscripción» de ese turno. Cómo funcionan los llamados dentro de un turno lo fija el [Reglamento académico](https://academica.filo.uba.ar/reglamento-acad%C3%A9mico), que Galera enlaza."
+    },
+    {
+     "id": "como-es-final",
+     "pregunta": "¿Cómo es el final de una materia? ¿Qué conviene preparar?",
+     "variantes": [
+      "es oral o escrito",
+      "me toman todo el programa",
+      "cómo la rindieron",
+      "qué se espera en el final",
+      "cómo estudiar para el final",
+      "cómo es el final de Corrección de Estilo"
+     ],
+     "respuesta": "Galera no describe cómo toma cada cátedra el final: lo fija cada programa y cada cátedra. Lo que sí podés ver es si la materia es de promoción directa o con final obligatorio, en [Mi carrera](/carrera/), donde cada ficha enlaza al programa oficial. Para estudiar, hay [resúmenes por materia](/r/) con preguntas de autoevaluación, y las fichas con resúmenes tienen «Practicar con preguntas»."
+    },
+    {
+     "id": "rendir-libre",
+     "pregunta": "¿Se puede rendir libre una materia?",
+     "variantes": [
+      "rendir libre",
+      "libre sin cursar",
+      "cómo es rendir libre",
+      "la pasantía se puede rendir libre",
+      "con qué programa rindo libre",
+      "rendir libre con el programa de este año"
+     ],
+     "respuesta": "Sí: se pueden rendir libres materias e idiomas, con el programa vigente ese cuatrimestre. La pasantía no se puede rendir libre. Cómo es la modalidad (escrito, oral, trabajo previo) depende de cada cátedra y no está en Galera: el programa de cada materia está enlazado en su ficha de [Mi carrera](/carrera/). Los turnos de examen están en [Calendario](/calendario/)."
+    },
+    {
+     "id": "seminario",
+     "pregunta": "¿Cómo elijo el seminario de grado y cuándo conviene hacerlo?",
+     "variantes": [
+      "seminarios PST",
+      "qué seminario hago",
+      "seminarios de este cuatrimestre",
+      "puedo hacer un seminario de otra carrera",
+      "cuándo hacer el seminario"
+     ],
+     "respuesta": "Desde 2022 el seminario de grado tiene que ser un seminario PST. Se elige entre los que dicta el Departamento u otros de la Facultad o de la UBA (con autorización), y conviene no hacerlo en el primer cuatrimestre, porque rinde más con algunas materias encima. Los seminarios del cuatrimestre aparecen en [Horarios](/horarios/), en «Seminarios y PST», y sus programas, en la ficha de [Mi carrera](/carrera/)."
+    }
+   ]
+  },
+  {
+   "id": "sistemas",
+   "titulo": "SUIGA, campus y trámites",
+   "preguntas": [
+    {
+     "id": "suiga-campus",
+     "pregunta": "¿Con qué usuario entro a SUIGA y al campus?",
+     "variantes": [
+      "usuario y clave de SUIGA",
+      "no sé mi usuario del SIU Guaraní",
+      "cómo entro al campus de la materia",
+      "clave de matriculación",
+      "código para matricularme",
+      "primera vez en el campus"
+     ],
+     "respuesta": "En SUIGA te anotás a materias y finales: la primera vez, usuario y contraseña son tu DNI. En el Campus están las aulas de cada materia: la primera vez se entra con el CUIL como usuario y contraseña, y la clave de matriculación de cada materia llega por mail. Los dos enlaces están en [Links útiles](/links/)."
+    },
+    {
+     "id": "tramites-facultad",
+     "pregunta": "¿Dónde encuentro los trámites de la Facultad (legalizar el título secundario, certificados, equivalencias, pase)?",
+     "variantes": [
+      "legalización del título secundario",
+      "certificado de alumno regular",
+      "equivalencias de materias",
+      "pase de carrera",
+      "cómo hago un trámite por TAD",
+      "certificado de examen"
+     ],
+     "respuesta": "Galera no explica cada trámite, pero enlaza a donde se hacen. La [Guía de trámites de FEI Edición](https://guiadetramites-fei.my.canva.site/) es un paso a paso de los trámites de la Facultad y del CBC, armado por estudiantes. La Dirección Técnica de Estudiantes se ocupa de certificados, equivalencias, pases y título; los trámites en línea van por TAD-UBA, y el Portal de pagos sirve para pagar trámites como la legalización del título secundario. Todo está junto en [Links útiles](/links/), y los certificados también se piden en SUIGA."
+    }
+   ]
+  },
+  {
+   "id": "titulo",
+   "titulo": "Tesina, pretrámite y título",
+   "preguntas": [
+    {
+     "id": "tesina-pasantia",
+     "pregunta": "¿Cómo cierro la carrera: pasantía o tesina?",
+     "variantes": [
+      "cómo es la tesina",
+      "ejemplos de tesina",
+      "reglamento de tesina",
+      "cuántas horas tiene la pasantía",
+      "pasantía en una editorial",
+      "trabajo final de Edición"
+     ],
+     "respuesta": "Se elige una de tres opciones: pasantía en una empresa, pasantía en una institución pública u ONG, o tesina. La pasantía exige 192 horas como mínimo y no se puede rendir libre. La tesina es un trabajo sobre un tema o un problema de alguna materia, acordado con la cátedra y con un profesor del área; no hay un reglamento publicado, así que el primer paso es consultar al [Departamento de Edición](https://edicion.filo.uba.ar/). Hay ejemplos de tesinas en el repositorio de la Facultad, enlazados en [Links útiles](/links/)."
+    },
+    {
+     "id": "pretramite",
+     "pregunta": "¿Cuándo y cómo se inicia el pretrámite del título?",
+     "variantes": [
+      "pretrámite",
+      "cuánto necesito aprobado para hacerlo",
+      "puedo iniciarlo antes de terminar",
+      "75 % de la carrera",
+      "qué documentos piden para el pretrámite",
+      "qué es el libre deuda de la biblioteca"
+     ],
+     "respuesta": "El pretrámite es obligatorio y se inicia cuando tenés aprobado el 75 % del plan; la cantidad de materias está en la tabla de Académica, enlazada en [Links útiles](/links/). Se hace en TAD-UBA, con la documentación del legajo ya entregada en papel, y se adjuntan en PDF, cada cosa por separado, el DNI (frente y dorso), la declaración jurada de orden de asignaturas de Edición y el libre deuda de la Biblioteca Central. Guardá el número de expediente, porque lo vas a necesitar para pedir el diploma. Los requisitos oficiales están en [Pretrámite de solicitud de diploma](https://academica.filo.uba.ar/pre-tr%C3%A1mite-de-solicitud-de-diploma-grado)."
+    },
+    {
+     "id": "pedir-diploma",
+     "pregunta": "¿Cómo pido el diploma?",
+     "variantes": [
+      "solicitud de diploma",
+      "cuándo pido el título",
+      "qué papeles piden para el diploma",
+      "arancel del diploma",
+      "diploma por TAD",
+      "qué necesito para recibirme"
+     ],
+     "respuesta": "Con todo aprobado (CBC, materias, idiomas y la pasantía o tesina) se pide por TAD-UBA. Primero se paga el arancel y después se adjuntan el DNI, el título secundario legalizado por la UBA, el formulario de organización del plan de Edición y el comprobante de pago. Las equivalencias y los reconocimientos de idioma tienen que figurar antes en tu historia académica. El trámite está en [Links útiles](/links/), en «Para recibirte»."
+    }
+   ]
+  },
+  {
+   "id": "estudiar",
+   "titulo": "Resúmenes, bibliografía y herramientas de estudio",
+   "preguntas": [
+    {
+     "id": "resumenes",
+     "pregunta": "¿Hay resúmenes o apuntes de las materias?",
+     "variantes": [
+      "resúmenes de la materia",
+      "apuntes de Corrección de Estilo",
+      "alguien tiene resúmenes",
+      "apuntes para el final",
+      "resumen de la bibliografía",
+      "resúmenes de FPI"
+     ],
+     "respuesta": "Sí: [Resúmenes](/r/) junta apuntes propios por materia de la carrera de Edición, con buscador y preguntas para autoevaluarte. No todas las materias los tienen: las que todavía no figuran como «Todavía sin resúmenes» y podés pedirlos o sumar los tuyos. Son apuntes para estudiar: no reemplazan la bibliografía ni las clases."
+    },
+    {
+     "id": "pdf-libros",
+     "pregunta": "¿Alguien tiene el PDF de un libro o la bibliografía de una materia?",
+     "variantes": [
+      "el libro de la materia",
+      "bibliografía de Introducción a la Actividad Editorial",
+      "manual de corrección",
+      "no me aparece en el campus",
+      "dónde consigo la bibliografía",
+      "libros recomendados para editores"
+     ],
+     "respuesta": "Galera no aloja libros ni PDF. La [Biblioteca](/biblioteca/) lista libros que sirven para el oficio y los de la bibliografía de los programas de la carrera, con su ficha y, cuando hay, el enlace del editor. El programa oficial de cada materia está enlazado en su ficha de [Mi carrera](/carrera/). Las Bibliotecas de la Facultad tienen catálogo, préstamos y recursos digitales, y el aula virtual de cada materia trae programas, bibliografía y avisos de cátedra."
+    },
+    {
+     "id": "practicar-preguntas",
+     "pregunta": "¿Hay preguntas o simulacros para practicar?",
+     "variantes": [
+      "parciales anteriores",
+      "simulacro de final",
+      "preguntas de práctica",
+      "autoevaluación",
+      "repaso final",
+      "segundos parciales"
+     ],
+     "respuesta": "Los apuntes de [Resúmenes](/r/) traen preguntas de autoevaluación con las respuestas plegadas y, en algunas materias, un repaso final. Desde la ficha de una materia de [Mi carrera](/carrera/) podés ir a «Practicar con preguntas»."
+    },
+    {
+     "id": "calculos-pliego",
+     "pregunta": "¿Cómo calculo el pliego y la imposición de un libro?",
+     "variantes": [
+      "cálculo del pliego",
+      "cuántas páginas entran en un pliego",
+      "imposición",
+      "cuánto papel necesito",
+      "esquema de paginación",
+      "cuadernillos y múltiplos del pliego"
+     ],
+     "respuesta": "La [calculadora de papel e imposición](/simuladores/papel.html) toma el formato, las páginas y la tirada, impone las páginas en el pliego, las lleva al múltiplo necesario, arma los cuadernillos y calcula pliegos, resmas, kilos y costo, con la cuenta paso a paso. El [esquema de paginación](/simuladores/paginacion.html) te muestra en qué página cae cada parte del libro y cuántas páginas en blanco hacen falta para completar el pliego. Los términos están en el [Glosario](/glosario/)."
+    },
+    {
+     "id": "imprimir-tirada",
+     "pregunta": "¿Dónde imprimo un libro o una tirada corta?",
+     "variantes": [
+      "imprenta que imprima uno o dos libros",
+      "tirada de un solo ejemplar",
+      "impresión por demanda",
+      "imprentas digitales",
+      "cuánto cuesta imprimir un libro",
+      "dónde encuentro imprentas"
+     ],
+     "respuesta": "En el [Directorio](/directorio/) podés filtrar por «imprenta» (también hay editoriales, distribuidoras, librerías y papel) y por provincia o sitio web, con la fuente de cada ficha. Para estimar costos, el [Escandallo](/simuladores/escandallo.html) calcula el costo por ejemplar y tiene un modo de impresión por demanda, donde se presupuesta cada ejemplar."
+    }
+   ]
+  },
+  {
+   "id": "contacto-sedes",
+   "titulo": "Contacto y sedes",
+   "preguntas": [
+    {
+     "id": "contacto-departamento",
+     "pregunta": "¿Dónde encuentro el contacto del Departamento de Edición, de Lenguas Modernas o de Estudiantes?",
+     "variantes": [
+      "mail del departamento",
+      "a quién le escribo por una duda de la carrera",
+      "contacto del centro de estudiantes",
+      "dónde consulto un trámite",
+      "contacto de idiomas",
+      "a qué departamento pregunto"
+     ],
+     "respuesta": "El [Departamento de Edición](https://edicion.filo.uba.ar/) publica novedades, programas, seminarios y su contacto, y el [Departamento de Lenguas Modernas](https://lenguasmodernas.filo.uba.ar/) hace lo propio con los idiomas. Para trámites, la Dirección Técnica de Estudiantes y la Secretaría de Asuntos Académicos están en [Links útiles](/links/). La Guía de FEI Edición, armada por estudiantes, también orienta."
+    },
+    {
+     "id": "sedes",
+     "pregunta": "¿Dónde queda la Facultad y el anexo?",
+     "variantes": [
+      "dirección de Puan",
+      "dónde cursa Edición",
+      "cómo llego a Bonifacio",
+      "sede del CBC",
+      "en qué sede es la clase"
+     ],
+     "respuesta": "Las sedes son Puan 480 y el anexo de José Bonifacio 1337 (CABA). Cada comisión indica su aula en [Horarios](/horarios/). Los mapas de las dos sedes están en [Links útiles](/links/), y el CBC tiene su propio calendario y su propio SIU Guaraní."
+    }
+   ]
+  },
+  {
+   "id": "eventos-trabajo",
+   "titulo": "Eventos y trabajo en el libro",
+   "preguntas": [
+    {
+     "id": "ferias-eventos",
+     "pregunta": "¿Dónde veo ferias, jornadas y convocatorias del libro?",
+     "variantes": [
+      "jornadas profesionales",
+      "feria del libro",
+      "FED, Feria de Editores",
+      "FILBA",
+      "becas y subsidios para editoriales",
+      "cuándo es la feria"
+     ],
+     "respuesta": "[Eventos](/eventos/) reúne ferias, días del libro y convocatorias del sector (subsidios, becas de movilidad, concursos), con fecha y el sitio de quien organiza cada una; lo que el organizador todavía no confirmó se marca «a confirmar». Para saber si como estudiante podés ir o cómo inscribirte, hay que mirar el sitio del organizador. Son convocatorias del sector, por ejemplo del Fondo Nacional de las Artes."
+    },
+    {
+     "id": "trabajo-herramientas",
+     "pregunta": "¿Qué ofrece Galera para quien trabaja o busca trabajo en edición?",
+     "variantes": [
+      "salida laboral",
+      "bolsa de trabajo",
+      "cuánto se cobra por una corrección",
+      "tarifario del sector",
+      "contratos de traducción",
+      "freelance en edición"
+     ],
+     "respuesta": "El [tarifario](/simuladores/tarifario.html) enlaza a los valores de referencia que publican asociaciones y colegios para traducción, corrección, diseño e ilustración. Hay además [contratos modelo](/simuladores/contratos.html), [fichas de leyes del libro y del autor](/simuladores/leyes.html), el [Directorio](/directorio/) de editoriales y [Eventos](/eventos/)."
+    }
+   ]
+  },
+  {
+   "id": "galera",
+   "titulo": "Sobre Galera",
+   "preguntas": [
+    {
+     "id": "oficial",
+     "pregunta": "¿Galera es un sitio oficial de la UBA o de la Facultad?",
+     "variantes": [
+      "es oficial",
+      "es gratis",
+      "hay que registrarse",
+      "puedo confiar en las fechas",
+      "tiene publicidad",
+      "de dónde sacan los datos"
+     ],
+     "respuesta": "No: Galera es un sitio independiente, sin relación con la UBA ni con la Facultad de Filosofía y Letras. Es gratis, no tiene cuentas ni publicidad. Los datos son orientativos y pueden quedar desactualizados, así que para inscribirte y para lo que vale mirá siempre SUIGA y el Departamento de Edición. De dónde sale cada dato figura en [Fuentes](/fuentes/), y las condiciones, en [Legal](/legal/)."
+    },
+    {
+     "id": "datos-guardan",
+     "pregunta": "¿Dónde se guardan mis notas y cómo las paso a otro dispositivo?",
+     "variantes": [
+      "se pierden mis datos",
+      "pasar datos al celular",
+      "guardar una copia",
+      "borrar mis datos",
+      "Galera pide cuenta"
+     ],
+     "respuesta": "Tus notas, materias y horarios se guardan solo en tu navegador, en ese dispositivo: no llegan a ningún servidor. Si borrás los datos del navegador, se pierden. Desde [Configuración](/config/) podés guardar una copia, pasarlos a otro dispositivo con un link o un código QR, o borrarlos."
+    },
+    {
+     "id": "mail-lunes",
+     "pregunta": "¿Cómo me entero de las novedades y de las mesas de la semana?",
+     "variantes": [
+      "avisos por mail",
+      "mail de los lunes",
+      "novedades de Galera",
+      "avisame por mail",
+      "qué cambió en el sitio",
+      "cambios en fechas y horarios"
+     ],
+     "respuesta": "Galera manda un mail los lunes con novedades y mesas de la semana, solo lo que te importa: se configura en [Configuración](/config/), en «Avisos». Las novedades de cada versión están en [Novedades](/novedades/), con filtro por tema, incluidos los cambios en fechas, mesas de examen y horarios. Cada mail trae un enlace para darte de baja."
+    }
+   ]
+  }
+ ]
+}

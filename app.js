@@ -22,7 +22,7 @@ const ajustarTab = () => { if (esPro() && V.tab !== 'inicio' && V.tab !== 'doc' 
 const CONTACTO = 'fidelchaves96@gmail.com'; // el mismo mail público de ficha.github.io
 const SOPORTE = 'soporte@galera.com.ar'; // errores y fallas de la app
 const V = { sim: '', nov: '', bib: 'libros', perIdi: 'es', perTipo: '', bl: { q: '', origen: '', tema: '', mat: '', n: 0 }, tab: 'inicio', cambiaPerfil: false, vista: 'tabla', oferta: '', verPasados: false, calFiltro: 'todo', sugeridas: null, verAprobadas: false, verSem: false,
-  res: { materia: '', apunte: '', sec: '' }, busq: '', bus: { q: '', pide: null, hecha: null, res: [], rap: [], error: false }, quiz: {}, ayuda: {}, tema: '', glo: { q: '', mat: '', vista: 'lista', sel: -1, vb: null }, dir: { tipo: 'editorial', q: '', prov: '', linea: '', web: false, letra: '' },
+  res: { materia: '', apunte: '', sec: '' }, busq: '', bus: { q: '', pide: null, hecha: null, res: [], rap: [], pregs: [], error: false }, quiz: {}, ayuda: {}, tema: '', glo: { q: '', mat: '', vista: 'lista', sel: -1, vb: null }, dir: { tipo: 'editorial', q: '', prov: '', linea: '', web: false, letra: '' },
   demo: null, prac: null, retos: false, ausencia: 0, retomado: false, recNota: false }; // demo: el estado real guardado aparte mientras se mira el ejemplo; prac: la ronda de práctica en curso
 // Datos para donar por transferencia (sin comisión). Alias vacío = no se muestra el botón.
 const DONAR = { alias: 'fidel.mercado', cvu: '0000003100037663540198', cafecito: 'https://cafecito.app/fidelchaves' };
@@ -304,7 +304,7 @@ function precargar() {
   const t = V.tab;
   if (t === 'resumenes') return cargarResumenes().then(() => V.res.apunte ? traerApunte().catch(() => {}) : null);
   if (t === 'biblioteca') return Promise.all([cargarBiblioteca(), cargarBibExtra('sobre', 'libros-sobre-libros.json'), cargarBibExtra('prog', 'libros-programas.json'), V.bib === 'per' ? cargarBibExtra('per', 'periodicas.json') : null]);
-  const f = { simuladores: cargarSimInfo, arcade: cargarSimInfo, glosario: cargarGlosario, directorio: cargarDirectorio, eventos: cargarEventos, sostener: cargarSostener, novedades: cargarNovedades, links: cargarLinksLibro, inicio: cargarNovedades }[t];
+  const f = { simuladores: cargarSimInfo, arcade: cargarSimInfo, glosario: cargarGlosario, preguntas: cargarPreguntas, directorio: cargarDirectorio, eventos: cargarEventos, sostener: cargarSostener, novedades: cargarNovedades, links: cargarLinksLibro, inicio: cargarNovedades }[t];
   return f ? f() : null;
 }
 // Para tools/prerender.js: deja el estado como lo vería alguien sin datos que entra por esa dirección.
@@ -480,7 +480,7 @@ function render() {
   document.title = tituloPagina();
   altoCab();
   const gr = grupoDe(V.tab); if (gr) (V.gUlt = V.gUlt || {})[gr[0]] = V.tab;
-  conFoco($('#main'), () => { $('#main').innerHTML = (V.demo ? bandaEjemplo() : '') + subnav() + conTitulo({ doc: () => V.docHtml, inicio: vInicio, carrera: vCarrera, horarios: vHorarios, calendario: vCalendario, resumenes: vResumenes, biblioteca: vBiblioteca, simuladores: vSimuladores, glosario: vGlosario, buscar: vBuscar, directorio: vDirectorio, links: vLinks, novedades: vNovedades, sostener: vSostener, eventos: vEventos, arcade: () => vArcade() + arcadeInfo(), config: vConfig }[V.tab]()); capitulares(); });
+  conFoco($('#main'), () => { $('#main').innerHTML = (V.demo ? bandaEjemplo() : '') + subnav() + conTitulo({ doc: () => V.docHtml, inicio: vInicio, carrera: vCarrera, horarios: vHorarios, calendario: vCalendario, resumenes: vResumenes, biblioteca: vBiblioteca, simuladores: vSimuladores, glosario: vGlosario, preguntas: vPreguntas, buscar: vBuscar, directorio: vDirectorio, links: vLinks, novedades: vNovedades, sostener: vSostener, eventos: vEventos, arcade: () => vArcade() + arcadeInfo(), config: vConfig }[V.tab]()); capitulares(); });
   $('#main').className = V.tab === 'doc' ? V.docClase : '';
   document.body.classList.toggle('lectura', V.tab === 'doc');
   const can = document.querySelector('link[rel="canonical"]'); if (can && V.tab !== 'doc') can.href = 'https://galera.com.ar' + rutaActual().split('#')[0].split('?')[0];
@@ -2951,28 +2951,37 @@ const busQ = () => V.bus.q.trim();
 async function buscarPf(q) {
   const pf = await pagefind();
   const datos = async (r, n) => Promise.all(r.results.slice(0, n).map(x => x.data()));
-  // Respuestas rápidas: las páginas marcadas data-pagefind-filter="tipo:pregunta" (hoy no hay ninguna) van primero y aparte.
-  let rap = []; try { rap = await datos(await pf.search(q, { filters: { tipo: 'pregunta' } }), 3); } catch (e) { rap = []; }
-  const vistas = new Set(rap.map(x => x.url));
+  // Respuestas rápidas: la página de Preguntas frecuentes (filtro tipo:pregunta) trae por encabezado las preguntas que coinciden (sub_results, con su ancla);
+  // arriba van hasta dos con la respuesta completa de datos/preguntas.json. Otra página marcada con ese filtro va aparte, como resultado común.
+  let rap = [], pregs = [];
+  try {
+    const dp = await datos(await pf.search(q, { filters: { tipo: 'pregunta' } }), 3);
+    await cargarPreguntas();
+    const lista = preguntasLista(), ids = [];
+    dp.forEach(x => (x.sub_results || []).forEach(sr => { const id = (sr.anchor && sr.anchor.id) || String(sr.url || '').split('#')[1]; if (id && lista[id] && !ids.includes(id)) ids.push(id); }));
+    pregs = rankearPreguntas(q, ids.map(id => lista[id]));
+    rap = dp.filter(x => x.url.split('#')[0] !== '/preguntas/').slice(0, 1);
+  } catch (e) { rap = []; pregs = []; }
+  const vistas = new Set(rap.map(x => x.url).concat(pregs.length ? ['/preguntas/'] : []));
   // Pagefind tolera tanto las diferencias que «qjkvwp» encuentra la letra «q» suelta. Se descarta el resultado cuyas palabras resaltadas no empiezan
   // como alguna de las buscadas (mismas 3 primeras letras o, si la palabra es más corta, toda ella): así «correlativas» sigue trayendo «correlación».
   const buscadas = sinTildes(q).split(/[^a-z0-9]+/).filter(Boolean);
   const parecida = (w, p) => { let i = 0; while (i < w.length && i < p.length && w[i] === p[i]) i++; return i >= Math.min(3, p.length); };
   const conSentido = x => { const m = [...String(x.excerpt).matchAll(/<mark>([^<]*)<\/mark>/g)].flatMap(k => sinTildes(k[1]).split(/[^a-z0-9]+/).filter(Boolean)); return !m.length || m.some(w => buscadas.some(p => parecida(w, p))); };
   const res = (await datos(await pf.search(q), 80)).filter(x => !vistas.has(x.url) && conSentido(x)).slice(0, 40);
-  return { res, rap };
+  return { res, rap, pregs };
 }
 function lanzarBusqueda() {
   const B = V.bus, q = busQ();
-  if (q.length < 2) { B.pide = null; B.hecha = q; B.res = []; B.rap = []; B.error = false; return; }
+  if (q.length < 2) { B.pide = null; B.hecha = q; B.res = []; B.rap = []; B.pregs = []; B.error = false; return; }
   if (B.pide === q) return;
   B.pide = q;
   buscarPf(q).then(r => {
     if (B.pide !== q) return;
     Object.assign(B, r, { hecha: q, error: false });
     // Solo con consentimiento de Analytics, solo el término (recortado) y solo si no hubo nada.
-    if (!r.res.length && !r.rap.length && window.galeraConsent && galeraConsent.on()) medir('busqueda_sin_resultados', { termino: q.slice(0, 50) });
-  }).catch(() => { if (B.pide === q) Object.assign(B, { hecha: q, error: true, res: [], rap: [] }); })
+    if (!r.res.length && !r.rap.length && !r.pregs.length && window.galeraConsent && galeraConsent.on()) medir('busqueda_sin_resultados', { termino: q.slice(0, 50) });
+  }).catch(() => { if (B.pide === q) Object.assign(B, { hecha: q, error: true, res: [], rap: [], pregs: [] }); })
     .finally(() => { if (V.tab === 'buscar' && B.pide === q) pintarBusqueda(); });
 }
 function pintarBusqueda() { const el = $('#bus-res'); if (el) el.innerHTML = cuerpoBusqueda(); }
@@ -2985,10 +2994,11 @@ function cuerpoBusqueda() {
   if (q.length < 2) return '<p class="gl-baja">Escribí al menos dos letras. Se busca en los resúmenes, el glosario, los simuladores, los links y el resto de las pantallas.</p>';
   if (B.hecha !== q) return '<p class="gl-vacio" role="status">Buscando…</p>';
   if (B.error) return '<p class="gl-vacio" role="alert">No pude cargar el buscador. Puede ser la conexión. <button class="gl-btn gl-btn--sec" type="button" onclick="V.bus.pide=null;lanzarBusqueda();pintarBusqueda()">Probar de nuevo</button></p>';
-  if (!B.res.length && !B.rap.length) return `<div class="gl-vacio" role="status"><p>No encontré nada para «${esc(q)}». Probá con otra palabra o con menos palabras; las tildes no importan.</p><p>También podés mirar el <a href="/glosario/">Glosario</a> o <button class="gl-enlace" type="button" onclick="idea()">contarme qué falta</button>.</p></div>`;
-  const n = B.res.length + B.rap.length;
+  if (!B.res.length && !B.rap.length && !B.pregs.length) return `<div class="gl-vacio" role="status"><p>No encontré nada para «${esc(q)}». Probá con otra palabra o con menos palabras; las tildes no importan.</p><p>También podés mirar el <a href="/glosario/">Glosario</a>, <a href="/preguntas/#no-esta">dejar tu pregunta</a> o <button class="gl-enlace" type="button" onclick="idea()">contarme qué falta</button>.</p></div>`;
+  const n = B.res.length + B.rap.length + B.pregs.length;
   return `<p class="gl-baja" role="status">${n === 1 ? '1 resultado' : n + ' resultados'} para «${esc(q)}».</p>`
-    + (B.rap.length ? `<h2 class="gl-bus-h">Respuesta rápida</h2><ul class="gl-lista gl-bus-lista">${B.rap.map(x => itemBus(x, true)).join('')}</ul>` : '')
+    + (B.pregs.length ? `<h2 class="gl-bus-h">Respuesta rápida</h2><ul class="gl-lista gl-bus-lista">${B.pregs.map(p => `<li class="gl-tarjeta gl-bus-res gl-bus-rap"><h3 class="gl-bus-p">${esc(p.pregunta)}</h3><div class="gl-faq-r">${respuestaHtml(p.respuesta)}</div><a class="gl-enlace" href="/preguntas/#${esc(p.id)}">Ver en Preguntas frecuentes</a></li>`).join('')}</ul>` : '')
+    + (B.rap.length ? `<h2 class="gl-bus-h">Otra respuesta rápida</h2><ul class="gl-lista gl-bus-lista">${B.rap.map(x => itemBus(x, true)).join('')}</ul>` : '')
     + (B.res.length ? `<ul class="gl-lista gl-bus-lista">${B.res.map(x => itemBus(x)).join('')}</ul>` : '');
 }
 function buscarEnviar(e) {
@@ -3009,6 +3019,78 @@ function vBuscar() {
     <form class="gl-barra gl-bus-form" role="search" onsubmit="buscarEnviar(event)"><label class="gl-busca" for="bus-q"><span class="gl-rotulo">Qué querés encontrar</span><input id="bus-q" name="q" maxlength="100" type="search" enterkeyhint="search" autocomplete="off" placeholder="correlativas, final, gramaje…" value="${esc(V.bus.q)}" oninput="clearTimeout(buscarEnviar.t);const v=this.value;buscarEnviar.t=setTimeout(()=>buscarCon(v),350)"></label><button class="gl-btn" type="submit">Buscar</button></form>
     <div id="bus-res" aria-live="polite">${cuerpoBusqueda()}</div></div>`;
 }
+// ======================================================================
+// PREGUNTAS FRECUENTES: datos/preguntas.json (temas > preguntas con id, pregunta, variantes, respuesta). Una sola fuente: la pantalla, la respuesta rápida
+// del buscador y el JSON-LD FAQPage (tools/armar.py) salen de ese archivo. Las variantes (cómo lo escribe la gente) van como texto oculto para el buscador.
+// ======================================================================
+function cargarPreguntas() {
+  if (!cargarPreguntas.va) cargarPreguntas.va = (async () => {
+    try { D.preguntas = await json('preguntas.json'); } catch (e) { D.preguntas = { temas: [], error: true }; }
+    if (V.tab === 'preguntas') render();
+  })();
+  return cargarPreguntas.va;
+}
+// Pagefind devuelve las preguntas de la página en el orden en que están escritas y marca hasta «las» y «son»: acá se vuelven a ordenar por cuántas palabras de la
+// búsqueda (sin las vacías) aparecen en la pregunta, sus variantes o la respuesta. Hasta dos, la segunda solo si se acerca a la primera.
+const VACIAS = new Set('a al algo con cual cuales cuando como cuanto cuantos de del donde el ella ellos en es esta este esto la las le les lo los me mi mis muy no o para por que se si son su sus te ti tu tus un una uno y ya'.split(' '));
+const mismaRaiz = (a, b) => { let i = 0; while (i < a.length && i < b.length && a[i] === b[i]) i++; return i >= 4 && i >= Math.min(a.length, b.length) - 3; };
+function rankearPreguntas(q, cand) {
+  const pal = s => sinTildes(s).split(/[^a-z0-9]+/).filter(w => w.length > 1);
+  const buscadas = [...new Set(pal(q).filter(w => !VACIAS.has(w)))];
+  if (!buscadas.length) return [];
+  const pun = cand.map(p => {
+    const fuerte = pal(p.pregunta + ' ' + (p.variantes || []).join(' ')), resto = pal(p.respuesta);
+    let s = 0, n = 0;
+    buscadas.forEach(w => { const f = fuerte.some(x => mismaRaiz(w, x)), r = resto.some(x => mismaRaiz(w, x)); if (f || r) n++; s += f ? 2 : r ? 1 : 0; });
+    return { p, s, n };
+  }).filter(x => x.n * 2 >= buscadas.length && x.s > 0);
+  pun.sort((x, y) => y.s - x.s);
+  return pun.filter((x, i) => i === 0 || (i === 1 && x.s >= pun[0].s * 0.6)).map(x => x.p);
+}
+// Las preguntas por id, para la respuesta rápida del buscador.
+const preguntasLista = () => { const r = {}; ((D.preguntas && D.preguntas.temas) || []).forEach(t => t.preguntas.forEach(p => { r[p.id] = p; })); return r; };
+// Texto con enlaces [texto](/ruta/): todo se escapa y solo se arman enlaces a rutas internas o https.
+const respuestaHtml = t => `<p>${esc(t).replace(/\[([^\]]{1,120})\]\((\/(?!\/)[^\s()<>"]*|https:\/\/[^\s()<>"]*)\)/g, (m, x, u) => u[0] === '/' ? `<a href="${u}">${x}</a>` : `<a href="${u}" target="_blank" rel="noopener">${x}</a>`)}</p>`;
+async function mandarPregunta(e) {
+  e.preventDefault();
+  const f = $('#p-form'), texto = val('p-t'), contacto = val('p-c'), st = $('#p-estado'), b = $('#p-b');
+  if (texto.length < 5) { st.textContent = 'Escribí tu pregunta.'; st.className = 'gl-baja gl-bad'; return; }
+  if (contacto && !mailValido(contacto)) { st.textContent = 'Revisá el mail: parece que tiene un error (o dejalo vacío).'; st.className = 'gl-baja gl-bad'; return; }
+  b.disabled = true; b.textContent = 'Enviando…'; st.textContent = ''; st.className = 'gl-baja';
+  try {
+    await postBuzon('[Pregunta] ' + texto, contacto, val('p-w'), Date.now() - (mandarPregunta.t0 || Date.now()));
+    f.reset(); b.disabled = false; b.textContent = 'Enviar pregunta';
+    st.textContent = 'Quedó anotada. Gracias: la voy a mirar para sumarla acá.'; st.className = 'gl-baja';
+  } catch (err) {
+    b.disabled = false; b.textContent = 'Enviar pregunta';
+    st.innerHTML = `No se pudo enviar (${esc(err.message || 'sin conexión')}). Probá de nuevo o <a href="mailto:${SOPORTE}?subject=${encodeURIComponent('Galera: pregunta')}&body=${encodeURIComponent(texto)}">mandala por mail</a>.`; st.className = 'gl-baja gl-bad';
+  }
+}
+function vPreguntas() {
+  if (!D.preguntas) { cargarPreguntas(); return '<div class="gl-v"><p class="gl-vacio" role="status">Cargando las preguntas…</p></div>'; }
+  const T = D.preguntas.temas;
+  if (!T.length) return '<div class="gl-v"><p class="gl-vacio" role="alert">No se pudieron cargar las preguntas. <button class="gl-btn gl-btn--sec" type="button" onclick="location.reload()">Probar de nuevo</button></p></div>';
+  mandarPregunta.t0 = mandarPregunta.t0 || Date.now();
+  return `<div class="gl-v gl-faq"><span hidden data-pagefind-filter="tipo:pregunta"></span>
+    <div class="gl-cab"><h2 class="gl-display">Preguntas frecuentes</h2></div>
+    <p class="gl-baja">Lo que más se pregunta al empezar y al cursar Edición en la UBA. Si algo cambió o no coincide con tu cátedra, vale lo que diga el Departamento y el Reglamento Académico.</p>
+    <nav class="gl-faq-ind" aria-label="Temas de las preguntas"><ul class="gl-lista">${T.map(t => `<li><a href="#${esc(t.id)}">${esc(t.titulo)}</a></li>`).join('')}</ul></nav>
+    ${T.map(t => `<section class="gl-faq-tema" aria-labelledby="${esc(t.id)}"><h2 id="${esc(t.id)}" class="gl-t2 gl-faq-h">${esc(t.titulo)}</h2>
+      ${t.preguntas.map(p => `<article class="gl-tarjeta gl-faq-p"><h3 id="${esc(p.id)}" class="gl-faq-q">${esc(p.pregunta)}</h3>
+        <div class="gl-faq-r">${respuestaHtml(p.respuesta)}</div>
+        ${(p.variantes || []).length ? `<p hidden>${esc(p.variantes.join('. '))}.</p>` : ''}
+        <a class="gl-enlace gl-faq-ancla" href="#${esc(p.id)}">Link a esta pregunta</a></article>`).join('')}</section>`).join('')}
+    <section class="gl-faq-nueva" id="no-esta" aria-labelledby="no-esta-h" data-pagefind-ignore><h2 id="no-esta-h" class="gl-t2 gl-faq-h">¿No está tu pregunta?</h2>
+      <p class="gl-baja">Escribila y la sumo si le sirve a más gente. No pongas datos personales.</p>
+      <form id="p-form" class="gl-faq-form" onsubmit="mandarPregunta(event)" novalidate>
+        <div class="gl-campo"><label for="p-t">Tu pregunta</label><textarea id="p-t" maxlength="1000" rows="4" required placeholder="Ej.: ¿hasta cuándo puedo anotarme a una mesa de examen?"></textarea></div>
+        <div class="gl-campo"><label for="p-c">Tu mail, solo si querés que te responda (opcional)</label><input id="p-c" type="email" maxlength="120" autocomplete="email"></div>
+        <div aria-hidden="true" class="u-oculto"><label>No completar<input id="p-w" tabindex="-1" autocomplete="off"></label></div>
+        <div class="gl-faq-acc"><button class="gl-btn" id="p-b" type="submit">Enviar pregunta</button></div>
+        <p id="p-estado" class="gl-baja" role="status" aria-live="polite"></p>
+      </form></section></div>`;
+}
+// =====================================================================
 // GLOSARIO: términos clave de todas las materias (datos/glosario.json, armado con 104-edicion-cursada/glosario.py)
 // Un término que se usa en varias materias lleva la etiqueta de cada una; si significa algo distinto en cada una, trae una acepción por materia.
 // =====================================================================
@@ -3399,6 +3481,14 @@ function idea(o) {
     <p class="chico tenue" id="i-n">Le llega a Fidel. No se manda nada de tus notas ni de tus horarios. Si dejás un mail, se borra a los seis meses. <a href="/novedades/?ver=pedidos" onclick="cerrar()">Mirá lo que ya pidieron</a>.</p>`);
   setTimeout(() => $('#i-t').focus(), 50);
 }
+// El mismo POST del buzón para «Contame qué falta» y para las preguntas de /preguntas/ (el servidor no cambia: la pregunta llega con el prefijo «[Pregunta] »).
+async function postBuzon(texto, contacto, web, ms) {
+  // text/plain evita la consulta previa (preflight) del navegador, que Apps Script no responde.
+  const r = await fetch(BUZON, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+    body: JSON.stringify({ sitio: 'cursada', texto: String(texto).slice(0, 2000), contacto, web, ms, seccion: V.tab }) });
+  const j = await r.json();
+  if (!j.ok) throw new Error(j.error || 'No se pudo enviar');
+}
 async function mandarIdea() {
   const texto = val('i-t'), contacto = val('i-c');
   if (texto.length < 5) return aviso('Escribí tu sugerencia');
@@ -3408,10 +3498,7 @@ async function mandarIdea() {
   boton.disabled = true; boton.textContent = 'Enviando…';
   try {
     // text/plain evita la consulta previa (preflight) del navegador, que Apps Script no responde.
-    const r = await fetch(BUZON, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-      body: JSON.stringify({ sitio: 'cursada', texto: (ideaPrefijo + texto).slice(0, 2000), contacto, web: val('i-w'), ms: Date.now() - ideaAbierta, seccion: V.tab }) });
-    const j = await r.json();
-    if (!j.ok) throw new Error(j.error || 'No se pudo enviar');
+    await postBuzon(ideaPrefijo + texto, contacto, val('i-w'), Date.now() - ideaAbierta);
     abrir(cab('Quedó anotado') + `<p class="u-mt0">${ideaPrefijo ? '¡Gracias por la recomendación!' : '¡Gracias!'} Cuando lo revise, vas a ver cómo va en <a href="/novedades/?ver=pedidos" onclick="cerrar()">Novedades → Lo que pidieron</a>.</p>
       <div class="botones"><button class="btn" onclick="cerrar()">Listo</button></div>`);
   } catch (e) {

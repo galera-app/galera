@@ -767,3 +767,21 @@ a.ib{text-decoration:none}
 .gl-bus-rap{border-left:4px solid var(--gl-mark)}
 .gl-v .gl-vacio p{margin:0 0 8px}.gl-v .gl-vacio a{color:var(--gl-lnk);text-decoration:underline}
 .gl-v .gl-vacio .gl-enlace{font:inherit}
+
+/* v124 · Preguntas frecuentes (/preguntas/) y respuesta rápida del buscador */
+.gl-faq-ind{margin:24px 0 8px}.gl-faq-ind ul{display:flex;flex-wrap:wrap;gap:8px 16px}
+.gl-faq-ind a{display:inline-flex;align-items:center;min-height:44px;color:var(--gl-lnk);text-decoration:underline;text-underline-offset:3px;font:400 16px/24px var(--gl-sans)}
+.gl-faq-tema{margin-top:40px;scroll-margin-top:80px}.gl-faq-h{margin:0 0 16px;scroll-margin-top:80px}
+.gl-faq-tema .gl-tarjeta+.gl-tarjeta{margin-top:12px}
+.gl-faq-q{margin:0;font:600 18px/24px var(--gl-sans);color:var(--gl-ink);scroll-margin-top:80px}
+.gl-faq-p:has(.gl-faq-q:target){box-shadow:inset 4px 0 0 var(--gl-mark)}
+.gl-faq-r p,.gl-faq-r{margin:0;max-width:68ch;font:400 16px/24px var(--gl-sans);color:var(--gl-ink)}
+.gl-faq-r a,.gl-faq-ind a{color:var(--gl-lnk)}.gl-faq-r a{text-decoration:underline;text-underline-offset:3px}
+.gl-faq-ancla{align-self:flex-start;font-size:14px;color:var(--gl-t2)}
+.gl-faq-nueva{margin-top:48px;scroll-margin-top:80px}
+.gl-faq-form{max-width:640px;margin-top:16px}
+.gl-campo textarea{width:100%;min-height:120px;padding:12px;border:1px solid var(--gl-bd);border-radius:var(--gl-r);background:transparent;color:var(--gl-ink);font:400 16px/24px var(--gl-sans);resize:vertical}
+.gl-faq-acc{display:flex;gap:12px}
+.gl-baja.gl-bad{color:var(--gl-bad)}
+.gl-bus-p{margin:0;font:600 18px/24px var(--gl-sans);color:var(--gl-ink)}
+.gl-bus-res .gl-faq-r p{font-size:16px;line-height:24px;color:var(--gl-ink)}

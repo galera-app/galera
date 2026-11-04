@@ -138,6 +138,19 @@ def para_indice(t, rel):
     return MAIN.sub('<main data-pagefind-body id="main"', t, count=1)
 
 
+def faq_jsonld(t, rel):
+    """/preguntas/: agrega el JSON-LD FAQPage generado desde datos/preguntas.json (la misma fuente que la pantalla), con las respuestas en texto plano."""
+    if rel != "preguntas/index.html":
+        return t
+    datos = json.loads((RAIZ / "datos" / "preguntas.json").read_text(encoding="utf-8"))
+    plano = lambda s: re.sub(r"\[([^\]]+)\]\([^)]*\)", r"\1", s)
+    faq = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": p["pregunta"], "acceptedAnswer": {"@type": "Answer", "text": plano(p["respuesta"])}}
+        for tema in datos["temas"] for p in tema["preguntas"]]}
+    bloque = '<script type="application/ld+json">' + json.dumps(faq, ensure_ascii=False).replace("</", "<" + chr(92) + "/") + "</script>\n"
+    return t.replace("</head>", bloque + "</head>", 1)
+
+
 def comando_pagefind():
     """`python -m pagefind` (paquete pagefind[extended]), el binario `pagefind` o `npx pagefind`. None si no hay ninguno."""
     pruebas = [[sys.executable, "-m", "pagefind"]]
@@ -251,7 +264,7 @@ def construir(salida, indice=False):
     escribir(app, re.sub(r"s\.src = '/mapa-ar\.js[^']*'", "s.src = '/mapa-ar.js?v=" + huella(salida / "mapa-ar.js") + "'", app.read_text(encoding="utf-8")))
     sobran = []
     for p, rel in paginas(salida):
-        escribir(p, versionar(para_indice(expandir(p.read_text(encoding="utf-8"), rel), rel), p.parent, salida))
+        escribir(p, versionar(para_indice(faq_jsonld(expandir(p.read_text(encoding="utf-8"), rel), rel), rel), p.parent, salida))
     prerender(salida)
     for p, rel in paginas(salida):
         if "<!--marco:" in p.read_text(encoding="utf-8"):
