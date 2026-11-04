@@ -33,9 +33,13 @@ jobs:
           PY
       - name: La sintaxis de los JS es válida
         run: git ls-files '*.js' | xargs -n1 node --check
+      - name: Instalar Pagefind (el buscador)
+        run: pip install "pagefind[extended]"
       - name: Las páginas llevan marcas y el armado de marco/ funciona
         run: python tools/armar.py --comprobar
       - name: Armar el sitio publicable (dist/)
+        env:
+          GALERA_EXIGIR_BUSCADOR: "1"
         run: python tools/armar.py --salida dist
       - name: Las pantallas clave responden
         run: |

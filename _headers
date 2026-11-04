@@ -2,4 +2,4 @@
 # noindex: que no aparezca en Google. CSP: sin Analytics y sin escribir en el buzón ni en el arcade reales.
 /*
   X-Robots-Tag: noindex
-  Content-Security-Policy: connect-src 'self'; script-src 'self' 'unsafe-inline'
+  Content-Security-Policy: connect-src 'self'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'

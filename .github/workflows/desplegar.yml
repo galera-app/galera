@@ -44,7 +44,11 @@ jobs:
           python-version: "3.12"
       # Las páginas del repo llevan marcas; tools/armar.py arma el sitio en dist/. Los códigos anteriores al marco único
       # ya traen las páginas armadas y se publican tal cual (esta rama sobra cuando `produccion` ya incluya armar.py).
+      - name: Instalar Pagefind (el buscador)
+        run: pip install "pagefind[extended]"
       - name: Armar el sitio
+        env:
+          GALERA_EXIGIR_BUSCADOR: "1"
         run: |
           if grep -q '<!--marco:' index.html; then
             python tools/armar.py --salida dist

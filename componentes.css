@@ -753,3 +753,17 @@ html.con-datos body[data-tab=carrera] #main,html.con-datos body[data-tab=horario
   .gl-hsem{order:1}.gl-hside{order:2;width:100%}.gl-hrest{order:3;margin-top:0}
   .gl-hor .gl-tarjeta.gl-flex{flex-wrap:wrap}
 }
+
+/* v123 · Buscador (/buscar/ y lupa de la cabecera) */
+a.ib{text-decoration:none}
+.gl-bus-form{align-items:flex-end}.gl-bus-form .gl-busca{flex:1 1 320px}
+.gl-bus-h{margin:32px 0 0;font:600 18px/24px var(--gl-sans);color:var(--gl-ink)}
+.gl-bus-lista{margin:16px 0 0;display:flex;flex-direction:column;gap:12px}
+.gl-bus-res{gap:4px}.gl-bus-res h2{margin:0;font:600 18px/24px var(--gl-sans)}
+.gl-bus-res h2 a{display:inline-flex;align-items:center;min-height:44px;color:var(--gl-lnk);text-decoration:underline;text-underline-offset:3px}
+.gl-bus-res .gl-chip{align-self:flex-start}
+.gl-bus-res p{margin:0;font:400 14px/20px var(--gl-sans);color:var(--gl-t2)}
+.gl-bus-res mark{background:var(--gl-sky);color:inherit;border-radius:var(--gl-r);padding:0 2px}
+.gl-bus-rap{border-left:4px solid var(--gl-mark)}
+.gl-v .gl-vacio p{margin:0 0 8px}.gl-v .gl-vacio a{color:var(--gl-lnk);text-decoration:underline}
+.gl-v .gl-vacio .gl-enlace{font:inherit}

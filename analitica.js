@@ -12,7 +12,7 @@ function cargarGA() {
   cargarGA.ok = true;
   gtag('js', new Date());
   // Sin el # de la URL: ahí viajan los tokens de confirmar y baja de las novedades.
-  gtag('config', ID_GA, { page_location: location.origin + location.pathname + location.search });
+  gtag('config', ID_GA, { page_location: location.origin + location.pathname + (location.pathname === '/buscar/' ? '' : location.search) });  // lo que se busca no viaja a Analytics
   const s = document.createElement('script');
   s.async = true;
   s.src = 'https://www.googletagmanager.com/gtag/js?id=' + ID_GA;
