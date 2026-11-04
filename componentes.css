@@ -96,7 +96,7 @@ a.gl-cont::after{content:"";margin-left:auto;width:20px;height:20px;background:c
 @media (hover:hover) and (pointer:fine) and (min-width:761px){.gl-btn--c{height:40px;padding:0 14px;font-size:14px}}
 .gl-btn:disabled{background:var(--gl-card);color:var(--gl-t3);cursor:not-allowed}
 .gl-enlace{display:inline-flex;align-items:center;min-height:44px;padding:0;border:0;background:none;font:400 14px/20px var(--gl-sans);color:var(--gl-lnk);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
-:where(.gl-btn,.gl-enlace,.gl-campo input,.gl-sel,.gl-fila):focus-visible{outline:2px solid var(--gl-ink);outline-offset:2px}
+:where(.gl-btn,.gl-enlace,.gl-campo input,.gl-campo textarea,.gl-sel,.gl-fila):focus-visible{outline:2px solid var(--gl-ink);outline-offset:2px}
 
 /* Campo y ayuda */
 .gl-campo{display:block;margin:0 0 16px}

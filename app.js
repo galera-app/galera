@@ -2965,7 +2965,10 @@ async function buscarPf(q) {
     const dp = await datos(await pf.search(q, { filters: { tipo: 'pregunta' } }), 3);
     await cargarPreguntas();
     const lista = preguntasLista(), ids = [];
-    dp.forEach(x => (x.sub_results || []).forEach(sr => { const id = (sr.anchor && sr.anchor.id) || String(sr.url || '').split('#')[1]; if (id && lista[id] && !ids.includes(id)) ids.push(id); }));
+    // Orden de relevancia de Pagefind (suma de balanced_score de cada encabezado), no el de la página.
+    const rel = [];
+    dp.forEach(x => (x.sub_results || []).forEach(sr => { const id = (sr.anchor && sr.anchor.id) || String(sr.url || '').split('#')[1]; if (id && lista[id] && !rel.some(r => r.id === id)) rel.push({ id, sc: (sr.weighted_locations || []).reduce((n, w) => n + (w.balanced_score || 0), 0) }); }));
+    rel.sort((x, y) => y.sc - x.sc).forEach(r => ids.push(r.id));
     pregs = rankearPreguntas(q, ids.map(id => lista[id]));
     rap = dp.filter(x => x.url.split('#')[0] !== '/preguntas/').slice(0, 1);
   } catch (e) { rap = []; pregs = []; }
@@ -3051,24 +3054,27 @@ function cargarPreguntas() {
 // Pagefind devuelve las preguntas de la página en el orden en que están escritas y marca hasta «las» y «son»: acá se vuelven a ordenar por cuántas palabras de la
 // búsqueda (sin las vacías) aparecen en la pregunta, sus variantes o la respuesta. Hasta dos, la segunda solo si se acerca a la primera.
 const VACIAS = new Set('a al algo con cual cuales cuando como cuanto cuantos de del donde el ella ellos en es esta este esto la las le les lo los me mi mis muy no o para por que se si son su sus te ti tu tus un una uno y ya'.split(' '));
-const mismaRaiz = (a, b) => { let i = 0; while (i < a.length && i < b.length && a[i] === b[i]) i++; return i >= 4 && i >= Math.min(a.length, b.length) - 3; };
+// Misma palabra con otra terminación (singular y plural, género, «inscripción» e «inscripciones»): prefijo común largo y casi toda la más corta. «horarios» no vale «horas».
+const mismaRaiz = (a, b) => { let i = 0; while (i < a.length && i < b.length && a[i] === b[i]) i++; return i >= 4 && i >= Math.max(4, Math.min(a.length, b.length) - 2); };
+const cuenta = (ws, w) => ws.reduce((n, x) => n + (mismaRaiz(w, x) ? 1 : 0), 0);
 function rankearPreguntas(q, cand) {
   const pal = s => sinTildes(s).split(/[^a-z0-9]+/).filter(w => w.length > 1);
   const buscadas = [...new Set(pal(q).filter(w => !VACIAS.has(w)))];
   if (!buscadas.length) return [];
-  const pun = cand.map(p => {
-    const fuerte = pal(p.pregunta + ' ' + (p.variantes || []).join(' ')), resto = pal(p.respuesta);
+  const pun = cand.map((p, orden) => {
+    const tit = pal(p.pregunta), vars = pal((p.variantes || []).join(' ')), resp = pal(p.respuesta);
     let s = 0, n = 0;
-    buscadas.forEach(w => { const f = fuerte.some(x => mismaRaiz(w, x)), r = resto.some(x => mismaRaiz(w, x)); if (f || r) n++; s += f ? 2 : r ? 1 : 0; });
-    return { p, s, n };
-  }).filter(x => x.n * 2 >= buscadas.length && x.s > 0);
-  pun.sort((x, y) => y.s - x.s);
+    // Pregunta (4) > variantes (2) > respuesta (1, con tope: una palabra repetida en la respuesta no pesa más que una en la pregunta).
+    buscadas.forEach(w => { const t = cuenta(tit, w), v = cuenta(vars, w), r = cuenta(resp, w); if (t || v || r) n++; s += 4 * Math.min(t, 2) + 2 * Math.min(v, 3) + Math.min(r, 3) + (t ? 3 / tit.length : 0); });   // + un poco más si la pregunta es corta (más enfocada en esa palabra)
+    return { p, s, n, orden };
+  }).filter(x => x.n * 2 >= buscadas.length && x.s >= 4);   // pide al menos una coincidencia en la pregunta o dos en variantes
+  pun.sort((x, y) => y.s - x.s || x.orden - y.orden);
   return pun.filter((x, i) => i === 0 || (i === 1 && x.s >= pun[0].s * 0.6)).map(x => x.p);
 }
 // Las preguntas por id, para la respuesta rápida del buscador.
 const preguntasLista = () => { const r = {}; ((D.preguntas && D.preguntas.temas) || []).forEach(t => t.preguntas.forEach(p => { r[p.id] = p; })); return r; };
 // Texto con enlaces [texto](/ruta/): todo se escapa y solo se arman enlaces a rutas internas o https.
-const respuestaHtml = t => `<p>${esc(t).replace(/\[([^\]]{1,120})\]\((\/(?!\/)[^\s()<>"]*|https:\/\/[^\s()<>"]*)\)/g, (m, x, u) => u[0] === '/' ? `<a href="${u}">${x}</a>` : `<a href="${u}" target="_blank" rel="noopener">${x}</a>`)}</p>`;
+const respuestaHtml = t => `<p>${esc(t).replace(/\[([^\]]{1,120})\]\((\/(?![\/\\])[^\s()<>"\\]*|https:\/\/[^\s()<>"\\]*)\)/g, (m, x, u) => u[0] === '/' ? `<a href="${u}">${x}</a>` : `<a href="${u}" target="_blank" rel="noopener">${x}</a>`)}</p>`;
 async function mandarPregunta(e) {
   e.preventDefault();
   const f = $('#p-form'), texto = val('p-t'), contacto = val('p-c'), st = $('#p-estado'), b = $('#p-b');
