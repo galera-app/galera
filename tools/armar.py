@@ -35,6 +35,8 @@ ACTUAL = ' aria-current="page"'
 NO_PUBLICAR = {".git", ".github", "tools", "marco", "dist", "__pycache__"}
 # Buscador: Pagefind indexa el <main> de cada página armada (y de ninguna más: ni /buscar/, ni la 404, ni las noindex).
 SIN_INDICE = {"404.html", "buscar/index.html"}
+# La versión que usan el CI, `Publicar` y el comando de build de Cloudflare (README): que sea la misma en todos lados.
+PAGEFIND_VERSION = "1.6.0"
 MAIN = re.compile(r'<main id="main"')
 MARCAS = ("csp", "meta", "recursos", "cabecera", "pie", "vista")
 
@@ -157,7 +159,7 @@ def comando_pagefind():
     if shutil.which("pagefind"):
         pruebas.append(["pagefind"])
     if shutil.which("npx"):
-        pruebas.append([shutil.which("npx"), "--yes", "pagefind"])
+        pruebas.append([shutil.which("npx"), "--yes", f"pagefind@{PAGEFIND_VERSION}"])
     for c in pruebas:
         try:
             if subprocess.run(c + ["--version"], capture_output=True, timeout=120).returncode == 0:
@@ -171,7 +173,7 @@ def indexar(salida):
     """Arma salida/pagefind/ (el índice del buscador). Sin Pagefind avisa y sigue, salvo con GALERA_EXIGIR_BUSCADOR=1 (el CI)."""
     c = comando_pagefind()
     if c is None:
-        print("AVISO: no encontré Pagefind; el sitio queda sin buscador. Instalalo con: pip install \"pagefind[extended]\"")
+        print(f"AVISO: no encontré Pagefind; el sitio queda sin buscador. Instalalo con: pip install \"pagefind[extended]=={PAGEFIND_VERSION}\"")
         return os.environ.get("GALERA_EXIGIR_BUSCADOR") != "1"
     r = subprocess.run(c + ["--site", str(salida), "--force-language", "es", "--quiet"], timeout=600)
     # La interfaz propia está en app.js (vBuscar): los componentes de interfaz de Pagefind no se publican.
