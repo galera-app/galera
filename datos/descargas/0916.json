@@ -1,0 +1,267 @@
+{
+ "materia": "0916",
+ "nombre": "Informática para la Administración Editorial",
+ "version_sitio": "v121",
+ "generado": "2026-11-04",
+ "base_url": "https://descargas.galera.com.ar/r/0916/",
+ "apuntes": [
+  {
+   "id": "e1-pensamiento-sistemico",
+   "titulo": "Pensamiento sistémico",
+   "pagina_web": "https://galera.com.ar/r/0916/e1-pensamiento-sistemico.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e1-pensamiento-sistemico-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0916/e1-pensamiento-sistemico-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 166452,
+     "paginas": 18,
+     "sha256": "3c2e332e61d57428",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e1-pensamiento-sistemico-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0916/e1-pensamiento-sistemico-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 182131,
+     "paginas": 33,
+     "sha256": "a658c7e637f26cb0",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e1-pensamiento-sistemico-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0916/e1-pensamiento-sistemico-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 534294,
+     "paginas": 18,
+     "sha256": "c840e22677eb85d9",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e1-pensamiento-sistemico.epub",
+     "url": "https://descargas.galera.com.ar/r/0916/e1-pensamiento-sistemico.epub",
+     "mime": "application/epub+zip",
+     "bytes": 491111,
+     "paginas": null,
+     "sha256": "6608faea1be468e9",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e2-tipos-de-sistemas-de-informacion",
+   "titulo": "Tipos de sistemas de información y sistemas transaccionales",
+   "pagina_web": "https://galera.com.ar/r/0916/e2-tipos-de-sistemas-de-informacion.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e2-tipos-de-sistemas-de-informacion-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0916/e2-tipos-de-sistemas-de-informacion-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 180041,
+     "paginas": 19,
+     "sha256": "c12b9ec40db29a49",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e2-tipos-de-sistemas-de-informacion-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0916/e2-tipos-de-sistemas-de-informacion-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 196651,
+     "paginas": 35,
+     "sha256": "b2e3bb79f6dd0612",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e2-tipos-de-sistemas-de-informacion-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0916/e2-tipos-de-sistemas-de-informacion-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 546970,
+     "paginas": 18,
+     "sha256": "f961fa5c775aa02d",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e2-tipos-de-sistemas-de-informacion.epub",
+     "url": "https://descargas.galera.com.ar/r/0916/e2-tipos-de-sistemas-de-informacion.epub",
+     "mime": "application/epub+zip",
+     "bytes": 498747,
+     "paginas": null,
+     "sha256": "91dc7a021b0e296e",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e3-informacion-en-la-empresa-cultural",
+   "titulo": "Cultura, tecnología e información",
+   "pagina_web": "https://galera.com.ar/r/0916/e3-informacion-en-la-empresa-cultural.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e3-informacion-en-la-empresa-cultural-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0916/e3-informacion-en-la-empresa-cultural-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 188039,
+     "paginas": 21,
+     "sha256": "8c0413a18531d688",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e3-informacion-en-la-empresa-cultural-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0916/e3-informacion-en-la-empresa-cultural-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 208647,
+     "paginas": 40,
+     "sha256": "d2f59aae1f9baea8",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e3-informacion-en-la-empresa-cultural-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0916/e3-informacion-en-la-empresa-cultural-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 555521,
+     "paginas": 20,
+     "sha256": "d4d3224db2b13652",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e3-informacion-en-la-empresa-cultural.epub",
+     "url": "https://descargas.galera.com.ar/r/0916/e3-informacion-en-la-empresa-cultural.epub",
+     "mime": "application/epub+zip",
+     "bytes": 500285,
+     "paginas": null,
+     "sha256": "25e708d2888ac5f2",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e4-gestion-gerencial-e-informacion-y-diseno",
+   "titulo": "Gestión gerencial e información y diseño",
+   "pagina_web": "https://galera.com.ar/r/0916/e4-gestion-gerencial-e-informacion-y-diseno.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e4-gestion-gerencial-e-informacion-y-diseno-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0916/e4-gestion-gerencial-e-informacion-y-diseno-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 192216,
+     "paginas": 23,
+     "sha256": "620b10b57f548aad",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e4-gestion-gerencial-e-informacion-y-diseno-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0916/e4-gestion-gerencial-e-informacion-y-diseno-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 212702,
+     "paginas": 42,
+     "sha256": "02aa1d7b4cc20a12",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e4-gestion-gerencial-e-informacion-y-diseno-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0916/e4-gestion-gerencial-e-informacion-y-diseno-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 563811,
+     "paginas": 22,
+     "sha256": "64e3f9c00ca484ba",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e4-gestion-gerencial-e-informacion-y-diseno.epub",
+     "url": "https://descargas.galera.com.ar/r/0916/e4-gestion-gerencial-e-informacion-y-diseno.epub",
+     "mime": "application/epub+zip",
+     "bytes": 502180,
+     "paginas": null,
+     "sha256": "7bc74e72965a0a49",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "z-simulacro",
+   "titulo": "Simulacro de parcial (Informática para la Administración Editorial, 0916)",
+   "pagina_web": "https://galera.com.ar/r/0916/z-simulacro.html",
+   "archivos": {
+    "A4": {
+     "archivo": "z-simulacro-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0916/z-simulacro-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 70052,
+     "paginas": 4,
+     "sha256": "229572c37ffead1e",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "z-simulacro-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0916/z-simulacro-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 71354,
+     "paginas": 5,
+     "sha256": "60b9a0415ec27a82",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "z-simulacro-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0916/z-simulacro-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 415043,
+     "paginas": 4,
+     "sha256": "af25db3ee22a54e5",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "z-simulacro.epub",
+     "url": "https://descargas.galera.com.ar/r/0916/z-simulacro.epub",
+     "mime": "application/epub+zip",
+     "bytes": 476756,
+     "paginas": null,
+     "sha256": "6722b533aa257c72",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "z-simulacro-respuestas",
+   "titulo": "Respuestas del simulacro",
+   "pagina_web": "https://galera.com.ar/r/0916/z-simulacro-respuestas.html",
+   "archivos": {
+    "A4": {
+     "archivo": "z-simulacro-respuestas-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0916/z-simulacro-respuestas-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 57831,
+     "paginas": 3,
+     "sha256": "bd46d19aac8424cd",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "z-simulacro-respuestas-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0916/z-simulacro-respuestas-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 59831,
+     "paginas": 5,
+     "sha256": "8e61c742b9a93b19",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "z-simulacro-respuestas-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0916/z-simulacro-respuestas-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 402586,
+     "paginas": 4,
+     "sha256": "2c73afcc33760886",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "z-simulacro-respuestas.epub",
+     "url": "https://descargas.galera.com.ar/r/0916/z-simulacro-respuestas.epub",
+     "mime": "application/epub+zip",
+     "bytes": 471393,
+     "paginas": null,
+     "sha256": "41c6e3bba704ffe3",
+     "generado": "2026-11-04"
+    }
+   }
+  }
+ ]
+}

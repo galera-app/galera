@@ -1,0 +1,482 @@
+{
+ "materia": "0905",
+ "nombre": "Fundamentos de la Producción de Impresos",
+ "version_sitio": "v121",
+ "generado": "2026-11-04",
+ "base_url": "https://descargas.galera.com.ar/r/0905/",
+ "apuntes": [
+  {
+   "id": "e1-planificacion-y-presupuesto",
+   "titulo": "La cuestión tecnológica, áreas de producción, planificación y presupuestación",
+   "pagina_web": "https://galera.com.ar/r/0905/e1-planificacion-y-presupuesto.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e1-planificacion-y-presupuesto-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0905/e1-planificacion-y-presupuesto-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 180708,
+     "paginas": 19,
+     "sha256": "69f826da1a2941de",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e1-planificacion-y-presupuesto-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0905/e1-planificacion-y-presupuesto-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 199322,
+     "paginas": 36,
+     "sha256": "2313c05c03d570c3",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e1-planificacion-y-presupuesto-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0905/e1-planificacion-y-presupuesto-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 548146,
+     "paginas": 18,
+     "sha256": "60c6759824a487dd",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e1-planificacion-y-presupuesto.epub",
+     "url": "https://descargas.galera.com.ar/r/0905/e1-planificacion-y-presupuesto.epub",
+     "mime": "application/epub+zip",
+     "bytes": 504693,
+     "paginas": null,
+     "sha256": "c2c5bb7be8be5571",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e2-soportes-y-papel",
+   "titulo": "Unidad 2: Soportes de impresión y papel",
+   "pagina_web": "https://galera.com.ar/r/0905/e2-soportes-y-papel.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e2-soportes-y-papel-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0905/e2-soportes-y-papel-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 183342,
+     "paginas": 20,
+     "sha256": "4350b1258baa60e8",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e2-soportes-y-papel-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0905/e2-soportes-y-papel-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 202850,
+     "paginas": 38,
+     "sha256": "7500d1980aed1379",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e2-soportes-y-papel-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0905/e2-soportes-y-papel-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 552562,
+     "paginas": 20,
+     "sha256": "c49b547d89465dee",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e2-soportes-y-papel.epub",
+     "url": "https://descargas.galera.com.ar/r/0905/e2-soportes-y-papel.epub",
+     "mime": "application/epub+zip",
+     "bytes": 499551,
+     "paginas": null,
+     "sha256": "8127c9cf08eb8e3e",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e3-tipografia-y-archivos",
+   "titulo": "Unidad 3 (Tipografía, tipometría, autoedición y archivos digitales)",
+   "pagina_web": "https://galera.com.ar/r/0905/e3-tipografia-y-archivos.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e3-tipografia-y-archivos-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0905/e3-tipografia-y-archivos-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 170721,
+     "paginas": 19,
+     "sha256": "687ee8222f6c6bda",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e3-tipografia-y-archivos-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0905/e3-tipografia-y-archivos-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 188467,
+     "paginas": 36,
+     "sha256": "3c201411d431a4c8",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e3-tipografia-y-archivos-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0905/e3-tipografia-y-archivos-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 536771,
+     "paginas": 18,
+     "sha256": "8d536e466a65d1bc",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e3-tipografia-y-archivos.epub",
+     "url": "https://descargas.galera.com.ar/r/0905/e3-tipografia-y-archivos.epub",
+     "mime": "application/epub+zip",
+     "bytes": 496062,
+     "paginas": null,
+     "sha256": "8878bf50808ef421",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e4a-color-tintas-y-tramas",
+   "titulo": "Color, tintas y tramas (Unidades 4 y 5, primera parte)",
+   "pagina_web": "https://galera.com.ar/r/0905/e4a-color-tintas-y-tramas.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e4a-color-tintas-y-tramas-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0905/e4a-color-tintas-y-tramas-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 165988,
+     "paginas": 16,
+     "sha256": "b574852379661ac6",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e4a-color-tintas-y-tramas-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0905/e4a-color-tintas-y-tramas-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 180212,
+     "paginas": 30,
+     "sha256": "581aef9bf173f337",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e4a-color-tintas-y-tramas-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0905/e4a-color-tintas-y-tramas-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 527857,
+     "paginas": 16,
+     "sha256": "e29c1f06db164718",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e4a-color-tintas-y-tramas.epub",
+     "url": "https://descargas.galera.com.ar/r/0905/e4a-color-tintas-y-tramas.epub",
+     "mime": "application/epub+zip",
+     "bytes": 493205,
+     "paginas": null,
+     "sha256": "445aeaa98cce2166",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e4b-preprensa-flujos-y-calidad",
+   "titulo": "El camino hacia la forma (Preprensa, flujos de trabajo y aseguramiento de la calidad)",
+   "pagina_web": "https://galera.com.ar/r/0905/e4b-preprensa-flujos-y-calidad.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e4b-preprensa-flujos-y-calidad-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0905/e4b-preprensa-flujos-y-calidad-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 156901,
+     "paginas": 16,
+     "sha256": "5071e6176ea954a8",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e4b-preprensa-flujos-y-calidad-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0905/e4b-preprensa-flujos-y-calidad-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 172774,
+     "paginas": 31,
+     "sha256": "f450540d61d90cfb",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e4b-preprensa-flujos-y-calidad-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0905/e4b-preprensa-flujos-y-calidad-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 520410,
+     "paginas": 16,
+     "sha256": "5296a5bd6a8e61c4",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e4b-preprensa-flujos-y-calidad.epub",
+     "url": "https://descargas.galera.com.ar/r/0905/e4b-preprensa-flujos-y-calidad.epub",
+     "mime": "application/epub+zip",
+     "bytes": 495232,
+     "paginas": null,
+     "sha256": "70e1a5122438ce9f",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e5-sistemas-de-impresion",
+   "titulo": "Sistemas de impresión",
+   "pagina_web": "https://galera.com.ar/r/0905/e5-sistemas-de-impresion.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e5-sistemas-de-impresion-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0905/e5-sistemas-de-impresion-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 171237,
+     "paginas": 19,
+     "sha256": "06533f5bec48501e",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e5-sistemas-de-impresion-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0905/e5-sistemas-de-impresion-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 187192,
+     "paginas": 35,
+     "sha256": "c36a15fd33d9f1d4",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e5-sistemas-de-impresion-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0905/e5-sistemas-de-impresion-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 535110,
+     "paginas": 18,
+     "sha256": "b87abb1e9a794202",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e5-sistemas-de-impresion.epub",
+     "url": "https://descargas.galera.com.ar/r/0905/e5-sistemas-de-impresion.epub",
+     "mime": "application/epub+zip",
+     "bytes": 492584,
+     "paginas": null,
+     "sha256": "b55440032ce5d7c6",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e6-postprensa-y-encuadernacion",
+   "titulo": "Postprensa (Terminaciones/acabados y encuadernación)",
+   "pagina_web": "https://galera.com.ar/r/0905/e6-postprensa-y-encuadernacion.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e6-postprensa-y-encuadernacion-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0905/e6-postprensa-y-encuadernacion-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 138065,
+     "paginas": 14,
+     "sha256": "37e666fc48986cc9",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e6-postprensa-y-encuadernacion-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0905/e6-postprensa-y-encuadernacion-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 149631,
+     "paginas": 25,
+     "sha256": "dfd50fbdb4e756e5",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e6-postprensa-y-encuadernacion-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0905/e6-postprensa-y-encuadernacion-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 497518,
+     "paginas": 14,
+     "sha256": "fed19189d7445e45",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e6-postprensa-y-encuadernacion.epub",
+     "url": "https://descargas.galera.com.ar/r/0905/e6-postprensa-y-encuadernacion.epub",
+     "mime": "application/epub+zip",
+     "bytes": 489976,
+     "paginas": null,
+     "sha256": "c6e5d8bfd6e99b4c",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "c-calculos",
+   "titulo": "Cálculos",
+   "pagina_web": "https://galera.com.ar/r/0905/c-calculos.html",
+   "archivos": {
+    "A4": {
+     "archivo": "c-calculos-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0905/c-calculos-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 169887,
+     "paginas": 14,
+     "sha256": "b9f1831de07c7a8a",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "c-calculos-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0905/c-calculos-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 180841,
+     "paginas": 25,
+     "sha256": "3fd896b9b5058956",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "c-calculos-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0905/c-calculos-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 528849,
+     "paginas": 14,
+     "sha256": "889d9943d4f98437",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "c-calculos.epub",
+     "url": "https://descargas.galera.com.ar/r/0905/c-calculos.epub",
+     "mime": "application/epub+zip",
+     "bytes": 485819,
+     "paginas": null,
+     "sha256": "c10284da629b645d",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "00-repaso-final",
+   "titulo": "Repaso final · Fundamentos de la Producción de Impresos, 1.er parcial",
+   "pagina_web": "https://galera.com.ar/r/0905/00-repaso-final.html",
+   "archivos": {
+    "A4": {
+     "archivo": "00-repaso-final-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0905/00-repaso-final-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 78333,
+     "paginas": 5,
+     "sha256": "c085e37d365fb168",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "00-repaso-final-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0905/00-repaso-final-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 81129,
+     "paginas": 8,
+     "sha256": "98d6a5592ec1cfd4",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "00-repaso-final-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0905/00-repaso-final-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 425390,
+     "paginas": 6,
+     "sha256": "f078f8bdb0a97ae8",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "00-repaso-final.epub",
+     "url": "https://descargas.galera.com.ar/r/0905/00-repaso-final.epub",
+     "mime": "application/epub+zip",
+     "bytes": 484322,
+     "paginas": null,
+     "sha256": "3c9ee3fa273bdad0",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "z-simulacro",
+   "titulo": "Simulacro del primer parcial de FPI",
+   "pagina_web": "https://galera.com.ar/r/0905/z-simulacro.html",
+   "archivos": {
+    "A4": {
+     "archivo": "z-simulacro-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0905/z-simulacro-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 73456,
+     "paginas": 5,
+     "sha256": "11ee2900399e0d95",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "z-simulacro-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0905/z-simulacro-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 75551,
+     "paginas": 7,
+     "sha256": "3566c0da17101a19",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "z-simulacro-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0905/z-simulacro-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 417187,
+     "paginas": 4,
+     "sha256": "6eb2b458458c324e",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "z-simulacro.epub",
+     "url": "https://descargas.galera.com.ar/r/0905/z-simulacro.epub",
+     "mime": "application/epub+zip",
+     "bytes": 473949,
+     "paginas": null,
+     "sha256": "27ed40d3da51a188",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "z-simulacro-respuestas",
+   "titulo": "Simulacro: respuestas",
+   "pagina_web": "https://galera.com.ar/r/0905/z-simulacro-respuestas.html",
+   "archivos": {
+    "A4": {
+     "archivo": "z-simulacro-respuestas-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0905/z-simulacro-respuestas-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 71121,
+     "paginas": 4,
+     "sha256": "de226b55b57bfd6f",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "z-simulacro-respuestas-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0905/z-simulacro-respuestas-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 74229,
+     "paginas": 7,
+     "sha256": "736b822f5f7bce92",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "z-simulacro-respuestas-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0905/z-simulacro-respuestas-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 416506,
+     "paginas": 4,
+     "sha256": "5fe87c5cc05ac551",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "z-simulacro-respuestas.epub",
+     "url": "https://descargas.galera.com.ar/r/0905/z-simulacro-respuestas.epub",
+     "mime": "application/epub+zip",
+     "bytes": 474758,
+     "paginas": null,
+     "sha256": "3ada48968b9869be",
+     "generado": "2026-11-04"
+    }
+   }
+  }
+ ]
+}
