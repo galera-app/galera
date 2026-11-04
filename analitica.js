@@ -11,8 +11,16 @@ function cargarGA() {
   if (cargarGA.ok) return;
   cargarGA.ok = true;
   gtag('js', new Date());
-  // Sin el # de la URL: ahí viajan los tokens de confirmar y baja de las novedades.
-  gtag('config', ID_GA, { page_location: location.origin + location.pathname + (location.pathname === '/buscar/' ? '' : location.search) });  // lo que se busca no viaja a Analytics
+  // Sin el # de la URL (ahí viajan los tokens de confirmar y baja de las novedades) y sin ?q de /buscar/ (lo que se busca no viaja a Analytics).
+  // page_view se manda a mano para controlar la dirección: también en cada cambio de pantalla (pushState) y con el referrer limpio.
+  const limpia = () => location.origin + location.pathname + (location.pathname.startsWith('/buscar') ? '' : location.search);
+  const referrer = () => { try { const u = new URL(document.referrer); return u.origin === location.origin && u.pathname.startsWith('/buscar') ? u.origin + u.pathname : document.referrer; } catch (e) { return document.referrer; } };
+  let ultima = location.pathname;
+  gtag('config', ID_GA, { send_page_view: false });
+  gtag('event', 'page_view', { page_location: limpia(), page_referrer: referrer() });
+  const vista = () => { if (location.pathname === ultima) return; const antes = ultima; ultima = location.pathname; setTimeout(() => gtag('event', 'page_view', { page_location: limpia(), page_referrer: location.origin + antes, page_title: document.title }), 60); };
+  ['pushState', 'replaceState'].forEach(k => { const f = history[k]; history[k] = function () { const r = f.apply(this, arguments); vista(); return r; }; });
+  window.addEventListener('popstate', vista);
   const s = document.createElement('script');
   s.async = true;
   s.src = 'https://www.googletagmanager.com/gtag/js?id=' + ID_GA;

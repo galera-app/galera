@@ -434,7 +434,7 @@ function ir(tab) {
   if (cambia) focoTitulo();
 }
 // Al cambiar de pestaña el foco va al título de la pantalla nueva (quien usa lector de pantalla o teclado no queda en el botón anterior).
-function focoTitulo() { const bq = V.tab === 'buscar' && document.querySelector('#bus-q'); if (bq) { bq.focus({ preventScroll: true }); return; } const h = document.querySelector('#main h1, #main h2'); if (h) { h.tabIndex = -1; h.focus({ preventScroll: true }); } }
+function focoTitulo() { const bq = V.tab === 'buscar' && !V.bus.q.trim() && document.querySelector('#bus-q'); /* con ?q= no: abriría el teclado del celular */ if (bq) { bq.focus({ preventScroll: true }); return; } const h = document.querySelector('#main h1, #main h2'); if (h) { h.tabIndex = -1; h.focus({ preventScroll: true }); } }
 // Identifica un control para devolverle el foco después de redibujar (si no, quien navega con teclado lo pierde en cada cambio).
 const claveFoco = el => el.getAttribute('data-f') || el.id || ((el.getAttribute('aria-label') || el.textContent || '').trim().slice(0, 80) + '|' + el.tagName);
 function conFoco(raiz, dibujar) {
@@ -476,6 +476,7 @@ function render() {
   dibujarPestanas();
   dibujarInferior();
   document.body.dataset.tab = V.tab;
+  { const lupa = document.querySelector('.ib-buscar'); if (lupa) { if (V.tab === 'buscar') lupa.setAttribute('aria-current', 'page'); else lupa.removeAttribute('aria-current'); } }
   $('#subtitulo').textContent = esPro() ? 'Herramientas, eventos y links para quienes trabajan con libros' : 'Tus materias, tu promedio y tus horarios de ' + (D.plan ? D.plan.nombre : 'Edición');
   document.title = tituloPagina();
   altoCab();
@@ -2945,7 +2946,13 @@ function vaciarCr() { E.cronograma = null; guardar(); render(); }
 // BUSCADOR DE TODO EL SITIO: Pagefind. El índice estático vive en /pagefind/ (lo arma tools/armar.py al construir) y se baja recién cuando alguien busca.
 // Convive con el buscador propio de los Resúmenes (V.busq, resumenes/busqueda.json): no lo reemplaza.
 // ======================================================================
-const pagefind = () => pagefind.p || (pagefind.p = import('/pagefind/pagefind.js').then(async m => { await m.options({ excerptLength: 22 }); return m; }, e => { pagefind.p = null; throw e; }));
+// Si el índice no está publicado (build sin Pagefind) se distingue de un corte de conexión: ahí el archivo da 404 o devuelve otra cosa que JavaScript.
+const pagefind = () => pagefind.p || (pagefind.p = import('/pagefind/pagefind.js').then(async m => { await m.options({ excerptLength: 22 }); return m; }, async e => {
+  pagefind.p = null;
+  const r = await fetch('/pagefind/pagefind.js', { method: 'HEAD' }).catch(() => null);
+  e.sinIndice = !!r && (!r.ok || !/javascript/.test(r.headers.get('content-type') || ''));
+  throw e;
+}));
 const busQ = () => V.bus.q.trim();
 // Cada archivo del índice es una página con su <h1> como título y su <main> como cuerpo.
 async function buscarPf(q) {
@@ -2956,38 +2963,49 @@ async function buscarPf(q) {
   const vistas = new Set(rap.map(x => x.url));
   // Pagefind tolera tanto las diferencias que «qjkvwp» encuentra la letra «q» suelta. Se descarta el resultado cuyas palabras resaltadas no empiezan
   // como alguna de las buscadas (mismas 3 primeras letras o, si la palabra es más corta, toda ella): así «correlativas» sigue trayendo «correlación».
-  const buscadas = sinTildes(q).split(/[^a-z0-9]+/).filter(Boolean);
+  // Se comparan solo alfanuméricos y sin los puntos de adentro («1.er» ≈ «1er», «2.024» ≈ «2024»); si la consulta lleva números no se filtra.
+  const normaBus = s => sinTildes(s).replace(/([a-z0-9])\.(?=[a-z0-9])/g, '$1').split(/[^a-z0-9]+/).filter(Boolean);
+  const buscadas = normaBus(q), conNumeros = buscadas.some(p => /\d/.test(p));
   const parecida = (w, p) => { let i = 0; while (i < w.length && i < p.length && w[i] === p[i]) i++; return i >= Math.min(3, p.length); };
-  const conSentido = x => { const m = [...String(x.excerpt).matchAll(/<mark>([^<]*)<\/mark>/g)].flatMap(k => sinTildes(k[1]).split(/[^a-z0-9]+/).filter(Boolean)); return !m.length || m.some(w => buscadas.some(p => parecida(w, p))); };
+  const conSentido = x => { const m = [...String(x.excerpt).matchAll(/<mark>([^<]*)<\/mark>/g)].flatMap(k => normaBus(k[1])); return conNumeros || !m.length || m.some(w => buscadas.some(p => parecida(w, p))); };
   const res = (await datos(await pf.search(q), 80)).filter(x => !vistas.has(x.url) && conSentido(x)).slice(0, 40);
   return { res, rap };
 }
 function lanzarBusqueda() {
   const B = V.bus, q = busQ();
-  if (q.length < 2) { B.pide = null; B.hecha = q; B.res = []; B.rap = []; B.error = false; return; }
+  if (q.length < 2) { B.pide = null; B.hecha = q; B.res = []; B.rap = []; B.error = false; B.sinIndice = false; return; }
   if (B.pide === q) return;
-  B.pide = q;
+  B.pide = q; B.sinIndice = false;
   buscarPf(q).then(r => {
     if (B.pide !== q) return;
     Object.assign(B, r, { hecha: q, error: false });
-    // Solo con consentimiento de Analytics, solo el término (recortado) y solo si no hubo nada.
-    if (!r.res.length && !r.rap.length && window.galeraConsent && galeraConsent.on()) medir('busqueda_sin_resultados', { termino: q.slice(0, 50) });
-  }).catch(() => { if (B.pide === q) Object.assign(B, { hecha: q, error: true, res: [], rap: [] }); })
+    // Solo con consentimiento de Analytics y sin el término: largo y cantidad de palabras. Una vez por consulta asentada (1,5 s sin cambios), no por cada tecla.
+    if (!r.res.length && !r.rap.length && window.galeraConsent && galeraConsent.on()) {
+      clearTimeout(B.medirT);
+      B.medirT = setTimeout(() => { if (B.pide === q && B.medida !== q) { B.medida = q; medir('busqueda_sin_resultados', { largo: q.length, palabras: q.split(/\s+/).length }); } }, 1500);
+    }
+  }).catch(e => { if (B.pide === q) Object.assign(B, { hecha: q, error: true, sinIndice: !!(e && e.sinIndice), res: [], rap: [] }); })
     .finally(() => { if (V.tab === 'buscar' && B.pide === q) pintarBusqueda(); });
 }
-function pintarBusqueda() { const el = $('#bus-res'); if (el) el.innerHTML = cuerpoBusqueda(); }
+function pintarBusqueda() {
+  const el = $('#bus-res'); if (!el) return;
+  const dentro = el.contains(document.activeElement);   // si el foco estaba en lo que se repinta (p. ej. «Probar de nuevo»), pasa al contenedor
+  el.innerHTML = cuerpoBusqueda();
+  if (dentro) el.focus({ preventScroll: true });
+}
 // El extracto de Pagefind ya viene con las entidades codificadas y solo trae <mark>; cualquier otro < se escapa por las dudas.
-const extractoBus = h => String(h || '').replace(/<(?!\/?mark>)/g, '&lt;');
+const extractoBus = h => String(h || '').replace(/<(?!\/?mark>)/g, '&lt;').replace(/&(?!(?:[a-z][a-z0-9]*|#\d+|#x[\da-f]+);)/gi, '&amp;');
 const etiquetaBus = u => { const p = (u || '').split('#')[0], k = Object.keys(MARCO.pantallas).find(id => id !== 'inicio' && MARCO.pantallas[id].url !== '/' && p.startsWith(MARCO.pantallas[id].url)); return k ? MARCO.pantallas[k].t : ''; };
 const itemBus = (x, rapida) => `<li class="gl-tarjeta gl-bus-res${rapida ? ' gl-bus-rap' : ''}"><h2><a href="${esc(x.url)}">${esc((x.meta && x.meta.title) || x.url)}</a></h2>${etiquetaBus(x.url) ? `<span class="gl-chip">${esc(etiquetaBus(x.url))}</span>` : ''}<p>${extractoBus(x.excerpt)}</p></li>`;
 function cuerpoBusqueda() {
   const B = V.bus, q = busQ();
   if (q.length < 2) return '<p class="gl-baja">Escribí al menos dos letras. Se busca en los resúmenes, el glosario, los simuladores, los links y el resto de las pantallas.</p>';
-  if (B.hecha !== q) return '<p class="gl-vacio" role="status">Buscando…</p>';
-  if (B.error) return '<p class="gl-vacio" role="alert">No pude cargar el buscador. Puede ser la conexión. <button class="gl-btn gl-btn--sec" type="button" onclick="V.bus.pide=null;lanzarBusqueda();pintarBusqueda()">Probar de nuevo</button></p>';
-  if (!B.res.length && !B.rap.length) return `<div class="gl-vacio" role="status"><p>No encontré nada para «${esc(q)}». Probá con otra palabra o con menos palabras; las tildes no importan.</p><p>También podés mirar el <a href="/glosario/">Glosario</a> o <button class="gl-enlace" type="button" onclick="idea()">contarme qué falta</button>.</p></div>`;
+  if (B.hecha !== q) return '<p class="gl-vacio" aria-hidden="true">Buscando…</p>';   // sin anunciar: se oye solo el resultado final
+  if (B.error && B.sinIndice) return '<p class="gl-vacio">El buscador todavía no está disponible en esta versión del sitio. Mientras tanto, podés mirar el <a href="/glosario/">Glosario</a> o los <a href="/r/">Resúmenes</a>.</p>';
+  if (B.error) return '<p class="gl-vacio">No pude cargar el buscador. Puede ser la conexión. <button class="gl-btn gl-btn--sec" type="button" onclick="V.bus.pide=null;lanzarBusqueda();pintarBusqueda()">Probar de nuevo</button></p>';
+  if (!B.res.length && !B.rap.length) return `<div class="gl-vacio"><p>No encontré nada para «${esc(q)}». Probá con otra palabra o con menos palabras; las tildes no importan.</p><p>También podés mirar el <a href="/glosario/">Glosario</a> o <button class="gl-enlace" type="button" onclick="idea()">contarme qué falta</button>.</p></div>`;
   const n = B.res.length + B.rap.length;
-  return `<p class="gl-baja" role="status">${n === 1 ? '1 resultado' : n + ' resultados'} para «${esc(q)}».</p>`
+  return `<p class="gl-baja">${n === 1 ? '1 resultado' : n + ' resultados'} para «${esc(q)}».</p>`
     + (B.rap.length ? `<h2 class="gl-bus-h">Respuesta rápida</h2><ul class="gl-lista gl-bus-lista">${B.rap.map(x => itemBus(x, true)).join('')}</ul>` : '')
     + (B.res.length ? `<ul class="gl-lista gl-bus-lista">${B.res.map(x => itemBus(x)).join('')}</ul>` : '');
 }
@@ -3007,7 +3025,7 @@ function vBuscar() {
   if (typeof PRERENDER === 'undefined' && busQ().length >= 2) lanzarBusqueda();
   return `<div class="gl-v gl-buscar"><div class="gl-cab"><h2 class="gl-display">Buscar en Galera</h2></div>
     <form class="gl-barra gl-bus-form" role="search" onsubmit="buscarEnviar(event)"><label class="gl-busca" for="bus-q"><span class="gl-rotulo">Qué querés encontrar</span><input id="bus-q" name="q" maxlength="100" type="search" enterkeyhint="search" autocomplete="off" placeholder="correlativas, final, gramaje…" value="${esc(V.bus.q)}" oninput="clearTimeout(buscarEnviar.t);const v=this.value;buscarEnviar.t=setTimeout(()=>buscarCon(v),350)"></label><button class="gl-btn" type="submit">Buscar</button></form>
-    <div id="bus-res" aria-live="polite">${cuerpoBusqueda()}</div></div>`;
+    <div id="bus-res" tabindex="-1" aria-live="polite" aria-atomic="true">${cuerpoBusqueda()}</div></div>`;
 }
 // GLOSARIO: términos clave de todas las materias (datos/glosario.json, armado con 104-edicion-cursada/glosario.py)
 // Un término que se usa en varias materias lleva la etiqueta de cada una; si significa algo distinto en cada una, trae una acepción por materia.
