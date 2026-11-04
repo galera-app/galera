@@ -1,0 +1,525 @@
+{
+ "materia": "0919",
+ "nombre": "Derechos Editoriales y del Autor",
+ "version_sitio": "v121",
+ "generado": "2026-11-04",
+ "base_url": "https://descargas.galera.com.ar/r/0919/",
+ "apuntes": [
+  {
+   "id": "e1-introduccion",
+   "titulo": "Introducción (Propiedad intelectual, derecho de autor y cómo leer una sentencia)",
+   "pagina_web": "https://galera.com.ar/r/0919/e1-introduccion.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e1-introduccion-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0919/e1-introduccion-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 124841,
+     "paginas": 12,
+     "sha256": "60eb2d00aecc06da",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e1-introduccion-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0919/e1-introduccion-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 133798,
+     "paginas": 21,
+     "sha256": "5bab6d608a7a0d1e",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e1-introduccion-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0919/e1-introduccion-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 480906,
+     "paginas": 12,
+     "sha256": "1ee37a2fbb2b1762",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e1-introduccion.epub",
+     "url": "https://descargas.galera.com.ar/r/0919/e1-introduccion.epub",
+     "mime": "application/epub+zip",
+     "bytes": 487556,
+     "paginas": null,
+     "sha256": "dce36a87b8b64e3f",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e2-objeto",
+   "titulo": "Objeto del derecho de autor (La obra, la originalidad y el plagio)",
+   "pagina_web": "https://galera.com.ar/r/0919/e2-objeto.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e2-objeto-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0919/e2-objeto-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 182320,
+     "paginas": 18,
+     "sha256": "cd06191c217d4ca7",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e2-objeto-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0919/e2-objeto-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 197533,
+     "paginas": 33,
+     "sha256": "f4e7aed1515338f1",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e2-objeto-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0919/e2-objeto-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 549567,
+     "paginas": 18,
+     "sha256": "4728c623886bc4ba",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e2-objeto.epub",
+     "url": "https://descargas.galera.com.ar/r/0919/e2-objeto.epub",
+     "mime": "application/epub+zip",
+     "bytes": 498951,
+     "paginas": null,
+     "sha256": "da8f8a24c485440a",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e3-titularidad",
+   "titulo": "Titularidad del derecho de autor",
+   "pagina_web": "https://galera.com.ar/r/0919/e3-titularidad.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e3-titularidad-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0919/e3-titularidad-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 184767,
+     "paginas": 19,
+     "sha256": "c0be9783a33a4aab",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e3-titularidad-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0919/e3-titularidad-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 201167,
+     "paginas": 35,
+     "sha256": "6bec5d75ae2f43f7",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e3-titularidad-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0919/e3-titularidad-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 552140,
+     "paginas": 18,
+     "sha256": "62d1ca39045cdc39",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e3-titularidad.epub",
+     "url": "https://descargas.galera.com.ar/r/0919/e3-titularidad.epub",
+     "mime": "application/epub+zip",
+     "bytes": 495172,
+     "paginas": null,
+     "sha256": "2352503b5d549d0e",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e4a1-derechos-patrimoniales-copia-y-agotamiento",
+   "titulo": "E4a1 (Contenido del derecho de autor (I): derechos patrimoniales ligados a la copia y agotamiento)",
+   "pagina_web": "https://galera.com.ar/r/0919/e4a1-derechos-patrimoniales-copia-y-agotamiento.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e4a1-derechos-patrimoniales-copia-y-agotamiento-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0919/e4a1-derechos-patrimoniales-copia-y-agotamiento-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 141113,
+     "paginas": 12,
+     "sha256": "16a2c1c5aa00954c",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e4a1-derechos-patrimoniales-copia-y-agotamiento-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0919/e4a1-derechos-patrimoniales-copia-y-agotamiento-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 151999,
+     "paginas": 22,
+     "sha256": "ebd24011ffefeb03",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e4a1-derechos-patrimoniales-copia-y-agotamiento-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0919/e4a1-derechos-patrimoniales-copia-y-agotamiento-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 500642,
+     "paginas": 12,
+     "sha256": "23343f893c348326",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e4a1-derechos-patrimoniales-copia-y-agotamiento.epub",
+     "url": "https://descargas.galera.com.ar/r/0919/e4a1-derechos-patrimoniales-copia-y-agotamiento.epub",
+     "mime": "application/epub+zip",
+     "bytes": 492473,
+     "paginas": null,
+     "sha256": "c88d9d4f15dd1bf0",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e4a2-comunicacion-publica-y-derechos-morales",
+   "titulo": "E4a2 (Contenido del derecho de autor (II): comunicación pública, transformación, droit de suite y derechos morales)",
+   "pagina_web": "https://galera.com.ar/r/0919/e4a2-comunicacion-publica-y-derechos-morales.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e4a2-comunicacion-publica-y-derechos-morales-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0919/e4a2-comunicacion-publica-y-derechos-morales-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 142904,
+     "paginas": 13,
+     "sha256": "484c84261c10b662",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e4a2-comunicacion-publica-y-derechos-morales-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0919/e4a2-comunicacion-publica-y-derechos-morales-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 153991,
+     "paginas": 24,
+     "sha256": "b3bce89d389655bf",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e4a2-comunicacion-publica-y-derechos-morales-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0919/e4a2-comunicacion-publica-y-derechos-morales-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 501555,
+     "paginas": 12,
+     "sha256": "69087c00a7ffa4e9",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e4a2-comunicacion-publica-y-derechos-morales.epub",
+     "url": "https://descargas.galera.com.ar/r/0919/e4a2-comunicacion-publica-y-derechos-morales.epub",
+     "mime": "application/epub+zip",
+     "bytes": 496675,
+     "paginas": null,
+     "sha256": "002e7902bff5266e",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e4b-excepciones-y-limitaciones",
+   "titulo": "Excepciones y limitaciones al derecho de autor",
+   "pagina_web": "https://galera.com.ar/r/0919/e4b-excepciones-y-limitaciones.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e4b-excepciones-y-limitaciones-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0919/e4b-excepciones-y-limitaciones-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 162519,
+     "paginas": 16,
+     "sha256": "cf371f0e57b12dfa",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e4b-excepciones-y-limitaciones-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0919/e4b-excepciones-y-limitaciones-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 177203,
+     "paginas": 30,
+     "sha256": "05a87a99cead6656",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e4b-excepciones-y-limitaciones-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0919/e4b-excepciones-y-limitaciones-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 527030,
+     "paginas": 16,
+     "sha256": "cb124585cb1fb161",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e4b-excepciones-y-limitaciones.epub",
+     "url": "https://descargas.galera.com.ar/r/0919/e4b-excepciones-y-limitaciones.epub",
+     "mime": "application/epub+zip",
+     "bytes": 495644,
+     "paginas": null,
+     "sha256": "950b8187dd4d6b6a",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e4c-privacidad-imagen-libertad-de-expresion",
+   "titulo": "Privacidad, imagen y libertad de expresión",
+   "pagina_web": "https://galera.com.ar/r/0919/e4c-privacidad-imagen-libertad-de-expresion.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e4c-privacidad-imagen-libertad-de-expresion-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0919/e4c-privacidad-imagen-libertad-de-expresion-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 143731,
+     "paginas": 12,
+     "sha256": "5582cbac42afa1a2",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e4c-privacidad-imagen-libertad-de-expresion-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0919/e4c-privacidad-imagen-libertad-de-expresion-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 155961,
+     "paginas": 24,
+     "sha256": "80712a5750140fc7",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e4c-privacidad-imagen-libertad-de-expresion-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0919/e4c-privacidad-imagen-libertad-de-expresion-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 503567,
+     "paginas": 12,
+     "sha256": "6261ddc2a0d742a2",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e4c-privacidad-imagen-libertad-de-expresion.epub",
+     "url": "https://descargas.galera.com.ar/r/0919/e4c-privacidad-imagen-libertad-de-expresion.epub",
+     "mime": "application/epub+zip",
+     "bytes": 491524,
+     "paginas": null,
+     "sha256": "537925619cb35472",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e5-plazo-de-proteccion",
+   "titulo": "Plazo de protección y dominio público (Heinrich y Walt Disney)",
+   "pagina_web": "https://galera.com.ar/r/0919/e5-plazo-de-proteccion.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e5-plazo-de-proteccion-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0919/e5-plazo-de-proteccion-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 146116,
+     "paginas": 14,
+     "sha256": "bb8ee8506f4d5cd2",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e5-plazo-de-proteccion-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0919/e5-plazo-de-proteccion-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 158357,
+     "paginas": 26,
+     "sha256": "8fe860c101cff49b",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e5-plazo-de-proteccion-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0919/e5-plazo-de-proteccion-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 507459,
+     "paginas": 14,
+     "sha256": "66d6ec117cec6beb",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e5-plazo-de-proteccion.epub",
+     "url": "https://descargas.galera.com.ar/r/0919/e5-plazo-de-proteccion.epub",
+     "mime": "application/epub+zip",
+     "bytes": 493235,
+     "paginas": null,
+     "sha256": "9f743645ec410ec2",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e6-formalidades",
+   "titulo": "Formalidades (Registro, depósito, ISBN y fallos Arce y Bassi)",
+   "pagina_web": "https://galera.com.ar/r/0919/e6-formalidades.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e6-formalidades-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0919/e6-formalidades-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 137523,
+     "paginas": 11,
+     "sha256": "2dbf8a45e005dec1",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e6-formalidades-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0919/e6-formalidades-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 147079,
+     "paginas": 21,
+     "sha256": "ff0a9eb5eddcdee3",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e6-formalidades-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0919/e6-formalidades-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 494514,
+     "paginas": 12,
+     "sha256": "85f24717049786c8",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e6-formalidades.epub",
+     "url": "https://descargas.galera.com.ar/r/0919/e6-formalidades.epub",
+     "mime": "application/epub+zip",
+     "bytes": 487633,
+     "paginas": null,
+     "sha256": "98b1e497260bef84",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e7-transmision",
+   "titulo": "Transmisión del derecho de autor (Contrato de edición, cesión y licencia)",
+   "pagina_web": "https://galera.com.ar/r/0919/e7-transmision.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e7-transmision-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0919/e7-transmision-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 165026,
+     "paginas": 16,
+     "sha256": "5198934e725ebd66",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e7-transmision-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0919/e7-transmision-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 177503,
+     "paginas": 28,
+     "sha256": "f482ad480cd4dd9c",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e7-transmision-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0919/e7-transmision-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 527831,
+     "paginas": 14,
+     "sha256": "e6408693c5a90c28",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e7-transmision.epub",
+     "url": "https://descargas.galera.com.ar/r/0919/e7-transmision.epub",
+     "mime": "application/epub+zip",
+     "bytes": 494318,
+     "paginas": null,
+     "sha256": "2da897b406105aae",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e8-gestion-de-derechos",
+   "titulo": "Gestión de derechos (Gestión colectiva y gestión digital)",
+   "pagina_web": "https://galera.com.ar/r/0919/e8-gestion-de-derechos.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e8-gestion-de-derechos-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0919/e8-gestion-de-derechos-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 142112,
+     "paginas": 14,
+     "sha256": "a557b97b7feffffc",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e8-gestion-de-derechos-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0919/e8-gestion-de-derechos-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 153641,
+     "paginas": 25,
+     "sha256": "c1ad5b76a3f00f53",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e8-gestion-de-derechos-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0919/e8-gestion-de-derechos-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 502805,
+     "paginas": 14,
+     "sha256": "4097fe66180585cd",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e8-gestion-de-derechos.epub",
+     "url": "https://descargas.galera.com.ar/r/0919/e8-gestion-de-derechos.epub",
+     "mime": "application/epub+zip",
+     "bytes": 490030,
+     "paginas": null,
+     "sha256": "9d994d008f15eda4",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e9-observancia",
+   "titulo": "Observancia del derecho de autor (Plagio, sanciones y responsabilidad de intermediarios)",
+   "pagina_web": "https://galera.com.ar/r/0919/e9-observancia.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e9-observancia-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0919/e9-observancia-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 164426,
+     "paginas": 16,
+     "sha256": "7833561093fd4348",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e9-observancia-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0919/e9-observancia-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 177998,
+     "paginas": 29,
+     "sha256": "36b3be5b51ae2e06",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e9-observancia-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0919/e9-observancia-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 526867,
+     "paginas": 14,
+     "sha256": "5fb33c4c39051b33",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e9-observancia.epub",
+     "url": "https://descargas.galera.com.ar/r/0919/e9-observancia.epub",
+     "mime": "application/epub+zip",
+     "bytes": 496874,
+     "paginas": null,
+     "sha256": "db2ef0adec03799d",
+     "generado": "2026-11-04"
+    }
+   }
+  }
+ ]
+}

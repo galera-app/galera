@@ -1,0 +1,310 @@
+{
+ "materia": "0909",
+ "nombre": "Administración de la Empresa Editorial",
+ "version_sitio": "v121",
+ "generado": "2026-11-04",
+ "base_url": "https://descargas.galera.com.ar/r/0909/",
+ "apuntes": [
+  {
+   "id": "e1-costos-y-escandallo",
+   "titulo": "Costos y escandallo",
+   "pagina_web": "https://galera.com.ar/r/0909/e1-costos-y-escandallo.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e1-costos-y-escandallo-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0909/e1-costos-y-escandallo-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 199755,
+     "paginas": 24,
+     "sha256": "6c23f4f04251873b",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e1-costos-y-escandallo-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0909/e1-costos-y-escandallo-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 217533,
+     "paginas": 43,
+     "sha256": "befb4366a825d64f",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e1-costos-y-escandallo-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0909/e1-costos-y-escandallo-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 566600,
+     "paginas": 22,
+     "sha256": "63b8943882f582a0",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e1-costos-y-escandallo.epub",
+     "url": "https://descargas.galera.com.ar/r/0909/e1-costos-y-escandallo.epub",
+     "mime": "application/epub+zip",
+     "bytes": 492476,
+     "paginas": null,
+     "sha256": "bcfff786b19ba3e8",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e2-punto-de-equilibrio",
+   "titulo": "Punto de equilibrio",
+   "pagina_web": "https://galera.com.ar/r/0909/e2-punto-de-equilibrio.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e2-punto-de-equilibrio-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0909/e2-punto-de-equilibrio-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 172338,
+     "paginas": 20,
+     "sha256": "a06e8477df45d4ae",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e2-punto-de-equilibrio-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0909/e2-punto-de-equilibrio-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 187716,
+     "paginas": 36,
+     "sha256": "66b567963bcf666b",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e2-punto-de-equilibrio-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0909/e2-punto-de-equilibrio-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 534525,
+     "paginas": 18,
+     "sha256": "daff75ffebaec599",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e2-punto-de-equilibrio.epub",
+     "url": "https://descargas.galera.com.ar/r/0909/e2-punto-de-equilibrio.epub",
+     "mime": "application/epub+zip",
+     "bytes": 490494,
+     "paginas": null,
+     "sha256": "4995114c2e6f70df",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e3-cadena-productiva-y-escuelas",
+   "titulo": "Cadena productiva, emprendimientos editoriales y escuelas de administración",
+   "pagina_web": "https://galera.com.ar/r/0909/e3-cadena-productiva-y-escuelas.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e3-cadena-productiva-y-escuelas-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0909/e3-cadena-productiva-y-escuelas-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 188949,
+     "paginas": 21,
+     "sha256": "3f218b02def83329",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e3-cadena-productiva-y-escuelas-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0909/e3-cadena-productiva-y-escuelas-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 210325,
+     "paginas": 41,
+     "sha256": "03a5b9fedf2b0584",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e3-cadena-productiva-y-escuelas-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0909/e3-cadena-productiva-y-escuelas-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 556556,
+     "paginas": 20,
+     "sha256": "672ccf0950580d05",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e3-cadena-productiva-y-escuelas.epub",
+     "url": "https://descargas.galera.com.ar/r/0909/e3-cadena-productiva-y-escuelas.epub",
+     "mime": "application/epub+zip",
+     "bytes": 507295,
+     "paginas": null,
+     "sha256": "35c113710a378286",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e4-decisiones-y-plan-financiero",
+   "titulo": "Toma de decisiones, plan económico, plan financiero y Gantt",
+   "pagina_web": "https://galera.com.ar/r/0909/e4-decisiones-y-plan-financiero.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e4-decisiones-y-plan-financiero-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0909/e4-decisiones-y-plan-financiero-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 208145,
+     "paginas": 22,
+     "sha256": "cc7e8dd135a45288",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e4-decisiones-y-plan-financiero-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0909/e4-decisiones-y-plan-financiero-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 223916,
+     "paginas": 38,
+     "sha256": "a89fdea8a19b403b",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e4-decisiones-y-plan-financiero-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0909/e4-decisiones-y-plan-financiero-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 574507,
+     "paginas": 20,
+     "sha256": "0ed19e82f3f64372",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e4-decisiones-y-plan-financiero.epub",
+     "url": "https://descargas.galera.com.ar/r/0909/e4-decisiones-y-plan-financiero.epub",
+     "mime": "application/epub+zip",
+     "bytes": 502171,
+     "paginas": null,
+     "sha256": "5d4a16fb8a67b027",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e5-mercado-y-administracion",
+   "titulo": "El libro y el mercado; administración de la editorial",
+   "pagina_web": "https://galera.com.ar/r/0909/e5-mercado-y-administracion.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e5-mercado-y-administracion-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0909/e5-mercado-y-administracion-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 155128,
+     "paginas": 18,
+     "sha256": "3ce6182bbc6c7553",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e5-mercado-y-administracion-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0909/e5-mercado-y-administracion-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 169742,
+     "paginas": 33,
+     "sha256": "895f95b178e2fc15",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e5-mercado-y-administracion-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0909/e5-mercado-y-administracion-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 515222,
+     "paginas": 16,
+     "sha256": "003d8e2be3a8680d",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e5-mercado-y-administracion.epub",
+     "url": "https://descargas.galera.com.ar/r/0909/e5-mercado-y-administracion.epub",
+     "mime": "application/epub+zip",
+     "bytes": 494289,
+     "paginas": null,
+     "sha256": "9243d6f99b18ac31",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "z-simulacro",
+   "titulo": "Simulacros de Administración de la Empresa Editorial",
+   "pagina_web": "https://galera.com.ar/r/0909/z-simulacro.html",
+   "archivos": {
+    "A4": {
+     "archivo": "z-simulacro-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0909/z-simulacro-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 67400,
+     "paginas": 4,
+     "sha256": "83919a5a304754eb",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "z-simulacro-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0909/z-simulacro-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 69335,
+     "paginas": 6,
+     "sha256": "0e109fb5300083f6",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "z-simulacro-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0909/z-simulacro-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 411272,
+     "paginas": 4,
+     "sha256": "915ad097ee80357e",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "z-simulacro.epub",
+     "url": "https://descargas.galera.com.ar/r/0909/z-simulacro.epub",
+     "mime": "application/epub+zip",
+     "bytes": 476356,
+     "paginas": null,
+     "sha256": "84747a566f4e39ea",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "z-simulacro-respuestas",
+   "titulo": "Simulacros: respuestas",
+   "pagina_web": "https://galera.com.ar/r/0909/z-simulacro-respuestas.html",
+   "archivos": {
+    "A4": {
+     "archivo": "z-simulacro-respuestas-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0909/z-simulacro-respuestas-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 62336,
+     "paginas": 4,
+     "sha256": "e3e33d3c94e27604",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "z-simulacro-respuestas-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0909/z-simulacro-respuestas-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 64532,
+     "paginas": 6,
+     "sha256": "ff56e2167c4bdcb6",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "z-simulacro-respuestas-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0909/z-simulacro-respuestas-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 406883,
+     "paginas": 4,
+     "sha256": "bc25d79ddeebc687",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "z-simulacro-respuestas.epub",
+     "url": "https://descargas.galera.com.ar/r/0909/z-simulacro-respuestas.epub",
+     "mime": "application/epub+zip",
+     "bytes": 472153,
+     "paginas": null,
+     "sha256": "b2518e699c5338ad",
+     "generado": "2026-11-04"
+    }
+   }
+  }
+ ]
+}

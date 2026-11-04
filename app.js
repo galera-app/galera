@@ -51,7 +51,7 @@ function aviso(t) { const a = $('#aviso'); a.textContent = t; a.classList.add('o
 // juego: los elementos de juego (un interruptor general; todo informativo, sin puntos ni rachas): on, rondas (última de cada materia), hitos (registro de lo hecho),
 // retos (resueltos), aprob (materias ya registradas), ultimo (último apunte abierto).
 const juegoVacio = () => ({ on: true, rondas: {}, hitos: [], retos: {}, aprob: [], ultimo: '' });
-function estadoVacio() { return { v: 1, carrera: 'edicion', perfil: '', vioAyuda: false, materias: {}, horarios: {}, escandallo: null, comparador: null, papel: null, paginacion: null, cronograma: null, leidos: {},
+function estadoVacio() { return { v: 1, carrera: 'edicion', perfil: '', vioAyuda: false, materias: {}, horarios: {}, escandallo: null, comparador: null, papel: null, paginacion: null, cronograma: null, leidos: {}, descarga: '',
   copia: '', modif: '', primera: '', visto: '', practica: {}, juego: juegoVacio(), arcade: Arcade.sanear(null) }; }
 // Todo lo que entra (de localStorage o de un archivo importado) se reconstruye campo por campo:
 // solo tipos, formatos y largos esperados. Lo que no encaja se descarta.
@@ -143,6 +143,8 @@ function normalizar(e) {
     out.juego.ultimo = /^\w[\w.-]{0,59}\/\w[\w.-]{0,59}$/.test(J.ultimo || '') ? J.ultimo : '';
   } else out.juego.aprob = null;   // sin dato: la primera vez se anotan las ya aprobadas sin hacer ruido
   out.arcade = Arcade.sanear(e.arcade);   // Arcade de Corrección de Estilo: iniciales y top local por tablero
+  // Último formato de descarga elegido (solo uno de los conocidos).
+  out.descarga = ['A4', 'A5', 'cuadernillo', 'epub'].indexOf(e.descarga) >= 0 ? e.descarga : '';
   // Apuntes leídos: "materia/apunte" → fecha.
   const L = e.leidos && typeof e.leidos === 'object' ? e.leidos : {};
   Object.keys(L).slice(0, 500).forEach(k => { const p = k.split('/'); if (p.length === 2 && p.every(x => /^\w[\w.-]{0,59}$/.test(x)) && RE_FECHA.test(L[k])) out.leidos[k] = L[k]; });
@@ -1539,6 +1541,7 @@ function vMateriaRes(m) {
     ${m.id === '0911' ? `<div class="gl-tarjeta gl-accion gl-m16"><div><b>Arcade</b><span class="gl-chico">Una sala aparte y opcional, con puntos y récords: preguntas con tres vidas y racha, o tocar el error en un texto.</span></div>
       <a class="gl-btn gl-btn--sec" href="/arcade/">Entrar</a></div>` : ''}
     ${m.id === '0909' ? `<p class="gl-chico gl-m16">Para practicar el escandallo con tus números: <a class="gl-enlace" href="/simuladores/escandallo.html">simulador de escandallo</a>.</p>` : ''}
+    ${descargasMateria(m)}
     <ol class="gl-apuntes">${m.apuntes.map(a => `<li><span class="clave">${esc(a.clave)}</span><a href="/r/${esc(m.id)}/${esc(a.id)}.html">${esc(a.t)}</a>
       <span class="meta gl-num">${a.min} min${a.preguntas ? ' · ' + a.preguntas + ' preguntas' : ''}${E.leidos[m.id + '/' + a.id] ? ' <span class="gl-chip gl-chip--ok">leído</span>' : ''}${chipRepaso(m.id, a)}</span></li>`).join('')}</ol>
     ${m.pdfs.length ? `<details class="gl-todos"><summary class="gl-enlace">Hojas de repaso para imprimir (${m.pdfs.length} PDF)</summary>
@@ -1623,6 +1626,60 @@ function pedirResumen(id) {
   idea({ titulo: p.nombre, intro: 'Todavía no hay resumen de esta materia. Contame si te serviría (y para cuándo), o si tenés apuntes propios que quieras compartir.',
     ejemplo: 'Ej.: la curso este cuatrimestre y me vendría bien para el primer parcial…', prefijo: '[Resúmenes] ' + (p.sigla || p.nombre) + ': ' });
 }
+// DESCARGAS: PDF A4, PDF A5, cuadernillo para imprimir y EPUB de cada apunte. Los archivos viven en descargas.galera.com.ar (Cloudflare R2);
+// acá solo hay enlaces comunes (<a href>, sin JS de terceros) armados con datos/descargas/<materia>.json (el manifiesto que escribe resumenes_latex.py).
+const ORDEN_DESC = ['A4', 'A5', 'cuadernillo', 'epub'];
+const FORMATO_DESC = {
+  A4: ['PDF A4', 'Para leer en pantalla o imprimir'], A5: ['PDF A5', 'Para la tablet, o para imprimir y encuadernar'],
+  cuadernillo: ['Cuadernillo para imprimir', 'Con instrucciones para armarlo, con o sin doble faz'], epub: ['EPUB', 'Para el lector de libros']
+};
+const HINT_CUADERNILLO = 'Imprimí doble faz, borde corto; doblá al medio.';
+const URL_DESC = 'https://descargas.galera.com.ar/';
+function cargarDescargas(materia) {
+  D.descargas = D.descargas || {};
+  if (materia in D.descargas) return D.descargas[materia];
+  if (!RE_ID.test(materia || '') || cargarDescargas['p' + materia]) return null;
+  cargarDescargas['p' + materia] = true;
+  json('descargas/' + materia + '.json').then(m => { D.descargas[materia] = m && Array.isArray(m.apuntes) ? m : null; }, () => { D.descargas[materia] = null; })
+    .then(() => { if (V.tab === 'resumenes') render(); });
+  return null;
+}
+// Solo se enlaza a nuestro dominio de descargas, aunque el manifiesto diga otra cosa.
+function urlDesc(M, f) { const u = String((M.base_url || '')) + String(f.archivo || ''); return u.startsWith(URL_DESC) ? u : ''; }
+const pesoTxt = b => b >= 1048576 ? (b / 1048576).toFixed(1).replace('.', ',') + ' MB' : Math.max(1, Math.round(b / 1024)) + ' KB';
+function detalleDesc(fmt, f) {
+  const p = f.paginas ? (fmt === 'cuadernillo' ? `${f.paginas} hojas A4` : `${f.paginas} páginas`) : '';
+  return [pesoTxt(f.bytes), p].filter(Boolean).join(' · ');
+}
+function elegirDescarga(fmt) { if (ORDEN_DESC.indexOf(fmt) < 0) return; E.descarga = fmt; guardar(true); }
+function descargo(fmt, item, alcance) { elegirDescarga(fmt); medir('descarga', { formato: fmt, item_id: item, alcance }); }
+const enlaceDesc = (M, ap, fmt, item, alcance, clases, interior) => `<a class="${clases}" href="${esc(urlDesc(M, ap.archivos[fmt]))}" download rel="noopener" onclick="descargo(${arg(fmt)},${arg(item)},${arg(alcance)})">${interior}</a>`;
+function descargaApunte(materia, apunte) {
+  const M = cargarDescargas(materia), ap = M && M.apuntes.find(x => x.id === apunte);
+  const fs = ap ? ORDEN_DESC.filter(f => ap.archivos[f] && urlDesc(M, ap.archivos[f])) : [];
+  if (!fs.length) return '';
+  const item = materia + '/' + apunte, pref = fs.indexOf(E.descarga) >= 0 ? E.descarga : fs[0];
+  return `<div class="gl-tarjeta gl-accion gl-desc no-imprimir gl-m16"><div><b>Descargar este apunte</b><span class="gl-chico">Sin cuenta ni registro. Se guarda el formato que elijas.</span></div>
+    ${enlaceDesc(M, ap, pref, item, 'apunte', 'gl-btn', `Descargar ${esc(FORMATO_DESC[pref][0])} <span class="gl-desc-peso">${esc(detalleDesc(pref, ap.archivos[pref]))}</span>`)}
+    ${pref === 'cuadernillo' ? `<p class="gl-chico gl-desc-hint">${HINT_CUADERNILLO}</p>` : ''}
+    ${fs.length > 1 ? `<details class="gl-desc-mas"><summary class="gl-enlace">Otros formatos</summary><ul class="gl-desc-lista">${fs.filter(f => f !== pref).map(f =>
+      `<li>${enlaceDesc(M, ap, f, item, 'apunte', 'gl-desc-op', `<b>${esc(FORMATO_DESC[f][0])}</b><span class="gl-chico">${esc(FORMATO_DESC[f][1])} · ${esc(detalleDesc(f, ap.archivos[f]))}</span>`)}${f === 'cuadernillo' ? `<p class="gl-chico gl-desc-hint">${HINT_CUADERNILLO}</p>` : ''}</li>`).join('')}</ul></details>` : ''}</div>`;
+}
+function descargasMateria(m) {
+  const M = cargarDescargas(m.id), L = M ? M.apuntes.filter(a => m.apuntes.some(x => x.id === a.id)) : [];
+  const fs = ORDEN_DESC.filter(f => L.some(a => a.archivos[f] && urlDesc(M, a.archivos[f])));
+  if (!fs.length) return '';
+  const pref = fs.indexOf(E.descarga) >= 0 ? E.descarga : fs[0], ids = new Set(L.map(a => a.id));
+  const orden = m.apuntes.filter(a => ids.has(a.id)), de = id => L.find(a => a.id === id);
+  const chip = f => `<button type="button" aria-pressed="${f === pref}" onclick="elegirDescarga(${arg(f)});render()">${esc(FORMATO_DESC[f][0])}</button>`;
+  const con = orden.filter(a => de(a.id).archivos[pref]);
+  return `<div class="gl-tarjeta gl-desc gl-desc--materia no-imprimir gl-m16"><b>Descargar todo</b>
+    <span class="gl-chico">Elegí el formato y bajá los ${con.length} apuntes de a uno. Sin cuenta ni registro.</span>
+    <div class="gl-filtros" role="group" aria-label="Formato de descarga">${fs.map(chip).join('')}</div>
+    <span class="gl-chico">${esc(FORMATO_DESC[pref][1])}.</span>${pref === 'cuadernillo' ? `<p class="gl-chico gl-desc-hint">${HINT_CUADERNILLO}</p>` : ''}
+    <ul class="gl-desc-lista gl-desc-todos">${con.map(a => { const x = de(a.id); return `<li>${enlaceDesc(M, x, pref, m.id + '/' + a.id, 'materia', 'gl-desc-op',
+      `<b><span class="clave">${esc(a.clave)}</span> ${esc(a.t)}</b><span class="gl-chico">${esc(detalleDesc(pref, x.archivos[pref]))}</span>`)}</li>`; }).join('')}</ul></div>`;
+}
 const LETRAS = 'abcd';
 function vApunte() {
   const { materia, apunte } = V.res, k = materia + '/' + apunte, a = D.apuntes[k];
@@ -1655,6 +1712,7 @@ function vApunte() {
       <button class="gl-btn gl-btn--ter" type="button" onclick="imprimir(${arg(k)})" aria-label="Imprimir o guardar como PDF">Imprimir</button>
       <button class="gl-btn gl-btn--ter" type="button" onclick="linkSeccion('',${arg(a.titulo)})">Compartir</button>
       <button class="gl-btn gl-btn--ter" type="button" onclick="abrirQR(urlRes(${arg(materia)},${arg(apunte)}),${arg(a.titulo)},'apunte',${arg(k)})" aria-label="Código QR de este apunte">QR</button></div>
+    ${descargaApunte(materia, apunte)}
     <article class="gl-tarjeta apunte"><p class="solo-imprimir chico">${esc(m.nombre)} · Resúmenes de Galera (galera.com.ar)</p>
       <p class="gl-chico gl-m4 no-imprimir">${esc(m.nombre)}${ap ? ' · ' + ap.min + ' min de lectura' : ''}</p><h1>${esc(a.titulo)}</h1>${indice}${a.cuerpoConIds}</article>
     ${a.preguntas.length ? `<section id="autoevaluacion" class="gl-auto"><div class="gl-cab"><h2 class="gl-t2">Autoevaluación <button class="ancla" type="button" onclick="linkSeccion('autoevaluacion','Autoevaluación')" aria-label="Copiar el link a la autoevaluación" title="Copiar el link a esta parte">#</button></h2><span class="gl-crece"></span>

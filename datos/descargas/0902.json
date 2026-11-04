@@ -1,0 +1,525 @@
+{
+ "materia": "0902",
+ "nombre": "Introducción a la Actividad Editorial",
+ "version_sitio": "v121",
+ "generado": "2026-11-04",
+ "base_url": "https://descargas.galera.com.ar/r/0902/",
+ "apuntes": [
+  {
+   "id": "e1-el-editor-y-el-ecosistema-del-libro",
+   "titulo": "El editor, sus actores y el ecosistema del libro",
+   "pagina_web": "https://galera.com.ar/r/0902/e1-el-editor-y-el-ecosistema-del-libro.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e1-el-editor-y-el-ecosistema-del-libro-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0902/e1-el-editor-y-el-ecosistema-del-libro-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 185440,
+     "paginas": 19,
+     "sha256": "f00ad27b08d0fce5",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e1-el-editor-y-el-ecosistema-del-libro-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0902/e1-el-editor-y-el-ecosistema-del-libro-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 204997,
+     "paginas": 37,
+     "sha256": "815c917be6f184c7",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e1-el-editor-y-el-ecosistema-del-libro-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0902/e1-el-editor-y-el-ecosistema-del-libro-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 554967,
+     "paginas": 18,
+     "sha256": "cabbc6ca55d4d9a9",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e1-el-editor-y-el-ecosistema-del-libro.epub",
+     "url": "https://descargas.galera.com.ar/r/0902/e1-el-editor-y-el-ecosistema-del-libro.epub",
+     "mime": "application/epub+zip",
+     "bytes": 500755,
+     "paginas": null,
+     "sha256": "a4a34ae8d6d79c07",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e2-del-manuscrito-a-la-industria",
+   "titulo": "Del libro manuscrito a la Revolución Industrial",
+   "pagina_web": "https://galera.com.ar/r/0902/e2-del-manuscrito-a-la-industria.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e2-del-manuscrito-a-la-industria-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0902/e2-del-manuscrito-a-la-industria-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 174802,
+     "paginas": 18,
+     "sha256": "3415933a4e6ab39d",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e2-del-manuscrito-a-la-industria-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0902/e2-del-manuscrito-a-la-industria-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 191129,
+     "paginas": 33,
+     "sha256": "115745a10adffe36",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e2-del-manuscrito-a-la-industria-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0902/e2-del-manuscrito-a-la-industria-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 542858,
+     "paginas": 18,
+     "sha256": "dffe92f73debf8bb",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e2-del-manuscrito-a-la-industria.epub",
+     "url": "https://descargas.galera.com.ar/r/0902/e2-del-manuscrito-a-la-industria.epub",
+     "mime": "application/epub+zip",
+     "bytes": 498668,
+     "paginas": null,
+     "sha256": "e354df40d81d5f5f",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e3-editores-libreros-y-lectores",
+   "titulo": "Editores, libreros y lectores (La historia de la lectura)",
+   "pagina_web": "https://galera.com.ar/r/0902/e3-editores-libreros-y-lectores.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e3-editores-libreros-y-lectores-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0902/e3-editores-libreros-y-lectores-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 178188,
+     "paginas": 18,
+     "sha256": "3d6623b6b0f851ee",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e3-editores-libreros-y-lectores-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0902/e3-editores-libreros-y-lectores-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 195202,
+     "paginas": 34,
+     "sha256": "bd1e8c624134b875",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e3-editores-libreros-y-lectores-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0902/e3-editores-libreros-y-lectores-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 545900,
+     "paginas": 18,
+     "sha256": "54d0126635e89d08",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e3-editores-libreros-y-lectores.epub",
+     "url": "https://descargas.galera.com.ar/r/0902/e3-editores-libreros-y-lectores.epub",
+     "mime": "application/epub+zip",
+     "bytes": 496767,
+     "paginas": null,
+     "sha256": "27c306bd8f98b09b",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e4-campo-mercado-y-bienes-simbolicos",
+   "titulo": "Campo intelectual, mercado y bienes simbólicos",
+   "pagina_web": "https://galera.com.ar/r/0902/e4-campo-mercado-y-bienes-simbolicos.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e4-campo-mercado-y-bienes-simbolicos-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0902/e4-campo-mercado-y-bienes-simbolicos-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 171233,
+     "paginas": 18,
+     "sha256": "bb152ed9ff3aa3a4",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e4-campo-mercado-y-bienes-simbolicos-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0902/e4-campo-mercado-y-bienes-simbolicos-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 187192,
+     "paginas": 33,
+     "sha256": "3edb9b70341a8882",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e4-campo-mercado-y-bienes-simbolicos-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0902/e4-campo-mercado-y-bienes-simbolicos-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 537246,
+     "paginas": 16,
+     "sha256": "f7d3be4752a755cc",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e4-campo-mercado-y-bienes-simbolicos.epub",
+     "url": "https://descargas.galera.com.ar/r/0902/e4-campo-mercado-y-bienes-simbolicos.epub",
+     "mime": "application/epub+zip",
+     "bytes": 497447,
+     "paginas": null,
+     "sha256": "0cf43eb7198d4bc5",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e5a-edicion-argentina-editores-y-estado",
+   "titulo": "Editores y política editorial en Argentina (1)",
+   "pagina_web": "https://galera.com.ar/r/0902/e5a-edicion-argentina-editores-y-estado.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e5a-edicion-argentina-editores-y-estado-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0902/e5a-edicion-argentina-editores-y-estado-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 165365,
+     "paginas": 17,
+     "sha256": "535cbaccd3ab8166",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e5a-edicion-argentina-editores-y-estado-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0902/e5a-edicion-argentina-editores-y-estado-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 180352,
+     "paginas": 31,
+     "sha256": "168dd0c24ecdb90f",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e5a-edicion-argentina-editores-y-estado-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0902/e5a-edicion-argentina-editores-y-estado-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 528794,
+     "paginas": 16,
+     "sha256": "d9dac6032ebc49b1",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e5a-edicion-argentina-editores-y-estado.epub",
+     "url": "https://descargas.galera.com.ar/r/0902/e5a-edicion-argentina-editores-y-estado.epub",
+     "mime": "application/epub+zip",
+     "bytes": 495822,
+     "paginas": null,
+     "sha256": "099a58b2a70a04da",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e5b-libros-para-todos-y-modelo-hispanoamericano",
+   "titulo": "Libros baratos, masificación y modelo hispanoamericano",
+   "pagina_web": "https://galera.com.ar/r/0902/e5b-libros-para-todos-y-modelo-hispanoamericano.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e5b-libros-para-todos-y-modelo-hispanoamericano-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0902/e5b-libros-para-todos-y-modelo-hispanoamericano-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 147810,
+     "paginas": 15,
+     "sha256": "0ceaf3e56bd70bcc",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e5b-libros-para-todos-y-modelo-hispanoamericano-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0902/e5b-libros-para-todos-y-modelo-hispanoamericano-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 162622,
+     "paginas": 29,
+     "sha256": "d20f17565b54dc7f",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e5b-libros-para-todos-y-modelo-hispanoamericano-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0902/e5b-libros-para-todos-y-modelo-hispanoamericano-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 509794,
+     "paginas": 14,
+     "sha256": "c3689c0065646d8a",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e5b-libros-para-todos-y-modelo-hispanoamericano.epub",
+     "url": "https://descargas.galera.com.ar/r/0902/e5b-libros-para-todos-y-modelo-hispanoamericano.epub",
+     "mime": "application/epub+zip",
+     "bytes": 497139,
+     "paginas": null,
+     "sha256": "20e55b06a5c11fb0",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e6-concentracion-y-globalizacion",
+   "titulo": "Concentración editorial y globalización",
+   "pagina_web": "https://galera.com.ar/r/0902/e6-concentracion-y-globalizacion.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e6-concentracion-y-globalizacion-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0902/e6-concentracion-y-globalizacion-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 172825,
+     "paginas": 17,
+     "sha256": "660524f722faa852",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e6-concentracion-y-globalizacion-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0902/e6-concentracion-y-globalizacion-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 188748,
+     "paginas": 32,
+     "sha256": "5cfe150bf4c41969",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e6-concentracion-y-globalizacion-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0902/e6-concentracion-y-globalizacion-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 538334,
+     "paginas": 16,
+     "sha256": "2c8d3e8b92dd0352",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e6-concentracion-y-globalizacion.epub",
+     "url": "https://descargas.galera.com.ar/r/0902/e6-concentracion-y-globalizacion.epub",
+     "mime": "application/epub+zip",
+     "bytes": 497384,
+     "paginas": null,
+     "sha256": "c72626a7d24a0076",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e7-edicion-en-la-era-digital",
+   "titulo": "La edición en la era digital (Unidad 5)",
+   "pagina_web": "https://galera.com.ar/r/0902/e7-edicion-en-la-era-digital.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e7-edicion-en-la-era-digital-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0902/e7-edicion-en-la-era-digital-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 181744,
+     "paginas": 19,
+     "sha256": "44df305ddd0f8d33",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e7-edicion-en-la-era-digital-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0902/e7-edicion-en-la-era-digital-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 198837,
+     "paginas": 35,
+     "sha256": "10039cb83911edea",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e7-edicion-en-la-era-digital-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0902/e7-edicion-en-la-era-digital-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 550744,
+     "paginas": 18,
+     "sha256": "b04b81953d62828f",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e7-edicion-en-la-era-digital.epub",
+     "url": "https://descargas.galera.com.ar/r/0902/e7-edicion-en-la-era-digital.epub",
+     "mime": "application/epub+zip",
+     "bytes": 496203,
+     "paginas": null,
+     "sha256": "feb5bcd73b4db8e6",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e8-inteligencia-artificial-y-edicion",
+   "titulo": "Inteligencia artificial y sector editorial",
+   "pagina_web": "https://galera.com.ar/r/0902/e8-inteligencia-artificial-y-edicion.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e8-inteligencia-artificial-y-edicion-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0902/e8-inteligencia-artificial-y-edicion-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 157904,
+     "paginas": 17,
+     "sha256": "e8d277ef91c39deb",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e8-inteligencia-artificial-y-edicion-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0902/e8-inteligencia-artificial-y-edicion-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 171538,
+     "paginas": 31,
+     "sha256": "8f902d87a284e981",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e8-inteligencia-artificial-y-edicion-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0902/e8-inteligencia-artificial-y-edicion-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 519173,
+     "paginas": 16,
+     "sha256": "75616906202db48a",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e8-inteligencia-artificial-y-edicion.epub",
+     "url": "https://descargas.galera.com.ar/r/0902/e8-inteligencia-artificial-y-edicion.epub",
+     "mime": "application/epub+zip",
+     "bytes": 495580,
+     "paginas": null,
+     "sha256": "6af9e052e63d6815",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e9-marco-legal-del-libro",
+   "titulo": "Marco legal del libro en la Argentina",
+   "pagina_web": "https://galera.com.ar/r/0902/e9-marco-legal-del-libro.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e9-marco-legal-del-libro-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0902/e9-marco-legal-del-libro-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 119581,
+     "paginas": 12,
+     "sha256": "9f94dc6a8adeb862",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e9-marco-legal-del-libro-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0902/e9-marco-legal-del-libro-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 129531,
+     "paginas": 21,
+     "sha256": "6aa89eda7e2b4ed7",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e9-marco-legal-del-libro-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0902/e9-marco-legal-del-libro-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 476385,
+     "paginas": 12,
+     "sha256": "8bc625c69f9233b8",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e9-marco-legal-del-libro.epub",
+     "url": "https://descargas.galera.com.ar/r/0902/e9-marco-legal-del-libro.epub",
+     "mime": "application/epub+zip",
+     "bytes": 485762,
+     "paginas": null,
+     "sha256": "17b69927dbb71bca",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "z-simulacro",
+   "titulo": "Simulacro de final (Introducción a la Actividad Editorial)",
+   "pagina_web": "https://galera.com.ar/r/0902/z-simulacro.html",
+   "archivos": {
+    "A4": {
+     "archivo": "z-simulacro-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0902/z-simulacro-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 75969,
+     "paginas": 4,
+     "sha256": "4608039ef1bee473",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "z-simulacro-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0902/z-simulacro-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 78975,
+     "paginas": 7,
+     "sha256": "69c10cebd9a6b4c6",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "z-simulacro-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0902/z-simulacro-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 422190,
+     "paginas": 4,
+     "sha256": "f1fdf9be8ea5573e",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "z-simulacro.epub",
+     "url": "https://descargas.galera.com.ar/r/0902/z-simulacro.epub",
+     "mime": "application/epub+zip",
+     "bytes": 474263,
+     "paginas": null,
+     "sha256": "5d104a269ea4dbc3",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "z-simulacro-respuestas",
+   "titulo": "Simulacro de final (Respuestas y criterios)",
+   "pagina_web": "https://galera.com.ar/r/0902/z-simulacro-respuestas.html",
+   "archivos": {
+    "A4": {
+     "archivo": "z-simulacro-respuestas-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0902/z-simulacro-respuestas-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 67898,
+     "paginas": 4,
+     "sha256": "508ce60f7e2ff778",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "z-simulacro-respuestas-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0902/z-simulacro-respuestas-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 71241,
+     "paginas": 7,
+     "sha256": "f83a09e0065c8af4",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "z-simulacro-respuestas-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0902/z-simulacro-respuestas-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 414458,
+     "paginas": 4,
+     "sha256": "ec45a93f688103e2",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "z-simulacro-respuestas.epub",
+     "url": "https://descargas.galera.com.ar/r/0902/z-simulacro-respuestas.epub",
+     "mime": "application/epub+zip",
+     "bytes": 475253,
+     "paginas": null,
+     "sha256": "2aff1fa4da471a9b",
+     "generado": "2026-11-04"
+    }
+   }
+  }
+ ]
+}

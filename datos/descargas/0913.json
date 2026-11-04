@@ -1,0 +1,353 @@
+{
+ "materia": "0913",
+ "nombre": "Teoría de los Medios y de la Cultura",
+ "version_sitio": "v121",
+ "generado": "2026-11-04",
+ "base_url": "https://descargas.galera.com.ar/r/0913/",
+ "apuntes": [
+  {
+   "id": "e1-pensamiento-situado",
+   "titulo": "¿Qué es hacer teoría? Interseccionalidad y pensamiento situado",
+   "pagina_web": "https://galera.com.ar/r/0913/e1-pensamiento-situado.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e1-pensamiento-situado-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0913/e1-pensamiento-situado-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 150260,
+     "paginas": 16,
+     "sha256": "ae46bd33f46d739a",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e1-pensamiento-situado-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0913/e1-pensamiento-situado-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 164631,
+     "paginas": 29,
+     "sha256": "f30db88b7e211154",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e1-pensamiento-situado-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0913/e1-pensamiento-situado-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 512134,
+     "paginas": 16,
+     "sha256": "388278fa63d456b4",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e1-pensamiento-situado.epub",
+     "url": "https://descargas.galera.com.ar/r/0913/e1-pensamiento-situado.epub",
+     "mime": "application/epub+zip",
+     "bytes": 500004,
+     "paginas": null,
+     "sha256": "c917253942c8fd68",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e2-cultura-y-hegemonia",
+   "titulo": "Cultura/culturas: el enfoque materialista (Unidad 2)",
+   "pagina_web": "https://galera.com.ar/r/0913/e2-cultura-y-hegemonia.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e2-cultura-y-hegemonia-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0913/e2-cultura-y-hegemonia-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 146837,
+     "paginas": 16,
+     "sha256": "c46a291b5f97150e",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e2-cultura-y-hegemonia-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0913/e2-cultura-y-hegemonia-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 161393,
+     "paginas": 29,
+     "sha256": "5e181f9f8d2c2be3",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e2-cultura-y-hegemonia-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0913/e2-cultura-y-hegemonia-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 509058,
+     "paginas": 16,
+     "sha256": "1e2d1fccf4343668",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e2-cultura-y-hegemonia.epub",
+     "url": "https://descargas.galera.com.ar/r/0913/e2-cultura-y-hegemonia.epub",
+     "mime": "application/epub+zip",
+     "bytes": 495205,
+     "paginas": null,
+     "sha256": "c25ae41e150588b4",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e3-industria-cultural",
+   "titulo": "Industrialización de la producción cultural (La industria cultural)",
+   "pagina_web": "https://galera.com.ar/r/0913/e3-industria-cultural.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e3-industria-cultural-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0913/e3-industria-cultural-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 158082,
+     "paginas": 16,
+     "sha256": "a61be8c309c6afc5",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e3-industria-cultural-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0913/e3-industria-cultural-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 172120,
+     "paginas": 30,
+     "sha256": "d888ce29d7f54ccc",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e3-industria-cultural-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0913/e3-industria-cultural-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 520738,
+     "paginas": 16,
+     "sha256": "3731e4e6cb0ed8dc",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e3-industria-cultural.epub",
+     "url": "https://descargas.galera.com.ar/r/0913/e3-industria-cultural.epub",
+     "mime": "application/epub+zip",
+     "bytes": 496638,
+     "paginas": null,
+     "sha256": "5ed90e7af01ef694",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e4a-sujeto-y-poder",
+   "titulo": "Sujeto y poder (Del poder disciplinario a la sociedad algorítmica)",
+   "pagina_web": "https://galera.com.ar/r/0913/e4a-sujeto-y-poder.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e4a-sujeto-y-poder-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0913/e4a-sujeto-y-poder-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 127734,
+     "paginas": 14,
+     "sha256": "642a7c87bb407d2d",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e4a-sujeto-y-poder-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0913/e4a-sujeto-y-poder-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 137324,
+     "paginas": 24,
+     "sha256": "dddaf378bb456089",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e4a-sujeto-y-poder-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0913/e4a-sujeto-y-poder-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 481812,
+     "paginas": 12,
+     "sha256": "ad1e9d1f017724bb",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e4a-sujeto-y-poder.epub",
+     "url": "https://descargas.galera.com.ar/r/0913/e4a-sujeto-y-poder.epub",
+     "mime": "application/epub+zip",
+     "bytes": 489627,
+     "paginas": null,
+     "sha256": "7373dfeb40aa661e",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e4b-sujeto-y-poder",
+   "titulo": "Campo concentracionario y representación de los desaparecidos",
+   "pagina_web": "https://galera.com.ar/r/0913/e4b-sujeto-y-poder.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e4b-sujeto-y-poder-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0913/e4b-sujeto-y-poder-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 104462,
+     "paginas": 10,
+     "sha256": "8db9260dd07d196d",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e4b-sujeto-y-poder-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0913/e4b-sujeto-y-poder-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 112909,
+     "paginas": 18,
+     "sha256": "4efe865a40234da5",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e4b-sujeto-y-poder-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0913/e4b-sujeto-y-poder-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 457486,
+     "paginas": 10,
+     "sha256": "98c25d4eac45b476",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e4b-sujeto-y-poder.epub",
+     "url": "https://descargas.galera.com.ar/r/0913/e4b-sujeto-y-poder.epub",
+     "mime": "application/epub+zip",
+     "bytes": 490217,
+     "paginas": null,
+     "sha256": "ace9139af78c9a6b",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e5-arte-y-activismo",
+   "titulo": "Arte, reproducción y activismo artístico",
+   "pagina_web": "https://galera.com.ar/r/0913/e5-arte-y-activismo.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e5-arte-y-activismo-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0913/e5-arte-y-activismo-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 157193,
+     "paginas": 16,
+     "sha256": "09980f1f25a0a4c0",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e5-arte-y-activismo-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0913/e5-arte-y-activismo-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 170421,
+     "paginas": 29,
+     "sha256": "92b1fd05e569ce21",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e5-arte-y-activismo-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0913/e5-arte-y-activismo-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 520074,
+     "paginas": 16,
+     "sha256": "639ed808e10c389b",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e5-arte-y-activismo.epub",
+     "url": "https://descargas.galera.com.ar/r/0913/e5-arte-y-activismo.epub",
+     "mime": "application/epub+zip",
+     "bytes": 493844,
+     "paginas": null,
+     "sha256": "4df80ef02700cdeb",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "z-simulacro",
+   "titulo": "Simulacro integrador (Teoría de los Medios y de la Cultura, 0913)",
+   "pagina_web": "https://galera.com.ar/r/0913/z-simulacro.html",
+   "archivos": {
+    "A4": {
+     "archivo": "z-simulacro-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0913/z-simulacro-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 69325,
+     "paginas": 3,
+     "sha256": "ce7aa63664f39ae1",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "z-simulacro-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0913/z-simulacro-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 71365,
+     "paginas": 5,
+     "sha256": "67b7439198cde219",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "z-simulacro-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0913/z-simulacro-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 415777,
+     "paginas": 4,
+     "sha256": "e1c041e0d5e1074d",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "z-simulacro.epub",
+     "url": "https://descargas.galera.com.ar/r/0913/z-simulacro.epub",
+     "mime": "application/epub+zip",
+     "bytes": 475702,
+     "paginas": null,
+     "sha256": "b81b59202348a610",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "z-simulacro-respuestas",
+   "titulo": "Respuestas del simulacro integrador (0913)",
+   "pagina_web": "https://galera.com.ar/r/0913/z-simulacro-respuestas.html",
+   "archivos": {
+    "A4": {
+     "archivo": "z-simulacro-respuestas-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0913/z-simulacro-respuestas-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 45271,
+     "paginas": 2,
+     "sha256": "d15f44dc8e31b545",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "z-simulacro-respuestas-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0913/z-simulacro-respuestas-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 46463,
+     "paginas": 3,
+     "sha256": "75d3806a34df125c",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "z-simulacro-respuestas-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0913/z-simulacro-respuestas-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 386982,
+     "paginas": 2,
+     "sha256": "f2544dfb084db0f4",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "z-simulacro-respuestas.epub",
+     "url": "https://descargas.galera.com.ar/r/0913/z-simulacro-respuestas.epub",
+     "mime": "application/epub+zip",
+     "bytes": 474440,
+     "paginas": null,
+     "sha256": "8abc79aac1779c27",
+     "generado": "2026-11-04"
+    }
+   }
+  }
+ ]
+}
