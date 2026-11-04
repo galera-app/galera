@@ -1636,12 +1636,16 @@ const FORMATO_DESC = {
 const HINT_CUADERNILLO = 'Imprimí doble faz, borde corto; doblá al medio.';
 const URL_DESC = 'https://descargas.galera.com.ar/';
 function cargarDescargas(materia) {
-  D.descargas = D.descargas || {};
+  D.descargas = D.descargas || Object.create(null);
   if (materia in D.descargas) return D.descargas[materia];
   if (!RE_ID.test(materia || '') || cargarDescargas['p' + materia]) return null;
   cargarDescargas['p' + materia] = true;
-  json('descargas/' + materia + '.json').then(m => { D.descargas[materia] = m && Array.isArray(m.apuntes) ? m : null; }, () => { D.descargas[materia] = null; })
-    .then(() => { if (V.tab === 'resumenes') render(); });
+  json('descargas/' + materia + '.json').then(m => { D.descargas[materia] = m && Array.isArray(m.apuntes) ? { ...m, apuntes: m.apuntes.filter(a => a && a.archivos && typeof a.archivos === 'object') } : null; }, () => { D.descargas[materia] = null; })
+      .then(() => {
+      if (V.tab !== 'resumenes') return;
+      const caja = V.res.apunte && $('#desc-apunte');   // en un apunte se cambia solo el bloque: un render() pisaría el scroll y las respuestas
+      if (caja) caja.outerHTML = descargaApunte(V.res.materia, V.res.apunte); else if (!V.res.apunte) render();
+    });
   return null;
 }
 // Solo se enlaza a nuestro dominio de descargas, aunque el manifiesto diga otra cosa.
@@ -1657,9 +1661,9 @@ const enlaceDesc = (M, ap, fmt, item, alcance, clases, interior) => `<a class="$
 function descargaApunte(materia, apunte) {
   const M = cargarDescargas(materia), ap = M && M.apuntes.find(x => x.id === apunte);
   const fs = ap ? ORDEN_DESC.filter(f => ap.archivos[f] && urlDesc(M, ap.archivos[f])) : [];
-  if (!fs.length) return '';
+  if (!fs.length) return '<div id="desc-apunte"></div>';
   const item = materia + '/' + apunte, pref = fs.indexOf(E.descarga) >= 0 ? E.descarga : fs[0];
-  return `<div class="gl-tarjeta gl-accion gl-desc no-imprimir gl-m16"><div><b>Descargar este apunte</b><span class="gl-chico">Sin cuenta ni registro. Se guarda el formato que elijas.</span></div>
+  return `<div id="desc-apunte" class="gl-tarjeta gl-accion gl-desc no-imprimir gl-m16"><div><b>Descargar este apunte</b><span class="gl-chico">Sin cuenta ni registro. Se guarda el formato que elijas.</span></div>
     ${enlaceDesc(M, ap, pref, item, 'apunte', 'gl-btn', `Descargar ${esc(FORMATO_DESC[pref][0])} <span class="gl-desc-peso">${esc(detalleDesc(pref, ap.archivos[pref]))}</span>`)}
     ${pref === 'cuadernillo' ? `<p class="gl-chico gl-desc-hint">${HINT_CUADERNILLO}</p>` : ''}
     ${fs.length > 1 ? `<details class="gl-desc-mas"><summary class="gl-enlace">Otros formatos</summary><ul class="gl-desc-lista">${fs.filter(f => f !== pref).map(f =>
