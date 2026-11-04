@@ -141,11 +141,12 @@ def para_indice(t, rel):
 
 
 def comando_pagefind():
-    """`python -m pagefind` (paquete pagefind[extended]), el binario `pagefind` o `npx pagefind`. None si no hay ninguno."""
+    """`python -m pagefind` (paquete pagefind[extended]) o el binario `pagefind`. Con GALERA_PAGEFIND_NPX=1 también `npx pagefind@versión`
+    (baja de internet: por eso no es automático). None si no hay ninguno."""
     pruebas = [[sys.executable, "-m", "pagefind"]]
     if shutil.which("pagefind"):
         pruebas.append(["pagefind"])
-    if shutil.which("npx"):
+    if os.environ.get("GALERA_PAGEFIND_NPX") == "1" and shutil.which("npx"):
         pruebas.append([shutil.which("npx"), "--yes", f"pagefind@{PAGEFIND_VERSION}"])
     for c in pruebas:
         try:
@@ -157,17 +158,27 @@ def comando_pagefind():
 
 
 def indexar(salida):
-    """Arma salida/pagefind/ (el índice del buscador). Sin Pagefind avisa y sigue, salvo con GALERA_EXIGIR_BUSCADOR=1 (el CI)."""
+    """Arma salida/pagefind/ (el índice del buscador). Si falta Pagefind o falla, avisa y el sitio sale sin buscador (el resto se publica igual),
+    salvo con GALERA_EXIGIR_BUSCADOR=1 (el CI y `Publicar`), donde es un error."""
+    exigir = os.environ.get("GALERA_EXIGIR_BUSCADOR") == "1"
     c = comando_pagefind()
     if c is None:
-        print(f"AVISO: no encontré Pagefind; el sitio queda sin buscador. Instalalo con: pip install \"pagefind[extended]=={PAGEFIND_VERSION}\"")
-        return os.environ.get("GALERA_EXIGIR_BUSCADOR") != "1"
-    r = subprocess.run(c + ["--site", str(salida), "--force-language", "es", "--quiet"], timeout=600)
-    # La interfaz propia está en app.js (vBuscar): los componentes de interfaz de Pagefind no se publican.
-    for f in (salida / "pagefind").glob("pagefind-*ui*"):
-        f.unlink()
-    (salida / "pagefind" / "pagefind-highlight.js").unlink(missing_ok=True)
-    return r.returncode == 0 and (salida / "pagefind" / "pagefind.js").is_file()
+        print(f"AVISO: no encontre Pagefind; el sitio queda sin buscador. Instalalo con: pip install \"pagefind[extended]=={PAGEFIND_VERSION}\"")
+        return not exigir
+    try:
+        r = subprocess.run(c + ["--site", str(salida), "--force-language", "es", "--quiet"], timeout=600)
+        ok = r.returncode == 0 and (salida / "pagefind" / "pagefind.js").is_file()
+        # La interfaz propia está en app.js (vBuscar): los componentes de interfaz de Pagefind no se publican.
+        for f in (salida / "pagefind").glob("pagefind-*ui*"):
+            f.unlink()
+        (salida / "pagefind" / "pagefind-highlight.js").unlink(missing_ok=True)
+    except (OSError, subprocess.SubprocessError) as e:
+        print(f"AVISO: Pagefind fallo ({e})")
+        ok = False
+    if not ok:
+        print("AVISO: no se pudo armar el indice; el sitio queda sin buscador.")
+        shutil.rmtree(salida / "pagefind", ignore_errors=True)
+    return ok or not exigir
 
 
 def ruta_de(rel):
