@@ -6,49 +6,6 @@
  "base_url": "https://descargas.galera.com.ar/r/0913/",
  "apuntes": [
   {
-   "id": "e1-pensamiento-situado",
-   "titulo": "¿Qué es hacer teoría? Interseccionalidad y pensamiento situado",
-   "pagina_web": "https://galera.com.ar/r/0913/e1-pensamiento-situado.html",
-   "archivos": {
-    "A4": {
-     "archivo": "e1-pensamiento-situado-A4.pdf",
-     "url": "https://descargas.galera.com.ar/r/0913/e1-pensamiento-situado-A4.pdf",
-     "mime": "application/pdf",
-     "bytes": 150260,
-     "paginas": 16,
-     "sha256": "ae46bd33f46d739a",
-     "generado": "2026-11-04"
-    },
-    "A5": {
-     "archivo": "e1-pensamiento-situado-A5.pdf",
-     "url": "https://descargas.galera.com.ar/r/0913/e1-pensamiento-situado-A5.pdf",
-     "mime": "application/pdf",
-     "bytes": 164631,
-     "paginas": 29,
-     "sha256": "f30db88b7e211154",
-     "generado": "2026-11-04"
-    },
-    "cuadernillo": {
-     "archivo": "e1-pensamiento-situado-cuadernillo.pdf",
-     "url": "https://descargas.galera.com.ar/r/0913/e1-pensamiento-situado-cuadernillo.pdf",
-     "mime": "application/pdf",
-     "bytes": 512134,
-     "paginas": 16,
-     "sha256": "388278fa63d456b4",
-     "generado": "2026-11-04"
-    },
-    "epub": {
-     "archivo": "e1-pensamiento-situado.epub",
-     "url": "https://descargas.galera.com.ar/r/0913/e1-pensamiento-situado.epub",
-     "mime": "application/epub+zip",
-     "bytes": 500004,
-     "paginas": null,
-     "sha256": "c917253942c8fd68",
-     "generado": "2026-11-04"
-    }
-   }
-  },
-  {
    "id": "e2-cultura-y-hegemonia",
    "titulo": "Cultura/culturas: el enfoque materialista (Unidad 2)",
    "pagina_web": "https://galera.com.ar/r/0913/e2-cultura-y-hegemonia.html",
