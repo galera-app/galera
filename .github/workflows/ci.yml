@@ -35,6 +35,8 @@ jobs:
         run: git ls-files '*.js' | xargs -n1 node --check
       - name: Las páginas llevan marcas y el armado de marco/ funciona
         run: python tools/armar.py --comprobar
+      - name: Cada apunte publicado tiene sus descargas
+        run: python tools/controlar_descargas.py
       - name: Armar el sitio publicable (dist/)
         run: python tools/armar.py --salida dist
       - name: Las pantallas clave responden
