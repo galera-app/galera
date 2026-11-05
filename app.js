@@ -332,8 +332,8 @@ function elegirPerfil() {
   abrir(`<div class="cab"><h2 class="crece" id="dlg-t">¿Qué te representa?</h2><button class="x" onclick="cerrar()" aria-label="Cerrar">✕</button></div>
     <p class="u-mt0 chico tenue">Así te muestro solo lo que te sirve. Lo podés cambiar cuando quieras desde «Más».</p>
     <div class="perfiles">
-      <button class="perfil ${esPro() ? 'on' : ''}" type="button" onclick="ponerPerfil('profesional')"><b>Trabajar</b><span class="chico tenue">Para profesionales del libro: herramientas, eventos, links del sector y los apuntes de Edición.</span></button>
-      <button class="perfil ${E.perfil === 'estudiante' ? 'on' : ''}" type="button" onclick="ponerPerfil('estudiante')"><b>Estudiar</b><span class="chico tenue">Para estudiantes de Edición: notas, horarios, calendario y resúmenes.</span></button>
+      <button class="perfil ${esPro() ? 'on' : ''}" type="button" onclick="ponerPerfil('profesional')"><b>Trabajar</b><span class="chico tenue">Para profesionales del libro: herramientas, eventos, contactos y los apuntes de Edición.</span></button>
+      <button class="perfil ${E.perfil === 'estudiante' ? 'on' : ''}" type="button" onclick="ponerPerfil('estudiante')"><b>Estudiar</b><span class="chico tenue">Para estudiantes de Edición: plan, notas, horarios y apuntes de la carrera.</span></button>
     </div>`, 'perfil');
 }
 // Configuración: el perfil y los accesos a lo personal (datos, ajustes, cookies).
@@ -348,7 +348,7 @@ function vConfig() {
     <div class="gl-cfg-pag"><aside class="gl-lateral" aria-label="Secciones"><nav class="gl-toc" aria-label="Configuración"><a href="#cfg-perfil" onclick="cfgIr(event,'cfg-perfil')">Perfil</a><a href="#cfg-apariencia" onclick="cfgIr(event,'cfg-apariencia')">Apariencia</a><a href="#cfg-avisos" onclick="cfgIr(event,'cfg-avisos')">Avisos</a><a href="#cfg-datos" onclick="cfgIr(event,'cfg-datos')">Datos</a></nav></aside>
     <div class="gl-cfg-cuerpo">
       <section id="cfg-perfil"><h3 class="gl-t2">¿Qué te representa?</h3><p class="gl-cfg-p">Elegí qué secciones ver. Podés volver acá cuando quieras.</p>
-        <div class="gl-perfiles">${op('estudiante', 'Estudiar', 'Para estudiantes de Edición: notas, horarios, calendario y resúmenes.')}${op('profesional', 'Trabajar', 'Para profesionales del libro: herramientas, eventos, links del sector y los apuntes de Edición.')}</div></section>
+        <div class="gl-perfiles">${op('estudiante', 'Estudiar', 'Para estudiantes de Edición: plan, notas, horarios y apuntes de la carrera.')}${op('profesional', 'Trabajar', 'Para profesionales del libro: herramientas, eventos, contactos y los apuntes de Edición.')}</div></section>
       <section id="cfg-apariencia"><h3 class="gl-t2">Apariencia</h3>
         <div class="gl-seg" role="group" aria-label="Tema">${[['auto', 'Automática'], ['light', 'Clara'], ['dark', 'Oscura']].map(([k, n]) => `<button type="button" class="${tema === k ? 'on' : ''}" aria-pressed="${tema === k}" onclick="ponerTema(${arg(k)})">${n}</button>`).join('')}</div>
         <p class="gl-chico">«Automática» sigue la configuración de tu dispositivo.</p></section>
