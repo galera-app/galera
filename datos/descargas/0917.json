@@ -1,0 +1,439 @@
+{
+ "materia": "0917",
+ "nombre": "Informática para la Producción Editorial",
+ "version_sitio": "v121",
+ "generado": "2026-11-04",
+ "base_url": "https://descargas.galera.com.ar/r/0917/",
+ "apuntes": [
+  {
+   "id": "e1-diseno-maquetacion-y-reticula",
+   "titulo": "Diseño, maquetación y retícula básica",
+   "pagina_web": "https://galera.com.ar/r/0917/e1-diseno-maquetacion-y-reticula.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e1-diseno-maquetacion-y-reticula-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0917/e1-diseno-maquetacion-y-reticula-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 187834,
+     "paginas": 21,
+     "sha256": "d113faa26f989d44",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e1-diseno-maquetacion-y-reticula-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0917/e1-diseno-maquetacion-y-reticula-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 204492,
+     "paginas": 37,
+     "sha256": "dc38219c567bef7c",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e1-diseno-maquetacion-y-reticula-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0917/e1-diseno-maquetacion-y-reticula-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 552828,
+     "paginas": 18,
+     "sha256": "59688bd84dcec653",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e1-diseno-maquetacion-y-reticula.epub",
+     "url": "https://descargas.galera.com.ar/r/0917/e1-diseno-maquetacion-y-reticula.epub",
+     "mime": "application/epub+zip",
+     "bytes": 499627,
+     "paginas": null,
+     "sha256": "93440cc48964980d",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e2-sistemas-de-reticulas",
+   "titulo": "Sistemas de retículas",
+   "pagina_web": "https://galera.com.ar/r/0917/e2-sistemas-de-reticulas.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e2-sistemas-de-reticulas-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0917/e2-sistemas-de-reticulas-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 195711,
+     "paginas": 20,
+     "sha256": "3969abb92d05b053",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e2-sistemas-de-reticulas-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0917/e2-sistemas-de-reticulas-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 211239,
+     "paginas": 36,
+     "sha256": "d9dd13f00e9549f2",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e2-sistemas-de-reticulas-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0917/e2-sistemas-de-reticulas-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 562054,
+     "paginas": 18,
+     "sha256": "650e1d2f32304d88",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e2-sistemas-de-reticulas.epub",
+     "url": "https://descargas.galera.com.ar/r/0917/e2-sistemas-de-reticulas.epub",
+     "mime": "application/epub+zip",
+     "bytes": 494583,
+     "paginas": null,
+     "sha256": "e50db191410209c2",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e3-tipografia",
+   "titulo": "Tipografía",
+   "pagina_web": "https://galera.com.ar/r/0917/e3-tipografia.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e3-tipografia-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0917/e3-tipografia-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 168581,
+     "paginas": 18,
+     "sha256": "fa74fdedd83945fb",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e3-tipografia-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0917/e3-tipografia-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 180534,
+     "paginas": 30,
+     "sha256": "302a42f9a7a31881",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e3-tipografia-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0917/e3-tipografia-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 529522,
+     "paginas": 16,
+     "sha256": "7cb5027fd717461f",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e3-tipografia.epub",
+     "url": "https://descargas.galera.com.ar/r/0917/e3-tipografia.epub",
+     "mime": "application/epub+zip",
+     "bytes": 487795,
+     "paginas": null,
+     "sha256": "a6b7052a5abab8b9",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e4-principios-de-formacion",
+   "titulo": "Principios de formación (De Buen)",
+   "pagina_web": "https://galera.com.ar/r/0917/e4-principios-de-formacion.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e4-principios-de-formacion-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0917/e4-principios-de-formacion-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 170463,
+     "paginas": 17,
+     "sha256": "a37d55ff51177585",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e4-principios-de-formacion-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0917/e4-principios-de-formacion-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 182716,
+     "paginas": 29,
+     "sha256": "c022f1b9983b54cf",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e4-principios-de-formacion-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0917/e4-principios-de-formacion-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 533776,
+     "paginas": 16,
+     "sha256": "68c8c01ce7ec5015",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e4-principios-de-formacion.epub",
+     "url": "https://descargas.galera.com.ar/r/0917/e4-principios-de-formacion.epub",
+     "mime": "application/epub+zip",
+     "bytes": 493164,
+     "paginas": null,
+     "sha256": "4eb54a17d2b4ee9d",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e5-color",
+   "titulo": "Color",
+   "pagina_web": "https://galera.com.ar/r/0917/e5-color.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e5-color-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0917/e5-color-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 138135,
+     "paginas": 14,
+     "sha256": "a873c1c94189a342",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e5-color-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0917/e5-color-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 148660,
+     "paginas": 25,
+     "sha256": "518f3c66fc79227c",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e5-color-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0917/e5-color-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 493301,
+     "paginas": 12,
+     "sha256": "1c0f22406a1cd508",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e5-color.epub",
+     "url": "https://descargas.galera.com.ar/r/0917/e5-color.epub",
+     "mime": "application/epub+zip",
+     "bytes": 479300,
+     "paginas": null,
+     "sha256": "9daac7a5e2c7be1c",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e6-imagen",
+   "titulo": "Imagen (Imagen digital y lectura de la imagen)",
+   "pagina_web": "https://galera.com.ar/r/0917/e6-imagen.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e6-imagen-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0917/e6-imagen-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 174981,
+     "paginas": 21,
+     "sha256": "782d366cc7089c20",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e6-imagen-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0917/e6-imagen-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 189332,
+     "paginas": 36,
+     "sha256": "cb0129ca7c3a1b7c",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e6-imagen-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0917/e6-imagen-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 535932,
+     "paginas": 18,
+     "sha256": "acb52d5d2fc83229",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e6-imagen.epub",
+     "url": "https://descargas.galera.com.ar/r/0917/e6-imagen.epub",
+     "mime": "application/epub+zip",
+     "bytes": 493598,
+     "paginas": null,
+     "sha256": "0e8aaff3fabca3e2",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e7-experiencia-editorial-e-hipermediaciones",
+   "titulo": "Experiencia editorial e hipermediaciones",
+   "pagina_web": "https://galera.com.ar/r/0917/e7-experiencia-editorial-e-hipermediaciones.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e7-experiencia-editorial-e-hipermediaciones-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0917/e7-experiencia-editorial-e-hipermediaciones-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 157990,
+     "paginas": 18,
+     "sha256": "3ba4c9b505c91b9a",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e7-experiencia-editorial-e-hipermediaciones-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0917/e7-experiencia-editorial-e-hipermediaciones-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 173226,
+     "paginas": 33,
+     "sha256": "808507ac49292c92",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e7-experiencia-editorial-e-hipermediaciones-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0917/e7-experiencia-editorial-e-hipermediaciones-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 520246,
+     "paginas": 16,
+     "sha256": "09cd8059ebddc910",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e7-experiencia-editorial-e-hipermediaciones.epub",
+     "url": "https://descargas.galera.com.ar/r/0917/e7-experiencia-editorial-e-hipermediaciones.epub",
+     "mime": "application/epub+zip",
+     "bytes": 494375,
+     "paginas": null,
+     "sha256": "0ff61425c22ccaf9",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e8-diseno-inclusivo-y-accesibilidad",
+   "titulo": "Diseño inclusivo y accesibilidad",
+   "pagina_web": "https://galera.com.ar/r/0917/e8-diseno-inclusivo-y-accesibilidad.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e8-diseno-inclusivo-y-accesibilidad-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0917/e8-diseno-inclusivo-y-accesibilidad-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 179323,
+     "paginas": 18,
+     "sha256": "e62b9750255c72b8",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e8-diseno-inclusivo-y-accesibilidad-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0917/e8-diseno-inclusivo-y-accesibilidad-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 193944,
+     "paginas": 33,
+     "sha256": "c17ed432f100d011",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e8-diseno-inclusivo-y-accesibilidad-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0917/e8-diseno-inclusivo-y-accesibilidad-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 543517,
+     "paginas": 16,
+     "sha256": "f4592d90fdf88a35",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e8-diseno-inclusivo-y-accesibilidad.epub",
+     "url": "https://descargas.galera.com.ar/r/0917/e8-diseno-inclusivo-y-accesibilidad.epub",
+     "mime": "application/epub+zip",
+     "bytes": 494711,
+     "paginas": null,
+     "sha256": "72d971d102ca91b6",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "z-simulacro",
+   "titulo": "Simulacro integrador (Informática para la Producción Editorial, 0917)",
+   "pagina_web": "https://galera.com.ar/r/0917/z-simulacro.html",
+   "archivos": {
+    "A4": {
+     "archivo": "z-simulacro-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0917/z-simulacro-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 70855,
+     "paginas": 3,
+     "sha256": "3f78e7dda9d085ba",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "z-simulacro-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0917/z-simulacro-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 72928,
+     "paginas": 5,
+     "sha256": "55fd6db1fb3a1fe3",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "z-simulacro-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0917/z-simulacro-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 416451,
+     "paginas": 4,
+     "sha256": "49e73de47ce5f107",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "z-simulacro.epub",
+     "url": "https://descargas.galera.com.ar/r/0917/z-simulacro.epub",
+     "mime": "application/epub+zip",
+     "bytes": 475494,
+     "paginas": null,
+     "sha256": "52bbbc2856834924",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "z-simulacro-respuestas",
+   "titulo": "Respuestas del simulacro integrador (0917)",
+   "pagina_web": "https://galera.com.ar/r/0917/z-simulacro-respuestas.html",
+   "archivos": {
+    "A4": {
+     "archivo": "z-simulacro-respuestas-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0917/z-simulacro-respuestas-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 65980,
+     "paginas": 3,
+     "sha256": "c50042263537380b",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "z-simulacro-respuestas-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0917/z-simulacro-respuestas-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 68041,
+     "paginas": 5,
+     "sha256": "d95d76859af460e7",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "z-simulacro-respuestas-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0917/z-simulacro-respuestas-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 411709,
+     "paginas": 4,
+     "sha256": "8ed69731f027f5ef",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "z-simulacro-respuestas.epub",
+     "url": "https://descargas.galera.com.ar/r/0917/z-simulacro-respuestas.epub",
+     "mime": "application/epub+zip",
+     "bytes": 476149,
+     "paginas": null,
+     "sha256": "4fe268ccee750d97",
+     "generado": "2026-11-04"
+    }
+   }
+  }
+ ]
+}

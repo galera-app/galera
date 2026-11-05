@@ -785,3 +785,21 @@ a.ib{text-decoration:none}
 .gl-baja.gl-bad{color:var(--gl-bad)}
 .gl-bus-p{margin:0;font:600 18px/24px var(--gl-sans);color:var(--gl-ink)}
 .gl-bus-res .gl-faq-r p{font-size:16px;line-height:24px;color:var(--gl-ink)}
+
+/* v122: descargas de los resúmenes (PDF A4, A5, cuadernillo, EPUB) */
+.gl-desc .gl-btn{flex:none}
+.gl-desc-peso{font:400 14px/20px var(--gl-sans);opacity:.85;font-variant-numeric:tabular-nums}
+.gl-desc-mas{flex:1 0 100%}
+.gl-desc-mas>summary{cursor:pointer}
+.gl-desc-hint{margin:0;flex:1 0 100%}
+.gl-desc-lista{margin:8px 0 0;padding:0;list-style:none}
+.gl-desc-lista li{border-top:1px solid var(--gl-line)}
+.gl-desc-lista li>.gl-desc-hint{padding:0 0 12px}
+.gl-desc-op{display:flex;flex-direction:column;justify-content:center;gap:0;min-height:44px;padding:8px 0;color:var(--gl-ink);text-decoration:none}
+.gl-desc-op b{font:500 16px/24px var(--gl-sans);color:var(--gl-lnk);text-decoration:underline;text-underline-offset:3px}
+.gl-desc-op:focus-visible{outline:2px solid var(--gl-ink);outline-offset:2px}
+.gl-desc-op .clave{font-weight:400;color:var(--gl-t2);margin-right:4px}
+.gl-desc--materia>b{font:600 16px/24px var(--gl-sans);color:var(--gl-ink)}
+.gl-desc--materia .gl-filtros button{height:44px}
+.gl-desc--materia .gl-desc-todos{max-height:none}
+@media (max-width:760px){.gl-desc .gl-btn{width:100%;height:auto;min-height:44px;padding:8px 16px;flex-wrap:wrap;text-align:center}}

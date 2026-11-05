@@ -1,0 +1,439 @@
+{
+ "materia": "0922",
+ "nombre": "Edición de Publicaciones Periódicas",
+ "version_sitio": "v121",
+ "generado": "2026-11-04",
+ "base_url": "https://descargas.galera.com.ar/r/0922/",
+ "apuntes": [
+  {
+   "id": "e1a-historia-y-teorias-de-la-prensa",
+   "titulo": "Historia y teorías de la prensa",
+   "pagina_web": "https://galera.com.ar/r/0922/e1a-historia-y-teorias-de-la-prensa.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e1a-historia-y-teorias-de-la-prensa-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0922/e1a-historia-y-teorias-de-la-prensa-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 155161,
+     "paginas": 17,
+     "sha256": "2811446d0ed2f02a",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e1a-historia-y-teorias-de-la-prensa-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0922/e1a-historia-y-teorias-de-la-prensa-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 168790,
+     "paginas": 30,
+     "sha256": "afcec5cb5ff495ec",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e1a-historia-y-teorias-de-la-prensa-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0922/e1a-historia-y-teorias-de-la-prensa-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 516610,
+     "paginas": 16,
+     "sha256": "2ac235b6c075d97c",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e1a-historia-y-teorias-de-la-prensa.epub",
+     "url": "https://descargas.galera.com.ar/r/0922/e1a-historia-y-teorias-de-la-prensa.epub",
+     "mime": "application/epub+zip",
+     "bytes": 489987,
+     "paginas": null,
+     "sha256": "a474c76f8ee61193",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e1b-prensa-argentina-y-politicas-de-comunicacion",
+   "titulo": "Prensa argentina, regulación y políticas de comunicación",
+   "pagina_web": "https://galera.com.ar/r/0922/e1b-prensa-argentina-y-politicas-de-comunicacion.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e1b-prensa-argentina-y-politicas-de-comunicacion-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0922/e1b-prensa-argentina-y-politicas-de-comunicacion-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 160947,
+     "paginas": 16,
+     "sha256": "b97992fb63539d15",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e1b-prensa-argentina-y-politicas-de-comunicacion-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0922/e1b-prensa-argentina-y-politicas-de-comunicacion-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 174326,
+     "paginas": 29,
+     "sha256": "032836d5ab15dff2",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e1b-prensa-argentina-y-politicas-de-comunicacion-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0922/e1b-prensa-argentina-y-politicas-de-comunicacion-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 522228,
+     "paginas": 14,
+     "sha256": "ac7983fafd2f7012",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e1b-prensa-argentina-y-politicas-de-comunicacion.epub",
+     "url": "https://descargas.galera.com.ar/r/0922/e1b-prensa-argentina-y-politicas-de-comunicacion.epub",
+     "mime": "application/epub+zip",
+     "bytes": 498148,
+     "paginas": null,
+     "sha256": "87edf61e3ec320b6",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e2a-noticia-y-actor-politico",
+   "titulo": "Noticia, acontecimiento y el periódico como actor político",
+   "pagina_web": "https://galera.com.ar/r/0922/e2a-noticia-y-actor-politico.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e2a-noticia-y-actor-politico-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0922/e2a-noticia-y-actor-politico-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 174139,
+     "paginas": 20,
+     "sha256": "0018cc62cdd2bc2e",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e2a-noticia-y-actor-politico-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0922/e2a-noticia-y-actor-politico-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 192476,
+     "paginas": 37,
+     "sha256": "334fc71489fd766c",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e2a-noticia-y-actor-politico-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0922/e2a-noticia-y-actor-politico-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 543513,
+     "paginas": 20,
+     "sha256": "69d5a4c7e8a6193a",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e2a-noticia-y-actor-politico.epub",
+     "url": "https://descargas.galera.com.ar/r/0922/e2a-noticia-y-actor-politico.epub",
+     "mime": "application/epub+zip",
+     "bytes": 498381,
+     "paginas": null,
+     "sha256": "295ed5330577985c",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e2b-desinformacion-y-opinion-publica",
+   "titulo": "Desinformación y opinión pública",
+   "pagina_web": "https://galera.com.ar/r/0922/e2b-desinformacion-y-opinion-publica.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e2b-desinformacion-y-opinion-publica-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0922/e2b-desinformacion-y-opinion-publica-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 154329,
+     "paginas": 15,
+     "sha256": "9cb7d9d52f62c1fa",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e2b-desinformacion-y-opinion-publica-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0922/e2b-desinformacion-y-opinion-publica-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 169000,
+     "paginas": 29,
+     "sha256": "74a47c4d8a1955a0",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e2b-desinformacion-y-opinion-publica-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0922/e2b-desinformacion-y-opinion-publica-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 515984,
+     "paginas": 14,
+     "sha256": "79098fa1ee9483e5",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e2b-desinformacion-y-opinion-publica.epub",
+     "url": "https://descargas.galera.com.ar/r/0922/e2b-desinformacion-y-opinion-publica.epub",
+     "mime": "application/epub+zip",
+     "bytes": 491757,
+     "paginas": null,
+     "sha256": "ca4a03785f04daba",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e3-campo-periodistico",
+   "titulo": "El campo periodístico (Bourdieu)",
+   "pagina_web": "https://galera.com.ar/r/0922/e3-campo-periodistico.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e3-campo-periodistico-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0922/e3-campo-periodistico-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 148292,
+     "paginas": 16,
+     "sha256": "411490bfc3ff681d",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e3-campo-periodistico-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0922/e3-campo-periodistico-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 162101,
+     "paginas": 29,
+     "sha256": "4d674c05f4e599b4",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e3-campo-periodistico-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0922/e3-campo-periodistico-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 508098,
+     "paginas": 14,
+     "sha256": "79abd0320684e0aa",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e3-campo-periodistico.epub",
+     "url": "https://descargas.galera.com.ar/r/0922/e3-campo-periodistico.epub",
+     "mime": "application/epub+zip",
+     "bytes": 489009,
+     "paginas": null,
+     "sha256": "c4459ee66ea91ae9",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e4a-calidad-periodistica-y-nuevas-tecnologias",
+   "titulo": "Calidad periodística y nuevas tecnologías",
+   "pagina_web": "https://galera.com.ar/r/0922/e4a-calidad-periodistica-y-nuevas-tecnologias.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e4a-calidad-periodistica-y-nuevas-tecnologias-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0922/e4a-calidad-periodistica-y-nuevas-tecnologias-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 159021,
+     "paginas": 17,
+     "sha256": "32a5eb9c1329a3f9",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e4a-calidad-periodistica-y-nuevas-tecnologias-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0922/e4a-calidad-periodistica-y-nuevas-tecnologias-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 174941,
+     "paginas": 32,
+     "sha256": "c104e18c87f49fbb",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e4a-calidad-periodistica-y-nuevas-tecnologias-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0922/e4a-calidad-periodistica-y-nuevas-tecnologias-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 521065,
+     "paginas": 16,
+     "sha256": "c843463860145e1e",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e4a-calidad-periodistica-y-nuevas-tecnologias.epub",
+     "url": "https://descargas.galera.com.ar/r/0922/e4a-calidad-periodistica-y-nuevas-tecnologias.epub",
+     "mime": "application/epub+zip",
+     "bytes": 497981,
+     "paginas": null,
+     "sha256": "a7989362f83b514e",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e4b-oficio-del-editor-y-fotografia",
+   "titulo": "El oficio del editor gráfico y la fotografía de prensa",
+   "pagina_web": "https://galera.com.ar/r/0922/e4b-oficio-del-editor-y-fotografia.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e4b-oficio-del-editor-y-fotografia-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0922/e4b-oficio-del-editor-y-fotografia-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 151597,
+     "paginas": 16,
+     "sha256": "634162cfb63a742a",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e4b-oficio-del-editor-y-fotografia-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0922/e4b-oficio-del-editor-y-fotografia-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 165197,
+     "paginas": 29,
+     "sha256": "275de3767a38dd78",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e4b-oficio-del-editor-y-fotografia-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0922/e4b-oficio-del-editor-y-fotografia-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 511596,
+     "paginas": 14,
+     "sha256": "0142c3e91689ab51",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e4b-oficio-del-editor-y-fotografia.epub",
+     "url": "https://descargas.galera.com.ar/r/0922/e4b-oficio-del-editor-y-fotografia.epub",
+     "mime": "application/epub+zip",
+     "bytes": 493984,
+     "paginas": null,
+     "sha256": "62c5d71f9d76d7e9",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e5-edicion-digital",
+   "titulo": "Acción editorial en soporte digital",
+   "pagina_web": "https://galera.com.ar/r/0922/e5-edicion-digital.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e5-edicion-digital-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0922/e5-edicion-digital-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 150077,
+     "paginas": 15,
+     "sha256": "898be9ac6abcfdd3",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e5-edicion-digital-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0922/e5-edicion-digital-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 163203,
+     "paginas": 28,
+     "sha256": "8fa96f34062348e5",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e5-edicion-digital-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0922/e5-edicion-digital-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 509992,
+     "paginas": 14,
+     "sha256": "64c79548426792c7",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e5-edicion-digital.epub",
+     "url": "https://descargas.galera.com.ar/r/0922/e5-edicion-digital.epub",
+     "mime": "application/epub+zip",
+     "bytes": 488787,
+     "paginas": null,
+     "sha256": "c074868a3a3973e9",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "z-simulacro",
+   "titulo": "Simulacro integrador (Edición de Publicaciones Periódicas, 0922)",
+   "pagina_web": "https://galera.com.ar/r/0922/z-simulacro.html",
+   "archivos": {
+    "A4": {
+     "archivo": "z-simulacro-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0922/z-simulacro-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 82710,
+     "paginas": 5,
+     "sha256": "4795be37a8a96ffa",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "z-simulacro-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0922/z-simulacro-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 86075,
+     "paginas": 8,
+     "sha256": "8f65e964bd52b0f1",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "z-simulacro-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0922/z-simulacro-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 429323,
+     "paginas": 4,
+     "sha256": "1255b013aac4b8fa",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "z-simulacro.epub",
+     "url": "https://descargas.galera.com.ar/r/0922/z-simulacro.epub",
+     "mime": "application/epub+zip",
+     "bytes": 476859,
+     "paginas": null,
+     "sha256": "f0adef2f8200bc50",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "z-simulacro-respuestas",
+   "titulo": "Respuestas del simulacro integrador (0922)",
+   "pagina_web": "https://galera.com.ar/r/0922/z-simulacro-respuestas.html",
+   "archivos": {
+    "A4": {
+     "archivo": "z-simulacro-respuestas-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0922/z-simulacro-respuestas-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 55773,
+     "paginas": 3,
+     "sha256": "de7f8c45cb39d890",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "z-simulacro-respuestas-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0922/z-simulacro-respuestas-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 56788,
+     "paginas": 4,
+     "sha256": "2d6854bdc05fdaf1",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "z-simulacro-respuestas-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0922/z-simulacro-respuestas-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 399859,
+     "paginas": 4,
+     "sha256": "13bbc6c4bd62ad4e",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "z-simulacro-respuestas.epub",
+     "url": "https://descargas.galera.com.ar/r/0922/z-simulacro-respuestas.epub",
+     "mime": "application/epub+zip",
+     "bytes": 474859,
+     "paginas": null,
+     "sha256": "da15b9a2f20bd79c",
+     "generado": "2026-11-04"
+    }
+   }
+  }
+ ]
+}

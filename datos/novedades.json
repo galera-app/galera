@@ -22,6 +22,16 @@
    "url": "https://galera.com.ar/buscar/"
   },
   {
+   "v": 122,
+   "fecha": "2026-11-04",
+   "tipo": "resumenes",
+   "perfil": "estudiante",
+   "materias": [],
+   "titulo": "Los resúmenes, para descargar",
+   "texto": "Cada apunte se puede bajar en PDF A4, PDF A5, cuadernillo para imprimir y doblar, o EPUB para el lector de libros. En la página de cada materia están todos juntos. Galera recuerda el formato que elegiste.",
+   "url": "https://galera.com.ar/r/"
+  },
+  {
    "v": 121,
    "fecha": "2026-11-02",
    "tipo": "herramientas",

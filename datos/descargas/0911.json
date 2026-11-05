@@ -1,0 +1,1471 @@
+{
+ "materia": "0911",
+ "nombre": "Corrección de Estilo",
+ "version_sitio": "v121",
+ "generado": "2026-11-04",
+ "base_url": "https://descargas.galera.com.ar/r/0911/",
+ "apuntes": [
+  {
+   "id": "e1-clases-de-palabras",
+   "titulo": "Clases de palabras",
+   "pagina_web": "https://galera.com.ar/r/0911/e1-clases-de-palabras.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e1-clases-de-palabras-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/e1-clases-de-palabras-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 177082,
+     "paginas": 20,
+     "sha256": "4cc0209d5ff43afc",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e1-clases-de-palabras-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/e1-clases-de-palabras-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 197002,
+     "paginas": 38,
+     "sha256": "eb9eeda69f1bf45d",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e1-clases-de-palabras-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/e1-clases-de-palabras-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 545465,
+     "paginas": 20,
+     "sha256": "8e89ac8ede42a022",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e1-clases-de-palabras.epub",
+     "url": "https://descargas.galera.com.ar/r/0911/e1-clases-de-palabras.epub",
+     "mime": "application/epub+zip",
+     "bytes": 490829,
+     "paginas": null,
+     "sha256": "c81addd47ff1f624",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e2-saussure-lengua-habla-valor",
+   "titulo": "Saussure: lingüística estructural (Lengua y habla, valor)",
+   "pagina_web": "https://galera.com.ar/r/0911/e2-saussure-lengua-habla-valor.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e2-saussure-lengua-habla-valor-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/e2-saussure-lengua-habla-valor-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 104191,
+     "paginas": 9,
+     "sha256": "618575a92b751f8a",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e2-saussure-lengua-habla-valor-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/e2-saussure-lengua-habla-valor-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 114424,
+     "paginas": 18,
+     "sha256": "1e3ba96a071f9d91",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e2-saussure-lengua-habla-valor-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/e2-saussure-lengua-habla-valor-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 458463,
+     "paginas": 10,
+     "sha256": "5a876fd9e5da9c19",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e2-saussure-lengua-habla-valor.epub",
+     "url": "https://descargas.galera.com.ar/r/0911/e2-saussure-lengua-habla-valor.epub",
+     "mime": "application/epub+zip",
+     "bytes": 482728,
+     "paginas": null,
+     "sha256": "7396ed80683fb6d7",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e3-coseriu-sistema-norma-habla",
+   "titulo": "Coseriu: sistema y norma",
+   "pagina_web": "https://galera.com.ar/r/0911/e3-coseriu-sistema-norma-habla.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e3-coseriu-sistema-norma-habla-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/e3-coseriu-sistema-norma-habla-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 97636,
+     "paginas": 9,
+     "sha256": "2a88490836820036",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e3-coseriu-sistema-norma-habla-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/e3-coseriu-sistema-norma-habla-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 104805,
+     "paginas": 16,
+     "sha256": "e0e559cf0d964b80",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e3-coseriu-sistema-norma-habla-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/e3-coseriu-sistema-norma-habla-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 447702,
+     "paginas": 8,
+     "sha256": "8f5fcea11f5e45b3",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e3-coseriu-sistema-norma-habla.epub",
+     "url": "https://descargas.galera.com.ar/r/0911/e3-coseriu-sistema-norma-habla.epub",
+     "mime": "application/epub+zip",
+     "bytes": 476817,
+     "paginas": null,
+     "sha256": "6a6bb8ae792239af",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e4-competencias-del-corrector",
+   "titulo": "García Negroni y Estrada / Pérgola (Las competencias del corrector)",
+   "pagina_web": "https://galera.com.ar/r/0911/e4-competencias-del-corrector.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e4-competencias-del-corrector-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/e4-competencias-del-corrector-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 148307,
+     "paginas": 15,
+     "sha256": "e5566a7163d175aa",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e4-competencias-del-corrector-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/e4-competencias-del-corrector-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 161023,
+     "paginas": 27,
+     "sha256": "afb2d99cc2ac2368",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e4-competencias-del-corrector-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/e4-competencias-del-corrector-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 506823,
+     "paginas": 14,
+     "sha256": "0f1f46f2e1231895",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e4-competencias-del-corrector.epub",
+     "url": "https://descargas.galera.com.ar/r/0911/e4-competencias-del-corrector.epub",
+     "mime": "application/epub+zip",
+     "bytes": 492588,
+     "paginas": null,
+     "sha256": "dc24a0c1702e8fa7",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e5-cambio-linguistico-sexismo-voseo-neutro",
+   "titulo": "El cambio lingüístico (Sexismo en el lenguaje, voseo y variedad neutra)",
+   "pagina_web": "https://galera.com.ar/r/0911/e5-cambio-linguistico-sexismo-voseo-neutro.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e5-cambio-linguistico-sexismo-voseo-neutro-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/e5-cambio-linguistico-sexismo-voseo-neutro-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 136967,
+     "paginas": 14,
+     "sha256": "5718d616ad8d3ad1",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e5-cambio-linguistico-sexismo-voseo-neutro-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/e5-cambio-linguistico-sexismo-voseo-neutro-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 149397,
+     "paginas": 26,
+     "sha256": "d0a8e993cd6bb8b2",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e5-cambio-linguistico-sexismo-voseo-neutro-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/e5-cambio-linguistico-sexismo-voseo-neutro-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 496605,
+     "paginas": 14,
+     "sha256": "291f78451b0c9e8d",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e5-cambio-linguistico-sexismo-voseo-neutro.epub",
+     "url": "https://descargas.galera.com.ar/r/0911/e5-cambio-linguistico-sexismo-voseo-neutro.epub",
+     "mime": "application/epub+zip",
+     "bytes": 490629,
+     "paginas": null,
+     "sha256": "432a817d0b824bcb",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e6-prescripcion-descripcion-y-academias",
+   "titulo": "Prescripción, descripción, estandarización y academias (Parte A)",
+   "pagina_web": "https://galera.com.ar/r/0911/e6-prescripcion-descripcion-y-academias.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e6-prescripcion-descripcion-y-academias-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/e6-prescripcion-descripcion-y-academias-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 176584,
+     "paginas": 17,
+     "sha256": "0ebb540b354a4d2a",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e6-prescripcion-descripcion-y-academias-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/e6-prescripcion-descripcion-y-academias-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 193840,
+     "paginas": 33,
+     "sha256": "39bae67afcdb4bd1",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e6-prescripcion-descripcion-y-academias-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/e6-prescripcion-descripcion-y-academias-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 540442,
+     "paginas": 16,
+     "sha256": "6b81444df8b70888",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e6-prescripcion-descripcion-y-academias.epub",
+     "url": "https://descargas.galera.com.ar/r/0911/e6-prescripcion-descripcion-y-academias.epub",
+     "mime": "application/epub+zip",
+     "bytes": 499345,
+     "paginas": null,
+     "sha256": "5862735040170ab3",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e6b-academias-y-politica-linguistica-bonnin-lauria",
+   "titulo": "Academias, instrumentos y política lingüística panhispánica (Parte B)",
+   "pagina_web": "https://galera.com.ar/r/0911/e6b-academias-y-politica-linguistica-bonnin-lauria.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e6b-academias-y-politica-linguistica-bonnin-lauria-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/e6b-academias-y-politica-linguistica-bonnin-lauria-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 162505,
+     "paginas": 17,
+     "sha256": "60c139f3abf3e10b",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e6b-academias-y-politica-linguistica-bonnin-lauria-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/e6b-academias-y-politica-linguistica-bonnin-lauria-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 178935,
+     "paginas": 32,
+     "sha256": "6ccaff7c7f46944d",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e6b-academias-y-politica-linguistica-bonnin-lauria-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/e6b-academias-y-politica-linguistica-bonnin-lauria-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 525873,
+     "paginas": 16,
+     "sha256": "55b1cf84fb48145d",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e6b-academias-y-politica-linguistica-bonnin-lauria.epub",
+     "url": "https://descargas.galera.com.ar/r/0911/e6b-academias-y-politica-linguistica-bonnin-lauria.epub",
+     "mime": "application/epub+zip",
+     "bytes": 500194,
+     "paginas": null,
+     "sha256": "f1e885dde58dc831",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e7-funciones-del-lenguaje-jakobson-kerbrat",
+   "titulo": "Funciones del lenguaje (Jakobson). Críticas y ampliación del modelo (Kerbrat-Orecchioni)",
+   "pagina_web": "https://galera.com.ar/r/0911/e7-funciones-del-lenguaje-jakobson-kerbrat.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e7-funciones-del-lenguaje-jakobson-kerbrat-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/e7-funciones-del-lenguaje-jakobson-kerbrat-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 126431,
+     "paginas": 11,
+     "sha256": "4f01eaf2e6313458",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e7-funciones-del-lenguaje-jakobson-kerbrat-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/e7-funciones-del-lenguaje-jakobson-kerbrat-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 137503,
+     "paginas": 21,
+     "sha256": "95ba85d4de2a9c58",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e7-funciones-del-lenguaje-jakobson-kerbrat-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/e7-funciones-del-lenguaje-jakobson-kerbrat-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 485121,
+     "paginas": 12,
+     "sha256": "6bae16749eceee23",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e7-funciones-del-lenguaje-jakobson-kerbrat.epub",
+     "url": "https://descargas.galera.com.ar/r/0911/e7-funciones-del-lenguaje-jakobson-kerbrat.epub",
+     "mime": "application/epub+zip",
+     "bytes": 493459,
+     "paginas": null,
+     "sha256": "acf70e72512f8365",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e8-normas-editoriales-apa-bolivar-tosi",
+   "titulo": "Normas editoriales y de estilo institucional (APA, tradiciones discursivas y discurso ajeno en manuales)",
+   "pagina_web": "https://galera.com.ar/r/0911/e8-normas-editoriales-apa-bolivar-tosi.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e8-normas-editoriales-apa-bolivar-tosi-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/e8-normas-editoriales-apa-bolivar-tosi-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 189788,
+     "paginas": 21,
+     "sha256": "dab8e2c7a17b6a3c",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e8-normas-editoriales-apa-bolivar-tosi-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/e8-normas-editoriales-apa-bolivar-tosi-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 208088,
+     "paginas": 38,
+     "sha256": "429eae330b4d7711",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e8-normas-editoriales-apa-bolivar-tosi-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/e8-normas-editoriales-apa-bolivar-tosi-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 558888,
+     "paginas": 20,
+     "sha256": "9e6985e706348357",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e8-normas-editoriales-apa-bolivar-tosi.epub",
+     "url": "https://descargas.galera.com.ar/r/0911/e8-normas-editoriales-apa-bolivar-tosi.epub",
+     "mime": "application/epub+zip",
+     "bytes": 503409,
+     "paginas": null,
+     "sha256": "d23f89135b2e8681",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e9-campo-semantico-y-lexico-escandell-geckeler",
+   "titulo": "Teoría del campo semántico, estructuración del léxico y procesos cognitivos. Subjetivemas y géneros",
+   "pagina_web": "https://galera.com.ar/r/0911/e9-campo-semantico-y-lexico-escandell-geckeler.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e9-campo-semantico-y-lexico-escandell-geckeler-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/e9-campo-semantico-y-lexico-escandell-geckeler-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 137567,
+     "paginas": 13,
+     "sha256": "c39edbc9d4d40447",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e9-campo-semantico-y-lexico-escandell-geckeler-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/e9-campo-semantico-y-lexico-escandell-geckeler-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 152471,
+     "paginas": 26,
+     "sha256": "b8310e8c8e0574df",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e9-campo-semantico-y-lexico-escandell-geckeler-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/e9-campo-semantico-y-lexico-escandell-geckeler-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 497924,
+     "paginas": 14,
+     "sha256": "83ef9e07dc82ddd6",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e9-campo-semantico-y-lexico-escandell-geckeler.epub",
+     "url": "https://descargas.galera.com.ar/r/0911/e9-campo-semantico-y-lexico-escandell-geckeler.epub",
+     "mime": "application/epub+zip",
+     "bytes": 500355,
+     "paginas": null,
+     "sha256": "1c55ec863855a155",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "c-complementarios-resumenes",
+   "titulo": "Textos complementarios (no obligatorios) (Resúmenes)",
+   "pagina_web": "https://galera.com.ar/r/0911/c-complementarios-resumenes.html",
+   "archivos": {
+    "A4": {
+     "archivo": "c-complementarios-resumenes-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/c-complementarios-resumenes-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 135057,
+     "paginas": 11,
+     "sha256": "9026cf0e8b3be6ac",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "c-complementarios-resumenes-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/c-complementarios-resumenes-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 144562,
+     "paginas": 20,
+     "sha256": "14e4d1c625cf2c34",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "c-complementarios-resumenes-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/c-complementarios-resumenes-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 494041,
+     "paginas": 12,
+     "sha256": "05891aac19a39d7a",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "c-complementarios-resumenes.epub",
+     "url": "https://descargas.galera.com.ar/r/0911/c-complementarios-resumenes.epub",
+     "mime": "application/epub+zip",
+     "bytes": 490678,
+     "paginas": null,
+     "sha256": "0fbd6e2507aed398",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e10-tipos-de-correccion-y-oficio",
+   "titulo": "Tipos de corrección, etapas del proceso editorial y lugar del corrector",
+   "pagina_web": "https://galera.com.ar/r/0911/e10-tipos-de-correccion-y-oficio.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e10-tipos-de-correccion-y-oficio-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/e10-tipos-de-correccion-y-oficio-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 183144,
+     "paginas": 20,
+     "sha256": "8c84f226315d6e62",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e10-tipos-de-correccion-y-oficio-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/e10-tipos-de-correccion-y-oficio-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 202673,
+     "paginas": 38,
+     "sha256": "a9f9a3acc8baff05",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e10-tipos-de-correccion-y-oficio-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/e10-tipos-de-correccion-y-oficio-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 549726,
+     "paginas": 18,
+     "sha256": "517978149e6a1da0",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e10-tipos-de-correccion-y-oficio.epub",
+     "url": "https://descargas.galera.com.ar/r/0911/e10-tipos-de-correccion-y-oficio.epub",
+     "mime": "application/epub+zip",
+     "bytes": 502022,
+     "paginas": null,
+     "sha256": "cce554030d45d614",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e11a-enunciacion-correlacion-de-tiempos-aspecto-lexico",
+   "titulo": "La enunciación y la correlación de tiempos",
+   "pagina_web": "https://galera.com.ar/r/0911/e11a-enunciacion-correlacion-de-tiempos-aspecto-lexico.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e11a-enunciacion-correlacion-de-tiempos-aspecto-lexico-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/e11a-enunciacion-correlacion-de-tiempos-aspecto-lexico-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 176682,
+     "paginas": 19,
+     "sha256": "f944dfaa79219ac5",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e11a-enunciacion-correlacion-de-tiempos-aspecto-lexico-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/e11a-enunciacion-correlacion-de-tiempos-aspecto-lexico-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 193246,
+     "paginas": 34,
+     "sha256": "444b9f03315e9dc1",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e11a-enunciacion-correlacion-de-tiempos-aspecto-lexico-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/e11a-enunciacion-correlacion-de-tiempos-aspecto-lexico-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 541898,
+     "paginas": 16,
+     "sha256": "bf2da07481c8ac90",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e11a-enunciacion-correlacion-de-tiempos-aspecto-lexico.epub",
+     "url": "https://descargas.galera.com.ar/r/0911/e11a-enunciacion-correlacion-de-tiempos-aspecto-lexico.epub",
+     "mime": "application/epub+zip",
+     "bytes": 494632,
+     "paginas": null,
+     "sha256": "5634380c4be64948",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e11b-aspectualidad-y-estativos-ramirez-gelbes",
+   "titulo": "Aspectualidad y estativos (Ramírez Gelbes)",
+   "pagina_web": "https://galera.com.ar/r/0911/e11b-aspectualidad-y-estativos-ramirez-gelbes.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e11b-aspectualidad-y-estativos-ramirez-gelbes-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/e11b-aspectualidad-y-estativos-ramirez-gelbes-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 189777,
+     "paginas": 19,
+     "sha256": "e24c0982dfcf9230",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e11b-aspectualidad-y-estativos-ramirez-gelbes-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/e11b-aspectualidad-y-estativos-ramirez-gelbes-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 209083,
+     "paginas": 36,
+     "sha256": "12f99e744e879f78",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e11b-aspectualidad-y-estativos-ramirez-gelbes-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/e11b-aspectualidad-y-estativos-ramirez-gelbes-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 560338,
+     "paginas": 18,
+     "sha256": "27e3b9d08fa5004a",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e11b-aspectualidad-y-estativos-ramirez-gelbes.epub",
+     "url": "https://descargas.galera.com.ar/r/0911/e11b-aspectualidad-y-estativos-ramirez-gelbes.epub",
+     "mime": "application/epub+zip",
+     "bytes": 496339,
+     "paginas": null,
+     "sha256": "9300cd609afba626",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e12-impersonalidad-y-usos-de-se",
+   "titulo": "Impersonalidad, sujetos arbitrarios y usos de se",
+   "pagina_web": "https://galera.com.ar/r/0911/e12-impersonalidad-y-usos-de-se.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e12-impersonalidad-y-usos-de-se-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/e12-impersonalidad-y-usos-de-se-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 138644,
+     "paginas": 15,
+     "sha256": "febde101efabcc01",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e12-impersonalidad-y-usos-de-se-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/e12-impersonalidad-y-usos-de-se-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 148964,
+     "paginas": 25,
+     "sha256": "bfe95795127a7643",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e12-impersonalidad-y-usos-de-se-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/e12-impersonalidad-y-usos-de-se-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 497100,
+     "paginas": 14,
+     "sha256": "9d434808cfb661b7",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e12-impersonalidad-y-usos-de-se.epub",
+     "url": "https://descargas.galera.com.ar/r/0911/e12-impersonalidad-y-usos-de-se.epub",
+     "mime": "application/epub+zip",
+     "bytes": 489435,
+     "paginas": null,
+     "sha256": "b52bde0330f4ec3e",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e13a-locutor-ethos-y-generos-editoriales-tosi",
+   "titulo": "Construcción del locutor, destinatario y ethos autoral; géneros editoriales",
+   "pagina_web": "https://galera.com.ar/r/0911/e13a-locutor-ethos-y-generos-editoriales-tosi.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e13a-locutor-ethos-y-generos-editoriales-tosi-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/e13a-locutor-ethos-y-generos-editoriales-tosi-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 139037,
+     "paginas": 14,
+     "sha256": "2436a490c7d2d0e8",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e13a-locutor-ethos-y-generos-editoriales-tosi-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/e13a-locutor-ethos-y-generos-editoriales-tosi-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 150422,
+     "paginas": 24,
+     "sha256": "8468e737ce56eccd",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e13a-locutor-ethos-y-generos-editoriales-tosi-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/e13a-locutor-ethos-y-generos-editoriales-tosi-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 496683,
+     "paginas": 12,
+     "sha256": "2a1e387f2b0c2ace",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e13a-locutor-ethos-y-generos-editoriales-tosi.epub",
+     "url": "https://descargas.galera.com.ar/r/0911/e13a-locutor-ethos-y-generos-editoriales-tosi.epub",
+     "mime": "application/epub+zip",
+     "bytes": 495891,
+     "paginas": null,
+     "sha256": "fb382c46ffb18f6c",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e13b-formas-no-personales-garcia-negroni-ramirez-gelbes",
+   "titulo": "Formas no personales del verbo (Falsos infinitivos, gerundios y participios)",
+   "pagina_web": "https://galera.com.ar/r/0911/e13b-formas-no-personales-garcia-negroni-ramirez-gelbes.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e13b-formas-no-personales-garcia-negroni-ramirez-gelbes-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/e13b-formas-no-personales-garcia-negroni-ramirez-gelbes-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 144998,
+     "paginas": 14,
+     "sha256": "069ee349f564e558",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e13b-formas-no-personales-garcia-negroni-ramirez-gelbes-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/e13b-formas-no-personales-garcia-negroni-ramirez-gelbes-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 156047,
+     "paginas": 24,
+     "sha256": "e3268a7abb8ebebb",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e13b-formas-no-personales-garcia-negroni-ramirez-gelbes-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/e13b-formas-no-personales-garcia-negroni-ramirez-gelbes-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 502977,
+     "paginas": 12,
+     "sha256": "ae90cabae0dbe56f",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e13b-formas-no-personales-garcia-negroni-ramirez-gelbes.epub",
+     "url": "https://descargas.galera.com.ar/r/0911/e13b-formas-no-personales-garcia-negroni-ramirez-gelbes.epub",
+     "mime": "application/epub+zip",
+     "bytes": 490973,
+     "paginas": null,
+     "sha256": "c82b7d8b8532ae1f",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e14-formacion-de-palabras-lang",
+   "titulo": "Formación de palabras (Lang)",
+   "pagina_web": "https://galera.com.ar/r/0911/e14-formacion-de-palabras-lang.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e14-formacion-de-palabras-lang-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/e14-formacion-de-palabras-lang-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 130362,
+     "paginas": 14,
+     "sha256": "9273c11170ff4d4d",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e14-formacion-de-palabras-lang-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/e14-formacion-de-palabras-lang-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 140549,
+     "paginas": 24,
+     "sha256": "a0f0ab315ebc6af4",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e14-formacion-de-palabras-lang-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/e14-formacion-de-palabras-lang-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 485777,
+     "paginas": 12,
+     "sha256": "cafd85c266857e36",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e14-formacion-de-palabras-lang.epub",
+     "url": "https://descargas.galera.com.ar/r/0911/e14-formacion-de-palabras-lang.epub",
+     "mime": "application/epub+zip",
+     "bytes": 486405,
+     "paginas": null,
+     "sha256": "4e265c7081e7f491",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "g-gerundios-usos-y-tipos",
+   "titulo": "Gerundios (Usos correctos e incorrectos, tipos de gerundio)",
+   "pagina_web": "https://galera.com.ar/r/0911/g-gerundios-usos-y-tipos.html",
+   "archivos": {
+    "A4": {
+     "archivo": "g-gerundios-usos-y-tipos-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/g-gerundios-usos-y-tipos-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 110906,
+     "paginas": 11,
+     "sha256": "7c10cc028e834af1",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "g-gerundios-usos-y-tipos-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/g-gerundios-usos-y-tipos-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 118448,
+     "paginas": 18,
+     "sha256": "d01b39e53e910039",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "g-gerundios-usos-y-tipos-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/g-gerundios-usos-y-tipos-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 463078,
+     "paginas": 10,
+     "sha256": "1d47a5de42fd4865",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "g-gerundios-usos-y-tipos.epub",
+     "url": "https://descargas.galera.com.ar/r/0911/g-gerundios-usos-y-tipos.epub",
+     "mime": "application/epub+zip",
+     "bytes": 481433,
+     "paginas": null,
+     "sha256": "8047e2c9dcdb2850",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "m-tiempo-modo-condicionales-y-estructura-argumental",
+   "titulo": "Tiempo, modo y aspecto (Correlación, modalidad, aspectualidad, condicionales y estructura argumental)",
+   "pagina_web": "https://galera.com.ar/r/0911/m-tiempo-modo-condicionales-y-estructura-argumental.html",
+   "archivos": {
+    "A4": {
+     "archivo": "m-tiempo-modo-condicionales-y-estructura-argumental-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/m-tiempo-modo-condicionales-y-estructura-argumental-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 118664,
+     "paginas": 12,
+     "sha256": "61497ed7a9181f64",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "m-tiempo-modo-condicionales-y-estructura-argumental-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/m-tiempo-modo-condicionales-y-estructura-argumental-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 127671,
+     "paginas": 21,
+     "sha256": "edbcf8814e959a6f",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "m-tiempo-modo-condicionales-y-estructura-argumental-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/m-tiempo-modo-condicionales-y-estructura-argumental-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 471265,
+     "paginas": 10,
+     "sha256": "40917ef346ea639d",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "m-tiempo-modo-condicionales-y-estructura-argumental.epub",
+     "url": "https://descargas.galera.com.ar/r/0911/m-tiempo-modo-condicionales-y-estructura-argumental.epub",
+     "mime": "application/epub+zip",
+     "bytes": 491222,
+     "paginas": null,
+     "sha256": "0f41ad2df57d1c12",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "d-determinativos-subjetivemas-y-convenciones-editoriales",
+   "titulo": "Determinativos, subjetivemas y convenciones editoriales",
+   "pagina_web": "https://galera.com.ar/r/0911/d-determinativos-subjetivemas-y-convenciones-editoriales.html",
+   "archivos": {
+    "A4": {
+     "archivo": "d-determinativos-subjetivemas-y-convenciones-editoriales-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/d-determinativos-subjetivemas-y-convenciones-editoriales-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 136354,
+     "paginas": 13,
+     "sha256": "95df9d0051184217",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "d-determinativos-subjetivemas-y-convenciones-editoriales-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/d-determinativos-subjetivemas-y-convenciones-editoriales-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 145005,
+     "paginas": 21,
+     "sha256": "8bb30cc7b024f739",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "d-determinativos-subjetivemas-y-convenciones-editoriales-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/d-determinativos-subjetivemas-y-convenciones-editoriales-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 492481,
+     "paginas": 12,
+     "sha256": "fa6c10249cb5d9c0",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "d-determinativos-subjetivemas-y-convenciones-editoriales.epub",
+     "url": "https://descargas.galera.com.ar/r/0911/d-determinativos-subjetivemas-y-convenciones-editoriales.epub",
+     "mime": "application/epub+zip",
+     "bytes": 491929,
+     "paginas": null,
+     "sha256": "3164cecab7f7a163",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "p-practicos-reglas-y-signos",
+   "titulo": "Corrección de Estilo (Apunte único para el primer parcial (29/9/2026))",
+   "pagina_web": "https://galera.com.ar/r/0911/p-practicos-reglas-y-signos.html",
+   "archivos": {
+    "A4": {
+     "archivo": "p-practicos-reglas-y-signos-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/p-practicos-reglas-y-signos-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 194488,
+     "paginas": 21,
+     "sha256": "92e0b09a16eec5eb",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "p-practicos-reglas-y-signos-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/p-practicos-reglas-y-signos-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 211137,
+     "paginas": 38,
+     "sha256": "d710461172eec9cc",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "p-practicos-reglas-y-signos-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/p-practicos-reglas-y-signos-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 561997,
+     "paginas": 20,
+     "sha256": "ae68eaba177b879b",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "p-practicos-reglas-y-signos.epub",
+     "url": "https://descargas.galera.com.ar/r/0911/p-practicos-reglas-y-signos.epub",
+     "mime": "application/epub+zip",
+     "bytes": 498952,
+     "paginas": null,
+     "sha256": "9e1d0b9f70954b5d",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "s-soluciones-practicos",
+   "titulo": "Solucionario de las ejercitaciones (P01-P10 + modelo Tema 2)",
+   "pagina_web": "https://galera.com.ar/r/0911/s-soluciones-practicos.html",
+   "archivos": {
+    "A4": {
+     "archivo": "s-soluciones-practicos-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/s-soluciones-practicos-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 212154,
+     "paginas": 30,
+     "sha256": "bbf5741036dd9787",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "s-soluciones-practicos-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/s-soluciones-practicos-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 232048,
+     "paginas": 51,
+     "sha256": "6344ba1a84d3e3ba",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "s-soluciones-practicos-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/s-soluciones-practicos-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 579770,
+     "paginas": 26,
+     "sha256": "3cadb50efee8dfae",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "s-soluciones-practicos.epub",
+     "url": "https://descargas.galera.com.ar/r/0911/s-soluciones-practicos.epub",
+     "mime": "application/epub+zip",
+     "bytes": 516879,
+     "paginas": null,
+     "sha256": "79d70c4dcf4eb953",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "s2-soluciones-p11",
+   "titulo": "Solucionario P11 · Práctica de 2.º parcial y ejercitación de gerundios",
+   "pagina_web": "https://galera.com.ar/r/0911/s2-soluciones-p11.html",
+   "archivos": {
+    "A4": {
+     "archivo": "s2-soluciones-p11-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/s2-soluciones-p11-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 107384,
+     "paginas": 9,
+     "sha256": "0494a7932e8b2cd2",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "s2-soluciones-p11-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/s2-soluciones-p11-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 114812,
+     "paginas": 16,
+     "sha256": "fed99d70e679d5a0",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "s2-soluciones-p11-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/s2-soluciones-p11-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 459857,
+     "paginas": 8,
+     "sha256": "b1d42f84d2398590",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "s2-soluciones-p11.epub",
+     "url": "https://descargas.galera.com.ar/r/0911/s2-soluciones-p11.epub",
+     "mime": "application/epub+zip",
+     "bytes": 484493,
+     "paginas": null,
+     "sha256": "d6f2fddf0e9efd8f",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "v-conjugacion-regular",
+   "titulo": "Conjugación verbal regular (Cuadro completo)",
+   "pagina_web": "https://galera.com.ar/r/0911/v-conjugacion-regular.html",
+   "archivos": {
+    "A4": {
+     "archivo": "v-conjugacion-regular-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/v-conjugacion-regular-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 89262,
+     "paginas": 12,
+     "sha256": "7c7834d01e6d9463",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "v-conjugacion-regular-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/v-conjugacion-regular-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 94024,
+     "paginas": 17,
+     "sha256": "c7a41b1a51c6cdc0",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "v-conjugacion-regular-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/v-conjugacion-regular-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 435144,
+     "paginas": 10,
+     "sha256": "c29a8f62e90a6af7",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "v-conjugacion-regular.epub",
+     "url": "https://descargas.galera.com.ar/r/0911/v-conjugacion-regular.epub",
+     "mime": "application/epub+zip",
+     "bytes": 479336,
+     "paginas": null,
+     "sha256": "29ba20921dfd2c5c",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "pv-verbos-reglas-y-trampas",
+   "titulo": "Verbos (Reglas, correlación de tiempos y trampas)",
+   "pagina_web": "https://galera.com.ar/r/0911/pv-verbos-reglas-y-trampas.html",
+   "archivos": {
+    "A4": {
+     "archivo": "pv-verbos-reglas-y-trampas-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/pv-verbos-reglas-y-trampas-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 115322,
+     "paginas": 8,
+     "sha256": "76b193972cda4da6",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "pv-verbos-reglas-y-trampas-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/pv-verbos-reglas-y-trampas-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 121748,
+     "paginas": 14,
+     "sha256": "4edfd39a2cd9c289",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "pv-verbos-reglas-y-trampas-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/pv-verbos-reglas-y-trampas-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 466718,
+     "paginas": 8,
+     "sha256": "76322c79d18ecec6",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "pv-verbos-reglas-y-trampas.epub",
+     "url": "https://descargas.galera.com.ar/r/0911/pv-verbos-reglas-y-trampas.epub",
+     "mime": "application/epub+zip",
+     "bytes": 480761,
+     "paginas": null,
+     "sha256": "55b3f917fd8e44d2",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "00-repaso-final",
+   "titulo": "Repaso final · Corrección de Estilo, 1.er parcial",
+   "pagina_web": "https://galera.com.ar/r/0911/00-repaso-final.html",
+   "archivos": {
+    "A4": {
+     "archivo": "00-repaso-final-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/00-repaso-final-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 84162,
+     "paginas": 6,
+     "sha256": "9674c6b604c60399",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "00-repaso-final-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/00-repaso-final-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 87754,
+     "paginas": 10,
+     "sha256": "da24d20587752d9c",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "00-repaso-final-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/00-repaso-final-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 432511,
+     "paginas": 6,
+     "sha256": "f096babcec3d35e0",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "00-repaso-final.epub",
+     "url": "https://descargas.galera.com.ar/r/0911/00-repaso-final.epub",
+     "mime": "application/epub+zip",
+     "bytes": 478748,
+     "paginas": null,
+     "sha256": "7af242f32c344194",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "00-repaso-final-2do-parcial",
+   "titulo": "Repaso final del 2.º parcial (Para leer antes de rendir)",
+   "pagina_web": "https://galera.com.ar/r/0911/00-repaso-final-2do-parcial.html",
+   "archivos": {
+    "A4": {
+     "archivo": "00-repaso-final-2do-parcial-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/00-repaso-final-2do-parcial-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 77071,
+     "paginas": 4,
+     "sha256": "b4df14e282b5afb9",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "00-repaso-final-2do-parcial-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/00-repaso-final-2do-parcial-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 79219,
+     "paginas": 6,
+     "sha256": "501ccc96cee47eba",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "00-repaso-final-2do-parcial-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/00-repaso-final-2do-parcial-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 423234,
+     "paginas": 4,
+     "sha256": "53097864d5643ad2",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "00-repaso-final-2do-parcial.epub",
+     "url": "https://descargas.galera.com.ar/r/0911/00-repaso-final-2do-parcial.epub",
+     "mime": "application/epub+zip",
+     "bytes": 475143,
+     "paginas": null,
+     "sha256": "ee66b8d0bc2d5c2d",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "z-simulacro",
+   "titulo": "Simulacro de primer parcial",
+   "pagina_web": "https://galera.com.ar/r/0911/z-simulacro.html",
+   "archivos": {
+    "A4": {
+     "archivo": "z-simulacro-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/z-simulacro-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 79042,
+     "paginas": 6,
+     "sha256": "ec1d6dbe872e7c07",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "z-simulacro-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/z-simulacro-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 82094,
+     "paginas": 9,
+     "sha256": "5b617b3e88c48240",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "z-simulacro-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/z-simulacro-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 425199,
+     "paginas": 6,
+     "sha256": "64c09157d1f17b09",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "z-simulacro.epub",
+     "url": "https://descargas.galera.com.ar/r/0911/z-simulacro.epub",
+     "mime": "application/epub+zip",
+     "bytes": 470570,
+     "paginas": null,
+     "sha256": "b31d4b7bd77cba8a",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "z-simulacro-respuestas",
+   "titulo": "Respuestas del simulacro",
+   "pagina_web": "https://galera.com.ar/r/0911/z-simulacro-respuestas.html",
+   "archivos": {
+    "A4": {
+     "archivo": "z-simulacro-respuestas-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/z-simulacro-respuestas-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 70957,
+     "paginas": 5,
+     "sha256": "a11dcbdefd50a514",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "z-simulacro-respuestas-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/z-simulacro-respuestas-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 74141,
+     "paginas": 8,
+     "sha256": "889a0f9020114629",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "z-simulacro-respuestas-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/z-simulacro-respuestas-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 415638,
+     "paginas": 4,
+     "sha256": "be671809f2e8bd84",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "z-simulacro-respuestas.epub",
+     "url": "https://descargas.galera.com.ar/r/0911/z-simulacro-respuestas.epub",
+     "mime": "application/epub+zip",
+     "bytes": 470601,
+     "paginas": null,
+     "sha256": "05fcd6c30ceff1e7",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "z2-simulacro-2do-parcial",
+   "titulo": "Simulacro del 2.º parcial (90 minutos, sin apuntes)",
+   "pagina_web": "https://galera.com.ar/r/0911/z2-simulacro-2do-parcial.html",
+   "archivos": {
+    "A4": {
+     "archivo": "z2-simulacro-2do-parcial-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/z2-simulacro-2do-parcial-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 76828,
+     "paginas": 5,
+     "sha256": "1e579b07c30dd9d8",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "z2-simulacro-2do-parcial-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/z2-simulacro-2do-parcial-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 78918,
+     "paginas": 7,
+     "sha256": "9ec0540315e2636c",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "z2-simulacro-2do-parcial-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/z2-simulacro-2do-parcial-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 421759,
+     "paginas": 4,
+     "sha256": "f14cd4ea6b030d42",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "z2-simulacro-2do-parcial.epub",
+     "url": "https://descargas.galera.com.ar/r/0911/z2-simulacro-2do-parcial.epub",
+     "mime": "application/epub+zip",
+     "bytes": 473418,
+     "paginas": null,
+     "sha256": "4663da766cb85856",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "z2-simulacro-2do-parcial-respuestas",
+   "titulo": "Respuestas del simulacro del 2.º parcial",
+   "pagina_web": "https://galera.com.ar/r/0911/z2-simulacro-2do-parcial-respuestas.html",
+   "archivos": {
+    "A4": {
+     "archivo": "z2-simulacro-2do-parcial-respuestas-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/z2-simulacro-2do-parcial-respuestas-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 58631,
+     "paginas": 3,
+     "sha256": "8db7a2febcc064b2",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "z2-simulacro-2do-parcial-respuestas-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/z2-simulacro-2do-parcial-respuestas-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 60727,
+     "paginas": 5,
+     "sha256": "851ee6db7a0b2ebc",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "z2-simulacro-2do-parcial-respuestas-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/z2-simulacro-2do-parcial-respuestas-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 404559,
+     "paginas": 4,
+     "sha256": "61b5d9341fc276cc",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "z2-simulacro-2do-parcial-respuestas.epub",
+     "url": "https://descargas.galera.com.ar/r/0911/z2-simulacro-2do-parcial-respuestas.epub",
+     "mime": "application/epub+zip",
+     "bytes": 475079,
+     "paginas": null,
+     "sha256": "ab3c23a3db341571",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "z3-simulacro-2do-parcial-b",
+   "titulo": "Simulacro B del 2.º parcial (90 minutos, sin apuntes)",
+   "pagina_web": "https://galera.com.ar/r/0911/z3-simulacro-2do-parcial-b.html",
+   "archivos": {
+    "A4": {
+     "archivo": "z3-simulacro-2do-parcial-b-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/z3-simulacro-2do-parcial-b-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 72236,
+     "paginas": 3,
+     "sha256": "79aa7d9cb88377a0",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "z3-simulacro-2do-parcial-b-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/z3-simulacro-2do-parcial-b-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 74155,
+     "paginas": 5,
+     "sha256": "74ceb487d0f0635a",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "z3-simulacro-2do-parcial-b-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/z3-simulacro-2do-parcial-b-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 417634,
+     "paginas": 4,
+     "sha256": "549d1e39cee44732",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "z3-simulacro-2do-parcial-b.epub",
+     "url": "https://descargas.galera.com.ar/r/0911/z3-simulacro-2do-parcial-b.epub",
+     "mime": "application/epub+zip",
+     "bytes": 474345,
+     "paginas": null,
+     "sha256": "d478a95997890a76",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "z3-simulacro-2do-parcial-b-respuestas",
+   "titulo": "Z3_Simulacro-2do-parcial-B_RESPUESTAS",
+   "pagina_web": "https://galera.com.ar/r/0911/z3-simulacro-2do-parcial-b-respuestas.html",
+   "archivos": {
+    "A4": {
+     "archivo": "z3-simulacro-2do-parcial-b-respuestas-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/z3-simulacro-2do-parcial-b-respuestas-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 78430,
+     "paginas": 4,
+     "sha256": "bf16d5090b248db0",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "z3-simulacro-2do-parcial-b-respuestas-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/z3-simulacro-2do-parcial-b-respuestas-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 81038,
+     "paginas": 6,
+     "sha256": "94e3773e8699e9c0",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "z3-simulacro-2do-parcial-b-respuestas-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0911/z3-simulacro-2do-parcial-b-respuestas-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 424793,
+     "paginas": 4,
+     "sha256": "9a11efcce3a54796",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "z3-simulacro-2do-parcial-b-respuestas.epub",
+     "url": "https://descargas.galera.com.ar/r/0911/z3-simulacro-2do-parcial-b-respuestas.epub",
+     "mime": "application/epub+zip",
+     "bytes": 477547,
+     "paginas": null,
+     "sha256": "a3ed019a51ce579d",
+     "generado": "2026-11-04"
+    }
+   }
+  }
+ ]
+}

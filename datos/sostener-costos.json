@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-11-02",
+  "actualizado": "2026-11-04",
   "items": [
     {
       "id": "claude",
@@ -16,6 +16,12 @@
       "id": "hosting",
       "t": "GitHub Pages y Cloudflare (donde vive la página y los correos)",
       "monto": "$0"
+    },
+    {
+      "id": "descargas",
+      "t": "Cloudflare R2 (donde viven los PDF y EPUB para descargar)",
+      "monto": "$0",
+      "nota": "plan gratis de hasta 10 GB de almacenamiento; Galera se frena en 9 GB para no pasar a un plan de pago, y las descargas no tienen costo de salida"
     }
   ]
 }

@@ -1,0 +1,396 @@
+{
+ "materia": "0914",
+ "nombre": "Edición Editorial",
+ "version_sitio": "v121",
+ "generado": "2026-11-04",
+ "base_url": "https://descargas.galera.com.ar/r/0914/",
+ "apuntes": [
+  {
+   "id": "e1-historia-del-libro-darnton",
+   "titulo": "Historia del libro (El circuito de Darnton y qué es un libro)",
+   "pagina_web": "https://galera.com.ar/r/0914/e1-historia-del-libro-darnton.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e1-historia-del-libro-darnton-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0914/e1-historia-del-libro-darnton-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 164623,
+     "paginas": 17,
+     "sha256": "b3c7b3e5dc137fe0",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e1-historia-del-libro-darnton-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0914/e1-historia-del-libro-darnton-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 178493,
+     "paginas": 30,
+     "sha256": "60a26579201d384d",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e1-historia-del-libro-darnton-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0914/e1-historia-del-libro-darnton-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 528439,
+     "paginas": 16,
+     "sha256": "28a1bbe35bac8d1c",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e1-historia-del-libro-darnton.epub",
+     "url": "https://descargas.galera.com.ar/r/0914/e1-historia-del-libro-darnton.epub",
+     "mime": "application/epub+zip",
+     "bytes": 491810,
+     "paginas": null,
+     "sha256": "59baf45d10503383",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e2-generos-editoriales-y-etapas-del-proceso",
+   "titulo": "Géneros editoriales y etapas del proceso de edición",
+   "pagina_web": "https://galera.com.ar/r/0914/e2-generos-editoriales-y-etapas-del-proceso.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e2-generos-editoriales-y-etapas-del-proceso-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0914/e2-generos-editoriales-y-etapas-del-proceso-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 131832,
+     "paginas": 14,
+     "sha256": "1e5152a8e2e2c104",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e2-generos-editoriales-y-etapas-del-proceso-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0914/e2-generos-editoriales-y-etapas-del-proceso-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 143091,
+     "paginas": 25,
+     "sha256": "84f35a12fba982e1",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e2-generos-editoriales-y-etapas-del-proceso-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0914/e2-generos-editoriales-y-etapas-del-proceso-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 490427,
+     "paginas": 14,
+     "sha256": "2a636f9fd9ab1657",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e2-generos-editoriales-y-etapas-del-proceso.epub",
+     "url": "https://descargas.galera.com.ar/r/0914/e2-generos-editoriales-y-etapas-del-proceso.epub",
+     "mime": "application/epub+zip",
+     "bytes": 489287,
+     "paginas": null,
+     "sha256": "bf0352a1dabe90cb",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e3-revoluciones-del-libro-formas-y-partes-del-codice",
+   "titulo": "Revoluciones del libro, formas y materiales, y partes del códice",
+   "pagina_web": "https://galera.com.ar/r/0914/e3-revoluciones-del-libro-formas-y-partes-del-codice.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e3-revoluciones-del-libro-formas-y-partes-del-codice-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0914/e3-revoluciones-del-libro-formas-y-partes-del-codice-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 165375,
+     "paginas": 17,
+     "sha256": "f2f04dea1966f6fa",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e3-revoluciones-del-libro-formas-y-partes-del-codice-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0914/e3-revoluciones-del-libro-formas-y-partes-del-codice-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 183568,
+     "paginas": 33,
+     "sha256": "dddac2f5cb2f870f",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e3-revoluciones-del-libro-formas-y-partes-del-codice-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0914/e3-revoluciones-del-libro-formas-y-partes-del-codice-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 531955,
+     "paginas": 16,
+     "sha256": "e6f08bf57f4ff496",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e3-revoluciones-del-libro-formas-y-partes-del-codice.epub",
+     "url": "https://descargas.galera.com.ar/r/0914/e3-revoluciones-del-libro-formas-y-partes-del-codice.epub",
+     "mime": "application/epub+zip",
+     "bytes": 499328,
+     "paginas": null,
+     "sha256": "f13645594f16a3bc",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e4a-chartier-memoria-textos-impresos-lecturas",
+   "titulo": "Chartier (Lecturas declaradas y lecturas efectivas)",
+   "pagina_web": "https://galera.com.ar/r/0914/e4a-chartier-memoria-textos-impresos-lecturas.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e4a-chartier-memoria-textos-impresos-lecturas-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0914/e4a-chartier-memoria-textos-impresos-lecturas-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 153267,
+     "paginas": 15,
+     "sha256": "bd73a354508ec491",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e4a-chartier-memoria-textos-impresos-lecturas-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0914/e4a-chartier-memoria-textos-impresos-lecturas-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 167546,
+     "paginas": 29,
+     "sha256": "90e5ca3fcac6ea1c",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e4a-chartier-memoria-textos-impresos-lecturas-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0914/e4a-chartier-memoria-textos-impresos-lecturas-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 517901,
+     "paginas": 16,
+     "sha256": "b1d1b892862ffff9",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e4a-chartier-memoria-textos-impresos-lecturas.epub",
+     "url": "https://descargas.galera.com.ar/r/0914/e4a-chartier-memoria-textos-impresos-lecturas.epub",
+     "mime": "application/epub+zip",
+     "bytes": 489055,
+     "paginas": null,
+     "sha256": "63cf971f64fa54bd",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e4b-petit-jovenes-y-lectura",
+   "titulo": "Petit: los jóvenes y la lectura",
+   "pagina_web": "https://galera.com.ar/r/0914/e4b-petit-jovenes-y-lectura.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e4b-petit-jovenes-y-lectura-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0914/e4b-petit-jovenes-y-lectura-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 155625,
+     "paginas": 16,
+     "sha256": "4fe4f7810fac2df0",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e4b-petit-jovenes-y-lectura-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0914/e4b-petit-jovenes-y-lectura-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 169591,
+     "paginas": 29,
+     "sha256": "c39c1923c6f4139f",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e4b-petit-jovenes-y-lectura-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0914/e4b-petit-jovenes-y-lectura-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 519247,
+     "paginas": 16,
+     "sha256": "f3953ae9d54ee9f3",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e4b-petit-jovenes-y-lectura.epub",
+     "url": "https://descargas.galera.com.ar/r/0914/e4b-petit-jovenes-y-lectura.epub",
+     "mime": "application/epub+zip",
+     "bytes": 490608,
+     "paginas": null,
+     "sha256": "06c0ba4624f7252c",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e5-funciones-del-editor-y-edicion-tecnica",
+   "titulo": "Funciones del editor, historia de la edición y edición técnica",
+   "pagina_web": "https://galera.com.ar/r/0914/e5-funciones-del-editor-y-edicion-tecnica.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e5-funciones-del-editor-y-edicion-tecnica-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0914/e5-funciones-del-editor-y-edicion-tecnica-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 155888,
+     "paginas": 19,
+     "sha256": "2f061b3ea08e05ae",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e5-funciones-del-editor-y-edicion-tecnica-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0914/e5-funciones-del-editor-y-edicion-tecnica-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 171846,
+     "paginas": 34,
+     "sha256": "c6da64b4c1e81cb5",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e5-funciones-del-editor-y-edicion-tecnica-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0914/e5-funciones-del-editor-y-edicion-tecnica-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 519396,
+     "paginas": 18,
+     "sha256": "24e199459e0411ef",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e5-funciones-del-editor-y-edicion-tecnica.epub",
+     "url": "https://descargas.galera.com.ar/r/0914/e5-funciones-del-editor-y-edicion-tecnica.epub",
+     "mime": "application/epub+zip",
+     "bytes": 492900,
+     "paginas": null,
+     "sha256": "d736edaf66a20d68",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "e6-preedicion-innovacion-y-libros-de-proyecto",
+   "titulo": "Preedición, innovación y libros de proyecto editorial",
+   "pagina_web": "https://galera.com.ar/r/0914/e6-preedicion-innovacion-y-libros-de-proyecto.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e6-preedicion-innovacion-y-libros-de-proyecto-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0914/e6-preedicion-innovacion-y-libros-de-proyecto-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 182726,
+     "paginas": 19,
+     "sha256": "b4a89e6470a8a067",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "e6-preedicion-innovacion-y-libros-de-proyecto-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0914/e6-preedicion-innovacion-y-libros-de-proyecto-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 201376,
+     "paginas": 36,
+     "sha256": "1166d5b259373ddf",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "e6-preedicion-innovacion-y-libros-de-proyecto-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0914/e6-preedicion-innovacion-y-libros-de-proyecto-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 550332,
+     "paginas": 18,
+     "sha256": "7080fabae75793bb",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "e6-preedicion-innovacion-y-libros-de-proyecto.epub",
+     "url": "https://descargas.galera.com.ar/r/0914/e6-preedicion-innovacion-y-libros-de-proyecto.epub",
+     "mime": "application/epub+zip",
+     "bytes": 498419,
+     "paginas": null,
+     "sha256": "6c40a9a15ce56875",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "z-simulacro",
+   "titulo": "Simulacro integrador de Edición Editorial (0914)",
+   "pagina_web": "https://galera.com.ar/r/0914/z-simulacro.html",
+   "archivos": {
+    "A4": {
+     "archivo": "z-simulacro-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0914/z-simulacro-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 71923,
+     "paginas": 5,
+     "sha256": "eac2408e47d9e1fa",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "z-simulacro-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0914/z-simulacro-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 73848,
+     "paginas": 7,
+     "sha256": "94a0cced7ef86b2a",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "z-simulacro-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0914/z-simulacro-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 416514,
+     "paginas": 4,
+     "sha256": "649873fc91132dba",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "z-simulacro.epub",
+     "url": "https://descargas.galera.com.ar/r/0914/z-simulacro.epub",
+     "mime": "application/epub+zip",
+     "bytes": 474231,
+     "paginas": null,
+     "sha256": "ee396918c53e82a4",
+     "generado": "2026-11-04"
+    }
+   }
+  },
+  {
+   "id": "z-simulacro-respuestas",
+   "titulo": "Respuestas del simulacro integrador (0914)",
+   "pagina_web": "https://galera.com.ar/r/0914/z-simulacro-respuestas.html",
+   "archivos": {
+    "A4": {
+     "archivo": "z-simulacro-respuestas-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/0914/z-simulacro-respuestas-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 57128,
+     "paginas": 3,
+     "sha256": "ef70c462e8f02c7e",
+     "generado": "2026-11-04"
+    },
+    "A5": {
+     "archivo": "z-simulacro-respuestas-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/0914/z-simulacro-respuestas-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 58958,
+     "paginas": 5,
+     "sha256": "ab4c49b0e3a13e7f",
+     "generado": "2026-11-04"
+    },
+    "cuadernillo": {
+     "archivo": "z-simulacro-respuestas-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/0914/z-simulacro-respuestas-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 401860,
+     "paginas": 4,
+     "sha256": "483fe34d4f013c8e",
+     "generado": "2026-11-04"
+    },
+    "epub": {
+     "archivo": "z-simulacro-respuestas.epub",
+     "url": "https://descargas.galera.com.ar/r/0914/z-simulacro-respuestas.epub",
+     "mime": "application/epub+zip",
+     "bytes": 474038,
+     "paginas": null,
+     "sha256": "5eb40fdd05683c75",
+     "generado": "2026-11-04"
+    }
+   }
+  }
+ ]
+}
