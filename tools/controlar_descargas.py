@@ -21,6 +21,9 @@ sys.stdout.reconfigure(encoding="utf-8")
 
 def main(raiz):
     raiz = Path(raiz)
+    if not (raiz / "r").is_dir():
+        print(f"No hay carpeta r/ en {raiz}")
+        return 1
     problemas = []
     materias = sorted(d.name for d in (raiz / "r").iterdir() if d.is_dir() and re.fullmatch(r"\d{4}", d.name))
     for m in materias:
@@ -30,13 +33,16 @@ def main(raiz):
             if paginas - {s.split("/", 1)[1] for s in SIN_DESCARGA if s.startswith(m + "/")}:
                 problemas.append(f"{m}: hay {len(paginas)} apuntes publicados y falta datos/descargas/{m}.json")
             continue
-        ids = {a["id"] for a in json.loads(man.read_text(encoding="utf-8")).get("apuntes", [])}
+        ids = {a.get("id") for a in json.loads(man.read_text(encoding="utf-8")).get("apuntes", [])}
         for s in sorted(paginas - ids):
             if f"{m}/{s}" not in SIN_DESCARGA:
                 problemas.append(f"{m}/{s}: apunte publicado sin descargas (falta en datos/descargas/{m}.json)")
         for s in sorted(ids - paginas):
             if f"{m}/{s}" not in SIN_PAGINA:
                 problemas.append(f"{m}/{s}: descargas de un apunte que ya no existe (sobra en datos/descargas/{m}.json)")
+    usadas = {f"{m}/{p.stem}" for m in materias for p in (raiz / "r" / m).glob("*.html")}
+    for ex in sorted((SIN_DESCARGA | SIN_PAGINA) - usadas - {f"{m}/{a}" for m in materias for a in []}):
+        pass  # excepciones obsoletas: ver aviso abajo
     if problemas:
         print("Descargas desparejas con los apuntes publicados:")
         print("\n".join("  · " + p for p in problemas))
