@@ -7,10 +7,12 @@ Fuente única: marco/sitio.json, marco/pie.tpl, marco/cabecera.tpl. También esc
 Uso: python tools/armar.py [--salida dist]   arma el sitio publicable (stdlib, sin dependencias)
      python tools/armar.py --servir 8772      lo arma en dist/ y lo sirve en http://127.0.0.1:8772 (para mirar cambios)
      python tools/armar.py --marcar          pasa a marcas las páginas que traen el marco escrito (salida de los generadores)
+     python tools/armar.py --salida dist --sin-indice   igual, sin armar el índice del buscador (Pagefind)
      python tools/armar.py --comprobar        no escribe; sale con 1 si hay páginas con el marco escrito o si el armado falla (lo corre el CI)
 No toca prueba/. libro/planificador-de-libros.html es un archivo descargable: lleva el pie, pero conserva su cabecera y su <head>."""
 import hashlib
 import json
+import os
 import re
 import shutil
 import subprocess
@@ -31,6 +33,11 @@ GRUPOS = S["menu"]["estudiante"]
 ACTUAL = ' aria-current="page"'
 # Lo que no se publica: control de versiones, CI, herramientas y las fuentes del marco.
 NO_PUBLICAR = {".git", ".github", "tools", "marco", "dist", "__pycache__"}
+# Buscador: Pagefind indexa el <main> de cada página armada (y de ninguna más: ni /buscar/, ni la 404, ni las noindex).
+SIN_INDICE = {"404.html", "buscar/index.html"}
+# La versión que usan el CI, `Publicar` y el comando de build de Cloudflare (README): que sea la misma en todos lados.
+PAGEFIND_VERSION = "1.6.0"
+MAIN = re.compile(r'<main id="main"')
 MARCAS = ("csp", "meta", "recursos", "cabecera", "pie", "vista")
 
 
@@ -126,6 +133,54 @@ def expandir(t, rel):
     return t
 
 
+def para_indice(t, rel):
+    """Marca el contenido principal para el buscador. Menú, pie y barras quedan afuera porque no están dentro de <main>."""
+    if rel in SIN_INDICE or rel in SUELTAS or 'name="robots" content="noindex' in t:
+        return t
+    return MAIN.sub('<main data-pagefind-body id="main"', t, count=1)
+
+
+def comando_pagefind():
+    """`python -m pagefind` (paquete pagefind[extended]) o el binario `pagefind`. Con GALERA_PAGEFIND_NPX=1 también `npx pagefind@versión`
+    (baja de internet: por eso no es automático). None si no hay ninguno."""
+    pruebas = [[sys.executable, "-m", "pagefind"]]
+    if shutil.which("pagefind"):
+        pruebas.append(["pagefind"])
+    if os.environ.get("GALERA_PAGEFIND_NPX") == "1" and shutil.which("npx"):
+        pruebas.append([shutil.which("npx"), "--yes", f"pagefind@{PAGEFIND_VERSION}"])
+    for c in pruebas:
+        try:
+            if subprocess.run(c + ["--version"], capture_output=True, timeout=120).returncode == 0:
+                return c
+        except (OSError, subprocess.SubprocessError):
+            pass
+    return None
+
+
+def indexar(salida):
+    """Arma salida/pagefind/ (el índice del buscador). Si falta Pagefind o falla, avisa y el sitio sale sin buscador (el resto se publica igual),
+    salvo con GALERA_EXIGIR_BUSCADOR=1 (el CI y `Publicar`), donde es un error."""
+    exigir = os.environ.get("GALERA_EXIGIR_BUSCADOR") == "1"
+    c = comando_pagefind()
+    if c is None:
+        print(f"AVISO: no encontre Pagefind; el sitio queda sin buscador. Instalalo con: pip install \"pagefind[extended]=={PAGEFIND_VERSION}\"")
+        return not exigir
+    try:
+        r = subprocess.run(c + ["--site", str(salida), "--force-language", "es", "--quiet"], timeout=600)
+        ok = r.returncode == 0 and (salida / "pagefind" / "pagefind.js").is_file()
+        # La interfaz propia está en app.js (vBuscar): los componentes de interfaz de Pagefind no se publican.
+        for f in (salida / "pagefind").glob("pagefind-*ui*"):
+            f.unlink()
+        (salida / "pagefind" / "pagefind-highlight.js").unlink(missing_ok=True)
+    except (OSError, subprocess.SubprocessError) as e:
+        print(f"AVISO: Pagefind fallo ({e})")
+        ok = False
+    if not ok:
+        print("AVISO: no se pudo armar el indice; el sitio queda sin buscador.")
+        shutil.rmtree(salida / "pagefind", ignore_errors=True)
+    return ok or not exigir
+
+
 def ruta_de(rel):
     return "/" + rel.removesuffix("index.html")
 
@@ -196,7 +251,7 @@ def escribir(p, t):
     p.write_text(t, encoding="utf-8", newline="\n")
 
 
-def construir(salida):
+def construir(salida, indice=False):
     """Copia el repo a `salida` sin lo que no se publica, escribe marco.js y expande las marcas."""
     if salida.exists():
         shutil.rmtree(salida)
@@ -209,11 +264,13 @@ def construir(salida):
     escribir(app, re.sub(r"s\.src = '/mapa-ar\.js[^']*'", "s.src = '/mapa-ar.js?v=" + huella(salida / "mapa-ar.js") + "'", app.read_text(encoding="utf-8")))
     sobran = []
     for p, rel in paginas(salida):
-        escribir(p, versionar(expandir(p.read_text(encoding="utf-8"), rel), p.parent, salida))
+        escribir(p, versionar(para_indice(expandir(p.read_text(encoding="utf-8"), rel), rel), p.parent, salida))
     prerender(salida)
     for p, rel in paginas(salida):
         if "<!--marco:" in p.read_text(encoding="utf-8"):
             sobran.append(rel)
+    if indice and not sobran and not indexar(salida):
+        sobran.append("pagefind (no se pudo armar el índice del buscador)")
     return sobran
 
 
@@ -241,7 +298,7 @@ def main():
             print("marco ok")
         return 1 if cambian or sobran else 0
     salida = Path(args[args.index("--salida") + 1]) if "--salida" in args else RAIZ / "dist"
-    sobran = construir(salida.resolve())
+    sobran = construir(salida.resolve(), indice="--sin-indice" not in args)
     if sobran:
         print("marca sin expandir en:", ", ".join(sobran))
         return 1
