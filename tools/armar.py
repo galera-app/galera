@@ -140,6 +140,36 @@ def para_indice(t, rel):
     return MAIN.sub('<main data-pagefind-body id="main"', t, count=1)
 
 
+def ids_reservados():
+    """Ids que el router de app.js ya usa en el hash (#resumenes, #pedidos...): pestañas más los alias de desdeHash, leídos del código."""
+    app = (RAIZ / "app.js").read_text(encoding="utf-8")
+    m = re.search(r"function desdeHash\(\) \{(.*?)\n\}", app, re.S)
+    alias = set(re.findall(r"p\[0\] === '([\w-]+)'", m.group(1))) if m else set()
+    return set(S["pantallas"]) | set(S["tabs_ocultas"]) | alias
+
+
+def ids_de_preguntas():
+    """Falla si un id de tema o de pregunta chocaría con el router (/preguntas/#resumenes saltaría a otra pantalla) o se repite."""
+    datos = json.loads((RAIZ / "datos" / "preguntas.json").read_text(encoding="utf-8"))
+    ids = [t["id"] for t in datos["temas"]] + [p["id"] for t in datos["temas"] for p in t["preguntas"]]
+    malos = [f"{i} (choca con el router de hashes)" for i in ids if i in ids_reservados()]
+    malos += [f"{i} (repetido)" for i in sorted({i for i in ids if ids.count(i) > 1})]
+    return malos
+
+
+def faq_jsonld(t, rel):
+    """/preguntas/: agrega el JSON-LD FAQPage generado desde datos/preguntas.json (la misma fuente que la pantalla), con las respuestas en texto plano."""
+    if rel != "preguntas/index.html":
+        return t
+    datos = json.loads((RAIZ / "datos" / "preguntas.json").read_text(encoding="utf-8"))
+    plano = lambda s: re.sub(r"\[([^\]]+)\]\([^)]*\)", r"\1", s)
+    faq = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": p["pregunta"], "acceptedAnswer": {"@type": "Answer", "text": plano(p["respuesta"])}}
+        for tema in datos["temas"] for p in tema["preguntas"]]}
+    bloque = '<script type="application/ld+json">' + json.dumps(faq, ensure_ascii=False).replace("</", "<" + chr(92) + "/") + "</script>\n"
+    return t.replace("</head>", bloque + "</head>", 1)
+
+
 def comando_pagefind():
     """`python -m pagefind` (paquete pagefind[extended]) o el binario `pagefind`. Con GALERA_PAGEFIND_NPX=1 también `npx pagefind@versión`
     (baja de internet: por eso no es automático). None si no hay ninguno."""
@@ -264,11 +294,12 @@ def construir(salida, indice=False):
     escribir(app, re.sub(r"s\.src = '/mapa-ar\.js[^']*'", "s.src = '/mapa-ar.js?v=" + huella(salida / "mapa-ar.js") + "'", app.read_text(encoding="utf-8")))
     sobran = []
     for p, rel in paginas(salida):
-        escribir(p, versionar(para_indice(expandir(p.read_text(encoding="utf-8"), rel), rel), p.parent, salida))
+        escribir(p, versionar(para_indice(faq_jsonld(expandir(p.read_text(encoding="utf-8"), rel), rel), rel), p.parent, salida))
     prerender(salida)
     for p, rel in paginas(salida):
         if "<!--marco:" in p.read_text(encoding="utf-8"):
             sobran.append(rel)
+    sobran += ["datos/preguntas.json: id " + m for m in ids_de_preguntas()]
     if indice and not sobran and not indexar(salida):
         sobran.append("pagefind (no se pudo armar el índice del buscador)")
     return sobran
