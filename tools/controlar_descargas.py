@@ -40,9 +40,6 @@ def main(raiz):
         for s in sorted(ids - paginas):
             if f"{m}/{s}" not in SIN_PAGINA:
                 problemas.append(f"{m}/{s}: descargas de un apunte que ya no existe (sobra en datos/descargas/{m}.json)")
-    usadas = {f"{m}/{p.stem}" for m in materias for p in (raiz / "r" / m).glob("*.html")}
-    for ex in sorted((SIN_DESCARGA | SIN_PAGINA) - usadas - {f"{m}/{a}" for m in materias for a in []}):
-        pass  # excepciones obsoletas: ver aviso abajo
     if problemas:
         print("Descargas desparejas con los apuntes publicados:")
         print("\n".join("  · " + p for p in problemas))
