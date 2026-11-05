@@ -324,14 +324,14 @@ def main():
             print(f"{len(cambian)} páginas. Corré: python tools/armar.py --marcar")
         with tempfile.TemporaryDirectory() as tmp:
             sobran = construir(Path(tmp) / "sitio")
-        print("\n".join(f"marca sin expandir: {d}" for d in sobran))
+        print("\n".join(f"falla del build: {d}" for d in sobran))
         if not cambian and not sobran:
             print("marco ok")
         return 1 if cambian or sobran else 0
     salida = Path(args[args.index("--salida") + 1]) if "--salida" in args else RAIZ / "dist"
     sobran = construir(salida.resolve(), indice="--sin-indice" not in args)
     if sobran:
-        print("marca sin expandir en:", ", ".join(sobran))
+        print("falla del build en:", ", ".join(sobran))
         return 1
     print(f"sitio armado en {salida}")
     return 0

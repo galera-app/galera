@@ -300,6 +300,7 @@ window.addEventListener('click', e => {
   history.pushState(null, '', u.pathname + u.search + u.hash);
   desdeUrl(); abrirVista();
   focoTitulo();
+  if (u.hash) requestAnimationFrame(() => { let el = null; try { el = document.getElementById(decodeURIComponent(u.hash.slice(1))); } catch (err) { /* hash mal escapado */ } if (el) el.scrollIntoView(); });   // un link a /pantalla/#seccion baja a la sección (la navegación sin recargar dejaba el scroll arriba)
 });
 // Lo que cada pantalla necesita antes de dibujarse: así la página que ya llegó armada no parpadea con un «Cargando…».
 function precargar() {
