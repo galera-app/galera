@@ -646,5 +646,177 @@
     }
    ]
   }
+ ],
+ "sinResponder": [
+  {
+   "id": "plazo-documentacion-admision",
+   "tema": "empezar",
+   "pregunta": "¿Hasta cuándo tengo para entregar la documentación de admisión?"
+  },
+  {
+   "id": "legalizar-titulo-secundario",
+   "tema": "empezar",
+   "pregunta": "¿Cómo se legaliza el título secundario para la inscripción? ¿Qué copia piden y se hace por TAD?"
+  },
+  {
+   "id": "ventanilla-alumnos",
+   "tema": "empezar",
+   "pregunta": "¿Dónde queda la ventanilla de Alumnos (o de Admisión) y en qué horario atiende?"
+  },
+  {
+   "id": "pase-de-carrera",
+   "tema": "empezar",
+   "pregunta": "¿Cómo es el pase a Edición desde otra carrera y qué pasa si no está listo cuando abre la inscripción?"
+  },
+  {
+   "id": "simultaneidad-letras",
+   "tema": "empezar",
+   "pregunta": "¿Cómo se pide cursar Edición y Letras en simultáneo?"
+  },
+  {
+   "id": "usuario-suiga-demora",
+   "tema": "sistemas",
+   "pregunta": "¿Cuánto tarda en activarse el usuario de SUIGA después de mandar la documentación?"
+  },
+  {
+   "id": "claves-matriculacion",
+   "tema": "sistemas",
+   "pregunta": "¿Dónde y cuándo se publican las claves de matriculación del campus de cada materia?"
+  },
+  {
+   "id": "materias-campus",
+   "tema": "sistemas",
+   "pregunta": "¿Cómo encuentro las materias de Edición en el campus?"
+  },
+  {
+   "id": "uba-xxi-problemas",
+   "tema": "sistemas",
+   "pregunta": "¿Qué hago si tengo problemas con la inscripción a UBA XXI o no me llega el correo del trámite?"
+  },
+  {
+   "id": "sin-cupo-practico",
+   "tema": "inscripcion-horarios",
+   "pregunta": "¿Qué opciones hay si me quedo sin cupo en un práctico?"
+  },
+  {
+   "id": "seminarios-verano",
+   "tema": "inscripcion-horarios",
+   "pregunta": "¿Cómo funcionan los seminarios de verano: cuándo arrancan y cuánto cupo tienen?"
+  },
+  {
+   "id": "constancia-horarios",
+   "tema": "inscripcion-horarios",
+   "pregunta": "¿Cómo pido una constancia de horarios para el trabajo, o la firma de un docente por superposición?"
+  },
+  {
+   "id": "inscripcion-tres-llamados",
+   "tema": "finales",
+   "pregunta": "¿Una inscripción a final vale para los tres llamados del turno?"
+  },
+  {
+   "id": "vigencia-cursada",
+   "tema": "finales",
+   "pregunta": "¿Cuánto dura la regularidad de una materia y cómo se pide una prórroga?"
+  },
+  {
+   "id": "programa-remanente",
+   "tema": "finales",
+   "pregunta": "¿Con qué programa se rinde un final si cursé con un programa anterior?"
+  },
+  {
+   "id": "libre-modalidad-materias",
+   "tema": "finales",
+   "pregunta": "¿Cómo es el examen libre en cada materia: escrito, oral o con un trabajo previo?"
+  },
+  {
+   "id": "despues-de-aprobar",
+   "tema": "finales",
+   "pregunta": "¿Hay que hacer algo después de aprobar un final? ¿Cuándo aparece la nota?"
+  },
+  {
+   "id": "idiomas-libres-material",
+   "tema": "idiomas",
+   "pregunta": "¿Dónde consigo modelos de examen y material para rendir un idioma libre?"
+  },
+  {
+   "id": "idiomas-superior-medio",
+   "tema": "idiomas",
+   "pregunta": "¿Aprobar el nivel superior de un idioma da por aprobado el medio?"
+  },
+  {
+   "id": "homologar-idiomas",
+   "tema": "idiomas",
+   "pregunta": "¿Se puede homologar un idioma estudiado en otro lugar? ¿Cómo?"
+  },
+  {
+   "id": "subsanar-pretramite",
+   "tema": "titulo",
+   "pregunta": "¿Qué hago si me piden «subsanar» el pretrámite del título?"
+  },
+  {
+   "id": "libre-deuda-demora",
+   "tema": "titulo",
+   "pregunta": "¿Cuánto tarda la respuesta del libre deuda?"
+  },
+  {
+   "id": "genero-ley-micaela",
+   "tema": "titulo",
+   "pregunta": "¿El curso de género que piden para el título equivale a la capacitación de la ley Micaela?"
+  },
+  {
+   "id": "encuesta-titulo",
+   "tema": "titulo",
+   "pregunta": "¿El mail de la encuesta para el título es oficial?"
+  },
+  {
+   "id": "becas-estudiantes",
+   "tema": "estudiar",
+   "pregunta": "¿Qué becas hay para estudiantes (de apuntes u otras) y cómo se piden?"
+  },
+  {
+   "id": "feria-apuntes",
+   "tema": "estudiar",
+   "pregunta": "¿Hay feria de apuntes o algún lugar para dejar apuntes que ya no uso?"
+  },
+  {
+   "id": "imprenta-en-el-dia",
+   "tema": "estudiar",
+   "pregunta": "¿Qué imprenta cerca de la facultad imprime en el día y cuánto cobra?"
+  },
+  {
+   "id": "computadoras-facultad",
+   "tema": "contacto-sedes",
+   "pregunta": "¿Hay computadoras o un laboratorio para estudiantes en la facultad?"
+  },
+  {
+   "id": "wifi-facultad",
+   "tema": "contacto-sedes",
+   "pregunta": "¿Cómo me conecto al wifi de la facultad?"
+  },
+  {
+   "id": "servicios-sede",
+   "tema": "contacto-sedes",
+   "pregunta": "¿Dónde cargo la SUBE, caliento comida o imprimo cerca de la sede?"
+  },
+  {
+   "id": "objetos-perdidos",
+   "tema": "contacto-sedes",
+   "pregunta": "¿Dónde se reclaman los objetos perdidos?"
+  },
+  {
+   "id": "inscripcion-jornadas",
+   "tema": "eventos-trabajo",
+   "pregunta": "¿Cómo me inscribo como estudiante a las Jornadas Profesionales, la FILBA o la FED?"
+  },
+  {
+   "id": "grabaciones-charlas",
+   "tema": "eventos-trabajo",
+   "pregunta": "¿Quedan grabadas las charlas y los teóricos? ¿Dónde se ven?"
+  },
+  {
+   "id": "adscripciones-trabajo",
+   "tema": "eventos-trabajo",
+   "pregunta": "¿Cómo funcionan las adscripciones? ¿Hay bolsa de trabajo de la carrera?"
+  }
  ]
 }
