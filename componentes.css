@@ -803,3 +803,13 @@ a.ib{text-decoration:none}
 .gl-desc--materia .gl-filtros button{height:44px}
 .gl-desc--materia .gl-desc-todos{max-height:none}
 @media (max-width:760px){.gl-desc .gl-btn{width:100%;height:auto;min-height:44px;padding:8px 16px;flex-wrap:wrap;text-align:center}}
+/* v125 (C2): Mi carrera en celular, anillo y texto lado a lado como el tablero */
+@media (max-width:760px){
+.gl-carrera .gl-lateral{display:grid;grid-template-columns:112px minmax(0,1fr);column-gap:16px;align-items:center}
+.gl-carrera .gl-lateral>*{grid-column:1/-1}
+.gl-carrera .gl-lateral>.gl-anillo{grid-column:1;grid-row:1/3}
+.gl-carrera .gl-lateral>.gl-anillo svg{width:112px;height:112px}
+.gl-carrera .gl-lateral>.gl-anillo--l .cifra{font-size:32px}.gl-carrera .gl-lateral>.gl-anillo--l .cifra small{font-size:16px}
+.gl-carrera .gl-lateral>.gl-anillo+p{grid-column:2;grid-row:1;align-self:end;margin:0}
+.gl-carrera .gl-lateral>.gl-anillo+p+p{grid-column:2;grid-row:2;align-self:start;margin:4px 0 0}
+}

@@ -2,6 +2,15 @@
  "nota": "Lo que va en el mail de los lunes (Novedades.gs) y en la pestaña Novedades. v: número de versión (obligatorio; ver CHANGELOG.md). tipo: herramientas | resumenes | fechas. perfil: estudiante (por defecto) | profesional | todos; el mail y la pestaña Novedades lo usan para mostrar a cada perfil lo suyo. materias: ids del plan (vacío = para todas). url: solo links a galera.com.ar/. Sumar una entrada por cada cosa que se publica; el script manda solo lo posterior al último envío de cada persona, así que las viejas no se reenvían.",
  "novedades": [
   {
+   "v": 125,
+   "fecha": "2026-11-05",
+   "tipo": "herramientas",
+   "perfil": "estudiante",
+   "materias": [],
+   "titulo": "Mi carrera, más compacta en el celular",
+   "texto": "En el celular, el anillo de avance y el resumen de cuántos requisitos llevás ahora van lado a lado, así que ves antes tu promedio y lo que te falta."
+  },
+  {
    "v": 124,
    "fecha": "2026-11-04",
    "tipo": "herramientas",
