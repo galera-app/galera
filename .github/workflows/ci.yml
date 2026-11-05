@@ -37,6 +37,8 @@ jobs:
         run: pip install "pagefind[extended]==1.6.0"
       - name: Las páginas llevan marcas y el armado de marco/ funciona
         run: python tools/armar.py --comprobar
+      - name: Cada apunte publicado tiene sus descargas
+        run: python tools/controlar_descargas.py
       - name: Armar el sitio publicable (dist/)
         env:
           GALERA_EXIGIR_BUSCADOR: "1"
