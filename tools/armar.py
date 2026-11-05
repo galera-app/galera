@@ -12,6 +12,7 @@ Uso: python tools/armar.py [--salida dist]   arma el sitio publicable (stdlib, s
 No toca prueba/. libro/planificador-de-libros.html es un archivo descargable: lleva el pie, pero conserva su cabecera y su <head>."""
 import hashlib
 import json
+import unicodedata
 import os
 import re
 import shutil
@@ -148,12 +149,24 @@ def ids_reservados():
     return set(S["pantallas"]) | set(S["tabs_ocultas"]) | alias
 
 
+def firma_valida(f):
+    """La misma regla que app.js (RE_FIRMA) y sugerencias/Codigo.gs: empieza con letra; letras, marcas, espacio, punto, apóstrofo y guion; 2 a 60."""
+    return isinstance(f, str) and 2 <= len(f) <= 60 and f[0].isalpha() and f == f.strip() and "  " not in f and all(
+        c.isalpha() or unicodedata.category(c).startswith("M") or c in " .'’-" for c in f)
+
+
 def ids_de_preguntas():
-    """Falla si un id de tema o de pregunta chocaría con el router (/preguntas/#resumenes saltaría a otra pantalla) o se repite."""
+    """Falla si un id de tema o de pregunta (respondida o sin responder) chocaría con el router (/preguntas/#resumenes saltaría a otra
+    pantalla) o se repite, si una sin responder apunta a un tema que no existe o si una firma no cumple la regla."""
     datos = json.loads((RAIZ / "datos" / "preguntas.json").read_text(encoding="utf-8"))
-    ids = [t["id"] for t in datos["temas"]] + [p["id"] for t in datos["temas"] for p in t["preguntas"]]
+    temas = [t["id"] for t in datos["temas"]]
+    sin = datos.get("sinResponder", [])
+    ids = temas + [p["id"] for t in datos["temas"] for p in t["preguntas"]] + [p["id"] for p in sin] + ["sin-" + t for t in temas]
     malos = [f"{i} (choca con el router de hashes)" for i in ids if i in ids_reservados()]
     malos += [f"{i} (repetido)" for i in sorted({i for i in ids if ids.count(i) > 1})]
+    malos += [f"{p['id']} (sin responder con un tema que no existe: {p.get('tema')})" for p in sin if p.get("tema") not in temas]
+    malos += [f"{p['id']} (sin responder sin pregunta)" for p in sin if not str(p.get("pregunta", "")).strip()]
+    malos += [f"{p['id']} (firma inválida)" for t in datos["temas"] for p in t["preguntas"] if "firma" in p and not firma_valida(p["firma"])]
     return malos
 
 

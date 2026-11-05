@@ -2,6 +2,15 @@
  "nota": "Lo que va en el mail de los lunes (Novedades.gs) y en la pestaña Novedades. v: número de versión (obligatorio; ver CHANGELOG.md). tipo: herramientas | resumenes | fechas. perfil: estudiante (por defecto) | profesional | todos; el mail y la pestaña Novedades lo usan para mostrar a cada perfil lo suyo. materias: ids del plan (vacío = para todas). url: solo links a galera.com.ar/. Sumar una entrada por cada cosa que se publica; el script manda solo lo posterior al último envío de cada persona, así que las viejas no se reenvían.",
  "novedades": [
   {
+   "v": 127,
+   "fecha": "2026-11-05",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "titulo": "Preguntas sin responder",
+   "texto": "En Preguntas frecuentes hay una pestaña nueva con las preguntas que llegaron y todavía no tienen respuesta. Si sabés alguna, podés contarla ahí: la reviso antes de publicarla y, si querés, firmás con tu nombre para que figure debajo de la respuesta y en Cómo se sostiene."
+  },
+  {
    "v": 126,
    "fecha": "2026-11-04",
    "tipo": "herramientas",

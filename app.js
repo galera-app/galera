@@ -21,7 +21,7 @@ const tabsActivas = () => esPro() ? TABS_PRO : TABS;
 const ajustarTab = () => { if (esPro() && V.tab !== 'inicio' && V.tab !== 'doc' && V.tab !== 'buscar' && !TABS_PRO.some(t => t[0] === V.tab)) { V.tab = 'simuladores'; V.sim = ''; } };
 const CONTACTO = 'fidelchaves96@gmail.com'; // el mismo mail público de ficha.github.io
 const SOPORTE = 'soporte@galera.com.ar'; // errores y fallas de la app
-const V = { sim: '', nov: '', bib: 'libros', perIdi: 'es', perTipo: '', bl: { q: '', origen: '', tema: '', mat: '', n: 0 }, tab: 'inicio', cambiaPerfil: false, vista: 'tabla', oferta: '', verPasados: false, calFiltro: 'todo', sugeridas: null, verAprobadas: false, verSem: false,
+const V = { sim: '', nov: '', faq: '', faqAbierta: '', faqEnviada: '', faqCerrada: '', bib: 'libros', perIdi: 'es', perTipo: '', bl: { q: '', origen: '', tema: '', mat: '', n: 0 }, tab: 'inicio', cambiaPerfil: false, vista: 'tabla', oferta: '', verPasados: false, calFiltro: 'todo', sugeridas: null, verAprobadas: false, verSem: false,
   res: { materia: '', apunte: '', sec: '' }, busq: '', bus: { q: '', pide: null, hecha: null, res: [], rap: [], pregs: [], error: false }, quiz: {}, ayuda: {}, tema: '', glo: { q: '', mat: '', vista: 'lista', sel: -1, vb: null }, dir: { tipo: 'editorial', q: '', prov: '', linea: '', web: false, letra: '' },
   demo: null, prac: null, retos: false, ausencia: 0, retomado: false, recNota: false }; // demo: el estado real guardado aparte mientras se mira el ejemplo; prac: la ronda de práctica en curso
 // Datos para donar por transferencia (sin comisión). Alias vacío = no se muestra el botón.
@@ -239,6 +239,7 @@ const rutaActual = () => V.tab === 'doc' ? V.docRuta
   : V.tab === 'resumenes' ? '/r/' + (V.res.materia ? V.res.materia + '/' + (V.res.apunte ? V.res.apunte + '.html' + (V.res.sec ? '#' + V.res.sec : '') : '') : '')
   : V.tab === 'simuladores' ? '/simuladores/' + (V.sim ? V.sim + '.html' : '')
   : V.tab === 'novedades' && V.nov ? '/novedades/?ver=pedidos'
+  : V.tab === 'preguntas' && V.faq ? '/preguntas/?ver=sin-responder'
   : V.tab === 'biblioteca' && V.bib !== 'libros' ? '/biblioteca/?ver=per' + (V.perIdi !== 'es' ? '&idioma=' + V.perIdi : '')
   : V.tab === 'buscar' && V.bus.q.trim() ? '/buscar/?q=' + encodeURIComponent(V.bus.q.trim())
   : urlTab(V.tab);
@@ -251,6 +252,7 @@ function desdeHash() {
   V.tab = p[0];
   if (V.tab === 'simuladores') V.sim = SIMULADORES.some(x => x.id === p[1]) ? p[1] : '';
   if (V.tab === 'novedades') V.nov = p[1] === 'pedidos' ? 'pedidos' : '';
+  if (V.tab === 'preguntas') V.faq = p[1] === 'sin-responder' ? 'sin' : '';
   if (V.tab === 'biblioteca') { V.bib = p[1] === 'per' ? 'per' : 'libros'; V.perIdi = ['es', 'en', 'pt', 'de', 'fr'].indexOf(p[2]) >= 0 ? p[2] : 'es'; }
   if (V.tab === 'resumenes') {
     const [m = '', a = '', sec = ''] = p.slice(1).map(x => RE_ID.test(x) ? x : '');
@@ -261,13 +263,14 @@ function desdeHash() {
 function desdeRuta(ruta, buscar, hash) {
   const q = new URLSearchParams(buscar || ''), p = (ruta || '/').replace(/index\.html$/, '');
   let x;
-  V.sim = ''; V.nov = '';
+  V.sim = ''; V.nov = ''; V.faq = '';
   if ((x = /^\/r\/(?:([\w.-]+)\/(?:([\w.-]+)\.html)?)?$/.exec(p))) { V.tab = 'resumenes'; V.res = { materia: x[1] || '', apunte: x[2] || '', sec: x[2] && hash ? hash.replace(/^#(s-)?/, '') : '' }; return; }
   if ((x = /^\/simuladores\/(?:([\w-]+)\.html)?$/.exec(p))) { V.tab = 'simuladores'; V.sim = SIMULADORES.some(s => s.id === x[1]) ? x[1] : ''; return; }
   const t = TODAS_TABS.find(([id]) => urlTab(id) === p);
   V.tab = t ? t[0] : 'doc';
   if (V.tab === 'buscar') V.bus.q = (q.get('q') || '').slice(0, 100);
   if (V.tab === 'novedades') V.nov = q.get('ver') === 'pedidos' ? 'pedidos' : '';
+  if (V.tab === 'preguntas') V.faq = q.get('ver') === 'sin-responder' ? 'sin' : '';
   if (V.tab === 'biblioteca') { V.bib = q.get('ver') === 'per' ? 'per' : 'libros'; V.perIdi = ['es', 'en', 'pt', 'de', 'fr'].indexOf(q.get('idioma')) >= 0 ? q.get('idioma') : 'es'; }
 }
 // Primero el # viejo, si lo hay: se convierte en la dirección nueva sin dejar rastro en el historial.
@@ -430,6 +433,7 @@ function ir(tab) {
   if (tab === 'resumenes' && V.tab === 'resumenes') V.res = { materia: '', apunte: '', sec: '' }; // tocar la pestaña de nuevo vuelve a las tarjetas
   if (tab === 'simuladores' && V.tab === 'simuladores') V.sim = '';   // tocar la pestaña de nuevo vuelve a las tarjetas
   if (tab === 'novedades') V.nov = '';   // tocar la pestaña vuelve a "Todo"
+  if (tab === 'preguntas') { V.faq = ''; V.faqAbierta = ''; }   // y en Preguntas, a las respondidas
   V.prac = null; V.errNota = null; V.gAbierto = '';
   const cambia = V.tab !== tab;
   V.tab = tab; history[cambia ? 'pushState' : 'replaceState'](null, '', rutaActual()); render(); window.scrollTo(0, 0);
@@ -3113,7 +3117,8 @@ function vBuscar() {
     <div id="bus-res" tabindex="-1" aria-live="polite" aria-atomic="true">${cuerpoBusqueda()}</div></div>`;
 }
 // ======================================================================
-// PREGUNTAS FRECUENTES: datos/preguntas.json (temas > preguntas con id, pregunta, variantes, respuesta). Una sola fuente: la pantalla, la respuesta rápida
+// PREGUNTAS FRECUENTES: datos/preguntas.json (temas > preguntas con id, pregunta, variantes, respuesta y, si quien la respondió quiso, firma;
+// sinResponder: id, tema y pregunta de las que todavía no tienen respuesta, para que la conteste quien sepa). Una sola fuente: la pantalla, la respuesta rápida
 // del buscador y el JSON-LD FAQPage (tools/armar.py) salen de ese archivo. Las variantes (cómo lo escribe la gente) van como texto oculto para el buscador.
 // ======================================================================
 function cargarPreguntas() {
@@ -3162,22 +3167,79 @@ async function mandarPregunta(e) {
     st.innerHTML = `No se pudo enviar (${esc(err.message || 'sin conexión')}). Probá de nuevo o <a href="mailto:${SOPORTE}?subject=${encodeURIComponent('Galera: pregunta')}&body=${encodeURIComponent(texto)}">mandala por mail</a>.`; st.className = 'gl-baja gl-bad';
   }
 }
+// PREGUNTAS SIN RESPONDER: cada una abre un formulario para dejar la respuesta, que llega a la pestaña «respuestas» del Sheet del buzón
+// (sugerencias/Codigo.gs). Nada se publica solo: Fidel la revisa y la pasa a las respondidas con 104-edicion-cursada/faq_responder.py.
+// La firma es opcional y solo se manda con la aceptación. La misma regla de firma está en Codigo.gs y en tools/armar.py.
+const RE_FIRMA = /^\p{L}[\p{L}\p{M} .'’-]{1,59}$/u;
+const firmaHtml = p => p.firma ? `<p class="gl-faq-firma">Respondió: ${esc(p.firma)}</p>` : '';
+function verFaq(modo) { V.faq = modo; V.faqAbierta = ''; V.faqEnviada = ''; history.replaceState(null, '', rutaActual()); render(); }
+const filtroFaq = n => `<div class="gl-barra"><div class="gl-filtros" role="group" aria-label="Qué preguntas ver">${[['', 'Respondidas'], ['sin', `Sin responder (${n})`]].map(([k, t]) =>
+  `<button type="button" aria-pressed="${V.faq === k}" onclick="verFaq(${arg(k)})">${t}</button>`).join('')}</div></div>`;
+// Abre el formulario de una pregunta (uno por vez) y lleva el foco al campo; al cerrar, el foco vuelve a su botón.
+function abrirRespuesta(id) {
+  V.faqAbierta = id; V.faqEnviada = ''; mandarRespuesta.t0 = Date.now(); render();
+  const el = id ? $('#r-t') : document.getElementById('b-' + V.faqCerrada);
+  if (el) el.focus();
+}
+function cerrarRespuesta() { V.faqCerrada = V.faqAbierta; abrirRespuesta(''); }
+const formRespuesta = id => `<form id="r-form" class="gl-faq-form" onsubmit="mandarRespuesta(event, ${arg(id)})" novalidate>
+    <div class="gl-campo"><label for="r-t">Tu respuesta</label><textarea id="r-t" maxlength="2000" rows="5" required aria-describedby="r-ayuda"></textarea></div>
+    <p id="r-ayuda" class="gl-chico">Contá lo que sabés y de dónde sale: una página oficial o tu experiencia, y de cuándo. Solo texto, con dos links como máximo y sin datos personales de nadie.</p>
+    <div class="gl-campo"><label for="r-f">Tu nombre, si querés que figure (opcional)</label><input id="r-f" maxlength="60" autocomplete="name" spellcheck="false"></div>
+    <label class="gl-faq-acepto"><input type="checkbox" id="r-a"><span>Acepto que mi nombre aparezca debajo de la respuesta y entre quienes colaboran, en Cómo se sostiene.</span></label>
+    <div aria-hidden="true" class="u-oculto"><label>No completar<input id="r-w" tabindex="-1" autocomplete="off"></label></div>
+    <div class="gl-faq-acc"><button class="gl-btn" id="r-b" type="submit">Enviar respuesta</button><button class="gl-btn gl-btn--sec" type="button" onclick="cerrarRespuesta()">Cancelar</button></div>
+    <p id="r-estado" class="gl-baja" role="status" aria-live="polite"></p></form>`;
+function faqSinResponder(S, T) {
+  const grupos = T.map(t => [t, S.filter(p => p.tema === t.id)]).filter(([, L]) => L.length);
+  return `<div data-pagefind-ignore><p class="gl-baja">Estas preguntas llegaron y Galera todavía no tiene la respuesta. Si sabés alguna, contala: la reviso antes de publicarla y, si querés, figura tu nombre.</p>
+    ${grupos.map(([t, L]) => `<section class="gl-faq-tema" aria-labelledby="sin-${esc(t.id)}"><h2 id="sin-${esc(t.id)}" class="gl-t2 gl-faq-h">${esc(t.titulo)}</h2>
+      ${L.map(p => `<article class="gl-tarjeta gl-faq-p"><h3 id="${esc(p.id)}" class="gl-faq-q">${esc(p.pregunta)}</h3>
+        ${V.faqAbierta === p.id ? formRespuesta(p.id)
+          : V.faqEnviada === p.id ? '<p class="gl-baja" id="r-gracias" tabindex="-1" role="status">Gracias: tu respuesta llegó. La reviso antes de publicarla.</p>'
+          : `<div class="gl-faq-acc"><button class="gl-btn gl-btn--sec" id="b-${esc(p.id)}" type="button" onclick="abrirRespuesta(${arg(p.id)})">Sé la respuesta</button></div>`}
+      </article>`).join('')}</section>`).join('')}</div>`;
+}
+async function mandarRespuesta(e, id) {
+  e.preventDefault();
+  const texto = val('r-t'), firma = val('r-f').replace(/\s+/g, ' '), acepta = $('#r-a').checked, st = $('#r-estado'), b = $('#r-b');
+  const mal = m => { st.textContent = m; st.className = 'gl-baja gl-bad'; };
+  // Lo mismo que controla el servidor, dicho antes para que nadie pierda lo que escribió.
+  if (texto.length < 20) return mal('Escribí un poco más: la respuesta necesita al menos 20 caracteres.');
+  if (texto.length > 2000) return mal('Es muy larga: máximo 2000 caracteres.');
+  if (/<\s*[a-z\/!?]|\[(url|link|img)[=\]]|(javascript|data|vbscript|file):/i.test(texto)) return mal('Escribila como texto común, sin etiquetas ni código.');
+  if ((texto.match(/https?:\/\//gi) || []).length > 2) return mal('Dejá dos links como máximo.');
+  if (firma && !RE_FIRMA.test(firma)) return mal('El nombre solo puede llevar letras, espacios, puntos, apóstrofos y guiones (hasta 60).');
+  if (firma && !acepta) return mal('Para que figure tu nombre, marcá la casilla de aceptación o dejá el nombre vacío.');
+  b.disabled = true; b.textContent = 'Enviando…'; st.textContent = ''; st.className = 'gl-baja';
+  try {
+    await postBuzonDatos({ tipo: 'respuesta', pregunta: id, texto, firma, acepta, web: val('r-w'), ms: Date.now() - (mandarRespuesta.t0 || Date.now()) });
+    V.faqAbierta = ''; V.faqEnviada = id; render();
+    const ok = $('#r-gracias'); if (ok) ok.focus();
+  } catch (err) {
+    b.disabled = false; b.textContent = 'Enviar respuesta';
+    st.innerHTML = `No se pudo enviar (${esc(err.message || 'sin conexión')}). Probá de nuevo o <a href="mailto:${SOPORTE}?subject=${encodeURIComponent('Galera: respuesta a una pregunta')}&body=${encodeURIComponent(id + '\n\n' + texto)}">mandala por mail</a>.`; st.className = 'gl-baja gl-bad';
+  }
+}
 function vPreguntas() {
   if (!D.preguntas) { cargarPreguntas(); return '<div class="gl-v"><p class="gl-vacio" role="status">Cargando las preguntas…</p></div>'; }
   const T = D.preguntas.temas;
   if (!T.length) return '<div class="gl-v"><p class="gl-vacio" role="alert">No se pudieron cargar las preguntas. <button class="gl-btn gl-btn--sec" type="button" onclick="location.reload()">Probar de nuevo</button></p></div>';
   mandarPregunta.t0 = mandarPregunta.t0 || Date.now();
+  const S = Array.isArray(D.preguntas.sinResponder) ? D.preguntas.sinResponder : [];
+  const cab = `<div class="gl-cab"><h2 class="gl-display">Preguntas frecuentes</h2></div>
+    <p class="gl-baja">Lo que más se pregunta al empezar y al cursar Edición en la UBA. Si algo cambió o no coincide con tu cátedra, vale lo que diga el Departamento y el Reglamento Académico.</p>${S.length ? filtroFaq(S.length) : ''}`;
+  if (V.faq === 'sin' && S.length) return `<div class="gl-v gl-faq">${cab}${faqSinResponder(S, T)}</div>`;
   return `<div class="gl-v gl-faq"><span hidden data-pagefind-filter="tipo:pregunta"></span>
-    <div class="gl-cab"><h2 class="gl-display">Preguntas frecuentes</h2></div>
-    <p class="gl-baja">Lo que más se pregunta al empezar y al cursar Edición en la UBA. Si algo cambió o no coincide con tu cátedra, vale lo que diga el Departamento y el Reglamento Académico.</p>
+    ${cab}
     <nav class="gl-faq-ind" aria-label="Temas de las preguntas"><ul class="gl-lista">${T.map(t => `<li><a href="#${esc(t.id)}">${esc(t.titulo)}</a></li>`).join('')}</ul></nav>
     ${T.map(t => `<section class="gl-faq-tema" aria-labelledby="${esc(t.id)}"><h2 id="${esc(t.id)}" class="gl-t2 gl-faq-h">${esc(t.titulo)}</h2>
       ${t.preguntas.map(p => `<article class="gl-tarjeta gl-faq-p"><h3 id="${esc(p.id)}" class="gl-faq-q">${esc(p.pregunta)}</h3>
-        <div class="gl-faq-r">${respuestaHtml(p.respuesta)}</div>
+        <div class="gl-faq-r">${respuestaHtml(p.respuesta)}</div>${firmaHtml(p)}
         ${(p.variantes || []).length ? `<p hidden>${esc(p.variantes.join('. '))}.</p>` : ''}
         <a class="gl-enlace gl-faq-ancla" href="#${esc(p.id)}">Link a esta pregunta</a></article>`).join('')}</section>`).join('')}
     <section class="gl-faq-nueva" id="no-esta" aria-labelledby="no-esta-h" data-pagefind-ignore><h2 id="no-esta-h" class="gl-t2 gl-faq-h">¿No está tu pregunta?</h2>
-      <p class="gl-baja">Escribila y la sumo si le sirve a más gente. No pongas datos personales.</p>
+      <p class="gl-baja">Escribila y la sumo si le sirve a más gente. No pongas datos personales.${S.length ? ` Y si sabés la respuesta de alguna que todavía no la tiene, mirá las <a href="/preguntas/?ver=sin-responder" onclick="verFaq('sin'); return false">preguntas sin responder</a>.` : ''}</p>
       <form id="p-form" class="gl-faq-form" onsubmit="mandarPregunta(event)" novalidate>
         <div class="gl-campo"><label for="p-t">Tu pregunta</label><textarea id="p-t" maxlength="1000" rows="4" required placeholder="Ej.: ¿hasta cuándo puedo anotarme a una mesa de examen?"></textarea></div>
         <div class="gl-campo"><label for="p-c">Tu mail, solo si querés que te responda (opcional)</label><input id="p-c" type="email" maxlength="120" autocomplete="email"></div>
@@ -3393,8 +3455,8 @@ async function cargarSostener() {
   if (D.sostener || cargarSostener.va) return;
   cargarSostener.va = true;
   const leer = a => json(a).catch(() => null);
-  const [horas, costos, plan, claude, mecenas] = await Promise.all([leer('sostener.json'), leer('sostener-costos.json'), leer('plan.json'), leer('sostener-claude.json'), leer('mecenas.json')]);
-  D.sostener = { horas, costos, plan, claude, mecenas };
+  const [horas, costos, plan, claude, mecenas, preguntas] = await Promise.all([leer('sostener.json'), leer('sostener-costos.json'), leer('plan.json'), leer('sostener-claude.json'), leer('mecenas.json'), leer('preguntas.json')]);
+  D.sostener = { horas, costos, plan, claude, mecenas, preguntas };
   if (V.tab === 'sostener' || V.tab === 'novedades') render();
 }
 const ESTADO_PLAN = { planeado: ['Planeado', 'gl-chip gl-chip--neutro'], 'en curso': ['En curso', 'gl-chip'], listo: ['Listo', 'gl-chip gl-chip--ok'] };
@@ -3444,6 +3506,15 @@ function sostenerMecenas(M) {
     return `<li>${nombre}${a && MESES_ES[Number(mes) - 1] ? `<small>Desde ${MESES_ES[Number(mes) - 1]} de ${esc(a)}</small>` : ''}</li>`;
   }).join('')}</ul><p class="gl-chico">Si querés figurar, escribime a <a href="mailto:${HOLA}">${HOLA}</a> con el nombre que quieras que aparezca.</p>`;
 }
+// Quienes respondieron preguntas frecuentes y firmaron (la firma sale de datos/preguntas.json: no hay otra lista que mantener).
+function sostenerColaboradores(P) {
+  const n = {};
+  ((P && P.temas) || []).forEach(t => t.preguntas.forEach(p => { if (p.firma) n[p.firma] = (n[p.firma] || 0) + 1; }));
+  const L = Object.keys(n).sort((a, b) => a.localeCompare(b, 'es'));
+  const sumar = '<a href="/preguntas/?ver=sin-responder">preguntas sin responder</a>';
+  if (!L.length) return `<div class="gl-mecenas"><b>Todavía no hay colaboraciones firmadas.</b><p>Si sabés la respuesta de alguna de las ${sumar}, contala. Si firmás, tu nombre aparece acá y debajo de la respuesta.</p></div>`;
+  return `<p>Estas personas respondieron preguntas frecuentes y firmaron su respuesta. Gracias.</p><ul class="gl-mecenas-lista">${L.map(x => `<li>${esc(x)}${n[x] > 1 ? `<small>${n[x]} respuestas</small>` : ''}</li>`).join('')}</ul><p class="gl-chico">Podés sumarte desde las ${sumar}.</p>`;
+}
 function vSostener() {
   if (!D.sostener) { cargarSostener(); return '<p class="cargando">Cargando…</p>'; }
   const S = D.sostener, fila = (t, v) => `<div class="gl-donar"><span class="gl-chico">${t}</span><code>${esc(v)}</code><button class="gl-btn gl-btn--sec" type="button" onclick="copiar(${arg(v)})">Copiar</button></div>`;
@@ -3460,6 +3531,7 @@ function vSostener() {
         <li><b>Con tiempo</b><p>Avisame de un error, sugerime lo que falta o mandame tus apuntes para sumarlos: los reviso a mano antes de publicarlos. Se hace desde «Contame qué falta» o por mail.</p></li>
         <li><b>Un proyecto en común</b><p>Si tenés un proyecto editorial en el que pueda sumar con corrección, redacción o armado de contenidos, contame. Escribime a <a href="mailto:${HOLA}">${HOLA}</a>.</p></li></ul>
       <h2 id="mecenas">Mecenas</h2>${sostenerMecenas(S.mecenas)}
+      <h2 id="colaboradores">Colaboradores</h2>${sostenerColaboradores(S.preguntas)}
       ${sostenerPlan(S.plan)}</div>
     <aside class="gl-riel" aria-label="Ayudar">
       <div class="gl-tarjeta"><h3>Invitame un cafecito</h3><p>Un aporte único, del monto que quieras.</p><a class="gl-btn" href="${urlSegura(DONAR.cafecito)}" target="_blank" rel="noopener">Ir a Cafecito</a></div>
@@ -3578,13 +3650,14 @@ function idea(o) {
   setTimeout(() => $('#i-t').focus(), 50);
 }
 // El mismo POST del buzón para «Contame qué falta» y para las preguntas de /preguntas/ (el servidor no cambia: la pregunta llega con el prefijo «[Pregunta] »).
-async function postBuzon(texto, contacto, web, ms) {
+async function postBuzonDatos(datos) {
   // text/plain evita la consulta previa (preflight) del navegador, que Apps Script no responde.
   const r = await fetch(BUZON, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-    body: JSON.stringify({ sitio: 'cursada', texto: String(texto).slice(0, 2000), contacto, web, ms, seccion: V.tab }) });
+    body: JSON.stringify(Object.assign({ seccion: V.tab }, datos, { sitio: 'cursada', texto: String(datos.texto || '').slice(0, 2000) })) });
   const j = await r.json();
   if (!j.ok) throw new Error(j.error || 'No se pudo enviar');
 }
+const postBuzon = (texto, contacto, web, ms) => postBuzonDatos({ texto, contacto, web, ms });
 async function mandarIdea() {
   const texto = val('i-t'), contacto = val('i-c');
   if (texto.length < 5) return aviso('Escribí tu sugerencia');
