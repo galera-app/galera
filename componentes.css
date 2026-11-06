@@ -960,3 +960,6 @@ a.gl-lec-mapa .gl-lec-av{margin-top:auto;padding-top:8px}
   .lp-esc{width:1123px;max-width:none;height:1587px!important;margin:0;overflow:hidden;box-shadow:none}
   .lp-hoja{transform:none!important}
 }
+
+/* v132: «Ver más resultados» del buscador */
+.gl-bus-mas{margin:16px 0 0}

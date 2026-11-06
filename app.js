@@ -3049,13 +3049,16 @@ const busQ = () => V.bus.q.trim();
 // Cada archivo del índice es una página con su <h1> como título y su <main> como cuerpo.
 async function buscarPf(q) {
   const pf = await pagefind();
+  // En paralelo: la búsqueda general arranca ya (baja el índice del término una sola vez) mientras se resuelven el filtro y preguntas.json.
+  const buscaTodos = pf.search(q);
+  buscaTodos.catch(() => {});
   const datos = async (r, n) => Promise.all(r.results.slice(0, n).map(x => x.data()));
   // Respuestas rápidas: la página de Preguntas frecuentes (filtro tipo:pregunta) trae por encabezado las preguntas que coinciden (sub_results, con su ancla);
   // arriba van hasta dos con la respuesta completa de datos/preguntas.json. Otra página marcada con ese filtro va aparte, como resultado común.
   let rap = [], pregs = [];
   try {
-    const dp = await datos(await pf.search(q, { filters: { tipo: 'pregunta' } }), 3);
-    await cargarPreguntas();
+    const [fp] = await Promise.all([pf.search(q, { filters: { tipo: 'pregunta' } }), cargarPreguntas()]);
+    const dp = await datos(fp, 3);
     const lista = preguntasLista(), ids = [];
     // Orden de relevancia de Pagefind (suma de balanced_score de cada encabezado), no el de la página.
     const rel = [];
@@ -3072,8 +3075,19 @@ async function buscarPf(q) {
   const buscadas = normaBus(q), conNumeros = buscadas.some(p => /\d/.test(p));
   const parecida = (w, p) => { let i = 0; while (i < w.length && i < p.length && w[i] === p[i]) i++; return i >= Math.min(3, p.length); };
   const conSentido = x => { const m = [...String(x.excerpt).matchAll(/<mark>([^<]*)<\/mark>/g)].flatMap(k => normaBus(k[1])); return conNumeros || !m.length || m.some(w => buscadas.some(p => parecida(w, p))); };
-  const res = (await datos(await pf.search(q), 80)).filter(x => !vistas.has(x.url) && conSentido(x)).slice(0, 40);
-  return { res, rap, pregs };
+  // De a 10: solo se baja el fragmento de lo que se muestra; el resto queda detrás de «Ver más resultados».
+  const todos = (await buscaTodos).results;
+  const traer = async desde => {
+    const out = []; let i = desde;
+    while (out.length < 10 && i < todos.length) {
+      const lote = await Promise.all(todos.slice(i, i + 10).map(x => x.data()));
+      i += 10;
+      lote.forEach(x => { if (!vistas.has(x.url) && conSentido(x)) { vistas.add(x.url); out.push(x); } });
+    }
+    return { out, sig: i, hay: i < todos.length };
+  };
+  const p = await traer(0);
+  return { res: p.out, rap, pregs, traer, sig: p.sig, hay: p.hay, cargando: false };
 }
 function lanzarBusqueda() {
   const B = V.bus, q = busQ();
@@ -3091,6 +3105,31 @@ function lanzarBusqueda() {
   }).catch(e => { if (B.pide === q) Object.assign(B, { hecha: q, error: true, sinIndice: !!(e && e.sinIndice), res: [], rap: [], pregs: [] }); })
     .finally(() => { if (V.tab === 'buscar' && B.pide === q) pintarBusqueda(); });
 }
+// «Ver más resultados»: baja los próximos fragmentos. El botón se reemplaza al repintar, así que el foco pasa al primer resultado nuevo (no salta al contenedor).
+async function verMasBus() {
+  const B = V.bus, q = busQ();
+  if (!B.hay || B.cargando || !B.traer) return;
+  B.cargando = true;
+  const antes = B.res.length;
+  const btn = document.getElementById('bus-mas'); if (btn) { btn.disabled = true; btn.textContent = 'Cargando…'; }
+  try {
+    const r = await B.traer(B.sig);
+    if (B.pide !== q) return;
+    B.res.push(...r.out); B.sig = r.sig; B.hay = r.hay;
+  } catch (e) { /* queda el botón para reintentar */ }
+  B.cargando = false;
+  if (V.tab !== 'buscar') return;
+  pintarBusqueda();
+  const nuevo = document.querySelectorAll('#bus-res .gl-bus-res:not(.gl-bus-rap) h2 a')[antes];
+  if (nuevo) nuevo.focus({ preventScroll: false });
+  else { const b = document.getElementById('bus-mas'); if (b) b.focus({ preventScroll: true }); }
+}
+// Calienta Pagefind (JS, worker, wasm y meta) sin buscar nada. Idempotente; los errores se ignoran (ya los muestra la búsqueda real).
+function precargarBuscador() {
+  if (typeof PRERENDER !== 'undefined') return;
+  precargarBuscador.p = precargarBuscador.p || pagefind().then(m => m.init && m.init()).catch(() => { precargarBuscador.p = null; });
+}
+window.precargarBuscador = precargarBuscador;
 function pintarBusqueda() {
   const el = $('#bus-res'); if (!el) return;
   const dentro = el.contains(document.activeElement);   // si el foco estaba en lo que se repinta (p. ej. «Probar de nuevo»), pasa al contenedor
@@ -3109,10 +3148,11 @@ function cuerpoBusqueda() {
   if (B.error) return '<p class="gl-vacio">No pude cargar el buscador. Puede ser la conexión. <button class="gl-btn gl-btn--sec" type="button" onclick="V.bus.pide=null;lanzarBusqueda();pintarBusqueda()">Probar de nuevo</button></p>';
   if (!B.res.length && !B.rap.length && !B.pregs.length) return `<div class="gl-vacio"><p>No encontré nada para «${esc(q)}». Probá con otra palabra o con menos palabras; las tildes no importan.</p><p>También podés mirar el <a href="/glosario/">Glosario</a>, <a href="/preguntas/#no-esta">dejar tu pregunta</a> o <button class="gl-enlace" type="button" onclick="idea()">contarme qué falta</button>.</p></div>`;
   const n = B.res.length + B.rap.length + B.pregs.length;
-  return `<p class="gl-baja">${n === 1 ? '1 resultado' : n + ' resultados'} para «${esc(q)}».</p>`
+  return `<p class="gl-baja">${B.hay ? 'Mostrando ' + n + ' resultados' : n === 1 ? '1 resultado' : n + ' resultados'} para «${esc(q)}».</p>`
     + (B.pregs.length ? `<h2 class="gl-bus-h">Respuesta rápida</h2><ul class="gl-lista gl-bus-lista">${B.pregs.map(p => `<li class="gl-tarjeta gl-bus-res gl-bus-rap"><h3 class="gl-bus-p">${esc(p.pregunta)}</h3><div class="gl-faq-r">${respuestaHtml(p.respuesta)}</div><a class="gl-enlace" href="/preguntas/#${esc(p.id)}">Ver en Preguntas frecuentes</a></li>`).join('')}</ul>` : '')
     + (B.rap.length ? `<h2 class="gl-bus-h">Otra respuesta rápida</h2><ul class="gl-lista gl-bus-lista">${B.rap.map(x => itemBus(x, true)).join('')}</ul>` : '')
-    + (B.res.length ? `<ul class="gl-lista gl-bus-lista">${B.res.map(x => itemBus(x)).join('')}</ul>` : '');
+    + (B.res.length ? `<ul class="gl-lista gl-bus-lista">${B.res.map(x => itemBus(x)).join('')}</ul>` : '')
+    + (B.hay ? `<p class="gl-bus-mas"><button id="bus-mas" class="gl-btn gl-btn--sec" type="button" onclick="verMasBus()">Ver más resultados</button></p>` : '');
 }
 function buscarEnviar(e) {
   e.preventDefault();
@@ -3127,7 +3167,7 @@ function buscarCon(v) {
   lanzarBusqueda(); pintarBusqueda();
 }
 function vBuscar() {
-  if (typeof PRERENDER === 'undefined' && busQ().length >= 2) lanzarBusqueda();
+  if (typeof PRERENDER === 'undefined') { if (busQ().length >= 2) lanzarBusqueda(); else precargarBuscador(); }
   return `<div class="gl-v gl-buscar"><div class="gl-cab"><h2 class="gl-display">Buscar en Galera</h2></div>
     <form class="gl-barra gl-bus-form" role="search" onsubmit="buscarEnviar(event)"><label class="gl-busca" for="bus-q"><span class="gl-rotulo">Qué querés encontrar</span><input id="bus-q" name="q" maxlength="100" type="search" enterkeyhint="search" autocomplete="off" placeholder="correlativas, final, gramaje…" value="${esc(V.bus.q)}" oninput="clearTimeout(buscarEnviar.t);const v=this.value;buscarEnviar.t=setTimeout(()=>buscarCon(v),350)"></label><button class="gl-btn" type="submit">Buscar</button></form>
     <div id="bus-res" tabindex="-1" aria-live="polite" aria-atomic="true">${cuerpoBusqueda()}</div></div>`;
