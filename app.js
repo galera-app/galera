@@ -21,7 +21,7 @@ const tabsActivas = () => esPro() ? TABS_PRO : TABS;
 const ajustarTab = () => { if (esPro() && V.tab !== 'inicio' && V.tab !== 'doc' && V.tab !== 'buscar' && !TABS_PRO.some(t => t[0] === V.tab)) { V.tab = 'simuladores'; V.sim = ''; } };
 const CONTACTO = 'fidelchaves96@gmail.com'; // el mismo mail público de ficha.github.io
 const SOPORTE = 'soporte@galera.com.ar'; // errores y fallas de la app
-const V = { sim: '', nov: '', faq: '', faqAbierta: '', faqEnviada: '', faqCerrada: '', bib: 'libros', perIdi: 'es', perTipo: '', bl: { q: '', origen: '', tema: '', mat: '', n: 0 }, tab: 'inicio', cambiaPerfil: false, vista: 'tabla', oferta: '', verPasados: false, calFiltro: 'todo', sugeridas: null, verAprobadas: false, verSem: false,
+const V = { sim: '', nov: '', lec: '', faq: '', faqAbierta: '', faqEnviada: '', faqCerrada: '', bib: 'libros', perIdi: 'es', perTipo: '', bl: { q: '', origen: '', tema: '', mat: '', n: 0 }, tab: 'inicio', cambiaPerfil: false, vista: 'tabla', oferta: '', verPasados: false, calFiltro: 'todo', sugeridas: null, verAprobadas: false, verSem: false,
   res: { materia: '', apunte: '', sec: '' }, busq: '', bus: { q: '', pide: null, hecha: null, res: [], rap: [], pregs: [], error: false }, quiz: {}, ayuda: {}, tema: '', glo: { q: '', mat: '', vista: 'lista', sel: -1, vb: null }, dir: { tipo: 'editorial', q: '', prov: '', linea: '', web: false, letra: '' },
   demo: null, prac: null, retos: false, ausencia: 0, retomado: false, recNota: false }; // demo: el estado real guardado aparte mientras se mira el ejemplo; prac: la ronda de práctica en curso
 // Datos para donar por transferencia (sin comisión). Alias vacío = no se muestra el botón.
@@ -51,7 +51,7 @@ function aviso(t) { const a = $('#aviso'); a.textContent = t; a.classList.add('o
 // juego: los elementos de juego (un interruptor general; todo informativo, sin puntos ni rachas): on, rondas (última de cada materia), hitos (registro de lo hecho),
 // retos (resueltos), aprob (materias ya registradas), ultimo (último apunte abierto).
 const juegoVacio = () => ({ on: true, rondas: {}, hitos: [], retos: {}, aprob: [], ultimo: '' });
-function estadoVacio() { return { v: 1, carrera: 'edicion', perfil: '', vioAyuda: false, materias: {}, horarios: {}, escandallo: null, comparador: null, papel: null, paginacion: null, cronograma: null, leidos: {}, descarga: '',
+function estadoVacio() { return { v: 1, carrera: 'edicion', perfil: '', vioAyuda: false, materias: {}, horarios: {}, escandallo: null, comparador: null, papel: null, paginacion: null, cronograma: null, leidos: {}, lecturas: {}, descarga: '',
   copia: '', modif: '', primera: '', visto: '', practica: {}, juego: juegoVacio(), arcade: Arcade.sanear(null) }; }
 // Todo lo que entra (de localStorage o de un archivo importado) se reconstruye campo por campo:
 // solo tipos, formatos y largos esperados. Lo que no encaja se descarta.
@@ -148,6 +148,14 @@ function normalizar(e) {
   // Apuntes leídos: "materia/apunte" → fecha.
   const L = e.leidos && typeof e.leidos === 'object' ? e.leidos : {};
   Object.keys(L).slice(0, 500).forEach(k => { const p = k.split('/'); if (p.length === 2 && p.every(x => /^\w[\w.-]{0,59}$/.test(x)) && RE_FECHA.test(L[k])) out.leidos[k] = L[k]; });
+  // Mapas de lectura: «mapa» → {número de lectura: true}. Solo ids y números con la forma esperada.
+  const LE = e.lecturas && typeof e.lecturas === 'object' && !Array.isArray(e.lecturas) ? e.lecturas : {};
+  Object.keys(LE).slice(0, 20).forEach(id => {
+    const m = LE[id];
+    if (!RE_ID.test(id) || !m || typeof m !== 'object' || Array.isArray(m)) return;
+    const hechas = {}; Object.keys(m).slice(0, 200).forEach(n => { if (/^\d{1,3}$/.test(n) && m[n] === true) hechas[n] = true; });
+    if (Object.keys(hechas).length) out.lecturas[id] = hechas;
+  });
   ['copia', 'modif', 'primera', 'visto'].forEach(k => { if (RE_FECHA.test(e[k] || '')) out[k] = e[k]; });
   // Práctica: por pregunta, cuántas veces salió bien y mal, y cuándo fue la última.
   const P = e.practica && typeof e.practica === 'object' ? e.practica : {};
@@ -240,6 +248,7 @@ const rutaActual = () => V.tab === 'doc' ? V.docRuta
   : V.tab === 'simuladores' ? '/simuladores/' + (V.sim ? V.sim + '.html' : '')
   : V.tab === 'novedades' && V.nov ? '/novedades/?ver=pedidos'
   : V.tab === 'preguntas' && V.faq ? '/preguntas/?ver=sin-responder'
+  : V.tab === 'lecturas' && V.lec ? '/lecturas/' + V.lec + '/'
   : V.tab === 'biblioteca' && V.bib !== 'libros' ? '/biblioteca/?ver=per' + (V.perIdi !== 'es' ? '&idioma=' + V.perIdi : '')
   : V.tab === 'buscar' && V.bus.q.trim() ? '/buscar/?q=' + encodeURIComponent(V.bus.q.trim())
   : urlTab(V.tab);
@@ -253,6 +262,7 @@ function desdeHash() {
   if (V.tab === 'simuladores') V.sim = SIMULADORES.some(x => x.id === p[1]) ? p[1] : '';
   if (V.tab === 'novedades') V.nov = p[1] === 'pedidos' ? 'pedidos' : '';
   if (V.tab === 'preguntas') V.faq = p[1] === 'sin-responder' ? 'sin' : '';
+  if (V.tab === 'lecturas') V.lec = RE_ID.test(p[1] || '') ? p[1] : '';
   if (V.tab === 'biblioteca') { V.bib = p[1] === 'per' ? 'per' : 'libros'; V.perIdi = ['es', 'en', 'pt', 'de', 'fr'].indexOf(p[2]) >= 0 ? p[2] : 'es'; }
   if (V.tab === 'resumenes') {
     const [m = '', a = '', sec = ''] = p.slice(1).map(x => RE_ID.test(x) ? x : '');
@@ -263,9 +273,10 @@ function desdeHash() {
 function desdeRuta(ruta, buscar, hash) {
   const q = new URLSearchParams(buscar || ''), p = (ruta || '/').replace(/index\.html$/, '');
   let x;
-  V.sim = ''; V.nov = ''; V.faq = '';
+  V.sim = ''; V.nov = ''; V.faq = ''; V.lec = '';
   if ((x = /^\/r\/(?:([\w.-]+)\/(?:([\w.-]+)\.html)?)?$/.exec(p))) { V.tab = 'resumenes'; V.res = { materia: x[1] || '', apunte: x[2] || '', sec: x[2] && hash ? hash.replace(/^#(s-)?/, '') : '' }; return; }
   if ((x = /^\/simuladores\/(?:([\w-]+)\.html)?$/.exec(p))) { V.tab = 'simuladores'; V.sim = SIMULADORES.some(s => s.id === x[1]) ? x[1] : ''; return; }
+  if ((x = /^\/lecturas\/([\w.-]+)\/$/.exec(p))) { V.tab = 'lecturas'; V.lec = x[1]; return; }
   const t = TODAS_TABS.find(([id]) => urlTab(id) === p);
   V.tab = t ? t[0] : 'doc';
   if (V.tab === 'buscar') V.bus.q = (q.get('q') || '').slice(0, 100);
@@ -278,7 +289,7 @@ function desdeUrl() {
   if (location.hash && desdeHash()) { history.replaceState(null, '', rutaActual()); return; }
   desdeRuta(location.pathname, location.search, location.hash);
 }
-const esRutaApp = p => /^\/r\/(?:[\w.-]+\/(?:[\w.-]+\.html)?)?$/.test(p) || /^\/simuladores\/(?:[\w-]+\.html)?$/.test(p) || p === '/' || TODAS_TABS.some(([id]) => urlTab(id) === p);
+const esRutaApp = p => /^\/r\/(?:[\w.-]+\/(?:[\w.-]+\.html)?)?$/.test(p) || /^\/simuladores\/(?:[\w-]+\.html)?$/.test(p) || /^\/lecturas\/[\w.-]+\/$/.test(p) || p === '/' || TODAS_TABS.some(([id]) => urlTab(id) === p);
 function abrirVista() { if (V.tab === 'resumenes' && V.res.apunte) return cargarApunte(); render(); window.scrollTo(0, 0); }
 const alCambiarHash = () => {
   if (/^#(datos|horario|desafio)=/.test(location.hash)) { manejarLinkNov(); return; }
@@ -309,7 +320,7 @@ function precargar() {
   const t = V.tab;
   if (t === 'resumenes') return cargarResumenes().then(() => V.res.apunte ? traerApunte().catch(() => {}) : null);
   if (t === 'biblioteca') return Promise.all([cargarBiblioteca(), cargarBibExtra('sobre', 'libros-sobre-libros.json'), cargarBibExtra('prog', 'libros-programas.json'), V.bib === 'per' ? cargarBibExtra('per', 'periodicas.json') : null]);
-  const f = { simuladores: cargarSimInfo, arcade: cargarSimInfo, glosario: cargarGlosario, preguntas: cargarPreguntas, directorio: cargarDirectorio, eventos: cargarEventos, sostener: cargarSostener, novedades: cargarNovedades, links: cargarLinksLibro, inicio: cargarNovedades }[t];
+  const f = { simuladores: cargarSimInfo, arcade: cargarSimInfo, glosario: cargarGlosario, preguntas: cargarPreguntas, lecturas: cargarLecturas, directorio: cargarDirectorio, eventos: cargarEventos, sostener: cargarSostener, novedades: cargarNovedades, links: cargarLinksLibro, inicio: cargarNovedades }[t];
   return f ? f() : null;
 }
 // Para tools/prerender.js: deja el estado como lo vería alguien sin datos que entra por esa dirección.
@@ -388,14 +399,15 @@ function iniciarPerfil() {
 const PERFILES_INICIO = [['estudiante', 'Estudiar', 'Para estudiantes de Edición: plan, notas, horarios y apuntes de la carrera.'], ['profesional', 'Trabajar', 'Para profesionales del libro: herramientas, eventos, contactos y los apuntes de Edición.']];
 const PLURAL_PERFIL = { estudiante: 'estudiantes', profesional: 'profesionales del libro' };
 const BAJADAS = {
-  estudiante: { eventos: 'Ferias, jornadas y convocatorias del libro.', carrera: 'Tus materias, notas y lo que te falta para recibirte.', horarios: 'Armá tu cuatrimestre y mirá si se pisan los horarios.', calendario: 'Inscripciones, mesas de final y feriados del año.', resumenes: 'Apuntes por materia y simulacros de parcial.', biblioteca: 'La bibliografía de cada materia, en un solo lugar.', glosario: 'Los términos de la carrera, explicados en corto.', simuladores: 'Papel, imposición, escandallo, cronogramas y contratos.', directorio: 'Editoriales de todo el país, de la A a la Z.', links: 'Campus, SIU Guaraní y trámites de la facultad.' },
-  profesional: { simuladores: 'Papel, imposición, escandallo, cronogramas y contratos.', eventos: 'Ferias, jornadas y convocatorias del sector.', directorio: 'Editoriales, imprentas y distribuidoras del país.', links: 'Cámaras, organismos y recursos del sector.', resumenes: 'Los apuntes de la carrera, para repasar la teoría.', glosario: 'Términos de edición, imprenta y derecho de autor.', biblioteca: 'Libros sobre libros y manuales para consultar.' }
+  estudiante: { eventos: 'Ferias, jornadas y convocatorias del libro.', carrera: 'Tus materias, notas y lo que te falta para recibirte.', horarios: 'Armá tu cuatrimestre y mirá si se pisan los horarios.', calendario: 'Inscripciones, mesas de final y feriados del año.', resumenes: 'Apuntes por materia y simulacros de parcial.', biblioteca: 'La bibliografía de cada materia, en un solo lugar.', glosario: 'Los términos de la carrera, explicados en corto.', simuladores: 'Papel, imposición, escandallo, cronogramas y contratos.', directorio: 'Editoriales de todo el país, de la A a la Z.', links: 'Campus, SIU Guaraní y trámites de la facultad.', lecturas: 'Qué se lee en Letras, materia por materia, para ampliar tus lecturas.' },
+  profesional: { simuladores: 'Papel, imposición, escandallo, cronogramas y contratos.', eventos: 'Ferias, jornadas y convocatorias del sector.', directorio: 'Editoriales, imprentas y distribuidoras del país.', links: 'Cámaras, organismos y recursos del sector.', resumenes: 'Los apuntes de la carrera, para repasar la teoría.', glosario: 'Términos de edición, imprenta y derecho de autor.', biblioteca: 'Libros sobre libros y manuales para consultar.', lecturas: 'Qué se lee en Letras, con lo que está en dominio público.' }
 };
 const ICONO_INICIO = {
   carrera: 'M4 11l8-6 8 6v8a1 1 0 0 1-1 1h-4v-5H9v5H5a1 1 0 0 1-1-1z', horarios: 'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM12 7v5l3 2', calendario: 'M4 6h16v14H4zM4 10h16M8 3v4M16 3v4',
   resumenes: 'M6 3h9l4 4v14H6zM14 3v5h5M9 13h7M9 17h5', biblioteca: 'M5 4h10a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3zM5 17a3 3 0 0 1 3-3h10', glosario: 'M5 4h9a5 5 0 0 1 5 5v11H5zM9 9h6M9 13h6',
   simuladores: 'M5 3h14v18H5zM8 7h8M8 11h2M12 11h2M8 15h2M12 15h2M8 18h2M12 18h2M16 15v3', directorio: 'M4 20V8l8-4 8 4v12M9 20v-6h6v6',
-  links: 'M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1', eventos: 'M3 10v4h4l6 4V6l-6 4zM16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11'
+  links: 'M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1', eventos: 'M3 10v4h4l6 4V6l-6 4zM16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11',
+  lecturas: 'M5 4h5a2 2 0 0 1 2 2v14a2 2 0 0 0-2-2H5zM19 4h-5a2 2 0 0 0-2 2v14a2 2 0 0 1 2-2h5z'
 };
 const ROMANOS = ['I', 'II', 'III', 'IV', 'V'];
 const MESES_LARGOS = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
@@ -433,6 +445,7 @@ function ir(tab) {
   if (tab === 'resumenes' && V.tab === 'resumenes') V.res = { materia: '', apunte: '', sec: '' }; // tocar la pestaña de nuevo vuelve a las tarjetas
   if (tab === 'simuladores' && V.tab === 'simuladores') V.sim = '';   // tocar la pestaña de nuevo vuelve a las tarjetas
   if (tab === 'novedades') V.nov = '';   // tocar la pestaña vuelve a "Todo"
+  if (tab === 'lecturas') V.lec = '';   // tocar la pestaña vuelve al índice de mapas
   if (tab === 'preguntas') { V.faq = ''; V.faqAbierta = ''; }   // y en Preguntas, a las respondidas
   V.prac = null; V.errNota = null; V.gAbierto = '';
   const cambia = V.tab !== tab;
@@ -453,6 +466,7 @@ const TITULO_BASE = document.title;
 const tituloPagina = () => {
   if (V.tab === 'doc') return TITULO_BASE;
   const x = V.tab === 'simuladores' && SIMULADORES.find(y => y.id === V.sim); if (x) return x.t + ' · Galera';
+  if (V.tab === 'lecturas' && V.lec) { const m = mapaLectura(V.lec); if (m) return tituloMapa(m); }
   if (V.tab === 'resumenes' && V.res.materia) { const k = V.res.materia + '/' + V.res.apunte, ap = V.res.apunte && D.apuntes[k], M = ((D.resumenes || {}).materias || []).find(y => y.id === V.res.materia); if (ap) return ap.titulo + ' · Galera'; if (M) return 'Resúmenes de ' + M.nombre + ' · Galera'; }
   return (MARCO.pantallas[V.tab] || {}).titulo || TITULO_BASE;
 };
@@ -465,6 +479,7 @@ function descripcionPagina() {
     if (ap) return ap.titulo + ': resumen y preguntas para autoevaluarte. Gratis, en Galera.';
     if (M) return 'Resúmenes de ' + M.nombre + ' (Edición, UBA): apuntes y preguntas para autoevaluarte. Gratis, en Galera.';
   }
+  if (V.tab === 'lecturas' && V.lec) { const m = mapaLectura(V.lec); if (m) return m.bajada; }
   return (MARCO.pantallas[V.tab] || {}).desc || '';
 }
 function ponerMeta() {
@@ -487,7 +502,7 @@ function render() {
   document.title = tituloPagina();
   altoCab();
   const gr = grupoDe(V.tab); if (gr) (V.gUlt = V.gUlt || {})[gr[0]] = V.tab;
-  conFoco($('#main'), () => { $('#main').innerHTML = (V.demo ? bandaEjemplo() : '') + subnav() + conTitulo({ doc: () => V.docHtml, inicio: vInicio, carrera: vCarrera, horarios: vHorarios, calendario: vCalendario, resumenes: vResumenes, biblioteca: vBiblioteca, simuladores: vSimuladores, glosario: vGlosario, preguntas: vPreguntas, buscar: vBuscar, directorio: vDirectorio, links: vLinks, novedades: vNovedades, sostener: vSostener, eventos: vEventos, arcade: () => vArcade() + arcadeInfo(), config: vConfig }[V.tab]()); capitulares(); });
+  conFoco($('#main'), () => { $('#main').innerHTML = (V.demo ? bandaEjemplo() : '') + subnav() + conTitulo({ doc: () => V.docHtml, inicio: vInicio, carrera: vCarrera, horarios: vHorarios, calendario: vCalendario, resumenes: vResumenes, biblioteca: vBiblioteca, simuladores: vSimuladores, glosario: vGlosario, preguntas: vPreguntas, lecturas: vLecturas, buscar: vBuscar, directorio: vDirectorio, links: vLinks, novedades: vNovedades, sostener: vSostener, eventos: vEventos, arcade: () => vArcade() + arcadeInfo(), config: vConfig }[V.tab]()); capitulares(); });
   $('#main').className = V.tab === 'doc' ? V.docClase : '';
   document.body.classList.toggle('lectura', V.tab === 'doc');
   const can = document.querySelector('link[rel="canonical"]'); if (can && V.tab !== 'doc') can.href = 'https://galera.com.ar' + rutaActual().split('#')[0].split('?')[0];
@@ -530,7 +545,7 @@ const MAS_INFO = {
   biblioteca: ['Libros y manuales para consultar', 'M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3zM9 8h6'], simuladores: ['Calculadoras para las cuentas del libro', ICONO.simuladores], glosario: ['Términos de edición', ICONO.glosario],
   directorio: ['Editoriales de Argentina', 'M12 21s-6-5.5-6-10a6 6 0 0 1 12 0c0 4.5-6 10-6 10zM12 9v3'], links: ['Sitios y trámites de la carrera', ICONO.links], resumenes: ['Apuntes por materia', ICONO.resumenes],
   novedades: ['Lo último que se publicó', 'M6 17h12l-1.5-2v-4a4.5 4.5 0 0 0-9 0v4zM10 20h4'], sostener: ['Aportes y cuentas claras', 'M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.6-7 10-7 10z'],
-  config: ['Tus datos y la apariencia', 'M5 7h9M18 7h1M5 17h1M10 17h9M14 5v4M6 15v4'], eventos: ['Ferias y fechas del libro', ICONO.eventos], carrera: ['Tus materias y tu promedio', ICONO.carrera], horarios: ['Armá tu semana', ICONO.horarios], calendario: ['Fechas y mesas', ICONO.calendario] };
+  config: ['Tus datos y la apariencia', 'M5 7h9M18 7h1M5 17h1M10 17h9M14 5v4M6 15v4'], eventos: ['Ferias y fechas del libro', ICONO.eventos], lecturas: ['Qué se lee en Letras', 'M5 4h5a2 2 0 0 1 2 2v14a2 2 0 0 0-2-2H5zM19 4h-5a2 2 0 0 0-2 2v14a2 2 0 0 1 2-2h5z'], carrera: ['Tus materias y tu promedio', ICONO.carrera], horarios: ['Armá tu semana', ICONO.horarios], calendario: ['Fechas y mesas', ICONO.calendario] };
 const filaMas = (t, onclick, actual, sub, ico) => `<li><button type="button" ${actual ? 'aria-current="page"' : ''} onclick="${onclick}">${ico ? `<span class="mas-ico">${svgIcono(ico)}</span>` : ''}<span class="mas-t">${t}${sub ? `<small>${sub}</small>` : ''}</span><i aria-hidden="true"></i></button></li>`;
 function abrirMas() {
   const otras = tabsActivas().filter(([id]) => !grupoDe(id));
@@ -3247,6 +3262,99 @@ function vPreguntas() {
         <div class="gl-faq-acc"><button class="gl-btn" id="p-b" type="submit">Enviar pregunta</button></div>
         <p id="p-estado" class="gl-baja" role="status" aria-live="polite"></p>
       </form></section></div>`;
+}
+// =====================================================================
+// MAPAS DE LECTURA (v128): datos/lecturas.json (mapas > catedras, tramos, obras, teoria). Tres mapas de los programas 2026 de Letras (FFyL, UBA).
+// Lo que cada persona marca como leído va en E.lecturas ({mapa: {número: true}}), solo en su navegador. Los títulos de obras vienen entre
+// asteriscos en desc y hilo.resumen: se escapa primero y después se pasan a cursiva. El JSON-LD de cada página sale del mismo archivo (tools/armar.py).
+// =====================================================================
+function cargarLecturas() {
+  if (!cargarLecturas.va) cargarLecturas.va = (async () => {
+    try { D.lecturas = await json('lecturas.json'); } catch (e) { D.lecturas = { mapas: [], error: true }; }
+    if (V.tab === 'lecturas') render();
+  })();
+  return cargarLecturas.va;
+}
+const mapaLectura = id => ((D.lecturas && D.lecturas.mapas) || []).find(m => m.id === id);
+const tituloMapa = m => 'Mapa de lectura: ' + m.titulo.charAt(0).toLowerCase() + m.titulo.slice(1) + ' · Galera';
+const enCursiva = s => esc(s).replace(/\*([^*]+)\*/g, '<i>$1</i>');
+const lecturasHechas = m => { const h = E.lecturas[m.id] || {}; return m.obras.filter(o => h[o.num]).length; };
+const avanceLecturas = (m, vivo) => {
+  const n = lecturasHechas(m), N = m.obras.length;
+  return `<div class="gl-lec-av" data-pagefind-ignore><span class="gl-chico gl-num"${vivo ? ' role="status"' : ''}>${n} de ${N} leídas</span><span class="gl-barra-p" aria-hidden="true"><i style="width:${Math.round(n / N * 100)}%"></i></span></div>`;
+};
+const titularesMapa = m => m.catedras.map(c => c.titular).join(' y ');
+function marcarLectura(id, n) {
+  const m = mapaLectura(id);
+  if (!m || !m.obras.some(o => o.num === n)) return;
+  const h = E.lecturas[id] = E.lecturas[id] || {};
+  if (h[n]) { delete h[n]; if (!Object.keys(h).length) delete E.lecturas[id]; }
+  else { h[n] = true; medir('marcar_lectura', { item_id: id + '/' + n }); }
+  guardar(); render();
+}
+function tarjetaObra(m, o) {
+  const hecha = !!(E.lecturas[m.id] || {})[o.num], idt = 'lec-' + m.id + '-' + o.num;
+  const titulo = o.pieza ? `«${esc(o.titulo)}»` : `<i>${esc(o.titulo)}</i>`;
+  const cat = m.catedras.length > 1 && o.catedras ? (o.catedras.length > 1 ? 'Cátedras ' : 'Cátedra ') + esc(o.catedras) : '';
+  const libre = o.url ? `<a class="gl-enlace" href="${urlSegura(o.url)}" target="_blank" rel="noopener">Leer en ${esc(o.fuente || 'una edición libre')} (se abre aparte)</a>`
+    : `<span class="gl-chico gl-lec-sin">${o.derechos === 'derechos vigentes' ? 'Derechos vigentes' : 'Sin edición libre encontrada'}</span>`;
+  const teoria = (o.teoria || []).length ? `<div class="gl-lec-ts"><span class="gl-chico">Para acompañar:</span>${o.teoria.map(x => `<a class="gl-lec-t" href="#teoria-${esc(x)}">${esc(x)}</a>`).join('')}</div>` : '';
+  return `<li><article class="gl-tarjeta gl-lec-obra${hecha ? ' gl-lec-hecha' : ''}" id="${idt}">
+    <div class="gl-lec-cab"><span class="gl-lec-casillero" aria-hidden="true"></span><span class="gl-lec-n gl-num">${esc(o.num)}</span>
+      <span class="gl-chip gl-chip--neutro">${esc(o.genero)}</span><span class="gl-chip ${o.derechos === 'derechos vigentes' ? 'gl-chip--aviso' : 'gl-chip--ok'}">${esc(o.derechos)}</span></div>
+    <h3 class="gl-lec-t3" id="${idt}-t">${titulo}</h3>
+    <p class="gl-chico gl-lec-meta">${esc(o.autor)} · ${esc(o.anio)}${cat ? ' · ' + cat : ''}</p>
+    ${o.desc ? `<p class="gl-lec-desc">${enCursiva(o.desc)}</p>` : ''}
+    ${teoria}${libre}
+    <button class="gl-btn ${hecha ? '' : 'gl-btn--sec'} gl-lec-marca" type="button" data-f="${idt}" aria-pressed="${hecha}" aria-describedby="${idt}-t" onclick="marcarLectura(${arg(m.id)},${arg(o.num)})">${hecha ? 'Leída' : 'Marcar como leída'}</button>
+  </article></li>`;
+}
+function hilosMapa(m) {
+  const varios = m.catedras.length > 1;
+  return `<section class="gl-lec-sec" aria-labelledby="lec-hilos"><h2 class="gl-t2" id="lec-hilos">${varios ? 'El hilo de cada cátedra' : 'El hilo del programa'}</h2>
+    <div class="gl-lec-hilos${varios ? ' gl-lec-hilos--2' : ''}">${m.catedras.map(c => `<div class="gl-lec-hilo">
+      <p class="gl-lec-rot">${c.letra ? 'Cátedra ' + esc(c.letra) + ' · ' : ''}${esc(c.titular)}</p>
+      <h3 class="gl-t3">${esc(c.hilo.titulo)}</h3>
+      <p class="gl-chico">${esc(m.materia)} · ${esc(c.cuatrimestre)}</p>
+      <p class="gl-lec-resumen">${enCursiva(c.hilo.resumen)}</p>
+      <ul class="gl-lec-unidades">${c.hilo.unidades.map(u => `<li><span class="gl-num">Unidad ${esc(u.num)}</span> ${esc(u.titulo)}</li>`).join('')}</ul>
+      <a class="gl-enlace" href="${urlSegura(c.programa_url)}" target="_blank" rel="noopener">Programa completo en PDF (se abre aparte)</a></div>`).join('')}</div></section>`;
+}
+function teoriaMapa(m) {
+  return `<section class="gl-lec-sec" id="teoria" aria-labelledby="lec-teoria"><h2 class="gl-t2" id="lec-teoria">Teoría para acompañar</h2>
+    <p class="gl-baja">Artículos y capítulos de crítica que las cátedras proponen junto a las obras. Cada número (T1, T2…) enlaza desde las lecturas que acompaña.</p>
+    <ol class="gl-lista gl-lec-teoria">${m.teoria.map(x => `<li id="teoria-${esc(x.n)}"><span class="gl-lec-tn gl-num">${esc(x.n)}</span><div><b>«${esc(x.titulo)}»</b>
+      <span class="gl-chico">${esc(x.autor)}${x.donde ? ' · ' + esc(x.donde) : ''}${m.catedras.length > 1 && x.catedras ? ' · Cátedra ' + esc(x.catedras) : ''}</span>
+      ${x.obras ? `<span class="gl-chico">Lecturas: ${esc(x.obras)}</span>` : ''}</div></li>`).join('')}</ol></section>`;
+}
+function vLecturas() {
+  if (!D.lecturas) { cargarLecturas(); return '<div class="gl-v"><p class="gl-vacio" role="status">Cargando los mapas…</p></div>'; }
+  const L = D.lecturas.mapas;
+  if (!L.length) return '<div class="gl-v"><p class="gl-vacio" role="alert">No se pudieron cargar los mapas. <button class="gl-btn gl-btn--sec" type="button" onclick="location.reload()">Probar de nuevo</button></p></div>';
+  const aviso = '<p class="gl-lec-aviso" role="note"><b>No es un canon oficial:</b> es lo que estas cátedras ponen a leer en 2026. Los programas cambian de un año a otro.</p>';
+  if (!V.lec) return `<div class="gl-v gl-lec">
+    <div class="gl-cab"><h2 class="gl-display">Mapas de lectura</h2></div>
+    <p class="gl-baja">Qué se lee en la carrera de Letras (FFyL, UBA), materia por materia. Cada mapa ordena las lecturas de un programa por tramos, muestra la teoría que las acompaña y te dice cuáles están en dominio público y dónde leerlas. Podés marcar las que ya leíste.</p>
+    ${aviso}
+    <ul class="gl-rejilla gl-rejilla--3 gl-lec-indice">${L.map(m => `<li><a class="gl-tarjeta gl-lec-mapa" href="/lecturas/${esc(m.id)}/">
+      <h3 class="gl-t3">${esc(m.titulo)}</h3><span class="gl-chico">${esc(m.materia)} · ${esc(titularesMapa(m))}</span>
+      <p class="gl-lec-baja">${esc(m.bajada)}</p><span class="gl-chico gl-num">${m.obras.length} lecturas</span>${avanceLecturas(m)}</a></li>`).join('')}</ul></div>`;
+  const m = mapaLectura(V.lec);
+  if (!m) return '<div class="gl-v gl-lec"><p class="gl-vacio" role="alert">No encontré ese mapa. <a class="gl-enlace" href="/lecturas/">Ver todos los mapas</a></p></div>';
+  return `<div class="gl-v gl-lec gl-lec-pag">
+    <p class="gl-chico gl-m4 gl-lec-fuera"><a class="gl-enlace" href="/lecturas/">← Todos los mapas</a></p>
+    <div class="gl-cab"><h2 class="gl-t1">${esc(m.titulo)}</h2><span class="gl-crece"></span>
+      <button class="gl-btn gl-btn--sec gl-lec-fuera" type="button" onclick="imprimir(${arg('lecturas/' + m.id)})">Imprimir el póster</button></div>
+    <p class="gl-baja">${esc(m.bajada)}</p>
+    ${aviso}
+    ${avanceLecturas(m, true)}
+    <div class="gl-lec-hilosw">${hilosMapa(m)}</div>
+    <section class="gl-lec-sec" aria-labelledby="lec-lecturas"><h2 class="gl-t2" id="lec-lecturas">Las lecturas</h2>
+      <p class="gl-baja">${esc(m.nota_tramos)}</p>
+      ${m.tramos.map(t => `<section class="gl-lec-tramo" aria-labelledby="tramo-${esc(t.num)}"><h3 class="gl-t3" id="tramo-${esc(t.num)}"><span class="gl-lec-tn gl-num">${esc(t.num)}</span> ${esc(t.nombre)}</h3>
+        <ul class="gl-rejilla gl-rejilla--3">${m.obras.filter(o => o.tramo === t.num).map(o => tarjetaObra(m, o)).join('')}</ul></section>`).join('')}</section>
+    ${teoriaMapa(m)}
+  </div>`;
 }
 // =====================================================================
 // GLOSARIO: términos clave de todas las materias (datos/glosario.json, armado con 104-edicion-cursada/glosario.py)

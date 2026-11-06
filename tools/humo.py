@@ -6,7 +6,7 @@ import urllib.error
 import urllib.parse
 import urllib.request
 
-RUTAS = ["/", "/legal/", "/glosario/", "/preguntas/", "/biblioteca/", "/simuladores/",
+RUTAS = ["/", "/legal/", "/glosario/", "/preguntas/", "/lecturas/", "/lecturas/argentina-siglo-xix/", "/biblioteca/", "/simuladores/",
          "/datos/indice.json", "/datos/novedades.json", "/sitemap.xml"]
 
 

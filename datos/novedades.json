@@ -2,6 +2,16 @@
  "nota": "Lo que va en el mail de los lunes (Novedades.gs) y en la pestaña Novedades. v: número de versión (obligatorio; ver CHANGELOG.md). tipo: herramientas | resumenes | fechas. perfil: estudiante (por defecto) | profesional | todos; el mail y la pestaña Novedades lo usan para mostrar a cada perfil lo suyo. materias: ids del plan (vacío = para todas). url: solo links a galera.com.ar/. Sumar una entrada por cada cosa que se publica; el script manda solo lo posterior al último envío de cada persona, así que las viejas no se reenvían.",
  "novedades": [
   {
+   "v": 128,
+   "fecha": "2026-11-06",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "titulo": "Mapas de lectura de Letras",
+   "texto": "Una sección nueva con tres mapas de lo que se lee en literatura argentina (siglo XIX, siglo XX y problemas de la historia), armados con los programas 2026 de Letras en la UBA. Cada lectura trae su descripción, la teoría que la acompaña y un enlace a una edición libre cuando existe. Podés marcar las que ya leíste y, si querés, imprimir el mapa como póster.",
+   "url": "https://galera.com.ar/lecturas/"
+  },
+  {
    "v": 127,
    "fecha": "2026-11-05",
    "tipo": "herramientas",
