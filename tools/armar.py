@@ -183,6 +183,44 @@ def faq_jsonld(t, rel):
     return t.replace("</head>", bloque + "</head>", 1)
 
 
+def ids_de_lecturas():
+    """Mapas de lectura: falla si un id de mapa choca con el router, se repite, no tiene su página de entrada (lecturas/<id>/index.html) o su
+    entrada en el sitemap, si una lectura se repite o apunta a un tramo o a una teoría que no existe."""
+    datos = json.loads((RAIZ / "datos" / "lecturas.json").read_text(encoding="utf-8"))
+    mapas = datos["mapas"]
+    ids = [m["id"] for m in mapas]
+    sitemap = (RAIZ / "sitemap.xml").read_text(encoding="utf-8")
+    malos = [f"{i} (choca con el router de hashes)" for i in ids if i in ids_reservados()]
+    malos += [f"{i} (repetido)" for i in sorted({i for i in ids if ids.count(i) > 1})]
+    malos += [f"{m['id']} (falta lecturas/{m['id']}/index.html)" for m in mapas if not (RAIZ / "lecturas" / m["id"] / "index.html").is_file()]
+    malos += [f"{m['id']} (falta en sitemap.xml)" for m in mapas if f"https://galera.com.ar/lecturas/{m['id']}/" not in sitemap]
+    for m in mapas:
+        nums, tramos, teoria = [o["num"] for o in m["obras"]], {t["num"] for t in m["tramos"]}, {x["n"] for x in m["teoria"]}
+        malos += [f"{m['id']}: lectura {n} repetida" for n in sorted({n for n in nums if nums.count(n) > 1})]
+        malos += [f"{m['id']}: lectura {o['num']} en un tramo que no existe ({o['tramo']})" for o in m["obras"] if o["tramo"] not in tramos]
+        malos += [f"{m['id']}: lectura {o['num']} cita la teoría {x}, que no existe" for o in m["obras"] for x in o["teoria"] if x not in teoria]
+    return malos
+
+
+def lecturas_jsonld(t, rel):
+    """/lecturas/ y /lecturas/<id>/: agrega un ItemList (los mapas, o las obras de un mapa) generado desde datos/lecturas.json, la misma fuente que la pantalla."""
+    if rel != "lecturas/index.html" and not re.fullmatch(r"lecturas/[\w.-]+/index\.html", rel):
+        return t
+    datos = json.loads((RAIZ / "datos" / "lecturas.json").read_text(encoding="utf-8"))
+    if rel == "lecturas/index.html":
+        items = [{"@type": "ListItem", "position": i + 1, "name": m["titulo"], "url": f"https://galera.com.ar/lecturas/{m['id']}/"} for i, m in enumerate(datos["mapas"])]
+        lista = {"@context": "https://schema.org", "@type": "ItemList", "name": "Mapas de lectura de Letras (UBA)", "itemListElement": items}
+    else:
+        m = next((x for x in datos["mapas"] if x["id"] == rel.split("/")[1]), None)
+        if m is None:
+            return t
+        items = [{"@type": "ListItem", "position": i + 1, "item": {"@type": "CreativeWork", "name": o["titulo"], "author": {"@type": "Person", "name": o["autor"]}}}
+                 for i, o in enumerate(m["obras"])]
+        lista = {"@context": "https://schema.org", "@type": "ItemList", "name": m["titulo"], "description": m["bajada"], "numberOfItems": len(items), "itemListElement": items}
+    bloque = '<script type="application/ld+json">' + json.dumps(lista, ensure_ascii=False).replace("</", "<" + chr(92) + "/") + "</script>\n"
+    return t.replace("</head>", bloque + "</head>", 1)
+
+
 def comando_pagefind():
     """`python -m pagefind` (paquete pagefind[extended]) o el binario `pagefind`. Con GALERA_PAGEFIND_NPX=1 también `npx pagefind@versión`
     (baja de internet: por eso no es automático). None si no hay ninguno."""
@@ -307,12 +345,13 @@ def construir(salida, indice=False):
     escribir(app, re.sub(r"s\.src = '/mapa-ar\.js[^']*'", "s.src = '/mapa-ar.js?v=" + huella(salida / "mapa-ar.js") + "'", app.read_text(encoding="utf-8")))
     sobran = []
     for p, rel in paginas(salida):
-        escribir(p, versionar(para_indice(faq_jsonld(expandir(p.read_text(encoding="utf-8"), rel), rel), rel), p.parent, salida))
+        escribir(p, versionar(para_indice(lecturas_jsonld(faq_jsonld(expandir(p.read_text(encoding="utf-8"), rel), rel), rel), rel), p.parent, salida))
     prerender(salida)
     for p, rel in paginas(salida):
         if "<!--marco:" in p.read_text(encoding="utf-8"):
             sobran.append(rel)
     sobran += ["datos/preguntas.json: id " + m for m in ids_de_preguntas()]
+    sobran += ["datos/lecturas.json: " + m for m in ids_de_lecturas()]
     if indice and not sobran and not indexar(salida):
         sobran.append("pagefind (no se pudo armar el índice del buscador)")
     return sobran

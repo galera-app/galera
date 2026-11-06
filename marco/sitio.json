@@ -73,6 +73,12 @@
    "titulo": "Preguntas frecuentes sobre la carrera de Edición (UBA) · Galera",
    "desc": "Respuestas sobre la carrera de Edición (FFyL, UBA): qué cursar primero, inscripción, finales, idiomas y título. Y un lugar para dejar tu pregunta."
   },
+  "lecturas": {
+   "t": "Mapas de lectura",
+   "url": "/lecturas/",
+   "titulo": "Mapas de lectura de Letras (UBA): qué se lee por materia · Galera",
+   "desc": "Qué se lee en Letras (FFyL, UBA): tres mapas de los programas 2026 de literatura argentina, con la teoría de cada lectura y dónde leer las de dominio público."
+  },
   "sostener": {
    "t": "Cómo se sostiene",
    "url": "/sostener/",
@@ -127,6 +133,7 @@
    "eventos",
    "directorio",
    "links",
+   "lecturas",
    "novedades",
    "preguntas",
    "sostener",
@@ -140,6 +147,7 @@
    "glosario",
    "directorio",
    "links",
+   "lecturas",
    "novedades",
    "preguntas",
    "sostener",
@@ -175,7 +183,8 @@
     [
      "eventos",
      "directorio",
-     "links"
+     "links",
+     "lecturas"
     ]
    ],
    [
@@ -202,7 +211,8 @@
     [
      "eventos",
      "directorio",
-     "links"
+     "links",
+     "lecturas"
     ]
    ],
    [
@@ -256,7 +266,8 @@
     [
      "eventos",
      "directorio",
-     "links"
+     "links",
+     "lecturas"
     ]
    ]
   ],
@@ -276,7 +287,8 @@
     [
      "eventos",
      "directorio",
-     "links"
+     "links",
+     "lecturas"
     ]
    ],
    [
