@@ -21,7 +21,7 @@ const tabsActivas = () => esPro() ? TABS_PRO : TABS;
 const ajustarTab = () => { if (esPro() && V.tab !== 'inicio' && V.tab !== 'doc' && V.tab !== 'buscar' && !TABS_PRO.some(t => t[0] === V.tab)) { V.tab = 'simuladores'; V.sim = ''; } };
 const CONTACTO = 'fidelchaves96@gmail.com'; // el mismo mail público de ficha.github.io
 const SOPORTE = 'soporte@galera.com.ar'; // errores y fallas de la app
-const V = { sim: '', nov: '', lec: '', faq: '', faqAbierta: '', faqEnviada: '', faqCerrada: '', bib: 'libros', perIdi: 'es', perTipo: '', bl: { q: '', origen: '', tema: '', mat: '', n: 0 }, tab: 'inicio', cambiaPerfil: false, vista: 'tabla', oferta: '', verPasados: false, calFiltro: 'todo', sugeridas: null, verAprobadas: false, verSem: false,
+const V = { sim: '', nov: '', lec: '', pos: false, faq: '', faqAbierta: '', faqEnviada: '', faqCerrada: '', bib: 'libros', perIdi: 'es', perTipo: '', bl: { q: '', origen: '', tema: '', mat: '', n: 0 }, tab: 'inicio', cambiaPerfil: false, vista: 'tabla', oferta: '', verPasados: false, calFiltro: 'todo', sugeridas: null, verAprobadas: false, verSem: false,
   res: { materia: '', apunte: '', sec: '' }, busq: '', bus: { q: '', pide: null, hecha: null, res: [], rap: [], pregs: [], error: false }, quiz: {}, ayuda: {}, tema: '', glo: { q: '', mat: '', vista: 'lista', sel: -1, vb: null }, dir: { tipo: 'editorial', q: '', prov: '', linea: '', web: false, letra: '' },
   demo: null, prac: null, retos: false, ausencia: 0, retomado: false, recNota: false }; // demo: el estado real guardado aparte mientras se mira el ejemplo; prac: la ronda de práctica en curso
 // Datos para donar por transferencia (sin comisión). Alias vacío = no se muestra el botón.
@@ -248,7 +248,7 @@ const rutaActual = () => V.tab === 'doc' ? V.docRuta
   : V.tab === 'simuladores' ? '/simuladores/' + (V.sim ? V.sim + '.html' : '')
   : V.tab === 'novedades' && V.nov ? '/novedades/?ver=pedidos'
   : V.tab === 'preguntas' && V.faq ? '/preguntas/?ver=sin-responder'
-  : V.tab === 'lecturas' && V.lec ? '/lecturas/' + V.lec + '/'
+  : V.tab === 'lecturas' && V.lec ? '/lecturas/' + V.lec + '/' + (V.pos ? 'poster/' : '')
   : V.tab === 'biblioteca' && V.bib !== 'libros' ? '/biblioteca/?ver=per' + (V.perIdi !== 'es' ? '&idioma=' + V.perIdi : '')
   : V.tab === 'buscar' && V.bus.q.trim() ? '/buscar/?q=' + encodeURIComponent(V.bus.q.trim())
   : urlTab(V.tab);
@@ -262,7 +262,7 @@ function desdeHash() {
   if (V.tab === 'simuladores') V.sim = SIMULADORES.some(x => x.id === p[1]) ? p[1] : '';
   if (V.tab === 'novedades') V.nov = p[1] === 'pedidos' ? 'pedidos' : '';
   if (V.tab === 'preguntas') V.faq = p[1] === 'sin-responder' ? 'sin' : '';
-  if (V.tab === 'lecturas') V.lec = RE_ID.test(p[1] || '') ? p[1] : '';
+  if (V.tab === 'lecturas') { V.lec = RE_ID.test(p[1] || '') ? p[1] : ''; V.pos = !!V.lec && p[2] === 'poster'; }
   if (V.tab === 'biblioteca') { V.bib = p[1] === 'per' ? 'per' : 'libros'; V.perIdi = ['es', 'en', 'pt', 'de', 'fr'].indexOf(p[2]) >= 0 ? p[2] : 'es'; }
   if (V.tab === 'resumenes') {
     const [m = '', a = '', sec = ''] = p.slice(1).map(x => RE_ID.test(x) ? x : '');
@@ -273,10 +273,10 @@ function desdeHash() {
 function desdeRuta(ruta, buscar, hash) {
   const q = new URLSearchParams(buscar || ''), p = (ruta || '/').replace(/index\.html$/, '');
   let x;
-  V.sim = ''; V.nov = ''; V.faq = ''; V.lec = '';
+  V.sim = ''; V.nov = ''; V.faq = ''; V.lec = ''; V.pos = false;
   if ((x = /^\/r\/(?:([\w.-]+)\/(?:([\w.-]+)\.html)?)?$/.exec(p))) { V.tab = 'resumenes'; V.res = { materia: x[1] || '', apunte: x[2] || '', sec: x[2] && hash ? hash.replace(/^#(s-)?/, '') : '' }; return; }
   if ((x = /^\/simuladores\/(?:([\w-]+)\.html)?$/.exec(p))) { V.tab = 'simuladores'; V.sim = SIMULADORES.some(s => s.id === x[1]) ? x[1] : ''; return; }
-  if ((x = /^\/lecturas\/([\w.-]+)\/$/.exec(p))) { V.tab = 'lecturas'; V.lec = x[1]; return; }
+  if ((x = /^\/lecturas\/([\w.-]+)\/(poster\/)?$/.exec(p))) { V.tab = 'lecturas'; V.lec = x[1]; V.pos = !!x[2]; return; }
   const t = TODAS_TABS.find(([id]) => urlTab(id) === p);
   V.tab = t ? t[0] : 'doc';
   if (V.tab === 'buscar') V.bus.q = (q.get('q') || '').slice(0, 100);
@@ -289,7 +289,7 @@ function desdeUrl() {
   if (location.hash && desdeHash()) { history.replaceState(null, '', rutaActual()); return; }
   desdeRuta(location.pathname, location.search, location.hash);
 }
-const esRutaApp = p => /^\/r\/(?:[\w.-]+\/(?:[\w.-]+\.html)?)?$/.test(p) || /^\/simuladores\/(?:[\w-]+\.html)?$/.test(p) || /^\/lecturas\/[\w.-]+\/$/.test(p) || p === '/' || TODAS_TABS.some(([id]) => urlTab(id) === p);
+const esRutaApp = p => /^\/r\/(?:[\w.-]+\/(?:[\w.-]+\.html)?)?$/.test(p) || /^\/simuladores\/(?:[\w-]+\.html)?$/.test(p) || /^\/lecturas\/[\w.-]+\/(?:poster\/)?$/.test(p) || p === '/' || TODAS_TABS.some(([id]) => urlTab(id) === p);
 function abrirVista() { if (V.tab === 'resumenes' && V.res.apunte) return cargarApunte(); render(); window.scrollTo(0, 0); }
 const alCambiarHash = () => {
   if (/^#(datos|horario|desafio)=/.test(location.hash)) { manejarLinkNov(); return; }
@@ -445,7 +445,7 @@ function ir(tab) {
   if (tab === 'resumenes' && V.tab === 'resumenes') V.res = { materia: '', apunte: '', sec: '' }; // tocar la pestaña de nuevo vuelve a las tarjetas
   if (tab === 'simuladores' && V.tab === 'simuladores') V.sim = '';   // tocar la pestaña de nuevo vuelve a las tarjetas
   if (tab === 'novedades') V.nov = '';   // tocar la pestaña vuelve a "Todo"
-  if (tab === 'lecturas') V.lec = '';   // tocar la pestaña vuelve al índice de mapas
+  if (tab === 'lecturas') { V.lec = ''; V.pos = false; }   // tocar la pestaña vuelve al índice de mapas
   if (tab === 'preguntas') { V.faq = ''; V.faqAbierta = ''; }   // y en Preguntas, a las respondidas
   V.prac = null; V.errNota = null; V.gAbierto = '';
   const cambia = V.tab !== tab;
@@ -466,7 +466,7 @@ const TITULO_BASE = document.title;
 const tituloPagina = () => {
   if (V.tab === 'doc') return TITULO_BASE;
   const x = V.tab === 'simuladores' && SIMULADORES.find(y => y.id === V.sim); if (x) return x.t + ' · Galera';
-  if (V.tab === 'lecturas' && V.lec) { const m = mapaLectura(V.lec); if (m) return tituloMapa(m); }
+  if (V.tab === 'lecturas' && V.lec) { const m = mapaLectura(V.lec); if (m) return V.pos ? 'Póster del ' + tituloMapa(m).charAt(0).toLowerCase() + tituloMapa(m).slice(1) : tituloMapa(m); }
   if (V.tab === 'resumenes' && V.res.materia) { const k = V.res.materia + '/' + V.res.apunte, ap = V.res.apunte && D.apuntes[k], M = ((D.resumenes || {}).materias || []).find(y => y.id === V.res.materia); if (ap) return ap.titulo + ' · Galera'; if (M) return 'Resúmenes de ' + M.nombre + ' · Galera'; }
   return (MARCO.pantallas[V.tab] || {}).titulo || TITULO_BASE;
 };
@@ -479,7 +479,7 @@ function descripcionPagina() {
     if (ap) return ap.titulo + ': resumen y preguntas para autoevaluarte. Gratis, en Galera.';
     if (M) return 'Resúmenes de ' + M.nombre + ' (Edición, UBA): apuntes y preguntas para autoevaluarte. Gratis, en Galera.';
   }
-  if (V.tab === 'lecturas' && V.lec) { const m = mapaLectura(V.lec); if (m) return m.bajada; }
+  if (V.tab === 'lecturas' && V.lec) { const m = mapaLectura(V.lec); if (m) return V.pos ? 'Póster A3 para imprimir: ' + m.bajada : m.bajada; }
   return (MARCO.pantallas[V.tab] || {}).desc || '';
 }
 function ponerMeta() {
@@ -502,7 +502,7 @@ function render() {
   document.title = tituloPagina();
   altoCab();
   const gr = grupoDe(V.tab); if (gr) (V.gUlt = V.gUlt || {})[gr[0]] = V.tab;
-  conFoco($('#main'), () => { $('#main').innerHTML = (V.demo ? bandaEjemplo() : '') + subnav() + conTitulo({ doc: () => V.docHtml, inicio: vInicio, carrera: vCarrera, horarios: vHorarios, calendario: vCalendario, resumenes: vResumenes, biblioteca: vBiblioteca, simuladores: vSimuladores, glosario: vGlosario, preguntas: vPreguntas, lecturas: vLecturas, buscar: vBuscar, directorio: vDirectorio, links: vLinks, novedades: vNovedades, sostener: vSostener, eventos: vEventos, arcade: () => vArcade() + arcadeInfo(), config: vConfig }[V.tab]()); capitulares(); });
+  conFoco($('#main'), () => { $('#main').innerHTML = (V.demo ? bandaEjemplo() : '') + subnav() + conTitulo({ doc: () => V.docHtml, inicio: vInicio, carrera: vCarrera, horarios: vHorarios, calendario: vCalendario, resumenes: vResumenes, biblioteca: vBiblioteca, simuladores: vSimuladores, glosario: vGlosario, preguntas: vPreguntas, lecturas: vLecturas, buscar: vBuscar, directorio: vDirectorio, links: vLinks, novedades: vNovedades, sostener: vSostener, eventos: vEventos, arcade: () => vArcade() + arcadeInfo(), config: vConfig }[V.tab]()); capitulares(); ajustarPoster(); });
   $('#main').className = V.tab === 'doc' ? V.docClase : '';
   document.body.classList.toggle('lectura', V.tab === 'doc');
   const can = document.querySelector('link[rel="canonical"]'); if (can && V.tab !== 'doc') can.href = 'https://galera.com.ar' + rutaActual().split('#')[0].split('?')[0];
@@ -514,6 +514,7 @@ function capitulares() { const h = document.querySelector('#main .titulo-sec h1,
 // La banda del ejemplo queda fija justo debajo de la cabecera: se mide su alto.
 function altoCab() { const c = document.querySelector('.cabecera'); if (c) document.documentElement.style.setProperty('--alto-cab', c.offsetHeight + 'px'); }
 window.addEventListener('resize', altoCab);
+window.addEventListener('resize', () => ajustarPoster());
 // Barra inferior del celular (≤720 px; en escritorio siguen las pestañas de arriba): cuatro destinos directos y "Más" con el resto.
 const ICONO = { carrera: 'M4 11l8-6 8 6v8a1 1 0 0 1-1 1h-4v-5H9v5H5a1 1 0 0 1-1-1z', horarios: 'M4 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zM4 10h16M9 3v4M15 3v4',
   calendario: 'M5 4h14v16H5zM5 9h14M9 13h2M13 13h2M9 16h2', simuladores: 'M6 3h12a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM8 7h8M8 11h2M12 11h2M8 15h2M12 15h2', eventos: 'M5 4h14v16H5zM5 9h14M12 12v5M9.5 14.5h5', glosario: 'M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3zM9 8h6M9 12h6', links: 'M9 15l6-6M10 7l1-1a3.5 3.5 0 0 1 5 5l-1 1M14 17l-1 1a3.5 3.5 0 0 1-5-5l1-1', resumenes: 'M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3zM5 17a3 3 0 0 1 3-3h11', mas: 'M5 12h.01M12 12h.01M19 12h.01' };
@@ -3318,7 +3319,8 @@ function hilosMapa(m) {
       <p class="gl-chico">${esc(m.materia)} · ${esc(c.cuatrimestre)}</p>
       <p class="gl-lec-resumen">${enCursiva(c.hilo.resumen)}</p>
       <ul class="gl-lec-unidades">${c.hilo.unidades.map(u => `<li><span class="gl-num">Unidad ${esc(u.num)}</span> ${esc(u.titulo)}</li>`).join('')}</ul>
-      <a class="gl-enlace" href="${urlSegura(c.programa_url)}" target="_blank" rel="noopener">Programa completo en PDF (se abre aparte)</a></div>`).join('')}</div></section>`;
+      <a class="gl-enlace" href="${urlSegura(c.programa_url)}" target="_blank" rel="noopener">Programa 2026 en PDF (copia de Galera)</a>
+      <p class="gl-chico gl-lec-copia">Es la copia del programa que publicó el Departamento de Letras; su sitio cambió y los enlaces de origen ya no andan. <a class="gl-enlace" href="https://letras.filo.uba.ar/programacion-2c" target="_blank" rel="noopener">Programación del Departamento</a></p></div>`).join('')}</div></section>`;
 }
 function teoriaMapa(m) {
   return `<section class="gl-lec-sec" id="teoria" aria-labelledby="lec-teoria"><h2 class="gl-t2" id="lec-teoria">Teoría para acompañar</h2>
@@ -3340,11 +3342,12 @@ function vLecturas() {
       <h3 class="gl-t3">${esc(m.titulo)}</h3><span class="gl-chico">${esc(m.materia)} · ${esc(titularesMapa(m))}</span>
       <p class="gl-lec-baja">${esc(m.bajada)}</p><span class="gl-chico gl-num">${m.obras.length} lecturas</span>${avanceLecturas(m)}</a></li>`).join('')}</ul></div>`;
   const m = mapaLectura(V.lec);
+  if (m && V.pos) return vPoster(m);
   if (!m) return '<div class="gl-v gl-lec"><p class="gl-vacio" role="alert">No encontré ese mapa. <a class="gl-enlace" href="/lecturas/">Ver todos los mapas</a></p></div>';
   return `<div class="gl-v gl-lec gl-lec-pag">
     <p class="gl-chico gl-m4 gl-lec-fuera"><a class="gl-enlace" href="/lecturas/">← Todos los mapas</a></p>
     <div class="gl-cab"><h2 class="gl-t1">${esc(m.titulo)}</h2><span class="gl-crece"></span>
-      <button class="gl-btn gl-btn--sec gl-lec-fuera" type="button" onclick="imprimir(${arg('lecturas/' + m.id)})">Imprimir el póster</button></div>
+      <a class="gl-btn gl-btn--sec gl-lec-fuera" href="/lecturas/${esc(m.id)}/poster/">Ver el póster</a></div>
     <p class="gl-baja">${esc(m.bajada)}</p>
     ${aviso}
     ${avanceLecturas(m, true)}
@@ -3355,6 +3358,51 @@ function vLecturas() {
         <ul class="gl-rejilla gl-rejilla--3">${m.obras.filter(o => o.tramo === t.num).map(o => tarjetaObra(m, o)).join('')}</ul></section>`).join('')}</section>
     ${teoriaMapa(m)}
   </div>`;
+}
+// Póster A3 de cada mapa (v129): reproduce los pósteres del lienzo (1123 × 1587 px = A3 a 96 ppp). Los textos cortos salen de datos/lecturas.json
+// (obra.poster, teoria.autor_corto/titulo_corto/obras_poster, mapa.poster). En pantalla se escala al ancho disponible; al imprimir sale a tamaño real.
+const POSTER_W = 1123, POSTER_H = 1587;
+const gotica = (t, cl) => `<span class="lp-got${cl ? ' ' + cl : ''}">${esc(t.charAt(0))}</span>${esc(t.slice(1))}`;
+function tarjetaPoster(m, o, hecha) {
+  const P = m.poster, xix = m.catedras.length > 1;
+  const cats = xix ? esc(o.catedras.replace(/ y /g, ' ')) : '', ts = esc((o.teoria || []).join(' '));
+  const pie = xix ? `<span class="lp-cat"><b>${cats}</b> <span>${ts}</span></span>` : `<span class="lp-cat"><span>${ts}</span></span>`;
+  return `<button class="lp-obra${hecha ? ' lp-leida' : ''}" type="button" data-f="lp-${esc(o.num)}" aria-pressed="${hecha}" aria-label="${esc(o.num + '. ' + o.poster.titulo + ', de ' + o.poster.autor + (hecha ? '. Leída' : '. Sin leer'))}" onclick="marcarLectura(${arg(m.id)},${arg(o.num)})">
+    <span class="lp-tj lp-tj${P.alto}"><span class="lp-n"><span>${esc(o.num)}</span><span class="lp-tr">${esc(o.tramo)}</span></span>
+      <span class="lp-ti">${esc(o.poster.titulo)}</span><span class="lp-au">${esc(o.poster.autor)}</span><span class="lp-an">${esc(o.poster.anio)}</span>
+      <span class="lp-pie">${pie}<span class="lp-cas" aria-hidden="true">${hecha ? '<svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.5 L5 9.2 L10 3" fill="none" stroke="#0671E0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>' : ''}</span></span></span></button>`;
+}
+function vPoster(m) {
+  const P = m.poster, xix = m.catedras.length > 1, hechas = E.lecturas[m.id] || {}, n = lecturasHechas(m);
+  const cab = xix ? `<div class="lp-fila lp-tramos"><div class="lp-tr-l">${P.tramos.map(([a, b]) => `<span><b>${esc(a)}</b> ${esc(b)}</span>`).join('')}</div>
+      <div class="lp-cats">${m.catedras.map(c => `<span><b class="lp-letra">${esc(c.letra)}</b> ${esc(c.titular)}</span>`).join('')}</div></div>`
+    : `<section class="lp-hilo lp-hilo${P.pad}"><div class="lp-hilo-t"><h2 class="lp-h2">${gotica('El hilo del programa')}</h2><p>${enCursiva(P.hilo)}</p></div>
+      <div class="lp-unid">${P.hilo_unidades.map(([a, b]) => `<span><b>${esc(a)}</b> ${esc(b)}</span>`).join('')}</div></section>`;
+  const t = x => `<div><b>${esc(x.n)}</b> ${esc(x.autor_corto)}, <i>${esc(x.titulo_corto)}</i> <span>${xix ? '· ' + esc(x.cat_poster) + ' ' : ''}→ ${esc(x.obras_poster)}</span></div>`;
+  return `<div class="gl-v gl-lec gl-lec-poster">
+    <p class="gl-chico gl-m4 gl-lp-fuera"><a class="gl-enlace" href="/lecturas/${esc(m.id)}/">← Volver al mapa</a></p>
+    <p class="gl-lec-aviso gl-lp-fuera" role="note">Pensado para imprimir en A3 (29,7 × 42 cm). En A4 sale reducido.</p>
+    <div class="gl-lp-acc gl-lp-fuera"><button class="gl-btn" type="button" onclick="imprimir(${arg('lecturas/' + m.id + '/poster')})">Imprimir</button>
+      <a class="gl-btn gl-btn--sec" href="/lecturas/${esc(m.id)}/">Volver al mapa</a></div>
+    <style>@media print{@page{size:A3 portrait;margin:0}}</style>
+    <div class="lp-esc"><div class="lp-hoja">
+      <header class="lp-cab"><div class="lp-cab-i"><div class="lp-logo"><span>g</span>alera</div>
+        <h1 class="lp-h1">${gotica('Mapa de lectura')}</h1><div class="lp-sub">${esc(P.subtitulo)}</div></div>
+        <div class="lp-cab-d"><div class="lp-baja">${esc(P.bajada)}</div><div class="lp-cuenta"><span class="lp-cn" role="status">${n}</span><span class="lp-cl">de ${m.obras.length} leídas</span></div></div></header>
+      ${cab}
+      <div class="lp-grilla">${m.obras.map(o => tarjetaPoster(m, o, !!hechas[o.num])).join('')}</div>
+      <section class="lp-carril"><div class="lp-carril-c"><h2 class="lp-h2 lp-h2g">${gotica('Carril de teoría')}</h2><span>${esc(P.nota_teoria)}</span></div>
+        <div class="lp-t4">${m.teoria.map(t).join('')}</div></section>
+      <footer class="lp-pie-h"><span>${esc(P.pie)}</span><span class="lp-web"><span>g</span>alera.com.ar</span></footer>
+    </div></div></div>`;
+}
+// Escala la hoja al ancho disponible (nunca más de 1:1) y le da a su caja el alto ya escalado.
+function ajustarPoster() {
+  const caja = document.querySelector('.lp-esc'), hoja = caja && caja.firstElementChild;
+  if (!hoja) return;
+  const s = Math.min(1, caja.clientWidth / POSTER_W);
+  hoja.style.transform = 'scale(' + s + ')';
+  caja.style.height = Math.ceil(POSTER_H * s) + 'px';
 }
 // =====================================================================
 // GLOSARIO: términos clave de todas las materias (datos/glosario.json, armado con 104-edicion-cursada/glosario.py)
@@ -3795,7 +3843,7 @@ async function mandarIdea() {
 // =====================================================================
 // Apagado hasta desplegar Novedades.gs en el script del buzón (ver 104-edicion-cursada/REFERENCIA.md); con false no se ve el botón ni el cartel.
 const NOVEDADES = true;
-const TEMAS_NOV = [['herramientas', 'Funciones y herramientas nuevas'], ['resumenes', 'Resúmenes y apuntes nuevos'], ['fechas', 'Cambios en fechas, mesas de examen y horarios'], ['profesional', 'Novedades para profesionales del libro']];
+const TEMAS_NOV = [['herramientas', 'Funciones y herramientas nuevas'], ['resumenes', 'Resúmenes y apuntes nuevos'], ['fechas', 'Cambios en fechas, mesas de examen y horarios'], ['lecturas', 'Mapas de lectura nuevos'], ['profesional', 'Novedades para profesionales del libro']];
 let novAbierta = 0, novToken = '';
 async function postNov(cuerpo) {
   // text/plain evita la consulta previa (preflight) del navegador, que Apps Script no responde.

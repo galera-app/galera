@@ -2,6 +2,16 @@
  "nota": "Lo que va en el mail de los lunes (Novedades.gs) y en la pestaña Novedades. v: número de versión (obligatorio; ver CHANGELOG.md). tipo: herramientas | resumenes | fechas. perfil: estudiante (por defecto) | profesional | todos; el mail y la pestaña Novedades lo usan para mostrar a cada perfil lo suyo. materias: ids del plan (vacío = para todas). url: solo links a galera.com.ar/. Sumar una entrada por cada cosa que se publica; el script manda solo lo posterior al último envío de cada persona, así que las viejas no se reenvían.",
  "novedades": [
   {
+   "v": 129,
+   "fecha": "2026-11-06",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "titulo": "Pósters de los mapas de lectura",
+   "texto": "Cada mapa de lectura tiene ahora su póster para imprimir en A3, con las lecturas para ir tachando y la teoría al pie. Las lecturas que marcás en el mapa aparecen tachadas en el póster, y al revés. Además, los programas de las cátedras vuelven a abrir: Galera guarda su propia copia en PDF, porque el sitio del Departamento de Letras cambió de dirección.",
+   "url": "https://galera.com.ar/lecturas/"
+  },
+  {
    "v": 128,
    "fecha": "2026-11-06",
    "tipo": "herramientas",

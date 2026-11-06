@@ -821,7 +821,8 @@ a.gl-lec-mapa:hover .gl-t3{color:var(--gl-lnk)}
 a.gl-lec-mapa:focus-visible{outline:2px solid var(--gl-ink);outline-offset:2px}
 .gl-lec-baja{margin:0;font:400 16px/24px var(--gl-sans);color:var(--gl-t2)}
 .gl-lec-av{display:flex;flex-direction:column;margin-top:16px}
-a.gl-lec-mapa .gl-lec-av{margin-top:8px}
+a.gl-lec-mapa{width:100%}
+a.gl-lec-mapa .gl-lec-av{margin-top:auto;padding-top:8px}
 .gl-lec-av .gl-barra-p{margin-top:8px;max-width:360px}
 .gl-lec-sec{margin-top:48px}
 .gl-lec-sec>.gl-baja{margin-top:8px}
@@ -886,4 +887,76 @@ a.gl-lec-mapa .gl-lec-av{margin-top:8px}
   .gl-lec-teoria li{display:flex;break-inside:avoid;padding:3pt 0;gap:6pt}
   .gl-lec-teoria li>div{font-size:8pt;line-height:10pt}
   .gl-lec-teoria .gl-chico{font-size:7.5pt;line-height:9pt}
+}
+
+/* v129: copia del programa y póster A3 de cada mapa (1123 × 1587 px, como el lienzo). Colores fijos: el póster es una hoja blanca en cualquier modo. */
+.gl-lec-copia{margin:0;max-width:60ch}
+.gl-lp-acc{display:flex;flex-wrap:wrap;gap:12px;margin:16px 0 24px}
+.gl-lec-poster .gl-lec-aviso{margin-bottom:0}
+.lp-esc{width:100%;max-width:1123px;margin:0 auto;overflow:hidden;position:relative;box-shadow:0 0 0 1px var(--gl-line)}
+.lp-hoja{width:1123px;height:1587px;box-sizing:border-box;padding:52px 56px 44px;background:#FFFFFF;color:#212121;font-family:"Instrument Sans",system-ui,sans-serif;font-size:16px;line-height:normal;letter-spacing:normal;text-align:left;font-weight:400;font-style:normal;display:flex;flex-direction:column;gap:18px;overflow:hidden;transform-origin:0 0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.lp-hoja *{box-sizing:content-box}
+.lp-hoja .lp-tj,.lp-hoja .lp-cas{box-sizing:border-box}
+.lp-hoja h1,.lp-hoja h2,.lp-hoja p{margin:0;padding:0}
+.lp-hoja b{font-weight:700}
+.lp-hoja i{font-style:italic}
+.lp-cab{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;border-bottom:2px solid #212121;padding-bottom:16px}
+.lp-cab-i{display:flex;flex-direction:column;gap:6px}
+.lp-logo{font-family:"UnifrakturMaguntia",serif;font-size:26px;line-height:26px;color:#212121}
+.lp-logo span{color:#0671E0}
+.lp-h1{font-family:"Literata",Georgia,serif;font-weight:500;font-size:58px;line-height:60px;letter-spacing:-0.5px;color:#212121}
+.lp-got{font-family:"UnifrakturMaguntia",serif;font-weight:400;color:#0671E0}
+.lp-sub{font-family:"Literata",Georgia,serif;font-style:italic;font-size:22px;line-height:28px;color:#4D4D4D}
+.lp-cab-d{display:flex;flex-direction:column;align-items:flex-end;gap:8px;max-width:380px;text-align:right}
+.lp-baja{font-size:13px;line-height:18px;color:#4D4D4D}
+.lp-cuenta{display:flex;align-items:baseline;gap:8px}
+.lp-cn{font-family:"Literata",Georgia,serif;font-size:34px;line-height:36px;font-weight:500;color:#0671E0}
+.lp-cl{font-size:14px;color:#4D4D4D}
+.lp-fila{display:flex;justify-content:space-between;gap:16px;font-size:12px;line-height:16px;color:#4D4D4D}
+.lp-tr-l{display:flex;gap:18px;flex-wrap:wrap}
+.lp-tr-l b,.lp-unid b,.lp-t4 b{color:#0560C8}
+.lp-cats{display:flex;gap:14px;flex-shrink:0}
+.lp-letra{display:inline-block;width:16px;height:16px;line-height:16px;text-align:center;border:1px solid #0560C8;border-radius:8px;color:#0560C8;font-size:10px}
+.lp-hilo{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:32px;background:#F5F7FA;border-radius:4px;padding:16px 22px}
+.lp-hilo18{padding:18px 22px}
+.lp-hilo-t{display:flex;flex-direction:column;gap:6px}
+.lp-h2{font-family:"Literata",Georgia,serif;font-weight:500;font-size:20px;line-height:24px;color:#212121}
+.lp-h2g{font-size:22px;line-height:26px}
+.lp-hilo-t p{font-family:"Literata",Georgia,serif;font-size:14px;line-height:21px;text-wrap:pretty;color:#212121}
+.lp-unid{display:flex;flex-direction:column;gap:4px;font-size:12px;line-height:16px;color:#212121}
+.lp-grilla{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
+.lp-obra{all:unset;display:block;cursor:pointer}
+.lp-obra:focus-visible{outline:2px solid #0671E0;outline-offset:2px}
+.lp-tj{box-sizing:border-box;display:flex;flex-direction:column;gap:4px;height:166px;padding:11px 12px 10px;background:#F5F7FA;color:#212121;border-radius:4px}
+.lp-tj150{height:150px;padding:10px 12px 9px;gap:3px}
+.lp-n{display:flex;justify-content:space-between;font-size:11px;line-height:14px;font-weight:600;letter-spacing:0.4px;color:#4D4D4D}
+.lp-tr{color:#0560C8}
+.lp-ti{font-family:"Literata",Georgia,serif;font-size:15px;line-height:18px;font-weight:500}
+.lp-au{font-size:11px;line-height:14px;text-transform:uppercase;letter-spacing:0.6px;color:#4D4D4D}
+.lp-an{font-size:12px;line-height:15px;color:#4D4D4D}
+.lp-pie{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:6px}
+.lp-cat{font-size:11px;line-height:14px;color:#4D4D4D}
+.lp-cat b{font-weight:600;color:#0560C8}
+.lp-cat span{font-weight:400;color:#4D4D4D}
+.lp-cas{width:18px;height:18px;box-sizing:border-box;border:1.5px solid #4D4D4D;border-radius:3px;background:#FFFFFF;display:flex;align-items:center;justify-content:center}
+.lp-leida .lp-tj{background:#0671E0;color:#FFFFFF}
+.lp-leida .lp-n,.lp-leida .lp-tr,.lp-leida .lp-au,.lp-leida .lp-an,.lp-leida .lp-cat,.lp-leida .lp-cat b,.lp-leida .lp-cat span{color:inherit}
+.lp-leida .lp-ti{text-decoration:line-through;text-decoration-thickness:1.5px}
+.lp-leida .lp-cas{border-color:#FFFFFF;background:#FFFFFF}
+.lp-carril{display:flex;flex-direction:column;gap:10px;border-top:2px solid #212121;padding-top:12px}
+.lp-carril-c{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
+.lp-carril-c>span{font-size:12px;line-height:16px;color:#4D4D4D}
+.lp-t4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));column-gap:20px;row-gap:5px;font-size:12px;line-height:15px;color:#212121}
+.lp-t4 span{color:#4D4D4D}
+.lp-pie-h{margin-top:auto;display:flex;justify-content:space-between;gap:24px;font-size:11px;line-height:15px;color:#4D4D4D;border-top:1px solid #E3E8EE;padding-top:10px}
+.lp-web{flex-shrink:0;font-weight:600;color:#212121}
+.lp-web span{color:#0671E0}
+@media print{
+  body:has(.lp-hoja){margin:0;background:#fff}
+  body:has(.lp-hoja)>*:not(main){display:none!important}
+  body:has(.lp-hoja) #main{display:block;margin:0!important;padding:0!important;max-width:none!important;min-height:0!important}
+  .gl-lec-poster{margin:0!important;padding:0!important;max-width:none!important}
+  .gl-lec-poster .gl-lp-fuera{display:none!important}
+  .lp-esc{width:1123px;max-width:none;height:1587px!important;margin:0;overflow:hidden;box-shadow:none}
+  .lp-hoja{transform:none!important}
 }

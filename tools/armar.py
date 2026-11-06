@@ -199,6 +199,11 @@ def ids_de_lecturas():
         malos += [f"{m['id']}: lectura {n} repetida" for n in sorted({n for n in nums if nums.count(n) > 1})]
         malos += [f"{m['id']}: lectura {o['num']} en un tramo que no existe ({o['tramo']})" for o in m["obras"] if o["tramo"] not in tramos]
         malos += [f"{m['id']}: lectura {o['num']} cita la teoría {x}, que no existe" for o in m["obras"] for x in o["teoria"] if x not in teoria]
+        # póster A3 (v129): su página de entrada (noindex) y los textos cortos que usa
+        malos += [f"{m['id']} (falta lecturas/{m['id']}/poster/index.html)"] if not (RAIZ / "lecturas" / m["id"] / "poster" / "index.html").is_file() else []
+        malos += [f"{m['id']}: falta el bloque poster del mapa"] if not all(k in m.get("poster", {}) for k in ("subtitulo", "bajada", "nota_teoria", "pie", "alto")) else []
+        malos += [f"{m['id']}: lectura {o['num']} sin poster{{titulo, autor, anio}}" for o in m["obras"] if not all((o.get("poster") or {}).get(k) for k in ("titulo", "autor", "anio"))]
+        malos += [f"{m['id']}: teoría {x['n']} sin autor_corto, titulo_corto u obras_poster" for x in m["teoria"] if not all(x.get(k) for k in ("autor_corto", "titulo_corto", "obras_poster"))]
     return malos
 
 

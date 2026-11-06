@@ -12,7 +12,7 @@
      "letra": "A",
      "titular": "Alejandra Laera",
      "cuatrimestre": "2.º cuatrimestre de 2026",
-     "programa_url": "https://letras.filo.uba.ar/sites/letras.filo.uba.ar/files/documentos/0511-A%201985%2015030%202023%20LITERATURA%20ARGENTINA%20I%20LAERA.pdf",
+     "programa_url": "https://descargas.galera.com.ar/programas/letras/2026/literatura-argentina-i-a-laera.pdf",
      "hilo": {
       "titulo": "¿De qué lado estás? Antagonismos políticos y literatura",
       "resumen": "Recorta la literatura argentina entre 1830 y 1920 a partir de los antagonismos políticos (unitarios y federales, civilización y barbarie) y de cómo los textos los configuran sin darlos por esencias. Sigue tres zonas: los románticos del 37, las fronteras y la gauchipolítica, y el Estado liberal, con una mirada sobre exilio, mujeres e intimidad y otra sobre las calles del siglo XX. Busca pensar alternativas a la destrucción del adversario.",
@@ -44,7 +44,7 @@
      "letra": "B",
      "titular": "Adriana Amante",
      "cuatrimestre": "1.er cuatrimestre de 2026",
-     "programa_url": "https://letras.filo.uba.ar/sites/letras.filo.uba.ar/files/documentos/0511-B%2015030-B%20LITERATURA%20ARGENTINA%20I%20%28SIGLOS%20XVI-XIX%29_0.pdf",
+     "programa_url": "https://descargas.galera.com.ar/programas/letras/2026/literatura-argentina-i-b-amante.pdf",
      "hilo": {
       "titulo": "Hojas sueltas, papeles (re)unidos: escritura sobre papel",
       "resumen": "Lee la literatura argentina del siglo XIX desde su materialidad: manuscritos, imprenta, folletines, folletos, gacetas y libros. Parte del anuncio del *Facundo* que Sarmiento publicó en un periódico y pregunta cómo el soporte hace sentido, en diálogo con los papeles de archivo. Suma prácticas de investigación y de escritura crítica.",
@@ -121,7 +121,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "dominio público"
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "La Moda",
+      "autor": "Semanario",
+      "anio": "1837–1838"
+     }
     },
     {
      "num": "02",
@@ -138,7 +143,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "dominio público"
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "El gigante Amapolas",
+      "autor": "Juan Bautista Alberdi",
+      "anio": "1842"
+     }
     },
     {
      "num": "03",
@@ -158,7 +168,12 @@
      ],
      "url": "https://es.wikisource.org/wiki/El_Matadero",
      "fuente": "Wikisource",
-     "derechos": "dominio público"
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "El matadero",
+      "autor": "Esteban Echeverría",
+      "anio": "c. 1840 · publ. 1871"
+     }
     },
     {
      "num": "04",
@@ -175,7 +190,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "dominio público"
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "Archivo Americano",
+      "autor": "Periódico de Rosas",
+      "anio": "1843–1851"
+     }
     },
     {
      "num": "05",
@@ -192,7 +212,12 @@
      ],
      "url": "https://es.wikisource.org/wiki/Autor:Hilario_Ascasubi",
      "fuente": "Wikisource (obras del autor)",
-     "derechos": "dominio público"
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "Proclama del gaucho Lucero",
+      "autor": "Hilario Ascasubi",
+      "anio": "en Paulino Lucero"
+     }
     },
     {
      "num": "06",
@@ -209,7 +234,12 @@
      ],
      "url": "https://es.wikisource.org/wiki/La_refalosa",
      "fuente": "Wikisource",
-     "derechos": "dominio público"
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "La refalosa",
+      "autor": "Hilario Ascasubi",
+      "anio": "en Paulino Lucero"
+     }
     },
     {
      "num": "07",
@@ -226,7 +256,12 @@
      ],
      "url": "https://es.wikisource.org/wiki/Isidora",
      "fuente": "Wikisource",
-     "derechos": "dominio público"
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "Isidora, la federala y mazorquera",
+      "autor": "Hilario Ascasubi",
+      "anio": "en Paulino Lucero"
+     }
     },
     {
      "num": "08",
@@ -246,7 +281,12 @@
      ],
      "url": "https://es.wikisource.org/wiki/Facundo_o_civilizaci%C3%B3n_y_barbarie_en_las_pampas_argentinas",
      "fuente": "Wikisource",
-     "derechos": "dominio público"
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "Facundo",
+      "autor": "Domingo F. Sarmiento",
+      "anio": "1845"
+     }
     },
     {
      "num": "09",
@@ -264,7 +304,12 @@
      ],
      "url": "https://www.cervantesvirtual.com/obra-visor/dogma-socialista-y-otras-paginas-politicas--0/html/ff3ab8fc-82b1-11df-acc7-002185ce6064_8.html",
      "fuente": "Biblioteca Virtual Miguel de Cervantes",
-     "derechos": "dominio público"
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "Ojeada retrospectiva",
+      "autor": "Esteban Echeverría",
+      "anio": "1846"
+     }
     },
     {
      "num": "10",
@@ -282,7 +327,12 @@
      ],
      "url": "https://es.wikisource.org/wiki/Amalia",
      "fuente": "Wikisource",
-     "derechos": "dominio público"
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "Amalia",
+      "autor": "José Mármol",
+      "anio": "1851–1855"
+     }
     },
     {
      "num": "11",
@@ -299,7 +349,12 @@
      ],
      "url": "https://es.wikisource.org/wiki/La_hija_del_mashorquero",
      "fuente": "Wikisource",
-     "derechos": "dominio público"
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "La hija del mashorquero",
+      "autor": "Juana Manuela Gorriti",
+      "anio": "1865–1876"
+     }
     },
     {
      "num": "12",
@@ -316,7 +371,12 @@
      ],
      "url": "https://es.wikisource.org/wiki/Autor:Juana_Manuela_Gorriti",
      "fuente": "Wikisource (obras de la autora)",
-     "derechos": "dominio público"
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "El lucero del manantial",
+      "autor": "Juana Manuela Gorriti",
+      "anio": "1865–1876"
+     }
     },
     {
      "num": "13",
@@ -333,7 +393,12 @@
      ],
      "url": "https://es.wikisource.org/wiki/El_guante_negro",
      "fuente": "Wikisource",
-     "derechos": "dominio público"
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "El guante negro",
+      "autor": "Juana Manuela Gorriti",
+      "anio": "1865–1876"
+     }
     },
     {
      "num": "14",
@@ -350,7 +415,12 @@
      ],
      "url": "https://es.wikisource.org/wiki/Autor:Juana_Manuela_Gorriti",
      "fuente": "Wikisource (obras de la autora)",
-     "derechos": "dominio público"
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "La novia del muerto",
+      "autor": "Juana Manuela Gorriti",
+      "anio": "1865–1876"
+     }
     },
     {
      "num": "15",
@@ -367,7 +437,12 @@
      ],
      "url": "https://es.wikisource.org/wiki/Camila_O%27Gorman_(Gorriti)",
      "fuente": "Wikisource",
-     "derechos": "dominio público"
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "Camila O'Gorman",
+      "autor": "Juana Manuela Gorriti",
+      "anio": "1865–1876"
+     }
     },
     {
      "num": "16",
@@ -385,7 +460,12 @@
      ],
      "url": "https://es.wikisource.org/wiki/Una_excursi%C3%B3n_a_los_indios_ranqueles",
      "fuente": "Wikisource",
-     "derechos": "dominio público"
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "Una excursión a los indios ranqueles",
+      "autor": "Lucio V. Mansilla",
+      "anio": "1870"
+     }
     },
     {
      "num": "17",
@@ -405,7 +485,12 @@
      ],
      "url": "https://es.wikisource.org/wiki/El_Gaucho_Mart%C3%ADn_Fierro",
      "fuente": "Wikisource",
-     "derechos": "dominio público"
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "El gaucho Martín Fierro",
+      "autor": "José Hernández",
+      "anio": "1872"
+     }
     },
     {
      "num": "18",
@@ -425,7 +510,12 @@
      ],
      "url": "https://es.wikisource.org/wiki/La_vuelta_de_Mart%C3%ADn_Fierro",
      "fuente": "Wikisource",
-     "derechos": "dominio público"
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "La vuelta de Martín Fierro",
+      "autor": "José Hernández",
+      "anio": "1879"
+     }
     },
     {
      "num": "19",
@@ -442,7 +532,12 @@
      ],
      "url": "https://es.wikisource.org/wiki/Autor:Carlos_Guido_y_Spano",
      "fuente": "Wikisource (obras del autor)",
-     "derechos": "dominio público"
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "Ráfagas",
+      "autor": "Carlos Guido y Spano",
+      "anio": "1879"
+     }
     },
     {
      "num": "20",
@@ -459,7 +554,12 @@
      ],
      "url": "https://textos.info/eugenio-cambaceres/pot-pourri",
      "fuente": "textos.info",
-     "derechos": "dominio público"
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "Pot-pourri",
+      "autor": "Eugenio Cambaceres",
+      "anio": "1882"
+     }
     },
     {
      "num": "21",
@@ -477,7 +577,12 @@
      ],
      "url": "https://es.wikisource.org/wiki/%C3%8Dndice:Entre_Nos._Causeries_del_jueves_I_-_Lucio_V._Mansilla.pdf",
      "fuente": "Wikisource (tomo I, facsímil)",
-     "derechos": "dominio público"
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "Entre-nos",
+      "autor": "Lucio V. Mansilla",
+      "anio": "1889–1890"
+     }
     },
     {
      "num": "22",
@@ -495,7 +600,12 @@
      ],
      "url": "https://www.cervantesvirtual.com/nd/ark:/59851/bmct43p2",
      "fuente": "Biblioteca Virtual Miguel de Cervantes",
-     "derechos": "dominio público"
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "La Bolsa",
+      "autor": "Julián Martel",
+      "anio": "1891"
+     }
     },
     {
      "num": "23",
@@ -512,7 +622,12 @@
      ],
      "url": "https://es.wikisource.org/wiki/Autor:Carlos_Guido_y_Spano",
      "fuente": "Wikisource (obras del autor)",
-     "derechos": "dominio público"
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "Poesías completas",
+      "autor": "Carlos Guido y Spano",
+      "anio": "1911"
+     }
     },
     {
      "num": "24",
@@ -529,7 +644,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "dominio público"
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "Pehuajó. Nomenclatura de las calles",
+      "autor": "Rafael Hernández",
+      "anio": "1896"
+     }
     },
     {
      "num": "25",
@@ -544,7 +664,12 @@
      "teoria": [],
      "url": "",
      "fuente": "",
-     "derechos": "dominio público"
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "A mi bandera",
+      "autor": "Juan Chassaing",
+      "anio": "siglo XIX"
+     }
     },
     {
      "num": "26",
@@ -561,7 +686,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "dominio público"
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "Crónicas",
+      "autor": "Alfonsina Storni",
+      "anio": "desde 1916"
+     }
     },
     {
      "num": "27",
@@ -578,7 +708,12 @@
      ],
      "url": "https://es.wikisource.org/wiki/Autor:Alfonsina_Storni",
      "fuente": "Wikisource (obras de la autora)",
-     "derechos": "dominio público"
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "Poemas",
+      "autor": "Alfonsina Storni",
+      "anio": "desde 1916"
+     }
     },
     {
      "num": "28",
@@ -595,7 +730,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "derechos vigentes"
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "Una semana de holgorio",
+      "autor": "Arturo Cancela",
+      "anio": "1922"
+     }
     },
     {
      "num": "29",
@@ -612,7 +752,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "derechos vigentes"
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "Enumeración de la patria",
+      "autor": "Silvina Ocampo",
+      "anio": "1942"
+     }
     },
     {
      "num": "30",
@@ -627,7 +772,12 @@
      "teoria": [],
      "url": "",
      "fuente": "",
-     "derechos": "derechos vigentes"
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "Popular tradición de esta tierra",
+      "autor": "Mariano Llinás · película",
+      "anio": "El Pampero Cine"
+     }
     }
    ],
    "teoria": [
@@ -638,7 +788,11 @@
      "corto": "El estilo democrático",
      "donde": "",
      "catedras": "B",
-     "obras": "1"
+     "obras": "1",
+     "autor_corto": "Iglesia y Zuccotti",
+     "titulo_corto": "El estilo democrático",
+     "obras_poster": "1",
+     "cat_poster": "B"
     },
     {
      "n": "T2",
@@ -647,7 +801,11 @@
      "corto": "Juan Bautista Alberdi: nación y razón",
      "donde": "En Schvartzman (dir.), La lucha de los lenguajes",
      "catedras": "A",
-     "obras": "2"
+     "obras": "2",
+     "autor_corto": "Rodríguez Pérsico",
+     "titulo_corto": "Juan Bautista Alberdi: nación y razón",
+     "obras_poster": "2",
+     "cat_poster": "A"
     },
     {
      "n": "T3",
@@ -656,7 +814,11 @@
      "corto": "Echeverría y el lugar de la ficción",
      "donde": "",
      "catedras": "B",
-     "obras": "3"
+     "obras": "3",
+     "autor_corto": "Piglia",
+     "titulo_corto": "Echeverría y el lugar de la ficción",
+     "obras_poster": "3",
+     "cat_poster": "B"
     },
     {
      "n": "T4",
@@ -665,7 +827,11 @@
      "corto": "Forma y significación en El matadero",
      "donde": "",
      "catedras": "B",
-     "obras": "3"
+     "obras": "3",
+     "autor_corto": "Jitrik",
+     "titulo_corto": "Forma y significación en El matadero",
+     "obras_poster": "3",
+     "cat_poster": "B"
     },
     {
      "n": "T5",
@@ -674,7 +840,11 @@
      "corto": "¿Cuándo se escribió El matadero?",
      "donde": "Revista Crítica de Literatura Argentina 16",
      "catedras": "A y B",
-     "obras": "3"
+     "obras": "3",
+     "autor_corto": "Ansolabehere",
+     "titulo_corto": "¿Cuándo se escribió El matadero?",
+     "obras_poster": "3",
+     "cat_poster": "A B"
     },
     {
      "n": "T6",
@@ -683,7 +853,11 @@
      "corto": "El periodismo en la época de Rosas",
      "donde": "",
      "catedras": "B",
-     "obras": "1 y 4"
+     "obras": "1 y 4",
+     "autor_corto": "Weinberg",
+     "titulo_corto": "El periodismo en la época de Rosas",
+     "obras_poster": "1, 4",
+     "cat_poster": "B"
     },
     {
      "n": "T7",
@@ -692,7 +866,11 @@
      "corto": "Ascasubi y el sitio de la refalosa",
      "donde": "En Microcrítica",
      "catedras": "A y B",
-     "obras": "5 a 7"
+     "obras": "5 a 7",
+     "autor_corto": "Schvartzman",
+     "titulo_corto": "Ascasubi y el sitio de la refalosa",
+     "obras_poster": "5–7",
+     "cat_poster": "A B"
     },
     {
      "n": "T8",
@@ -701,7 +879,11 @@
      "corto": "Notas sobre Facundo",
      "donde": "",
      "catedras": "B",
-     "obras": "8"
+     "obras": "8",
+     "autor_corto": "Piglia",
+     "titulo_corto": "Notas sobre Facundo",
+     "obras_poster": "8",
+     "cat_poster": "B"
     },
     {
      "n": "T9",
@@ -710,7 +892,11 @@
      "corto": "Facundo y la lucha por el sentido",
      "donde": "",
      "catedras": "B",
-     "obras": "8"
+     "obras": "8",
+     "autor_corto": "Schvartzman",
+     "titulo_corto": "Facundo y la lucha por el sentido",
+     "obras_poster": "8",
+     "cat_poster": "B"
     },
     {
      "n": "T10",
@@ -719,7 +905,11 @@
      "corto": "La ley de la frontera",
      "donde": "En La violencia del azar",
      "catedras": "A",
-     "obras": "8"
+     "obras": "8",
+     "autor_corto": "Iglesia",
+     "titulo_corto": "La ley de la frontera",
+     "obras_poster": "8",
+     "cat_poster": "A"
     },
     {
      "n": "T11",
@@ -728,7 +918,11 @@
      "corto": "Esteban Echeverría: el poeta pensador",
      "donde": "En Ensayos argentinos. De Sarmiento a la vanguardia",
      "catedras": "A y B",
-     "obras": "3 y 9"
+     "obras": "3 y 9",
+     "autor_corto": "Altamirano y Sarlo",
+     "titulo_corto": "Esteban Echeverría: el poeta pensador",
+     "obras_poster": "3, 9",
+     "cat_poster": "A B"
     },
     {
      "n": "T12",
@@ -737,7 +931,11 @@
      "corto": "El salón literario de 1837",
      "donde": "",
      "catedras": "B",
-     "obras": "9"
+     "obras": "9",
+     "autor_corto": "Weinberg",
+     "titulo_corto": "El salón literario de 1837",
+     "obras_poster": "9",
+     "cat_poster": "B"
     },
     {
      "n": "T13",
@@ -746,7 +944,11 @@
      "corto": "Mármol: los dos ojos del romanticismo",
      "donde": "En Literatura argentina y realidad política",
      "catedras": "A",
-     "obras": "10"
+     "obras": "10",
+     "autor_corto": "Viñas",
+     "titulo_corto": "Mármol: los dos ojos del romanticismo",
+     "obras_poster": "10",
+     "cat_poster": "A"
     },
     {
      "n": "T14",
@@ -755,7 +957,11 @@
      "corto": "El ángel y el diablo",
      "donde": "En Letras y divisas. Ensayos sobre literatura y rosismo",
      "catedras": "A",
-     "obras": "10"
+     "obras": "10",
+     "autor_corto": "Laera",
+     "titulo_corto": "El ángel y el diablo",
+     "obras_poster": "10",
+     "cat_poster": "A"
     },
     {
      "n": "T15",
@@ -764,7 +970,11 @@
      "corto": "El terror como enfermedad",
      "donde": "En Las horas nocturnas",
      "catedras": "A",
-     "obras": "8 y 11 a 15"
+     "obras": "8 y 11 a 15",
+     "autor_corto": "Gasparini",
+     "titulo_corto": "El terror como enfermedad",
+     "obras_poster": "8, 11–15",
+     "cat_poster": "A"
     },
     {
      "n": "T16",
@@ -773,7 +983,11 @@
      "corto": "Mansilla. Sueños y vigilias",
      "donde": "En La violencia del azar",
      "catedras": "A",
-     "obras": "16"
+     "obras": "16",
+     "autor_corto": "Iglesia",
+     "titulo_corto": "Mansilla. Sueños y vigilias",
+     "obras_poster": "16",
+     "cat_poster": "A"
     },
     {
      "n": "T17",
@@ -782,7 +996,11 @@
      "corto": "¿La paz o la guerra?",
      "donde": "A Contracorriente 19 (2)",
      "catedras": "A",
-     "obras": "16"
+     "obras": "16",
+     "autor_corto": "Laera",
+     "titulo_corto": "¿La paz o la guerra?",
+     "obras_poster": "16",
+     "cat_poster": "A"
     },
     {
      "n": "T18",
@@ -791,7 +1009,11 @@
      "corto": "José Hernández, del indio al trabajo",
      "donde": "En Indios, ejército y frontera",
      "catedras": "A",
-     "obras": "17 y 18"
+     "obras": "17 y 18",
+     "autor_corto": "Viñas",
+     "titulo_corto": "José Hernández, del indio al trabajo",
+     "obras_poster": "17, 18",
+     "cat_poster": "A"
     },
     {
      "n": "T19",
@@ -800,7 +1022,11 @@
      "corto": "Cómo se escribió el Martín Fierro",
      "donde": "En Schvartzman (dir.), La lucha de los lenguajes",
      "catedras": "A y B",
-     "obras": "17 y 18"
+     "obras": "17 y 18",
+     "autor_corto": "Lois",
+     "titulo_corto": "Cómo se escribió el Martín Fierro",
+     "obras_poster": "17, 18",
+     "cat_poster": "A B"
     },
     {
      "n": "T20",
@@ -809,7 +1035,11 @@
      "corto": "Las letras del Martín Fierro",
      "donde": "",
      "catedras": "B",
-     "obras": "17 y 18"
+     "obras": "17 y 18",
+     "autor_corto": "Schvartzman",
+     "titulo_corto": "Las letras del Martín Fierro",
+     "obras_poster": "17, 18",
+     "cat_poster": "B"
     },
     {
      "n": "T21",
@@ -818,7 +1048,11 @@
      "corto": "Conferencia sobre Martín Fierro",
      "donde": "",
      "catedras": "B",
-     "obras": "17 y 18"
+     "obras": "17 y 18",
+     "autor_corto": "Borges",
+     "titulo_corto": "Conferencia sobre Martín Fierro",
+     "obras_poster": "17, 18",
+     "cat_poster": "B"
     },
     {
      "n": "T22",
@@ -827,7 +1061,11 @@
      "corto": "Guido y Spano",
      "donde": "",
      "catedras": "B",
-     "obras": "19 y 23"
+     "obras": "19 y 23",
+     "autor_corto": "Sarlo",
+     "titulo_corto": "Guido y Spano",
+     "obras_poster": "19, 23",
+     "cat_poster": "B"
     },
     {
      "n": "T23",
@@ -836,7 +1074,11 @@
      "corto": "Liberales y católicos en la Argentina moderna",
      "donde": "En Soriano Salkjelsvik (ed.), Sensibilidades conservadoras",
      "catedras": "A",
-     "obras": "20"
+     "obras": "20",
+     "autor_corto": "Gasparini",
+     "titulo_corto": "Liberales y católicos en la Argentina moderna",
+     "obras_poster": "20",
+     "cat_poster": "A"
     },
     {
      "n": "T24",
@@ -845,7 +1087,11 @@
      "corto": "Imagen de Mansilla",
      "donde": "",
      "catedras": "B",
-     "obras": "21"
+     "obras": "21",
+     "autor_corto": "Molloy",
+     "titulo_corto": "Imagen de Mansilla",
+     "obras_poster": "21",
+     "cat_poster": "B"
     },
     {
      "n": "T25",
@@ -854,7 +1100,11 @@
      "corto": "Mansilla. Trece hipótesis",
      "donde": "",
      "catedras": "B",
-     "obras": "21"
+     "obras": "21",
+     "autor_corto": "Viñas",
+     "titulo_corto": "Mansilla. Trece hipótesis",
+     "obras_poster": "21",
+     "cat_poster": "B"
     },
     {
      "n": "T26",
@@ -863,7 +1113,11 @@
      "corto": "La Bolsa: una danza de millones",
      "donde": "Estudio preliminar a La Bolsa, Biblioteca Nacional",
      "catedras": "A",
-     "obras": "22"
+     "obras": "22",
+     "autor_corto": "Laera",
+     "titulo_corto": "La Bolsa: una danza de millones",
+     "obras_poster": "22",
+     "cat_poster": "A"
     },
     {
      "n": "T27",
@@ -872,7 +1126,11 @@
      "corto": "Martel y los culpables del 90",
      "donde": "En Literatura argentina y realidad política",
      "catedras": "A",
-     "obras": "22"
+     "obras": "22",
+     "autor_corto": "Viñas",
+     "titulo_corto": "Martel y los culpables del 90",
+     "obras_poster": "22",
+     "cat_poster": "A"
     },
     {
      "n": "T28",
@@ -881,7 +1139,11 @@
      "corto": "Rafael Hernández",
      "donde": "",
      "catedras": "B",
-     "obras": "24"
+     "obras": "24",
+     "autor_corto": "Guglielmino",
+     "titulo_corto": "Rafael Hernández",
+     "obras_poster": "24",
+     "cat_poster": "B"
     },
     {
      "n": "T29",
@@ -890,7 +1152,11 @@
      "corto": "El canto feminista",
      "donde": "En Altamirano (coord.), Aventuras de la cultura argentina",
      "catedras": "A",
-     "obras": "27"
+     "obras": "27",
+     "autor_corto": "Batticuore",
+     "titulo_corto": "El canto feminista",
+     "obras_poster": "27",
+     "cat_poster": "A"
     },
     {
      "n": "T30",
@@ -899,7 +1165,11 @@
      "corto": "Artículos femeninos",
      "donde": "En Alfonsina periodista",
      "catedras": "A",
-     "obras": "26"
+     "obras": "26",
+     "autor_corto": "Diz",
+     "titulo_corto": "Artículos femeninos",
+     "obras_poster": "26",
+     "cat_poster": "A"
     },
     {
      "n": "T31",
@@ -908,7 +1178,11 @@
      "corto": "Arturo Cancela: un humorista frente al pogrom",
      "donde": "",
      "catedras": "A",
-     "obras": "28"
+     "obras": "28",
+     "autor_corto": "Viñas",
+     "titulo_corto": "Arturo Cancela: un humorista frente al pogrom",
+     "obras_poster": "28",
+     "cat_poster": "A"
     },
     {
      "n": "T32",
@@ -917,9 +1191,38 @@
      "corto": "Sobre Enumeración de la patria",
      "donde": "",
      "catedras": "B",
-     "obras": "29"
+     "obras": "29",
+     "autor_corto": "Borges",
+     "titulo_corto": "Sobre Enumeración de la patria",
+     "obras_poster": "29",
+     "cat_poster": "B"
     }
-   ]
+   ],
+   "poster": {
+    "bajada": "Treinta lecturas que proponen las dos cátedras de Literatura Argentina I de Letras (FFyL, UBA) en 2026. Tachá cada una cuando la termines.",
+    "subtitulo": "Literatura argentina del siglo XIX",
+    "tramos": [
+     [
+      "I",
+      "Rosas y la generación del 37"
+     ],
+     [
+      "II",
+      "Después de Caseros: frontera y gauchesca"
+     ],
+     [
+      "III",
+      "El 80 y el fin de siglo"
+     ],
+     [
+      "IV",
+      "Codas: la patria leída después"
+     ]
+    ],
+    "nota_teoria": "Cada T de una lectura remite a un texto crítico de los mismos programas. Los títulos completos están en la guía.",
+    "pie": "No es un canon oficial: es lo que estas cátedras ponen a leer este año. Cátedra A: Alejandra Laera, 2.º cuatrimestre. Cátedra B: Adriana Amante, 1.er cuatrimestre. Armado por Galera con los programas públicos del Departamento de Letras.",
+    "alto": 166
+   }
   },
   {
    "id": "argentina-siglo-xx",
@@ -931,7 +1234,7 @@
      "letra": "",
      "titular": "Sylvia Saítta",
      "cuatrimestre": "1.er cuatrimestre de 2026",
-     "programa_url": "https://letras.filo.uba.ar/sites/letras.filo.uba.ar/files/documentos/0515%20-%2015031%20LITERATURA%20ARGENTINA%20II_1.pdf",
+     "programa_url": "https://descargas.galera.com.ar/programas/letras/2026/literatura-argentina-ii-saitta.pdf",
      "hilo": {
       "titulo": "Literatura y política, de los años treinta a la dictadura",
       "resumen": "El programa recorre relatos, novelas, poemas y teatro del siglo XX para ver cómo la literatura se vincula con la política: la política internacional, la violencia estatal, la lucha de clases, la política de masas y el terrorismo de Estado. Parte de una relectura de *El matadero* y de la idea de que «la literatura hace política en tanto literatura», y atraviesa tensiones como criollismo y modernidad o cultura popular y letrada. El período va de los años treinta a la última dictadura.",
@@ -993,7 +1296,12 @@
      ],
      "url": "https://es.wikisource.org/wiki/Los_siete_locos",
      "fuente": "Wikisource",
-     "derechos": "dominio público"
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "Los siete locos",
+      "autor": "Roberto Arlt",
+      "anio": "1929"
+     }
     },
     {
      "num": "02",
@@ -1012,7 +1320,12 @@
      ],
      "url": "https://es.wikisource.org/wiki/Los_lanzallamas",
      "fuente": "Wikisource",
-     "derechos": "dominio público"
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "Los lanzallamas",
+      "autor": "Roberto Arlt",
+      "anio": "1931"
+     }
     },
     {
      "num": "03",
@@ -1031,7 +1344,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "derechos vigentes"
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "Contra",
+      "autor": "Revista de Raúl González Tuñón",
+      "anio": "1933"
+     }
     },
     {
      "num": "04",
@@ -1049,7 +1367,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "derechos vigentes"
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "Todos bailan",
+      "autor": "Raúl González Tuñón",
+      "anio": "1935"
+     }
     },
     {
      "num": "05",
@@ -1067,7 +1390,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "derechos vigentes"
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "La rosa blindada",
+      "autor": "Raúl González Tuñón",
+      "anio": "1936"
+     }
     },
     {
      "num": "06",
@@ -1086,7 +1414,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "derechos vigentes"
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "Ficciones",
+      "autor": "Jorge Luis Borges",
+      "anio": "1944"
+     }
     },
     {
      "num": "07",
@@ -1105,7 +1438,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "derechos vigentes"
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "El Aleph",
+      "autor": "Jorge Luis Borges",
+      "anio": "1949"
+     }
     },
     {
      "num": "08",
@@ -1124,7 +1462,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "derechos vigentes"
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "Operación masacre",
+      "autor": "Rodolfo Walsh",
+      "anio": "1957"
+     }
     },
     {
      "num": "09",
@@ -1142,7 +1485,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "derechos vigentes"
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "Fin de fiesta",
+      "autor": "Beatriz Guido",
+      "anio": "1958"
+     }
     },
     {
      "num": "10",
@@ -1160,7 +1508,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "derechos vigentes"
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "Los dueños de la tierra",
+      "autor": "David Viñas",
+      "anio": "1958"
+     }
     },
     {
      "num": "11",
@@ -1178,7 +1531,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "derechos vigentes"
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "Bestiario",
+      "autor": "Julio Cortázar",
+      "anio": "1951"
+     }
     },
     {
      "num": "12",
@@ -1196,7 +1554,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "derechos vigentes"
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "La fiesta del monstruo",
+      "autor": "Borges y Bioy Casares",
+      "anio": "1955"
+     }
     },
     {
      "num": "13",
@@ -1214,7 +1577,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "derechos vigentes"
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "La banda",
+      "autor": "Julio Cortázar",
+      "anio": "1956"
+     }
     },
     {
      "num": "14",
@@ -1233,7 +1601,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "derechos vigentes"
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "El simulacro",
+      "autor": "Jorge Luis Borges",
+      "anio": "1957"
+     }
     },
     {
      "num": "15",
@@ -1251,7 +1624,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "derechos vigentes"
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "Cabecita negra",
+      "autor": "Germán Rozenmacher",
+      "anio": "1962"
+     }
     },
     {
      "num": "16",
@@ -1269,7 +1647,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "derechos vigentes"
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "Las patas en la fuente",
+      "autor": "Leónidas Lamborghini",
+      "anio": "1965"
+     }
     },
     {
      "num": "17",
@@ -1289,7 +1672,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "derechos vigentes"
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "Esa mujer",
+      "autor": "Rodolfo Walsh",
+      "anio": "1965"
+     }
     },
     {
      "num": "18",
@@ -1308,7 +1696,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "derechos vigentes"
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "Eva Perón",
+      "autor": "Copi · teatro",
+      "anio": "1970"
+     }
     },
     {
      "num": "19",
@@ -1327,7 +1720,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "derechos vigentes"
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "Eva Perón en la hoguera",
+      "autor": "Leónidas Lamborghini",
+      "anio": "1972"
+     }
     },
     {
      "num": "20",
@@ -1345,7 +1743,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "derechos vigentes"
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "El niño proletario",
+      "autor": "Osvaldo Lamborghini",
+      "anio": "1973"
+     }
     },
     {
      "num": "21",
@@ -1364,7 +1767,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "derechos vigentes"
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "Evita vive",
+      "autor": "Néstor Perlongher",
+      "anio": "1975"
+     }
     },
     {
      "num": "22",
@@ -1383,7 +1791,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "derechos vigentes"
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "El beso de la mujer araña",
+      "autor": "Manuel Puig",
+      "anio": "1976"
+     }
     },
     {
      "num": "23",
@@ -1402,7 +1815,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "derechos vigentes"
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "Respiración artificial",
+      "autor": "Ricardo Piglia",
+      "anio": "1980"
+     }
     },
     {
      "num": "24",
@@ -1421,7 +1839,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "derechos vigentes"
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "La malasangre",
+      "autor": "Griselda Gambaro · teatro",
+      "anio": "1982"
+     }
     },
     {
      "num": "25",
@@ -1440,7 +1863,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "derechos vigentes"
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "En esta dulce tierra",
+      "autor": "Andrés Rivera",
+      "anio": "1984"
+     }
     },
     {
      "num": "26",
@@ -1459,7 +1887,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "derechos vigentes"
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "Glosa",
+      "autor": "Juan José Saer",
+      "anio": "1985"
+     }
     },
     {
      "num": "27",
@@ -1478,7 +1911,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "derechos vigentes"
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "Villa",
+      "autor": "Luis Gusmán",
+      "anio": "1995"
+     }
     },
     {
      "num": "28",
@@ -1496,7 +1934,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "derechos vigentes"
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "Dos veces junio",
+      "autor": "Martín Kohan",
+      "anio": "2002"
+     }
     }
    ],
    "teoria": [
@@ -1507,7 +1950,10 @@
      "corto": "Arlt: una crítica de la economía literaria",
      "donde": "Los Libros, n.º 29 (1973)",
      "catedras": "",
-     "obras": "1 y 2"
+     "obras": "1 y 2",
+     "autor_corto": "Piglia",
+     "titulo_corto": "Roberto Arlt: una crítica de la economía literaria",
+     "obras_poster": "1, 2"
     },
     {
      "n": "T2",
@@ -1516,7 +1962,10 @@
      "corto": "Guerra y conspiración de saberes",
      "donde": "En Una modernidad periférica (1988)",
      "catedras": "",
-     "obras": "1 y 2"
+     "obras": "1 y 2",
+     "autor_corto": "Sarlo",
+     "titulo_corto": "Guerra y conspiración de saberes",
+     "obras_poster": "1, 2"
     },
     {
      "n": "T3",
@@ -1525,7 +1974,10 @@
      "corto": "Tuñón: el margen y la política",
      "donde": "En Una modernidad periférica (1988)",
      "catedras": "",
-     "obras": "3 a 5"
+     "obras": "3 a 5",
+     "autor_corto": "Sarlo",
+     "titulo_corto": "Raúl González Tuñón: el margen y la política",
+     "obras_poster": "3–5"
     },
     {
      "n": "T4",
@@ -1534,7 +1986,10 @@
      "corto": "Polémicas ideológicas en Contra",
      "donde": "Estudio preliminar a la edición de Contra (UNQ, 2005)",
      "catedras": "",
-     "obras": "3"
+     "obras": "3",
+     "autor_corto": "Saítta",
+     "titulo_corto": "Polémicas ideológicas, debates literarios en Contra",
+     "obras_poster": "3"
     },
     {
      "n": "T5",
@@ -1543,7 +1998,10 @@
      "corto": "Ideología y ficción en Borges",
      "donde": "Punto de Vista, n.º 5 (1979)",
      "catedras": "",
-     "obras": "6 y 7"
+     "obras": "6 y 7",
+     "autor_corto": "Piglia",
+     "titulo_corto": "Ideología y ficción en Borges",
+     "obras_poster": "6, 7"
     },
     {
      "n": "T6",
@@ -1552,7 +2010,10 @@
      "corto": "Borges, un escritor en las orillas",
      "donde": "Ariel (1995)",
      "catedras": "",
-     "obras": "6 y 7"
+     "obras": "6 y 7",
+     "autor_corto": "Sarlo",
+     "titulo_corto": "Borges, un escritor en las orillas",
+     "obras_poster": "6, 7"
     },
     {
      "n": "T7",
@@ -1561,7 +2022,10 @@
      "corto": "Fin de fiesta y la política familiar",
      "donde": "Prólogo a Fin de fiesta (Eudeba, 2024)",
      "catedras": "",
-     "obras": "9"
+     "obras": "9",
+     "autor_corto": "Zangrandi",
+     "titulo_corto": "Fin de fiesta y la política familiar",
+     "obras_poster": "9"
     },
     {
      "n": "T8",
@@ -1570,7 +2034,10 @@
      "corto": "Viñas: impugnación del liberalismo",
      "donde": "Caravelle, n.º 25 (1975)",
      "catedras": "",
-     "obras": "10"
+     "obras": "10",
+     "autor_corto": "Sosnowski",
+     "titulo_corto": "Los dueños de la tierra: impugnación del liberalismo",
+     "obras_poster": "10"
     },
     {
      "n": "T9",
@@ -1579,7 +2046,10 @@
      "corto": "Rodolfo Walsh, Operación masacre",
      "donde": "En Clases de literatura argentina (2022)",
      "catedras": "",
-     "obras": "8"
+     "obras": "8",
+     "autor_corto": "Sarlo",
+     "titulo_corto": "Rodolfo Walsh, Operación masacre",
+     "obras_poster": "8"
     },
     {
      "n": "T10",
@@ -1588,7 +2058,10 @@
      "corto": "El relato de los hechos",
      "donde": "Beatriz Viterbo (1992)",
      "catedras": "",
-     "obras": "8"
+     "obras": "8",
+     "autor_corto": "Amar Sánchez",
+     "titulo_corto": "El relato de los hechos",
+     "obras_poster": "8"
     },
     {
      "n": "T11",
@@ -1597,7 +2070,10 @@
      "corto": "Eva Perón, de actriz a personaje literario",
      "donde": "Suplemento cultural de La Nación (2002)",
      "catedras": "",
-     "obras": "14, 17, 18, 19 y 21"
+     "obras": "14, 17, 18, 19 y 21",
+     "autor_corto": "Saítta",
+     "titulo_corto": "Eva Perón. De actriz a personaje literario",
+     "obras_poster": "14, 17–19, 21"
     },
     {
      "n": "T12",
@@ -1606,7 +2082,10 @@
      "corto": "La pasión y la excepción",
      "donde": "Siglo XXI (2003)",
      "catedras": "",
-     "obras": "14 y 17"
+     "obras": "14 y 17",
+     "autor_corto": "Sarlo",
+     "titulo_corto": "La pasión y la excepción",
+     "obras_poster": "14, 17"
     },
     {
      "n": "T13",
@@ -1615,7 +2094,10 @@
      "corto": "La fiesta del monstruo en tres tiempos",
      "donde": "Variaciones Borges, n.º 49 (2020)",
      "catedras": "",
-     "obras": "12"
+     "obras": "12",
+     "autor_corto": "Saítta",
+     "titulo_corto": "La fiesta del monstruo en tres tiempos",
+     "obras_poster": "12"
     },
     {
      "n": "T14",
@@ -1624,7 +2106,10 @@
      "corto": "Copi, Evita y el alma herida",
      "donde": "Anfibia (2017)",
      "catedras": "",
-     "obras": "18"
+     "obras": "18",
+     "autor_corto": "Link",
+     "titulo_corto": "Copi, Evita y el alma herida del peronismo",
+     "obras_poster": "18"
     },
     {
      "n": "T15",
@@ -1633,7 +2118,10 @@
      "corto": "Cortázar y los monstruos",
      "donde": "En La Argentina en pedazos (1993)",
      "catedras": "",
-     "obras": "11 y 13"
+     "obras": "11 y 13",
+     "autor_corto": "Piglia",
+     "titulo_corto": "Cortázar y los monstruos",
+     "obras_poster": "11, 13"
     },
     {
      "n": "T16",
@@ -1642,7 +2130,10 @@
      "corto": "Rozenmacher y la casa tomada",
      "donde": "En La Argentina en pedazos (1993)",
      "catedras": "",
-     "obras": "15"
+     "obras": "15",
+     "autor_corto": "Piglia",
+     "titulo_corto": "Rozenmacher y la casa tomada",
+     "obras_poster": "15"
     },
     {
      "n": "T17",
@@ -1651,7 +2142,10 @@
      "corto": "Los poemas políticos de L. Lamborghini",
      "donde": "En Breve historia de la literatura argentina (2006)",
      "catedras": "",
-     "obras": "16 y 19"
+     "obras": "16 y 19",
+     "autor_corto": "Prieto",
+     "titulo_corto": "Los poemas políticos de Leónidas Lamborghini",
+     "obras_poster": "16, 19"
     },
     {
      "n": "T18",
@@ -1660,7 +2154,10 @@
      "corto": "Lamborghini y Perlongher: política",
      "donde": "En Usos de la literatura (1999)",
      "catedras": "",
-     "obras": "20 y 21"
+     "obras": "20 y 21",
+     "autor_corto": "Rosa",
+     "titulo_corto": "Osvaldo Lamborghini y Néstor Perlongher",
+     "obras_poster": "20, 21"
     },
     {
      "n": "T19",
@@ -1669,7 +2166,10 @@
      "corto": "Rodolfo Walsh, «Esa mujer»",
      "donde": "En Clases de literatura argentina (2022)",
      "catedras": "",
-     "obras": "17"
+     "obras": "17",
+     "autor_corto": "Sarlo",
+     "titulo_corto": "Rodolfo Walsh, «Esa mujer»",
+     "obras_poster": "17"
     },
     {
      "n": "T20",
@@ -1678,7 +2178,10 @@
      "corto": "Sexualidad y revolución en El beso",
      "donde": "Edición crítica de El beso de la mujer araña (2002)",
      "catedras": "",
-     "obras": "22"
+     "obras": "22",
+     "autor_corto": "Balderston",
+     "titulo_corto": "Sexualidad y revolución",
+     "obras_poster": "22"
     },
     {
      "n": "T21",
@@ -1687,7 +2190,10 @@
      "corto": "Piglia: 8.ª clase sobre Puig",
      "donde": "En Las tres vanguardias. Saer, Puig, Walsh (2016)",
      "catedras": "",
-     "obras": "22"
+     "obras": "22",
+     "autor_corto": "Piglia",
+     "titulo_corto": "8.ª clase (sobre Puig)",
+     "obras_poster": "22"
     },
     {
      "n": "T22",
@@ -1696,7 +2202,10 @@
      "corto": "El escritor y la tradición",
      "donde": "FCE (2007)",
      "catedras": "",
-     "obras": "23"
+     "obras": "23",
+     "autor_corto": "Fornet",
+     "titulo_corto": "El escritor y la tradición",
+     "obras_poster": "23"
     },
     {
      "n": "T23",
@@ -1705,7 +2214,10 @@
      "corto": "Respiración artificial, veinte años después",
      "donde": "En Ricardo Piglia: una poética sin límites (2004)",
      "catedras": "",
-     "obras": "23"
+     "obras": "23",
+     "autor_corto": "De Grandis",
+     "titulo_corto": "Respiración artificial, veinte años después",
+     "obras_poster": "23"
     },
     {
      "n": "T24",
@@ -1714,7 +2226,10 @@
      "corto": "La Malasangre: testimonios de una puesta",
      "donde": "Revista Teatro Abierto, n.º 1 (1982)",
      "catedras": "",
-     "obras": "24"
+     "obras": "24",
+     "autor_corto": "Kartun y Soto",
+     "titulo_corto": "La Malasangre. Testimonios de una puesta",
+     "obras_poster": "24"
     },
     {
      "n": "T25",
@@ -1723,7 +2238,10 @@
      "corto": "Gambaro vista desde lejos",
      "donde": "En Teatro argentino de los 60 (1990)",
      "catedras": "",
-     "obras": "24"
+     "obras": "24",
+     "autor_corto": "Nigro",
+     "titulo_corto": "Griselda Gambaro vista desde lejos",
+     "obras_poster": "24"
     },
     {
      "n": "T26",
@@ -1732,7 +2250,10 @@
      "corto": "Historia entre la razón y el delirio",
      "donde": "Punto de Vista, n.º 24 (1985)",
      "catedras": "",
-     "obras": "25"
+     "obras": "25",
+     "autor_corto": "Dámaso Martínez",
+     "titulo_corto": "Historia entre la razón y el delirio",
+     "obras_poster": "25"
     },
     {
      "n": "T27",
@@ -1741,7 +2262,10 @@
      "corto": "Historia, poder y poética en Rivera",
      "donde": "En La novela argentina de los años 80 (1991)",
      "catedras": "",
-     "obras": "25"
+     "obras": "25",
+     "autor_corto": "Gilman",
+     "titulo_corto": "Historia, poder y poética del padecimiento",
+     "obras_poster": "25"
     },
     {
      "n": "T28",
@@ -1750,7 +2274,10 @@
      "corto": "Zona Saer",
      "donde": "Ediciones UDP (2016)",
      "catedras": "",
-     "obras": "26"
+     "obras": "26",
+     "autor_corto": "Sarlo",
+     "titulo_corto": "Zona Saer",
+     "obras_poster": "26"
     },
     {
      "n": "T29",
@@ -1759,7 +2286,10 @@
      "corto": "Otra forma de contar lo político",
      "donde": "Página/12 (2011)",
      "catedras": "",
-     "obras": "26"
+     "obras": "26",
+     "autor_corto": "Kohan",
+     "titulo_corto": "Otra forma de contar lo político",
+     "obras_poster": "26"
     },
     {
      "n": "T30",
@@ -1768,7 +2298,10 @@
      "corto": "Coincidencias: Villa",
      "donde": "Punto de Vista, n.º 54 (1996)",
      "catedras": "",
-     "obras": "27"
+     "obras": "27",
+     "autor_corto": "Sarlo",
+     "titulo_corto": "Coincidencias: Villa, de Luis Gusmán",
+     "obras_poster": "27"
     },
     {
      "n": "T31",
@@ -1777,7 +2310,10 @@
      "corto": "Villa: Buenos Aires bajo López Rega",
      "donde": "Hispamérica, n.º 114 (2009)",
      "catedras": "",
-     "obras": "27"
+     "obras": "27",
+     "autor_corto": "Méndez",
+     "titulo_corto": "Villa: Buenos Aires bajo López Rega",
+     "obras_poster": "27"
     },
     {
      "n": "T32",
@@ -1786,9 +2322,39 @@
      "corto": "El desplazamiento en Dos veces junio",
      "donde": "Amerika, n.º 15 (2016)",
      "catedras": "",
-     "obras": "28"
+     "obras": "28",
+     "autor_corto": "Duperron",
+     "titulo_corto": "El desplazamiento en Dos veces junio",
+     "obras_poster": "28"
     }
-   ]
+   ],
+   "poster": {
+    "bajada": "Las veintiocho lecturas de Literatura Argentina II, cátedra de Sylvia Saítta, Letras (FFyL, UBA), 1.er cuatrimestre de 2026. Tachá cada una cuando la termines.",
+    "subtitulo": "Literatura argentina del siglo XX",
+    "hilo": "Cómo la literatura hace política, de los años treinta a la última dictadura: la política internacional, la violencia del Estado, la lucha de clases, la política de masas y el terrorismo de Estado. El punto de partida es una relectura de *El matadero*.",
+    "hilo_unidades": [
+     [
+      "I",
+      "Argentina y la tormenta del mundo"
+     ],
+     [
+      "II",
+      "Estado y poder"
+     ],
+     [
+      "III",
+      "Literatura y política de masas"
+     ],
+     [
+      "IV",
+      "La narración del terrorismo de Estado"
+     ]
+    ],
+    "nota_teoria": "Cada T de una lectura remite a un texto crítico del mismo programa. Los datos completos están en la guía.",
+    "pie": "No es un canon oficial: es lo que esta cátedra pone a leer en 2026, y los programas cambian de un año a otro. Programa de Literatura Argentina II, cátedra de Sylvia Saítta. Armado por Galera con los programas públicos del Departamento de Letras.",
+    "alto": 150,
+    "pad": 16
+   }
   },
   {
    "id": "problemas-argentina",
@@ -1800,7 +2366,7 @@
      "letra": "",
      "titular": "Soledad Quereilhac",
      "cuatrimestre": "2.º cuatrimestre de 2026",
-     "programa_url": "https://letras.filo.uba.ar/sites/letras.filo.uba.ar/files/documentos/0588%2015035%20PROBLEMAS%20LITERATURA%20ARGENTINA%20QUEREILHAC.pdf",
+     "programa_url": "https://descargas.galera.com.ar/programas/letras/2026/problemas-de-literatura-argentina-quereilhac.pdf",
      "hilo": {
       "titulo": "Cómo la literatura argentina imagina la historia",
       "resumen": "El problema que recorta el programa es el vínculo entre la imaginación literaria y el imaginario histórico: de qué modo la ficción usa el pasado nacional (la colonia, el siglo XIX, el peronismo, los años setenta, Malvinas) para interpelar el presente en que se escribe, y cómo ilumina un pasado que la historiografía también narra con recursos de ficción. Parte de la teoría (White, Jameson, Angenot, Baczko) y sigue en ocho unidades, con la pregunta por la verdad y la ficción, más allá de la «novela histórica» convencional.",
@@ -1886,7 +2452,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "derechos vigentes"
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "Zama",
+      "autor": "Antonio Di Benedetto",
+      "anio": "1956"
+     }
     },
     {
      "num": "02",
@@ -1905,7 +2476,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "derechos vigentes"
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "En la semana trágica",
+      "autor": "David Viñas",
+      "anio": "1966"
+     }
     },
     {
      "num": "03",
@@ -1924,7 +2500,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "derechos vigentes"
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "Fuego en Casabindo",
+      "autor": "Héctor Tizón",
+      "anio": "1969"
+     }
     },
     {
      "num": "04",
@@ -1943,7 +2524,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "derechos vigentes"
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "Río de las congojas",
+      "autor": "Libertad Demitrópulos",
+      "anio": "1981"
+     }
     },
     {
      "num": "05",
@@ -1961,7 +2547,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "derechos vigentes"
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "El entenado",
+      "autor": "Juan José Saer",
+      "anio": "1984"
+     }
     },
     {
      "num": "06",
@@ -1979,7 +2570,12 @@
      ],
      "url": "https://es.wikisource.org/wiki/Autor:Leopoldo_Lugones",
      "fuente": "Wikisource (obras del autor)",
-     "derechos": "dominio público"
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "Romances del Río Seco",
+      "autor": "Leopoldo Lugones",
+      "anio": "1938"
+     }
     },
     {
      "num": "07",
@@ -1998,7 +2594,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "derechos vigentes"
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "Poemas y relatos",
+      "autor": "Jorge Luis Borges",
+      "anio": "selección"
+     }
     },
     {
      "num": "08",
@@ -2016,7 +2617,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "derechos vigentes"
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "Cancionero contra el mal de ojo",
+      "autor": "María Elena Walsh",
+      "anio": "1976"
+     }
     },
     {
      "num": "09",
@@ -2034,7 +2640,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "derechos vigentes"
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "Si dulcemente",
+      "autor": "Juan Gelman",
+      "anio": "1980"
+     }
     },
     {
      "num": "10",
@@ -2052,7 +2663,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "derechos vigentes"
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "¡Paso a los héroes!",
+      "autor": "David Viñas",
+      "anio": "1956"
+     }
     },
     {
      "num": "11",
@@ -2071,7 +2687,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "derechos vigentes"
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "Las malas costumbres",
+      "autor": "David Viñas",
+      "anio": "1963"
+     }
     },
     {
      "num": "12",
@@ -2089,7 +2710,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "derechos vigentes"
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "Esa mujer",
+      "autor": "Rodolfo Walsh",
+      "anio": "1965"
+     }
     },
     {
      "num": "13",
@@ -2108,7 +2734,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "derechos vigentes"
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "Santa Evita",
+      "autor": "Tomás Eloy Martínez",
+      "anio": "1995"
+     }
     },
     {
      "num": "14",
@@ -2127,7 +2758,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "derechos vigentes"
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "Eva, Alfa y Omega",
+      "autor": "Aurora Venturini",
+      "anio": "2014"
+     }
     },
     {
      "num": "15",
@@ -2145,7 +2781,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "derechos vigentes"
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "Una semana de holgorio",
+      "autor": "Arturo Cancela",
+      "anio": "1922"
+     }
     },
     {
      "num": "16",
@@ -2164,7 +2805,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "derechos vigentes"
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "¿Quién mató a Rosendo?",
+      "autor": "Rodolfo Walsh",
+      "anio": "1969"
+     }
     },
     {
      "num": "17",
@@ -2183,7 +2829,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "derechos vigentes"
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "Los pichiciegos",
+      "autor": "Fogwill",
+      "anio": "1983"
+     }
     },
     {
      "num": "18",
@@ -2201,7 +2852,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "derechos vigentes"
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "Las treinta y tres mujeres del emperador Piedra Azul",
+      "autor": "Sara Gallardo",
+      "anio": "1977"
+     }
     },
     {
      "num": "19",
@@ -2219,7 +2875,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "derechos vigentes"
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "La rosa en el viento",
+      "autor": "Sara Gallardo",
+      "anio": "1979"
+     }
     },
     {
      "num": "20",
@@ -2237,7 +2898,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "derechos vigentes"
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "La liebre",
+      "autor": "César Aira",
+      "anio": "1991"
+     }
     },
     {
      "num": "21",
@@ -2255,7 +2921,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "derechos vigentes"
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "Las esferas invisibles",
+      "autor": "Diego Muzzio",
+      "anio": "2015"
+     }
     },
     {
      "num": "22",
@@ -2274,7 +2945,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "derechos vigentes"
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "Los rubios",
+      "autor": "Albertina Carri · película",
+      "anio": "2003"
+     }
     },
     {
      "num": "23",
@@ -2292,7 +2968,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "derechos vigentes"
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "La casa de los conejos",
+      "autor": "Laura Alcoba",
+      "anio": "2007"
+     }
     },
     {
      "num": "24",
@@ -2311,7 +2992,12 @@
      ],
      "url": "",
      "fuente": "",
-     "derechos": "derechos vigentes"
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "Lo que aprendí de las bestias",
+      "autor": "Albertina Carri",
+      "anio": "2021"
+     }
     }
    ],
    "teoria": [
@@ -2322,7 +3008,10 @@
      "corto": "Ficción histórica, historia ficcional",
      "donde": "Selección del libro homónimo (Prometeo, 2010)",
      "catedras": "",
-     "obras": "3 y todo el recorrido"
+     "obras": "3 y todo el recorrido",
+     "autor_corto": "White",
+     "titulo_corto": "Ficción histórica, historia ficcional",
+     "obras_poster": "3 y todo"
     },
     {
      "n": "T2",
@@ -2331,7 +3020,10 @@
      "corto": "Documentos de cultura, documentos de barbarie",
      "donde": "Introducción y capítulo 2 del libro homónimo (Visor, 1989)",
      "catedras": "",
-     "obras": "2 y todo el recorrido"
+     "obras": "2 y todo el recorrido",
+     "autor_corto": "Jameson",
+     "titulo_corto": "Documentos de cultura, documentos de barbarie",
+     "obras_poster": "2 y todo"
     },
     {
      "n": "T3",
@@ -2340,7 +3032,10 @@
      "corto": "La topografía del pasado",
      "donde": "En Covo (coord.), Historia, espacio e imaginario (1997)",
      "catedras": "",
-     "obras": "1"
+     "obras": "1",
+     "autor_corto": "Premat",
+     "titulo_corto": "La topografía del pasado",
+     "obras_poster": "1"
     },
     {
      "n": "T4",
@@ -2349,7 +3044,10 @@
      "corto": "Prólogo a Zama",
      "donde": "Edición de Agea (2000)",
      "catedras": "",
-     "obras": "1"
+     "obras": "1",
+     "autor_corto": "Saer",
+     "titulo_corto": "Prólogo a Zama",
+     "obras_poster": "1"
     },
     {
      "n": "T5",
@@ -2358,7 +3056,10 @@
      "corto": "A cien años de la Semana Trágica",
      "donde": "Cuadernos del CILHA, n.º 33 (2020)",
      "catedras": "",
-     "obras": "2"
+     "obras": "2",
+     "autor_corto": "Vidal Barría",
+     "titulo_corto": "A cien años de la Semana Trágica",
+     "obras_poster": "2"
     },
     {
      "n": "T6",
@@ -2367,7 +3068,10 @@
      "corto": "El documento historiográfico como efecto",
      "donde": "Letras (2007)",
      "catedras": "",
-     "obras": "3"
+     "obras": "3",
+     "autor_corto": "Berti",
+     "titulo_corto": "Fuego en Casabindo: el documento historiográfico",
+     "obras_poster": "3"
     },
     {
      "n": "T7",
@@ -2376,7 +3080,10 @@
      "corto": "Vivir es peligrar",
      "donde": "En Nuevas lecturas sobre marginalidad, canon y poder (2015)",
      "catedras": "",
-     "obras": "4"
+     "obras": "4",
+     "autor_corto": "Belloni",
+     "titulo_corto": "Vivir es peligrar",
+     "obras_poster": "4"
     },
     {
      "n": "T8",
@@ -2385,7 +3092,10 @@
      "corto": "Prólogo a Río de las congojas",
      "donde": "Edición del FCE (2014)",
      "catedras": "",
-     "obras": "4"
+     "obras": "4",
+     "autor_corto": "Piglia",
+     "titulo_corto": "Prólogo a Río de las congojas",
+     "obras_poster": "4"
     },
     {
      "n": "T9",
@@ -2394,7 +3104,10 @@
      "corto": "La orgía indígena de Echeverría a Saer",
      "donde": "En Facundo o Martín Fierro (Sudamericana, 2015)",
      "catedras": "",
-     "obras": "5"
+     "obras": "5",
+     "autor_corto": "Gamerro",
+     "titulo_corto": "La orgía indígena de Echeverría a Saer",
+     "obras_poster": "5"
     },
     {
      "n": "T10",
@@ -2403,7 +3116,10 @@
      "corto": "Estudio preliminar a Romances del Río Seco",
      "donde": "Edición de Pasco (1999)",
      "catedras": "",
-     "obras": "6"
+     "obras": "6",
+     "autor_corto": "Barcia",
+     "titulo_corto": "Estudio preliminar a Romances del Río Seco",
+     "obras_poster": "6"
     },
     {
      "n": "T11",
@@ -2412,7 +3128,10 @@
      "corto": "Ideología y ficción en Borges",
      "donde": "Punto de Vista, n.º 5 (1979)",
      "catedras": "",
-     "obras": "7"
+     "obras": "7",
+     "autor_corto": "Piglia",
+     "titulo_corto": "Ideología y ficción en Borges",
+     "obras_poster": "7"
     },
     {
      "n": "T12",
@@ -2421,7 +3140,10 @@
      "corto": "Una poética de la ficción",
      "donde": "En Saítta (dir.), El oficio se afirma, tomo 9 de la Historia crítica de la literatura argentina (2004)",
      "catedras": "",
-     "obras": "7"
+     "obras": "7",
+     "autor_corto": "Sarlo",
+     "titulo_corto": "Una poética de la ficción",
+     "obras_poster": "7"
     },
     {
      "n": "T13",
@@ -2430,7 +3152,10 @@
      "corto": "Evita: cuerpo y cadáver de la literatura",
      "donde": "En Navarro (comp.), Evita. Mitos y representaciones (FCE, 2002)",
      "catedras": "",
-     "obras": "8"
+     "obras": "8",
+     "autor_corto": "Avellaneda",
+     "titulo_corto": "Evita: cuerpo y cadáver de la literatura",
+     "obras_poster": "8"
     },
     {
      "n": "T14",
@@ -2439,7 +3164,10 @@
      "corto": "La escritura del duelo en Gelman",
      "donde": "Rodopi (2008)",
      "catedras": "",
-     "obras": "9"
+     "obras": "9",
+     "autor_corto": "Fabry",
+     "titulo_corto": "La escritura del duelo en la poesía de Juan Gelman",
+     "obras_poster": "9"
     },
     {
      "n": "T15",
@@ -2448,7 +3176,10 @@
      "corto": "Contorno, n.º 7-8",
      "donde": "Revista Contorno (julio de 1956)",
      "catedras": "",
-     "obras": "10 y 11"
+     "obras": "10 y 11",
+     "autor_corto": "Contorno",
+     "titulo_corto": "Contorno, n.º 7-8",
+     "obras_poster": "10, 11"
     },
     {
      "n": "T16",
@@ -2457,7 +3188,10 @@
      "corto": "Las malas costumbres de ayer y de siempre",
      "donde": "IV Congreso Internacional Celehis (2011)",
      "catedras": "",
-     "obras": "11"
+     "obras": "11",
+     "autor_corto": "García Cedro",
+     "titulo_corto": "Las malas costumbres de ayer y de siempre",
+     "obras_poster": "11"
     },
     {
      "n": "T17",
@@ -2466,7 +3200,10 @@
      "corto": "Rodolfo Walsh y Eva Perón",
      "donde": "En Lafforgue (comp.), Textos de y sobre Walsh (Alianza, 2000)",
      "catedras": "",
-     "obras": "12"
+     "obras": "12",
+     "autor_corto": "Kraniauskas",
+     "titulo_corto": "Rodolfo Walsh y Eva Perón",
+     "obras_poster": "12"
     },
     {
      "n": "T18",
@@ -2475,7 +3212,10 @@
      "corto": "Rostros y máscaras de Eva Perón",
      "donde": "Beatriz Viterbo (2006)",
      "catedras": "",
-     "obras": "13 y 14"
+     "obras": "13 y 14",
+     "autor_corto": "Rosano",
+     "titulo_corto": "Rostros y máscaras de Eva Perón",
+     "obras_poster": "13, 14"
     },
     {
      "n": "T19",
@@ -2484,7 +3224,10 @@
      "corto": "Absurdo y derrota",
      "donde": "En Drucaroff (dir.), La narración gana la partida (Emecé, 2000)",
      "catedras": "",
-     "obras": "13"
+     "obras": "13",
+     "autor_corto": "Roman y Santamarina",
+     "titulo_corto": "Absurdo y derrota",
+     "obras_poster": "13"
     },
     {
      "n": "T20",
@@ -2493,7 +3236,10 @@
      "corto": "El mundo editorial de Aurora Venturini",
      "donde": "Revista de Crítica Literaria Latinoamericana, n.º 83 (2016)",
      "catedras": "",
-     "obras": "14"
+     "obras": "14",
+     "autor_corto": "Salerno",
+     "titulo_corto": "El mundo editorial de Aurora Venturini",
+     "obras_poster": "14"
     },
     {
      "n": "T21",
@@ -2502,7 +3248,10 @@
      "corto": "La escritura de lo inmediato",
      "donde": "En Rubione (dir.), La crisis de las formas (Emecé, 2006)",
      "catedras": "",
-     "obras": "15"
+     "obras": "15",
+     "autor_corto": "Mella",
+     "titulo_corto": "La escritura de lo inmediato",
+     "obras_poster": "15"
     },
     {
      "n": "T22",
@@ -2511,7 +3260,10 @@
      "corto": "Nota a la segunda edición",
      "donde": "Tiempo Contemporáneo (1969)",
      "catedras": "",
-     "obras": "16"
+     "obras": "16",
+     "autor_corto": "Walsh",
+     "titulo_corto": "Nota a la segunda edición de ¿Quién mató a Rosendo?",
+     "obras_poster": "16"
     },
     {
      "n": "T23",
@@ -2520,7 +3272,10 @@
      "corto": "Una casualidad manejada",
      "donde": "Cahiers d'études romanes, n.º 48 (2024)",
      "catedras": "",
-     "obras": "16"
+     "obras": "16",
+     "autor_corto": "De Rosso",
+     "titulo_corto": "Una casualidad manejada",
+     "obras_poster": "16"
     },
     {
      "n": "T24",
@@ -2529,7 +3284,10 @@
      "corto": "Los pichiciegos o la guerra de las ficciones",
      "donde": "En Facundo o Martín Fierro (Sudamericana, 2015)",
      "catedras": "",
-     "obras": "17"
+     "obras": "17",
+     "autor_corto": "Gamerro",
+     "titulo_corto": "Los pichiciegos o la guerra de las ficciones",
+     "obras_poster": "17"
     },
     {
      "n": "T25",
@@ -2538,7 +3296,10 @@
      "corto": "La guerra de Malvinas: contrarrelatos",
      "donde": "En El país de la guerra (Eterna Cadencia, 2014)",
      "catedras": "",
-     "obras": "17"
+     "obras": "17",
+     "autor_corto": "Kohan",
+     "titulo_corto": "La guerra de Malvinas: contrarrelatos",
+     "obras_poster": "17"
     },
     {
      "n": "T26",
@@ -2547,7 +3308,10 @@
      "corto": "La voz (im)posible",
      "donde": "En Bertúa y De Leone (comps.), Escrito en el viento (FFyL, UBA, 2013)",
      "catedras": "",
-     "obras": "18 y 19"
+     "obras": "18 y 19",
+     "autor_corto": "Arnés",
+     "titulo_corto": "La voz (im)posible",
+     "obras_poster": "18, 19"
     },
     {
      "n": "T27",
@@ -2556,7 +3320,10 @@
      "corto": "Lo que queda de la campaña del desierto",
      "donde": "Revista de Crítica Literaria Latinoamericana, n.º 48 (1998)",
      "catedras": "",
-     "obras": "20"
+     "obras": "20",
+     "autor_corto": "Garramuño",
+     "titulo_corto": "La liebre de César Aira",
+     "obras_poster": "20"
     },
     {
      "n": "T28",
@@ -2565,7 +3332,10 @@
      "corto": "El año de la peste",
      "donde": "Radar Libros, Página/12 (2015)",
      "catedras": "",
-     "obras": "21"
+     "obras": "21",
+     "autor_corto": "Krapp",
+     "titulo_corto": "El año de la peste",
+     "obras_poster": "21"
     },
     {
      "n": "T29",
@@ -2574,7 +3344,10 @@
      "corto": "Memoria sin recuerdos",
      "donde": "En Facundo o Martín Fierro (Sudamericana, 2015)",
      "catedras": "",
-     "obras": "22 a 24"
+     "obras": "22 a 24",
+     "autor_corto": "Gamerro",
+     "titulo_corto": "Memoria sin recuerdos",
+     "obras_poster": "22–24"
     },
     {
      "n": "T30",
@@ -2583,7 +3356,10 @@
      "corto": "La apariencia celebrada",
      "donde": "Punto de Vista, n.º 78 (2004)",
      "catedras": "",
-     "obras": "22"
+     "obras": "22",
+     "autor_corto": "Kohan",
+     "titulo_corto": "La apariencia celebrada",
+     "obras_poster": "22"
     },
     {
      "n": "T31",
@@ -2592,9 +3368,47 @@
      "corto": "La educación es algo terrible",
      "donde": "Cuadernos LIRICO, n.º 28 (2024)",
      "catedras": "",
-     "obras": "24"
+     "obras": "24",
+     "autor_corto": "Ciccotosto",
+     "titulo_corto": "La educación es algo terrible",
+     "obras_poster": "24"
     }
-   ]
+   ],
+   "poster": {
+    "bajada": "Las veinticuatro lecturas de Problemas de Literatura Argentina, cátedra de Soledad Quereilhac, Letras (FFyL, UBA), 2.º cuatrimestre de 2026. Tachá cada una cuando la termines.",
+    "subtitulo": "Cómo la literatura argentina imagina la historia",
+    "hilo": "De qué modo la ficción usa el pasado nacional (la colonia, el siglo XIX, el peronismo, los años setenta, Malvinas) para interpelar el presente en que se escribe, y cómo ilumina un pasado que la historia también narra con recursos de ficción. El recorrido excede la «novela histórica» convencional.",
+    "hilo_unidades": [
+     [
+      "I",
+      "El pasado colonial y las voces vencidas"
+     ],
+     [
+      "II",
+      "Historia nacional y obra poética"
+     ],
+     [
+      "III",
+      "El primer peronismo"
+     ],
+     [
+      "IV",
+      "La literatura ante su presente"
+     ],
+     [
+      "V",
+      "Realismo delirante y terror"
+     ],
+     [
+      "VI",
+      "Los hijos de los setenta"
+     ]
+    ],
+    "nota_teoria": "Cada T de una lectura remite a un texto crítico del mismo programa. White y Jameson atraviesan todo el recorrido.",
+    "pie": "No es un canon oficial: es lo que esta cátedra pone a leer en 2026, y los programas cambian de un año a otro. Programa de Problemas de Literatura Argentina, cátedra de Soledad Quereilhac. Armado por Galera con los programas públicos del Departamento de Letras.",
+    "alto": 166,
+    "pad": 18
+   }
   }
  ]
 }
