@@ -3817,7 +3817,7 @@ const postBuzon = (texto, contacto, web, ms) => postBuzonDatos({ texto, contacto
 async function mandarIdea() {
   const texto = val('i-t'), contacto = val('i-c');
   if (texto.length < 5) return aviso('Escribí tu sugerencia');
-  if (texto.length > 2000) return aviso('Es muy larga: máximo 2000 caracteres');
+  if (texto.length > 2000) return aviso('Es muy larga: máximo 2.000 caracteres');
   if (contacto && !mailValido(contacto)) return aviso('Revisá el mail: parece que tiene un error (o dejalo vacío)');
   const boton = $('#i-b');
   boton.disabled = true; boton.textContent = 'Enviando…';
