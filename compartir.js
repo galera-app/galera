@@ -455,7 +455,7 @@ function manejarLinkCompartir() {
     const p = t.split('~').slice(0, 40);
     history.replaceState(null, '', location.pathname + location.search);
     if (p.length < 2 || !p.every(x => RE_ID.test(x))) { aviso('Este link de horario está incompleto'); return true; }
-    abrirSemanaCompartida(p[0], p.slice(1)); return true;
+    cargarGrupo('horarios').then(() => abrirSemanaCompartida(p[0], p.slice(1)), () => aviso('No pude abrir el horario: probá de nuevo')); return true;   // cvSemana usa Horarios (se baja bajo demanda)
   }
   return false;
 }
