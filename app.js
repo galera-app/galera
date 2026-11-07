@@ -3604,7 +3604,7 @@ function sugerirActor() {
 // LINKS ÚTILES y SUGERENCIAS
 // =====================================================================
 // CÓMO SE SOSTIENE: horas de trabajo, costos, cómo ayudar y el plan público.
-// Datos: datos/sostener.json (lo cuenta .github/scripts/cursada_sostener.py cada lunes desde los commits), datos/sostener-costos.json (a mano)
+// Datos: datos/sostener.json (lo cuenta .github/scripts/sostener_horas.py cada lunes desde los commits), datos/sostener-costos.json (a mano)
 // y datos/plan.json (el plan, agrupado por etapa). Nada de esto se escribe acá: esta pantalla solo lo dibuja.
 // =====================================================================
 async function cargarSostener() {
