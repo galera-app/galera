@@ -960,3 +960,13 @@ a.gl-lec-mapa .gl-lec-av{margin-top:auto;padding-top:8px}
   .lp-esc{width:1123px;max-width:none;height:1587px!important;margin:0;overflow:hidden;box-shadow:none}
   .lp-hoja{transform:none!important}
 }
+
+/* v133: campos de los modales de Horarios (Cargar un horario, Horario en que no puedo) */
+dialog .gl-campo select,dialog .gl-campo input{min-width:0;max-width:100%;box-sizing:border-box}
+dialog .gl-campo select{padding:0 8px;background:var(--gl-bg,transparent)}
+dialog .gl-campo input[type=time]{min-width:0}
+dialog .gl-campo select:focus-visible{outline:2px solid var(--gl-ink);outline-offset:2px}
+.gl-campos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 16px}
+.gl-campos--3{grid-template-columns:minmax(0,1.4fr) repeat(2,minmax(0,1fr))}
+dialog .botones .gl-btn,dialog .gl-btn{min-height:44px}
+@media (max-width:480px){.gl-campos{grid-template-columns:minmax(0,1fr)}.gl-campos--3{grid-template-columns:repeat(2,minmax(0,1fr))}.gl-campos--3>:first-child{grid-column:1/-1}}

@@ -2,6 +2,16 @@
  "nota": "Lo que va en el mail de los lunes (Novedades.gs) y en la pestaña Novedades. v: número de versión (obligatorio; ver CHANGELOG.md). tipo: herramientas | resumenes | fechas. perfil: estudiante (por defecto) | profesional | todos; el mail y la pestaña Novedades lo usan para mostrar a cada perfil lo suyo. materias: ids del plan (vacío = para todas). url: solo links a galera.com.ar/. Sumar una entrada por cada cosa que se publica; el script manda solo lo posterior al último envío de cada persona, así que las viejas no se reenvían.",
  "novedades": [
   {
+   "v": 133,
+   "fecha": "2026-11-06",
+   "tipo": "herramientas",
+   "perfil": "estudiante",
+   "materias": [],
+   "titulo": "Formularios de Horarios más claros",
+   "texto": "«Cargar un horario» y «Horario en que no puedo» ahora tienen cada campo con su etiqueta visible, del tamaño justo para tocar en el celular y sin textos cortados. Funcionan igual que antes.",
+   "url": "https://galera.com.ar/horarios/"
+  },
+  {
    "v": 129,
    "fecha": "2026-11-06",
    "tipo": "herramientas",
