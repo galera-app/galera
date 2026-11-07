@@ -3109,12 +3109,13 @@ function lanzarBusqueda() {
 async function verMasBus() {
   const B = V.bus, q = busQ();
   if (!B.hay || B.cargando || !B.traer) return;
+  const traer = B.traer;
   B.cargando = true;
   const antes = B.res.length;
   const btn = document.getElementById('bus-mas'); if (btn) { btn.disabled = true; btn.textContent = 'Cargando…'; }
   try {
     const r = await B.traer(B.sig);
-    if (B.pide !== q) return;
+    if (B.pide !== q || B.traer !== traer) return;   // la búsqueda cambió (aunque sea a la misma consulta) mientras cargaba: no mezclar
     B.res.push(...r.out); B.sig = r.sig; B.hay = r.hay;
   } catch (e) { /* queda el botón para reintentar */ }
   B.cargando = false;
