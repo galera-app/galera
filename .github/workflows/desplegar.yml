@@ -45,11 +45,14 @@ jobs:
       # Las páginas del repo llevan marcas; tools/armar.py arma el sitio en dist/. Los códigos anteriores al marco único
       # ya traen las páginas armadas y se publican tal cual (esta rama sobra cuando `produccion` ya incluya armar.py).
       - name: Instalar Pagefind (el buscador)
-        run: pip install "pagefind[extended]==1.6.0" rjsmin==1.3.0 rcssmin==1.3.0
+        run: pip install "pagefind[extended]==1.6.0"
+      # El minificado es opcional: si pip falla, se publica sin minificar en vez de trabar el despliegue.
+      - name: Instalar el minificador
+        continue-on-error: true
+        run: pip install rjsmin==1.3.0 rcssmin==1.3.0
       - name: Armar el sitio
         env:
           GALERA_EXIGIR_BUSCADOR: "1"
-          GALERA_EXIGIR_MINIFICADO: "1"
         run: |
           if grep -q '<!--marco:' index.html; then
             python tools/armar.py --salida dist
