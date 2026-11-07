@@ -111,17 +111,18 @@ def cabecera(rel):
 META_COMUN = ('<meta name="referrer" content="strict-origin-when-cross-origin">\n'
               '<meta name="author" content="Fidel Chaves">\n'
               '<meta name="color-scheme" content="light dark">')
-RECURSOS_APP = ('<link rel="icon" type="image/png" href="/img/favicon-32.png">\n'
+PRECARGA = ''.join(f'<link rel="preload" href="/fonts/{f}" as="font" type="font/woff2" crossorigin>\n' for f in ("instrument-sans.woff2", "unifraktur.woff2"))  # cuerpo/títulos y la «galera» de la cabecera
+RECURSOS_APP = (PRECARGA + '<link rel="icon" type="image/png" href="/img/favicon-32.png">\n'
                 '<link rel="apple-touch-icon" href="/img/icono-180.png">\n<link rel="manifest" href="/manifest.webmanifest">\n<meta name="theme-color" content="#0560C8">\n'
                 '<script>try{var t=localStorage.getItem("cursada.tema");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t;if(localStorage.getItem("cursada.v1"))document.documentElement.classList.add("con-datos")}catch(e){}</script>\n'
                 + "\n".join(f'<link rel="stylesheet" href="/{c}">' for c in CSS) + '\n<script defer src="/analitica.js"></script>')
-RECURSOS = ('<link rel="icon" type="image/png" href="/img/favicon-32.png">\n'
+RECURSOS = (PRECARGA + '<link rel="icon" type="image/png" href="/img/favicon-32.png">\n'
             '<link rel="apple-touch-icon" href="/img/icono-180.png">\n'
             + "\n".join(f'<link rel="stylesheet" href="/{c}">' for c in CSS)
             + '\n<script src="/menu.js" defer></script>\n<script src="/analitica.js"></script>')
 QUITAR_CSP = re.compile(r'<meta http-equiv="Content-Security-Policy"[^>]*>')
 QUITAR_META = re.compile(r'<meta (?:http-equiv="Content-Security-Policy"|name="referrer"|name="author"|name="color-scheme")[^>]*>\n')
-QUITAR_REC = re.compile(r'<link rel="(?:icon|apple-touch-icon)"[^>]*>\n|'
+QUITAR_REC = re.compile(r'<link rel="(?:icon|apple-touch-icon|preload)"[^>]*>\n|'
                         r'<link rel="stylesheet" href="/(?:' + "|".join(re.escape(c) for c in CSS) + r')[^"]*">\n|'
                         r'<script src="/menu\.js[^"]*" defer></script>\n|<script src="/analitica\.js[^"]*"></script>\n')
 VERSION = re.compile(r'((?:src|href)="[^":?#]+\.(?:css|js))\?v=\w+"')
