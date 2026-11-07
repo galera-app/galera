@@ -1273,12 +1273,12 @@ function usarSugerida(i) { const h = hor(); V.sugeridas.combinaciones[i].comisio
 const opcionesDia = d => [1, 2, 3, 4, 5, 6].map(n => `<option value="${n}" ${n === d ? 'selected' : ''}>${Horarios.DIAS[n]}</option>`).join('');
 function horarioPropio() {
   const planOps = D.plan.materias.flatMap(m => m.opciones && m.opciones.some(o => o.codigo) ? m.opciones.filter(o => o.codigo).map(o => [o.id, o.nombre]) : [[m.id, m.nombre]]);
-  abrir(cab('Cargar un horario') + `<label class="c">Materia</label><select id="h-m" class="">${planOps.map(([id, n]) => `<option value="${id}">${esc(n)}</option>`).join('')}<option value="__otra">Otra (escribila abajo)</option></select>
-    <input id="h-otra" class="" maxlength="120" aria-label="Nombre de la materia, si no está en la lista" placeholder="Nombre, si no está en la lista">
-    <div class="gl-flex"><div class="gl-crece"><label class="c">Tipo</label><select id="h-t" class=""><option>Teórico</option><option>Práctico</option><option>Teórico-práctico</option></select></div>
-      <div class="gl-crece"><label class="c">Comisión</label><input id="h-c" maxlength="20" class="" placeholder="Ej.: 2"></div></div>
-    <div class="gl-flex"><div><label class="c">Día</label><select id="h-d">${opcionesDia(1)}</select></div><div><label class="c">Desde</label><input type="time" id="h-a" value="19:00" step="900"></div><div><label class="c">Hasta</label><input type="time" id="h-b" value="21:00" step="900"></div></div>
-    <div class="gl-flex"><div class="gl-crece"><label class="c">Docente (opcional)</label><input id="h-doc" maxlength="120" class=""></div><div class="gl-crece"><label class="c">Aula o modalidad (opcional)</label><input id="h-aula" maxlength="60" class=""></div></div>
+  abrir(cab('Cargar un horario') + `<div class="gl-campo"><label for="h-m">Materia</label><select id="h-m">${planOps.map(([id, n]) => `<option value="${id}">${esc(n)}</option>`).join('')}<option value="__otra">Otra (escribila abajo)</option></select></div>
+    <div class="gl-campo"><label for="h-otra">Nombre, si no está en la lista</label><input id="h-otra" maxlength="120" autocomplete="off"></div>
+    <div class="gl-campos"><div class="gl-campo"><label for="h-t">Tipo</label><select id="h-t"><option>Teórico</option><option>Práctico</option><option>Teórico-práctico</option></select></div>
+      <div class="gl-campo"><label for="h-c">Comisión</label><input id="h-c" maxlength="20" placeholder="Ej.: 2" autocomplete="off"></div></div>
+    <div class="gl-campos gl-campos--3"><div class="gl-campo"><label for="h-d">Día</label><select id="h-d">${opcionesDia(1)}</select></div><div class="gl-campo"><label for="h-a">Desde</label><input type="time" id="h-a" value="19:00" step="900"></div><div class="gl-campo"><label for="h-b">Hasta</label><input type="time" id="h-b" value="21:00" step="900"></div></div>
+    <div class="gl-campos"><div class="gl-campo"><label for="h-doc">Docente (opcional)</label><input id="h-doc" maxlength="120" autocomplete="off"></div><div class="gl-campo"><label for="h-aula">Aula o modalidad (opcional)</label><input id="h-aula" maxlength="60" autocomplete="off"></div></div>
     <p class="gl-chico">Si la comisión cursa dos días, cargala dos veces con el mismo número de comisión: se juntan solas.</p>
     <div class="botones"><button class="gl-btn" onclick="guardarPropio()">Agregar</button><button class="gl-btn gl-btn--ter" onclick="cerrar()">Cancelar</button></div>`);
 }
@@ -1299,9 +1299,9 @@ function guardarPropio() {
 function borrarPropia(id) { const h = hor(); h.propias = h.propias.filter(c => c.id !== id); Object.keys(h.elegidas).forEach(k => { if (h.elegidas[k] === id) delete h.elegidas[k]; }); guardar(); render(); }
 function bloqueo() {
   abrir(cab('Horario en que no puedo') + `<p class="gl-chico">Trabajo, otra cursada, lo que sea. Se tiene en cuenta al sugerir combinaciones.</p>
-    <label class="c">Qué es (opcional)</label><input id="b-t" maxlength="40" class="" placeholder="Trabajo">
-    <div class="gl-flex"><div><label class="c">Día</label><select id="b-d"><option value="0">Lunes a viernes</option>${opcionesDia(0)}</select></div>
-      <div><label class="c">Desde</label><input type="time" id="b-a" value="09:00" step="900"></div><div><label class="c">Hasta</label><input type="time" id="b-b" value="18:00" step="900"></div></div>
+    <div class="gl-campo"><label for="b-t">Qué es (opcional)</label><input id="b-t" maxlength="40" placeholder="Trabajo" autocomplete="off"></div>
+    <div class="gl-campos gl-campos--3"><div class="gl-campo"><label for="b-d">Día</label><select id="b-d"><option value="0">Lunes a viernes</option>${opcionesDia(0)}</select></div>
+      <div class="gl-campo"><label for="b-a">Desde</label><input type="time" id="b-a" value="09:00" step="900"></div><div class="gl-campo"><label for="b-b">Hasta</label><input type="time" id="b-b" value="18:00" step="900"></div></div>
     <div class="botones"><button class="gl-btn" onclick="guardarBloqueo()">Agregar</button><button class="gl-btn gl-btn--ter" onclick="cerrar()">Cancelar</button></div>`);
 }
 function guardarBloqueo() {
@@ -3662,7 +3662,7 @@ function sugerirActor() {
 // LINKS ÚTILES y SUGERENCIAS
 // =====================================================================
 // CÓMO SE SOSTIENE: horas de trabajo, costos, cómo ayudar y el plan público.
-// Datos: datos/sostener.json (lo cuenta .github/scripts/cursada_sostener.py cada lunes desde los commits), datos/sostener-costos.json (a mano)
+// Datos: datos/sostener.json (lo cuenta .github/scripts/sostener_horas.py cada lunes desde los commits), datos/sostener-costos.json (a mano)
 // y datos/plan.json (el plan, agrupado por etapa). Nada de esto se escribe acá: esta pantalla solo lo dibuja.
 // =====================================================================
 async function cargarSostener() {

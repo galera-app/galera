@@ -385,10 +385,10 @@ function abrirQueCursar() {
   const { nombres, of, texto } = queCursarDatos();
   if (!nombres.length) return aviso('Marcá primero qué querés cursar');
   const hay = elegidas().length > 0;
-  abrir(cab('Qué voy a cursar') + `<p class="chico tenue" style="margin-top:0">${esc(of.nombre || 'Próximo cuatrimestre')}. Para pasarle al grupo lo que pensás cursar y ver con quién coincidís: solo las materias, sin notas ni datos personales.</p>
+  abrir(cab('Qué voy a cursar') + `<p class="gl-chico">${esc(of.nombre || 'Próximo cuatrimestre')}. Para pasarle al grupo lo que pensás cursar y ver con quién coincidís: solo las materias, sin notas ni datos personales.</p>
     <ul class="resumen-sel qc">${nombres.map(n => `<li><span class="ge pen" aria-hidden="true"></span><b>${esc(n)}</b></li>`).join('')}</ul>
-    <div class="botones"><button class="btn" onclick="mandarQueCursar()">Mandar por WhatsApp</button><button class="btn sec" onclick="copiarQueCursar()">Copiar el texto</button><button class="btn sec" onclick="imagenQueCursar()">En imagen</button>${hay ? '<button class="btn sec" onclick="linkSemana()">🔗 Link para mirar mi semana</button>' : ''}<button class="btn lin" onclick="cerrar()">Cerrar</button></div>
-    ${hay ? '' : '<p class="chico tenue">Cuando elijas las comisiones, también podés pasar el link de tu semana.</p>'}`, 'que-cursar');
+    <div class="botones"><button class="gl-btn" onclick="mandarQueCursar()">Mandar por WhatsApp</button><button class="gl-btn gl-btn--sec" onclick="copiarQueCursar()">Copiar el texto</button><button class="gl-btn gl-btn--sec" onclick="imagenQueCursar()">En imagen</button>${hay ? '<button class="gl-btn gl-btn--sec" onclick="linkSemana()">Link para mirar mi semana</button>' : ''}<button class="gl-btn gl-btn--ter" onclick="cerrar()">Cerrar</button></div>
+    ${hay ? '' : '<p class="gl-chico">Cuando elijas las comisiones, también podés pasar el link de tu semana.</p>'}`, 'que-cursar');
 }
 function mandarQueCursar() {
   medir('share', { method: 'whatsapp', content_type: 'que_cursar', item_id: V.oferta });
