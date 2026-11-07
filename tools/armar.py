@@ -6,9 +6,10 @@ Fuente única: marco/sitio.json, marco/pie.tpl, marco/cabecera.tpl. También esc
 
 Uso: python tools/armar.py [--salida dist]   arma el sitio publicable (stdlib, sin dependencias)
      python tools/armar.py --servir 8772      lo arma en dist/ y lo sirve en http://127.0.0.1:8772 (para mirar cambios)
+     python tools/armar.py --salida dist --sin-minificar   igual, sin minificar JS ni CSS (por defecto minifica si hay rjsmin y rcssmin)
      python tools/armar.py --marcar          pasa a marcas las páginas que traen el marco escrito (salida de los generadores)
      python tools/armar.py --salida dist --sin-indice   igual, sin armar el índice del buscador (Pagefind)
-     python tools/armar.py --comprobar        no escribe; sale con 1 si hay páginas con el marco escrito o si el armado falla (lo corre el CI)
+     python tools/armar.py --comprobar        no escribe; sale con 1 si hay páginas con el marco escrito, datos inválidos (preguntas, lecturas) o si el armado falla (lo corre el CI)
 No toca prueba/. libro/planificador-de-libros.html es un archivo descargable: lleva el pie, pero conserva su cabecera y su <head>."""
 import hashlib
 import json
@@ -36,6 +37,9 @@ ACTUAL = ' aria-current="page"'
 NO_PUBLICAR = {".git", ".github", "tools", "marco", "dist", "__pycache__"}
 # Buscador: Pagefind indexa el <main> de cada página armada (y de ninguna más: ni /buscar/, ni la 404, ni las noindex).
 SIN_INDICE = {"404.html", "buscar/index.html"}
+# Chrome de pantalla que no es contenido (botones, migas, bloque de descarga, «¿Terminaste de leerlo?», vecinos, textos solo de impresión).
+# Se repite en cada apunte y engorda fragmentos e índice sin sumar nada a la búsqueda.
+EXCLUIR_INDICE = ".no-imprimir, .solo-imprimir, .indice-apunte"
 # La versión que usan el CI, `Publicar` y el comando de build de Cloudflare (README): que sea la misma en todos lados.
 PAGEFIND_VERSION = "1.6.0"
 MAIN = re.compile(r'<main id="main"')
@@ -104,20 +108,26 @@ def cabecera(rel):
                      filas=f'<div class="subw"{"" if act is not None else " hidden"}>{filas}</div>')
 
 
+# Scripts que la app baja recién cuando una pantalla los necesita (los usa `cargarMods` en app.js; el prerender los suma todos).
+# El orden dentro de cada grupo es el de ejecución. No van en app-cierre.tpl.
+CARGA = {"horarios": ["horarios"], "grafo": ["grafo"], "arcade": ["arcade", "arcade-ui"],
+         "sim": ["escandallo", "papel", "paginacion", "cronograma", "ecosistema", "formatos", "leyes", "contratos", "retos"]}
+
 META_COMUN = ('<meta name="referrer" content="strict-origin-when-cross-origin">\n'
               '<meta name="author" content="Fidel Chaves">\n'
               '<meta name="color-scheme" content="light dark">')
-RECURSOS_APP = ('<link rel="icon" type="image/png" href="/img/favicon-32.png">\n'
+PRECARGA = ''.join(f'<link rel="preload" href="/fonts/{f}" as="font" type="font/woff2" crossorigin>\n' for f in ("instrument-sans.woff2", "unifraktur.woff2"))  # cuerpo/títulos y la «galera» de la cabecera
+RECURSOS_APP = (PRECARGA + '<link rel="icon" type="image/png" href="/img/favicon-32.png">\n'
                 '<link rel="apple-touch-icon" href="/img/icono-180.png">\n<link rel="manifest" href="/manifest.webmanifest">\n<meta name="theme-color" content="#0560C8">\n'
                 '<script>try{var t=localStorage.getItem("cursada.tema");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t;if(localStorage.getItem("cursada.v1"))document.documentElement.classList.add("con-datos")}catch(e){}</script>\n'
                 + "\n".join(f'<link rel="stylesheet" href="/{c}">' for c in CSS) + '\n<script defer src="/analitica.js"></script>')
-RECURSOS = ('<link rel="icon" type="image/png" href="/img/favicon-32.png">\n'
+RECURSOS = (PRECARGA + '<link rel="icon" type="image/png" href="/img/favicon-32.png">\n'
             '<link rel="apple-touch-icon" href="/img/icono-180.png">\n'
             + "\n".join(f'<link rel="stylesheet" href="/{c}">' for c in CSS)
             + '\n<script src="/menu.js" defer></script>\n<script src="/analitica.js"></script>')
 QUITAR_CSP = re.compile(r'<meta http-equiv="Content-Security-Policy"[^>]*>')
 QUITAR_META = re.compile(r'<meta (?:http-equiv="Content-Security-Policy"|name="referrer"|name="author"|name="color-scheme")[^>]*>\n')
-QUITAR_REC = re.compile(r'<link rel="(?:icon|apple-touch-icon)"[^>]*>\n|'
+QUITAR_REC = re.compile(r'<link rel="(?:icon|apple-touch-icon|preload)"[^>]*>\n|'
                         r'<link rel="stylesheet" href="/(?:' + "|".join(re.escape(c) for c in CSS) + r')[^"]*">\n|'
                         r'<script src="/menu\.js[^"]*" defer></script>\n|<script src="/analitica\.js[^"]*"></script>\n')
 VERSION = re.compile(r'((?:src|href)="[^":?#]+\.(?:css|js))\?v=\w+"')
@@ -252,7 +262,7 @@ def indexar(salida):
         print(f"AVISO: no encontre Pagefind; el sitio queda sin buscador. Instalalo con: pip install \"pagefind[extended]=={PAGEFIND_VERSION}\"")
         return not exigir
     try:
-        r = subprocess.run(c + ["--site", str(salida), "--force-language", "es", "--quiet"], timeout=600)
+        r = subprocess.run(c + ["--site", str(salida), "--force-language", "es", "--exclude-selectors", EXCLUIR_INDICE, "--quiet"], timeout=600)
         ok = r.returncode == 0 and (salida / "pagefind" / "pagefind.js").is_file()
         # La interfaz propia está en app.js (vBuscar): los componentes de interfaz de Pagefind no se publican.
         for f in (salida / "pagefind").glob("pagefind-*ui*"):
@@ -265,6 +275,53 @@ def indexar(salida):
         print("AVISO: no se pudo armar el indice; el sitio queda sin buscador.")
         shutil.rmtree(salida / "pagefind", ignore_errors=True)
     return ok or not exigir
+
+
+def minificadores():
+    """rjsmin y rcssmin (paquetes de pip, Python puro, no renombran nada). Opcionales: si faltan, el sitio sale sin minificar y avisa."""
+    try:
+        import rcssmin
+        import rjsmin
+        return rjsmin, rcssmin
+    except ImportError:
+        return None
+
+
+def minificar_todo(salida, solo=None, excepto=()):
+    """Minifica los .js y .css de `salida` (nunca del repo fuente): saca espacios y comentarios, conserva los /*! */ y no cambia nombres.
+    Va antes de calcular las huellas ?v=, así que la huella es la del archivo final. Si node está, cada JS minificado pasa `node --check`
+    y, si no compila, se deja el original. Sin rjsmin/rcssmin: aviso y sale sin minificar (Cloudflare hoy está en ese caso).
+    Con GALERA_EXIGIR_MINIFICADO=1 (desplegar.yml) la falta es un error."""
+    m = minificadores()
+    if m is None:
+        print("AVISO: no estan rjsmin y rcssmin; el sitio sale sin minificar. Instalalos con: pip install rjsmin==1.3.0 rcssmin==1.3.0")
+        return os.environ.get("GALERA_EXIGIR_MINIFICADO") != "1"
+    rjs, rcs = m
+    node = shutil.which("node")
+    ok = True
+    archivos = [solo] if solo else sorted(f for e in ("*.js", "*.css") for f in salida.rglob(e)
+                                          if not f.relative_to(salida).as_posix().startswith(("prueba/", ".")) and f.name not in excepto)
+    for f in archivos:
+        t = f.read_text(encoding="utf-8")
+        if f.suffix == ".js":
+            if "`" in t:
+                # rjsmin 1.3.0 saca espacios dentro de plantillas anidadas (`${a.map(x => `<a ${y}>`)}` -> `<a${y}>`, "Se actualiza: x" -> "Se actualiza:x")
+                # y node --check no lo nota. Los JS con plantillas quedan sin minificar hasta tener un minificador que las entienda (esbuild).
+                continue
+            n = rjs.jsmin(t, keep_bang_comments=True)
+            if node:
+                with tempfile.TemporaryDirectory() as tmp:
+                    c = Path(tmp) / "c.js"
+                    c.write_text(n, encoding="utf-8")
+                    if subprocess.run([node, "--check", str(c)], capture_output=True).returncode != 0:
+                        print(f"AVISO: {f.name} minificado no compila; queda sin minificar")
+                        ok = False
+                        continue
+        else:
+            n = rcs.cssmin(t, keep_bang_comments=True)
+        if len(n) < len(t):
+            escribir(f, n)
+    return ok or os.environ.get("GALERA_EXIGIR_MINIFICADO") != "1"
 
 
 def ruta_de(rel):
@@ -337,18 +394,25 @@ def escribir(p, t):
     p.write_text(t, encoding="utf-8", newline="\n")
 
 
-def construir(salida, indice=False):
+def construir(salida, indice=False, minificar=True):
     """Copia el repo a `salida` sin lo que no se publica, escribe marco.js y expande las marcas."""
     if salida.exists():
         shutil.rmtree(salida)
     shutil.copytree(RAIZ, salida, ignore=lambda d, nombres: [n for n in nombres if n in NO_PUBLICAR and Path(d) == RAIZ])
     publico = {k: S[k] for k in ("pantallas", "tabs", "tabs_ocultas", "menu", "barra_celular", "simuladores")}
     publico["escribir"] = S["pie"]["escribir"]
+    publico["carga"] = CARGA
+    publico["huellas"] = {n: huella(salida / f"{n}.js") for g in CARGA.values() for n in g}
     escribir(salida / "marco.js", "// Lo escribe tools/armar.py desde marco/sitio.json: no editar a mano.\nconst MARCO = "
              + json.dumps(publico, ensure_ascii=False, separators=(",", ":")) + ";\n")
     app = salida / "app.js"
-    escribir(app, re.sub(r"s\.src = '/mapa-ar\.js[^']*'", "s.src = '/mapa-ar.js?v=" + huella(salida / "mapa-ar.js") + "'", app.read_text(encoding="utf-8")))
     sobran = []
+    # app.js se minifica al final: antes hay que poner la huella de mapa-ar.js, que tiene que ser la del archivo ya minificado.
+    if minificar and not minificar_todo(salida, excepto=("app.js",)):
+        sobran.append("minificado (no se pudo minificar y se exige)")
+    escribir(app, re.sub(r"s\.src = '/mapa-ar\.js[^']*'", "s.src = '/mapa-ar.js?v=" + huella(salida / "mapa-ar.js") + "'", app.read_text(encoding="utf-8")))
+    if minificar and not minificar_todo(salida, solo=app):
+        sobran.append("minificado de app.js")
     for p, rel in paginas(salida):
         escribir(p, versionar(para_indice(lecturas_jsonld(faq_jsonld(expandir(p.read_text(encoding="utf-8"), rel), rel), rel), rel), p.parent, salida))
     prerender(salida)
@@ -381,14 +445,14 @@ def main():
             print(f"{len(cambian)} páginas. Corré: python tools/armar.py --marcar")
         with tempfile.TemporaryDirectory() as tmp:
             sobran = construir(Path(tmp) / "sitio")
-        print("\n".join(f"marca sin expandir: {d}" for d in sobran))
+        print("\n".join(f"falla del armado: {d}" for d in sobran))
         if not cambian and not sobran:
             print("marco ok")
         return 1 if cambian or sobran else 0
     salida = Path(args[args.index("--salida") + 1]) if "--salida" in args else RAIZ / "dist"
-    sobran = construir(salida.resolve(), indice="--sin-indice" not in args)
+    sobran = construir(salida.resolve(), indice="--sin-indice" not in args, minificar="--sin-minificar" not in args)
     if sobran:
-        print("marca sin expandir en:", ", ".join(sobran))
+        print("falla del armado (marca sin expandir o dato inválido):\n  " + "\n  ".join(sobran))
         return 1
     print(f"sitio armado en {salida}")
     return 0

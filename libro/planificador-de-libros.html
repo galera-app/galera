@@ -59,7 +59,7 @@ label.c, div.c { display: block; font-size: var(--t-sm); font-weight: 600; color
 
 .cabecera { background: var(--sup); border-bottom: 1px solid var(--borde); position: sticky; top: 0; z-index: 10; }
 .marca { display: flex; align-items: center; gap: 8px; max-width: var(--ancho); margin: 0 auto; padding: 0 16px; }
-.marca .nombre { display: flex; align-items: center; gap: 10px; padding: 8px 20px 8px 0; text-decoration: none; color: var(--texto); border-radius: 4px; }
+.marca .nombre { display: flex; align-items: center; gap: 10px; padding: 8px 20px 8px 0; text-decoration: none; color: var(--texto); border-radius: var(--radio); }
 .marca h1 { font-size: var(--t-xl); line-height: 1.1; }
 .marca p { margin: 0; color: var(--tenue); font-size: var(--t-sm); }
 .logo { width: 38px; height: 38px; border-radius: var(--radio); background: #1f3a5f linear-gradient(transparent 28%, #b9860a 28% 38%, transparent 38% 47%, #b9860a 47% 57%, transparent 57% 66%, #b9860a 66% 76%, transparent 76%) no-repeat 50% / 56% 100%; flex: none; }  /* colores fijos: en oscuro, mostaza sobre azul claro daba 1,27:1 */
@@ -67,11 +67,11 @@ label.c, div.c { display: block; font-size: var(--t-sm); font-weight: 600; color
 .pestanas .tab { position: relative; display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 12px; border: 0; background: none; font-size: var(--t-base); color: var(--texto2); cursor: pointer; white-space: nowrap; }
 .pestanas .tab:hover { color: var(--tinta); }
 .pestanas .tab[aria-current="page"] { color: var(--texto); font-weight: 700; }
-.pestanas .tab[aria-current="page"]::after { content: ""; position: absolute; left: 12px; right: 12px; bottom: 2px; height: 3px; background: var(--mostaza); border-radius: 2px; }
+.pestanas .tab[aria-current="page"]::after { content: ""; position: absolute; left: 12px; right: 12px; bottom: 2px; height: 3px; background: var(--mostaza); border-radius: var(--radio); }
 .pestanas .cv { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: transform .15s; }
 .pestanas .tab[aria-expanded="true"] .cv { transform: rotate(180deg); }
 .acciones { display: flex; gap: 2px; flex: none; }
-.ib { width: 44px; height: 44px; display: grid; place-items: center; padding: 0; border: 0; border-radius: 4px; background: none; color: var(--texto); cursor: pointer; }
+.ib { width: 44px; height: 44px; display: grid; place-items: center; padding: 0; border: 0; border-radius: var(--radio); background: none; color: var(--texto); cursor: pointer; }
 .ib:hover { background: var(--tinta-suave); color: var(--tinta); }
 .cabecera .acciones { margin: 0; }  /* la regla .acciones de los apuntes (abajo) no es para la cabecera */
 .ib-t { display: none; }
@@ -80,7 +80,7 @@ label.c, div.c { display: block; font-size: var(--t-sm); font-weight: 600; color
 .subw { background: var(--sup2); border-top: 1px solid var(--borde); }
 .subw[hidden] { display: none; }
 .sub { display: flex; flex-wrap: wrap; gap: 4px; max-width: var(--ancho); margin: 0 auto; padding: 6px 16px 8px; }
-.sub button { min-height: 44px; padding: 0 14px; border: 0; border-radius: 4px; background: none; font-size: var(--t-base); color: var(--texto); cursor: pointer; }
+.sub button { min-height: 44px; padding: 0 14px; border: 0; border-radius: var(--radio); background: none; font-size: var(--t-base); color: var(--texto); cursor: pointer; }
 .sub button:hover { background: var(--tinta-suave); color: var(--tinta); }
 .sub button[aria-current="page"] { font-weight: 700; box-shadow: inset 0 -3px 0 var(--mostaza); }
 
@@ -250,7 +250,7 @@ details.tarjeta > summary, .guia summary { cursor: pointer; }
 .apunte table { display: block; overflow-x: auto; border-collapse: collapse; font-family: var(--fuente); font-size: var(--t-sm); margin: 10px 0; max-width: 100%; }
 .apunte th, .apunte td { border: 1px solid var(--borde); padding: 5px 8px; vertical-align: top; text-align: left; }
 .apunte th { background: var(--sup2); }
-.apunte code { font-size: .88em; background: var(--sup2); padding: 1px 4px; border-radius: 4px; }
+.apunte code { font-size: .88em; background: var(--sup2); padding: 1px 4px; border-radius: var(--radio); }
 .apunte pre { overflow-x: auto; background: var(--sup2); padding: 10px; border-radius: var(--radio); font-size: var(--t-sm); }
 .apunte img { max-width: 100%; }
 @media (max-width: 560px) { .apunte { padding: 16px; font-size: var(--t-base); } }
@@ -369,7 +369,7 @@ h2:hover > .ancla, h3:hover > .ancla, .ancla:focus-visible { opacity: 1; }
 .indice-apunte a { color: var(--tinta); }
 .busca-res input { width: 100%; margin-bottom: 12px; }
 .extracto { display: block; margin-top: 3px; color: var(--texto2); }
-.extracto mark { background: var(--mostaza-suave); color: inherit; border-radius: 3px; padding: 0 1px; }
+.extracto mark { background: var(--mostaza-suave); color: inherit; border-radius: var(--radio); padding: 0 1px; }
 .res-mat .barra { display: block; }
 .fin-apunte { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 
@@ -448,7 +448,7 @@ ul.biblio li { margin: 3px 0; overflow-wrap: anywhere; }
 .imp-pieza { fill: var(--tinta-suave); stroke: var(--tinta); stroke-width: .12; }
 .imp-pieza.sobra { fill: none; stroke: var(--tenue); stroke-dasharray: .5 .4; }
 .imp-plie { stroke: var(--tinta); stroke-width: .08; stroke-dasharray: .4 .3; }
-.imp-ref { display: inline-block; width: .8em; height: .8em; border-radius: 2px; vertical-align: -1px; background: var(--mostaza-suave); border: 1px solid var(--borde); }
+.imp-ref { display: inline-block; width: .8em; height: .8em; border-radius: var(--radio); vertical-align: -1px; background: var(--mostaza-suave); border: 1px solid var(--borde); }
 .imp-ref.lat { background: var(--tinta-suave); }
 .tabla tr.sel td { background: var(--tinta-suave); }
 .pasos summary { cursor: pointer; }
@@ -460,10 +460,9 @@ ul.biblio li { margin: 3px 0; overflow-wrap: anywhere; }
 .pag-partes td { padding: 5px 6px; }
 .pag-partes tr.apagada td { opacity: .55; }
 .pag-partes tr.grupo-pag td { background: var(--sup2); font-size: var(--t-sm); color: var(--texto2); padding: 4px 8px; }
-.pag-partes input[type=checkbox] { min-height: 0; width: 18px; height: 18px; }
 .pag-partes select { max-width: 150px; }
 .pag-dobles { display: flex; flex-wrap: wrap; gap: 5px 4px; }
-.pag-dbl { display: inline-flex; border: 1px solid var(--borde); border-radius: 3px; overflow: hidden; }
+.pag-dbl { display: inline-flex; border: 1px solid var(--borde); border-radius: var(--radio); overflow: hidden; }
 .pag-h { width: 24px; height: 32px; font-size: var(--t-xs); display: flex; align-items: flex-end; justify-content: center; padding-bottom: 1px; color: var(--texto2); background: var(--sup); }
 .pag-h + .pag-h { border-left: 1px dashed var(--borde); }
 .pag-h.vacia { background: transparent; }
@@ -471,7 +470,7 @@ ul.biblio li { margin: 3px 0; overflow-wrap: anywhere; }
 .pag-h.g-cue, .pag-cuad.g-cue { background: var(--tinta-suave); color: var(--tinta); }
 .pag-h.g-fin, .pag-cuad.g-fin { background: var(--ok-suave); color: var(--ok); }
 .pag-h.blanca, .pag-cuad.blanca { background: repeating-linear-gradient(45deg, var(--sup2), var(--sup2) 3px, var(--sup) 3px, var(--sup) 6px); }
-.pag-cuad { display: inline-block; width: 11px; height: 11px; border: 1px solid var(--borde); border-radius: 2px; vertical-align: -1px; }
+.pag-cuad { display: inline-block; width: 11px; height: 11px; border: 1px solid var(--borde); border-radius: var(--radio); vertical-align: -1px; }
 .tabla-scroll .pag-partes th, .tabla-scroll .pag-partes td { white-space: normal; }
 .pag-partes input.nota { min-width: 56px; width: 64px; }
 .pag-partes select { max-width: 130px; }
@@ -484,8 +483,6 @@ ul.biblio li { margin: 3px 0; overflow-wrap: anywhere; }
   .pag-partes td:nth-child(4) { grid-column: 3; grid-row: 2; }
   .pag-partes select, .pag-partes input.nota { width: 100%; max-width: none; }
 }
-.tabla-scroll .pag-partes input[type=checkbox] { min-width: 0; width: 20px; height: 20px; }
-.tabla-scroll .pag-partes td:first-child input[type=checkbox] { min-width: 0; width: 20px; height: 20px; padding: 0; }
 /* Elementos de juego: informativos y sobrios (sin animaciones). */
 .cierre-ronda { margin: 12px 0 0; padding: 10px 12px; border-left: 3px solid var(--borde); background: var(--sup2); border-radius: 0 var(--radio) var(--radio) 0; }
 details.reto > summary { cursor: pointer; }
@@ -535,7 +532,7 @@ svg.eco.zoom { touch-action: none; cursor: grab; }
 .lista-mas i { width: 9px; height: 9px; border-right: 2px solid var(--tenue); border-top: 2px solid var(--tenue); transform: rotate(45deg); flex: none; }
 @media (pointer: coarse) {
   .btn.ch { min-height: 44px; padding: 8px 12px; }
-  main select, main input:not([type=checkbox]):not([type=radio]) { min-height: 44px; }
+  main select, main input:not([type=checkbox]):not([type=radio]):not([type=file]):not([type=color]):not([type=range]):not([type=hidden]) { min-height: 44px; }
   /* v45: objetivos táctiles de 44 px sin mover el diseño: el área de toque se extiende con un pseudo-elemento invisible. */
   .btn { min-height: 44px; }
   .enlace, .ayuda-q, .tabla .nombre { position: relative; }
@@ -545,6 +542,23 @@ svg.eco.zoom { touch-action: none; cursor: grab; }
   .elige { min-height: 44px; align-items: center; box-sizing: border-box; }
   .elige input, label.chico input[type=checkbox] { width: 20px; height: 20px; margin: 0; }
   select, .tabla select, .seg button, .canales input, .tabla input.nota { min-height: 44px; }
+}
+/* v131: la misma regla de 44 px para pantallas angostas aunque el puntero no sea táctil (ventana chica, emulación). */
+@media (max-width: 720px) {
+  .btn, .btn.ch { min-height: 44px; }
+  .btn.ch { padding: 8px 12px; }
+  main select, main input:not([type=checkbox]):not([type=radio]):not([type=file]):not([type=color]):not([type=range]):not([type=hidden]) { min-height: 44px; }
+  summary { min-height: 44px; box-sizing: border-box; padding-block: 10px; }
+  .seg button, .tabla input.nota { min-height: 44px; }
+  .enlace, .lb-fase-bt { min-height: 44px; display: inline-flex; align-items: center; }
+  .pie-nav a, .pie-nav button { min-height: 44px; }
+  .pie a:not(.pie-nav a) { min-height: 44px; display: inline-flex; align-items: center; }
+  /* Casilla de 44 px de área con el dibujo de 18 px: el borde transparente es el área de toque. */
+  main input[type=checkbox] { -webkit-appearance: none; appearance: none; box-sizing: border-box; width: 44px; height: 44px; margin: 0; padding: 2px; border: 11px solid transparent; border-radius: 0; cursor: pointer;
+    background: linear-gradient(var(--sup), var(--sup)) content-box, linear-gradient(var(--borde-campo), var(--borde-campo)) padding-box; }
+  main input[type=checkbox]:checked { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center / 14px no-repeat content-box, linear-gradient(var(--tinta), var(--tinta)) content-box, linear-gradient(var(--tinta), var(--tinta)) padding-box; }
+  main input[type=checkbox]:focus-visible { outline: 2px solid var(--tinta); outline-offset: 0; }
+  .elige input[type=checkbox], label.chico input[type=checkbox], .tabla.cr-tareas .elige input[type=checkbox] { width: 44px; height: 44px; min-height: 44px; padding: 2px; margin: 0 -10px; }
 }
 @media (max-width: 720px) {
   .cabecera .pestanas, .cabecera .subw, .ib-pc { display: none; }
@@ -629,7 +643,7 @@ svg.eco.zoom { touch-action: none; cursor: grab; }
 .cr-pista { position: relative; height: 18px; background: var(--sup2); border-radius: var(--radio); }
 .cr-barra { position: absolute; top: 2px; bottom: 2px; border-radius: var(--radio); background: var(--tinta); opacity: .55; }
 .cr-barra.crit { background: var(--mal); opacity: .9; }
-.cr-hol { position: absolute; top: 7px; height: 4px; border-radius: 2px; background: repeating-linear-gradient(90deg, currentColor 0 4px, transparent 4px 7px); opacity: .45; }
+.cr-hol { position: absolute; top: 7px; height: 4px; border-radius: var(--radio); background: repeating-linear-gradient(90deg, currentColor 0 4px, transparent 4px 7px); opacity: .45; }
 .cr-ref { position: static; display: inline-block; width: 22px; height: 10px; vertical-align: middle; }
 .cr-dias { text-align: right; white-space: nowrap; }
 .cr-red { overflow: auto; border: 1px solid var(--borde); border-radius: var(--radio); padding: 4px; }
@@ -1011,7 +1025,7 @@ tr.lb-info td { background: var(--sup2); border-bottom: 1px solid var(--borde); 
 .lb-equipo > summary { cursor: pointer; padding: 4px 0; }
 
 /* Seguimiento: avance, línea base y fechas reales */
-.lb-prog { position: absolute; top: 0; height: 100%; background: var(--ok); opacity: .85; border-radius: 4px; z-index: 1; pointer-events: none; }
+.lb-prog { position: absolute; top: 0; height: 100%; background: var(--ok); opacity: .85; border-radius: var(--radio); z-index: 1; pointer-events: none; }
 .lb-base { position: absolute; bottom: 0; height: 4px; background: var(--tenue); opacity: .9; z-index: 1; }
 .lb-real { position: absolute; top: 0; height: 4px; background: var(--ok); z-index: 3; outline: 1px solid var(--sup, #fff); }
 .cr-ref.lb-prog, .cr-ref.lb-base, .cr-ref.lb-real { position: static; display: inline-block; vertical-align: middle; width: 22px; margin: 0 3px 0 0; }
@@ -1024,7 +1038,7 @@ tr.lb-info td { background: var(--sup2); border-bottom: 1px solid var(--borde); 
 </head>
 <body class="lectura">
 <header class="cabecera"><div class="marca"><span class="logo" aria-hidden="true"></span>
-<div><p class="nombre">Planificador de libros</p><p>Archivo descargable de Galera · funciona sin internet</p></div><nav class="pestanas" aria-label="Secciones"><button type="button" class="tab" data-g="0" aria-expanded="false">Planificar<svg class="cv" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><button type="button" class="tab" data-g="1" aria-expanded="true" aria-current="page">Estudiar<svg class="cv" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><button type="button" class="tab" data-g="2" aria-expanded="false">Descubrir<svg class="cv" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><button type="button" class="tab" data-g="3" aria-expanded="false">Galera<svg class="cv" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></nav></div><div class="subw"><nav class="sub" aria-label="Planificar" hidden><a href="/#plan">Mi carrera</a><a href="/#horarios">Horarios</a><a href="/#calendario">Calendario</a></nav><nav class="sub" aria-label="Estudiar"><a href="/r/">Resúmenes</a><a href="/biblioteca/">Biblioteca</a><a href="/simuladores/">Simuladores</a><a href="/glosario/">Glosario</a></nav><nav class="sub" aria-label="Descubrir" hidden><a href="/eventos/">Eventos</a><a href="/directorio/">Directorio</a><a href="/#links">Links útiles</a></nav><nav class="sub" aria-label="Galera" hidden><a href="/#novedades">Novedades</a><a href="/sostener/">Cómo se sostiene</a><a href="/#config">Configuración</a><a href="/fuentes/">Fuentes</a><a href="/legal/">Legal</a></nav></div></header>
+<div><h1 class="nombre">Planificador de libros</h1><p>Archivo descargable de Galera · funciona sin internet</p></div><nav class="pestanas" aria-label="Secciones"><button type="button" class="tab" data-g="0" aria-expanded="false">Planificar<svg class="cv" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><button type="button" class="tab" data-g="1" aria-expanded="true" aria-current="page">Estudiar<svg class="cv" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><button type="button" class="tab" data-g="2" aria-expanded="false">Descubrir<svg class="cv" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><button type="button" class="tab" data-g="3" aria-expanded="false">Galera<svg class="cv" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></nav></div><div class="subw"><nav class="sub" aria-label="Planificar" hidden><a href="/#plan">Mi carrera</a><a href="/#horarios">Horarios</a><a href="/#calendario">Calendario</a></nav><nav class="sub" aria-label="Estudiar"><a href="/r/">Resúmenes</a><a href="/biblioteca/">Biblioteca</a><a href="/simuladores/">Simuladores</a><a href="/glosario/">Glosario</a></nav><nav class="sub" aria-label="Descubrir" hidden><a href="/eventos/">Eventos</a><a href="/directorio/">Directorio</a><a href="/#links">Links útiles</a></nav><nav class="sub" aria-label="Galera" hidden><a href="/#novedades">Novedades</a><a href="/sostener/">Cómo se sostiene</a><a href="/#config">Configuración</a><a href="/fuentes/">Fuentes</a><a href="/legal/">Legal</a></nav></div></header>
 <main id="main" class="lectura-main lb-main">
 <div id="planificador" class="lb-app"><p class="cargando">Cargando el planificador…</p></div>
 <noscript><p class="chico alerta">El planificador necesita JavaScript.</p></noscript>

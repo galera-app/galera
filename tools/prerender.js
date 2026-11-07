@@ -46,7 +46,11 @@ const espera = async () => { do { await new Promise(r => setImmediate(r)); await
   const shell = fs.readFileSync(path.join(raiz, 'index.html'), 'utf8');
   const scripts = [...shell.matchAll(/<script defer src="\/?([\w-]+\.js)[^"]*"><\/script>/g)].map(m => m[1]).filter(s => s !== 'analitica.js');
   // Un solo guion: así `const` y `function` se comparten igual que entre <script> del navegador, y arrancar() queda para el final.
-  for (const s of scripts) vm.runInContext(fs.readFileSync(path.join(raiz, s), 'utf8'), ctx, { filename: s });
+  // Los de carga perezosa (MARCO.carga, en marco.js) entran todos, antes de app.js: el prerender necesita cualquier pantalla.
+  const corre = s => vm.runInContext(fs.readFileSync(path.join(raiz, s), 'utf8'), ctx, { filename: s });
+  for (const s of scripts.filter(s => s !== 'app.js')) corre(s);
+  for (const g of Object.values(vm.runInContext('MARCO.carga', ctx))) for (const n of g) corre(n + '.js');
+  corre('app.js');
   await espera();
   const ev = c => vm.runInContext(c, ctx);
   const rutas = pedidas[0] && pedidas[0][0] === '@' ? fs.readFileSync(pedidas[0].slice(1), 'utf8').split(/\r?\n/).filter(Boolean) : pedidas;

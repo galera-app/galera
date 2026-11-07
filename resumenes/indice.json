@@ -1,6 +1,6 @@
 {
- "actualizado": "2026-10-29",
- "nota": "Apuntes propios de Fidel Chaves, hechos para estudiar. No reemplazan la bibliografía ni las clases. Pueden tener errores: si encontrás uno, avisame con 💡 Sugerencias.",
+ "actualizado": "2026-11-06",
+ "nota": "Apuntes propios de Fidel Chaves, hechos para estudiar. No reemplazan la bibliografía ni las clases. Pueden tener errores: si encontrás uno, avisame con «Contame qué falta».",
  "materias": [
   {
    "id": "0911",
@@ -11,162 +11,162 @@
     {
      "id": "e1-clases-de-palabras",
      "t": "Clases de palabras",
-     "clave": "E1",
+     "clave": "T01a",
      "min": 31,
      "preguntas": 18
     },
     {
      "id": "e2-saussure-lengua-habla-valor",
      "t": "Saussure: lingüística estructural (lengua y habla, valor)",
-     "clave": "E2",
+     "clave": "T01b",
      "min": 13,
      "preguntas": 15
     },
     {
      "id": "e3-coseriu-sistema-norma-habla",
      "t": "Coseriu: sistema y norma",
-     "clave": "E3",
+     "clave": "T02",
      "min": 10,
      "preguntas": 15
     },
     {
      "id": "e4-competencias-del-corrector",
      "t": "García Negroni y Estrada / Pérgola: las competencias del corrector",
-     "clave": "E4",
+     "clave": "T03",
      "min": 20,
      "preguntas": 15
     },
     {
      "id": "e5-cambio-linguistico-sexismo-voseo-neutro",
      "t": "El cambio lingüístico: sexismo en el lenguaje, voseo y variedad neutra",
-     "clave": "E5",
+     "clave": "T04",
      "min": 19,
      "preguntas": 16
     },
     {
      "id": "e6-prescripcion-descripcion-y-academias",
      "t": "Prescripción, descripción, estandarización y academias (parte A)",
-     "clave": "E6",
+     "clave": "T06a",
      "min": 29,
      "preguntas": 15
     },
     {
      "id": "e6b-academias-y-politica-linguistica-bonnin-lauria",
      "t": "Academias, instrumentos y política lingüística panhispánica (parte B)",
-     "clave": "E6b",
+     "clave": "T06b",
      "min": 28,
      "preguntas": 15
     },
     {
      "id": "e7-funciones-del-lenguaje-jakobson-kerbrat",
      "t": "Funciones del lenguaje (Jakobson). Críticas y ampliación del modelo (Kerbrat-Orecchioni)",
-     "clave": "E7",
+     "clave": "T07a",
      "min": 15,
      "preguntas": 15
     },
     {
      "id": "e8-normas-editoriales-apa-bolivar-tosi",
      "t": "Normas editoriales y de estilo institucional: APA, tradiciones discursivas y discurso ajeno en manuales",
-     "clave": "E8",
+     "clave": "T07b",
      "min": 32,
      "preguntas": 20
     },
     {
      "id": "e9-campo-semantico-y-lexico-escandell-geckeler",
      "t": "Teoría del campo semántico, estructuración del léxico y procesos cognitivos. Subjetivemas y géneros",
-     "clave": "E9",
+     "clave": "T05a",
      "min": 20,
      "preguntas": 15
     },
     {
      "id": "c-complementarios-resumenes",
      "t": "Textos complementarios (no obligatorios): resúmenes",
-     "clave": "C",
+     "clave": "TC",
      "min": 17,
      "preguntas": 15
     },
     {
      "id": "e10-tipos-de-correccion-y-oficio",
      "t": "Tipos de corrección, etapas del proceso editorial y lugar del corrector",
-     "clave": "E10",
+     "clave": "T08",
      "min": 30,
      "preguntas": 14
     },
     {
      "id": "e11a-enunciacion-correlacion-de-tiempos-aspecto-lexico",
      "t": "La enunciación y la correlación de tiempos",
-     "clave": "E11a",
+     "clave": "T10a",
      "min": 28,
      "preguntas": 15
     },
     {
      "id": "e11b-aspectualidad-y-estativos-ramirez-gelbes",
      "t": "Aspectualidad y estativos (Ramírez Gelbes)",
-     "clave": "E11b",
+     "clave": "T10b",
      "min": 33,
      "preguntas": 14
     },
     {
      "id": "e12-impersonalidad-y-usos-de-se",
      "t": "Impersonalidad, sujetos arbitrarios y usos de *se*",
-     "clave": "E12",
+     "clave": "T11",
      "min": 19,
      "preguntas": 14
     },
     {
      "id": "e13a-locutor-ethos-y-generos-editoriales-tosi",
      "t": "Construcción del locutor, destinatario y ethos autoral; géneros editoriales",
-     "clave": "E13a",
+     "clave": "T12a",
      "min": 18,
      "preguntas": 14
     },
     {
      "id": "e13b-formas-no-personales-garcia-negroni-ramirez-gelbes",
      "t": "Formas no personales del verbo: falsos infinitivos, gerundios y participios",
-     "clave": "E13b",
+     "clave": "T12b",
      "min": 17,
      "preguntas": 13
     },
     {
      "id": "e14-formacion-de-palabras-lang",
      "t": "Formación de palabras (Lang)",
-     "clave": "E14",
+     "clave": "T14",
      "min": 16,
      "preguntas": 14
     },
     {
      "id": "g-gerundios-usos-y-tipos",
      "t": "Gerundios: usos correctos e incorrectos, tipos de gerundio",
-     "clave": "G",
+     "clave": "T12c",
      "min": 12,
      "preguntas": 15
     },
     {
      "id": "m-tiempo-modo-condicionales-y-estructura-argumental",
      "t": "Tiempo, modo y aspecto: correlación, modalidad, aspectualidad, condicionales y estructura argumental",
-     "clave": "M",
+     "clave": "T10c",
      "min": 13,
      "preguntas": 15
     },
     {
      "id": "d-determinativos-subjetivemas-y-convenciones-editoriales",
      "t": "Determinativos, subjetivemas y convenciones editoriales",
-     "clave": "D",
+     "clave": "T05b",
      "min": 14,
      "preguntas": 15
     },
     {
      "id": "p-practicos-reglas-y-signos",
      "t": "Corrección de Estilo — Apunte único para el primer parcial (29/9/2026)",
-     "clave": "P",
+     "clave": "P00",
      "min": 33,
      "preguntas": 15
     },
     {
      "id": "s-soluciones-practicos",
-     "t": "Solucionario de las ejercitaciones (P01-P07 + modelo Tema 2)",
+     "t": "Solucionario de las ejercitaciones (P01-P10 + modelo Tema 2)",
      "clave": "S",
-     "min": 48,
+     "min": 47,
      "preguntas": 0
     },
     {
@@ -179,14 +179,14 @@
     {
      "id": "v-conjugacion-regular",
      "t": "Conjugación verbal regular (cuadro completo)",
-     "clave": "V",
+     "clave": "P09a",
      "min": 16,
      "preguntas": 7
     },
     {
      "id": "pv-verbos-reglas-y-trampas",
-     "t": "PV — Verbos: reglas, correlación de tiempos y trampas",
-     "clave": "PV",
+     "t": "Verbos: reglas, correlación de tiempos y trampas",
+     "clave": "P09b",
      "min": 10,
      "preguntas": 10
     },
@@ -207,14 +207,14 @@
     {
      "id": "z-simulacro",
      "t": "Simulacro de primer parcial",
-     "clave": "Z",
+     "clave": "Z1",
      "min": 6,
      "preguntas": 0
     },
     {
      "id": "z-simulacro-respuestas",
      "t": "Respuestas del simulacro",
-     "clave": "Z",
+     "clave": "Z1",
      "min": 6,
      "preguntas": 0
     },

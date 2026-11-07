@@ -334,9 +334,9 @@ main:has(>.gl-hor),main:has(>.gl-calx){max-width:1224px;padding:48px 16px 80px}
 .gl-doc>.gl-lateral,.gl-doc>.gl-riel{flex:1 1 240px;max-width:288px}
 .gl-doc>.gl-principal{flex:1 1 480px;max-width:704px;min-width:0}
 .gl-doc--izq{justify-content:flex-start}.gl-doc--izq>.gl-principal{max-width:720px}
-.gl-doc h2{margin:48px 0 0;font:600 28px/36px var(--gl-sans);letter-spacing:-.02em;color:var(--gl-ink);scroll-margin-top:24px}
+.gl-doc h2{margin:48px 0 0;font:600 28px/36px var(--gl-sans);letter-spacing:-.02em;color:var(--gl-ink);scroll-margin-top:96px}
 .gl-doc h2:first-child{margin-top:0}
-.gl-doc h3{margin:32px 0 0;font:600 20px/28px var(--gl-sans);color:var(--gl-ink);scroll-margin-top:24px}
+.gl-doc h3{margin:32px 0 0;font:600 20px/28px var(--gl-sans);color:var(--gl-ink);scroll-margin-top:96px}
 .gl-doc p{margin:12px 0 0;font:400 18px/30px var(--gl-serif);color:var(--gl-ink);max-width:66ch}
 .gl-doc p.gl-chico{font:400 14px/20px var(--gl-sans);color:var(--gl-t2)}
 .gl-doc p.gl-lead{font-size:20px;line-height:32px;margin-top:0}
@@ -432,7 +432,7 @@ a.gl-tapa:focus-visible{outline:2px solid var(--gl-ink);outline-offset:2px}
 .gl-libros a{display:inline-flex;align-items:center;min-height:24px;color:var(--gl-lnk)}
 .gl-apuntes{margin:24px 0 0;padding:0;list-style:none;border-bottom:1px solid var(--gl-line)}
 .gl-apuntes>li{display:grid;grid-template-columns:48px minmax(0,1fr) auto;gap:16px;align-items:center;min-height:56px;padding:8px 0;border-top:1px solid var(--gl-line)}
-.gl-apuntes .clave{font:600 13px/16px var(--gl-sans);letter-spacing:.1em;color:var(--gl-t3)}
+.gl-apuntes .clave{font:600 13px/16px var(--gl-sans);letter-spacing:.1em;color:var(--gl-t2)}
 .gl-apuntes a{display:flex;align-items:center;min-height:44px;color:var(--gl-ink);font:500 16px/24px var(--gl-sans);text-decoration:none}
 .gl-apuntes a:hover{color:var(--gl-lnk);text-decoration:underline}
 .gl-apuntes .meta{font:400 14px/20px var(--gl-sans);color:var(--gl-t2);text-align:right}
@@ -788,7 +788,7 @@ a.ib{text-decoration:none}
 
 /* v122: descargas de los resúmenes (PDF A4, A5, cuadernillo, EPUB) */
 .gl-desc .gl-btn{flex:none}
-.gl-desc-peso{font:400 14px/20px var(--gl-sans);opacity:.85;font-variant-numeric:tabular-nums}
+.gl-desc-peso{font:400 14px/20px var(--gl-sans);font-variant-numeric:tabular-nums}
 .gl-desc-mas{flex:1 0 100%}
 .gl-desc-mas>summary{cursor:pointer}
 .gl-desc-hint{margin:0;flex:1 0 100%}
@@ -960,3 +960,38 @@ a.gl-lec-mapa .gl-lec-av{margin-top:auto;padding-top:8px}
   .lp-esc{width:1123px;max-width:none;height:1587px!important;margin:0;overflow:hidden;box-shadow:none}
   .lp-hoja{transform:none!important}
 }
+/* v125 (C2): Mi carrera en celular, anillo y texto lado a lado como el tablero */
+@media (max-width:760px){
+.gl-carrera .gl-lateral{display:grid;grid-template-columns:112px minmax(0,1fr);column-gap:16px;align-items:center}
+.gl-carrera .gl-lateral>*{grid-column:1/-1}
+.gl-carrera .gl-lateral>.gl-anillo{grid-column:1;grid-row:1/3}
+.gl-carrera .gl-lateral>.gl-anillo svg{width:112px;height:112px}
+.gl-carrera .gl-lateral>.gl-anillo--l .cifra{font-size:32px}.gl-carrera .gl-lateral>.gl-anillo--l .cifra small{font-size:16px}
+.gl-carrera .gl-lateral>.gl-anillo+p{grid-column:2;grid-row:1;align-self:end;margin:0}
+.gl-carrera .gl-lateral>.gl-anillo+p+p{grid-column:2;grid-row:2;align-self:start;margin:4px 0 0}
+}
+@media (max-width:760px){
+.gl-carrera .gl-lateral>.gl-calc,.gl-carrera .gl-lateral>.gl-enlace{margin-top:8px}
+.gl-carrera .gl-datos{margin-top:16px;gap:4px}
+.gl-carrera .gl-lateral .gl-tarjeta{margin-top:16px;padding:16px;gap:8px}
+.gl-carrera .gl-prom-n{font-size:32px;line-height:36px}
+}
+
+/* v132: «Ver más resultados» del buscador */
+.gl-bus-mas{margin:16px 0 0}
+
+/* v133: campos de los modales de Horarios (Cargar un horario, Horario en que no puedo) */
+dialog .gl-campo select,dialog .gl-campo input{min-width:0;max-width:100%;box-sizing:border-box}
+dialog .gl-campo select{padding:0 8px;background:var(--gl-bg,transparent)}
+dialog .gl-campo input[type=time]{min-width:0}
+dialog .gl-campo select:focus-visible{outline:2px solid var(--gl-ink);outline-offset:2px}
+.gl-campos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 16px}
+.gl-campos--3{grid-template-columns:minmax(0,1.4fr) repeat(2,minmax(0,1fr))}
+dialog .botones .gl-btn,dialog .gl-btn{min-height:44px}
+@media (max-width:480px){.gl-campos{grid-template-columns:minmax(0,1fr)}.gl-campos--3{grid-template-columns:repeat(2,minmax(0,1fr))}.gl-campos--3>:first-child{grid-column:1/-1}}
+
+/* v138: tablas de los apuntes dentro de un contenedor que se desplaza y recibe foco (teclado) */
+.apunte .tabla-apunte{max-width:100%;margin:10px 0;overflow-x:auto}
+.apunte .tabla-apunte table{display:table;margin:0;max-width:none}
+.apunte .tabla-apunte:focus-visible{outline:2px solid var(--gl-lnk);outline-offset:2px}
+@media print{.apunte .tabla-apunte{overflow:visible;break-inside:avoid}.apunte .tabla-apunte table{width:100%}}

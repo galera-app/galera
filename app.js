@@ -29,11 +29,14 @@ const DONAR = { alias: 'fidel.mercado', cvu: '0000003100037663540198', cafecito:
 
 // ---------- utilidades ----------
 const $ = (s, el = document) => el.querySelector(s);
+// Capitulares gótica ambiguas (S, G, I, J: ver tools/controlar_capitulares.py): los títulos que empiezan así se dejan sin capitular.
+const sinIni = s => /^[¿¡«"\s]*[SGIJ]/.test(String(s == null ? '' : s)) ? ' gl-sin-inicial' : '';
 const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 // Para pasar un dato como argumento de un manejador en línea (onclick="f(${arg(x)})"): JSON + escape de HTML.
 // Así ningún texto (un nombre con apóstrofo, un archivo importado, un dato del PDF de la Facultad) puede romper ni inyectar código.
 // Un link que viene de un JSON solo se usa si es http(s): esc() no frena un javascript:.
-const urlSegura = u => /^https?:\/\//i.test(String(u == null ? '' : u)) ? esc(u) : '#';
+// (La barra se escribe como [/] para que el minificador del build, que no entiende // dentro de una regex, no la parta.)
+const urlSegura = u => /^https?:[/][/]/i.test(String(u == null ? '' : u)) ? esc(u) : '#';
 const arg = v => esc(JSON.stringify(String(v == null ? '' : v)));
 const iso = d => d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
 const hoy = () => iso(new Date());
@@ -52,7 +55,7 @@ function aviso(t) { const a = $('#aviso'); a.textContent = t; a.classList.add('o
 // retos (resueltos), aprob (materias ya registradas), ultimo (último apunte abierto).
 const juegoVacio = () => ({ on: true, rondas: {}, hitos: [], retos: {}, aprob: [], ultimo: '' });
 function estadoVacio() { return { v: 1, carrera: 'edicion', perfil: '', vioAyuda: false, materias: {}, horarios: {}, escandallo: null, comparador: null, papel: null, paginacion: null, cronograma: null, leidos: {}, lecturas: {}, descarga: '',
-  copia: '', modif: '', primera: '', visto: '', practica: {}, juego: juegoVacio(), arcade: Arcade.sanear(null) }; }
+  copia: '', modif: '', primera: '', visto: '', practica: {}, juego: juegoVacio(), arcade: typeof Arcade === 'undefined' ? null : Arcade.sanear(null) }; }
 // Todo lo que entra (de localStorage o de un archivo importado) se reconstruye campo por campo:
 // solo tipos, formatos y largos esperados. Lo que no encaja se descarta.
 const RE_ID = /^(?!__proto__$|constructor$|prototype$)[\w.-]{1,60}$/, RE_FECHA = /^\d{4}-\d\d-\d\d$/, RE_HORA = /^\d\d:\d\d$/;
@@ -111,8 +114,10 @@ function normalizar(e) {
       titulos: lista(C.titulos, 20).filter(t => t && typeof t === 'object').map(t => ({ t: txt(t.t, 40), pvp: cifra(t.pvp), desc: cifra(t.desc), inu: cifra(t.inu), cdu: cifra(t.cdu), q: cifra(t.q) })) };
   }
   // Cálculo de papel: cifras, y de las listas (formato, corte, paquete) solo valores conocidos.
+  // Papel, paginación, cronograma y arcade se saneán con su script, que se baja bajo demanda (cargarMods): si todavía no está, el dato pasa tal cual y se sanea apenas llega.
   const P0 = e.papel;
-  if (P0 && typeof P0 === 'object') {
+  if (P0 && typeof P0 === 'object' && typeof Papel === 'undefined') out.papel = JSON.parse(JSON.stringify(P0));
+  else if (P0 && typeof P0 === 'object') {
     const de = (v, L, def) => L.indexOf(v) >= 0 ? v : def;
     out.papel = { tipo: de(P0.tipo, ['interior', 'tapa'], 'interior'), formato: de(P0.formato, Papel.FORMATOS.map(f => f.id).concat('otro'), '58x92'),
       cortes: de(P0.cortes, ['1', '2', '4'], '1'), hojasPaquete: de(P0.hojasPaquete, ['500', '250', '150', '100'], '500') };
@@ -120,7 +125,8 @@ function normalizar(e) {
   }
   // Paginación: cifras, listas con valores conocidos y, por parte, tilde, páginas y dónde empieza.
   const G0 = e.paginacion;
-  if (G0 && typeof G0 === 'object') {
+  if (G0 && typeof G0 === 'object' && typeof Paginacion === 'undefined') out.paginacion = JSON.parse(JSON.stringify(G0));
+  else if (G0 && typeof G0 === 'object') {
     const de = (v, L, def) => L.indexOf(v) >= 0 ? v : def;
     out.paginacion = { multiplo: de(G0.multiplo, ['8', '16', '32', '64'], '16'), capRecto: de(G0.capRecto, ['0', '1'], '1'), capPortada: de(G0.capPortada, ['0', '1'], '0'), partes: {} };
     ['paginas', 'caracteres', 'porPagina', 'capitulos'].forEach(k => { out.paginacion[k] = cifra(G0[k]); });
@@ -129,7 +135,8 @@ function normalizar(e) {
   }
   // Cronograma: método, plazo, inicio y tareas saneadas (cronograma.js).
   const C0 = e.cronograma;
-  if (C0 && typeof C0 === 'object') out.cronograma = { metodo: ['gantt', 'pert', 'roy', 'comparar'].indexOf(C0.metodo) >= 0 ? C0.metodo : 'gantt', plazo: cifra(C0.plazo), inicio: /^\d{4}-\d{2}-\d{2}$/.test(C0.inicio) ? C0.inicio : '', tareas: Cronograma.sanear(C0.tareas) };
+  if (C0 && typeof C0 === 'object' && typeof Cronograma === 'undefined') out.cronograma = JSON.parse(JSON.stringify(C0));
+  else if (C0 && typeof C0 === 'object') out.cronograma = { metodo: ['gantt', 'pert', 'roy', 'comparar'].indexOf(C0.metodo) >= 0 ? C0.metodo : 'gantt', plazo: cifra(C0.plazo), inicio: /^\d{4}-\d{2}-\d{2}$/.test(C0.inicio) ? C0.inicio : '', tareas: Cronograma.sanear(C0.tareas) };
   // Elementos de juego: un interruptor, la última ronda de cada materia, el registro de lo hecho y los retos resueltos.
   const J = e.juego && typeof e.juego === 'object' ? e.juego : null;
   if (J) {
@@ -142,7 +149,7 @@ function normalizar(e) {
     out.juego.aprob = Array.isArray(J.aprob) ? lista(J.aprob, 200).filter(x => typeof x === 'string' && RE_ID.test(x)) : null;
     out.juego.ultimo = /^\w[\w.-]{0,59}\/\w[\w.-]{0,59}$/.test(J.ultimo || '') ? J.ultimo : '';
   } else out.juego.aprob = null;   // sin dato: la primera vez se anotan las ya aprobadas sin hacer ruido
-  out.arcade = Arcade.sanear(e.arcade);   // Arcade de Corrección de Estilo: iniciales y top local por tablero
+  out.arcade = typeof Arcade === 'undefined' ? (e.arcade && typeof e.arcade === 'object' ? JSON.parse(JSON.stringify(e.arcade)) : null) : Arcade.sanear(e.arcade);   // Arcade de Corrección de Estilo: iniciales y top local por tablero
   // Último formato de descarga elegido (solo uno de los conocidos).
   out.descarga = ['A4', 'A5', 'cuadernillo', 'epub'].indexOf(e.descarga) >= 0 ? e.descarga : '';
   // Apuntes leídos: "materia/apunte" → fecha.
@@ -207,6 +214,25 @@ async function conIdiomas(of) {
   try { const i = await json(m.archivo); of.comisiones = of.comisiones.concat(i.comisiones || []); of.idiomas = { fuente: i.fuente, actualizado: i.actualizado }; } catch (e) { /* sin idiomas */ }
   return of;
 }
+// Scripts bajo demanda (MARCO.carga lo escribe tools/armar.py). Cada pantalla pide los suyos; el resto de la gente no los baja.
+const modsDe = () => V.tab === 'horarios' || V.tab === 'calendario' ? 'horarios' : V.tab === 'glosario' ? 'grafo' : V.tab === 'arcade' ? 'arcade' : V.tab === 'simuladores' && V.sim ? 'sim' : '';
+const SANEAR = ['papel', 'paginacion', 'cronograma', 'arcade'];
+const modsCargados = {}, modsPromesa = {};
+const cargarScript = n => modsPromesa[n] || (modsPromesa[n] = new Promise((ok, mal) => {
+  const s = document.createElement('script'); s.src = `/${n}.js?v=${MARCO.huellas[n]}`;
+  s.async = false;   // dentro de un grupo se ejecutan en el orden en que se piden
+  s.onload = () => { modsCargados[n] = true; ok(); };
+  s.onerror = () => { delete modsPromesa[n]; mal(new Error('No se pudo bajar ' + n + '.js')); };
+  document.head.appendChild(s);
+}));
+function cargarGrupo(g) {
+  if (!g || !MARCO.carga[g]) return Promise.resolve();
+  return Promise.all(MARCO.carga[g].map(cargarScript)).then(() => {
+    // Lo guardado que pasó sin sanear mientras el script no estaba se sanea ahora.
+    const n = normalizar(E); SANEAR.forEach(k => { if (n[k] !== undefined && n[k] !== null) E[k] = n[k]; });
+  });
+}
+const modsListos = g => !g || typeof PRERENDER !== 'undefined' || MARCO.carga[g].every(n => modsCargados[n]);
 // Con datos guardados, el HTML pre-renderizado (estado vacío) se oculta hasta el primer render: nunca debe quedar oculto.
 const mostrarMain = () => document.documentElement.classList.remove('con-datos');
 setTimeout(mostrarMain, 6000);
@@ -234,6 +260,7 @@ async function arrancarVista() {
   if (DONAR.alias) $('#donar').innerHTML = `<button class="btn sec ch" type="button" onclick="ir('sostener')">Invitar un cafecito</button>`;
   try { await precargar(); } catch (e) { /* cada vista muestra su propio aviso */ }
   V.arrancando = false;
+  try { await cargarGrupo(modsDe()); } catch (e) { /* render() lo vuelve a intentar y avisa */ }
   if (V.tab === 'resumenes' && V.res.apunte) cargarApunte(); else render();
   if (location.hash && V.tab !== 'resumenes') { const el = document.getElementById(location.hash.slice(1)); if (el) el.scrollIntoView(); }
   if (V.tab === 'buscar' && !V.bus.q.trim()) focoTitulo();
@@ -314,6 +341,7 @@ window.addEventListener('click', e => {
   history.pushState(null, '', u.pathname + u.search + u.hash);
   desdeUrl(); abrirVista();
   focoTitulo();
+  if (u.hash && u.hash !== '#donar') requestAnimationFrame(() => { let el = null; try { el = document.getElementById(decodeURIComponent(u.hash.slice(1))); } catch (err) { /* hash mal escapado */ } if (el) el.scrollIntoView(); });   // un link a /pantalla/#seccion baja a la sección (la navegación sin recargar dejaba el scroll arriba)
 });
 // Lo que cada pantalla necesita antes de dibujarse: así la página que ya llegó armada no parpadea con un «Cargando…».
 function precargar() {
@@ -493,6 +521,13 @@ const conTitulo = html => /<h1[\s>]/.test(html) ? html : html.replace(/<h2\b([^>
 const arcadeInfo = () => D.simInfo && D.simInfo.arcade ? `<section class="gl-v gl-sim-info">${D.simInfo.arcade.html}</section>` : '';
 function render() {
   if (V.arrancando) return;
+  const g = modsDe();
+  if (!modsListos(g)) {
+    const tab = V.tab, sim = V.sim;
+    cargarGrupo(g).then(() => { if (V.tab === tab && V.sim === sim) render(); },
+      () => { if (V.tab === tab && V.sim === sim) $('#main').innerHTML = '<p class="vacio">No pude cargar esta herramienta. Puede ser la conexión. <button class="btn sec" type="button" onclick="render()">Reintentar</button></p>'; });
+    return;
+  }
   ajustarTab();
   dibujarPestanas();
   dibujarInferior();
@@ -1272,12 +1307,12 @@ function usarSugerida(i) { const h = hor(); V.sugeridas.combinaciones[i].comisio
 const opcionesDia = d => [1, 2, 3, 4, 5, 6].map(n => `<option value="${n}" ${n === d ? 'selected' : ''}>${Horarios.DIAS[n]}</option>`).join('');
 function horarioPropio() {
   const planOps = D.plan.materias.flatMap(m => m.opciones && m.opciones.some(o => o.codigo) ? m.opciones.filter(o => o.codigo).map(o => [o.id, o.nombre]) : [[m.id, m.nombre]]);
-  abrir(cab('Cargar un horario') + `<label class="c">Materia</label><select id="h-m" class="">${planOps.map(([id, n]) => `<option value="${id}">${esc(n)}</option>`).join('')}<option value="__otra">Otra (escribila abajo)</option></select>
-    <input id="h-otra" class="" maxlength="120" aria-label="Nombre de la materia, si no está en la lista" placeholder="Nombre, si no está en la lista">
-    <div class="gl-flex"><div class="gl-crece"><label class="c">Tipo</label><select id="h-t" class=""><option>Teórico</option><option>Práctico</option><option>Teórico-práctico</option></select></div>
-      <div class="gl-crece"><label class="c">Comisión</label><input id="h-c" maxlength="20" class="" placeholder="Ej.: 2"></div></div>
-    <div class="gl-flex"><div><label class="c">Día</label><select id="h-d">${opcionesDia(1)}</select></div><div><label class="c">Desde</label><input type="time" id="h-a" value="19:00" step="900"></div><div><label class="c">Hasta</label><input type="time" id="h-b" value="21:00" step="900"></div></div>
-    <div class="gl-flex"><div class="gl-crece"><label class="c">Docente (opcional)</label><input id="h-doc" maxlength="120" class=""></div><div class="gl-crece"><label class="c">Aula o modalidad (opcional)</label><input id="h-aula" maxlength="60" class=""></div></div>
+  abrir(cab('Cargar un horario') + `<div class="gl-campo"><label for="h-m">Materia</label><select id="h-m">${planOps.map(([id, n]) => `<option value="${id}">${esc(n)}</option>`).join('')}<option value="__otra">Otra (escribila abajo)</option></select></div>
+    <div class="gl-campo"><label for="h-otra">Nombre, si no está en la lista</label><input id="h-otra" maxlength="120" autocomplete="off"></div>
+    <div class="gl-campos"><div class="gl-campo"><label for="h-t">Tipo</label><select id="h-t"><option>Teórico</option><option>Práctico</option><option>Teórico-práctico</option></select></div>
+      <div class="gl-campo"><label for="h-c">Comisión</label><input id="h-c" maxlength="20" placeholder="Ej.: 2" autocomplete="off"></div></div>
+    <div class="gl-campos gl-campos--3"><div class="gl-campo"><label for="h-d">Día</label><select id="h-d">${opcionesDia(1)}</select></div><div class="gl-campo"><label for="h-a">Desde</label><input type="time" id="h-a" value="19:00" step="900"></div><div class="gl-campo"><label for="h-b">Hasta</label><input type="time" id="h-b" value="21:00" step="900"></div></div>
+    <div class="gl-campos"><div class="gl-campo"><label for="h-doc">Docente (opcional)</label><input id="h-doc" maxlength="120" autocomplete="off"></div><div class="gl-campo"><label for="h-aula">Aula o modalidad (opcional)</label><input id="h-aula" maxlength="60" autocomplete="off"></div></div>
     <p class="gl-chico">Si la comisión cursa dos días, cargala dos veces con el mismo número de comisión: se juntan solas.</p>
     <div class="botones"><button class="gl-btn" onclick="guardarPropio()">Agregar</button><button class="gl-btn gl-btn--ter" onclick="cerrar()">Cancelar</button></div>`);
 }
@@ -1298,9 +1333,9 @@ function guardarPropio() {
 function borrarPropia(id) { const h = hor(); h.propias = h.propias.filter(c => c.id !== id); Object.keys(h.elegidas).forEach(k => { if (h.elegidas[k] === id) delete h.elegidas[k]; }); guardar(); render(); }
 function bloqueo() {
   abrir(cab('Horario en que no puedo') + `<p class="gl-chico">Trabajo, otra cursada, lo que sea. Se tiene en cuenta al sugerir combinaciones.</p>
-    <label class="c">Qué es (opcional)</label><input id="b-t" maxlength="40" class="" placeholder="Trabajo">
-    <div class="gl-flex"><div><label class="c">Día</label><select id="b-d"><option value="0">Lunes a viernes</option>${opcionesDia(0)}</select></div>
-      <div><label class="c">Desde</label><input type="time" id="b-a" value="09:00" step="900"></div><div><label class="c">Hasta</label><input type="time" id="b-b" value="18:00" step="900"></div></div>
+    <div class="gl-campo"><label for="b-t">Qué es (opcional)</label><input id="b-t" maxlength="40" placeholder="Trabajo" autocomplete="off"></div>
+    <div class="gl-campos gl-campos--3"><div class="gl-campo"><label for="b-d">Día</label><select id="b-d"><option value="0">Lunes a viernes</option>${opcionesDia(0)}</select></div>
+      <div class="gl-campo"><label for="b-a">Desde</label><input type="time" id="b-a" value="09:00" step="900"></div><div class="gl-campo"><label for="b-b">Hasta</label><input type="time" id="b-b" value="18:00" step="900"></div></div>
     <div class="botones"><button class="gl-btn" onclick="guardarBloqueo()">Agregar</button><button class="gl-btn gl-btn--ter" onclick="cerrar()">Cancelar</button></div>`);
 }
 function guardarBloqueo() {
@@ -1372,7 +1407,7 @@ function calMes(todos, t, previo, turnos) {
   for (let i = 0; i < vacios; i++) celdas.push('<div class="gl-cal-cel vacia" aria-hidden="true"></div>');
   for (let d = 1; d <= dias; d++) {
     const k = mes + '-' + String(d).padStart(2, '0'), ev = porDia[k] || [];
-    celdas.push(`<div class="gl-cal-cel ${k === t ? 'hoy' : ''}"><b>${d}</b>${ev.slice(0, 3).map(e => `<span class="gl-cal-ev"><i class="gl-cal-pt ${calMarca(e.tipo)}" aria-hidden="true"></i><span>${esc(e.t)}</span></span>`).join('')}${ev.length > 3 ? `<span class="gl-chico">+${ev.length - 3} más</span>` : ''}</div>`);
+    celdas.push(`<div class="gl-cal-cel ${k === t ? 'hoy' : ''}" role="group" aria-label="${d} de ${MESES_LARGOS[m - 1].toLowerCase()}${k === t ? ', hoy' : ''}${ev.length ? ': ' + ev.length + (ev.length === 1 ? ' evento' : ' eventos') : ''}"><b>${d}</b>${ev.slice(0, 3).map(e => `<span class="gl-cal-ev"><i class="gl-cal-pt ${calMarca(e.tipo)}" aria-hidden="true"></i><span>${esc(e.t)}</span></span>`).join('')}${ev.length > 3 ? `<span class="gl-chico">+${ev.length - 3} más</span>` : ''}</div>`);
   }
   const prox = vis.filter(e => e.hasta >= t).slice(0, 5);
   const opc = (g, n) => { const on = ocultos.indexOf(g) < 0; return `<button type="button" class="gl-cal-opt ${on ? 'on' : ''}" aria-pressed="${on}" onclick="calAlternar(${arg(g)})"><i class="gl-cal-ck ${on ? 'on' : ''}" aria-hidden="true"></i>${n}</button>`; };
@@ -1385,7 +1420,7 @@ function calMes(todos, t, previo, turnos) {
       <div class="gl-rotulo">Referencias</div><div class="gl-cal-ref gl-chico">${ref('', 'Parcial o inscripción')}${ref('r', 'Mesa de examen')}${ref('s', 'Feriado')}</div></aside>
     <section class="gl-cal-mes" aria-label="Mes"><div class="gl-flex gl-cal-nav">${calVistaSeg()}<span class="gl-crece"></span>
       <button class="gl-btn gl-btn--sec gl-btn--c" type="button" aria-label="Mes anterior" onclick="calMover(-1)">‹</button><b class="gl-cal-tit">${MESES_LARGOS[m - 1]} ${y}</b><button class="gl-btn gl-btn--sec gl-btn--c" type="button" aria-label="Mes siguiente" onclick="calMover(1)">›</button>${mes !== t.slice(0, 7) ? '<button class="gl-btn gl-btn--ter gl-btn--c" type="button" onclick="V.calMes=null;render()">Hoy</button>' : ''}</div>
-      <div class="gl-cal-grilla" role="grid">${['L', 'M', 'X', 'J', 'V', 'S', 'D'].map(x => `<div class="gl-cal-dia" role="columnheader">${x}</div>`).join('')}${celdas.join('')}</div>
+      <div class="gl-cal-grilla">${['L', 'M', 'X', 'J', 'V', 'S', 'D'].map(x => `<div class="gl-cal-dia" aria-hidden="true">${x}</div>`).join('')}${celdas.join('')}</div>
       <p class="gl-chico">Los feriados salen de argentina.gob.ar.</p></section>
     <aside class="gl-cal-rail" aria-label="Lo que viene"><div class="gl-rotulo">Lo que viene</div>${prox.map(ag).join('') || '<p class="gl-chico">No queda nada con estos filtros.</p>'}
       <p><button class="gl-btn gl-btn--sec" onclick="V.calVista=${arg('lista')};render()">Ver todo en lista</button></p></aside></div>${turnos}`;
@@ -1498,7 +1533,10 @@ const slug = t => sinEtiquetas(t).normalize('NFD').replace(/[\u0300-\u036f]/g, '
 function seccionar(a) {
   if (a.secciones) return a;
   const usados = {}; a.secciones = [];
-  a.cuerpoConIds = a.cuerpo.replace(/<h([23])>([\s\S]*?)<\/h\1>/g, (_, n, html) => {
+  a.cuerpoConIds = a.cuerpo.replace(/<table>([\s\S]*?)<\/table>/g, (_, t) => {
+    const th = /<th[^>]*>([\s\S]*?)<\/th>/.exec(t), nom = th ? sinEtiquetas(th[1]) : '';
+    return `<div class="tabla-scroll tabla-apunte" tabindex="0" role="region" aria-label="${esc('Tabla' + (nom ? ': ' + nom : '') + ', se desplaza hacia los costados')}"><table>${t}</table></div>`;
+  }).replace(/<h([23])>([\s\S]*?)<\/h\1>/g, (_, n, html) => {
     let id = slug(html); if (usados[id]) id += '-' + (++usados[id]); else usados[id] = 1;
     const t = sinEtiquetas(html);
     a.secciones.push({ id, t, n: Number(n) });
@@ -1527,13 +1565,13 @@ function vResumenes() {
   const con = primero(R.materias).map((r, k) => {
     const preg = r.apuntes.reduce((t, a) => t + (a.preguntas || 0), 0), p = plan(r.id), [d, s] = PLACAS[k % 3];
     return `<li><div class="gl-tarjeta gl-mat"><div class="placa" style="--d:${d};--s:${s}"></div><div class="cuerpo"><span class="meta gl-num">${esc(p.sigla || r.id)}</span>
-      <h2 class="gl-t3 gl-inicial"><a class="cubre" href="/r/${esc(r.id)}/">${esc(r.nombre)}</a></h2><span class="crece"></span>
+      <h2 class="gl-t3 gl-inicial${sinIni(r.nombre)}"><a class="cubre" href="/r/${esc(r.id)}/">${esc(r.nombre)}</a></h2><span class="crece"></span>
       <span class="etiquetas"><span class="gl-chip">Apuntes</span>${preg ? '<span class="gl-chip">Simulacros</span>' : ''}${marca(r.id)}</span>
       <span class="meta gl-num">${r.apuntes.length} apuntes${preg ? ` · ${preg} preguntas` : ''}${r.pdfs.length ? ` · ${r.pdfs.length} PDF` : ''}</span>
       <span class="meta">Para ${esc(r.examen)} · ${r.anio}</span>${avanceLectura(r)}</div></div></li>`;
   }).join('');
   const sin = solo ? '' : primero(faltan).map(p => `<li><div class="gl-tarjeta gl-mat gl-mat--vacia"><div class="placa"></div><div class="cuerpo"><span class="meta gl-num">${esc(p.sigla || p.id)}</span>
-      <h2 class="gl-t3 gl-inicial">${esc(p.nombre)}</h2><span class="crece"></span><span class="etiquetas">${marca(p.id)}</span>
+      <h2 class="gl-t3 gl-inicial${sinIni(p.nombre)}">${esc(p.nombre)}</h2><span class="crece"></span><span class="etiquetas">${marca(p.id)}</span>
       <span class="meta">Todavía sin resúmenes</span><button class="gl-enlace" type="button" onclick="pedirResumen(${arg(p.id)})">Pedila o compartí tus apuntes</button></div></div></li>`).join('');
   // Los enlaces a cada apunte, a la vista para quien los busca y para los buscadores.
   const todos = R.materias.map(r => `<h3 class="gl-t3">${esc(r.nombre)}</h3><ul class="gl-apuntes">${r.apuntes.map(a => `<li><span class="clave">${esc(a.clave)}</span><a href="/r/${esc(r.id)}/${esc(a.id)}.html">${esc(a.t)}</a>
@@ -2434,7 +2472,7 @@ function vSimuladores() {
   cargarSimInfo();
   const est = id => (E.materias[id] || {}).estado, marca = id => est(id) === 'cursando' ? '<span class="gl-chip">la cursás</span>' : est(id) === 'regular' ? '<span class="gl-chip gl-chip--aviso">te falta el final</span>' : '';
   const tarjeta = x => { const p = plan(x.materia); return `<li><div class="gl-tarjeta gl-mat" style="min-height:208px"><div class="cuerpo"><span class="meta">${esc(p.sigla ? p.sigla + ' · ' : '')}${esc(p.nombre)}</span>
-      <h3 class="gl-t3 gl-inicial"><a class="cubre" href="/simuladores/${esc(x.id)}.html">${esc(x.t)}</a></h3><span class="meta">${esc(x.d)}</span><span class="crece"></span>
+      <h3 class="gl-t3 gl-inicial${sinIni(x.t)}"><a class="cubre" href="/simuladores/${esc(x.id)}.html">${esc(x.t)}</a></h3><span class="meta">${esc(x.d)}</span><span class="crece"></span>
       <span class="etiquetas">${marca(x.materia)}</span><span class="pie"><span>Calculadora</span></span></div></div></li>`; };
   const planif = `<li><div class="gl-tarjeta gl-mat" style="min-height:208px"><div class="cuerpo"><span class="meta">Fundamentos de la Producción de Impresos</span>
       <h3 class="gl-t3 gl-inicial"><a class="cubre" href="/libro/cronograma/">Planificador de libros</a></h3><span class="meta">Del original a la reimpresión: Gantt, PERT y Roy, con feriados, dependencias, varios títulos y responsables.</span><span class="crece"></span>
@@ -2840,7 +2878,7 @@ Object.assign(AYUDA, {
   pagMultiplo: 'El pliego de impresión define el múltiplo: el total de páginas se lleva al múltiplo de 8, 16, 32 o 64. Las que faltan son páginas en blanco al final (se pueden cubrir con paratextos o publicidad).',
   pagIni: 'Recto es la página impar (a la derecha al abrir el libro); verso, la par (a la izquierda). Si una parte debe abrir en recto y la página que sigue es par, queda una en blanco.'
 });
-Paginacion.PARTES.forEach(p => { AYUDA['pg' + p.id] = p.ay; });
+const ayudaPag = () => Paginacion.PARTES.forEach(p => { AYUDA['pg' + p.id] = p.ay; });   // se llama al abrir el simulador
 const pagS = () => { const g = (E.paginacion = E.paginacion || { partes: {} }); g.partes = g.partes || {}; return g; };
 const campoPag = (k, t, suf, ph, ayK) => `<div class="campo-esc"><label class="c" for="pag-${k}">${t} ${ayK === false ? '' : ay(ayK)}</label>${ayK === false ? '' : exp(ayK)}
   <div class="con-unidad"><input id="pag-${k}" maxlength="20" inputmode="numeric" autocomplete="off" value="${esc(pagS()[k] || '')}" placeholder="${esc(ph || '')}" oninput="setPag(${arg(k)},this.value)">${suf ? `<span>${suf}</span>` : ''}</div></div>`;
@@ -2848,6 +2886,7 @@ const pagTilde = (k, def) => pagS()[k] == null ? def : pagS()[k] === '1';
 const tildePag = (k, t, ayK, def) => `<label class="elige ${pagTilde(k, def) ? 'on' : ''}"><input type="checkbox" data-f="pag-${k}" ${pagTilde(k, def) ? 'checked' : ''} onchange="setPag(${arg(k)},this.checked?'1':'0',true)"><span>${t}</span></label> ${ay(ayK)}${exp(ayK)}`;
 
 function vPaginacion() {
+  ayudaPag();
   const g = pagS(), P = Paginacion;
   const fila = p => {
     const e = P.estado(g, p), x = g.partes[p.id] || {};
@@ -3049,13 +3088,16 @@ const busQ = () => V.bus.q.trim();
 // Cada archivo del índice es una página con su <h1> como título y su <main> como cuerpo.
 async function buscarPf(q) {
   const pf = await pagefind();
+  // En paralelo: la búsqueda general arranca ya (baja el índice del término una sola vez) mientras se resuelven el filtro y preguntas.json.
+  const buscaTodos = pf.search(q);
+  buscaTodos.catch(() => {});
   const datos = async (r, n) => Promise.all(r.results.slice(0, n).map(x => x.data()));
   // Respuestas rápidas: la página de Preguntas frecuentes (filtro tipo:pregunta) trae por encabezado las preguntas que coinciden (sub_results, con su ancla);
   // arriba van hasta dos con la respuesta completa de datos/preguntas.json. Otra página marcada con ese filtro va aparte, como resultado común.
   let rap = [], pregs = [];
   try {
-    const dp = await datos(await pf.search(q, { filters: { tipo: 'pregunta' } }), 3);
-    await cargarPreguntas();
+    const [fp] = await Promise.all([pf.search(q, { filters: { tipo: 'pregunta' } }), cargarPreguntas()]);
+    const dp = await datos(fp, 3);
     const lista = preguntasLista(), ids = [];
     // Orden de relevancia de Pagefind (suma de balanced_score de cada encabezado), no el de la página.
     const rel = [];
@@ -3072,8 +3114,19 @@ async function buscarPf(q) {
   const buscadas = normaBus(q), conNumeros = buscadas.some(p => /\d/.test(p));
   const parecida = (w, p) => { let i = 0; while (i < w.length && i < p.length && w[i] === p[i]) i++; return i >= Math.min(3, p.length); };
   const conSentido = x => { const m = [...String(x.excerpt).matchAll(/<mark>([^<]*)<\/mark>/g)].flatMap(k => normaBus(k[1])); return conNumeros || !m.length || m.some(w => buscadas.some(p => parecida(w, p))); };
-  const res = (await datos(await pf.search(q), 80)).filter(x => !vistas.has(x.url) && conSentido(x)).slice(0, 40);
-  return { res, rap, pregs };
+  // De a 10: solo se baja el fragmento de lo que se muestra; el resto queda detrás de «Ver más resultados».
+  const todos = (await buscaTodos).results;
+  const traer = async desde => {
+    const out = []; let i = desde;
+    while (out.length < 10 && i < todos.length) {
+      const lote = await Promise.all(todos.slice(i, i + 10).map(x => x.data()));
+      i += 10;
+      lote.forEach(x => { if (!vistas.has(x.url) && conSentido(x)) { vistas.add(x.url); out.push(x); } });
+    }
+    return { out, sig: i, hay: i < todos.length };
+  };
+  const p = await traer(0);
+  return { res: p.out, rap, pregs, traer, sig: p.sig, hay: p.hay, cargando: false };
 }
 function lanzarBusqueda() {
   const B = V.bus, q = busQ();
@@ -3091,8 +3144,51 @@ function lanzarBusqueda() {
   }).catch(e => { if (B.pide === q) Object.assign(B, { hecha: q, error: true, sinIndice: !!(e && e.sinIndice), res: [], rap: [], pregs: [] }); })
     .finally(() => { if (V.tab === 'buscar' && B.pide === q) pintarBusqueda(); });
 }
+// «Ver más resultados»: baja los próximos fragmentos. El botón se reemplaza al repintar, así que el foco pasa al primer resultado nuevo (no salta al contenedor).
+async function verMasBus() {
+  const B = V.bus, q = busQ();
+  if (!B.hay || B.cargando || !B.traer) return;
+  const traer = B.traer;
+  B.cargando = true;
+  const antes = B.res.length;
+  const btn = document.getElementById('bus-mas'); if (btn) { btn.disabled = true; btn.textContent = 'Cargando…'; }
+  try {
+    const r = await B.traer(B.sig);
+    if (B.pide !== q || B.traer !== traer) return;   // la búsqueda cambió (aunque sea a la misma consulta) mientras cargaba: no mezclar
+    B.res.push(...r.out); B.sig = r.sig; B.hay = r.hay;
+  } catch (e) { /* queda el botón para reintentar */ }
+  B.cargando = false;
+  if (V.tab !== 'buscar') return;
+  agregarBusqueda(antes);
+  const nuevo = document.querySelectorAll('#bus-res .gl-bus-res:not(.gl-bus-rap) h2 a')[antes];
+  if (nuevo) nuevo.focus({ preventScroll: false });
+  else { const b = document.getElementById('bus-mas'); if (b) b.focus({ preventScroll: true }); }
+}
+// Calienta Pagefind (JS, worker, wasm y meta) sin buscar nada. Idempotente; los errores se ignoran (ya los muestra la búsqueda real).
+function precargarBuscador() {
+  if (typeof PRERENDER !== 'undefined') return;
+  precargarBuscador.p = precargarBuscador.p || pagefind().then(m => m.init && m.init()).catch(() => { precargarBuscador.p = null; });
+}
+window.precargarBuscador = precargarBuscador;
+// «Ver más»: suma solo los resultados nuevos a la lista (sin repintar los anteriores) y actualiza el botón y el estado.
+function agregarBusqueda(antes) {
+  const B = V.bus, lista = document.getElementById('bus-lista');
+  if (!lista) return pintarBusqueda();
+  lista.insertAdjacentHTML('beforeend', B.res.slice(antes).map(x => itemBus(x)).join(''));
+  const mas = document.querySelector('#bus-res .gl-bus-mas');
+  if (mas && !B.hay) mas.remove();
+  else if (mas) { const b = mas.querySelector('button'); if (b) { b.disabled = false; b.textContent = 'Ver más resultados'; } }
+  estadoBusqueda();
+}
+// Estado corto y aparte de la lista (role=status): se anuncia sin releer los resultados.
+const textoEstadoBus = () => {
+  const B = V.bus, q = busQ(), n = B.res.length + B.rap.length + B.pregs.length;
+  return q.length < 2 || B.hecha !== q || B.error || !n ? '' : (B.hay ? 'Mostrando ' + n + ' resultados' : n === 1 ? '1 resultado' : n + ' resultados') + ' para «' + q + '».';
+};
+function estadoBusqueda() { const e = document.getElementById('bus-estado'); if (e) e.textContent = textoEstadoBus(); }
 function pintarBusqueda() {
   const el = $('#bus-res'); if (!el) return;
+  estadoBusqueda();
   const dentro = el.contains(document.activeElement);   // si el foco estaba en lo que se repinta (p. ej. «Probar de nuevo»), pasa al contenedor
   el.innerHTML = cuerpoBusqueda();
   if (dentro) el.focus({ preventScroll: true });
@@ -3108,11 +3204,10 @@ function cuerpoBusqueda() {
   if (B.error && B.sinIndice) return '<p class="gl-vacio">El buscador todavía no está disponible en esta versión del sitio. Mientras tanto, podés mirar el <a href="/glosario/">Glosario</a> o los <a href="/r/">Resúmenes</a>.</p>';
   if (B.error) return '<p class="gl-vacio">No pude cargar el buscador. Puede ser la conexión. <button class="gl-btn gl-btn--sec" type="button" onclick="V.bus.pide=null;lanzarBusqueda();pintarBusqueda()">Probar de nuevo</button></p>';
   if (!B.res.length && !B.rap.length && !B.pregs.length) return `<div class="gl-vacio"><p>No encontré nada para «${esc(q)}». Probá con otra palabra o con menos palabras; las tildes no importan.</p><p>También podés mirar el <a href="/glosario/">Glosario</a>, <a href="/preguntas/#no-esta">dejar tu pregunta</a> o <button class="gl-enlace" type="button" onclick="idea()">contarme qué falta</button>.</p></div>`;
-  const n = B.res.length + B.rap.length + B.pregs.length;
-  return `<p class="gl-baja">${n === 1 ? '1 resultado' : n + ' resultados'} para «${esc(q)}».</p>`
-    + (B.pregs.length ? `<h2 class="gl-bus-h">Respuesta rápida</h2><ul class="gl-lista gl-bus-lista">${B.pregs.map(p => `<li class="gl-tarjeta gl-bus-res gl-bus-rap"><h3 class="gl-bus-p">${esc(p.pregunta)}</h3><div class="gl-faq-r">${respuestaHtml(p.respuesta)}</div><a class="gl-enlace" href="/preguntas/#${esc(p.id)}">Ver en Preguntas frecuentes</a></li>`).join('')}</ul>` : '')
+  return (B.pregs.length ? `<h2 class="gl-bus-h">Respuesta rápida</h2><ul class="gl-lista gl-bus-lista">${B.pregs.map(p => `<li class="gl-tarjeta gl-bus-res gl-bus-rap"><h3 class="gl-bus-p">${esc(p.pregunta)}</h3><div class="gl-faq-r">${respuestaHtml(p.respuesta)}</div><a class="gl-enlace" href="/preguntas/#${esc(p.id)}">Ver en Preguntas frecuentes</a></li>`).join('')}</ul>` : '')
     + (B.rap.length ? `<h2 class="gl-bus-h">Otra respuesta rápida</h2><ul class="gl-lista gl-bus-lista">${B.rap.map(x => itemBus(x, true)).join('')}</ul>` : '')
-    + (B.res.length ? `<ul class="gl-lista gl-bus-lista">${B.res.map(x => itemBus(x)).join('')}</ul>` : '');
+    + (B.res.length ? `<ul id="bus-lista" class="gl-lista gl-bus-lista">${B.res.map(x => itemBus(x)).join('')}</ul>` : '')
+    + (B.hay ? `<p class="gl-bus-mas"><button id="bus-mas" class="gl-btn gl-btn--sec" type="button" onclick="verMasBus()">Ver más resultados</button></p>` : '');
 }
 function buscarEnviar(e) {
   e.preventDefault();
@@ -3127,10 +3222,11 @@ function buscarCon(v) {
   lanzarBusqueda(); pintarBusqueda();
 }
 function vBuscar() {
-  if (typeof PRERENDER === 'undefined' && busQ().length >= 2) lanzarBusqueda();
+  if (typeof PRERENDER === 'undefined') { if (busQ().length >= 2) lanzarBusqueda(); else precargarBuscador(); }
   return `<div class="gl-v gl-buscar"><div class="gl-cab"><h2 class="gl-display">Buscar en Galera</h2></div>
     <form class="gl-barra gl-bus-form" role="search" onsubmit="buscarEnviar(event)"><label class="gl-busca" for="bus-q"><span class="gl-rotulo">Qué querés encontrar</span><input id="bus-q" name="q" maxlength="100" type="search" enterkeyhint="search" autocomplete="off" placeholder="correlativas, final, gramaje…" value="${esc(V.bus.q)}" oninput="clearTimeout(buscarEnviar.t);const v=this.value;buscarEnviar.t=setTimeout(()=>buscarCon(v),350)"></label><button class="gl-btn" type="submit">Buscar</button></form>
-    <div id="bus-res" tabindex="-1" aria-live="polite" aria-atomic="true">${cuerpoBusqueda()}</div></div>`;
+    <p id="bus-estado" class="gl-baja" role="status">${esc(textoEstadoBus())}</p>
+    <div id="bus-res" tabindex="-1">${cuerpoBusqueda()}</div></div>`;
 }
 // ======================================================================
 // PREGUNTAS FRECUENTES: datos/preguntas.json (temas > preguntas con id, pregunta, variantes, respuesta y, si quien la respondió quiso, firma;
@@ -3222,7 +3318,7 @@ async function mandarRespuesta(e, id) {
   const mal = m => { st.textContent = m; st.className = 'gl-baja gl-bad'; };
   // Lo mismo que controla el servidor, dicho antes para que nadie pierda lo que escribió.
   if (texto.length < 20) return mal('Escribí un poco más: la respuesta necesita al menos 20 caracteres.');
-  if (texto.length > 2000) return mal('Es muy larga: máximo 2000 caracteres.');
+  if (texto.length > 2000) return mal('Es muy larga: máximo 2.000 caracteres.');
   if (/<\s*[a-z\/!?]|\[(url|link|img)[=\]]|(javascript|data|vbscript|file):/i.test(texto)) return mal('Escribila como texto común, sin etiquetas ni código.');
   if ((texto.match(/https?:\/\//gi) || []).length > 2) return mal('Dejá dos links como máximo.');
   if (firma && !RE_FIRMA.test(firma)) return mal('El nombre solo puede llevar letras, espacios, puntos, apóstrofos y guiones (hasta 60).');
@@ -3498,7 +3594,7 @@ function vGlosario() {
   if (!G.terminos.length) return '<div class="gl-v"><p class="gl-vacio" role="alert">No se pudo cargar el glosario. <button class="gl-btn gl-btn--sec" type="button" onclick="location.reload()">Probar de nuevo</button></p></div>';
   const mats = [{ id: '', corto: 'Todas' }].concat(G.materias), grafo = V.glo.vista === 'grafo';
   const filtro = `<div class="gl-barra gl-barra--b"><div class="gl-filtros" role="group" aria-label="Filtrar por materia">${mats.map(m => `<button type="button" aria-pressed="${V.glo.mat === m.id}" data-f="glo-${esc(m.id)}" title="${esc(m.nombre || '')}" onclick="V.glo.mat=${arg(m.id)};render()">${esc(m.corto)}</button>`).join('')}</div></div>`;
-  return `<div class="gl-v gl-glo"><div class="gl-cab"><h1 class="gl-display">Glosario de edición</h1><span class="gl-crece"></span>
+  return `<div class="gl-v gl-glo"><div class="gl-cab"><h1 class="gl-display sin-cap">Glosario de edición</h1><span class="gl-crece"></span>
       ${grafo ? `<button class="gl-btn gl-btn--sec" type="button" data-f="glo-vista-lista" onclick="gloVista('lista')">Volver a la lista</button>` : `<button class="gl-btn gl-btn--sec" type="button" data-f="glo-vista-grafo" onclick="gloVista('grafo')">Ver el grafo de conceptos</button>`}</div>
     <p class="gl-baja">Los términos clave de cada materia, para buscar rápido. Si una palabra se usa en más de una materia, aparece con la etiqueta de cada una; si significa algo distinto en cada una, se separan las acepciones. Armado a partir de mis apuntes.</p>
     <div class="gl-glo-pag"><aside class="gl-glo-lado" aria-label="Índice">
@@ -3604,7 +3700,7 @@ function sugerirActor() {
 // LINKS ÚTILES y SUGERENCIAS
 // =====================================================================
 // CÓMO SE SOSTIENE: horas de trabajo, costos, cómo ayudar y el plan público.
-// Datos: datos/sostener.json (lo cuenta .github/scripts/cursada_sostener.py cada lunes desde los commits), datos/sostener-costos.json (a mano)
+// Datos: datos/sostener.json (lo cuenta .github/scripts/sostener_horas.py cada lunes desde los commits), datos/sostener-costos.json (a mano)
 // y datos/plan.json (el plan, agrupado por etapa). Nada de esto se escribe acá: esta pantalla solo lo dibuja.
 // =====================================================================
 async function cargarSostener() {
@@ -3817,7 +3913,7 @@ const postBuzon = (texto, contacto, web, ms) => postBuzonDatos({ texto, contacto
 async function mandarIdea() {
   const texto = val('i-t'), contacto = val('i-c');
   if (texto.length < 5) return aviso('Escribí tu sugerencia');
-  if (texto.length > 2000) return aviso('Es muy larga: máximo 2000 caracteres');
+  if (texto.length > 2000) return aviso('Es muy larga: máximo 2.000 caracteres');
   if (contacto && !mailValido(contacto)) return aviso('Revisá el mail: parece que tiene un error (o dejalo vacío)');
   const boton = $('#i-b');
   boton.disabled = true; boton.textContent = 'Enviando…';

@@ -2,6 +2,98 @@
  "nota": "Lo que va en el mail de los lunes (Novedades.gs) y en la pestaña Novedades. v: número de versión (obligatorio; ver CHANGELOG.md). tipo: herramientas | resumenes | fechas. perfil: estudiante (por defecto) | profesional | todos; el mail y la pestaña Novedades lo usan para mostrar a cada perfil lo suyo. materias: ids del plan (vacío = para todas). url: solo links a galera.com.ar/. Sumar una entrada por cada cosa que se publica; el script manda solo lo posterior al último envío de cada persona, así que las viejas no se reenvían.",
  "novedades": [
   {
+   "v": 141,
+   "fecha": "2026-11-07",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "titulo": "Directorio sin enlaces muertos",
+   "texto": "Sacamos del Directorio los enlaces a sitios que ya no existen o que cambiaron de dueño, y actualizamos los de negocios que se mudaron. Las fichas siguen: solo se quitó el enlace.",
+   "url": "https://galera.com.ar/directorio/"
+  },
+  {
+   "v": 138,
+   "fecha": "2026-11-06",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "titulo": "Mejoras de accesibilidad",
+   "texto": "Se corrigió el contraste de los números de los apuntes y del peso en los botones de descarga, las tablas de los apuntes se pueden recorrer con el teclado y el calendario ahora se lee bien con lector de pantalla.",
+   "url": "https://galera.com.ar/"
+  },
+  {
+   "v": 137,
+   "fecha": "2026-11-06",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "titulo": "Enlaces al día",
+   "texto": "Revisamos los enlaces del sitio: las leyes del simulador y de Derechos Editoriales ahora abren en Argentina.gob.ar (InfoLEG ya no responde) y más de doscientos enlaces del Directorio y de las bibliografías pasan directo a la dirección segura.",
+   "url": "https://galera.com.ar/"
+  },
+  {
+   "v": 136,
+   "fecha": "2026-11-06",
+   "tipo": "resumenes",
+   "perfil": "estudiante",
+   "materias": [
+    "0911"
+   ],
+   "titulo": "Apuntes al día y avisos de borrador nuevos",
+   "texto": "Los apuntes de Corrección de Estilo ahora nombran los ejes con los códigos nuevos (T01a, T10a, P09b…) y el solucionario de las prácticas vuelve a mostrar todas sus partes. Los apuntes con aviso de borrador lo muestran sin emojis y te invitan a avisar con «Contame qué falta».",
+   "url": "https://galera.com.ar/r/0911/"
+  },
+  {
+   "v": 134,
+   "fecha": "2026-11-06",
+   "tipo": "herramientas",
+   "perfil": "estudiante",
+   "materias": [],
+   "titulo": "Seminario PST: desde qué ingreso",
+   "texto": "Aclaramos que el seminario de grado tiene que ser un seminario PST solo si ingresaste desde 2022, como indica el Departamento de Edición.",
+   "url": "https://galera.com.ar/carrera/"
+  },
+  {
+   "v": 133,
+   "fecha": "2026-11-06",
+   "tipo": "herramientas",
+   "perfil": "estudiante",
+   "materias": [],
+   "titulo": "Formularios de Horarios más claros",
+   "texto": "«Cargar un horario» y «Horario en que no puedo» ahora tienen cada campo con su etiqueta visible, del tamaño justo para tocar en el celular y sin textos cortados. Funcionan igual que antes.",
+   "url": "https://galera.com.ar/horarios/"
+  },
+  {
+   "v": 132,
+   "fecha": "2026-11-06",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "titulo": "El buscador responde más rápido",
+   "texto": "Buscar en Galera tarda menos: ahora se cargan los primeros diez resultados y el resto aparece con «Ver más resultados». El buscador también se prepara antes de que empieces a escribir.",
+   "url": "https://galera.com.ar/buscar/"
+  },
+  {
+   "v": 131,
+   "fecha": "2026-11-06",
+   "tipo": "herramientas",
+   "perfil": "profesional",
+   "materias": [],
+   "titulo": "Planificador de libros: más cómodo en el celular",
+   "texto": "El archivo descargable del planificador de libros ahora tiene un título propio para los lectores de pantalla, esquinas iguales a las del resto de Galera y botones, casillas y enlaces de 44 píxeles en el celular, para tocarlos sin errar.",
+   "url": "https://galera.com.ar/libro/cronograma/"
+  },
+  {
+   "v": 130,
+   "fecha": "2026-11-06",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "titulo": "Arreglos de texto en preguntas frecuentes",
+   "texto": "Arreglos de texto en las preguntas frecuentes y en el aviso de respuestas demasiado largas.",
+   "url": "https://galera.com.ar/preguntas/"
+  },
+  {
    "v": 129,
    "fecha": "2026-11-06",
    "tipo": "herramientas",
@@ -38,6 +130,15 @@
    "materias": [],
    "titulo": "Textos revisados",
    "texto": "Repasé los textos de las últimas versiones (preguntas frecuentes, Prensa y más) y corregí unos detalles de forma."
+  },
+  {
+   "v": 125,
+   "fecha": "2026-11-05",
+   "tipo": "herramientas",
+   "perfil": "estudiante",
+   "materias": [],
+   "titulo": "Mi carrera, más compacta en el celular",
+   "texto": "En el celular, el anillo de avance y el resumen de cuántos requisitos llevás ahora van lado a lado, así que ves antes tu promedio y lo que te falta."
   },
   {
    "v": 124,
@@ -490,20 +591,20 @@
    "texto": "En la portada, el listado de todo el sitio por grupos pasa a llamarse «Índice» en lugar de «Sumario»."
   },
   {
-   "v": 76,
-   "fecha": "2026-10-27",
-   "tipo": "herramientas",
-   "perfil": "todos",
-   "titulo": "Avisos de error más claros",
-   "texto": "Los avisos de fecha y horario dicen qué falla, el botón de reintento dice «Probar de nuevo» y las comillas son las latinas «así»."
-  },
-  {
    "v": 77,
    "fecha": "2026-10-27",
    "tipo": "herramientas",
    "perfil": "todos",
    "titulo": "Una portada para empezar",
    "texto": "Cursada abre ahora en un inicio con todo el sitio ordenado por grupos. Elegís si sos estudiante o profesional del libro y el índice se ordena según lo que hacés; el perfil se cambia cuando quieras."
+  },
+  {
+   "v": 76,
+   "fecha": "2026-10-27",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "titulo": "Avisos de error más claros",
+   "texto": "Los avisos de fecha y horario dicen qué falla, el botón de reintento dice «Probar de nuevo» y las comillas son las latinas «así»."
   },
   {
    "v": 75,
