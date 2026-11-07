@@ -460,7 +460,6 @@ ul.biblio li { margin: 3px 0; overflow-wrap: anywhere; }
 .pag-partes td { padding: 5px 6px; }
 .pag-partes tr.apagada td { opacity: .55; }
 .pag-partes tr.grupo-pag td { background: var(--sup2); font-size: var(--t-sm); color: var(--texto2); padding: 4px 8px; }
-.pag-partes input[type=checkbox] { min-height: 0; width: 18px; height: 18px; }
 .pag-partes select { max-width: 150px; }
 .pag-dobles { display: flex; flex-wrap: wrap; gap: 5px 4px; }
 .pag-dbl { display: inline-flex; border: 1px solid var(--borde); border-radius: var(--radio); overflow: hidden; }
@@ -484,8 +483,6 @@ ul.biblio li { margin: 3px 0; overflow-wrap: anywhere; }
   .pag-partes td:nth-child(4) { grid-column: 3; grid-row: 2; }
   .pag-partes select, .pag-partes input.nota { width: 100%; max-width: none; }
 }
-.tabla-scroll .pag-partes input[type=checkbox] { min-width: 0; width: 20px; height: 20px; }
-.tabla-scroll .pag-partes td:first-child input[type=checkbox] { min-width: 0; width: 20px; height: 20px; padding: 0; }
 /* Elementos de juego: informativos y sobrios (sin animaciones). */
 .cierre-ronda { margin: 12px 0 0; padding: 10px 12px; border-left: 3px solid var(--borde); background: var(--sup2); border-radius: 0 var(--radio) var(--radio) 0; }
 details.reto > summary { cursor: pointer; }
@@ -535,7 +532,7 @@ svg.eco.zoom { touch-action: none; cursor: grab; }
 .lista-mas i { width: 9px; height: 9px; border-right: 2px solid var(--tenue); border-top: 2px solid var(--tenue); transform: rotate(45deg); flex: none; }
 @media (pointer: coarse) {
   .btn.ch { min-height: 44px; padding: 8px 12px; }
-  main select, main input:not([type=checkbox]):not([type=radio]) { min-height: 44px; }
+  main select, main input:not([type=checkbox]):not([type=radio]):not([type=file]):not([type=color]):not([type=range]):not([type=hidden]) { min-height: 44px; }
   /* v45: objetivos táctiles de 44 px sin mover el diseño: el área de toque se extiende con un pseudo-elemento invisible. */
   .btn { min-height: 44px; }
   .enlace, .ayuda-q, .tabla .nombre { position: relative; }
@@ -550,7 +547,7 @@ svg.eco.zoom { touch-action: none; cursor: grab; }
 @media (max-width: 720px) {
   .btn, .btn.ch { min-height: 44px; }
   .btn.ch { padding: 8px 12px; }
-  main select, main input:not([type=checkbox]):not([type=radio]) { min-height: 44px; }
+  main select, main input:not([type=checkbox]):not([type=radio]):not([type=file]):not([type=color]):not([type=range]):not([type=hidden]) { min-height: 44px; }
   summary { min-height: 44px; box-sizing: border-box; padding-block: 10px; }
   .seg button, .tabla input.nota { min-height: 44px; }
   .enlace, .lb-fase-bt { min-height: 44px; display: inline-flex; align-items: center; }
