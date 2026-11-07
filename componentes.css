@@ -976,3 +976,6 @@ a.gl-lec-mapa .gl-lec-av{margin-top:auto;padding-top:8px}
 .gl-carrera .gl-lateral .gl-tarjeta{margin-top:16px;padding:16px;gap:8px}
 .gl-carrera .gl-prom-n{font-size:32px;line-height:36px}
 }
+
+/* v132: «Ver más resultados» del buscador */
+.gl-bus-mas{margin:16px 0 0}
