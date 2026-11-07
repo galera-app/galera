@@ -36,6 +36,9 @@ ACTUAL = ' aria-current="page"'
 NO_PUBLICAR = {".git", ".github", "tools", "marco", "dist", "__pycache__"}
 # Buscador: Pagefind indexa el <main> de cada página armada (y de ninguna más: ni /buscar/, ni la 404, ni las noindex).
 SIN_INDICE = {"404.html", "buscar/index.html"}
+# Chrome de pantalla que no es contenido (botones, migas, bloque de descarga, «¿Terminaste de leerlo?», vecinos, textos solo de impresión).
+# Se repite en cada apunte y engorda fragmentos e índice sin sumar nada a la búsqueda.
+EXCLUIR_INDICE = ".no-imprimir, .solo-imprimir, .indice-apunte"
 # La versión que usan el CI, `Publicar` y el comando de build de Cloudflare (README): que sea la misma en todos lados.
 PAGEFIND_VERSION = "1.6.0"
 MAIN = re.compile(r'<main id="main"')
@@ -252,7 +255,7 @@ def indexar(salida):
         print(f"AVISO: no encontre Pagefind; el sitio queda sin buscador. Instalalo con: pip install \"pagefind[extended]=={PAGEFIND_VERSION}\"")
         return not exigir
     try:
-        r = subprocess.run(c + ["--site", str(salida), "--force-language", "es", "--quiet"], timeout=600)
+        r = subprocess.run(c + ["--site", str(salida), "--force-language", "es", "--exclude-selectors", EXCLUIR_INDICE, "--quiet"], timeout=600)
         ok = r.returncode == 0 and (salida / "pagefind" / "pagefind.js").is_file()
         # La interfaz propia está en app.js (vBuscar): los componentes de interfaz de Pagefind no se publican.
         for f in (salida / "pagefind").glob("pagefind-*ui*"):
