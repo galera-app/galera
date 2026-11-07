@@ -43,6 +43,8 @@ jobs:
         env:
           GALERA_EXIGIR_BUSCADOR: "1"
         run: python tools/armar.py --salida dist
+      - name: Capitulares góticas ambiguas (S, G, I, J) sin sin-cap
+        run: python tools/controlar_capitulares.py dist
       - name: Las pantallas clave responden
         run: |
           python -m http.server 8000 --directory dist >/dev/null 2>&1 &

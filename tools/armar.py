@@ -8,7 +8,7 @@ Uso: python tools/armar.py [--salida dist]   arma el sitio publicable (stdlib, s
      python tools/armar.py --servir 8772      lo arma en dist/ y lo sirve en http://127.0.0.1:8772 (para mirar cambios)
      python tools/armar.py --marcar          pasa a marcas las páginas que traen el marco escrito (salida de los generadores)
      python tools/armar.py --salida dist --sin-indice   igual, sin armar el índice del buscador (Pagefind)
-     python tools/armar.py --comprobar        no escribe; sale con 1 si hay páginas con el marco escrito o si el armado falla (lo corre el CI)
+     python tools/armar.py --comprobar        no escribe; sale con 1 si hay páginas con el marco escrito, datos inválidos (preguntas, lecturas) o si el armado falla (lo corre el CI)
 No toca prueba/. libro/planificador-de-libros.html es un archivo descargable: lleva el pie, pero conserva su cabecera y su <head>."""
 import hashlib
 import json
@@ -384,14 +384,14 @@ def main():
             print(f"{len(cambian)} páginas. Corré: python tools/armar.py --marcar")
         with tempfile.TemporaryDirectory() as tmp:
             sobran = construir(Path(tmp) / "sitio")
-        print("\n".join(f"falla del build: {d}" for d in sobran))
+        print("\n".join(f"falla del armado: {d}" for d in sobran))
         if not cambian and not sobran:
             print("marco ok")
         return 1 if cambian or sobran else 0
     salida = Path(args[args.index("--salida") + 1]) if "--salida" in args else RAIZ / "dist"
     sobran = construir(salida.resolve(), indice="--sin-indice" not in args)
     if sobran:
-        print("falla del build en:", ", ".join(sobran))
+        print("falla del armado (marca sin expandir o dato inválido):\n  " + "\n  ".join(sobran))
         return 1
     print(f"sitio armado en {salida}")
     return 0
