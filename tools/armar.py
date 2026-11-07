@@ -87,10 +87,10 @@ def pie(app=False):
         return plantilla("pie.tpl", id_nav=' id="pie-nav"', **comun,
                          avisame='<div class="avisame" data-nov hidden><div class="crece"><b>¿Querés que te avise cuando agregue algo?</b>\n'
                                  '<p>Los lunes a las 8:00, solo las novedades que te importan. Gratis.</p></div>\n'
-                                 '<button class="btn" type="button" onclick="avisame()">Avisame por mail</button></div>\n',
-                         acciones='<span id="donar"></span><button class="btn sec" type="button" onclick="compartirCursada(\'pie\')">Pasásela a alguien</button>',
-                         enlaces=cookies + '<button class="enlace" type="button" onclick="abrirDatos()">Tus datos</button>'
-                                 '<button class="enlace" type="button" onclick="idea()">Contame qué falta</button>' + extra)
+                                 '<button class="btn" type="button" data-clic="avisame">Avisame por mail</button></div>\n',
+                         acciones='<span id="donar"></span><button class="btn sec" type="button" data-clic="compartirCursada" data-clic-a="[&quot;pie&quot;]">Pasásela a alguien</button>',
+                         enlaces=cookies + '<button class="enlace" type="button" data-clic="abrirDatos">Tus datos</button>'
+                                 '<button class="enlace" type="button" data-clic="idea">Contame qué falta</button>' + extra)
     return plantilla("pie.tpl", id_nav="", avisame="", **comun,
                      acciones='<a class="cafe" href="/sostener/">Invitar un cafecito</a>',
                      enlaces=cookies + '<a href="/config/">Tus datos</a><a href="mailto:hola@galera.com.ar">Contame qué falta</a>' + extra)
@@ -129,7 +129,7 @@ META_COMUN = ('<meta name="referrer" content="strict-origin-when-cross-origin">\
 PRECARGA = ''.join(f'<link rel="preload" href="/fonts/{f}" as="font" type="font/woff2" crossorigin>\n' for f in ("instrument-sans.woff2", "unifraktur.woff2"))  # cuerpo/títulos y la «galera» de la cabecera
 RECURSOS_APP = (PRECARGA + '<link rel="icon" type="image/png" href="/img/favicon-32.png">\n'
                 '<link rel="apple-touch-icon" href="/img/icono-180.png">\n<link rel="manifest" href="/manifest.webmanifest">\n<meta name="theme-color" content="#0560C8">\n'
-                '<script>try{var t=localStorage.getItem("cursada.tema");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t;if(localStorage.getItem("cursada.v1"))document.documentElement.classList.add("con-datos")}catch(e){}</script>\n'
+                '<script src="/tema.js"></script>\n'
                 + "\n".join(f'<link rel="stylesheet" href="/{c}">' for c in CSS) + '\n<script defer src="/analitica.js"></script>')
 RECURSOS = (PRECARGA + '<link rel="icon" type="image/png" href="/img/favicon-32.png">\n'
             '<link rel="apple-touch-icon" href="/img/icono-180.png">\n'
