@@ -35,7 +35,8 @@ const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&a
 // Para pasar un dato como argumento de un manejador en línea (onclick="f(${arg(x)})"): JSON + escape de HTML.
 // Así ningún texto (un nombre con apóstrofo, un archivo importado, un dato del PDF de la Facultad) puede romper ni inyectar código.
 // Un link que viene de un JSON solo se usa si es http(s): esc() no frena un javascript:.
-const urlSegura = u => /^https?:\/\//i.test(String(u == null ? '' : u)) ? esc(u) : '#';
+// (La barra se escribe como [/] para que el minificador del build, que no entiende // dentro de una regex, no la parta.)
+const urlSegura = u => /^https?:[/][/]/i.test(String(u == null ? '' : u)) ? esc(u) : '#';
 const arg = v => esc(JSON.stringify(String(v == null ? '' : v)));
 const iso = d => d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
 const hoy = () => iso(new Date());
