@@ -55,7 +55,7 @@ function aviso(t) { const a = $('#aviso'); a.textContent = t; a.classList.add('o
 // retos (resueltos), aprob (materias ya registradas), ultimo (último apunte abierto).
 const juegoVacio = () => ({ on: true, rondas: {}, hitos: [], retos: {}, aprob: [], ultimo: '' });
 function estadoVacio() { return { v: 1, carrera: 'edicion', perfil: '', vioAyuda: false, materias: {}, horarios: {}, escandallo: null, comparador: null, papel: null, paginacion: null, cronograma: null, leidos: {}, lecturas: {}, descarga: '',
-  copia: '', modif: '', primera: '', visto: '', practica: {}, juego: juegoVacio(), arcade: Arcade.sanear(null) }; }
+  copia: '', modif: '', primera: '', visto: '', practica: {}, juego: juegoVacio(), arcade: typeof Arcade === 'undefined' ? null : Arcade.sanear(null) }; }
 // Todo lo que entra (de localStorage o de un archivo importado) se reconstruye campo por campo:
 // solo tipos, formatos y largos esperados. Lo que no encaja se descarta.
 const RE_ID = /^(?!__proto__$|constructor$|prototype$)[\w.-]{1,60}$/, RE_FECHA = /^\d{4}-\d\d-\d\d$/, RE_HORA = /^\d\d:\d\d$/;
@@ -114,8 +114,10 @@ function normalizar(e) {
       titulos: lista(C.titulos, 20).filter(t => t && typeof t === 'object').map(t => ({ t: txt(t.t, 40), pvp: cifra(t.pvp), desc: cifra(t.desc), inu: cifra(t.inu), cdu: cifra(t.cdu), q: cifra(t.q) })) };
   }
   // Cálculo de papel: cifras, y de las listas (formato, corte, paquete) solo valores conocidos.
+  // Papel, paginación, cronograma y arcade se saneán con su script, que se baja bajo demanda (cargarMods): si todavía no está, el dato pasa tal cual y se sanea apenas llega.
   const P0 = e.papel;
-  if (P0 && typeof P0 === 'object') {
+  if (P0 && typeof P0 === 'object' && typeof Papel === 'undefined') out.papel = JSON.parse(JSON.stringify(P0));
+  else if (P0 && typeof P0 === 'object') {
     const de = (v, L, def) => L.indexOf(v) >= 0 ? v : def;
     out.papel = { tipo: de(P0.tipo, ['interior', 'tapa'], 'interior'), formato: de(P0.formato, Papel.FORMATOS.map(f => f.id).concat('otro'), '58x92'),
       cortes: de(P0.cortes, ['1', '2', '4'], '1'), hojasPaquete: de(P0.hojasPaquete, ['500', '250', '150', '100'], '500') };
@@ -123,7 +125,8 @@ function normalizar(e) {
   }
   // Paginación: cifras, listas con valores conocidos y, por parte, tilde, páginas y dónde empieza.
   const G0 = e.paginacion;
-  if (G0 && typeof G0 === 'object') {
+  if (G0 && typeof G0 === 'object' && typeof Paginacion === 'undefined') out.paginacion = JSON.parse(JSON.stringify(G0));
+  else if (G0 && typeof G0 === 'object') {
     const de = (v, L, def) => L.indexOf(v) >= 0 ? v : def;
     out.paginacion = { multiplo: de(G0.multiplo, ['8', '16', '32', '64'], '16'), capRecto: de(G0.capRecto, ['0', '1'], '1'), capPortada: de(G0.capPortada, ['0', '1'], '0'), partes: {} };
     ['paginas', 'caracteres', 'porPagina', 'capitulos'].forEach(k => { out.paginacion[k] = cifra(G0[k]); });
@@ -132,7 +135,8 @@ function normalizar(e) {
   }
   // Cronograma: método, plazo, inicio y tareas saneadas (cronograma.js).
   const C0 = e.cronograma;
-  if (C0 && typeof C0 === 'object') out.cronograma = { metodo: ['gantt', 'pert', 'roy', 'comparar'].indexOf(C0.metodo) >= 0 ? C0.metodo : 'gantt', plazo: cifra(C0.plazo), inicio: /^\d{4}-\d{2}-\d{2}$/.test(C0.inicio) ? C0.inicio : '', tareas: Cronograma.sanear(C0.tareas) };
+  if (C0 && typeof C0 === 'object' && typeof Cronograma === 'undefined') out.cronograma = JSON.parse(JSON.stringify(C0));
+  else if (C0 && typeof C0 === 'object') out.cronograma = { metodo: ['gantt', 'pert', 'roy', 'comparar'].indexOf(C0.metodo) >= 0 ? C0.metodo : 'gantt', plazo: cifra(C0.plazo), inicio: /^\d{4}-\d{2}-\d{2}$/.test(C0.inicio) ? C0.inicio : '', tareas: Cronograma.sanear(C0.tareas) };
   // Elementos de juego: un interruptor, la última ronda de cada materia, el registro de lo hecho y los retos resueltos.
   const J = e.juego && typeof e.juego === 'object' ? e.juego : null;
   if (J) {
@@ -145,7 +149,7 @@ function normalizar(e) {
     out.juego.aprob = Array.isArray(J.aprob) ? lista(J.aprob, 200).filter(x => typeof x === 'string' && RE_ID.test(x)) : null;
     out.juego.ultimo = /^\w[\w.-]{0,59}\/\w[\w.-]{0,59}$/.test(J.ultimo || '') ? J.ultimo : '';
   } else out.juego.aprob = null;   // sin dato: la primera vez se anotan las ya aprobadas sin hacer ruido
-  out.arcade = Arcade.sanear(e.arcade);   // Arcade de Corrección de Estilo: iniciales y top local por tablero
+  out.arcade = typeof Arcade === 'undefined' ? (e.arcade && typeof e.arcade === 'object' ? JSON.parse(JSON.stringify(e.arcade)) : null) : Arcade.sanear(e.arcade);   // Arcade de Corrección de Estilo: iniciales y top local por tablero
   // Último formato de descarga elegido (solo uno de los conocidos).
   out.descarga = ['A4', 'A5', 'cuadernillo', 'epub'].indexOf(e.descarga) >= 0 ? e.descarga : '';
   // Apuntes leídos: "materia/apunte" → fecha.
@@ -210,6 +214,25 @@ async function conIdiomas(of) {
   try { const i = await json(m.archivo); of.comisiones = of.comisiones.concat(i.comisiones || []); of.idiomas = { fuente: i.fuente, actualizado: i.actualizado }; } catch (e) { /* sin idiomas */ }
   return of;
 }
+// Scripts bajo demanda (MARCO.carga lo escribe tools/armar.py). Cada pantalla pide los suyos; el resto de la gente no los baja.
+const modsDe = () => V.tab === 'horarios' || V.tab === 'calendario' ? 'horarios' : V.tab === 'glosario' ? 'grafo' : V.tab === 'arcade' ? 'arcade' : V.tab === 'simuladores' && V.sim ? 'sim' : '';
+const SANEAR = ['papel', 'paginacion', 'cronograma', 'arcade'];
+const modsCargados = {}, modsPromesa = {};
+const cargarScript = n => modsPromesa[n] || (modsPromesa[n] = new Promise((ok, mal) => {
+  const s = document.createElement('script'); s.src = `/${n}.js?v=${MARCO.huellas[n]}`;
+  s.async = false;   // dentro de un grupo se ejecutan en el orden en que se piden
+  s.onload = () => { modsCargados[n] = true; ok(); };
+  s.onerror = () => { delete modsPromesa[n]; mal(new Error('No se pudo bajar ' + n + '.js')); };
+  document.head.appendChild(s);
+}));
+function cargarGrupo(g) {
+  if (!g || !MARCO.carga[g]) return Promise.resolve();
+  return Promise.all(MARCO.carga[g].map(cargarScript)).then(() => {
+    // Lo guardado que pasó sin sanear mientras el script no estaba se sanea ahora.
+    const n = normalizar(E); SANEAR.forEach(k => { if (n[k] !== undefined && n[k] !== null) E[k] = n[k]; });
+  });
+}
+const modsListos = g => !g || typeof PRERENDER !== 'undefined' || MARCO.carga[g].every(n => modsCargados[n]);
 // Con datos guardados, el HTML pre-renderizado (estado vacío) se oculta hasta el primer render: nunca debe quedar oculto.
 const mostrarMain = () => document.documentElement.classList.remove('con-datos');
 setTimeout(mostrarMain, 6000);
@@ -237,6 +260,7 @@ async function arrancarVista() {
   if (DONAR.alias) $('#donar').innerHTML = `<button class="btn sec ch" type="button" onclick="ir('sostener')">Invitar un cafecito</button>`;
   try { await precargar(); } catch (e) { /* cada vista muestra su propio aviso */ }
   V.arrancando = false;
+  try { await cargarGrupo(modsDe()); } catch (e) { /* render() lo vuelve a intentar y avisa */ }
   if (V.tab === 'resumenes' && V.res.apunte) cargarApunte(); else render();
   if (location.hash && V.tab !== 'resumenes') { const el = document.getElementById(location.hash.slice(1)); if (el) el.scrollIntoView(); }
   if (V.tab === 'buscar' && !V.bus.q.trim()) focoTitulo();
@@ -497,6 +521,13 @@ const conTitulo = html => /<h1[\s>]/.test(html) ? html : html.replace(/<h2\b([^>
 const arcadeInfo = () => D.simInfo && D.simInfo.arcade ? `<section class="gl-v gl-sim-info">${D.simInfo.arcade.html}</section>` : '';
 function render() {
   if (V.arrancando) return;
+  const g = modsDe();
+  if (!modsListos(g)) {
+    const tab = V.tab, sim = V.sim;
+    cargarGrupo(g).then(() => { if (V.tab === tab && V.sim === sim) render(); },
+      () => { if (V.tab === tab && V.sim === sim) $('#main').innerHTML = '<p class="vacio">No pude cargar esta herramienta. Puede ser la conexión. <button class="btn sec" type="button" onclick="render()">Reintentar</button></p>'; });
+    return;
+  }
   ajustarTab();
   dibujarPestanas();
   dibujarInferior();
@@ -2847,7 +2878,7 @@ Object.assign(AYUDA, {
   pagMultiplo: 'El pliego de impresión define el múltiplo: el total de páginas se lleva al múltiplo de 8, 16, 32 o 64. Las que faltan son páginas en blanco al final (se pueden cubrir con paratextos o publicidad).',
   pagIni: 'Recto es la página impar (a la derecha al abrir el libro); verso, la par (a la izquierda). Si una parte debe abrir en recto y la página que sigue es par, queda una en blanco.'
 });
-Paginacion.PARTES.forEach(p => { AYUDA['pg' + p.id] = p.ay; });
+const ayudaPag = () => Paginacion.PARTES.forEach(p => { AYUDA['pg' + p.id] = p.ay; });   // se llama al abrir el simulador
 const pagS = () => { const g = (E.paginacion = E.paginacion || { partes: {} }); g.partes = g.partes || {}; return g; };
 const campoPag = (k, t, suf, ph, ayK) => `<div class="campo-esc"><label class="c" for="pag-${k}">${t} ${ayK === false ? '' : ay(ayK)}</label>${ayK === false ? '' : exp(ayK)}
   <div class="con-unidad"><input id="pag-${k}" maxlength="20" inputmode="numeric" autocomplete="off" value="${esc(pagS()[k] || '')}" placeholder="${esc(ph || '')}" oninput="setPag(${arg(k)},this.value)">${suf ? `<span>${suf}</span>` : ''}</div></div>`;
@@ -2855,6 +2886,7 @@ const pagTilde = (k, def) => pagS()[k] == null ? def : pagS()[k] === '1';
 const tildePag = (k, t, ayK, def) => `<label class="elige ${pagTilde(k, def) ? 'on' : ''}"><input type="checkbox" data-f="pag-${k}" ${pagTilde(k, def) ? 'checked' : ''} onchange="setPag(${arg(k)},this.checked?'1':'0',true)"><span>${t}</span></label> ${ay(ayK)}${exp(ayK)}`;
 
 function vPaginacion() {
+  ayudaPag();
   const g = pagS(), P = Paginacion;
   const fila = p => {
     const e = P.estado(g, p), x = g.partes[p.id] || {};
