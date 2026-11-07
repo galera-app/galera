@@ -3120,7 +3120,7 @@ async function verMasBus() {
   } catch (e) { /* queda el botón para reintentar */ }
   B.cargando = false;
   if (V.tab !== 'buscar') return;
-  pintarBusqueda();
+  agregarBusqueda(antes);
   const nuevo = document.querySelectorAll('#bus-res .gl-bus-res:not(.gl-bus-rap) h2 a')[antes];
   if (nuevo) nuevo.focus({ preventScroll: false });
   else { const b = document.getElementById('bus-mas'); if (b) b.focus({ preventScroll: true }); }
@@ -3131,8 +3131,25 @@ function precargarBuscador() {
   precargarBuscador.p = precargarBuscador.p || pagefind().then(m => m.init && m.init()).catch(() => { precargarBuscador.p = null; });
 }
 window.precargarBuscador = precargarBuscador;
+// «Ver más»: suma solo los resultados nuevos a la lista (sin repintar los anteriores) y actualiza el botón y el estado.
+function agregarBusqueda(antes) {
+  const B = V.bus, lista = document.getElementById('bus-lista');
+  if (!lista) return pintarBusqueda();
+  lista.insertAdjacentHTML('beforeend', B.res.slice(antes).map(x => itemBus(x)).join(''));
+  const mas = document.querySelector('#bus-res .gl-bus-mas');
+  if (mas && !B.hay) mas.remove();
+  else if (mas) { const b = mas.querySelector('button'); if (b) { b.disabled = false; b.textContent = 'Ver más resultados'; } }
+  estadoBusqueda();
+}
+// Estado corto y aparte de la lista (role=status): se anuncia sin releer los resultados.
+const textoEstadoBus = () => {
+  const B = V.bus, q = busQ(), n = B.res.length + B.rap.length + B.pregs.length;
+  return q.length < 2 || B.hecha !== q || B.error || !n ? '' : (B.hay ? 'Mostrando ' + n + ' resultados' : n === 1 ? '1 resultado' : n + ' resultados') + ' para «' + q + '».';
+};
+function estadoBusqueda() { const e = document.getElementById('bus-estado'); if (e) e.textContent = textoEstadoBus(); }
 function pintarBusqueda() {
   const el = $('#bus-res'); if (!el) return;
+  estadoBusqueda();
   const dentro = el.contains(document.activeElement);   // si el foco estaba en lo que se repinta (p. ej. «Probar de nuevo»), pasa al contenedor
   el.innerHTML = cuerpoBusqueda();
   if (dentro) el.focus({ preventScroll: true });
@@ -3148,11 +3165,9 @@ function cuerpoBusqueda() {
   if (B.error && B.sinIndice) return '<p class="gl-vacio">El buscador todavía no está disponible en esta versión del sitio. Mientras tanto, podés mirar el <a href="/glosario/">Glosario</a> o los <a href="/r/">Resúmenes</a>.</p>';
   if (B.error) return '<p class="gl-vacio">No pude cargar el buscador. Puede ser la conexión. <button class="gl-btn gl-btn--sec" type="button" onclick="V.bus.pide=null;lanzarBusqueda();pintarBusqueda()">Probar de nuevo</button></p>';
   if (!B.res.length && !B.rap.length && !B.pregs.length) return `<div class="gl-vacio"><p>No encontré nada para «${esc(q)}». Probá con otra palabra o con menos palabras; las tildes no importan.</p><p>También podés mirar el <a href="/glosario/">Glosario</a>, <a href="/preguntas/#no-esta">dejar tu pregunta</a> o <button class="gl-enlace" type="button" onclick="idea()">contarme qué falta</button>.</p></div>`;
-  const n = B.res.length + B.rap.length + B.pregs.length;
-  return `<p class="gl-baja">${B.hay ? 'Mostrando ' + n + ' resultados' : n === 1 ? '1 resultado' : n + ' resultados'} para «${esc(q)}».</p>`
-    + (B.pregs.length ? `<h2 class="gl-bus-h">Respuesta rápida</h2><ul class="gl-lista gl-bus-lista">${B.pregs.map(p => `<li class="gl-tarjeta gl-bus-res gl-bus-rap"><h3 class="gl-bus-p">${esc(p.pregunta)}</h3><div class="gl-faq-r">${respuestaHtml(p.respuesta)}</div><a class="gl-enlace" href="/preguntas/#${esc(p.id)}">Ver en Preguntas frecuentes</a></li>`).join('')}</ul>` : '')
+  return (B.pregs.length ? `<h2 class="gl-bus-h">Respuesta rápida</h2><ul class="gl-lista gl-bus-lista">${B.pregs.map(p => `<li class="gl-tarjeta gl-bus-res gl-bus-rap"><h3 class="gl-bus-p">${esc(p.pregunta)}</h3><div class="gl-faq-r">${respuestaHtml(p.respuesta)}</div><a class="gl-enlace" href="/preguntas/#${esc(p.id)}">Ver en Preguntas frecuentes</a></li>`).join('')}</ul>` : '')
     + (B.rap.length ? `<h2 class="gl-bus-h">Otra respuesta rápida</h2><ul class="gl-lista gl-bus-lista">${B.rap.map(x => itemBus(x, true)).join('')}</ul>` : '')
-    + (B.res.length ? `<ul class="gl-lista gl-bus-lista">${B.res.map(x => itemBus(x)).join('')}</ul>` : '')
+    + (B.res.length ? `<ul id="bus-lista" class="gl-lista gl-bus-lista">${B.res.map(x => itemBus(x)).join('')}</ul>` : '')
     + (B.hay ? `<p class="gl-bus-mas"><button id="bus-mas" class="gl-btn gl-btn--sec" type="button" onclick="verMasBus()">Ver más resultados</button></p>` : '');
 }
 function buscarEnviar(e) {
@@ -3171,7 +3186,8 @@ function vBuscar() {
   if (typeof PRERENDER === 'undefined') { if (busQ().length >= 2) lanzarBusqueda(); else precargarBuscador(); }
   return `<div class="gl-v gl-buscar"><div class="gl-cab"><h2 class="gl-display">Buscar en Galera</h2></div>
     <form class="gl-barra gl-bus-form" role="search" onsubmit="buscarEnviar(event)"><label class="gl-busca" for="bus-q"><span class="gl-rotulo">Qué querés encontrar</span><input id="bus-q" name="q" maxlength="100" type="search" enterkeyhint="search" autocomplete="off" placeholder="correlativas, final, gramaje…" value="${esc(V.bus.q)}" oninput="clearTimeout(buscarEnviar.t);const v=this.value;buscarEnviar.t=setTimeout(()=>buscarCon(v),350)"></label><button class="gl-btn" type="submit">Buscar</button></form>
-    <div id="bus-res" tabindex="-1" aria-live="polite" aria-atomic="true">${cuerpoBusqueda()}</div></div>`;
+    <p id="bus-estado" class="gl-baja" role="status">${esc(textoEstadoBus())}</p>
+    <div id="bus-res" tabindex="-1">${cuerpoBusqueda()}</div></div>`;
 }
 // ======================================================================
 // PREGUNTAS FRECUENTES: datos/preguntas.json (temas > preguntas con id, pregunta, variantes, respuesta y, si quien la respondió quiso, firma;
