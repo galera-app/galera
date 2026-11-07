@@ -3223,7 +3223,7 @@ async function mandarRespuesta(e, id) {
   const mal = m => { st.textContent = m; st.className = 'gl-baja gl-bad'; };
   // Lo mismo que controla el servidor, dicho antes para que nadie pierda lo que escribió.
   if (texto.length < 20) return mal('Escribí un poco más: la respuesta necesita al menos 20 caracteres.');
-  if (texto.length > 2000) return mal('Es muy larga: máximo 2000 caracteres.');
+  if (texto.length > 2000) return mal('Es muy larga: máximo 2.000 caracteres.');
   if (/<\s*[a-z\/!?]|\[(url|link|img)[=\]]|(javascript|data|vbscript|file):/i.test(texto)) return mal('Escribila como texto común, sin etiquetas ni código.');
   if ((texto.match(/https?:\/\//gi) || []).length > 2) return mal('Dejá dos links como máximo.');
   if (firma && !RE_FIRMA.test(firma)) return mal('El nombre solo puede llevar letras, espacios, puntos, apóstrofos y guiones (hasta 60).');
@@ -3818,7 +3818,7 @@ const postBuzon = (texto, contacto, web, ms) => postBuzonDatos({ texto, contacto
 async function mandarIdea() {
   const texto = val('i-t'), contacto = val('i-c');
   if (texto.length < 5) return aviso('Escribí tu sugerencia');
-  if (texto.length > 2000) return aviso('Es muy larga: máximo 2000 caracteres');
+  if (texto.length > 2000) return aviso('Es muy larga: máximo 2.000 caracteres');
   if (contacto && !mailValido(contacto)) return aviso('Revisá el mail: parece que tiene un error (o dejalo vacío)');
   const boton = $('#i-b');
   boton.disabled = true; boton.textContent = 'Enviando…';
