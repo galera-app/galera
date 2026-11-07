@@ -12,6 +12,26 @@
    "url": "https://galera.com.ar/directorio/"
   },
   {
+   "v": 140,
+   "fecha": "2026-11-07",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "titulo": "Letras más livianas",
+   "texto": "Las tipografías del sitio pesan un tercio menos y las del primer vistazo se piden antes, así que el texto aparece más rápido en el celular.",
+   "url": "https://galera.com.ar/"
+  },
+  {
+   "v": 139,
+   "fecha": "2026-11-07",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "titulo": "Cada pantalla baja solo lo que usa",
+   "texto": "Los simuladores, el arcade, los horarios y el grafo del glosario se cargan recién cuando entrás a esas pantallas. El resto del sitio abre con unos 150 KB menos.",
+   "url": "https://galera.com.ar/"
+  },
+  {
    "v": 138,
    "fecha": "2026-11-06",
    "tipo": "herramientas",
@@ -42,6 +62,16 @@
    "titulo": "Apuntes al día y avisos de borrador nuevos",
    "texto": "Los apuntes de Corrección de Estilo ahora nombran los ejes con los códigos nuevos (T01a, T10a, P09b…) y el solucionario de las prácticas vuelve a mostrar todas sus partes. Los apuntes con aviso de borrador lo muestran sin emojis y te invitan a avisar con «Contame qué falta».",
    "url": "https://galera.com.ar/r/0911/"
+  },
+  {
+   "v": 135,
+   "fecha": "2026-11-06",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "titulo": "Buscador con menos relleno",
+   "texto": "El buscador deja afuera los botones, las migas y el índice que se repiten en cada apunte, así los resultados muestran el texto que importa.",
+   "url": "https://galera.com.ar/buscar/"
   },
   {
    "v": 134,
@@ -307,6 +337,16 @@
    "titulo": "Privacidad y «Cómo se sostiene», rehechas",
    "texto": "Privacidad y términos se lee mejor, en claro y en oscuro. «Cómo se sostiene» suma formas de colaborar con plata o con tiempo, un lugar para los mecenas y el plan al día, con lo que ya está hecho y lo que sigue.",
    "url": "https://galera.com.ar/sostener/"
+  },
+  {
+   "v": 107,
+   "fecha": "2026-10-31",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "titulo": "Un solo marco para todo el sitio",
+   "texto": "La cabecera, el menú y el pie se arman desde un único lugar al publicar, así no quedan páginas con una versión vieja.",
+   "url": "https://galera.com.ar/"
   },
   {
    "v": 106,
