@@ -3,7 +3,7 @@
 // BORRADOR a revisar por Fidel: solo entran normas cuya ficha de InfoLEG se abrió y coincide (investigacion/03-leyes.md);
 // los artículos clave están solo donde el programa de la cátedra los confirma.
 const Leyes = (() => {
-  const INFOLEG = 'https://servicios.infoleg.gob.ar/infolegInternet/verNorma.do?id=';
+  const INFOLEG = 'https://www.argentina.gob.ar/normativa/nacional/';
 
   // Niveles de la pirámide, de arriba (manda) a abajo.
   const NIVELES = [
