@@ -6,6 +6,7 @@ Fuente única: marco/sitio.json, marco/pie.tpl, marco/cabecera.tpl. También esc
 
 Uso: python tools/armar.py [--salida dist]   arma el sitio publicable (stdlib, sin dependencias)
      python tools/armar.py --servir 8772      lo arma en dist/ y lo sirve en http://127.0.0.1:8772 (para mirar cambios)
+     python tools/armar.py --salida dist --sin-minificar   igual, sin minificar JS ni CSS (por defecto minifica si hay rjsmin y rcssmin)
      python tools/armar.py --marcar          pasa a marcas las páginas que traen el marco escrito (salida de los generadores)
      python tools/armar.py --salida dist --sin-indice   igual, sin armar el índice del buscador (Pagefind)
      python tools/armar.py --comprobar        no escribe; sale con 1 si hay páginas con el marco escrito o si el armado falla (lo corre el CI)
@@ -267,6 +268,49 @@ def indexar(salida):
     return ok or not exigir
 
 
+def minificadores():
+    """rjsmin y rcssmin (paquetes de pip, Python puro, no renombran nada). Opcionales: si faltan, el sitio sale sin minificar y avisa."""
+    try:
+        import rcssmin
+        import rjsmin
+        return rjsmin, rcssmin
+    except ImportError:
+        return None
+
+
+def minificar_todo(salida, solo=None, excepto=()):
+    """Minifica los .js y .css de `salida` (nunca del repo fuente): saca espacios y comentarios, conserva los /*! */ y no cambia nombres.
+    Va antes de calcular las huellas ?v=, así que la huella es la del archivo final. Si node está, cada JS minificado pasa `node --check`
+    y, si no compila, se deja el original. Sin rjsmin/rcssmin: aviso y sale sin minificar (Cloudflare hoy está en ese caso).
+    Con GALERA_EXIGIR_MINIFICADO=1 (desplegar.yml) la falta es un error."""
+    m = minificadores()
+    if m is None:
+        print("AVISO: no estan rjsmin y rcssmin; el sitio sale sin minificar. Instalalos con: pip install rjsmin==1.3.0 rcssmin==1.3.0")
+        return os.environ.get("GALERA_EXIGIR_MINIFICADO") != "1"
+    rjs, rcs = m
+    node = shutil.which("node")
+    ok = True
+    archivos = [solo] if solo else sorted(f for e in ("*.js", "*.css") for f in salida.rglob(e)
+                                          if not f.relative_to(salida).as_posix().startswith(("prueba/", ".")) and f.name not in excepto)
+    for f in archivos:
+        t = f.read_text(encoding="utf-8")
+        if f.suffix == ".js":
+            n = rjs.jsmin(t, keep_bang_comments=True)
+            if node:
+                with tempfile.TemporaryDirectory() as tmp:
+                    c = Path(tmp) / "c.js"
+                    c.write_text(n, encoding="utf-8")
+                    if subprocess.run([node, "--check", str(c)], capture_output=True).returncode != 0:
+                        print(f"AVISO: {f.name} minificado no compila; queda sin minificar")
+                        ok = False
+                        continue
+        else:
+            n = rcs.cssmin(t, keep_bang_comments=True)
+        if len(n) < len(t):
+            escribir(f, n)
+    return ok or os.environ.get("GALERA_EXIGIR_MINIFICADO") != "1"
+
+
 def ruta_de(rel):
     return "/" + rel.removesuffix("index.html")
 
@@ -337,7 +381,7 @@ def escribir(p, t):
     p.write_text(t, encoding="utf-8", newline="\n")
 
 
-def construir(salida, indice=False):
+def construir(salida, indice=False, minificar=True):
     """Copia el repo a `salida` sin lo que no se publica, escribe marco.js y expande las marcas."""
     if salida.exists():
         shutil.rmtree(salida)
@@ -347,8 +391,13 @@ def construir(salida, indice=False):
     escribir(salida / "marco.js", "// Lo escribe tools/armar.py desde marco/sitio.json: no editar a mano.\nconst MARCO = "
              + json.dumps(publico, ensure_ascii=False, separators=(",", ":")) + ";\n")
     app = salida / "app.js"
-    escribir(app, re.sub(r"s\.src = '/mapa-ar\.js[^']*'", "s.src = '/mapa-ar.js?v=" + huella(salida / "mapa-ar.js") + "'", app.read_text(encoding="utf-8")))
     sobran = []
+    # app.js se minifica al final: antes hay que poner la huella de mapa-ar.js, que tiene que ser la del archivo ya minificado.
+    if minificar and not minificar_todo(salida, excepto=("app.js",)):
+        sobran.append("minificado (no se pudo minificar y se exige)")
+    escribir(app, re.sub(r"s\.src = '/mapa-ar\.js[^']*'", "s.src = '/mapa-ar.js?v=" + huella(salida / "mapa-ar.js") + "'", app.read_text(encoding="utf-8")))
+    if minificar and not minificar_todo(salida, solo=app):
+        sobran.append("minificado de app.js")
     for p, rel in paginas(salida):
         escribir(p, versionar(para_indice(lecturas_jsonld(faq_jsonld(expandir(p.read_text(encoding="utf-8"), rel), rel), rel), rel), p.parent, salida))
     prerender(salida)
@@ -386,7 +435,7 @@ def main():
             print("marco ok")
         return 1 if cambian or sobran else 0
     salida = Path(args[args.index("--salida") + 1]) if "--salida" in args else RAIZ / "dist"
-    sobran = construir(salida.resolve(), indice="--sin-indice" not in args)
+    sobran = construir(salida.resolve(), indice="--sin-indice" not in args, minificar="--sin-minificar" not in args)
     if sobran:
         print("marca sin expandir en:", ", ".join(sobran))
         return 1

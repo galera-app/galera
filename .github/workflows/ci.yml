@@ -34,7 +34,7 @@ jobs:
       - name: La sintaxis de los JS es válida
         run: git ls-files '*.js' | xargs -n1 node --check
       - name: Instalar Pagefind (el buscador)
-        run: pip install "pagefind[extended]==1.6.0"
+        run: pip install "pagefind[extended]==1.6.0" rjsmin==1.3.0 rcssmin==1.3.0
       - name: Las páginas llevan marcas y el armado de marco/ funciona
         run: python tools/armar.py --comprobar
       - name: Cada apunte publicado tiene sus descargas
