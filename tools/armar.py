@@ -104,6 +104,11 @@ def cabecera(rel):
                      filas=f'<div class="subw"{"" if act is not None else " hidden"}>{filas}</div>')
 
 
+# Scripts que la app baja recién cuando una pantalla los necesita (los usa `cargarMods` en app.js; el prerender los suma todos).
+# El orden dentro de cada grupo es el de ejecución. No van en app-cierre.tpl.
+CARGA = {"horarios": ["horarios"], "grafo": ["grafo"], "arcade": ["arcade", "arcade-ui"],
+         "sim": ["escandallo", "papel", "paginacion", "cronograma", "ecosistema", "formatos", "leyes", "contratos", "retos"]}
+
 META_COMUN = ('<meta name="referrer" content="strict-origin-when-cross-origin">\n'
               '<meta name="author" content="Fidel Chaves">\n'
               '<meta name="color-scheme" content="light dark">')
@@ -344,6 +349,8 @@ def construir(salida, indice=False):
     shutil.copytree(RAIZ, salida, ignore=lambda d, nombres: [n for n in nombres if n in NO_PUBLICAR and Path(d) == RAIZ])
     publico = {k: S[k] for k in ("pantallas", "tabs", "tabs_ocultas", "menu", "barra_celular", "simuladores")}
     publico["escribir"] = S["pie"]["escribir"]
+    publico["carga"] = CARGA
+    publico["huellas"] = {n: huella(salida / f"{n}.js") for g in CARGA.values() for n in g}
     escribir(salida / "marco.js", "// Lo escribe tools/armar.py desde marco/sitio.json: no editar a mano.\nconst MARCO = "
              + json.dumps(publico, ensure_ascii=False, separators=(",", ":")) + ";\n")
     app = salida / "app.js"

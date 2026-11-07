@@ -448,7 +448,7 @@ function arcMensajeDesafio(A, puntos) {
 function manejarLinkCompartir() {
   const h = location.hash;
   const d = h.match(/^#desafio=([\w-]{3,12})\.([a-z0-9]{4,10})\.(\d{1,6})$/);
-  if (d) { history.replaceState(null, '', location.pathname + location.search); return abrirDesafio(d[1], d[2], Number(d[3])); }
+  if (d) { history.replaceState(null, '', location.pathname + location.search); cargarGrupo('arcade').then(() => abrirDesafio(d[1], d[2], Number(d[3])), () => aviso('No pude abrir el desafío: probá de nuevo')); return true; }
   const s = h.match(/^#horario=(.{3,3000})$/);
   if (s) {
     let t = ''; try { t = decodeURIComponent(s[1]); } catch (e) { t = ''; }
