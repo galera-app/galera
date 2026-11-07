@@ -1,0 +1,13 @@
+{
+ "_nota": "Fuente única de cómo se presenta Galera: la frase, el título y la bajada de la home, la firma y la ubicación. Las leen la home (app.js vía marco.js), Prensa, el pie y las metas. En las páginas y en marco/sitio.json se escriben como {{marca.clave}} y tools/armar.py las expande. Se edita acá y nada más.",
+ "frase": "Herramientas abiertas para quienes hacen libros en español, y la guía para cursar Edición en la UBA",
+ "titulo_home": "Galera: herramientas abiertas para quienes hacen libros",
+ "desc_home": "Herramientas abiertas para quienes hacen libros en español, y la guía para cursar Edición en la UBA. Hecha en Argentina, gratis y sin cuenta.",
+ "desc_og_home": "Simuladores, glosario, directorio y eventos del libro; y para cursar Edición en la UBA: notas, horarios y resúmenes. Hecha en Argentina, gratis y sin cuenta.",
+ "alt_og_home": "Galera: herramientas abiertas para quienes hacen libros en español, y la guía para cursar Edición en la UBA.",
+ "pie_bajada": "Gratis, sin cuenta y sin publicidad. Hecha en Argentina.",
+ "firma": "Fidel Chaves, biólogo y estudiante de Edición",
+ "firma_en": "Fidel Chaves, a biologist and Publishing student",
+ "ubicacion": "Ciudad de Buenos Aires, Argentina",
+ "que_es": "Galera es un sitio gratuito, sin cuenta ni publicidad, con herramientas abiertas para quienes hacen libros en español: simuladores de papel, paginación y costos, glosario, directorio, eventos y leyes del libro. Y, para quienes cursan Edición en la Facultad de Filosofía y Letras de la Universidad de Buenos Aires (UBA), la guía de la carrera: plan con notas, fechas de examen, horarios sin superposiciones y resúmenes con autoevaluación."
+}

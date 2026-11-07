@@ -24,7 +24,17 @@ from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
 M = RAIZ / "marco"
-S = json.loads((M / "sitio.json").read_text(encoding="utf-8"))
+MARCA = json.loads((RAIZ / "datos" / "marca.json").read_text(encoding="utf-8"))
+MARCA_USO = re.compile(r"\{\{marca\.(\w+)\}\}")
+
+
+def con_marca(t):
+    """{{marca.clave}} -> el valor de datos/marca.json (la frase, la firma, la ubicación). Una clave que no existe es un error del armado."""
+    return MARCA_USO.sub(lambda m: MARCA[m.group(1)], t)
+
+
+# marco/sitio.json también las usa: se expanden antes de leerlo, escapando lo que va dentro de un string JSON.
+S = json.loads(MARCA_USO.sub(lambda m: json.dumps(MARCA[m.group(1)], ensure_ascii=False)[1:-1], (M / "sitio.json").read_text(encoding="utf-8")))
 CHEV = '<svg class="cv" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>'
 # Solo el planificador y su archivo descargable son independientes de la app: todo lo demás lleva la cabecera, el pie y los guiones de la app.
 SUELTAS = {"libro/cronograma/index.html", "libro/planificador-de-libros.html", "prueba/index.html", "prueba/componentes/index.html"}
@@ -401,6 +411,7 @@ def construir(salida, indice=False, minificar=True):
     shutil.copytree(RAIZ, salida, ignore=lambda d, nombres: [n for n in nombres if n in NO_PUBLICAR and Path(d) == RAIZ])
     publico = {k: S[k] for k in ("pantallas", "tabs", "tabs_ocultas", "menu", "barra_celular", "simuladores")}
     publico["escribir"] = S["pie"]["escribir"]
+    publico["marca"] = {k: MARCA[k] for k in ("frase", "firma", "ubicacion")}   # solo lo que lee app.js
     publico["carga"] = CARGA
     publico["huellas"] = {n: huella(salida / f"{n}.js") for g in CARGA.values() for n in g}
     escribir(salida / "marco.js", "// Lo escribe tools/armar.py desde marco/sitio.json: no editar a mano.\nconst MARCO = "
@@ -414,7 +425,7 @@ def construir(salida, indice=False, minificar=True):
     if minificar and not minificar_todo(salida, solo=app):
         sobran.append("minificado de app.js")
     for p, rel in paginas(salida):
-        escribir(p, versionar(para_indice(lecturas_jsonld(faq_jsonld(expandir(p.read_text(encoding="utf-8"), rel), rel), rel), rel), p.parent, salida))
+        escribir(p, versionar(para_indice(lecturas_jsonld(faq_jsonld(con_marca(expandir(p.read_text(encoding="utf-8"), rel)), rel), rel), rel), p.parent, salida))
     prerender(salida)
     for p, rel in paginas(salida):
         if "<!--marco:" in p.read_text(encoding="utf-8"):
