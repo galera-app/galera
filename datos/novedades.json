@@ -2,6 +2,18 @@
  "nota": "Lo que va en el mail de los lunes (Novedades.gs) y en la pestaña Novedades. v: número de versión (obligatorio; ver CHANGELOG.md). tipo: herramientas | resumenes | fechas. perfil: estudiante (por defecto) | profesional | todos; el mail y la pestaña Novedades lo usan para mostrar a cada perfil lo suyo. materias: ids del plan (vacío = para todas). url: solo links a galera.com.ar/. Sumar una entrada por cada cosa que se publica; el script manda solo lo posterior al último envío de cada persona, así que las viejas no se reenvían.",
  "novedades": [
   {
+   "v": 136,
+   "fecha": "2026-11-06",
+   "tipo": "resumenes",
+   "perfil": "estudiante",
+   "materias": [
+    "0911"
+   ],
+   "titulo": "Apuntes al día y avisos de borrador nuevos",
+   "texto": "Los apuntes de Corrección de Estilo ahora nombran los ejes con los códigos nuevos (T01a, T10a, P09b…) y el solucionario de las prácticas vuelve a mostrar todas sus partes. Los apuntes con aviso de borrador lo muestran sin emojis y te invitan a avisar con «Contame qué falta».",
+   "url": "https://galera.com.ar/r/0911/"
+  },
+  {
    "v": 134,
    "fecha": "2026-11-06",
    "tipo": "herramientas",
