@@ -81,7 +81,7 @@
    "servicios": [
     "Informe de Lectura"
    ],
-   "web": "http://www.a-marte.ar",
+   "web": "https://www.a-marte.ar/",
    "fuente": {
     "t": "Directorio Argentina Creativa (Cancillería)",
     "url": "https://cancilleria.gob.ar/es/directorios-argentina-creativa/editoriales/marte",
@@ -102,7 +102,7 @@
    "tipo": "editorial",
    "n": "Abaco",
    "provincia": "Ciudad Autónoma de Buenos Aires",
-   "web": "http://www.abacoeditorial.com.ar",
+   "web": "https://www.abacoeditorial.com.ar/",
    "fx": "sinca-ed"
   },
   {
@@ -134,7 +134,7 @@
    "tipo": "editorial",
    "n": "ABRE, El Gato y La Caja",
    "provincia": "Ciudad Autónoma de Buenos Aires",
-   "web": "https://www.abrecultura.com/",
+   "web": "https://abrecultura.com/",
    "fx": "sinca-ed"
   },
   {
@@ -179,7 +179,7 @@
     "Teatro"
    ],
    "servicios": [],
-   "web": "http://www.adrianahidalgo.com",
+   "web": "https://www.adrianahidalgo.com/",
    "fuente": {
     "t": "Directorio Argentina Creativa (Cancillería)",
     "url": "https://cancilleria.gob.ar/es/directorios-argentina-creativa/editoriales/adriana-hidalgo-editora-sa",
@@ -191,7 +191,7 @@
    "tipo": "editorial",
    "n": "Advocatus",
    "provincia": "Córdoba",
-   "web": "http://eadvocatus.com.ar",
+   "web": "https://eadvocatus.com.ar/",
    "fx": "sinca-ed"
   },
   {
@@ -232,7 +232,7 @@
    "tipo": "editorial",
    "n": "Aique Grupo Editor / Larousse Argentina",
    "provincia": "Ciudad Autónoma de Buenos Aires",
-   "web": "http://www.aique.com.ar",
+   "web": "https://www.aique.com.ar/",
    "fx": "sinca-ed"
   },
   {
@@ -304,7 +304,7 @@
    "tipo": "editorial",
    "n": "Albatros",
    "provincia": "Ciudad Autónoma de Buenos Aires",
-   "web": "http://www.albatros.com.ar",
+   "web": "https://www.albatros.com.ar/",
    "fx": "sinca-ed"
   },
   {
@@ -357,7 +357,7 @@
    "n": "Aljaba Producciones / Laura Bermúdez Editora",
    "provincia": "Buenos Aires",
    "localidad": "La Plata",
-   "web": "http://aljabaproducciones.com",
+   "web": "https://aljabaproducciones.com/",
    "fx": "sinca-ed"
   },
   {
@@ -365,7 +365,7 @@
    "tipo": "editorial",
    "n": "Alma Lepik",
    "provincia": "Ciudad Autónoma de Buenos Aires",
-   "web": "http://www.almalepik.com",
+   "web": "https://almalepik.com/",
    "fx": "sinca-ed"
   },
   {
@@ -385,7 +385,7 @@
     "Corrección",
     "Informe de Lectura"
    ],
-   "web": "http://altopogo.com",
+   "web": "https://altopogo.com/",
    "fuente": {
     "t": "Directorio Argentina Creativa (Cancillería)",
     "url": "https://cancilleria.gob.ar/es/directorios-argentina-creativa/editoriales/alto-pogo-ediciones",
@@ -402,7 +402,7 @@
    "tipo": "editorial",
    "n": "Alveroni Ediciones",
    "provincia": "Córdoba",
-   "web": "http://www.alveroni.com",
+   "web": "https://www.alveroni.com/",
    "fx": "sinca-ed"
   },
   {
@@ -461,7 +461,7 @@
     "Crónica"
    ],
    "servicios": [],
-   "web": "http://www.edicionesampersand.com",
+   "web": "https://www.edicionesampersand.com/",
    "fuente": {
     "t": "Directorio Argentina Creativa (Cancillería)",
     "url": "https://cancilleria.gob.ar/es/directorios-argentina-creativa/editoriales/ampersand",
@@ -517,7 +517,7 @@
    "n": "Arcadia Argentina Ediciones",
    "provincia": "Buenos Aires",
    "localidad": "San Isidro",
-   "web": "http://arcadiaediciones.com",
+   "web": "https://arcadiaediciones.com/",
    "fx": "sinca-ed"
   },
   {
@@ -525,7 +525,7 @@
    "tipo": "editorial",
    "n": "Argenta Sarlep",
    "provincia": "Ciudad Autónoma de Buenos Aires",
-   "web": "http://www.editorialargenta.com.ar",
+   "web": "https://editorialargenta.com.ar/",
    "fx": "sinca-ed"
   },
   {
@@ -569,7 +569,7 @@
    "servicios": [
     "Desarrollo de libros para instituciones culturales"
    ],
-   "web": "http://arteababor.com.ar",
+   "web": "https://arteababor.com.ar/",
    "fuente": {
     "t": "Directorio Argentina Creativa (Cancillería)",
     "url": "https://cancilleria.gob.ar/es/directorios-argentina-creativa/editoriales/arte-babor",
@@ -873,7 +873,7 @@
    "tipo": "editorial",
    "n": "Balletin Dance",
    "provincia": "Ciudad Autónoma de Buenos Aires",
-   "web": "http://balletindance.com",
+   "web": "https://balletindance.com/",
    "fx": "sinca-ed"
   },
   {
@@ -1032,7 +1032,7 @@
    "tipo": "editorial",
    "n": "Betina",
    "provincia": "Ciudad Autónoma de Buenos Aires",
-   "web": "http://www.editorialbetina.com.ar",
+   "web": "https://www.editorialbetina.com.ar/",
    "fx": "sinca-ed"
   },
   {
@@ -1199,7 +1199,7 @@
    "tipo": "editorial",
    "n": "Brihet e Hijos SA",
    "provincia": "Ciudad Autónoma de Buenos Aires",
-   "web": "http://www.mykiosco.com",
+   "web": "https://www.mykiosco.com/",
    "fx": "sinca-ed"
   },
   {
@@ -1252,7 +1252,7 @@
    "tipo": "editorial",
    "n": "Buena Prensa",
    "provincia": "Ciudad Autónoma de Buenos Aires",
-   "web": "http://www.buenaprensa.org",
+   "web": "https://www.buenaprensa.org/",
    "fx": "sinca-ed"
   },
   {
@@ -1307,7 +1307,7 @@
    "tipo": "editorial",
    "n": "C?spide Libros",
    "provincia": "Ciudad Autónoma de Buenos Aires",
-   "web": "http://www.cuspide.com",
+   "web": "https://cuspide.com/",
    "fx": "sinca-ed"
   },
   {
@@ -1360,7 +1360,7 @@
     "Informe de Lectura",
     "Maquetación y diseño"
    ],
-   "web": "http://www.caleta-olivia.com.ar",
+   "web": "https://caleta-olivia.com.ar/",
    "fuente": {
     "t": "Directorio Argentina Creativa (Cancillería)",
     "url": "https://cancilleria.gob.ar/es/directorios-argentina-creativa/editoriales/caleta-olivia",
@@ -1390,7 +1390,7 @@
     "Literatura Infantil"
    ],
    "servicios": [],
-   "web": "http://www.calibroscopio.com.ar",
+   "web": "https://calibroscopio.com.ar/",
    "fuente": {
     "t": "Directorio Argentina Creativa (Cancillería)",
     "url": "https://cancilleria.gob.ar/es/directorios-argentina-creativa/editoriales/calibroscopio",
@@ -1530,7 +1530,7 @@
     "Literatura Juvenil"
    ],
    "servicios": [],
-   "web": "http://www.catapulta.net",
+   "web": "https://www.catapulta.net/",
    "fuente": {
     "t": "Directorio Argentina Creativa (Cancillería)",
     "url": "https://cancilleria.gob.ar/es/directorios-argentina-creativa/editoriales/catapulta",
@@ -1577,7 +1577,7 @@
    "tipo": "editorial",
    "n": "Cengage Learning Argentina",
    "provincia": "Ciudad Autónoma de Buenos Aires",
-   "web": "http://www.cengage.com",
+   "web": "https://www.cengage.com/",
    "fx": "sinca-ed"
   },
   {
@@ -1619,7 +1619,7 @@
    "tipo": "editorial",
    "n": "Centro de Estudios Avanzado, Editorial de la Facultad de Arquitectura, Urbanismo y Diseño,",
    "provincia": "Córdoba",
-   "web": "http://artes.unc.edu.ar/",
+   "web": "https://artes.unc.edu.ar/",
    "fx": "sinca-ed"
   },
   {
@@ -1702,7 +1702,7 @@
     "Poesía"
    ],
    "servicios": [],
-   "web": "http://www.cheuque.com.ar",
+   "web": "https://www.cheuque.com.ar/",
    "fuente": {
     "t": "Directorio Argentina Creativa (Cancillería)",
     "url": "https://cancilleria.gob.ar/es/directorios-argentina-creativa/editoriales/cheuque",
@@ -1944,7 +1944,7 @@
    "tipo": "editorial",
    "n": "Como Gog y Magog Ediciones",
    "provincia": "Ciudad Autónoma de Buenos Aires",
-   "web": "http://www.gogymagog.com/",
+   "web": "https://gogymagog.com/",
    "fx": "sinca-ed"
   },
   {
@@ -2085,7 +2085,7 @@
     "Historia"
    ],
    "servicios": [],
-   "web": "http://www.contemporanea-ediciones.com.ar",
+   "web": "https://contemporanea-ediciones.com.ar/",
    "fuente": {
     "t": "Directorio Argentina Creativa (Cancillería)",
     "url": "https://cancilleria.gob.ar/es/directorios-argentina-creativa/editoriales/contemporanea-ediciones",
@@ -2142,7 +2142,7 @@
    "tipo": "editorial",
    "n": "Corpus Libros M?dicos y Cient?ficos",
    "provincia": "Ciudad Autónoma de Buenos Aires",
-   "web": "http://www.corpuslibros.com",
+   "web": "https://www.corpuslibros.com/",
    "fx": "sinca-ed"
   },
   {
@@ -2159,7 +2159,7 @@
     "FED 2025"
    ],
    "fx": "fed",
-   "web": "http://www.corregidor.com.ar"
+   "web": "https://www.corregidor.com.ar/"
   },
   {
    "id": "fed-cosa-seria",
@@ -2598,7 +2598,7 @@
    "n": "Dirac Dist. S.A",
    "provincia": "Buenos Aires",
    "localidad": "Vicente Lopez",
-   "web": "http://www.sddistribuciones.com",
+   "web": "https://www.sddistribuciones.com/",
    "fx": "sinca-ed"
   },
   {
@@ -2658,7 +2658,7 @@
    "n": "Dosyuna Ediciones Argentinas",
    "provincia": "Buenos Aires",
    "localidad": "Tres de Febrero",
-   "web": "http://www.dosyunaediciones.com.ar",
+   "web": "https://www.dosyunaediciones.com.ar/",
    "fx": "sinca-ed"
   },
   {
@@ -2721,7 +2721,7 @@
    "servicios": [
     "Edición"
    ],
-   "web": "http://www.edhasa.com.ar",
+   "web": "https://www.edhasa.com.ar/",
    "fuente": {
     "t": "Directorio Argentina Creativa (Cancillería)",
     "url": "https://cancilleria.gob.ar/es/directorios-argentina-creativa/editoriales/edhasa",
@@ -2740,7 +2740,7 @@
    "tipo": "editorial",
    "n": "Ediba",
    "provincia": "Ciudad Autónoma de Buenos Aires",
-   "web": "http://www.edibalibros.com",
+   "web": "https://www.edibalibros.com/",
    "fx": "sinca-ed"
   },
   {
@@ -2831,7 +2831,7 @@
    "tipo": "editorial",
    "n": "Ediciones De La Terraza",
    "provincia": "Córdoba",
-   "web": "http://www.edicioneslaterraza.com.ar",
+   "web": "https://edicioneslaterraza.com.ar/",
    "fx": "sinca-ed"
   },
   {
@@ -2839,7 +2839,7 @@
    "tipo": "editorial",
    "n": "Ediciones De Mente",
    "provincia": "Ciudad Autónoma de Buenos Aires",
-   "web": "http://www.demente.com",
+   "web": "http://demente.com/",
    "fx": "sinca-ed"
   },
   {
@@ -2925,7 +2925,7 @@
     "Historia"
    ],
    "servicios": [],
-   "web": "http://www.edicionesdidot.com",
+   "web": "https://www.edicionesdidot.com/",
    "fuente": {
     "t": "Directorio Argentina Creativa (Cancillería)",
     "url": "https://cancilleria.gob.ar/es/directorios-argentina-creativa/editoriales/ediciones-didot-0",
@@ -2948,7 +2948,7 @@
    "tipo": "editorial",
    "n": "Ediciones En Danza",
    "provincia": "Ciudad Autónoma de Buenos Aires",
-   "web": "http://www.edicionesendanza.com.ar",
+   "web": "https://www.edicionesendanza.com.ar/",
    "fx": "sinca-ed"
   },
   {
@@ -2982,7 +2982,7 @@
     "Historia"
    ],
    "servicios": [],
-   "web": "http://tienda.futurock.fm",
+   "web": "https://tienda.futurock.fm/",
    "fuente": {
     "t": "Directorio Argentina Creativa (Cancillería)",
     "url": "https://cancilleria.gob.ar/es/directorios-argentina-creativa/editoriales/ediciones-futurock",
@@ -3052,7 +3052,7 @@
     "Filosofía"
    ],
    "servicios": [],
-   "web": "http://iamique.com.ar",
+   "web": "https://iamique.com.ar/",
    "fuente": {
     "t": "Directorio Argentina Creativa (Cancillería)",
     "url": "https://cancilleria.gob.ar/es/directorios-argentina-creativa/editoriales/ediciones-iamique",
@@ -3109,7 +3109,7 @@
     "Maquetación y diseño",
     "Traducción Otro servicio: Libro terminado (en el campo de la Salud)"
    ],
-   "web": "http://www.edicionesjournal.com",
+   "web": "https://www.edicionesjournal.com/",
    "fuente": {
     "t": "Directorio Argentina Creativa (Cancillería)",
     "url": "https://cancilleria.gob.ar/es/directorios-argentina-creativa/editoriales/ediciones-journal-sa",
@@ -3137,7 +3137,7 @@
    "tipo": "editorial",
    "n": "Ediciones Lea",
    "provincia": "Ciudad Autónoma de Buenos Aires",
-   "web": "http://www.edicioneslea.com",
+   "web": "https://www.edicioneslea.com/",
    "fx": "sinca-ed"
   },
   {
@@ -3145,7 +3145,7 @@
    "tipo": "editorial",
    "n": "Ediciones Lerner",
    "provincia": "Córdoba",
-   "web": "http://lernereditora.com.ar",
+   "web": "https://lernereditora.com.ar/",
    "fx": "sinca-ed"
   },
   {
@@ -3213,7 +3213,7 @@
    "tipo": "editorial",
    "n": "Ediciones Sm Sa",
    "provincia": "Ciudad Autónoma de Buenos Aires",
-   "web": "http://www.grupo-sm.com",
+   "web": "https://www.grupo-sm.com/",
    "fx": "sinca-ed"
   },
   {
@@ -3228,7 +3228,7 @@
     "Partituras"
    ],
    "servicios": [],
-   "web": "http://www.tangosinfin.org.ar",
+   "web": "https://tangosinfin.org.ar/",
    "fuente": {
     "t": "Directorio Argentina Creativa (Cancillería)",
     "url": "https://cancilleria.gob.ar/es/directorios-argentina-creativa/editoriales/ediciones-tango-sin-fin",
@@ -3307,7 +3307,7 @@
    "n": "Ediciones Valletta",
    "provincia": "Buenos Aires",
    "localidad": "Vicente Lopez",
-   "web": "http://www.vallettaediciones.com",
+   "web": "https://www.vallettaediciones.com/",
    "fx": "sinca-ed"
   },
   {
@@ -3385,7 +3385,7 @@
     "Literatura Juvenil"
    ],
    "servicios": [],
-   "web": "http://www.albatros.com.ar",
+   "web": "https://www.albatros.com.ar/",
    "fuente": {
     "t": "Directorio Argentina Creativa (Cancillería)",
     "url": "https://cancilleria.gob.ar/es/directorios-argentina-creativa/editoriales/editorial-albatros-saic",
@@ -3479,7 +3479,7 @@
    "tipo": "editorial",
    "n": "Editorial Brujas",
    "provincia": "Córdoba",
-   "web": "http://www.editorialbrujas.com.ar",
+   "web": "https://www.editorialbrujas.com.ar/",
    "fx": "sinca-ed"
   },
   {
@@ -3495,7 +3495,7 @@
     "Editorial independiente"
    ],
    "servicios": [],
-   "web": "http://www.editorialcactus.com.ar/",
+   "web": "https://editorialcactus.com.ar/",
    "fuente": {
     "t": "Directorio Argentina Creativa (Cancillería)",
     "url": "https://cancilleria.gob.ar/es/directorios-argentina-creativa/editoriales/editorial-cactus",
@@ -3577,7 +3577,7 @@
    "tipo": "editorial",
    "n": "Editorial Croquis S.R.L.",
    "provincia": "Ciudad Autónoma de Buenos Aires",
-   "web": "http://www.editorialcroquis.com",
+   "web": "https://www.editorialcroquis.com/",
    "fx": "sinca-ed"
   },
   {
@@ -3622,7 +3622,7 @@
    "n": "Editorial de la Universidad de Quilmes",
    "provincia": "Buenos Aires",
    "localidad": "Quilmes",
-   "web": "http://www.unq.edu.ar",
+   "web": "https://www.unq.edu.ar/",
    "fx": "sinca-ed"
   },
   {
@@ -3681,7 +3681,7 @@
    "n": "Editorial de la Universidad Nacional del Nordeste EUDENE",
    "provincia": "Chaco",
    "localidad": "Resistencia",
-   "web": "http://unne.edu.ar",
+   "web": "https://www.unne.edu.ar/",
    "fx": "sinca-ed"
   },
   {
@@ -3698,7 +3698,7 @@
    "n": "Editorial de la UNT",
    "provincia": "Tucumán",
    "localidad": "San Miguel de Tucuman",
-   "web": "http://www.unt.edu.ar",
+   "web": "https://www.unt.edu.ar/",
    "fx": "sinca-ed"
   },
   {
@@ -3766,7 +3766,7 @@
    "n": "Editorial Estrada S.A.",
    "provincia": "Buenos Aires",
    "localidad": "San Isidro",
-   "web": "http://www.editorialestrada.com.ar",
+   "web": "https://editorialestrada.com.ar/",
    "fx": "sinca-ed"
   },
   {
@@ -3810,7 +3810,7 @@
     "Literatura Infantil"
    ],
    "servicios": [],
-   "web": "http://www.grupoclaridad.com.ar",
+   "web": "https://www.grupoclaridad.com.ar/",
    "fuente": {
     "t": "Directorio Argentina Creativa (Cancillería)",
     "url": "https://cancilleria.gob.ar/es/directorios-argentina-creativa/editoriales/editorial-heliasta-srl",
@@ -3838,7 +3838,7 @@
     "Teatro"
    ],
    "servicios": [],
-   "web": "http://www.imaginador.com.ar",
+   "web": "https://www.imaginador.com.ar/",
    "fuente": {
     "t": "Directorio Argentina Creativa (Cancillería)",
     "url": "https://cancilleria.gob.ar/es/directorios-argentina-creativa/editoriales/editorial-imaginador",
@@ -3924,7 +3924,7 @@
    "tipo": "editorial",
    "n": "Editorial Lugar",
    "provincia": "Ciudad Autónoma de Buenos Aires",
-   "web": "http://www.lugareditorial.com.ar",
+   "web": "https://lugareditorial.com.ar/",
    "fx": "sinca-ed"
   },
   {
@@ -3933,7 +3933,7 @@
    "n": "Editorial Maipue",
    "provincia": "Buenos Aires",
    "localidad": "Ituzaingo",
-   "web": "http://www.maipue.com.ar",
+   "web": "https://maipue.com.ar/",
    "fx": "sinca-ed"
   },
   {
@@ -4034,7 +4034,7 @@
     "Maquetación y diseño",
     "Traducción"
    ],
-   "web": "http://www.editorialraigal.com",
+   "web": "https://www.editorialraigal.com/",
    "fuente": {
     "t": "Directorio Argentina Creativa (Cancillería)",
     "url": "https://cancilleria.gob.ar/es/directorios-argentina-creativa/editoriales/editorial-raigal",
@@ -4151,7 +4151,7 @@
     "Narrativa"
    ],
    "servicios": [],
-   "web": "http://www.libreriasudestada.com.ar",
+   "web": "https://www.libreriasudestada.com.ar/",
    "fuente": {
     "t": "Directorio Argentina Creativa (Cancillería)",
     "url": "https://cancilleria.gob.ar/es/directorios-argentina-creativa/editoriales/editorial-sudestada",
@@ -4183,7 +4183,7 @@
     "talleres de escritura",
     "envío a imprenta."
    ],
-   "web": "http://www.editorialthelema.com/",
+   "web": "https://www.editorialthelema.com/",
    "fuente": {
     "t": "Directorio Argentina Creativa (Cancillería)",
     "url": "https://cancilleria.gob.ar/es/directorios-argentina-creativa/editoriales/editorial-thelema",
@@ -4353,7 +4353,7 @@
    "tipo": "editorial",
    "n": "EDUCO - Editorial Universitaria del Comahue",
    "provincia": "Neuquén",
-   "web": "http://www.uncoma.edu.ar",
+   "web": "https://uncoma.edu.ar/",
    "fx": "sinca-ed"
   },
   {
@@ -4379,7 +4379,7 @@
    "n": "Eduner",
    "provincia": "Entre Ríos",
    "localidad": "Parana",
-   "web": "http://eduner.uner.edu.ar",
+   "web": "https://eduner.uner.edu.ar/",
    "fx": "sinca-ed"
   },
   {
@@ -4388,7 +4388,7 @@
    "n": "EdUNLa",
    "provincia": "Buenos Aires",
    "localidad": "Lanus",
-   "web": "http://www.unla.edu.ar",
+   "web": "https://www.unla.edu.ar/",
    "fx": "sinca-ed"
   },
   {
@@ -4515,7 +4515,7 @@
     "Novela Comercial"
    ],
    "servicios": [],
-   "web": "http://www.editorialelateneo.com.ar",
+   "web": "https://www.editorialelateneo.com.ar/",
    "fuente": {
     "t": "Directorio Argentina Creativa (Cancillería)",
     "url": "https://cancilleria.gob.ar/es/directorios-argentina-creativa/editoriales/el-ateneo",
@@ -4578,7 +4578,7 @@
     "FED 2026"
    ],
    "fx": "fed",
-   "web": "http://www.elcuencodeplata.com.ar"
+   "web": "https://www.elcuencodeplata.com.ar/"
   },
   {
    "id": "sinca-el-derecho-universitas",
@@ -4780,7 +4780,7 @@
    "tipo": "editorial",
    "n": "Elemento",
    "provincia": "Ciudad Autónoma de Buenos Aires",
-   "web": "http://www.edicioneselemento.com.ar",
+   "web": "https://www.edicioneselemento.com.ar/",
    "fx": "sinca-ed"
   },
   {
@@ -4880,7 +4880,7 @@
     "Poesía"
    ],
    "servicios": [],
-   "web": "http://entretantoseditora.com/",
+   "web": "https://entretantoseditora.com/",
    "fuente": {
     "t": "Directorio Argentina Creativa (Cancillería)",
     "url": "https://cancilleria.gob.ar/es/directorios-argentina-creativa/editoriales/entre-tantos-editora",
@@ -4946,7 +4946,7 @@
    "tipo": "editorial",
    "n": "Errepar",
    "provincia": "Ciudad Autónoma de Buenos Aires",
-   "web": "http://www.errepar.com",
+   "web": "https://www.errepar.com/",
    "fx": "sinca-ed"
   },
   {
@@ -4978,7 +4978,7 @@
    "n": "Espacio Hudson",
    "provincia": "Chubut",
    "localidad": "Lago Puelo",
-   "web": "http://espaciohudson.com/",
+   "web": "https://espaciohudson.com/",
    "fx": "sinca-ed"
   },
   {
@@ -5049,7 +5049,7 @@
    "tipo": "editorial",
    "n": "Eterna Cadencia S.R.L.",
    "provincia": "Ciudad Autónoma de Buenos Aires",
-   "web": "http://www.eternacadencia.com.ar",
+   "web": "https://eternacadencia.com.ar/",
    "fx": "sinca-ed"
   },
   {
@@ -5089,7 +5089,7 @@
    "tipo": "editorial",
    "n": "Eudeba",
    "provincia": "Ciudad Autónoma de Buenos Aires",
-   "web": "http://www.eudeba.com.ar",
+   "web": "https://www.eudeba.com.ar/",
    "fx": "sinca-ed"
   },
   {
@@ -5112,7 +5112,7 @@
    "tipo": "editorial",
    "n": "EUNSA, Editorial de la UNS",
    "provincia": "Salta",
-   "web": "http://www.unsa.edu.ar",
+   "web": "https://www.unsa.edu.ar/",
    "fx": "sinca-ed"
   },
   {
@@ -5180,7 +5180,7 @@
    "tipo": "editorial",
    "n": "Fabián J. Di Plácido Editor",
    "provincia": "Ciudad Autónoma de Buenos Aires",
-   "web": "http://fabiandiplacido.com.ar",
+   "web": "https://fabiandiplacido.com.ar/",
    "fx": "sinca-ed"
   },
   {
@@ -5344,7 +5344,7 @@
     "Novela"
    ],
    "servicios": [],
-   "web": "http://www.fiordoeditorial.com.ar/",
+   "web": "https://www.fiordoeditorial.com.ar/",
    "fuente": {
     "t": "Directorio Argentina Creativa (Cancillería)",
     "url": "https://cancilleria.gob.ar/es/directorios-argentina-creativa/editoriales/fiordo",
@@ -5376,7 +5376,7 @@
    "tipo": "editorial",
    "n": "Fondo De Cultura Económica",
    "provincia": "Ciudad Autónoma de Buenos Aires",
-   "web": "http://www.fce.com.ar",
+   "web": "https://fce.com.ar/",
    "fx": "sinca-ed"
   },
   {
@@ -5517,7 +5517,7 @@
    "tipo": "editorial",
    "n": "Fundacion Pan Klub",
    "provincia": "Ciudad Autónoma de Buenos Aires",
-   "web": "http://www.xulsolar.org.ar",
+   "web": "https://www.xulsolar.org.ar/",
    "fx": "sinca-ed"
   },
   {
@@ -5547,7 +5547,7 @@
    "tipo": "editorial",
    "n": "Funlar/EUDELAR",
    "provincia": "La Rioja",
-   "web": "http://www.unlar.edu.ar",
+   "web": "https://www.unlar.edu.ar/",
    "fx": "sinca-ed"
   },
   {
@@ -5604,7 +5604,7 @@
    "tipo": "editorial",
    "n": "Garcia Alonso",
    "provincia": "Ciudad Autónoma de Buenos Aires",
-   "web": "http://www.garciaalonso.com.ar",
+   "web": "https://garciaalonso.com.ar/",
    "fx": "sinca-ed"
   },
   {
@@ -5692,7 +5692,7 @@
     "Redes y Prensa",
     "Distribución"
    ],
-   "web": "http://www.grupoeditorialsur.com",
+   "web": "https://grupoeditorialsur.com/",
    "fuente": {
     "t": "Directorio Argentina Creativa (Cancillería)",
     "url": "https://cancilleria.gob.ar/es/directorios-argentina-creativa/editoriales/ges-grupo-editorial-sur",
@@ -5848,7 +5848,7 @@
    "tipo": "editorial",
    "n": "Gram, Editora",
    "provincia": "Ciudad Autónoma de Buenos Aires",
-   "web": "http://www.grameditora.com.ar",
+   "web": "http://grameditora.com.ar/",
    "fx": "sinca-ed"
   },
   {
@@ -5857,7 +5857,7 @@
    "n": "Grama Ediciones",
    "provincia": "Buenos Aires",
    "localidad": "Vicente Lopez",
-   "web": "http://www.gramaediciones.com.ar",
+   "web": "https://www.gramaediciones.com.ar/",
    "fx": "sinca-ed"
   },
   {
@@ -5975,7 +5975,7 @@
    "tipo": "editorial",
    "n": "Hammurabi",
    "provincia": "Ciudad Autónoma de Buenos Aires",
-   "web": "http://www.hammurabi.com.ar",
+   "web": "https://www.hammurabi.com.ar/",
    "fx": "sinca-ed"
   },
   {
@@ -6167,7 +6167,7 @@
     "Maquetación y diseño",
     "Traducción"
    ],
-   "web": "http://www.hoteldelasideas.com",
+   "web": "https://hoteldelasideas.com/",
    "fuente": {
     "t": "Directorio Argentina Creativa (Cancillería)",
     "url": "https://cancilleria.gob.ar/es/directorios-argentina-creativa/editoriales/hotel-de-las-ideas",
@@ -6480,7 +6480,7 @@
     "FED 2026"
    ],
    "fx": "fed",
-   "web": "http://katzeditores.com"
+   "web": "https://katzeditores.com/"
   },
   {
    "id": "sinca-kel",
@@ -6488,7 +6488,7 @@
    "n": "Kel",
    "provincia": "Buenos Aires",
    "localidad": "San Isidro",
-   "web": "http://www.kelediciones.com",
+   "web": "https://www.kelediciones.com/",
    "fx": "sinca-ed"
   },
   {
@@ -6547,7 +6547,7 @@
    "tipo": "editorial",
    "n": "La Bisagra Editorial",
    "provincia": "Ciudad Autónoma de Buenos Aires",
-   "web": "http://www.labisagraeditorial.com.ar",
+   "web": "https://www.labisagraeditorial.com.ar/",
    "fx": "sinca-ed"
   },
   {
@@ -6568,7 +6568,7 @@
     "Literatura Infantil"
    ],
    "servicios": [],
-   "web": "http://www.labrujitadepapel.com.ar",
+   "web": "https://www.labrujitadepapel.com.ar/",
    "fuente": {
     "t": "Directorio Argentina Creativa (Cancillería)",
     "url": "https://cancilleria.gob.ar/es/directorios-argentina-creativa/editoriales/la-brujita-de-papel",
@@ -6617,7 +6617,7 @@
    "tipo": "editorial",
    "n": "La Central Editorial",
    "provincia": "Córdoba",
-   "web": "http://www.revistalacentral.com.ar",
+   "web": "https://www.revistalacentral.com.ar/",
    "fx": "sinca-ed"
   },
   {
@@ -6860,7 +6860,7 @@
    "tipo": "editorial",
    "n": "Lajouane S.A.",
    "provincia": "Ciudad Autónoma de Buenos Aires",
-   "web": "http://www.lajouane.com",
+   "web": "https://www.lajouane.com/",
    "fx": "sinca-ed"
   },
   {
@@ -6990,7 +6990,7 @@
     "FED 2026"
    ],
    "fx": "fed",
-   "web": "http://www.lenguajeclaro.com"
+   "web": "https://lenguajeclaro.com/"
   },
   {
    "id": "sinca-letemendia-casa-editora",
@@ -7207,7 +7207,7 @@
     "Literatura Juvenil"
    ],
    "servicios": [],
-   "web": "http://limonero.com.ar",
+   "web": "https://limonero.com.ar/",
    "fuente": {
     "t": "Directorio Argentina Creativa (Cancillería)",
     "url": "https://cancilleria.gob.ar/es/directorios-argentina-creativa/editoriales/limonero",
@@ -7281,7 +7281,7 @@
     "Ilustración"
    ],
    "servicios": [],
-   "web": "http://www.locorabia.com.ar",
+   "web": "https://www.locorabia.com.ar/",
    "fuente": {
     "t": "Directorio Argentina Creativa (Cancillería)",
     "url": "https://cancilleria.gob.ar/es/directorios-argentina-creativa/editoriales/loco-rabia-editora",
@@ -7468,7 +7468,7 @@
     "Novela"
    ],
    "servicios": [],
-   "web": "http://www.editorialmadreselva.com.ar",
+   "web": "https://editorialmadreselva.com.ar/",
    "fuente": {
     "t": "Directorio Argentina Creativa (Cancillería)",
     "url": "https://cancilleria.gob.ar/es/directorios-argentina-creativa/editoriales/madreselva",
@@ -7508,7 +7508,7 @@
    "n": "Maizal Ediciones",
    "provincia": "Buenos Aires",
    "localidad": "San Isidro",
-   "web": "http://www.maizal.com",
+   "web": "https://maizal.com/",
    "fx": "sinca-ed"
   },
   {
@@ -7570,7 +7570,7 @@
     "FED 2026"
    ],
    "fx": "fed",
-   "web": "http://www.emanantial.com.ar"
+   "web": "https://emanantial.com.ar/"
   },
   {
    "id": "fed-mandacaru",
@@ -7978,7 +7978,7 @@
     "Corrección",
     "Maquetación y diseño"
    ],
-   "web": "http://www.monoblock.tv",
+   "web": "https://www.monoblock.tv/",
    "fuente": {
     "t": "Directorio Argentina Creativa (Cancillería)",
     "url": "https://cancilleria.gob.ar/es/directorios-argentina-creativa/editoriales/monoblock",
@@ -8105,7 +8105,7 @@
    "tipo": "editorial",
    "n": "Mundo Gráfico Salta Editorial",
    "provincia": "Salta",
-   "web": "http://www.catalogomundoeditorial.com",
+   "web": "https://catalogomundoeditorial.com/",
    "fx": "sinca-ed"
   },
   {
@@ -8359,7 +8359,7 @@
    "n": "Nova Tesis Editorial Jurídica",
    "provincia": "Santa Fe",
    "localidad": "Rosario",
-   "web": "http://novatesis.com.ar",
+   "web": "https://novatesis.com.ar/",
    "fx": "sinca-ed"
   },
   {
@@ -8390,7 +8390,7 @@
     "Poesía"
    ],
    "servicios": [],
-   "web": "http://www.nubiferoediciones.com.ar",
+   "web": "https://nubiferoediciones.com.ar/",
    "fuente": {
     "t": "Directorio Argentina Creativa (Cancillería)",
     "url": "https://cancilleria.gob.ar/es/directorios-argentina-creativa/editoriales/nubifero",
@@ -8466,7 +8466,7 @@
     "Novela"
    ],
    "servicios": [],
-   "web": "http://www.odeliaeditora.com",
+   "web": "https://www.odeliaeditora.com/",
    "fuente": {
     "t": "Directorio Argentina Creativa (Cancillería)",
     "url": "https://cancilleria.gob.ar/es/directorios-argentina-creativa/editoriales/odelia-editora",
@@ -8512,7 +8512,7 @@
    "tipo": "editorial",
    "n": "Olmo Ediciones",
    "provincia": "Ciudad Autónoma de Buenos Aires",
-   "web": "http://olmoediciones.com",
+   "web": "https://olmoediciones.com/",
    "fx": "sinca-ed"
   },
   {
@@ -9038,7 +9038,7 @@
     "Novela gráfica"
    ],
    "servicios": [],
-   "web": "http://www.primaverarevolver.com/",
+   "web": "https://primaverarevolver.com/",
    "fuente": {
     "t": "Directorio Argentina Creativa (Cancillería)",
     "url": "https://cancilleria.gob.ar/es/directorios-argentina-creativa/editoriales/primavera-revolver-casa-editorial",
@@ -9090,7 +9090,7 @@
     "FED 2026"
    ],
    "fx": "fed",
-   "web": "http://www.prometeoeditorial.com"
+   "web": "https://www.prometeoeditorial.com/"
   },
   {
    "id": "sinca-prosa-y-poesia-amerian-srl",
@@ -9144,7 +9144,7 @@
    "n": "Puerto De Palos / Cántaro",
    "provincia": "Buenos Aires",
    "localidad": "San Isidro",
-   "web": "http://puertodepalos.com.ar",
+   "web": "https://puertodepalos.com.ar/",
    "fx": "sinca-ed"
   },
   {
@@ -9250,7 +9250,7 @@
     "Teatro"
    ],
    "servicios": [],
-   "web": "http://www.quipu.com.ar",
+   "web": "https://www.quipu.com.ar/",
    "fuente": {
     "t": "Directorio Argentina Creativa (Cancillería)",
     "url": "https://cancilleria.gob.ar/es/directorios-argentina-creativa/editoriales/quipu",
@@ -9292,7 +9292,7 @@
     "Novela gráfica"
    ],
    "servicios": [],
-   "web": "http://www.ralenti.com.ar",
+   "web": "https://www.ralenti.com.ar/",
    "fuente": {
     "t": "Directorio Argentina Creativa (Cancillería)",
     "url": "https://cancilleria.gob.ar/es/directorios-argentina-creativa/editoriales/ralenti",
@@ -9407,7 +9407,7 @@
     "Literatura Infantil"
    ],
    "servicios": [],
-   "web": "http://www.riderchail.com",
+   "web": "https://www.riderchail.com/",
    "fuente": {
     "t": "Directorio Argentina Creativa (Cancillería)",
     "url": "https://cancilleria.gob.ar/es/directorios-argentina-creativa/editoriales/riderchail",
@@ -9525,7 +9525,7 @@
    "tipo": "editorial",
    "n": "San Pablo",
    "provincia": "Ciudad Autónoma de Buenos Aires",
-   "web": "http://www.san-pablo.com.ar",
+   "web": "https://www.san-pablo.com.ar/",
    "fx": "sinca-ed"
   },
   {
@@ -9549,7 +9549,7 @@
    "tipo": "editorial",
    "n": "Santillana",
    "provincia": "Ciudad Autónoma de Buenos Aires",
-   "web": "http://www.santillana.com.ar",
+   "web": "https://www.santillana.com.ar/",
    "fx": "sinca-ed"
   },
   {
@@ -9603,7 +9603,7 @@
     "Maquetación y diseño",
     "Traducción"
    ],
-   "web": "http://www.editorialsb.com/",
+   "web": "https://www.editorialsb.com/",
    "fuente": {
     "t": "Directorio Argentina Creativa (Cancillería)",
     "url": "https://cancilleria.gob.ar/es/directorios-argentina-creativa/editoriales/sb-editorial",
@@ -9707,7 +9707,7 @@
     "Informe de Lectura",
     "Maquetación y diseño"
    ],
-   "web": "http://www.serialeditorial.com.ar/",
+   "web": "https://www.serialeditorial.com.ar/",
    "fuente": {
     "t": "Directorio Argentina Creativa (Cancillería)",
     "url": "https://cancilleria.gob.ar/es/directorios-argentina-creativa/editoriales/serial",
@@ -9747,7 +9747,7 @@
    "tipo": "editorial",
    "n": "Siglo XXI Argentina",
    "provincia": "Ciudad Autónoma de Buenos Aires",
-   "web": "http://www.sigloxxieditores.com.ar",
+   "web": "https://sigloxxieditores.com.ar/",
    "fx": "sinca-ed"
   },
   {
@@ -9792,7 +9792,7 @@
    "tipo": "editorial",
    "n": "Stratford Book Services SA",
    "provincia": "Ciudad Autónoma de Buenos Aires",
-   "web": "http://www.sbs.com.ar",
+   "web": "https://www.sbs.com.ar/",
    "fx": "sinca-ed"
   },
   {
@@ -9912,7 +9912,7 @@
    "tipo": "editorial",
    "n": "Temas Grupo Editorial",
    "provincia": "Ciudad Autónoma de Buenos Aires",
-   "web": "http://www.editorialtemas.com",
+   "web": "https://editorialtemas.com/",
    "fx": "sinca-ed"
   },
   {
@@ -10025,7 +10025,7 @@
    "tipo": "editorial",
    "n": "Tinta Libre Ediciones",
    "provincia": "Córdoba",
-   "web": "http://www.tintalibre.com.ar",
+   "web": "https://www.tintalibre.com.ar/",
    "fx": "sinca-ed"
   },
   {
@@ -10033,7 +10033,7 @@
    "tipo": "editorial",
    "n": "Tinta Limón",
    "provincia": "Ciudad Autónoma de Buenos Aires",
-   "web": "http://tintalimon.com.ar",
+   "web": "https://tintalimon.com.ar/",
    "fx": "sinca-ed"
   },
   {
@@ -10397,7 +10397,7 @@
    "tipo": "editorial",
    "n": "V & R Editoras / Vergara & Riba Editoras",
    "provincia": "Ciudad Autónoma de Buenos Aires",
-   "web": "http://www.vreditoras.com",
+   "web": "https://vreditoras.com/",
    "fx": "sinca-ed"
   },
   {
@@ -10413,7 +10413,7 @@
    "tipo": "editorial",
    "n": "V?zquez Mazzini Editores",
    "provincia": "Ciudad Autónoma de Buenos Aires",
-   "web": "http://vmeditores.com.ar",
+   "web": "https://www.vmeditores.com.ar/",
    "fx": "sinca-ed"
   },
   {
@@ -10467,7 +10467,7 @@
    "tipo": "editorial",
    "n": "Viento de Fondo",
    "provincia": "Córdoba",
-   "web": "http://www.vientodefondo.com",
+   "web": "https://vientodefondo.com/",
    "fx": "sinca-ed"
   },
   {
@@ -10783,10 +10783,10 @@
    "linea": [
     "Imprenta offset y digital, libros de tapa dura desde 100 ejemplares"
    ],
-   "web": "https://www.latingrafica.com.ar",
+   "web": "https://latingrafica.com.ar/",
    "fuente": {
     "t": "Sitio oficial",
-    "url": "https://www.latingrafica.com.ar",
+    "url": "https://latingrafica.com.ar/",
     "fecha": "2026-10-27"
    }
   },
@@ -10831,10 +10831,10 @@
    "linea": [
     "Impresión digital de libros y material de estudio o tesis, encuadernación, envíos al país"
    ],
-   "web": "https://www.pdfcolor.com.ar/",
+   "web": "https://pdfcolor.com.ar/",
    "fuente": {
     "t": "PDF Color | Inicio",
-    "url": "https://www.pdfcolor.com.ar/",
+    "url": "https://pdfcolor.com.ar/",
     "fecha": "2026-10-27"
    }
   },
@@ -10994,7 +10994,7 @@
    "tipo": "distribuidora",
    "n": "Distribuidora Librum",
    "provincia": "Ciudad Autónoma de Buenos Aires",
-   "web": "http://www.librum.com.ar",
+   "web": "https://www.librum.com.ar/",
    "fx": "sinca-ed"
   },
   {
@@ -11340,7 +11340,7 @@
    "n": "Agencia Sur",
    "provincia": "Buenos Aires",
    "localidad": "Bahía Blanca",
-   "web": "http://www.agenciasur.com.ar/",
+   "web": "https://www.agenciasur.com.ar/",
    "fx": "sinca"
   },
   {
@@ -11420,7 +11420,7 @@
    "linea": [
     "Especializada"
    ],
-   "web": "http://www.editorialakadia.com/",
+   "web": "https://www.editorialakadia.com/",
    "fx": "ba"
   },
   {
@@ -11595,7 +11595,7 @@
    "n": "Alveroni Libros Jurídicos",
    "provincia": "Córdoba",
    "localidad": "Cordoba",
-   "web": "http://alveroni.com/",
+   "web": "https://www.alveroni.com/",
    "fx": "sinca"
   },
   {
@@ -12250,7 +12250,7 @@
    "linea": [
     "General"
    ],
-   "web": "http://libreriabiblos.com.ar/",
+   "web": "https://libreriabiblos.com.ar/",
    "fx": "ba"
   },
   {
@@ -12472,7 +12472,7 @@
    "n": "Brujas Editorial",
    "provincia": "Córdoba",
    "localidad": "Cordoba",
-   "web": "http://www.editorialbrujas.com.ar",
+   "web": "https://www.editorialbrujas.com.ar/",
    "fx": "sinca"
   },
   {
@@ -12481,7 +12481,7 @@
    "n": "Buchin Libros",
    "provincia": "Santa Fe",
    "localidad": "Rosario",
-   "web": "http://www.buchinlibros.com.ar/",
+   "web": "https://buchinlibros.com.ar/",
    "fx": "sinca"
   },
   {
@@ -12578,7 +12578,7 @@
    "linea": [
     "General"
    ],
-   "web": "http://www.caleidoscopiolibros.com/",
+   "web": "https://caleidoscopiolibros.com/",
    "fx": "ba"
   },
   {
@@ -13082,7 +13082,7 @@
    "linea": [
     "Especializada"
    ],
-   "web": "http://www.clubdelcomic.com.ar/",
+   "web": "https://www.clubdelcomic.com.ar/",
    "fx": "ba"
   },
   {
@@ -13094,7 +13094,7 @@
    "linea": [
     "Especializada"
    ],
-   "web": "http://www.clubdelcomic.com.ar/",
+   "web": "https://www.clubdelcomic.com.ar/",
    "fx": "ba"
   },
   {
@@ -13179,7 +13179,7 @@
    "n": "Contexto",
    "provincia": "Chaco",
    "localidad": "Resistencia",
-   "web": "https://www.libreriacontexto.com.ar",
+   "web": "https://libreriacontexto.com.ar/",
    "fx": "sinca"
   },
   {
@@ -13261,7 +13261,7 @@
    "linea": [
     "Especializada"
    ],
-   "web": "http://www.cp67.com/",
+   "web": "https://www.cp67.com/",
    "fx": "ba"
   },
   {
@@ -13273,7 +13273,7 @@
    "linea": [
     "Especializada"
    ],
-   "web": "http://www.cp67.com",
+   "web": "https://www.cp67.com/",
    "fx": "ba"
   },
   {
@@ -13420,7 +13420,7 @@
    "linea": [
     "General"
    ],
-   "web": "https://www.cuspide.com/",
+   "web": "https://cuspide.com/",
    "fx": "ba"
   },
   {
@@ -13453,7 +13453,7 @@
    "n": "Cúspide",
    "provincia": "Santa Fe",
    "localidad": "Santa Fe",
-   "web": "http://www.cuspide.com/",
+   "web": "https://cuspide.com/",
    "fx": "sinca"
   },
   {
@@ -13462,7 +13462,7 @@
    "n": "Cúspide Córdoba",
    "provincia": "Córdoba",
    "localidad": "Cordoba",
-   "web": "http://www.cuspide.com/",
+   "web": "https://cuspide.com/",
    "fx": "sinca"
   },
   {
@@ -13474,7 +13474,7 @@
    "linea": [
     "General"
    ],
-   "web": "https://www.cuspide.com/",
+   "web": "https://cuspide.com/",
    "fx": "ba"
   },
   {
@@ -13483,7 +13483,7 @@
    "n": "Cúspide Libros",
    "provincia": "Buenos Aires",
    "localidad": "La Plata",
-   "web": "http://www.cuspide.com/",
+   "web": "https://cuspide.com/",
    "fx": "sinca"
   },
   {
@@ -13492,7 +13492,7 @@
    "n": "Cúspide Libros",
    "provincia": "Buenos Aires",
    "localidad": "Cariló",
-   "web": "http://www.cuspide.com/",
+   "web": "https://cuspide.com/",
    "fx": "sinca"
   },
   {
@@ -13504,7 +13504,7 @@
    "linea": [
     "General"
    ],
-   "web": "https://www.cuspide.com/",
+   "web": "https://cuspide.com/",
    "fx": "ba"
   },
   {
@@ -13513,7 +13513,7 @@
    "n": "Cúspide Libros (Mar Del Plata)",
    "provincia": "Buenos Aires",
    "localidad": "Mar del Plata",
-   "web": "http://www.cuspide.com/",
+   "web": "https://cuspide.com/",
    "fx": "sinca"
   },
   {
@@ -13522,7 +13522,7 @@
    "n": "Cúspide Libros (Mendoza)",
    "provincia": "Mendoza",
    "localidad": "Mendoza",
-   "web": "http://www.cuspide.com/",
+   "web": "https://cuspide.com/",
    "fx": "sinca"
   },
   {
@@ -13531,7 +13531,7 @@
    "n": "Cúspide Libros (San Isidro)",
    "provincia": "Buenos Aires",
    "localidad": "San Isidro",
-   "web": "http://www.cuspide.com/",
+   "web": "https://cuspide.com/",
    "fx": "sinca"
   },
   {
@@ -13552,7 +13552,7 @@
    "n": "Cúspide Libros (Village Pilar)",
    "provincia": "Buenos Aires",
    "localidad": "Marcos Paz",
-   "web": "http://www.cuspide.com/",
+   "web": "https://cuspide.com/",
    "fx": "sinca"
   },
   {
@@ -13561,7 +13561,7 @@
    "n": "Cúspide Martínez",
    "provincia": "Buenos Aires",
    "localidad": "Martínez",
-   "web": "http://www.cuspide.com/",
+   "web": "https://cuspide.com/",
    "fx": "sinca"
   },
   {
@@ -13570,7 +13570,7 @@
    "n": "Cúspide Pilar Village Cinema",
    "provincia": "Buenos Aires",
    "localidad": "Pilar",
-   "web": "http://www.cuspide.com/",
+   "web": "https://cuspide.com/",
    "fx": "sinca"
   },
   {
@@ -13579,7 +13579,7 @@
    "n": "Cúspide Portal Rosario",
    "provincia": "Santa Fe",
    "localidad": "Rosario",
-   "web": "http://www.cuspide.com/",
+   "web": "https://cuspide.com/",
    "fx": "sinca"
   },
   {
@@ -13588,7 +13588,7 @@
    "n": "Cúspide Ramos Mejía",
    "provincia": "Buenos Aires",
    "localidad": "Ramos Mejia",
-   "web": "http://www.cuspide.com/",
+   "web": "https://cuspide.com/",
    "fx": "sinca"
   },
   {
@@ -13597,7 +13597,7 @@
    "n": "Cúspide Rosario",
    "provincia": "Santa Fe",
    "localidad": "Rosario",
-   "web": "http://www.cuspide.com/",
+   "web": "https://cuspide.com/",
    "fx": "sinca"
   },
   {
@@ -13606,7 +13606,7 @@
    "n": "Cúspide Rosario Village Cines",
    "provincia": "Santa Fe",
    "localidad": "Rosario",
-   "web": "http://www.cuspide.com/",
+   "web": "https://cuspide.com/",
    "fx": "sinca"
   },
   {
@@ -13615,7 +13615,7 @@
    "n": "Cúspide San Isidro",
    "provincia": "Buenos Aires",
    "localidad": "San Isidro",
-   "web": "http://www.cuspide.com/",
+   "web": "https://cuspide.com/",
    "fx": "sinca"
   },
   {
@@ -13624,7 +13624,7 @@
    "n": "Cúspide San Juan",
    "provincia": "San Juan",
    "localidad": "San Juan",
-   "web": "http://www.cuspide.com/",
+   "web": "https://cuspide.com/",
    "fx": "sinca"
   },
   {
@@ -13633,7 +13633,7 @@
    "n": "Cúspide San Juan Shopping Center",
    "provincia": "San Juan",
    "localidad": "San Juan",
-   "web": "http://www.cuspide.com/",
+   "web": "https://cuspide.com/",
    "fx": "sinca"
   },
   {
@@ -13642,7 +13642,7 @@
    "n": "Cúspide San Luis",
    "provincia": "San Luis",
    "localidad": "San Luis",
-   "web": "http://www.cuspide.com/",
+   "web": "https://cuspide.com/",
    "fx": "sinca"
   },
   {
@@ -13651,7 +13651,7 @@
    "n": "Cúspide Santiago Del Estero",
    "provincia": "Santiago del Estero",
    "localidad": "Santiago del Estero",
-   "web": "http://www.cuspide.com/",
+   "web": "https://cuspide.com/",
    "fx": "sinca"
   },
   {
@@ -13660,7 +13660,7 @@
    "n": "Cúspide Terrazas De Mayo",
    "provincia": "Buenos Aires",
    "localidad": "San Miguel",
-   "web": "http://www.cuspide.com/",
+   "web": "https://cuspide.com/",
    "fx": "sinca"
   },
   {
@@ -13669,7 +13669,7 @@
    "n": "Cúspide Tucumán",
    "provincia": "Tucumán",
    "localidad": "San Miguel de Tucuman",
-   "web": "http://www.cuspide.com/",
+   "web": "https://cuspide.com/",
    "fx": "sinca"
   },
   {
@@ -13928,7 +13928,7 @@
    "n": "Del Profesional",
    "provincia": "Salta",
    "localidad": "Salta",
-   "web": "http://libreriaprofesional.com.ar",
+   "web": "https://libreriaprofesional.com.ar/",
    "fx": "sinca"
   },
   {
@@ -14430,7 +14430,7 @@
    "n": "Editorial de la Univ. De Villa María",
    "provincia": "Córdoba",
    "localidad": "Cordoba",
-   "web": "http://www.eduvim.com.ar",
+   "web": "https://www.eduvim.com.ar/",
    "fx": "sinca"
   },
   {
@@ -14469,7 +14469,7 @@
    "n": "Eduvim",
    "provincia": "Córdoba",
    "localidad": "Cordoba",
-   "web": "http://www.eduvim.com.ar/",
+   "web": "https://www.eduvim.com.ar/",
    "fx": "sinca"
   },
   {
@@ -14722,7 +14722,7 @@
    "linea": [
     "General"
    ],
-   "web": "http://www.yenny-elateneo.com",
+   "web": "https://www.yenny-elateneo.com/",
    "fx": "ba"
   },
   {
@@ -14935,7 +14935,7 @@
    "n": "El Espejo",
    "provincia": "Córdoba",
    "localidad": "Cordoba",
-   "web": "https://www.elespejolibros.com.ar/contacto/",
+   "web": "https://elespejolibros.com.ar/contacto/",
    "fx": "sinca"
   },
   {
@@ -14970,7 +14970,7 @@
    "linea": [
     "General"
    ],
-   "web": "http://libreriaelextranjero.com/",
+   "web": "https://libreriaelextranjero.com/",
    "fx": "ba"
   },
   {
@@ -15145,7 +15145,7 @@
    "linea": [
     "Especializada"
    ],
-   "web": "https://www.calibroscopio.com.ar/",
+   "web": "https://calibroscopio.com.ar/",
    "fx": "ba"
   },
   {
@@ -15185,7 +15185,7 @@
    "linea": [
     "General"
    ],
-   "web": "http://www.elmasacaclub.com/",
+   "web": "https://www.elmasacaclub.com/",
    "fx": "ba"
   },
   {
@@ -15211,7 +15211,7 @@
    "n": "El Mundo Del Libro",
    "provincia": "Córdoba",
    "localidad": "Cordoba",
-   "web": "http://www.elmundodellibro.com.ar/",
+   "web": "https://www.elmundodellibro.com.ar/",
    "fx": "sinca"
   },
   {
@@ -15320,7 +15320,7 @@
    "n": "El Rio Libros",
    "provincia": "Buenos Aires",
    "localidad": "San Isidro",
-   "web": "http://www.elriolibros.com.ar/",
+   "web": "https://elriolibros.com.ar/",
    "fx": "sinca"
   },
   {
@@ -15480,7 +15480,7 @@
    "linea": [
     "General"
    ],
-   "web": "http://www.entrelibros.com.ar/",
+   "web": "https://www.entrelibros.com.ar/",
    "fx": "ba"
   },
   {
@@ -15533,7 +15533,7 @@
    "linea": [
     "Especializada"
    ],
-   "web": "http://espaciojuridico.com.ar/",
+   "web": "https://espaciojuridico.com.ar/",
    "fx": "ba"
   },
   {
@@ -15589,7 +15589,7 @@
    "n": "Estilo",
    "provincia": "Buenos Aires",
    "localidad": "Lobos",
-   "web": "http://www.libreriaestilo.com.ar/",
+   "web": "https://www.libreriaestilo.com.ar/",
    "fx": "sinca"
   },
   {
@@ -16072,7 +16072,7 @@
    "linea": [
     "General"
    ],
-   "web": "https://galernaweb.com/",
+   "web": "https://www.galernaweb.com/",
    "fx": "ba"
   },
   {
@@ -16084,7 +16084,7 @@
    "linea": [
     "General"
    ],
-   "web": "https://galernaweb.com/",
+   "web": "https://www.galernaweb.com/",
    "fx": "ba"
   },
   {
@@ -16096,7 +16096,7 @@
    "linea": [
     "General"
    ],
-   "web": "https://galernaweb.com/",
+   "web": "https://www.galernaweb.com/",
    "fx": "ba"
   },
   {
@@ -16108,7 +16108,7 @@
    "linea": [
     "General"
    ],
-   "web": "https://galernaweb.com/",
+   "web": "https://www.galernaweb.com/",
    "fx": "ba"
   },
   {
@@ -16120,7 +16120,7 @@
    "linea": [
     "General"
    ],
-   "web": "http://www.galernaweb.com",
+   "web": "https://www.galernaweb.com/",
    "fx": "ba"
   },
   {
@@ -16132,7 +16132,7 @@
    "linea": [
     "General"
    ],
-   "web": "https://galernaweb.com/",
+   "web": "https://www.galernaweb.com/",
    "fx": "ba"
   },
   {
@@ -16144,7 +16144,7 @@
    "linea": [
     "General"
    ],
-   "web": "https://galernaweb.com/",
+   "web": "https://www.galernaweb.com/",
    "fx": "ba"
   },
   {
@@ -16156,7 +16156,7 @@
    "linea": [
     "General"
    ],
-   "web": "https://galernaweb.com/",
+   "web": "https://www.galernaweb.com/",
    "fx": "ba"
   },
   {
@@ -16168,7 +16168,7 @@
    "linea": [
     "General"
    ],
-   "web": "https://galernaweb.com/",
+   "web": "https://www.galernaweb.com/",
    "fx": "ba"
   },
   {
@@ -16460,7 +16460,7 @@
    "linea": [
     "Especializada"
    ],
-   "web": "https://hastinapuralibros.com.ar/?v=d72a48a8ebd2",
+   "web": "https://www.hastinapuralibros.com.ar/?v=d72a48a8ebd2",
    "fx": "ba"
   },
   {
@@ -16510,7 +16510,7 @@
    "linea": [
     "General"
    ],
-   "web": "http://www.libreriahernandez.com/",
+   "web": "https://www.libreriahernandez.com/",
    "fx": "ba"
   },
   {
@@ -16685,7 +16685,7 @@
    "linea": [
     "Especializada"
    ],
-   "web": "http://www.inpazlibros.com.ar/",
+   "web": "https://www.inpazlibros.com.ar/",
    "fx": "ba"
   },
   {
@@ -16838,7 +16838,7 @@
    "linea": [
     "Especializada"
    ],
-   "web": "http://www.joyceproust.com.ar/",
+   "web": "https://www.joyceproust.com.ar/",
    "fx": "ba"
   },
   {
@@ -17007,7 +17007,7 @@
    "n": "Kel",
    "provincia": "Buenos Aires",
    "localidad": "Lomas de Zamora",
-   "web": "http://www.kelediciones.com/",
+   "web": "https://www.kelediciones.com/",
    "fx": "sinca"
   },
   {
@@ -17016,7 +17016,7 @@
    "n": "Kel",
    "provincia": "Buenos Aires",
    "localidad": "Pilar",
-   "web": "http://www.kelediciones.com/",
+   "web": "https://www.kelediciones.com/",
    "fx": "sinca"
   },
   {
@@ -17025,7 +17025,7 @@
    "n": "Kel",
    "provincia": "Buenos Aires",
    "localidad": "Martínez",
-   "web": "http://www.kelediciones.com/",
+   "web": "https://www.kelediciones.com/",
    "fx": "sinca"
   },
   {
@@ -17034,7 +17034,7 @@
    "n": "Kel (Martínez)",
    "provincia": "Buenos Aires",
    "localidad": "Martínez",
-   "web": "http://www.kelediciones.com/",
+   "web": "https://www.kelediciones.com/",
    "fx": "sinca"
   },
   {
@@ -17046,7 +17046,7 @@
    "linea": [
     "Especializada"
    ],
-   "web": "http://www.kelediciones.com",
+   "web": "https://www.kelediciones.com/",
    "fx": "ba"
   },
   {
@@ -17058,7 +17058,7 @@
    "linea": [
     "Especializada"
    ],
-   "web": "http://www.kelediciones.com",
+   "web": "https://www.kelediciones.com/",
    "fx": "ba"
   },
   {
@@ -17070,7 +17070,7 @@
    "linea": [
     "Especializada"
    ],
-   "web": "http://www.kelediciones.com",
+   "web": "https://www.kelediciones.com/",
    "fx": "ba"
   },
   {
@@ -17353,7 +17353,7 @@
    "linea": [
     "General"
    ],
-   "web": "http://lacoop.com.ar/library/",
+   "web": "https://lacoop.com.ar/library",
    "fx": "ba"
   },
   {
@@ -17442,7 +17442,7 @@
    "linea": [
     "Especializada"
    ],
-   "web": "http://www.librerialafacultad.com/",
+   "web": "https://librerialafacultad.com/",
    "fx": "ba"
   },
   {
@@ -17527,7 +17527,7 @@
    "linea": [
     "Especializada"
    ],
-   "web": "http://lajuglaresalibros.mitiendanube.com",
+   "web": "https://lajuglaresalibros.mitiendanube.com/",
    "fx": "ba"
   },
   {
@@ -17561,7 +17561,7 @@
    "linea": [
     "Especializada"
    ],
-   "web": "http://www.lalectura.com.ar/",
+   "web": "https://lalectura.com.ar/",
    "fx": "ba"
   },
   {
@@ -18157,7 +18157,7 @@
    "n": "Lema Libros",
    "provincia": "Córdoba",
    "localidad": "Río Cuarto",
-   "web": "http://www.lemalibros.com/",
+   "web": "https://www.lemalibros.com/",
    "fx": "sinca"
   },
   {
@@ -18174,7 +18174,7 @@
    "n": "Letra E",
    "provincia": "Santa Fe",
    "localidad": "Santa Fe",
-   "web": "http://www.librerialetrae.com.ar/",
+   "web": "https://www.librerialetrae.com.ar/",
    "fx": "sinca"
   },
   {
@@ -18198,7 +18198,7 @@
    "linea": [
     "Especializada"
    ],
-   "web": "https://letrasycorcheas.com.ar/",
+   "web": "https://www.letrasycorcheas.com.ar/",
    "fx": "ba"
   },
   {
@@ -18394,7 +18394,7 @@
    "n": "Librería Cívica",
    "provincia": "Santa Fe",
    "localidad": "Santa Fe",
-   "web": "http://www.libreriacivica.com.ar/index",
+   "web": "https://www.libreriacivica.com.ar/index",
    "fx": "sinca"
   },
   {
@@ -18669,7 +18669,7 @@
    "n": "Librería EdUNLPam",
    "provincia": "La Pampa",
    "localidad": "Santa Rosa",
-   "web": "http://www.unlpam.edu.ar",
+   "web": "https://www.unlpam.edu.ar/",
    "fx": "sinca"
   },
   {
@@ -19273,7 +19273,7 @@
    "n": "Librería Santa Fe",
    "provincia": "Buenos Aires",
    "localidad": "Zarate",
-   "web": "http://www.lsf.com.ar/",
+   "web": "https://www.lsf.com.ar/",
    "fx": "sinca"
   },
   {
@@ -19389,7 +19389,7 @@
    "n": "Libro De La Arena",
    "provincia": "Buenos Aires",
    "localidad": "Mar del Plata",
-   "web": "http://www.librosdelaarena.com.ar/",
+   "web": "https://www.librosdelaarena.com.ar/",
    "fx": "sinca"
   },
   {
@@ -19460,7 +19460,7 @@
    "linea": [
     "Especializada"
    ],
-   "web": "http://librofutbol.com",
+   "web": "https://www.librofutbol.com/",
    "fx": "ba"
   },
   {
@@ -19477,7 +19477,7 @@
    "n": "Libros Advocatus",
    "provincia": "Córdoba",
    "localidad": "Cordoba",
-   "web": "http://eadvocatus.com.ar/",
+   "web": "https://eadvocatus.com.ar/",
    "fx": "sinca"
   },
   {
@@ -19522,7 +19522,7 @@
    "n": "Libros Bohm",
    "provincia": "Buenos Aires",
    "localidad": "Cariló",
-   "web": "http://www.librosbohm.com",
+   "web": "https://www.librosbohm.com/",
    "fx": "sinca"
   },
   {
@@ -19589,7 +19589,7 @@
    "n": "Libros De La Arena (Güemes)",
    "provincia": "Buenos Aires",
    "localidad": "Mar del Plata",
-   "web": "http://www.librosdelaarena.com.ar/",
+   "web": "https://www.librosdelaarena.com.ar/",
    "fx": "sinca"
   },
   {
@@ -19803,7 +19803,7 @@
    "linea": [
     "Especializada"
    ],
-   "web": "http://libroslateatral.com.ar",
+   "web": "https://libroslateatral.com.ar/",
    "fx": "ba"
   },
   {
@@ -19934,7 +19934,7 @@
    "linea": [
     "General"
    ],
-   "web": "https://www.librosref.com/",
+   "web": "https://librosref.com/",
    "fx": "ba"
   },
   {
@@ -19952,7 +19952,7 @@
    "n": "Lieggi",
    "provincia": "Buenos Aires",
    "localidad": "La Plata",
-   "web": "http://www.librerialieggi.com/",
+   "web": "https://www.librerialieggi.com/",
    "fx": "sinca"
   },
   {
@@ -20137,7 +20137,7 @@
    "linea": [
     "General"
    ],
-   "web": "http://editoriallosada.com",
+   "web": "https://editoriallosada.com/",
    "fx": "ba"
   },
   {
@@ -20165,7 +20165,7 @@
    "linea": [
     "General"
    ],
-   "web": "http://www.librerialucas.com/",
+   "web": "https://www.librerialucas.com/",
    "fx": "ba"
   },
   {
@@ -20685,7 +20685,7 @@
    "linea": [
     "Especializada"
    ],
-   "web": "http://melos.com.ar",
+   "web": "https://melos.com.ar/",
    "fx": "ba"
   },
   {
@@ -20822,7 +20822,7 @@
    "n": "Moby Dick Libros",
    "provincia": "Córdoba",
    "localidad": "Capilla del Monte",
-   "web": "http://www.editorialdetodoslosmares.com",
+   "web": "https://editorialdetodoslosmares.com/",
    "fx": "sinca"
   },
   {
@@ -20942,7 +20942,7 @@
    "linea": [
     "Especializada"
    ],
-   "web": "http://musicanuestra.com.ar/",
+   "web": "https://musicanuestra.com.ar/",
    "fx": "ba"
   },
   {
@@ -20971,7 +20971,7 @@
    "linea": [
     "General"
    ],
-   "web": "http://www.libreriasnadir.com.ar/",
+   "web": "https://libreriasnadir.com.ar/",
    "fx": "ba"
   },
   {
@@ -20983,7 +20983,7 @@
    "linea": [
     "General"
    ],
-   "web": "http://www.libreriasnadir.com.ar/",
+   "web": "https://libreriasnadir.com.ar/",
    "fx": "ba"
   },
   {
@@ -20995,7 +20995,7 @@
    "linea": [
     "General"
    ],
-   "web": "http://www.libreriasnadir.com.ar/",
+   "web": "https://libreriasnadir.com.ar/",
    "fx": "ba"
   },
   {
@@ -21007,7 +21007,7 @@
    "linea": [
     "General"
    ],
-   "web": "http://www.libreriasnadir.com.ar/",
+   "web": "https://libreriasnadir.com.ar/",
    "fx": "ba"
   },
   {
@@ -21019,7 +21019,7 @@
    "linea": [
     "General"
    ],
-   "web": "http://www.libreriasnadir.com.ar/",
+   "web": "https://libreriasnadir.com.ar/",
    "fx": "ba"
   },
   {
@@ -21154,7 +21154,7 @@
    "linea": [
     "Especializada"
    ],
-   "web": "https://www.nuevalibreria.com.ar/",
+   "web": "https://nuevalibreria.com.ar/",
    "fx": "ba"
   },
   {
@@ -21218,7 +21218,7 @@
    "linea": [
     "Especializada"
    ],
-   "web": "http://www.oasiscuentos.com.ar",
+   "web": "https://www.oasiscuentos.com.ar/",
    "fx": "ba"
   },
   {
@@ -21434,7 +21434,7 @@
    "n": "Pablo VI",
    "provincia": "Santa Fe",
    "localidad": "Santa Fe",
-   "web": "http://www.arquisantafe.org.ar",
+   "web": "https://arquisantafe.org.ar/",
    "fx": "sinca"
   },
   {
@@ -21550,7 +21550,7 @@
    "n": "Papillon",
    "provincia": "Buenos Aires",
    "localidad": "San Justo",
-   "web": "http://papillonlibros.com/",
+   "web": "https://papillonlibros.com/",
    "fx": "sinca"
   },
   {
@@ -21632,7 +21632,7 @@
    "n": "Pata Libro",
    "provincia": "Neuquén",
    "localidad": "San Martín de los Andes",
-   "web": "http://www.patalibro.com.ar/",
+   "web": "https://patalibro.com.ar/",
    "fx": "sinca"
   },
   {
@@ -21966,7 +21966,7 @@
    "n": "Prometeo Libros",
    "provincia": "Buenos Aires",
    "localidad": "La Plata",
-   "web": "http://www.prometeoeditorial.com/",
+   "web": "https://www.prometeoeditorial.com/",
    "fx": "sinca"
   },
   {
@@ -22053,7 +22053,7 @@
    "n": "Puro Comic",
    "provincia": "Santa Fe",
    "localidad": "Rosario",
-   "web": "http://www.purocomic.com.ar/",
+   "web": "https://purocomic.com.ar/",
    "fx": "sinca"
   },
   {
@@ -22062,7 +22062,7 @@
    "n": "Quade",
    "provincia": "Córdoba",
    "localidad": "Cordoba",
-   "web": "http://www.quade.com.ar/",
+   "web": "https://www.quade.com.ar/",
    "fx": "sinca"
   },
   {
@@ -22129,7 +22129,7 @@
    "linea": [
     "General"
    ],
-   "web": "http://www.quiosquitovirtual.com.ar/",
+   "web": "https://www.quiosquitovirtual.com.ar/",
    "fx": "ba"
   },
   {
@@ -22363,7 +22363,7 @@
    "linea": [
     "Especializada"
    ],
-   "web": "https://www.riosdeaguaviva.com.ar/",
+   "web": "https://riosdeaguaviva.com.ar/",
    "fx": "ba"
   },
   {
@@ -22668,7 +22668,7 @@
    "linea": [
     "General"
    ],
-   "web": "http://www.sbs.com.ar",
+   "web": "https://www.sbs.com.ar/",
    "fx": "ba"
   },
   {
@@ -22823,7 +22823,7 @@
    "n": "Sociedad Bíblica Argentina",
    "provincia": "Buenos Aires",
    "localidad": "Bahía Blanca",
-   "web": "http://sba.org.ar/category/materiales/",
+   "web": "https://sba.org.ar/category/materiales/",
    "fx": "sinca"
   },
   {
@@ -22832,7 +22832,7 @@
    "n": "Sociedad Bíblica Argentina",
    "provincia": "Buenos Aires",
    "localidad": "Mar del Plata",
-   "web": "http://sba.org.ar/category/materiales/",
+   "web": "https://sba.org.ar/category/materiales/",
    "fx": "sinca"
   },
   {
@@ -22841,7 +22841,7 @@
    "n": "Sociedad Bíblica Argentina",
    "provincia": "Chaco",
    "localidad": "Resistencia",
-   "web": "http://sba.org.ar/category/materiales/",
+   "web": "https://sba.org.ar/category/materiales/",
    "fx": "sinca"
   },
   {
@@ -22853,7 +22853,7 @@
    "linea": [
     "Especializada"
    ],
-   "web": "http://www.sba.org.ar",
+   "web": "https://sba.org.ar/",
    "fx": "ba"
   },
   {
@@ -22865,7 +22865,7 @@
    "linea": [
     "Especializada"
    ],
-   "web": "http://www.sba.org.ar",
+   "web": "https://sba.org.ar/",
    "fx": "ba"
   },
   {
@@ -22874,7 +22874,7 @@
    "n": "Sociedad Bíblica Argentina",
    "provincia": "Córdoba",
    "localidad": "Cordoba",
-   "web": "http://sba.org.ar/category/materiales/",
+   "web": "https://sba.org.ar/category/materiales/",
    "fx": "sinca"
   },
   {
@@ -22883,7 +22883,7 @@
    "n": "Sociedad Bíblica Argentina",
    "provincia": "Salta",
    "localidad": "Salta",
-   "web": "http://sba.org.ar/category/materiales/",
+   "web": "https://sba.org.ar/category/materiales/",
    "fx": "sinca"
   },
   {
@@ -22892,7 +22892,7 @@
    "n": "Sociedad Bíblica Argentina",
    "provincia": "Santa Fe",
    "localidad": "Rosario",
-   "web": "http://sba.org.ar/category/materiales/",
+   "web": "https://sba.org.ar/category/materiales/",
    "fx": "sinca"
   },
   {
@@ -22960,7 +22960,7 @@
    "n": "Superior",
    "provincia": "Córdoba",
    "localidad": "Río Cuarto",
-   "web": "https://www.libreriasuperior.com.ar/",
+   "web": "https://libreriasuperior.com.ar/",
    "fx": "sinca"
   },
   {
@@ -23351,7 +23351,7 @@
    "n": "Univ. Nacional Mar del Plata",
    "provincia": "Buenos Aires",
    "localidad": "Mar del Plata",
-   "web": "http://www.mdp.edu.ar",
+   "web": "https://www.mdp.edu.ar/",
    "fx": "sinca"
   },
   {
@@ -23395,7 +23395,7 @@
    "linea": [
     "General"
    ],
-   "web": "http://www.ub.edu.ar/index.php/libreria-ub",
+   "web": "https://ub.edu.ar/index.php/libreria-ub",
    "fx": "ba"
   },
   {
@@ -23600,7 +23600,7 @@
    "n": "Volcán Azul",
    "provincia": "Córdoba",
    "localidad": "Cordoba",
-   "web": "http://www.volcanazullibros.com/",
+   "web": "https://www.volcanazullibros.com/",
    "fx": "sinca"
   },
   {
@@ -23745,7 +23745,7 @@
    "linea": [
     "Especializada"
    ],
-   "web": "http://www.lealsina.com/",
+   "web": "https://lealsina.com/",
    "fx": "ba"
   },
   {
@@ -23765,7 +23765,7 @@
    "n": "Y.E.S. librería especializada en idiomas",
    "provincia": "Corrientes",
    "localidad": "Corrientes",
-   "web": "http://www.yesbooks.com.ar/",
+   "web": "https://www.yesbooks.com.ar/",
    "fx": "sinca"
   },
   {
@@ -23908,7 +23908,7 @@
    "n": "Yenny",
    "provincia": "Santa Fe",
    "localidad": "Santa Fe",
-   "web": "http://www.yenny-elateneo.com",
+   "web": "https://www.yenny-elateneo.com/",
    "fx": "sinca"
   },
   {
@@ -24162,7 +24162,7 @@
    "linea": [
     "General"
    ],
-   "web": "http://www.yenny-elateneo.com",
+   "web": "https://www.yenny-elateneo.com/",
    "fx": "ba"
   },
   {
