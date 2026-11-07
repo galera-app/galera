@@ -1376,7 +1376,7 @@ function calMes(todos, t, previo, turnos) {
   for (let i = 0; i < vacios; i++) celdas.push('<div class="gl-cal-cel vacia" aria-hidden="true"></div>');
   for (let d = 1; d <= dias; d++) {
     const k = mes + '-' + String(d).padStart(2, '0'), ev = porDia[k] || [];
-    celdas.push(`<div class="gl-cal-cel ${k === t ? 'hoy' : ''}"><b>${d}</b>${ev.slice(0, 3).map(e => `<span class="gl-cal-ev"><i class="gl-cal-pt ${calMarca(e.tipo)}" aria-hidden="true"></i><span>${esc(e.t)}</span></span>`).join('')}${ev.length > 3 ? `<span class="gl-chico">+${ev.length - 3} más</span>` : ''}</div>`);
+    celdas.push(`<div class="gl-cal-cel ${k === t ? 'hoy' : ''}" role="group" aria-label="${d} de ${MESES_LARGOS[m - 1].toLowerCase()}${k === t ? ', hoy' : ''}${ev.length ? ': ' + ev.length + (ev.length === 1 ? ' evento' : ' eventos') : ''}"><b>${d}</b>${ev.slice(0, 3).map(e => `<span class="gl-cal-ev"><i class="gl-cal-pt ${calMarca(e.tipo)}" aria-hidden="true"></i><span>${esc(e.t)}</span></span>`).join('')}${ev.length > 3 ? `<span class="gl-chico">+${ev.length - 3} más</span>` : ''}</div>`);
   }
   const prox = vis.filter(e => e.hasta >= t).slice(0, 5);
   const opc = (g, n) => { const on = ocultos.indexOf(g) < 0; return `<button type="button" class="gl-cal-opt ${on ? 'on' : ''}" aria-pressed="${on}" onclick="calAlternar(${arg(g)})"><i class="gl-cal-ck ${on ? 'on' : ''}" aria-hidden="true"></i>${n}</button>`; };
@@ -1389,7 +1389,7 @@ function calMes(todos, t, previo, turnos) {
       <div class="gl-rotulo">Referencias</div><div class="gl-cal-ref gl-chico">${ref('', 'Parcial o inscripción')}${ref('r', 'Mesa de examen')}${ref('s', 'Feriado')}</div></aside>
     <section class="gl-cal-mes" aria-label="Mes"><div class="gl-flex gl-cal-nav">${calVistaSeg()}<span class="gl-crece"></span>
       <button class="gl-btn gl-btn--sec gl-btn--c" type="button" aria-label="Mes anterior" onclick="calMover(-1)">‹</button><b class="gl-cal-tit">${MESES_LARGOS[m - 1]} ${y}</b><button class="gl-btn gl-btn--sec gl-btn--c" type="button" aria-label="Mes siguiente" onclick="calMover(1)">›</button>${mes !== t.slice(0, 7) ? '<button class="gl-btn gl-btn--ter gl-btn--c" type="button" onclick="V.calMes=null;render()">Hoy</button>' : ''}</div>
-      <div class="gl-cal-grilla" role="grid">${['L', 'M', 'X', 'J', 'V', 'S', 'D'].map(x => `<div class="gl-cal-dia" role="columnheader">${x}</div>`).join('')}${celdas.join('')}</div>
+      <div class="gl-cal-grilla">${['L', 'M', 'X', 'J', 'V', 'S', 'D'].map(x => `<div class="gl-cal-dia" aria-hidden="true">${x}</div>`).join('')}${celdas.join('')}</div>
       <p class="gl-chico">Los feriados salen de argentina.gob.ar.</p></section>
     <aside class="gl-cal-rail" aria-label="Lo que viene"><div class="gl-rotulo">Lo que viene</div>${prox.map(ag).join('') || '<p class="gl-chico">No queda nada con estos filtros.</p>'}
       <p><button class="gl-btn gl-btn--sec" onclick="V.calVista=${arg('lista')};render()">Ver todo en lista</button></p></aside></div>${turnos}`;
@@ -1502,7 +1502,10 @@ const slug = t => sinEtiquetas(t).normalize('NFD').replace(/[\u0300-\u036f]/g, '
 function seccionar(a) {
   if (a.secciones) return a;
   const usados = {}; a.secciones = [];
-  a.cuerpoConIds = a.cuerpo.replace(/<h([23])>([\s\S]*?)<\/h\1>/g, (_, n, html) => {
+  a.cuerpoConIds = a.cuerpo.replace(/<table>([\s\S]*?)<\/table>/g, (_, t) => {
+    const th = /<th[^>]*>([\s\S]*?)<\/th>/.exec(t), nom = th ? sinEtiquetas(th[1]) : '';
+    return `<div class="tabla-scroll tabla-apunte" tabindex="0" role="region" aria-label="${esc('Tabla' + (nom ? ': ' + nom : '') + ', se desplaza hacia los costados')}"><table>${t}</table></div>`;
+  }).replace(/<h([23])>([\s\S]*?)<\/h\1>/g, (_, n, html) => {
     let id = slug(html); if (usados[id]) id += '-' + (++usados[id]); else usados[id] = 1;
     const t = sinEtiquetas(html);
     a.secciones.push({ id, t, n: Number(n) });

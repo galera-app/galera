@@ -12,6 +12,16 @@
    "url": "https://galera.com.ar/directorio/"
   },
   {
+   "v": 138,
+   "fecha": "2026-11-06",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "titulo": "Mejoras de accesibilidad",
+   "texto": "Se corrigió el contraste de los números de los apuntes y del peso en los botones de descarga, las tablas de los apuntes se pueden recorrer con el teclado y el calendario ahora se lee bien con lector de pantalla.",
+   "url": "https://galera.com.ar/"
+  },
+  {
    "v": 137,
    "fecha": "2026-11-06",
    "tipo": "herramientas",
