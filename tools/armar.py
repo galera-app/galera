@@ -295,6 +295,10 @@ def minificar_todo(salida, solo=None, excepto=()):
     for f in archivos:
         t = f.read_text(encoding="utf-8")
         if f.suffix == ".js":
+            if "`" in t:
+                # rjsmin 1.3.0 saca espacios dentro de plantillas anidadas (`${a.map(x => `<a ${y}>`)}` -> `<a${y}>`, "Se actualiza: x" -> "Se actualiza:x")
+                # y node --check no lo nota. Los JS con plantillas quedan sin minificar hasta tener un minificador que las entienda (esbuild).
+                continue
             n = rjs.jsmin(t, keep_bang_comments=True)
             if node:
                 with tempfile.TemporaryDirectory() as tmp:
