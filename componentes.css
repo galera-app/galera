@@ -334,9 +334,9 @@ main:has(>.gl-hor),main:has(>.gl-calx){max-width:1224px;padding:48px 16px 80px}
 .gl-doc>.gl-lateral,.gl-doc>.gl-riel{flex:1 1 240px;max-width:288px}
 .gl-doc>.gl-principal{flex:1 1 480px;max-width:704px;min-width:0}
 .gl-doc--izq{justify-content:flex-start}.gl-doc--izq>.gl-principal{max-width:720px}
-.gl-doc h2{margin:48px 0 0;font:600 28px/36px var(--gl-sans);letter-spacing:-.02em;color:var(--gl-ink);scroll-margin-top:24px}
+.gl-doc h2{margin:48px 0 0;font:600 28px/36px var(--gl-sans);letter-spacing:-.02em;color:var(--gl-ink);scroll-margin-top:96px}
 .gl-doc h2:first-child{margin-top:0}
-.gl-doc h3{margin:32px 0 0;font:600 20px/28px var(--gl-sans);color:var(--gl-ink);scroll-margin-top:24px}
+.gl-doc h3{margin:32px 0 0;font:600 20px/28px var(--gl-sans);color:var(--gl-ink);scroll-margin-top:96px}
 .gl-doc p{margin:12px 0 0;font:400 18px/30px var(--gl-serif);color:var(--gl-ink);max-width:66ch}
 .gl-doc p.gl-chico{font:400 14px/20px var(--gl-sans);color:var(--gl-t2)}
 .gl-doc p.gl-lead{font-size:20px;line-height:32px;margin-top:0}
@@ -959,4 +959,20 @@ a.gl-lec-mapa .gl-lec-av{margin-top:auto;padding-top:8px}
   .gl-lec-poster .gl-lp-fuera{display:none!important}
   .lp-esc{width:1123px;max-width:none;height:1587px!important;margin:0;overflow:hidden;box-shadow:none}
   .lp-hoja{transform:none!important}
+}
+/* v125 (C2): Mi carrera en celular, anillo y texto lado a lado como el tablero */
+@media (max-width:760px){
+.gl-carrera .gl-lateral{display:grid;grid-template-columns:112px minmax(0,1fr);column-gap:16px;align-items:center}
+.gl-carrera .gl-lateral>*{grid-column:1/-1}
+.gl-carrera .gl-lateral>.gl-anillo{grid-column:1;grid-row:1/3}
+.gl-carrera .gl-lateral>.gl-anillo svg{width:112px;height:112px}
+.gl-carrera .gl-lateral>.gl-anillo--l .cifra{font-size:32px}.gl-carrera .gl-lateral>.gl-anillo--l .cifra small{font-size:16px}
+.gl-carrera .gl-lateral>.gl-anillo+p{grid-column:2;grid-row:1;align-self:end;margin:0}
+.gl-carrera .gl-lateral>.gl-anillo+p+p{grid-column:2;grid-row:2;align-self:start;margin:4px 0 0}
+}
+@media (max-width:760px){
+.gl-carrera .gl-lateral>.gl-calc,.gl-carrera .gl-lateral>.gl-enlace{margin-top:8px}
+.gl-carrera .gl-datos{margin-top:16px;gap:4px}
+.gl-carrera .gl-lateral .gl-tarjeta{margin-top:16px;padding:16px;gap:8px}
+.gl-carrera .gl-prom-n{font-size:32px;line-height:36px}
 }
