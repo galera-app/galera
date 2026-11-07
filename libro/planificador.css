@@ -36,7 +36,7 @@ tr.lb-info td { background: var(--sup2); border-bottom: 1px solid var(--borde); 
 .lb-equipo > summary { cursor: pointer; padding: 4px 0; }
 
 /* Seguimiento: avance, línea base y fechas reales */
-.lb-prog { position: absolute; top: 0; height: 100%; background: var(--ok); opacity: .85; border-radius: 4px; z-index: 1; pointer-events: none; }
+.lb-prog { position: absolute; top: 0; height: 100%; background: var(--ok); opacity: .85; border-radius: var(--radio); z-index: 1; pointer-events: none; }
 .lb-base { position: absolute; bottom: 0; height: 4px; background: var(--tenue); opacity: .9; z-index: 1; }
 .lb-real { position: absolute; top: 0; height: 4px; background: var(--ok); z-index: 3; outline: 1px solid var(--sup, #fff); }
 .cr-ref.lb-prog, .cr-ref.lb-base, .cr-ref.lb-real { position: static; display: inline-block; vertical-align: middle; width: 22px; margin: 0 3px 0 0; }
