@@ -762,6 +762,12 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://galera.com.ar/en/</loc>
+    <lastmod>2026-11-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://galera.com.ar/prensa/</loc>
     <lastmod>2026-11-02</lastmod>
     <changefreq>yearly</changefreq>

@@ -451,7 +451,7 @@ function colofonInicio(per) {
   const lista = ((D.novedades && D.novedades.novedades) || []).filter(n => n.perfil === 'todos' || n.perfil === per);
   const f = lista.map(n => n.fecha).sort().pop(), n = lista.filter(x => x.fecha === f).length;
   const ed = f ? `Esta edición de Galera se actualizó el ${fechaLarga(f)} y trae <a href="/novedades/">${n === 1 ? 'una novedad' : (['', '', 'dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho', 'nueve'][n] || n) + ' novedades'}</a>. ` : '';
-  return `<p class="gl-colofon">${ed}Se compuso en Instrument Sans y Literata, con la g en UnifrakturMaguntia, y se hizo en CABA, Argentina. Se sostiene con <a href="/sostener/">cafecitos</a>; tus datos quedan en este navegador (<a href="/config/">ajustes</a>).</p>`;
+  return `<p class="gl-colofon">${ed}Se compuso en Instrument Sans y Literata, con la g en UnifrakturMaguntia, y se hizo en la ${esc(MARCO.marca.ubicacion)}. Se sostiene con <a href="/sostener/">cafecitos</a>; tus datos quedan en este navegador (<a href="/config/">ajustes</a>).</p>`;
 }
 function vInicio() {
   cargarNovedades();
@@ -461,7 +461,7 @@ function vInicio() {
     ? `<p class="gl-sub">Elegí tu perfil: el índice se ordena según lo que hacés.</p>
       <div class="gl-perfiles" role="group" aria-label="Perfil">${PERFILES_INICIO.map(([id, t, s]) => `<button type="button" class="gl-perfil ${E.perfil === id ? 'on' : ''}" aria-pressed="${E.perfil === id}" onclick="elegirEnInicio(${arg(id)})"><span class="pn">${t}</span><span class="ps">${s}</span></button>`).join('')}</div>`
     : `<p class="gl-cerr">Índice para <b>${PLURAL_PERFIL[per]}</b> · <button class="gl-enlace" type="button" onclick="cambiarEnInicio()">Cambiar</button></p>`;
-  return `<div class="gl-lectura gl-inicio"><div class="gl-tope"><h2 class="gl-t1">¿Qué venís a hacer?</h2>${selector}</div>
+  return `<div class="gl-lectura gl-inicio"><div class="gl-tope"><h2 class="gl-t1">¿Qué venís a hacer?</h2><p class="gl-baja">${esc(MARCO.marca.frase)}.</p>${selector}</div>
     <div class="gl-sp"><div class="gl-dv" role="separator"><span class="fl"></span></div></div>
     <div class="gl-sumario"><h2 class="gl-rotulo">Índice</h2>${grupos.map(([n, ids], i) => `<section aria-labelledby="ig-${i}"><h3 class="gl-cap" id="ig-${i}"><span class="num" aria-hidden="true">${ROMANOS[i]}</span><span class="gn">${n}</span></h3>
       <ul class="gl-lista">${ids.map(id => `<li><a class="gl-ent" href="${urlTab(id)}"><span class="et"><b>${rotuloTab(id)}</b><span class="guia" aria-hidden="true"></span><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="${ICONO_INICIO[id]}"/></svg></span></span><span class="bj">${BAJADAS[per][id]}</span></a></li>`).join('')}</ul></section>`).join('')}</div>
@@ -1414,14 +1414,14 @@ function calMes(todos, t, previo, turnos) {
   const ag = e => { const d = fecha(e.desde); return `<div class="gl-cal-ag"><div class="gl-cal-fe"><b>${d.getDate()}</b>${MESES[d.getMonth()].toUpperCase()}</div><div><span>${esc(e.t)}</span><span class="gl-chico">${[e.hasta !== e.desde && 'hasta el ' + fmt(e.hasta), e.hora && e.hora + ' h'].filter(Boolean).join(' · ') || ({ mesas: 'Mesa de examen', feriados: 'Feriado' })[calGrupo(e.tipo)] || 'Fecha'}</span></div></div>`; };
   const ref = (c, n) => `<span class="gl-flex"><i class="gl-cal-pt ${c}" aria-hidden="true"></i>${n}</span>`;
   return `${calCab(`${V.oferta && E.horarios[V.oferta] && elegidas().length && periodoDe(V.oferta) ? '<button class="gl-btn gl-btn--sec gl-btn--c" onclick="ayudaCalendario()">Llevar mi cursada al calendario</button>' : ''}`)}${previo}
-    <p class="gl-chico">Calendario académico ${D.calendario.anio} de la Facultad, tus fechas, las mesas de tus materias y los feriados. Los marcadores dicen qué hay cada día.</p>
+    <p class="gl-chico">Calendario académico ${D.calendario.anio} de la Facultad, tus fechas, las mesas de tus materias y los feriados de Argentina. Los marcadores dicen qué hay cada día.</p>
     <div class="gl-cal-pag"><aside class="gl-cal-lado" aria-label="Filtros"><div class="gl-rotulo">Qué mostrar</div>${CAL_GRUPOS.map(g => opc(g[0], g[1])).join('')}
       <button type="button" class="gl-cal-opt ${soloMias ? 'on' : ''}" aria-pressed="${soloMias}" onclick="V.calFiltro=${arg(soloMias ? 'todo' : 'mias')};render()"><i class="gl-cal-ck ${soloMias ? 'on' : ''}" aria-hidden="true"></i>Solo mis fechas</button>
       <div class="gl-rotulo">Referencias</div><div class="gl-cal-ref gl-chico">${ref('', 'Parcial o inscripción')}${ref('r', 'Mesa de examen')}${ref('s', 'Feriado')}</div></aside>
     <section class="gl-cal-mes" aria-label="Mes"><div class="gl-flex gl-cal-nav">${calVistaSeg()}<span class="gl-crece"></span>
       <button class="gl-btn gl-btn--sec gl-btn--c" type="button" aria-label="Mes anterior" onclick="calMover(-1)">‹</button><b class="gl-cal-tit">${MESES_LARGOS[m - 1]} ${y}</b><button class="gl-btn gl-btn--sec gl-btn--c" type="button" aria-label="Mes siguiente" onclick="calMover(1)">›</button>${mes !== t.slice(0, 7) ? '<button class="gl-btn gl-btn--ter gl-btn--c" type="button" onclick="V.calMes=null;render()">Hoy</button>' : ''}</div>
       <div class="gl-cal-grilla">${['L', 'M', 'X', 'J', 'V', 'S', 'D'].map(x => `<div class="gl-cal-dia" aria-hidden="true">${x}</div>`).join('')}${celdas.join('')}</div>
-      <p class="gl-chico">Los feriados salen de argentina.gob.ar.</p></section>
+      <p class="gl-chico">Los feriados de Argentina salen de argentina.gob.ar.</p></section>
     <aside class="gl-cal-rail" aria-label="Lo que viene"><div class="gl-rotulo">Lo que viene</div>${prox.map(ag).join('') || '<p class="gl-chico">No queda nada con estos filtros.</p>'}
       <p><button class="gl-btn gl-btn--sec" onclick="V.calVista=${arg('lista')};render()">Ver todo en lista</button></p></aside></div>${turnos}`;
 }
@@ -1578,7 +1578,7 @@ function vResumenes() {
       <span class="meta gl-num">${a.min} min${a.preguntas ? ' · ' + a.preguntas + ' preguntas' : ''}</span></li>`).join('')}</ul>`).join('');
   const filtro = (k, t) => `<button type="button" aria-pressed="${solo === (k === 'con')}" onclick="V.resFiltro=${arg(k)};render()">${t}</button>`;
   return `<div class="gl-v gl-res">${retomar()}<div class="gl-cab"><h1 class="gl-display">Resúmenes</h1><span class="gl-crece"></span><button class="gl-btn" type="button" onclick="sumarApunte()">Sumá tu resumen</button></div>
-    <p class="gl-baja">Apuntes por materia de la carrera de Edición (FFyL, UBA): ${nAp} resúmenes y ${nPr} preguntas para autoevaluarte, con buscador. Son apuntes propios para estudiar: no reemplazan la bibliografía ni las clases.</p>
+    <p class="gl-baja">Apuntes por materia de la carrera de Edición de la Facultad de Filosofía y Letras (UBA): ${nAp} resúmenes y ${nPr} preguntas para autoevaluarte, con buscador. Son apuntes propios para estudiar: no reemplazan la bibliografía ni las clases.</p>
     <div class="gl-barra"><label class="gl-busca"><span class="gl-rotulo">Buscar en los resúmenes</span>
       <input id="res-q" maxlength="100" type="search" autocomplete="off" placeholder="gramaje, punto de equilibrio…" value="${esc(V.busq)}" onfocus="cargarBusqueda()" oninput="buscarRes(this.value)"></label>
       <div class="gl-filtros" role="group" aria-label="Filtro">${filtro('todos', 'Todas')}${filtro('con', 'Con resúmenes')}</div></div>
@@ -2356,6 +2356,7 @@ function vTarifario() {
 
 // Los simuladores, por materia (el orden de la pestaña sale de acá).
 const SIMULADORES = MARCO.simuladores;
+const SOLO_AR = new Set(['leyes', 'contratos', 'tarifario']);   // normas y tarifas de Argentina: se rotulan (no se promete cobertura de otros países)
 // Explicaciones mínimas de cada concepto, según la cátedra de Administración de la Empresa Editorial.
 const AYUDA = {
   pvp: 'Precio de venta al público. Lo fija el editor entre un piso (que cubra los costos) y un techo (lo que el mercado está dispuesto a pagar). El escandallo arranca acá.',
@@ -2466,21 +2467,22 @@ function vSimuladores() {
       <div class="gl-cab"><h1 class="gl-t1 sin-cap">${esc(sim.t)}</h1><span class="gl-crece"></span>
         <button class="gl-btn gl-btn--sec" type="button" onclick="compartir(urlSim(${arg(sim.id)}),${arg(sim.t)},'simulador',${arg(sim.id)})">Compartir</button>
         <button class="gl-btn gl-btn--sec" type="button" onclick="abrirQR(urlSim(${arg(sim.id)}),${arg(sim.t)},'simulador',${arg(sim.id)})" aria-label="Código QR de este simulador">QR</button></div>
-      <p class="gl-baja">${esc(p.sigla ? p.sigla + ' · ' : '')}${esc(p.nombre)}. ${esc(sim.d)}</p>
+      <p class="gl-baja">${esc(p.sigla ? p.sigla + ' · ' : '')}${esc(p.nombre)}. ${esc(sim.d)}</p>${SOLO_AR.has(sim.id) ? '<p class="gl-chico"><span class="gl-chip">Argentina</span> Normas, modelos y referencias de Argentina: en otro país pueden ser distintos.</p>' : ''}
       <div class="gl-sim-uso">` + (esPro() ? '' : vRetos(sim.id)) + { escandallo: vEscandalloUno, comparador: vComparador, papel: vPapel, paginacion: vPaginacion, cronograma: vCronograma, ecosistema: vEcosistema, formatos: vFormatos, leyes: vLeyes, contratos: vContratos, tarifario: vTarifario }[sim.id]() + `</div>${como}</div>`;
   }
   cargarSimInfo();
   const est = id => (E.materias[id] || {}).estado, marca = id => est(id) === 'cursando' ? '<span class="gl-chip">la cursás</span>' : est(id) === 'regular' ? '<span class="gl-chip gl-chip--aviso">te falta el final</span>' : '';
   const tarjeta = x => { const p = plan(x.materia); return `<li><div class="gl-tarjeta gl-mat" style="min-height:208px"><div class="cuerpo"><span class="meta">${esc(p.sigla ? p.sigla + ' · ' : '')}${esc(p.nombre)}</span>
       <h3 class="gl-t3 gl-inicial${sinIni(x.t)}"><a class="cubre" href="/simuladores/${esc(x.id)}.html">${esc(x.t)}</a></h3><span class="meta">${esc(x.d)}</span><span class="crece"></span>
-      <span class="etiquetas">${marca(x.materia)}</span><span class="pie"><span>Calculadora</span></span></div></div></li>`; };
+      <span class="etiquetas">${SOLO_AR.has(x.id) ? '<span class="gl-chip">Argentina</span>' : ''}${marca(x.materia)}</span><span class="pie"><span>Calculadora</span></span></div></div></li>`; };
   const planif = `<li><div class="gl-tarjeta gl-mat" style="min-height:208px"><div class="cuerpo"><span class="meta">Fundamentos de la Producción de Impresos</span>
       <h3 class="gl-t3 gl-inicial"><a class="cubre" href="/libro/cronograma/">Planificador de libros</a></h3><span class="meta">Del original a la reimpresión: Gantt, PERT y Roy, con feriados, dependencias, varios títulos y responsables.</span><span class="crece"></span>
       <span class="etiquetas"><span class="gl-chip">Nuevo</span></span><span class="pie"><span>Herramienta completa</span></span></div></div></li>`;
   return `<div class="gl-v gl-sim"><div class="gl-cab"><h1 class="gl-display sin-cap">Simuladores</h1></div>
-    <p class="gl-baja">Calculadoras basadas en lo que enseñan las cátedras de Edición (FFyL, UBA), para hacer las cuentas de papel, de costos y de catálogo, y un mapa de los actores del libro. Gratis, sin cuenta, y lo que cargás queda en tu navegador.</p>
+    <p class="gl-baja">Calculadoras y mapas para quienes hacen libros: papel e imposición, paginación, costos, cronogramas, contratos y los actores del libro. Gratis, sin cuenta, y lo que cargás queda en tu navegador.</p>
     <h2 class="gl-grupo-h">Planificar un libro<span>1</span></h2><ul class="gl-rejilla gl-rejilla--2">${planif}</ul>` +
-    TEMAS_SIM.map(([t, ids]) => { const L = ids.map(i => SIMULADORES.find(x => x.id === i)).filter(Boolean); return `<h2 class="gl-grupo-h">${esc(t)}<span>${L.length}</span></h2><ul class="gl-rejilla gl-rejilla--2">${L.map(tarjeta).join('')}</ul>`; }).join('') + '</div>';
+    TEMAS_SIM.map(([t, ids]) => { const L = ids.map(i => SIMULADORES.find(x => x.id === i)).filter(Boolean); return `<h2 class="gl-grupo-h">${esc(t)}<span>${L.length}</span></h2><ul class="gl-rejilla gl-rejilla--2">${L.map(tarjeta).join('')}</ul>`; }).join('') +
+    '<h2 class="gl-grupo-h">Cómo se hizo</h2><p class="gl-baja">Los simuladores se armaron con lo que enseñan las cátedras de Edición de la Facultad de Filosofía y Letras (UBA). Los criterios, las fuentes y la fecha de cada dato están en cada simulador; las cuentas son orientativas y los montos son en pesos argentinos ($, ARS).</p></div>';
 }
 // =====================================================================
 // EVENTOS DE LA INDUSTRIA (perfil profesional): datos/eventos.json, solo fuentes oficiales; lo que no confirmó el organizador se marca «a confirmar».
@@ -3614,7 +3616,7 @@ async function cargarDirectorio() {
   if (V.tab === 'directorio') render();
 }
 // Mapa de provincias: los trazos están en mapa-ar.js (lo genera 104-edicion-cursada/mapa_provincias.py desde Wikimedia Commons, CC BY-SA 3.0).
-const nombreProv = p => ({ 'Ciudad Autónoma de Buenos Aires': 'CABA' })[p] || p;
+const nombreProv = p => ({ 'Ciudad Autónoma de Buenos Aires': 'Ciudad de Buenos Aires' })[p] || p;
 // Inicial para el índice A–Z del Directorio: sin tildes ni signos; lo que no empieza con letra va a «#».
 const inicialDir = a => { const c = sinTildes(a.n).replace(/[^a-z0-9]/g, '').charAt(0).toUpperCase(); return /[A-Z]/.test(c) ? c : '#'; };
 const actoresDelTipo = () => D.directorio.actores.filter(a => a.tipo === V.dir.tipo);
@@ -3773,7 +3775,7 @@ function vSostener() {
   return `<div class="gl-v gl-sost"><div class="gl-cab"><h1 class="gl-display">Cómo se sostiene</h1></div>
     <p class="gl-baja">Galera es gratis, no pide cuenta y no tiene publicidad. Acá está cuánto trabajo lleva, qué cuesta y cómo ayudar.</p>
     <div class="gl-doc gl-doc--izq"><div class="gl-principal">
-      <p class="capital gl-lead">Galera la hago yo, Fidel Chaves, estudiante de Edición, en mi tiempo libre. No pide registro ni vende datos: lo que cargás queda en tu dispositivo.</p>
+      <p class="capital gl-lead">Galera la hago yo, ${esc(MARCO.marca.firma)}, en mi tiempo libre. No pide registro ni vende datos: lo que cargás queda en tu dispositivo.</p>
       <h2 id="horas">Horas de trabajo</h2>${sostenerHoras(S.horas, S.claude)}
       <h2 id="costos">Qué cuesta</h2>${sostenerCostos(S.costos)}
       <p>Con más apoyo podría pagar un plan superior de Claude y avanzar más frentes por semana.</p>

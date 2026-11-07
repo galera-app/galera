@@ -5,13 +5,13 @@
    "t": "Mi carrera",
    "url": "/carrera/",
    "titulo": "Mi carrera: notas, promedio y plan de Edición (UBA) · Galera",
-   "desc": "Cargá tus materias y notas de la carrera de Edición (FFyL, UBA): promedio con y sin CBC, lo que te falta y lo que podés cursar. Gratis, sin cuenta."
+   "desc": "Cargá tus materias y notas de Edición en la Facultad de Filosofía y Letras (UBA): promedio con y sin CBC, lo que falta y lo que podés cursar. Gratis."
   },
   "horarios": {
    "t": "Horarios",
    "url": "/horarios/",
    "titulo": "Horarios de Edición (UBA) sin superposiciones · Galera",
-   "desc": "Armá tu cuatrimestre de la carrera de Edición (FFyL, UBA) con la oferta de comisiones: Galera avisa si dos materias se pisan. Gratis, sin cuenta."
+   "desc": "Armá tu cuatrimestre de Edición en la Facultad de Filosofía y Letras (UBA) con la oferta de comisiones: Galera avisa si dos materias se pisan. Gratis, sin cuenta."
   },
   "calendario": {
    "t": "Calendario",
@@ -41,7 +41,7 @@
    "t": "Glosario",
    "url": "/glosario/",
    "titulo": "Glosario de edición y grafo de conceptos · Galera",
-   "desc": "210 términos clave de la carrera de Edición (UBA), con su definición, la materia de cada uno y un grafo de conceptos que muestra cómo se conectan. Gratis y sin cuenta."
+   "desc": "210 términos clave de la edición, con su definición, la materia de cada uno y un grafo de conceptos que muestra cómo se conectan. Gratis y sin cuenta."
   },
   "eventos": {
    "t": "Eventos",
@@ -58,26 +58,26 @@
   "links": {
    "t": "Links útiles",
    "url": "/links/",
-   "titulo": "Links útiles para estudiar Edición (UBA) · Galera",
-   "desc": "Los sitios oficiales que más se usan en la carrera de Edición (FFyL, UBA) y del sector del libro: inscripción, trámites, bibliotecas y asociaciones."
+   "titulo": "Links útiles para quienes hacen libros · Galera",
+   "desc": "Los sitios oficiales que más se usan en el sector del libro y en Edición en la Facultad de Filosofía y Letras (UBA): inscripción, trámites, bibliotecas y asociaciones."
   },
   "novedades": {
    "t": "Novedades",
    "url": "/novedades/",
    "titulo": "Novedades de Galera",
-   "desc": "Lo último que se publicó en Galera, el gestor para la carrera de Edición (FFyL, UBA), y lo que pidieron quienes lo usan."
+   "desc": "Lo último que se publicó en Galera, las herramientas abiertas para quienes hacen libros, y lo que pidieron quienes la usan."
   },
   "preguntas": {
    "t": "Preguntas frecuentes",
    "url": "/preguntas/",
    "titulo": "Preguntas frecuentes sobre la carrera de Edición (UBA) · Galera",
-   "desc": "Respuestas sobre la carrera de Edición (FFyL, UBA): qué cursar primero, inscripción, finales, idiomas y título. Y un lugar para dejar tu pregunta."
+   "desc": "Respuestas sobre Edición en la Facultad de Filosofía y Letras (UBA): qué cursar primero, inscripción, finales, idiomas y título. Y un lugar para dejar tu pregunta."
   },
   "lecturas": {
    "t": "Mapas de lectura",
    "url": "/lecturas/",
-   "titulo": "Mapas de lectura de Letras (UBA): qué se lee por materia · Galera",
-   "desc": "Qué se lee en Letras (FFyL, UBA): tres mapas de los programas 2026 de literatura argentina, con la teoría de cada lectura y dónde leer las de dominio público."
+   "titulo": "Mapas de lectura de Letras: qué se lee, materia por materia · Galera",
+   "desc": "Qué se lee en la carrera de Letras (FFyL, UBA), materia por materia: mapas de los programas 2026, con la teoría de cada lectura y dónde leer las de dominio público."
   },
   "sostener": {
    "t": "Cómo se sostiene",
@@ -106,19 +106,19 @@
   "inicio": {
    "t": "Inicio",
    "url": "/",
-   "titulo": "Galera: tu carrera de Edición, en orden (UBA)",
-   "desc": "Tus notas, fechas de examen, horarios sin superposiciones, resúmenes con autoevaluación y simuladores para la carrera de Edición (UBA). Gratis y sin cuenta."
+   "titulo": "{{marca.titulo_home}}",
+   "desc": "{{marca.desc_home}}"
   },
   "/fuentes/": {
    "t": "Fuentes",
    "url": "/fuentes/",
-   "desc": "Todas las fuentes de Galera, el gestor para estudiantes de Edición de la UBA: plan, calendario, horarios, mesas, directorio, eventos, tarifas y leyes."
+   "desc": "Todas las fuentes de Galera, herramientas abiertas para quienes hacen libros en español: plan, calendario, horarios, mesas, directorio, eventos, tarifas y leyes."
   },
   "/legal/": {
    "t": "Legal",
    "url": "/legal/",
    "solo_menu": true,
-   "desc": "Qué datos guarda Galera, para qué y bajo qué condiciones se usa. Sitio gratuito, sin cuentas ni publicidad, para estudiantes de Edición (UBA)."
+   "desc": "Qué datos guarda Galera, para qué y bajo qué condiciones se usa. Sitio gratuito, sin cuentas ni publicidad, para quienes hacen libros en español."
   }
  },
  "tabs": {
@@ -304,8 +304,8 @@
   ]
  },
  "pie": {
-  "bajada": "Gratis, sin cuenta y sin publicidad. Para quienes estudian Edición (UBA).",
-  "aviso": "No es un sitio oficial: verificá en SIU Guaraní y en el <a href=\"https://edicion.filo.uba.ar/\" target=\"_blank\" rel=\"noopener\">Departamento de Edición</a>. Los resúmenes salen de apuntes de Fidel Chaves, estudiante de Edición, y pueden tener errores: no reemplazan la bibliografía ni las clases. Tus datos quedan en este navegador, sin cuentas; con tu permiso, Google Analytics cuenta visitas.",
+  "bajada": "{{marca.pie_bajada}}",
+  "aviso": "No es un sitio oficial: verificá en SIU Guaraní y en el <a href=\"https://edicion.filo.uba.ar/\" target=\"_blank\" rel=\"noopener\">Departamento de Edición</a>. Los resúmenes salen de apuntes de {{marca.firma}}, y pueden tener errores: no reemplazan la bibliografía ni las clases. Tus datos quedan en este navegador, sin cuentas; con tu permiso, Google Analytics cuenta visitas.",
   "escribir": {
    "t": "Escribir a Fidel",
    "url": "mailto:hola@galera.com.ar"
@@ -354,7 +354,7 @@
    "materia": "0909",
    "ico": "💲",
    "t": "Tarifario de referencia",
-   "d": "Quién publica tarifas orientativas para traducción, corrección, diseño e ilustración: unidad, fecha de edición y link a la fuente. Sin montos copiados: se leen en el original."
+   "d": "Quién publica en Argentina tarifas orientativas para traducción, corrección, diseño e ilustración: unidad, fecha de edición y link a la fuente. Sin montos copiados: se leen en el original."
   },
   {
    "id": "contratos",
@@ -368,7 +368,7 @@
    "materia": "0919",
    "ico": "⚖️",
    "t": "Leyes: jerarquía de normas y traductor jurídico",
-   "d": "Las normas del derecho de autor y editorial ordenadas en una pirámide (qué manda sobre qué) y un traductor de términos jurídicos a castellano común, con ejemplos de editorial."
+   "d": "Las normas argentinas del derecho de autor y editorial ordenadas en una pirámide (qué manda sobre qué) y un traductor de términos jurídicos a castellano común, con ejemplos de editorial."
   },
   {
    "id": "formatos",
