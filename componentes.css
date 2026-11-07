@@ -432,7 +432,7 @@ a.gl-tapa:focus-visible{outline:2px solid var(--gl-ink);outline-offset:2px}
 .gl-libros a{display:inline-flex;align-items:center;min-height:24px;color:var(--gl-lnk)}
 .gl-apuntes{margin:24px 0 0;padding:0;list-style:none;border-bottom:1px solid var(--gl-line)}
 .gl-apuntes>li{display:grid;grid-template-columns:48px minmax(0,1fr) auto;gap:16px;align-items:center;min-height:56px;padding:8px 0;border-top:1px solid var(--gl-line)}
-.gl-apuntes .clave{font:600 13px/16px var(--gl-sans);letter-spacing:.1em;color:var(--gl-t3)}
+.gl-apuntes .clave{font:600 13px/16px var(--gl-sans);letter-spacing:.1em;color:var(--gl-t2)}
 .gl-apuntes a{display:flex;align-items:center;min-height:44px;color:var(--gl-ink);font:500 16px/24px var(--gl-sans);text-decoration:none}
 .gl-apuntes a:hover{color:var(--gl-lnk);text-decoration:underline}
 .gl-apuntes .meta{font:400 14px/20px var(--gl-sans);color:var(--gl-t2);text-align:right}
@@ -788,7 +788,7 @@ a.ib{text-decoration:none}
 
 /* v122: descargas de los resúmenes (PDF A4, A5, cuadernillo, EPUB) */
 .gl-desc .gl-btn{flex:none}
-.gl-desc-peso{font:400 14px/20px var(--gl-sans);opacity:.85;font-variant-numeric:tabular-nums}
+.gl-desc-peso{font:400 14px/20px var(--gl-sans);font-variant-numeric:tabular-nums}
 .gl-desc-mas{flex:1 0 100%}
 .gl-desc-mas>summary{cursor:pointer}
 .gl-desc-hint{margin:0;flex:1 0 100%}
@@ -960,3 +960,9 @@ a.gl-lec-mapa .gl-lec-av{margin-top:auto;padding-top:8px}
   .lp-esc{width:1123px;max-width:none;height:1587px!important;margin:0;overflow:hidden;box-shadow:none}
   .lp-hoja{transform:none!important}
 }
+
+/* v138: tablas de los apuntes dentro de un contenedor que se desplaza y recibe foco (teclado) */
+.apunte .tabla-apunte{max-width:100%;margin:10px 0;overflow-x:auto}
+.apunte .tabla-apunte table{display:table;margin:0;max-width:none}
+.apunte .tabla-apunte:focus-visible{outline:2px solid var(--gl-lnk);outline-offset:2px}
+@media print{.apunte .tabla-apunte{overflow:visible;break-inside:avoid}.apunte .tabla-apunte table{width:100%}}
