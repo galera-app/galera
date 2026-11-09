@@ -71,7 +71,7 @@ function abrirImagen(cv, o) {
     IMG_COMP = { blob, file, o };
     abrir(cab(o.titulo) + `<p class="chico tenue" style="margin-top:0">${esc(o.intro)}</p>
       <img class="img-comp" src="${cv.toDataURL('image/png')}" alt="${esc(o.alt)}" width="${cv.width}" height="${cv.height}">
-      <div class="botones">${puede ? '<button class="btn" onclick="enviarImagen()">Compartir</button>' : ''}<button class="btn ${puede ? 'sec' : ''}" onclick="bajarImagen()">Descargar (.png)</button><button class="btn lin" onclick="cerrar()">Cerrar</button></div>`, 'img-comp');
+      <div class="botones">${puede ? '<button class="btn" data-clic="enviarImagen">Compartir</button>' : ''}<button class="btn ${puede ? 'sec' : ''}" data-clic="bajarImagen">Descargar (.png)</button><button class="btn lin" data-clic="cerrar">Cerrar</button></div>`, 'img-comp');
   }, 'image/png');
 }
 function enviarImagen() {
@@ -107,7 +107,7 @@ function abrirQR(url, titulo, tipo, id) {
   abrir(cab('Código QR') + `<p style="margin-top:0"><b>${esc(titulo)}</b></p><div class="qr-caja">${Traspaso.qrSvg(m, 'Código QR de ' + titulo)}</div>
     <p class="chico tenue" style="text-align:center;overflow-wrap:anywhere">${esc(url)}</p>
     <p class="chico tenue">Sirve para pegarlo en una cartelera o en un apunte en papel: quien lo escanee abre esta misma pantalla.</p>
-    <div class="botones"><button class="btn" onclick="bajarQR()">Descargar (.png)</button><button class="btn sec" onclick="copiarLink(QR_ACTUAL.url)">Copiar el link</button><button class="btn lin" onclick="cerrar()">Cerrar</button></div>`, 'qr');
+    <div class="botones"><button class="btn" data-clic="bajarQR">Descargar (.png)</button><button class="btn sec" data-clic="copiarQrActual">Copiar el link</button><button class="btn lin" data-clic="cerrar">Cerrar</button></div>`, 'qr');
 }
 function abrirQRPantalla() { abrirQR(urlCompartible(), document.title.replace(/\s*·\s*Galera$/, '') || BRAND.nombre, 'pantalla', V.tab); }
 function bajarQR() {
@@ -142,8 +142,8 @@ function compartirResultado(materia, apunte, bien, total) {
 function bloqueFinAuto(materia, apunte, bien, hechas, total) {
   const completa = total > 0 && hechas === total;
   return `<div class="gl-tarjeta gl-accion no-imprimir gl-m16"><div>${completa ? `Terminaste: <b>${bien} de ${total}</b>. ` : ''}<span class="gl-chico">¿Le sirve a alguien de tu cursada?</span></div>
-    ${completa ? `<button class="gl-btn gl-btn--sec" type="button" onclick="compartirResultado(${arg(materia)},${arg(apunte)},${bien},${total})">Mi resultado en imagen</button>` : ''}
-    <button class="gl-btn gl-btn--ter" type="button" onclick="mandarApunte(${arg(materia)},${arg(apunte)})">Mandale este apunte por WhatsApp</button></div>`;
+    ${completa ? `<button class="gl-btn gl-btn--sec" type="button" data-clic="compartirResultado" data-clic-a="[${arg(materia)},${arg(apunte)},${ja(bien)},${ja(total)}]">Mi resultado en imagen</button>` : ''}
+    <button class="gl-btn gl-btn--ter" type="button" data-clic="mandarApunte" data-clic-a="[${arg(materia)},${arg(apunte)}]">Mandale este apunte por WhatsApp</button></div>`;
 }
 
 // ---------- mi avance ----------
@@ -205,16 +205,16 @@ function linkSemana() {
   medir('share', { method: 'link', content_type: 'horario', item_id: V.oferta });
   abrir(cab('Link para ver mi horario') + `<p style="margin-top:0">Quien lo abra ve tu semana <b>en modo lectura</b>, sin cuenta y sin poder cambiar nada. No lleva notas ni otros datos tuyos.</p>
     ${m ? `<div class="qr-caja">${Traspaso.qrSvg(m, 'Código QR con tu horario')}</div>` : ''}
-    <div class="botones"><button class="btn" onclick="copiarLink(HOR_LINK)">Copiar el link</button>${navigator.share ? '<button class="btn sec" onclick="navigator.share({title:\'Mi horario en Galera\',url:HOR_LINK}).catch(()=>{})">Compartir</button>' : ''}<button class="btn lin" onclick="cerrar()">Cerrar</button></div>`, 'hor-link');
+    <div class="botones"><button class="btn" data-clic="copiarHorLink">Copiar el link</button>${navigator.share ? '<button class="btn sec" data-clic="compartirHorLink">Compartir</button>' : ''}<button class="btn lin" data-clic="cerrar">Cerrar</button></div>`, 'hor-link');
 }
 function abrirSemanaCompartida(oferta_, ids) {
   const of = (D.ofertas || []).find(o => o.id === oferta_);
   const sel = of ? ids.map(id => of.comisiones.find(c => c.id === id)).filter(Boolean) : [];
-  if (!sel.length) return abrir(cab('Horario compartido') + `<p>Este horario es de un cuatrimestre que no está cargado o el link quedó incompleto.</p><div class="botones"><button class="btn" onclick="cerrar()">Cerrar</button></div>`, 'hor-comp');
+  if (!sel.length) return abrir(cab('Horario compartido') + `<p>Este horario es de un cuatrimestre que no está cargado o el link quedó incompleto.</p><div class="botones"><button class="btn" data-clic="cerrar">Cerrar</button></div>`, 'hor-comp');
   const cv = cvSemana(sel, of.nombre);
   abrir(cab('Horario compartido') + `<p class="chico tenue" style="margin-top:0">Alguien te pasó su semana. Solo se puede mirar: no cambia nada de lo tuyo.</p>
     <img class="img-comp" src="${cv.toDataURL('image/png')}" alt="Grilla semanal del horario compartido" width="1080" height="1080">${listaSemana(sel)}
-    <div class="botones"><button class="btn" onclick="cerrar();ir('horarios')">Armar el mío</button><button class="btn lin" onclick="cerrar()">Cerrar</button></div>`, 'hor-comp');
+    <div class="botones"><button class="btn" data-clic="cerrarIr" data-clic-a="[&quot;horarios&quot;]">Armar el mío</button><button class="btn lin" data-clic="cerrar">Cerrar</button></div>`, 'hor-comp');
 }
 
 // ---------- pasarle el plan a un amigo ----------
@@ -241,7 +241,7 @@ async function abrirPasarAmigo() {
   medir('share', { method: 'link', content_type: 'plan', item_id: 'amigo' });
   abrir(cab(T) + `<p style="margin-top:0">Tu amigo abre el link y ya tiene cargadas las <b>${n} ${n === 1 ? 'materia' : 'materias'}</b> en las que estás (aprobadas y cursando). <b>No van tus notas, fechas, horarios ni apuntes.</b></p>
     ${m ? `<div class="qr-caja">${Traspaso.qrSvg(m, 'Código QR con tu plan, sin notas')}</div>` : '<p class="chico tenue">Es un link largo para un QR: usá «Copiar el link».</p>'}
-    <div class="botones"><button class="btn" onclick="copiarLink(AMIGO_URL)">Copiar el link</button>${navigator.share ? '<button class="btn sec" onclick="navigator.share({title:\'Mi plan en Galera\',url:AMIGO_URL}).catch(()=>{})">Compartir</button>' : ''}<button class="btn lin" onclick="cerrar()">Cerrar</button></div>
+    <div class="botones"><button class="btn" data-clic="copiarAmigoUrl">Copiar el link</button>${navigator.share ? '<button class="btn sec" data-clic="compartirAmigoUrl">Compartir</button>' : ''}<button class="btn lin" data-clic="cerrar">Cerrar</button></div>
     <p class="chico tenue" style="margin-top:10px">El link lleva el plan adentro y no pasa por ningún servidor. Mandalo solo a quien quieras.</p>`, 'amigo');
 }
 
@@ -310,10 +310,10 @@ function abrirLogros() {
   const falta = sig ? Math.ceil(sig * p.total[1] / 100) - p.total[0] : 0;
   abrir(cab('Mis logros') + (L.length
     ? `<p class="chico tenue" style="margin-top:0">Cada uno se puede compartir como imagen sobria, sin tu nombre ni tus notas.</p>
-      <ul class="lista-mas">${L.slice().reverse().map(g => `<li><button type="button" onclick="compartirLogro(${arg(g.id)})"><span>${esc(g.frase)}<small>${esc(g.detalle || '')}</small></span><i aria-hidden="true"></i></button></li>`).join('')}</ul>`
+      <ul class="lista-mas">${L.slice().reverse().map(g => `<li><button type="button" data-clic="compartirLogro" data-clic-a="[${arg(g.id)}]"><span>${esc(g.frase)}<small>${esc(g.detalle || '')}</small></span><i aria-hidden="true"></i></button></li>`).join('')}</ul>`
     : '<p class="vacio">Todavía no hay logros: marcá las materias que aprobaste y aparecen solos.</p>')
     + (falta > 0 ? `<p class="chico tenue">Para el ${sig} % te ${falta === 1 ? 'falta 1 requisito' : 'faltan ' + falta + ' requisitos'}.</p>` : '')
-    + '<div class="botones"><button class="btn lin" onclick="cerrar()">Cerrar</button></div>', 'logros');
+    + '<div class="botones"><button class="btn lin" data-clic="cerrar">Cerrar</button></div>', 'logros');
 }
 
 // ---------- felicitación al aprobar ----------
@@ -358,7 +358,7 @@ function sumarApunte(id) {
   abrir(cab('Sumá tu resumen') + `<p class="chico tenue" style="margin-top:0">Si tenés un resumen de una materia que ya cursaste, mandámelo por mail para quien viene detrás. <b>Lo reviso antes de publicarlo</b> (que sea correcto, que sea tuyo y que cite la bibliografía) y te aviso si hace falta algún cambio.</p>
     <label class="c">Materia</label><select id="a-m" style="width:100%">${L.map(m => `<option value="${esc(m.id)}" ${m.id === id ? 'selected' : ''}>${esc(nombreDe(m))}</option>`).join('')}</select>
     <p class="chico tenue">Se abre tu programa de correo con el mensaje armado. Pegá el link a tu resumen (Drive, Docs…) o adjuntá el archivo, y aclarame cómo querés que te acredite.</p>
-    <div class="botones"><button class="btn" onclick="mailApunte()">Escribirme por mail</button><button class="btn lin" onclick="cerrar()">Cancelar</button></div>
+    <div class="botones"><button class="btn" data-clic="mailApunte">Escribirme por mail</button><button class="btn lin" data-clic="cerrar">Cancelar</button></div>
     <p class="chico tenue">¿No se abre? Escribí a <b>${esc(CONTACTO)}</b>. No se manda nada de tus notas ni de tus horarios.</p>`, 'apunte-nuevo');
 }
 function mailApunte() {
@@ -387,7 +387,7 @@ function abrirQueCursar() {
   const hay = elegidas().length > 0;
   abrir(cab('Qué voy a cursar') + `<p class="gl-chico">${esc(of.nombre || 'Próximo cuatrimestre')}. Para pasarle al grupo lo que pensás cursar y ver con quién coincidís: solo las materias, sin notas ni datos personales.</p>
     <ul class="resumen-sel qc">${nombres.map(n => `<li><span class="ge pen" aria-hidden="true"></span><b>${esc(n)}</b></li>`).join('')}</ul>
-    <div class="botones"><button class="gl-btn" onclick="mandarQueCursar()">Mandar por WhatsApp</button><button class="gl-btn gl-btn--sec" onclick="copiarQueCursar()">Copiar el texto</button><button class="gl-btn gl-btn--sec" onclick="imagenQueCursar()">En imagen</button>${hay ? '<button class="gl-btn gl-btn--sec" onclick="linkSemana()">Link para mirar mi semana</button>' : ''}<button class="gl-btn gl-btn--ter" onclick="cerrar()">Cerrar</button></div>
+    <div class="botones"><button class="gl-btn" data-clic="mandarQueCursar">Mandar por WhatsApp</button><button class="gl-btn gl-btn--sec" data-clic="copiarQueCursar">Copiar el texto</button><button class="gl-btn gl-btn--sec" data-clic="imagenQueCursar">En imagen</button>${hay ? '<button class="gl-btn gl-btn--sec" data-clic="linkSemana">Link para mirar mi semana</button>' : ''}<button class="gl-btn gl-btn--ter" data-clic="cerrar">Cerrar</button></div>
     ${hay ? '' : '<p class="gl-chico">Cuando elijas las comisiones, también podés pasar el link de tu semana.</p>'}`, 'que-cursar');
 }
 function mandarQueCursar() {
@@ -435,7 +435,7 @@ function abrirDesafio(tablero, semilla, puntos) {
   if (!Arcade.EJES[tablero] || !/^[a-z0-9]{4,10}$/.test(semilla) || !(puntos > 0 && puntos <= 999999)) return false;
   irArcade();
   abrir(cab('Te desafiaron') + `<p style="margin-top:0">Alguien hizo <b>${arcCero(puntos)}</b> en el Arcade de Corrección de Estilo (${esc(arcNombre(tablero))}). Es el mismo tablero, con las mismas preguntas en el mismo orden.</p>
-    <div class="botones"><button class="btn" onclick="cerrar();arcEmpezarTeo(${arg(tablero)},${arg(semilla)},${puntos})">Aceptar el desafío</button><button class="btn lin" onclick="cerrar()">Ahora no</button></div>`, 'desafio');
+    <div class="botones"><button class="btn" data-clic="cerrarArcTeo" data-clic-a="[${arg(tablero)},${arg(semilla)},${ja(puntos)}]">Aceptar el desafío</button><button class="btn lin" data-clic="cerrar">Ahora no</button></div>`, 'desafio');
   return true;
 }
 function arcMensajeDesafio(A, puntos) {
@@ -459,3 +459,26 @@ function manejarLinkCompartir() {
   }
   return false;
 }
+
+// Manejadores por delegación (ver ACC en app.js).
+window.ACC = window.ACC || {};
+Object.assign(ACC, {
+  cerrarArcTeo: (a, b, c) => { cerrar(); arcEmpezarTeo(a, b, c); },
+  copiarQrActual: () => copiarLink(QR_ACTUAL.url),
+  copiarHorLink: () => copiarLink(HOR_LINK),
+  compartirHorLink: () => navigator.share({ title: 'Mi horario en Galera', url: HOR_LINK }).catch(() => { }),
+  copiarAmigoUrl: () => copiarLink(AMIGO_URL),
+  compartirAmigoUrl: () => navigator.share({ title: 'Mi plan en Galera', url: AMIGO_URL }).catch(() => { }),
+});
+
+// Acciones registradas para la delegación de eventos (late binding: se resuelven al hacer clic).
+window.ACC = window.ACC || {};
+Object.assign(ACC, {
+  abrirLogros: (...a) => abrirLogros(...a), abrirPasarAmigo: (...a) => abrirPasarAmigo(...a), abrirQRPantalla: (...a) => abrirQRPantalla(...a),
+  abrirQueCursar: (...a) => abrirQueCursar(...a), arcDesafiar: (...a) => arcDesafiar(...a), bajarImagen: (...a) => bajarImagen(...a),
+  bajarQR: (...a) => bajarQR(...a), compartirAvance: (...a) => compartirAvance(...a), compartirLogro: (...a) => compartirLogro(...a),
+  compartirResultado: (...a) => compartirResultado(...a), copiarQueCursar: (...a) => copiarQueCursar(...a),
+  enviarImagen: (...a) => enviarImagen(...a), imagenQueCursar: (...a) => imagenQueCursar(...a), imagenSemana: (...a) => imagenSemana(...a),
+  instalarApp: (...a) => instalarApp(...a), linkSemana: (...a) => linkSemana(...a), mailApunte: (...a) => mailApunte(...a),
+  mandarApunte: (...a) => mandarApunte(...a), mandarQueCursar: (...a) => mandarQueCursar(...a), sumarApunte: (...a) => sumarApunte(...a),
+});
