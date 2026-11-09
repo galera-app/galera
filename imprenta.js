@@ -366,7 +366,7 @@ function vImprimir() {
     <p class="gl-baja">Revisá tu PDF antes de mandarlo a la imprenta, imponelo para imprimir un fanzine o un acaballado en casa y repasá la lista de lo que suele fallar en el ripeo. Todo pasa en tu navegador: el archivo no se sube a ningún lado.</p>`;
   const subir = `<section class="gl-imp-sec" aria-labelledby="imp-a"><h2 id="imp-a" class="gl-t2">Revisá tu PDF</h2>
     <div class="gl-imp-subir"><label class="gl-btn" for="imp-archivo">${s.nombre ? 'Elegir otro PDF' : 'Elegir un PDF'}</label>
-      <input id="imp-archivo" class="u-oculto" type="file" accept="application/pdf,.pdf" onchange="impElegir(this)">
+      <input id="imp-archivo" class="u-oculto" type="file" accept="application/pdf,.pdf" data-imp="elegir">
       ${s.nombre ? `<span class="gl-imp-arch"><b>${esc(s.nombre)}</b> · ${pesoArchivo(s.peso)}</span>` : '<span class="gl-tenue">Hasta 200 MB. Mejor si es el PDF final, el mismo que vas a mandar.</span>'}</div>
     <div role="status" aria-live="polite">${s.cargando ? '<p class="gl-baja">Revisando el archivo…</p>' : s.error ? `<p class="gl-imp-error" role="alert">${esc(s.error)}</p>` : ''}</div>
     ${R && !s.cargando ? resultadoImp(R) : ''}</section>`;
@@ -382,17 +382,17 @@ function resultadoImp(R) {
 }
 function imponerImp(s, R) {
   const fz = s.modo === 'fanzine', n = R.paginas, o = Imprenta.ordenAcaballado(n);
-  const opt = (k, v, t) => `<label class="gl-imp-opt"><input type="radio" name="imp-${k}" value="${esc(v)}"${s[k] === v ? ' checked' : ''} onchange="impOpcion(${arg(k)}, this.value)"> ${t}</label>`;
+  const opt = (k, v, t) => `<label class="gl-imp-opt"><input type="radio" name="imp-${k}" value="${esc(v)}"${s[k] === v ? ' checked' : ''} data-imp="opcion" data-imp-k="${esc(k)}"> ${t}</label>`;
   const nota = fz ? (n > 8 ? `<p class="gl-imp-error" role="alert">El fanzine de una hoja lleva 8 páginas y tu PDF tiene ${n}. Probá con acaballado.</p>` : `<p class="gl-baja">Una sola hoja, de un solo lado${n < 8 ? `; quedan ${8 - n} páginas en blanco` : ''}. La línea más oscura es el único corte.</p>`)
     : `<p class="gl-baja">${o.hojas.length} ${o.hojas.length === 1 ? 'hoja' : 'hojas'} a doble faz${o.blancas ? `, con ${o.blancas} ${o.blancas === 1 ? 'página' : 'páginas'} en blanco al final` : ''}.</p>`;
   return `<section class="gl-imp-sec" aria-labelledby="imp-b"><h2 id="imp-b" class="gl-t2">Imponé tu PDF</h2>
     <p class="gl-baja">Para imprimir en casa o en la fotocopiadora: Galera acomoda las páginas en la hoja en el orden en que quedan al doblarla.</p>
     <fieldset class="gl-imp-campos"><legend>Formato</legend>${opt('modo', 'acaballado', 'Acaballado (hojas dobladas y abrochadas al medio)')}${opt('modo', 'fanzine', 'Fanzine de una hoja (8 páginas, un corte)')}</fieldset>
     <fieldset class="gl-imp-campos"><legend>Hoja</legend>${opt('hoja', 'a4', 'A4')}${opt('hoja', 'carta', 'Carta')}${fz ? '' : opt('hoja', 'doble', 'El doble de la página, sin achicar (para la imprenta)')}</fieldset>
-    ${fz ? '' : `<div class="gl-campo gl-imp-creep"><label for="imp-creep">Desplazamiento por hoja (mm)</label><input id="imp-creep" inputmode="decimal" value="${esc(s.creep)}" onchange="impOpcion('creep', this.value)"><span class="gl-tenue">0 si son pocas hojas. Con papel de 80 g y más de 10 hojas, probá 0,1.</span></div>`}
-    <label class="gl-imp-opt"><input type="checkbox"${s.guias ? ' checked' : ''} onchange="impOpcion('guias', this.checked ? '1' : '')"> Marcas de plegado y corte</label>
+    ${fz ? '' : `<div class="gl-campo gl-imp-creep"><label for="imp-creep">Desplazamiento por hoja (mm)</label><input id="imp-creep" inputmode="decimal" value="${esc(s.creep)}" data-imp="opcion" data-imp-k="creep"><span class="gl-tenue">0 si son pocas hojas. Con papel de 80 g y más de 10 hojas, probá 0,1.</span></div>`}
+    <label class="gl-imp-opt"><input type="checkbox"${s.guias ? ' checked' : ''} data-imp="opcion" data-imp-k="guias"> Marcas de plegado y corte</label>
     ${nota}
-    <div class="gl-imp-acc"><button class="gl-btn" type="button" onclick="impImponer()"${fz && n > 8 ? ' disabled' : ''}>Bajar el PDF impuesto</button></div>
+    <div class="gl-imp-acc"><button class="gl-btn" type="button" data-imp="imponer"${fz && n > 8 ? ' disabled' : ''}>Bajar el PDF impuesto</button></div>
     ${pasosImp(fz)}</section>`;
 }
 function pasosImp(fz) {
@@ -402,14 +402,33 @@ function pasosImp(fz) {
 }
 function checklistImp() {
   const A = D.antes, s = impS();
-  if (!A.secciones.length) return '<p class="gl-vacio" role="alert">No se pudo cargar la lista. <button class="gl-btn gl-btn--sec" type="button" onclick="location.reload()">Probar de nuevo</button></p>';
+  if (!A.secciones.length) return '<p class="gl-vacio" role="alert">No se pudo cargar la lista. <button class="gl-btn gl-btn--sec" type="button" data-imp="recargar">Probar de nuevo</button></p>';
   const total = A.secciones.reduce((t, x) => t + x.items.length, 0), hechos = Object.keys(s.hechos).length;
   const fuente = f => f === 'practica' ? '<span class="gl-tenue">Práctica habitual: confirmalo con tu imprenta.</span>' : A.fuentes[f] ? `<a class="gl-enlace" href="${esc(A.fuentes[f].url)}">Apunte: ${esc(A.fuentes[f].t)}</a>` : '';
   return `<section class="gl-imp-sec gl-imp-check" aria-labelledby="imp-c"><h2 id="imp-c" class="gl-t2">La lista antes de mandar</h2>
     <p class="gl-baja">Lo que más falla cuando un archivo llega a la imprenta, en orden. Los ítems marcados con «lo reviso arriba» los mide el analizador; el resto depende de vos y de tu imprenta. <span aria-live="polite">${hechos} de ${total} tildados.</span></p>
-    ${A.secciones.map(sec => `<h3 class="gl-t3">${esc(sec.t)}</h3><ul class="gl-imp-items">${sec.items.map(it => `<li><label class="gl-imp-item"><input type="checkbox"${s.hechos[it.id] ? ' checked' : ''} onchange="impTildar(${arg(it.id)}, this.checked)"><span><b>${esc(it.t)}</b>${it.auto ? ' <span class="gl-chip gl-chip--neutro">lo reviso arriba</span>' : ''}<span class="gl-imp-d">${esc(it.d)}</span>${fuente(it.f)}</span></label></li>`).join('')}</ul>`).join('')}
-    <div class="gl-imp-acc"><button class="gl-btn gl-btn--sec" type="button" onclick="window.print()">Imprimir la lista</button></div>
+    ${A.secciones.map(sec => `<h3 class="gl-t3">${esc(sec.t)}</h3><ul class="gl-imp-items">${sec.items.map(it => `<li><label class="gl-imp-item"><input type="checkbox"${s.hechos[it.id] ? ' checked' : ''} data-imp="tildar" data-imp-id="${esc(it.id)}"><span><b>${esc(it.t)}</b>${it.auto ? ' <span class="gl-chip gl-chip--neutro">lo reviso arriba</span>' : ''}<span class="gl-imp-d">${esc(it.d)}</span>${fuente(it.f)}</span></label></li>`).join('')}</ul>`).join('')}
+    <div class="gl-imp-acc"><button class="gl-btn gl-btn--sec" type="button" data-imp="imprimir">Imprimir la lista</button></div>
     <p class="gl-baja gl-tenue">Texto bajo licencia ${esc(A.licencia || 'CC BY-SA 4.0')}: podés copiarlo y adaptarlo citando a Galera. Sale de los apuntes de Fundamentos de la Producción de Impresos.</p></section>`;
+}
+// Eventos por delegación (sin manejadores en línea, para la CSP sin 'unsafe-inline'): cada control lleva data-imp.
+if (typeof document !== 'undefined' && typeof document.addEventListener === 'function' && !window.impEventos) {
+  window.impEventos = true;
+  const blanco = e => { const t = e.target && e.target.closest ? e.target.closest('[data-imp]') : null; return t && t.closest('.gl-imp') ? t : null; };
+  document.addEventListener('change', e => {
+    const t = blanco(e); if (!t) return;
+    const a = t.dataset.imp;
+    if (a === 'elegir') impElegir(t);
+    else if (a === 'opcion') impOpcion(t.dataset.impK, t.type === 'checkbox' ? (t.checked ? '1' : '') : t.value);
+    else if (a === 'tildar') impTildar(t.dataset.impId, t.checked);
+  });
+  document.addEventListener('click', e => {
+    const t = blanco(e); if (!t) return;
+    const a = t.dataset.imp;
+    if (a === 'imponer') impImponer(); else if (a === 'imprimir') window.print(); else if (a === 'recargar') location.reload();
+  });
+  // Si eligieron el archivo en la página pre-renderizada antes de que este guion terminara de bajar, se toma igual.
+  setTimeout(() => { const i = document.getElementById('imp-archivo'); if (i && i.files && i.files.length && !(V.imp && V.imp.nombre)) impElegir(i); }, 0);
 }
 async function impElegir(input) {
   const f = input.files && input.files[0]; if (!f) return;
