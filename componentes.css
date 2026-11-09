@@ -996,7 +996,7 @@ dialog .botones .gl-btn,dialog .gl-btn{min-height:44px}
 .apunte .tabla-apunte:focus-visible{outline:2px solid var(--gl-lnk);outline-offset:2px}
 @media print{.apunte .tabla-apunte{overflow:visible;break-inside:avoid}.apunte .tabla-apunte table{width:100%}}
 
-/* v143: Antes de imprimir (imprenta.js): analizador, imposición y checklist */
+/* v144: Antes de imprimir (imprenta.js): analizador, imposición y checklist */
 .gl-imp-sec{margin-top:32px}
 .gl-imp-sec>.gl-t2{margin-bottom:8px}
 .gl-imp-subir{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin:12px 0}
