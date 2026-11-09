@@ -293,7 +293,7 @@ async function conIdiomas(of) {
   return of;
 }
 // Scripts bajo demanda (MARCO.carga lo escribe tools/armar.py). Cada pantalla pide los suyos; el resto de la gente no los baja.
-const modsDe = () => V.tab === 'horarios' || V.tab === 'calendario' ? 'horarios' : V.tab === 'glosario' ? 'grafo' : V.tab === 'arcade' ? 'arcade' : V.tab === 'simuladores' && V.sim ? 'sim' : '';
+const modsDe = () => V.tab === 'horarios' || V.tab === 'calendario' ? 'horarios' : V.tab === 'glosario' ? 'grafo' : V.tab === 'arcade' ? 'arcade' : V.tab === 'simuladores' && V.sim ? 'sim' : V.tab === 'imprimir' ? 'imprenta' : '';
 const SANEAR = ['papel', 'paginacion', 'cronograma', 'arcade'];
 const modsCargados = {}, modsPromesa = {};
 const cargarScript = n => modsPromesa[n] || (modsPromesa[n] = new Promise((ok, mal) => {
@@ -426,7 +426,7 @@ function precargar() {
   const t = V.tab;
   if (t === 'resumenes') return cargarResumenes().then(() => V.res.apunte ? traerApunte().catch(() => {}) : null);
   if (t === 'biblioteca') return Promise.all([cargarBiblioteca(), cargarBibExtra('sobre', 'libros-sobre-libros.json'), cargarBibExtra('prog', 'libros-programas.json'), V.bib === 'per' ? cargarBibExtra('per', 'periodicas.json') : null]);
-  const f = { simuladores: cargarSimInfo, arcade: cargarSimInfo, glosario: cargarGlosario, preguntas: cargarPreguntas, lecturas: cargarLecturas, directorio: cargarDirectorio, eventos: cargarEventos, sostener: cargarSostener, novedades: cargarNovedades, links: cargarLinksLibro, inicio: cargarNovedades }[t];
+  const f = { simuladores: cargarSimInfo, arcade: cargarSimInfo, glosario: cargarGlosario, preguntas: cargarPreguntas, lecturas: cargarLecturas, directorio: cargarDirectorio, eventos: cargarEventos, sostener: cargarSostener, novedades: cargarNovedades, links: cargarLinksLibro, inicio: cargarNovedades, imprimir: () => typeof cargarChecklist === 'function' ? cargarChecklist() : null }[t];
   return f ? f() : null;
 }
 // Para tools/prerender.js: deja el estado como lo vería alguien sin datos que entra por esa dirección.
@@ -505,15 +505,16 @@ function iniciarPerfil() {
 const PERFILES_INICIO = [['estudiante', 'Estudiar', 'Para estudiantes de Edición: plan, notas, horarios y apuntes de la carrera.'], ['profesional', 'Trabajar', 'Para profesionales del libro: herramientas, eventos, contactos y los apuntes de Edición.']];
 const PLURAL_PERFIL = { estudiante: 'estudiantes', profesional: 'profesionales del libro' };
 const BAJADAS = {
-  estudiante: { eventos: 'Ferias, jornadas y convocatorias del libro.', carrera: 'Tus materias, notas y lo que te falta para recibirte.', horarios: 'Armá tu cuatrimestre y mirá si se pisan los horarios.', calendario: 'Inscripciones, mesas de final y feriados del año.', resumenes: 'Apuntes por materia y simulacros de parcial.', biblioteca: 'La bibliografía de cada materia, en un solo lugar.', glosario: 'Los términos de la carrera, explicados en corto.', simuladores: 'Papel, imposición, escandallo, cronogramas y contratos.', directorio: 'Editoriales de todo el país, de la A a la Z.', links: 'Campus, SIU Guaraní y trámites de la facultad.', lecturas: 'Qué se lee en Letras, materia por materia, para ampliar tus lecturas.' },
-  profesional: { simuladores: 'Papel, imposición, escandallo, cronogramas y contratos.', eventos: 'Ferias, jornadas y convocatorias del sector.', directorio: 'Editoriales, imprentas y distribuidoras del país.', links: 'Cámaras, organismos y recursos del sector.', resumenes: 'Los apuntes de la carrera, para repasar la teoría.', glosario: 'Términos de edición, imprenta y derecho de autor.', biblioteca: 'Libros sobre libros y manuales para consultar.', lecturas: 'Qué se lee en Letras, con lo que está en dominio público.' }
+  estudiante: { eventos: 'Ferias, jornadas y convocatorias del libro.', carrera: 'Tus materias, notas y lo que te falta para recibirte.', horarios: 'Armá tu cuatrimestre y mirá si se pisan los horarios.', calendario: 'Inscripciones, mesas de final y feriados del año.', resumenes: 'Apuntes por materia y simulacros de parcial.', biblioteca: 'La bibliografía de cada materia, en un solo lugar.', glosario: 'Los términos de la carrera, explicados en corto.', simuladores: 'Papel, imposición, escandallo, cronogramas y contratos.', directorio: 'Editoriales de todo el país, de la A a la Z.', links: 'Campus, SIU Guaraní y trámites de la facultad.', lecturas: 'Qué se lee en Letras, materia por materia, para ampliar tus lecturas.', imprimir: 'Revisá tu PDF e imponé tu fanzine o acaballado.' },
+  profesional: { simuladores: 'Papel, imposición, escandallo, cronogramas y contratos.', eventos: 'Ferias, jornadas y convocatorias del sector.', directorio: 'Editoriales, imprentas y distribuidoras del país.', links: 'Cámaras, organismos y recursos del sector.', resumenes: 'Los apuntes de la carrera, para repasar la teoría.', glosario: 'Términos de edición, imprenta y derecho de autor.', biblioteca: 'Libros sobre libros y manuales para consultar.', lecturas: 'Qué se lee en Letras, con lo que está en dominio público.', imprimir: 'Revisá el PDF antes de mandarlo a la imprenta.' }
 };
 const ICONO_INICIO = {
   carrera: 'M4 11l8-6 8 6v8a1 1 0 0 1-1 1h-4v-5H9v5H5a1 1 0 0 1-1-1z', horarios: 'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM12 7v5l3 2', calendario: 'M4 6h16v14H4zM4 10h16M8 3v4M16 3v4',
   resumenes: 'M6 3h9l4 4v14H6zM14 3v5h5M9 13h7M9 17h5', biblioteca: 'M5 4h10a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3zM5 17a3 3 0 0 1 3-3h10', glosario: 'M5 4h9a5 5 0 0 1 5 5v11H5zM9 9h6M9 13h6',
   simuladores: 'M5 3h14v18H5zM8 7h8M8 11h2M12 11h2M8 15h2M12 15h2M8 18h2M12 18h2M16 15v3', directorio: 'M4 20V8l8-4 8 4v12M9 20v-6h6v6',
   links: 'M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1', eventos: 'M3 10v4h4l6 4V6l-6 4zM16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11',
-  lecturas: 'M5 4h5a2 2 0 0 1 2 2v14a2 2 0 0 0-2-2H5zM19 4h-5a2 2 0 0 0-2 2v14a2 2 0 0 1 2-2h5z'
+  lecturas: 'M5 4h5a2 2 0 0 1 2 2v14a2 2 0 0 0-2-2H5zM19 4h-5a2 2 0 0 0-2 2v14a2 2 0 0 1 2-2h5z',
+  imprimir: 'M7 9V3h10v6M7 17H5a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2M7 14h10v7H7z'
 };
 const ROMANOS = ['I', 'II', 'III', 'IV', 'V'];
 const MESES_LARGOS = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
@@ -615,7 +616,7 @@ function render() {
   document.title = tituloPagina();
   altoCab();
   const gr = grupoDe(V.tab); if (gr) (V.gUlt = V.gUlt || {})[gr[0]] = V.tab;
-  conFoco($('#main'), () => { $('#main').innerHTML = (V.demo ? bandaEjemplo() : '') + subnav() + conTitulo({ doc: () => V.docHtml, inicio: vInicio, carrera: vCarrera, horarios: vHorarios, calendario: vCalendario, resumenes: vResumenes, biblioteca: vBiblioteca, simuladores: vSimuladores, glosario: vGlosario, preguntas: vPreguntas, lecturas: vLecturas, buscar: vBuscar, directorio: vDirectorio, links: vLinks, novedades: vNovedades, sostener: vSostener, eventos: vEventos, arcade: () => vArcade() + arcadeInfo(), config: vConfig }[V.tab]()); capitulares(); ajustarPoster(); });
+  conFoco($('#main'), () => { $('#main').innerHTML = (V.demo ? bandaEjemplo() : '') + subnav() + conTitulo({ doc: () => V.docHtml, inicio: vInicio, carrera: vCarrera, horarios: vHorarios, calendario: vCalendario, resumenes: vResumenes, biblioteca: vBiblioteca, simuladores: vSimuladores, glosario: vGlosario, preguntas: vPreguntas, lecturas: vLecturas, buscar: vBuscar, directorio: vDirectorio, links: vLinks, novedades: vNovedades, sostener: vSostener, eventos: vEventos, arcade: () => vArcade() + arcadeInfo(), config: vConfig, imprimir: () => vImprimir() }[V.tab]()); capitulares(); ajustarPoster(); });
   $('#main').className = V.tab === 'doc' ? V.docClase : '';
   document.body.classList.toggle('lectura', V.tab === 'doc');
   const can = document.querySelector('link[rel="canonical"]'); if (can && V.tab !== 'doc') can.href = 'https://galera.com.ar' + rutaActual().split('#')[0].split('?')[0];
@@ -659,7 +660,7 @@ const MAS_INFO = {
   biblioteca: ['Libros y manuales para consultar', 'M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3zM9 8h6'], simuladores: ['Calculadoras para las cuentas del libro', ICONO.simuladores], glosario: ['Términos de edición', ICONO.glosario],
   directorio: ['Editoriales de Argentina', 'M12 21s-6-5.5-6-10a6 6 0 0 1 12 0c0 4.5-6 10-6 10zM12 9v3'], links: ['Sitios y trámites de la carrera', ICONO.links], resumenes: ['Apuntes por materia', ICONO.resumenes],
   novedades: ['Lo último que se publicó', 'M6 17h12l-1.5-2v-4a4.5 4.5 0 0 0-9 0v4zM10 20h4'], sostener: ['Aportes y cuentas claras', 'M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.6-7 10-7 10z'],
-  config: ['Tus datos y la apariencia', 'M5 7h9M18 7h1M5 17h1M10 17h9M14 5v4M6 15v4'], eventos: ['Ferias y fechas del libro', ICONO.eventos], lecturas: ['Qué se lee en Letras', 'M5 4h5a2 2 0 0 1 2 2v14a2 2 0 0 0-2-2H5zM19 4h-5a2 2 0 0 0-2 2v14a2 2 0 0 1 2-2h5z'], carrera: ['Tus materias y tu promedio', ICONO.carrera], horarios: ['Armá tu semana', ICONO.horarios], calendario: ['Fechas y mesas', ICONO.calendario] };
+  config: ['Tus datos y la apariencia', 'M5 7h9M18 7h1M5 17h1M10 17h9M14 5v4M6 15v4'], eventos: ['Ferias y fechas del libro', ICONO.eventos], imprimir: ['Revisá tu PDF antes de la imprenta', 'M7 9V3h10v6M7 17H5a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2M7 14h10v7H7z'], lecturas: ['Qué se lee en Letras', 'M5 4h5a2 2 0 0 1 2 2v14a2 2 0 0 0-2-2H5zM19 4h-5a2 2 0 0 0-2 2v14a2 2 0 0 1 2-2h5z'], carrera: ['Tus materias y tu promedio', ICONO.carrera], horarios: ['Armá tu semana', ICONO.horarios], calendario: ['Fechas y mesas', ICONO.calendario] };
 const filaMas = (t, onclick, actual, sub, ico) => `<li><button type="button" ${actual ? 'aria-current="page"' : ''} ${onclick}>${ico ? `<span class="mas-ico">${svgIcono(ico)}</span>` : ''}<span class="mas-t">${t}${sub ? `<small>${sub}</small>` : ''}</span><i aria-hidden="true"></i></button></li>`;
 function abrirMas() {
   const otras = tabsActivas().filter(([id]) => !grupoDe(id));
@@ -2366,38 +2367,10 @@ function vLeyes() {
 }
 
 // =====================================================================
-// CONTRATOS modelo (traducción y edición). Datos y textos en contratos.js (borrador a revisar). Estado solo de la sesión (V.con).
+// CONTRATOS: redactor de contratos del libro. Textos y reglas en contratos.js (sin DOM, con pruebas); pantalla y eventos en redactor.js.
+// Estado solo en memoria: nada se guarda ni se envía.
 // =====================================================================
-const conS = () => { if (!V.con) V.con = { modelo: 'traduccion', v: { traduccion: Contratos.defaults('traduccion'), edicion: Contratos.defaults('edicion') } }; return V.con; };
-function conModelo(id) { conS().modelo = id; render(); }
-function conSet(k, val, num) { const s = conS(); s.v[s.modelo][k] = num ? (val === '' ? '' : Number(val)) : val; $('#con-prev').innerHTML = conPrev(); }
-function conPrev() {
-  const s = conS(), r = Contratos.generar(s.modelo, s.v[s.modelo]);
-  const marca = t => esc(t).replace(/\[completar: [^\]]*\]/g, m => `<mark>${m}</mark>`);
-  return (r.avisos.length ? `<div class="u-mb10 tarjeta" role="status">${r.avisos.map(a => `<p class="u-mb4 chico">⚠️ ${esc(a)}</p>`).join('')}</div>` : '')
-    + `<p class="u-mb8 chico tenue">${r.falta.length ? `Faltan ${r.falta.length} dato${r.falta.length === 1 ? '' : 's'}: ${esc(r.falta.join(', '))}.` : 'No falta ningún dato.'}</p>`
-    + r.clausulas.map(c => `<article class="tarjeta u-margin-bottom-8px"><h3 class="u-mb4">${c.n}. ${esc(c.t)}</h3><p class="u-m0">${marca(c.texto)}</p><p class="u-mt6 chico tenue">Fuente: ${esc(c.fuente)}</p></article>`).join('');
-}
-function conCampo(c, v) {
-  const id = 'con-' + c.id, ayuda = c.ayuda ? `<span class="chico tenue u-display-block">${esc(c.ayuda)}</span>` : '';
-  if (c.tipo === 'check') return `<label class="fila u-gap-8px_margin-4px-0"><input type="checkbox" ${v[c.id] ? 'checked' : ''} data-cambio="conSet" data-cambio-a="[${arg(c.id)},{&quot;c&quot;:1}]"> <span>${esc(c.etq)}</span></label>`;
-  if (c.tipo === 'opcion') return `<div class="u-margin-8px-0"><label for="${id}">${esc(c.etq)}</label><select id="${id}" data-cambio="conSet" data-cambio-a="[${arg(c.id)},{&quot;v&quot;:1}]">${c.opciones.map(([k, t]) => `<option value="${esc(k)}" ${v[c.id] === k ? 'selected' : ''}>${esc(t)}</option>`).join('')}</select></div>`;
-  const n = c.tipo === 'num';
-  return `<div class="u-margin-8px-0"><label for="${id}">${esc(c.etq)}</label>${ayuda}<input id="${id}" ${n ? 'type="number" min="0" step="any" inputmode="decimal"' : 'type="text"'} autocomplete="off" value="${esc(v[c.id])}" class="u-w100" data-entra="conSet" data-entra-a="[${arg(c.id)},{&quot;v&quot;:1},${ja(n)}]"></div>`;
-}
-function conDescargar() { const s = conS(); descargar(`contrato-${s.modelo}.md`, Contratos.documento(s.modelo, s.v[s.modelo]), 'text/markdown;charset=utf-8'); }
-function conCopiar() { const s = conS(), t = Contratos.documento(s.modelo, s.v[s.modelo]); if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(() => aviso('Contrato copiado'), () => aviso('No se pudo copiar. Descargalo en su lugar.')); else aviso('No se pudo copiar. Descargalo en su lugar.'); }
-function vContratos() {
-  const s = conS(), M = Contratos.MODELOS, m = M[s.modelo], v = s.v[s.modelo];
-  const pestana = k => `<button class="btn ch ${s.modelo === k ? '' : 'lin'}" aria-pressed="${s.modelo === k}" data-clic="conModelo" data-clic-a="[${arg(k)}]">${esc(M[k].corto)}</button>`;
-  let grupo = '';
-  const campos = m.campos.map(c => { const h = c.grupo && c.grupo !== grupo ? `<p class="chico u-margin-10px-0-0"><b>${esc(c.grupo)}</b></p>` : ''; grupo = c.grupo || ''; return h + conCampo(c, v); }).join('');
-  return `<p class="chico tenue u-margin-0-0-10px">⚠️ Borrador: lo revisa una docente antes de darlo por bueno. Es un <b>modelo orientativo, no asesoramiento legal</b>: antes de firmar, que lo revise un abogado. No se guarda ni se envía nada: lo que escribís queda en esta pantalla.</p>
-    <div class="u-mb10 eligen" role="group" aria-label="Tipo de contrato">${pestana('traduccion')}${pestana('edicion')}</div>
-    <p class="u-mt0 chico">${esc(m.d)}</p>
-    <div class="ley-cols"><div class="tarjeta"><h3 class="u-mb4">Datos</h3>${campos}</div>
-      <div><div class="acciones u-margin-0-0-10px"><button class="btn" data-clic="conDescargar">Descargar (.md)</button><button class="btn sec" data-clic="conCopiar">Copiar el texto</button></div><div id="con-prev">${conPrev()}</div></div></div>`;
-}
+function vContratos() { return Redactor.vista(); }
 
 // =====================================================================
 // TARIFARIO (perfil profesional): datos/tarifas.json. Cada fuente trae quién la publica, rubro, unidad, edición, fecha en que se abrió el original (consultado),
@@ -2562,7 +2535,7 @@ async function cargarSimInfo() {
   try { D.simInfo = await json('simuladores-info.json'); } catch (e) { D.simInfo = {}; }
   if (V.tab === 'simuladores' && V.sim) render();
 }
-const TEMAS_SIM = [['Producción y planificación', ['papel', 'paginacion', 'formatos', 'cronograma']], ['Costos y catálogo', ['escandallo', 'comparador']], ['Derecho', ['leyes', 'contratos']], ['Trabajo freelance', ['tarifario']], ['El sector', ['ecosistema']]];
+const TEMAS_SIM = [['Producción y planificación', ['papel', 'lomo', 'paginacion', 'formatos', 'cronograma']], ['Costos y catálogo', ['escandallo', 'comparador']], ['Derecho', ['leyes', 'contratos']], ['Trabajo freelance', ['tarifario']], ['El sector', ['ecosistema']]];
 function vSimuladores() {
   const sim = SIMULADORES.find(x => x.id === V.sim);
   const plan = id => D.plan.materias.find(x => x.id === id) || { id, nombre: id, sigla: '' };
@@ -2575,7 +2548,7 @@ function vSimuladores() {
         <button class="gl-btn gl-btn--sec" type="button" data-clic="compSim" data-clic-a="[${arg(sim.id)},${arg(sim.t)},${arg(sim.id)}]">Compartir</button>
         <button class="gl-btn gl-btn--sec" type="button" data-clic="qrSim" data-clic-a="[${arg(sim.id)},${arg(sim.t)},${arg(sim.id)}]" aria-label="Código QR de este simulador">QR</button></div>
       <p class="gl-baja">${esc(p.sigla ? p.sigla + ' · ' : '')}${esc(p.nombre)}. ${esc(sim.d)}</p>${SOLO_AR.has(sim.id) ? '<p class="gl-chico"><span class="gl-chip">Argentina</span> Normas, modelos y referencias de Argentina: en otro país pueden ser distintos.</p>' : ''}
-      <div class="gl-sim-uso">` + (esPro() ? '' : vRetos(sim.id)) + { escandallo: vEscandalloUno, comparador: vComparador, papel: vPapel, paginacion: vPaginacion, cronograma: vCronograma, ecosistema: vEcosistema, formatos: vFormatos, leyes: vLeyes, contratos: vContratos, tarifario: vTarifario }[sim.id]() + `</div>${como}</div>`;
+      <div class="gl-sim-uso">` + (esPro() ? '' : vRetos(sim.id)) + { escandallo: vEscandalloUno, comparador: vComparador, papel: vPapel, lomo: vLomo, paginacion: vPaginacion, cronograma: vCronograma, ecosistema: vEcosistema, formatos: vFormatos, leyes: vLeyes, contratos: vContratos, tarifario: vTarifario }[sim.id]() + `</div>${como}</div>`;
   }
   cargarSimInfo();
   const est = id => (E.materias[id] || {}).estado, marca = id => est(id) === 'cursando' ? '<span class="gl-chip">la cursás</span>' : est(id) === 'regular' ? '<span class="gl-chip gl-chip--aviso">te falta el final</span>' : '';
@@ -3978,7 +3951,7 @@ function vLinksPro() {
   if (D.linksLibro.error) return `<div class="gl-v gl-links">${cabLinks}<p class="gl-vacio" role="alert">No pude cargar esto. Puede ser la conexión. <button class="gl-btn gl-btn--sec" type="button" data-clic="recargar">Probar de nuevo</button></p></div>`;
   return `<div class="gl-v gl-links">${cabLinks}<p class="gl-baja">Los sitios oficiales que más se usan para registrar, informarse y moverse en el sector del libro. Los de afuera se abren en una pestaña nueva. Si falta alguno, avisame con «Contame qué falta».</p>
     <div class="gl-links-g">` + D.linksLibro.grupos.map(g => grupoLinks(esc(g.grupo), g.links.map(linkExt).join(''))).join('') +
-    grupoLinks('En Galera', linkInt('Leyes del libro', 'La pirámide de normas y el traductor jurídico.', dAcc('irSim', 'leyes'), '/simuladores/leyes.html') + linkInt('Contratos modelo', 'Borrador de contrato de traducción o de edición, con la fuente de cada cláusula.', dAcc('irSim', 'contratos'), '/simuladores/contratos.html') + linkInt('Planificador de libros', 'Del original a la reimpresión, con Gantt, PERT y Roy.', '', 'libro/cronograma/')) + '</div>' +
+    grupoLinks('En Galera', linkInt('Leyes del libro', 'La pirámide de normas y el traductor jurídico.', dAcc('irSim', 'leyes'), '/simuladores/leyes.html') + linkInt('Redactor de contratos', 'Borradores de contratos del libro (edición, traducción, cesión, encargo, audiolibro y más), con la fuente de cada cláusula.', dAcc('irSim', 'contratos'), '/simuladores/contratos.html') + linkInt('Planificador de libros', 'Del original a la reimpresión, con Gantt, PERT y Roy.', '', 'libro/cronograma/')) + '</div>' +
     (D.linksLibro.verificado ? `<p class="gl-chico gl-m32">Links revisados el ${fmt(D.linksLibro.verificado)}.</p>` : '') + '</div>';
 }
 function vLinks() {
@@ -4265,8 +4238,8 @@ Object.assign(ACC, {
   cambiarOferta: (...a) => cambiarOferta(...a), cambiarPerfil: (...a) => cambiarPerfil(...a), campo: (...a) => campo(...a),
   cargarBusqueda: (...a) => cargarBusqueda(...a), cerrar: (...a) => cerrar(...a), cerrarRespuesta: (...a) => cerrarRespuesta(...a),
   cfgIr: (...a) => cfgIr(...a), compartirCursada: (...a) => compartirCursada(...a), compartirPantalla: (...a) => compartirPantalla(...a),
-  compartirTraspaso: (...a) => compartirTraspaso(...a), conCopiar: (...a) => conCopiar(...a), conDescargar: (...a) => conDescargar(...a),
-  conModelo: (...a) => conModelo(...a), conSet: (...a) => conSet(...a), confirmarBaja: (...a) => confirmarBaja(...a), copiar: (...a) => copiar(...a),
+  compartirTraspaso: (...a) => compartirTraspaso(...a), 
+  confirmarBaja: (...a) => confirmarBaja(...a), copiar: (...a) => copiar(...a),
   copiarRecorrido: (...a) => copiarRecorrido(...a), copiarTraspaso: (...a) => copiarTraspaso(...a), descargo: (...a) => descargo(...a),
   ecoAjustar: (...a) => ecoAjustar(...a), ecoCat: (...a) => ecoCat(...a), ecoElegir: (...a) => ecoElegir(...a), ecoPaso: (...a) => ecoPaso(...a),
   ecoPractica: (...a) => ecoPractica(...a), ecoSig: (...a) => ecoSig(...a), ecoTecla: (...a) => ecoTecla(...a), ecoZoom: (...a) => ecoZoom(...a),

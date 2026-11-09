@@ -121,7 +121,8 @@ def cabecera(rel):
 # Scripts que la app baja recién cuando una pantalla los necesita (los usa `cargarMods` en app.js; el prerender los suma todos).
 # El orden dentro de cada grupo es el de ejecución. No van en app-cierre.tpl.
 CARGA = {"horarios": ["horarios"], "grafo": ["grafo"], "arcade": ["arcade", "arcade-ui"],
-         "sim": ["escandallo", "papel", "paginacion", "cronograma", "ecosistema", "formatos", "leyes", "contratos", "retos"]}
+         "sim": ["escandallo", "papel", "paginacion", "cronograma", "ecosistema", "formatos", "lomo", "leyes", "contratos", "redactor", "retos"],
+         "imprenta": ["imprenta"]}   # pdf-lib (vendor/) no va acá: lo baja imprenta.js recién cuando alguien elige un PDF
 
 META_COMUN = ('<meta name="referrer" content="strict-origin-when-cross-origin">\n'
               '<meta name="author" content="Fidel Chaves">\n'
@@ -310,7 +311,7 @@ def minificar_todo(salida, solo=None, excepto=()):
     node = shutil.which("node")
     ok = True
     archivos = [solo] if solo else sorted(f for e in ("*.js", "*.css") for f in salida.rglob(e)
-                                          if not f.relative_to(salida).as_posix().startswith(("prueba/", ".")) and f.name not in excepto)
+                                          if not f.relative_to(salida).as_posix().startswith(("prueba/", ".", "vendor/")) and f.name not in excepto)   # vendor/: ya viene minificado
     for f in archivos:
         t = f.read_text(encoding="utf-8")
         if f.suffix == ".js":
