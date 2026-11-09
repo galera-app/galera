@@ -48,11 +48,15 @@ const Prensa = (() => {
   // Todo lo que el autor escribió va escapado: Typst no reinterpreta signos (comillas, guiones, asteriscos sueltos).
   const esc = t => t.replace(/[\\#*_`$<>@\[\]~=+\-\/"'{}]/g, c => '\\' + c);
   const cadena = t => '"' + t.replace(/\\/g, '\\\\').replace(/"/g, '\\"') + '"';
-  function enLinea(t) {
+  // El carácter nulo es el marcador interno: se saca de lo que escribe el autor, para que no pueda resolver uno.
+  const enLinea = t => enLineaInt(String(t).replace(/\u0000/g, ''));
+  function enLineaInt(t) {
     const R = [];
     // Primero lo que no se toca (código y enlaces), después negritas y cursivas.
     t = t.replace(/`([^`]+)`/g, (m, c) => { R.push('#raw(' + cadena(c) + ')'); return '\u0000' + (R.length - 1) + '\u0000'; });
-    t = t.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (m, x, u) => { R.push('#link(' + cadena(u) + ')[' + enLinea(x) + ']'); return '\u0000' + (R.length - 1) + '\u0000'; });
+    t = t.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (m, x, u) => {
+      if (!/^(https?:|mailto:)/i.test(u)) return m;   // solo https, http y mailto: javascript:, data: y demás quedan como texto
+      R.push('#link(' + cadena(u) + ')[' + enLineaInt(x) + ']'); return '\u0000' + (R.length - 1) + '\u0000'; });
     t = esc(t);
     t = t.replace(/\\\*\\\*(.+?)\\\*\\\*|\\_\\_(.+?)\\_\\_/g, (m, a, b) => '#strong[' + (a || b) + ']');
     t = t.replace(/\\\*(?!\s)(.+?)\\\*|(^|[^\p{L}\d])\\_(?!\s)(.+?)\\_(?![\p{L}\d])/gu, (m, a, pre, b) => a !== undefined ? '#emph[' + a + ']' : pre + '#emph[' + b + ']');
@@ -159,12 +163,26 @@ const Motor = (() => {
   // D1 (consultas/104-galera-prensa.md): el WASM del compilador pesa 27 MB y no entra en Cloudflare Pages. Si se aloja en R2, cambia esta URL y se suma el host a connect-src.
   const WASM = BASE + 'typst_ts_web_compiler_bg.wasm?v=0.7.0';
   const FUENTES = ['Literata-Regular', 'Literata-Italic', 'Literata-Bold', 'Literata-BoldItalic', 'InstrumentSans-Regular', 'InstrumentSans-SemiBold', 'UnifrakturMaguntia-Book'];
+  // El navegador ejecuta lo que le den: se baja el binario, se calcula su SHA-256 y solo si coincide con el fijado acá se inicializa.
+  // Si el WASM se aloja en R2 (descargas.galera.com.ar), este control garantiza que sea el mismo que sale de tools/bajar_typst.py.
+  const WASM_SHA256 = '1fc968438a672366dfec39c96c842c26ed29caff4eb1bcaab19a6c60867de5fd';
+  const RENDERER_SHA256 = '5a93d7a8b3b7b43b0e679f3dafed966f74fc1653cc7ed6623f04a8a6550da725';
+  async function binarioVerificado(url, esperado) {
+    const nombre = url.split('/').pop().split('?')[0];
+    const r = await fetch(url);
+    if (!r.ok) throw new Error('No pude bajar ' + nombre);
+    const buf = await r.arrayBuffer();
+    const h = Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', buf)), b => b.toString(16).padStart(2, '0')).join('');
+    if (h !== esperado) throw new Error('El archivo ' + nombre + ' no es el esperado (huella distinta)');
+    return buf;
+  }
   let promesa = null, C = null, R = null;
   function prender(avance) {
     return promesa || (promesa = (async () => {
       const [cm, rm] = await Promise.all([import(BASE + 'typst_ts_web_compiler.mjs'), import(BASE + 'typst_ts_renderer.mjs')]);
-      avance && avance('Bajando el motor de Typst (unos 10 MB, una sola vez)…');
-      await Promise.all([cm.default({ module_or_path: WASM }), rm.default({ module_or_path: BASE + 'typst_ts_renderer_bg.wasm?v=0.7.0' })]);
+      avance && avance('Bajando el motor de Typst (unos 27 MB sin comprimir, una sola vez)…');
+      const [wc, wr] = await Promise.all([binarioVerificado(WASM, WASM_SHA256), binarioVerificado(BASE + 'typst_ts_renderer_bg.wasm?v=0.7.0', RENDERER_SHA256)]);
+      await Promise.all([cm.default({ module_or_path: wc }), rm.default({ module_or_path: wr })]);
       avance && avance('Cargando las tipografías…');
       const b = new cm.TypstCompilerBuilder(); b.set_dummy_access_model();
       const bytes = await Promise.all(FUENTES.map(f => fetch(BASE + 'fuentes/' + f + '.ttf').then(r => { if (!r.ok) throw new Error('No pude bajar la tipografía ' + f); return r.arrayBuffer(); })));
@@ -179,6 +197,7 @@ const Motor = (() => {
     if (!datos) throw new Error((r && r.diagnostics || []).map(d => d.message || JSON.stringify(d)).join(' · ') || 'Typst no devolvió nada');
     return datos;
   }
+  // Ojo: el SVG se inserta con innerHTML y solo se le quitan los <script>. Lo demás lo frena la CSP sin 'unsafe-inline' (#74): no volver a permitirlo.
   function vista(fuente) {
     const v = compilar(fuente, 'vector'), s = R.session_from_artifact(v, 'vector');
     try { const P = s.pages_info, tam = []; for (let i = 0; i < P.page_count; i++) { const p = P.page(i); tam.push([p.width_pt, p.height_pt]); } return { svg: R.svg_data(s).replace(/<script[\s\S]*?<\/script>/g, ''), paginas: P.page_count, tam }; } finally { s.free(); }
@@ -248,7 +267,7 @@ function vImprenta() {
   const txt = (k, t, ph, w) => `<label class="gl-pr-campo"${w ? ` style="max-width:${w}"` : ''}><span>${t}</span><input data-pr="texto-op" data-pr-k="${k}" value="${esc(s[k] || '')}" placeholder="${esc(ph || '')}" autocomplete="off"${k === 'cuerpo' ? ' inputmode="decimal" maxlength="5"' : ' maxlength="120"'}></label>`;
   const chk = (k, t) => `<label class="gl-pr-chk"><input type="checkbox" data-pr="opcion" data-pr-k="${k}"${s[k] ? ' checked' : ''}> ${t}</label>`;
   return `<div class="gl-v gl-pr">
-    <div class="gl-cab"><h1 class="gl-t1">Imprenta</h1></div>
+    <div class="gl-cab"><h1 class="gl-t1 sin-cap">Imprenta</h1></div>
     <p class="gl-baja">Escribí o pegá tu texto y Galera lo arma como fanzine o como acaballado, listo para imprimir en casa o mandar a la imprenta. Todo pasa en tu navegador: el texto no se sube a ningún lado.</p>
     <p class="gl-pr-celu gl-chico" role="note">El editor está pensado para una pantalla grande: en el celular se usa, pero incómodo. Para revisar un PDF o imponerlo, usá <a class="gl-enlace" href="/antes-de-imprimir/">Antes de imprimir</a>.</p>
     <div class="gl-pr-ops">
@@ -267,7 +286,7 @@ function vImprenta() {
         <div id="pr-orto" class="gl-chico" aria-live="polite">${prensaOrtoInforme()}</div>
       </div>
       <div class="gl-pr-der">
-        <div id="pr-estado" class="gl-chico" aria-live="polite">${Motor.listo() ? '' : '<button class="gl-btn" type="button" data-pr="prender">Prender la vista previa</button> <span class="gl-tenue">Baja el motor de Typst (unos 10 MB, una sola vez).</span>'}</div>
+        <div id="pr-estado" class="gl-chico" aria-live="polite">${Motor.listo() ? '' : '<button class="gl-btn" type="button" data-pr="prender">Prender la vista previa</button> <span class="gl-tenue">Baja el motor de Typst: pesa unos 27 MB (alrededor de 10 MB en la conexión si el servidor lo comprime), una sola vez. Con datos móviles, mejor esperar al wifi.</span>'}</div>
         <div id="pr-vista" class="gl-pr-vista" aria-label="Vista previa de las páginas"></div>
         <div id="pr-salida">${prensaSalida()}</div>
       </div>

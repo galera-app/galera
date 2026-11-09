@@ -32,6 +32,9 @@ const T = Prensa.aTypst('# Título *uno*\n\nUn **fuerte** y _suave_ con #almohad
 ok(/^= Título #emph\[uno\]$/m.test(T), 'título con cursiva');
 ok(T.includes('#strong[fuerte]') && T.includes('#emph[suave]'), 'negrita y cursiva');
 ok(T.includes('\\#almohadilla') && T.includes('#link("https://galera.com.ar")[enlace]') && T.includes('#raw("código")'), 'escapa # y arma enlaces y código');
+const J = Prensa.aTypst('[mal](javascript:alert(1)) [data](data:text/html,x) [bien](https://galera.com.ar) [mail](mailto:a@b.ar) nulo\u0000 0\u0000');
+ok(!J.includes('#link("javascript') && !J.includes('#link("data') && J.includes('#link("https://galera.com.ar")') && J.includes('#link("mailto:a@b.ar")'), 'enlaces: solo https, http y mailto:');
+ok(!J.includes('\u0000'), 'se saca el carácter nulo de la entrada');
 ok(/^- uno\n- dos$/m.test(T) && /^\+ a\n\+ b$/m.test(T), 'listas con viñeta y numeradas');
 ok(T.includes('#quote(block: true)[cita]') && T.includes('#separador') && T.includes('#pagebreak()'), 'cita, separador y salto de página');
 ok(T.includes('Fin \\= 2 \\+ 2 \\- 1 \\/ 4 \\"x\\" \\<y\\> \\@z \\$w\\$'), 'escapa los signos de Typst');
