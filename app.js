@@ -3606,7 +3606,7 @@ function vGlosario() {
 }
 
 // =====================================================================
-// DIRECTORIO: editoriales, imprentas, distribuidoras y librerías (datos/directorio.json; cada ficha lleva su fuente y la fecha en que se leyó)
+// DIRECTORIO: editoriales, imprentas, distribuidoras, librerías, papel e instituciones (datos/directorio.json; cada ficha lleva su fuente y la fecha en que se leyó)
 // Los datos se bajan con 104-edicion-cursada/directorio_fuentes.py. Nunca hay domicilios de particulares ni correos.
 // =====================================================================
 async function cargarDirectorio() {
@@ -3693,7 +3693,7 @@ function vDirectorio() {
 }
 const directorioMapaVista = () => directorioMapa();   // siempre arriba de las fichas, en la columna central
 function sugerirActor() {
-  const t = ({ editorial: 'una editorial', imprenta: 'una imprenta', distribuidora: 'una distribuidora', libreria: 'una librería', papel: 'un productor de papel' })[V.dir.tipo] || 'un actor';
+  const t = ({ editorial: 'una editorial', imprenta: 'una imprenta', distribuidora: 'una distribuidora', libreria: 'una librería', papel: 'un productor de papel', institucion: 'una institución (cámara, feria, biblioteca, gremio)' })[V.dir.tipo] || 'un actor';
   idea({ titulo: 'Sugerir ' + t, intro: 'Contame el nombre, la provincia y el sitio web o la red pública donde figura. Solo datos de empresas o proyectos públicos: nada de domicilios ni teléfonos de particulares.',
     ejemplo: 'Ej.: «Editorial tal», Rosario, Santa Fe, sitio…', prefijo: '[Directorio] ' });
 }
