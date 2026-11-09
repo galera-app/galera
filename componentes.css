@@ -996,7 +996,7 @@ dialog .botones .gl-btn,dialog .gl-btn{min-height:44px}
 .apunte .tabla-apunte:focus-visible{outline:2px solid var(--gl-lnk);outline-offset:2px}
 @media print{.apunte .tabla-apunte{overflow:visible;break-inside:avoid}.apunte .tabla-apunte table{width:100%}}
 
-/* v143: Antes de imprimir (imprenta.js): analizador, imposición y checklist */
+/* v144: Antes de imprimir (imprenta.js): analizador, imposición y checklist */
 .gl-imp-sec{margin-top:32px}
 .gl-imp-sec>.gl-t2{margin-bottom:8px}
 .gl-imp-subir{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin:12px 0}
@@ -1032,7 +1032,7 @@ dialog .botones .gl-btn,dialog .gl-btn{min-height:44px}
 .gl-imp-item .gl-enlace,.gl-imp-item .gl-tenue{font-size:13px}
 @media (max-width:480px){.gl-imp-ch{grid-template-columns:minmax(0,1fr);gap:4px}}
 @media print{.gl-imp>.gl-imp-sec:not(.gl-imp-check),.gl-imp-acc{display:none}.gl-imp-item{break-inside:avoid}}
-/* v144: Lomo y plantilla de tapa (lomo.js) */
+/* v145: Lomo y plantilla de tapa (lomo.js) */
 .gl-lomo .lm-av{margin:8px 0 0;padding-left:18px}
 .gl-lomo .lm-av li{margin:2px 0}
 .gl-lomo .lm-av .lm-mal{color:var(--mal)}
