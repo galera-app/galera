@@ -482,7 +482,7 @@ class TestSitio(unittest.TestCase):
         """Todo fetch/sendBeacon/WebSocket del JS a un origen externo tiene que estar en connect-src de la CSP de la app."""
         app = None
         for rel, pg in paginas().items():
-            if pg.csp and "'unsafe-inline'" in parsear_csp(pg.csp[0]).get("script-src", []):
+            if pg.csp and any("script.google.com" in h for h in parsear_csp(pg.csp[0]).get("connect-src", [])):
                 app = parsear_csp(pg.csp[0])
                 break
         self.assertIsNotNone(app, "no encontré ninguna página con la CSP de la app")
