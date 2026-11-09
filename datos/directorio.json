@@ -1,6 +1,6 @@
 {
  "nota": "Directorio de editoriales, imprentas, distribuidoras y librerías de Argentina, armado solo con fuentes públicas y fechadas. Cobertura parcial: se va completando. Cada ficha enlaza a su fuente.",
- "actualizado": "2026-10-27",
+ "actualizado": "2026-11-09",
  "tipos": [
   {
    "id": "editorial",
@@ -26,6 +26,11 @@
    "id": "papel",
    "t": "Productores de papel",
    "cobertura": "Parcial: fabricantes de papel para impresión y edición (papel obra, de diarios, cartulina) que nombra el informe oficial de 2024. Hoy son pocos: el papel ilustración (estucado) se importa, y los de embalaje no están. Faltan plantas chicas y recicladoras."
+  },
+  {
+   "id": "institucion",
+   "t": "Instituciones",
+   "cobertura": "Parcial: 12 instituciones (cámaras, ferias, bibliotecas, agencias, gremios, asociaciones y colegios profesionales) cuya página oficial se abrió y leyó el 9/11/2026. Las que no informan sede en su sitio figuran sin provincia. Faltan muchas: ferias del interior, bibliotecas especializadas, otras cámaras y asociaciones."
   }
  ],
  "actores": [
@@ -24406,6 +24411,188 @@
     "t": "Sitio de Papelera Tucumán",
     "url": "https://www.papeleratucuman.com.ar/",
     "fecha": "2026-10-20"
+   }
+  },
+  {
+   "id": "amp-agencia-isbn-de-argentina-cal",
+   "tipo": "institucion",
+   "n": "Agencia ISBN de Argentina (CAL)",
+   "provincia": "Ciudad Autónoma de Buenos Aires",
+   "linea": [
+    "Agencia (ISBN)"
+   ],
+   "web": "https://www.isbn.org.ar/",
+   "fuente": {
+    "t": "Agencia ISBN, Cámara Argentina del Libro: contacto (sitio oficial)",
+    "url": "https://www.isbn.org.ar/web/contacto.php",
+    "fecha": "2026-11-09"
+   }
+  },
+  {
+   "id": "amp-asociacion-argentina-de-traductores-e-interpretes-aati",
+   "tipo": "institucion",
+   "n": "Asociación Argentina de Traductores e Intérpretes (AATI)",
+   "provincia": "",
+   "ambito": "nacional",
+   "linea": [
+    "Asociación profesional (traducción)"
+   ],
+   "web": "https://www.aati.org.ar/",
+   "fuente": {
+    "t": "AATI (sitio oficial)",
+    "url": "https://www.aati.org.ar/",
+    "fecha": "2026-11-09"
+   }
+  },
+  {
+   "id": "amp-asociacion-de-reporteros-graficos-de-la-republica-argentina-argra",
+   "tipo": "institucion",
+   "n": "Asociación de Reporteros Gráficos de la República Argentina (ARGRA)",
+   "provincia": "Ciudad Autónoma de Buenos Aires",
+   "linea": [
+    "Gremio (fotografía)"
+   ],
+   "web": "https://www.argra.org.ar/",
+   "fuente": {
+    "t": "ARGRA: tarifario (sitio oficial)",
+    "url": "https://www.argra.org.ar/web/tarifario.php",
+    "fecha": "2026-11-09"
+   }
+  },
+  {
+   "id": "amp-biblioteca-nacional-mariano-moreno",
+   "tipo": "institucion",
+   "n": "Biblioteca Nacional Mariano Moreno",
+   "provincia": "Ciudad Autónoma de Buenos Aires",
+   "linea": [
+    "Biblioteca"
+   ],
+   "web": "https://www.bn.gob.ar/",
+   "fuente": {
+    "t": "Biblioteca Nacional Mariano Moreno (sitio oficial)",
+    "url": "https://www.bn.gob.ar/",
+    "fecha": "2026-11-09"
+   }
+  },
+  {
+   "id": "amp-cadra-centro-de-administracion-de-derechos-reprograficos",
+   "tipo": "institucion",
+   "n": "CADRA (Centro de Administración de Derechos Reprográficos)",
+   "provincia": "Ciudad Autónoma de Buenos Aires",
+   "linea": [
+    "Gestión colectiva (derechos reprográficos)"
+   ],
+   "web": "https://www.cadra.org.ar/",
+   "fuente": {
+    "t": "DNDA: entidades autorizadas de gestión colectiva",
+    "url": "https://www.argentina.gob.ar/justicia/derechodeautor/entidades-autorizadas",
+    "fecha": "2026-11-09"
+   }
+  },
+  {
+   "id": "amp-camara-argentina-del-libro",
+   "tipo": "institucion",
+   "n": "Cámara Argentina del Libro",
+   "provincia": "Ciudad Autónoma de Buenos Aires",
+   "linea": [
+    "Cámara empresaria"
+   ],
+   "web": "https://www.camaradellibro.com.ar/",
+   "fuente": {
+    "t": "CAL: cómo asociarse (sitio oficial)",
+    "url": "https://www.camaradellibro.com.ar/institucional-asociarse/",
+    "fecha": "2026-11-09"
+   }
+  },
+  {
+   "id": "amp-colegio-de-traductores-publicos-de-la-ciudad-de-buenos-aires",
+   "tipo": "institucion",
+   "n": "Colegio de Traductores Públicos de la Ciudad de Buenos Aires",
+   "provincia": "Ciudad Autónoma de Buenos Aires",
+   "linea": [
+    "Colegio profesional (traducción)"
+   ],
+   "web": "https://www.traductores.org.ar/",
+   "fuente": {
+    "t": "CTPCBA (sitio oficial)",
+    "url": "https://www.traductores.org.ar/",
+    "fecha": "2026-11-09"
+   }
+  },
+  {
+   "id": "amp-comision-nacional-de-bibliotecas-populares-conabip",
+   "tipo": "institucion",
+   "n": "Comisión Nacional de Bibliotecas Populares (CONABIP)",
+   "provincia": "Ciudad Autónoma de Buenos Aires",
+   "linea": [
+    "Biblioteca (organismo de bibliotecas populares)"
+   ],
+   "web": "http://www.conabip.gob.ar/",
+   "fuente": {
+    "t": "CONABIP (argentina.gob.ar)",
+    "url": "https://www.argentina.gob.ar/cultura/conabip",
+    "fecha": "2026-11-09"
+   }
+  },
+  {
+   "id": "amp-direccion-nacional-del-derecho-de-autor-dnda",
+   "tipo": "institucion",
+   "n": "Dirección Nacional del Derecho de Autor (DNDA)",
+   "provincia": "Ciudad Autónoma de Buenos Aires",
+   "linea": [
+    "Agencia (registro de obras)"
+   ],
+   "web": "https://www.argentina.gob.ar/justicia/derechodeautor",
+   "fuente": {
+    "t": "DNDA, Ministerio de Justicia (argentina.gob.ar)",
+    "url": "https://www.argentina.gob.ar/justicia/derechodeautor",
+    "fecha": "2026-11-09"
+   }
+  },
+  {
+   "id": "amp-federacion-grafica-bonaerense",
+   "tipo": "institucion",
+   "n": "Federación Gráfica Bonaerense",
+   "provincia": "Ciudad Autónoma de Buenos Aires",
+   "linea": [
+    "Sindicato (industria gráfica)"
+   ],
+   "web": "https://www.fgb.org.ar/",
+   "fuente": {
+    "t": "FGB (sitio oficial)",
+    "url": "https://www.fgb.org.ar/",
+    "fecha": "2026-11-09"
+   }
+  },
+  {
+   "id": "amp-feria-internacional-del-libro-de-buenos-aires-fundacion-el-libro",
+   "tipo": "institucion",
+   "n": "Feria Internacional del Libro de Buenos Aires (Fundación El Libro)",
+   "provincia": "Ciudad Autónoma de Buenos Aires",
+   "linea": [
+    "Feria"
+   ],
+   "web": "https://www.el-libro.org.ar/",
+   "fuente": {
+    "t": "Fundación El Libro: La 48.ª Feria en números (2024)",
+    "url": "https://www.el-libro.org.ar/wp-content/uploads/2024/05/13.05-la-feria-en-numeros-final.pdf",
+    "fecha": "2026-11-09"
+   }
+  },
+  {
+   "id": "amp-union-de-escritoras-y-escritores",
+   "tipo": "institucion",
+   "n": "Unión de Escritoras y Escritores",
+   "provincia": "",
+   "ambito": "nacional",
+   "linea": [
+    "Gremio (escritura)"
+   ],
+   "web": "https://uniondeescritorasyescritores.wordpress.com/",
+   "fuente": {
+    "t": "Unión de Escritoras y Escritores (sitio oficial)",
+    "url": "https://uniondeescritorasyescritores.wordpress.com/",
+    "fecha": "2026-11-09"
    }
   }
  ],
