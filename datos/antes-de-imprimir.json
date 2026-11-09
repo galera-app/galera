@@ -1,0 +1,55 @@
+{
+  "_nota": "Checklist de «Antes de imprimir» (v143). Texto en CC BY-SA 4.0. Cada ítem cita el apunte de Galera de donde sale; «practica» = práctica habitual sin fuente en los apuntes: confirmar con la imprenta. BORRADOR: lo revisa Fidel con corregir-texto.",
+  "licencia": "CC BY-SA 4.0",
+  "fuentes": {
+    "e3": { "t": "Tipografía y archivos digitales", "url": "/r/0905/e3-tipografia-y-archivos.html" },
+    "e4a": { "t": "Color, tintas y tramas", "url": "/r/0905/e4a-color-tintas-y-tramas.html" },
+    "e4b": { "t": "Preprensa: flujos y calidad", "url": "/r/0905/e4b-preprensa-flujos-y-calidad.html" },
+    "e6": { "t": "Postprensa y encuadernación", "url": "/r/0905/e6-postprensa-y-encuadernacion.html" }
+  },
+  "secciones": [
+    {
+      "id": "hablar",
+      "t": "Antes de armar: hablá con la imprenta",
+      "items": [
+        { "id": "specs", "t": "Pedí sus especificaciones por escrito", "d": "Sangrado, perfil de color, si quieren PDF/X, marcas de corte sí o no, tamaño final y papel. Muchas decisiones técnicas dependen de charlar antes con quien está a cargo de la planta.", "f": "e4b" },
+        { "id": "tamano", "t": "Definí el tamaño final (al corte)", "d": "Es la medida del libro ya refilado, sin el sangrado. Los parámetros de página que no coinciden con el equipo de salida están entre los diez problemas más frecuentes.", "f": "e3" },
+        { "id": "paginas", "t": "Ajustá la cantidad de páginas al cuadernillo", "d": "Un cuadernillo sale de plegar un pliego: 4, 8, 16 o 32 páginas. Un acaballado va en múltiplos de 4; una rústica, en general, en pliegos de 16 o 32. Las que sobran quedan en blanco.", "f": "e6" }
+      ]
+    },
+    {
+      "id": "archivo",
+      "t": "El archivo",
+      "items": [
+        { "id": "fuentes", "t": "Todas las fuentes incrustadas (o pasadas a curvas)", "d": "Las fuentes faltantes son el problema más frecuente (20,2 % de los casos): el equipo las reemplaza y el texto puede correrse de línea o de página.", "f": "e3", "auto": true },
+        { "id": "sangrado", "t": "3 mm de sangrado en todo lo que llega al borde", "d": "Fotos, fondos y filetes que tocan el corte tienen que pasarse unos 3 mm, para que no quede un filo blanco al refilar.", "f": "e4b", "auto": true },
+        { "id": "seguridad", "t": "Texto lejos del corte", "d": "Dejá al menos 5 mm entre el texto y la línea de corte (más en el lomo de un libro grueso). La guillotina tiene tolerancia.", "f": "practica" },
+        { "id": "resolucion", "t": "Imágenes a 300 ppp al tamaño impreso", "d": "La resolución se calcula con la lineatura de la trama: ppp = lpi × 2 × factor de calidad. Para 150 lpi, unos 300 ppp. Una foto ampliada pierde resolución: lo que cuenta es el tamaño en la página.", "f": "e4a", "auto": true },
+        { "id": "rgb", "t": "Imágenes en CMYK o en escala de grises, no en RGB", "d": "Una imagen RGB sin convertir puede salir toda en la plancha de negro o con colores apagados. Si tu imprenta convierte al ripear, preguntale con qué perfil.", "f": "e3", "auto": true },
+        { "id": "especiales", "t": "Colores especiales bien nombrados", "d": "Un color plano mal especificado imprime una quinta plancha que nadie pidió (10,9 % de los problemas). Decidí si cada Pantone va como tinta aparte o se separa en CMYK.", "f": "e3" },
+        { "id": "negro", "t": "Texto negro en 100 % K y sobreimpreso", "d": "El texto negro y los filetes finos van en un solo canal (K) y con sobreimpresión, para que el fuera de registro no deje bordes de color. Para fondos negros grandes se usa negro enriquecido (por ejemplo, 100 K + 30/30/30).", "f": "e4a" },
+        { "id": "tac", "t": "Carga total de tinta dentro del límite", "d": "La suma de CMYK que aguanta el papel sin empastar (TAC) depende del sistema: como referencia, 270 en prensa digital y 320 en prensa plana. Confirmá el valor con tu imprenta.", "f": "e4a" },
+        { "id": "pdfx", "t": "Exportá como PDF/X si la imprenta lo pide", "d": "PDF/X es el subconjunto de PDF pensado para imprenta: fija corte, sangrado y color, y reduce los archivos «no imprimibles».", "f": "e4b", "auto": true }
+      ]
+    },
+    {
+      "id": "plegado",
+      "t": "Acaballados y fanzines",
+      "items": [
+        { "id": "multiplo4", "t": "Páginas en múltiplo de 4", "d": "Cada hoja doblada da 4 páginas. Si no llegás, sumá blancas al final, antes de la contratapa.", "f": "e6", "auto": true },
+        { "id": "creep", "t": "Desplazamiento en acaballados gruesos", "d": "En un acaballado de muchas hojas, las del centro sobresalen al doblar y el refile les come más margen. Con más de 10 o 12 hojas, dejá margen exterior extra o pedí que compensen el desplazamiento.", "f": "practica" },
+        { "id": "prueba-plegado", "t": "Probá el plegado con una hoja", "d": "Antes de imprimir la tirada, imprimí una copia, doblala y fijate que las páginas queden en orden. Es la prueba de armado: no sirve para el color, sirve para el orden.", "f": "e4a" },
+        { "id": "alzado", "t": "Con varios cuadernillos, marcas de alzado", "d": "Un rectángulo en el lomo de cada cuadernillo, escalonado: si al juntarlos no forman una escalera, el orden está mal.", "f": "e6" }
+      ]
+    },
+    {
+      "id": "mandar",
+      "t": "Al mandarlo",
+      "items": [
+        { "id": "referencia", "t": "Mandá un impreso de referencia", "d": "Una copia impresa del último archivo, firmada, sirve para comparar si algo cambió en el camino.", "f": "e4b" },
+        { "id": "orden", "t": "Orden de trabajo y archivo coinciden", "d": "Nombre del archivo, tamaño, páginas, papel, tintas e instrucciones especiales: lo que dice la orden tiene que ser lo que está en el archivo.", "f": "e4b" },
+        { "id": "prueba-color", "t": "Pedí y firmá la prueba", "d": "La prueba de color certifica cómo va a salir y tiene valor de contrato. Si no hay presupuesto para una prueba de color, al menos una prueba digital para revisar armado y textos.", "f": "e4a" }
+      ]
+    }
+  ]
+}
