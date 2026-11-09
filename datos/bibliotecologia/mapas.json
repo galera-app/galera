@@ -1,0 +1,3095 @@
+{
+ "actualizado": "2026-11-09",
+ "nota": "Libros reconocidos en la bibliografía de los programas (autor, título y editorial/año claros); capítulos, artículos y documentos en línea quedan en cada ficha.",
+ "mapas": [
+  {
+   "id": "archivistica",
+   "titulo": "Archivística",
+   "bajada": "Lo que se lee en las materias de archivística del Departamento de Bibliotecología y Ciencia de la Información (FFyL, UBA): teoría archivística, archivos públicos y privados, organización de fondos, imagen y sonido, historiografía y clasificación documental.",
+   "tramos": [
+    {
+     "codigo": "0885",
+     "nombre": "Archivos de imagen y sonido",
+     "eje": "archivistica"
+    },
+    {
+     "codigo": "0884",
+     "nombre": "Archivos públicos y privados",
+     "eje": "archivistica"
+    },
+    {
+     "codigo": "0887",
+     "nombre": "Avances en Archivología",
+     "eje": "archivistica"
+    },
+    {
+     "codigo": "0883",
+     "nombre": "Organización de archivos y colecciones de manuscritos",
+     "eje": "archivistica"
+    },
+    {
+     "codigo": "0852",
+     "nombre": "Principios de archivología",
+     "eje": "archivistica"
+    },
+    {
+     "codigo": "0886",
+     "nombre": "Técnicas historiográficas de la investigación documental",
+     "eje": "archivistica"
+    }
+   ],
+   "obras": [
+    {
+     "titulo": "La atracción del archivo",
+     "autor": "Farge, Arlette",
+     "editorial": "Edicions Alfons El Magnanim",
+     "anio": 1991,
+     "materias": [
+      {
+       "c": "0883",
+       "n": "obl"
+      },
+      {
+       "c": "0886",
+       "n": "obl"
+      }
+     ],
+     "num": "01"
+    },
+    {
+     "titulo": "Los archivos entre la memoria histórica y la sociedad del conocimiento",
+     "autor": "Alberch i Fugueras, Ramón",
+     "editorial": "Editorial UOC",
+     "anio": 2003,
+     "materias": [
+      {
+       "c": "0883",
+       "n": "obl"
+      }
+     ],
+     "num": "02"
+    },
+    {
+     "titulo": "La condición humana",
+     "autor": "Arendt, Ana",
+     "editorial": "Paidós",
+     "anio": 1997,
+     "materias": [
+      {
+       "c": "0884",
+       "n": "obl"
+      }
+     ],
+     "num": "03"
+    },
+    {
+     "titulo": "La poética del espacio",
+     "autor": "Bacherlard, Gastón",
+     "editorial": "FCE",
+     "anio": 2000,
+     "materias": [
+      {
+       "c": "0884",
+       "n": "obl"
+      }
+     ],
+     "num": "04"
+    },
+    {
+     "titulo": "Cómo vivir juntos",
+     "autor": "Barthes, Roland",
+     "editorial": "Paidos",
+     "anio": 2001,
+     "materias": [
+      {
+       "c": "0884",
+       "n": "obl"
+      }
+     ],
+     "num": "05"
+    },
+    {
+     "titulo": "Introducción a la Historia",
+     "autor": "Bloch, Marc",
+     "editorial": "Fondo de Cultura Económica",
+     "anio": 1976,
+     "materias": [
+      {
+       "c": "0886",
+       "n": "obl"
+      }
+     ],
+     "num": "06"
+    },
+    {
+     "titulo": "Los reyes taumaturgos",
+     "autor": "Bloch, Marc",
+     "editorial": "Fondo de Cultura Económica",
+     "anio": 1988,
+     "materias": [
+      {
+       "c": "0886",
+       "n": "obl"
+      }
+     ],
+     "num": "07"
+    },
+    {
+     "titulo": "La Ciencia, su método y su filosofía",
+     "autor": "Bunge, Mario",
+     "editorial": "Siglo XX",
+     "anio": 1971,
+     "materias": [
+      {
+       "c": "0886",
+       "n": "obl"
+      }
+     ],
+     "num": "08"
+    },
+    {
+     "titulo": "¿A quién le pertenece Kafka? y otros ensayos",
+     "autor": "Butler, Judith",
+     "editorial": "Palinodia",
+     "anio": 2014,
+     "materias": [
+      {
+       "c": "0883",
+       "n": "obl"
+      }
+     ],
+     "num": "09"
+    },
+    {
+     "titulo": "Manual de archivística",
+     "autor": "Cruz Mundet, José Ramón",
+     "editorial": "",
+     "anio": null,
+     "materias": [
+      {
+       "c": "0884",
+       "n": "obl"
+      }
+     ],
+     "num": "10"
+    },
+    {
+     "titulo": "La historia: conceptos y escrituras",
+     "autor": "Dosse, François",
+     "editorial": "Nueva Visión",
+     "anio": 2003,
+     "materias": [
+      {
+       "c": "0886",
+       "n": "obl"
+      }
+     ],
+     "num": "11"
+    },
+    {
+     "titulo": "Combates por la Historia",
+     "autor": "Febvre, Lucien",
+     "editorial": "Ariel",
+     "anio": 1970,
+     "materias": [
+      {
+       "c": "0886",
+       "n": "obl"
+      }
+     ],
+     "num": "12"
+    },
+    {
+     "titulo": "Arte y archivo 1920-2010: genealogías, tipologías y discontinuidades",
+     "autor": "Guasch, Anna María",
+     "editorial": "Akal",
+     "anio": 2013,
+     "materias": [
+      {
+       "c": "0883",
+       "n": "obl"
+      }
+     ],
+     "num": "13"
+    },
+    {
+     "titulo": "Tentativas",
+     "autor": "Guinzburg, Carlo",
+     "editorial": "Prohistoria ediciones",
+     "anio": 2004,
+     "materias": [
+      {
+       "c": "0886",
+       "n": "obl"
+      }
+     ],
+     "num": "14"
+    },
+    {
+     "titulo": "Teoría de la acción comunicativa",
+     "autor": "Habermas, Jurgen",
+     "editorial": "Taurus",
+     "anio": 1988,
+     "materias": [
+      {
+       "c": "0884",
+       "n": "obl"
+      }
+     ],
+     "num": "15"
+    },
+    {
+     "titulo": "Archivística general: teoría y práctica",
+     "autor": "Heredia Herrera, Antonia",
+     "editorial": "Diputación provincial",
+     "anio": 1993,
+     "materias": [
+      {
+       "c": "0883",
+       "n": "obl"
+      }
+     ],
+     "num": "16"
+    },
+    {
+     "titulo": "Leviatán o la materia, forma y poder de una república eclesiástica y civil",
+     "autor": "Hobbes, Thomas",
+     "editorial": "Fondo de Cultura Económica",
+     "anio": 1983,
+     "materias": [
+      {
+       "c": "0884",
+       "n": "obl"
+      }
+     ],
+     "num": "17"
+    },
+    {
+     "titulo": "La historia es literatura contemporánea: manifiesto por las ciencias sociales",
+     "autor": "Jablonka, Iván",
+     "editorial": "FCE",
+     "anio": 2016,
+     "materias": [
+      {
+       "c": "0886",
+       "n": "obl"
+      }
+     ],
+     "num": "18"
+    },
+    {
+     "titulo": "El inconsciente político de la Posmodernidad",
+     "autor": "Jameson, Frederic",
+     "editorial": "Trotta",
+     "anio": 1998,
+     "materias": [
+      {
+       "c": "0884",
+       "n": "obl"
+      }
+     ],
+     "num": "19"
+    },
+    {
+     "titulo": "Teoría de la postmodernidad",
+     "autor": "Jameson, Frederic",
+     "editorial": "Editorial Trotta",
+     "anio": 2016,
+     "materias": [
+      {
+       "c": "0883",
+       "n": "obl"
+      }
+     ],
+     "num": "20"
+    },
+    {
+     "titulo": "Mirar, escuchar, leer",
+     "autor": "Levi Staruss, Claude",
+     "editorial": "Siruela",
+     "anio": 1993,
+     "materias": [
+      {
+       "c": "0884",
+       "n": "obl"
+      }
+     ],
+     "num": "21"
+    },
+    {
+     "titulo": "Lecturas sobre Foucault",
+     "autor": "Morey, Miguel",
+     "editorial": "Taurus",
+     "anio": 1983,
+     "materias": [
+      {
+       "c": "0884",
+       "n": "obl"
+      }
+     ],
+     "num": "22"
+    },
+    {
+     "titulo": "El desorden digital: guía para historiadores y humanistas",
+     "autor": "Pons, Anaclet",
+     "editorial": "Siglo XXI",
+     "anio": 2013,
+     "materias": [
+      {
+       "c": "0886",
+       "n": "obl"
+      }
+     ],
+     "num": "23"
+    },
+    {
+     "titulo": "Trabajo de las Naciones",
+     "autor": "Reich, Robert",
+     "editorial": "Vergara",
+     "anio": 2000,
+     "materias": [
+      {
+       "c": "0884",
+       "n": "obl"
+      }
+     ],
+     "num": "24"
+    },
+    {
+     "titulo": "La memoria, la historia, el olvido",
+     "autor": "Ricoeur, Paul",
+     "editorial": "Fondo de Cultura Económica",
+     "anio": 2004,
+     "materias": [
+      {
+       "c": "0886",
+       "n": "obl"
+      }
+     ],
+     "num": "25"
+    },
+    {
+     "titulo": "La nueva cuestión social",
+     "autor": "Rosanvallon, Pierre",
+     "editorial": "Manantial",
+     "anio": 1995,
+     "materias": [
+      {
+       "c": "0884",
+       "n": "obl"
+      }
+     ],
+     "num": "26"
+    },
+    {
+     "titulo": "El contrato social, o principios de derecho político",
+     "autor": "Rousseau, Jean",
+     "editorial": "Tecno",
+     "anio": 1992,
+     "materias": [
+      {
+       "c": "0884",
+       "n": "obl"
+      }
+     ],
+     "num": "27"
+    },
+    {
+     "titulo": "Discurso sobre el origen y los fundamentos de la desigualdad entre los hombres y otros escritos",
+     "autor": "Rousseau, Jean Jaques",
+     "editorial": "Tecnos",
+     "anio": 1990,
+     "materias": [
+      {
+       "c": "0884",
+       "n": "obl"
+      }
+     ],
+     "num": "28"
+    },
+    {
+     "titulo": "Grafística precolombina e hispanoamericana",
+     "autor": "Tanodi, Branka María",
+     "editorial": "Centro Interamericano de Desarrollo de Archivos",
+     "anio": 1992,
+     "materias": [
+      {
+       "c": "0886",
+       "n": "obl"
+      }
+     ],
+     "num": "29"
+    },
+    {
+     "titulo": "Manual de selección documental",
+     "autor": "Vázquez, Manuel",
+     "editorial": "Escuela de Archiveros Universidad Nacional de Córdoba",
+     "anio": 1982,
+     "materias": [
+      {
+       "c": "0852",
+       "n": "obl"
+      }
+     ],
+     "num": "30"
+    },
+    {
+     "titulo": "Economía y Sociedad",
+     "autor": "Weber, Max",
+     "editorial": "FCE 1990",
+     "anio": null,
+     "materias": [
+      {
+       "c": "0884",
+       "n": "obl"
+      }
+     ],
+     "num": "31"
+    },
+    {
+     "titulo": "Ficción histórica, historia ficcional y realidad histórica",
+     "autor": "White, Hayden",
+     "editorial": "Prometeo libros",
+     "anio": 2010,
+     "materias": [
+      {
+       "c": "0886",
+       "n": "obl"
+      }
+     ],
+     "num": "32"
+    }
+   ]
+  },
+  {
+   "id": "preservacion",
+   "titulo": "Preservación y conservación",
+   "bajada": "Lo que se lee en las materias de preservación y conservación de bibliotecas y archivos del Departamento: conservación preventiva, planificación y gestión de la preservación y tratamientos.",
+   "tramos": [
+    {
+     "codigo": "0853",
+     "nombre": "Fundamentos de la Preservación y la Conservación en Bibliotecas y Archivos",
+     "eje": "preservacion"
+    },
+    {
+     "codigo": "0890",
+     "nombre": "Gestión de las actividades de preservación",
+     "eje": "preservacion"
+    },
+    {
+     "codigo": "0889",
+     "nombre": "Organización y planificación de programas de preservación",
+     "eje": "preservacion"
+    },
+    {
+     "codigo": "0888",
+     "nombre": "Protección y cuidado del material de los registros",
+     "eje": "preservacion"
+    },
+    {
+     "codigo": "0891",
+     "nombre": "Tratamiento de la Conservación (PD)",
+     "eje": "preservacion"
+    }
+   ],
+   "obras": [
+    {
+     "titulo": "Creación de un plan de emergencia: guia para museos y otras instituciones culturales",
+     "autor": "Dorge, Valerie. , Jones, Sharon",
+     "editorial": "The Getty Conservation Institute",
+     "anio": 1999,
+     "materias": [
+      {
+       "c": "0853",
+       "n": "obl"
+      },
+      {
+       "c": "0890",
+       "n": "obl"
+      }
+     ],
+     "num": "01"
+    },
+    {
+     "titulo": "Manual para la preservación del papel: nueva era de la conservación preventiva y su aplicación actualizada",
+     "autor": "Goren, Silvio",
+     "editorial": "Buenos Aires, Alfagrama",
+     "anio": 2010,
+     "materias": [
+      {
+       "c": "0853",
+       "n": "obl"
+      },
+      {
+       "c": "0890",
+       "n": "obl"
+      }
+     ],
+     "num": "02"
+    },
+    {
+     "titulo": "Tratamiento y difusión digital del libro antiguo: directrices metodológicas y guía de recursos",
+     "autor": "Herrera Morillas, José Luis",
+     "editorial": "Ediciones Trea",
+     "anio": 2009,
+     "materias": [
+      {
+       "c": "0853",
+       "n": "obl"
+      },
+      {
+       "c": "0890",
+       "n": "obl"
+      }
+     ],
+     "num": "03"
+    },
+    {
+     "titulo": "Aportes preliminares para el estudio de la Bibliotecología y Ciencia de la Información",
+     "autor": "Barber, Elsa, comp",
+     "editorial": "Buenos Aires, UBA",
+     "anio": 2010,
+     "materias": [
+      {
+       "c": "0890",
+       "n": "obl"
+      }
+     ],
+     "num": "04"
+    },
+    {
+     "titulo": "Terminología básica de conservación y restauración del patrimonio cultural",
+     "autor": "Calvo, Ana María",
+     "editorial": "Universidad Complutense de Madrid",
+     "anio": 2018,
+     "materias": [
+      {
+       "c": "0889",
+       "n": "obl"
+      }
+     ],
+     "num": "05"
+    },
+    {
+     "titulo": "Conservación del Patrimonio Cultural: criterios y normativas",
+     "autor": "Macarrón, Ana",
+     "editorial": "Sintesis",
+     "anio": 2008,
+     "materias": [
+      {
+       "c": "0853",
+       "n": "obl"
+      }
+     ],
+     "num": "06"
+    },
+    {
+     "titulo": "El cuidado de libros y documentos: manual práctico de conservación y restauración",
+     "autor": "Me. Cleary, John y otros",
+     "editorial": "Clan Editorial",
+     "anio": 1997,
+     "materias": [
+      {
+       "c": "0853",
+       "n": "obl"
+      }
+     ],
+     "num": "07"
+    },
+    {
+     "titulo": "Conservación de patrimonio y aplicaciones de la físico-química",
+     "autor": "Mántica, Mario",
+     "editorial": "Alfagrama",
+     "anio": 2010,
+     "materias": [
+      {
+       "c": "0853",
+       "n": "obl"
+      }
+     ],
+     "num": "08"
+    }
+   ]
+  },
+  {
+   "id": "bibliotecologia",
+   "titulo": "Bibliotecología y ciencia de la información",
+   "bajada": "Lo que se lee en las materias de bibliotecología, ordenadas por los seis ejes de la carrera: fundamentos, procesamiento de la información, recursos y servicios, tecnología, gestión e investigación.",
+   "tramos": [
+    {
+     "codigo": "0854",
+     "nombre": "Desarrollo profesional de la bibliotecología y la ciencia de la información",
+     "eje": "fundamentos"
+    },
+    {
+     "codigo": "0851",
+     "nombre": "Fundamentos de la bibliotecología y la ciencia de la información",
+     "eje": "fundamentos"
+    },
+    {
+     "codigo": "0808",
+     "nombre": "Historia del libro y de las bibliotecas",
+     "eje": "fundamentos"
+    },
+    {
+     "codigo": "0856",
+     "nombre": "Clasificación del conocimiento",
+     "eje": "procesamiento"
+    },
+    {
+     "codigo": "0865",
+     "nombre": "Indización y condensación",
+     "eje": "procesamiento"
+    },
+    {
+     "codigo": "0866",
+     "nombre": "Organización de los materiales no impresos",
+     "eje": "procesamiento"
+    },
+    {
+     "codigo": "0855",
+     "nombre": "Principios de catalogación",
+     "eje": "procesamiento"
+    },
+    {
+     "codigo": "0864",
+     "nombre": "Servicios catalográficos",
+     "eje": "procesamiento"
+    },
+    {
+     "codigo": "0867",
+     "nombre": "Servicios técnicos en unidades de información",
+     "eje": "procesamiento"
+    },
+    {
+     "codigo": "0862",
+     "nombre": "Búsqueda y utilización de la información",
+     "eje": "recursos"
+    },
+    {
+     "codigo": "0872",
+     "nombre": "Desarrollo de la colección y de los servicios de acceso",
+     "eje": "recursos"
+    },
+    {
+     "codigo": "0871",
+     "nombre": "Estudio y formación de usuarios",
+     "eje": "recursos"
+    },
+    {
+     "codigo": "0870",
+     "nombre": "Fuentes de información de ciencia y técnica",
+     "eje": "recursos"
+    },
+    {
+     "codigo": "0869",
+     "nombre": "Fuentes de información en humanidades y ciencias sociales",
+     "eje": "recursos"
+    },
+    {
+     "codigo": "0857",
+     "nombre": "Fuentes de información generales",
+     "eje": "recursos"
+    },
+    {
+     "codigo": "0858",
+     "nombre": "Recursos de información en Redes Globales",
+     "eje": "recursos"
+    },
+    {
+     "codigo": "0846",
+     "nombre": "Servicio de referencia e información",
+     "eje": "recursos"
+    },
+    {
+     "codigo": "0850",
+     "nombre": "Automatización en unidades de información",
+     "eje": "tecnologia"
+    },
+    {
+     "codigo": "0806",
+     "nombre": "Sistemas y redes de información",
+     "eje": "tecnologia"
+    },
+    {
+     "codigo": "0880",
+     "nombre": "Administración de recursos humanos",
+     "eje": "gestion"
+    },
+    {
+     "codigo": "0859",
+     "nombre": "Administración de unidades de información",
+     "eje": "gestion"
+    },
+    {
+     "codigo": "0879",
+     "nombre": "Evaluación de unidades de información",
+     "eje": "gestion"
+    },
+    {
+     "codigo": "0881",
+     "nombre": "Gestión e integración de unidades de información",
+     "eje": "gestion"
+    },
+    {
+     "codigo": "0860",
+     "nombre": "Marketing de servicios y productos de información",
+     "eje": "gestion"
+    },
+    {
+     "codigo": "0878",
+     "nombre": "Planificación estratégica",
+     "eje": "gestion"
+    },
+    {
+     "codigo": "0894",
+     "nombre": "Elaboración de proyectos de investigación en Bibliotecología y Ciencia de la información",
+     "eje": "investigacion"
+    },
+    {
+     "codigo": "0893",
+     "nombre": "Métodos de investigación en bibliotecología y ciencia de la información",
+     "eje": "investigacion"
+    }
+   ],
+   "obras": [
+    {
+     "titulo": "Everything Is Miscellaneous: The Power of the New Digital Disorder",
+     "autor": "Weinberger, David",
+     "editorial": "New York",
+     "anio": 2007,
+     "materias": [
+      {
+       "c": "0806",
+       "n": "obl"
+      },
+      {
+       "c": "0856",
+       "n": "obl"
+      },
+      {
+       "c": "0858",
+       "n": "obl"
+      }
+     ],
+     "num": "01"
+    },
+    {
+     "titulo": "Bibliotecas virtuales para las Ciencias Sociales",
+     "autor": "Babini, D. y Fraga, J.",
+     "editorial": "Clacso",
+     "anio": 2004,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      },
+      {
+       "c": "0869",
+       "n": "obl"
+      }
+     ],
+     "num": "02"
+    },
+    {
+     "titulo": "Evaluación de bibliotecas y centros de documentación e información",
+     "autor": "Fuentes, Juan José",
+     "editorial": "Trea",
+     "anio": 1999,
+     "materias": [
+      {
+       "c": "0857",
+       "n": "compl"
+      },
+      {
+       "c": "0872",
+       "n": "obl"
+      }
+     ],
+     "num": "03"
+    },
+    {
+     "titulo": "Los estudios de necesidades y usos de la información: fundamentos y perspectivas actuales",
+     "autor": "González Teruel, A.",
+     "editorial": "TREA",
+     "anio": 2005,
+     "materias": [
+      {
+       "c": "0857",
+       "n": "compl"
+      },
+      {
+       "c": "0871",
+       "n": "obl"
+      }
+     ],
+     "num": "04"
+    },
+    {
+     "titulo": "Dirección de Mercadotecnia: análisis, planeación y control",
+     "autor": "Kotler, Phillip",
+     "editorial": "Prentice-Hill Hispanoamericana",
+     "anio": 2014,
+     "materias": [
+      {
+       "c": "0859",
+       "n": "obl"
+      },
+      {
+       "c": "0860",
+       "n": "obl"
+      }
+     ],
+     "num": "05"
+    },
+    {
+     "titulo": "El proyecto de Investigación (Diapositivas de PowerPoint)",
+     "autor": "Lassi, M. S.",
+     "editorial": "Material de cátedra",
+     "anio": 2020,
+     "materias": [
+      {
+       "c": "0893",
+       "n": "obl"
+      },
+      {
+       "c": "0894",
+       "n": "obl"
+      }
+     ],
+     "num": "06"
+    },
+    {
+     "titulo": "Hipótesis y variables (Diapositivas de PowerPoint)",
+     "autor": "Lassi, M. S.",
+     "editorial": "Material de cátedra",
+     "anio": 2020,
+     "materias": [
+      {
+       "c": "0893",
+       "n": "obl"
+      },
+      {
+       "c": "0894",
+       "n": "obl"
+      }
+     ],
+     "num": "07"
+    },
+    {
+     "titulo": "Multitudes inteligentes",
+     "autor": "Rheingold, Howard",
+     "editorial": "Gedisa",
+     "anio": 2004,
+     "materias": [
+      {
+       "c": "0806",
+       "n": "obl"
+      },
+      {
+       "c": "0858",
+       "n": "obl"
+      }
+     ],
+     "num": "08"
+    },
+    {
+     "titulo": "Guía de fuentes de información especializadas: Humanidades y Ciencias Sociales",
+     "autor": "Romanos de Tiratel, Susana",
+     "editorial": "GREBYD",
+     "anio": 2000,
+     "materias": [
+      {
+       "c": "0857",
+       "n": "compl"
+      },
+      {
+       "c": "0862",
+       "n": "obl"
+      }
+     ],
+     "num": "09"
+    },
+    {
+     "titulo": "Formación de profesionales y usuarios de bibliotecas: aprendizaje y diseño de instrucción",
+     "autor": "Svinicki, M. D.; B. A. Schwartz",
+     "editorial": "Fundación Germán Sánchez Ruipérez",
+     "anio": 1991,
+     "materias": [
+      {
+       "c": "0857",
+       "n": "compl"
+      },
+      {
+       "c": "0871",
+       "n": "obl"
+      }
+     ],
+     "num": "10"
+    },
+    {
+     "titulo": "Fragmentos de un tejido",
+     "autor": "Verón, E.",
+     "editorial": "Gedisa",
+     "anio": 2004,
+     "materias": [
+      {
+       "c": "0806",
+       "n": "obl"
+      },
+      {
+       "c": "0858",
+       "n": "obl"
+      }
+     ],
+     "num": "11"
+    },
+    {
+     "titulo": "La antigua biblioteca de Alejandría: vida y destino",
+     "autor": "Abbadi, Mustafá El",
+     "editorial": "Asociación de Amigos de la Biblioteca de Alejandría, Unesco",
+     "anio": 1994,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "12"
+    },
+    {
+     "titulo": "Gestión de colecciones",
+     "autor": "Aguado, Amelia",
+     "editorial": "Alfagrama",
+     "anio": 2010,
+     "materias": [
+      {
+       "c": "0872",
+       "n": "obl"
+      }
+     ],
+     "num": "13"
+    },
+    {
+     "titulo": "The 6As model of social contentmanagement",
+     "autor": "Aladwani, A.M.",
+     "editorial": "International",
+     "anio": 2014,
+     "materias": [
+      {
+       "c": "0850",
+       "n": "compl"
+      }
+     ],
+     "num": "14"
+    },
+    {
+     "titulo": "La planificación educativa: conceptos, métodos, estrategias y técnicas para educadores",
+     "autor": "Ander-egg, E.",
+     "editorial": "Magisterio del Río de la Plata",
+     "anio": 1993,
+     "materias": [
+      {
+       "c": "0871",
+       "n": "compl"
+      }
+     ],
+     "num": "15"
+    },
+    {
+     "titulo": "Cómo elaborar un proyecto. Guía para diseñar proyectos sociales y culturales",
+     "autor": "Ander-egg, E.; Aguilar, M. J.",
+     "editorial": "Instituto de Ciencias Sociales Aplicadas",
+     "anio": 1992,
+     "materias": [
+      {
+       "c": "0871",
+       "n": "obl"
+      }
+     ],
+     "num": "16"
+    },
+    {
+     "titulo": "Biblioterapia",
+     "autor": "Arias, M. L.; et al",
+     "editorial": "Información, Cultura y Sociedad, 2, 85-93",
+     "anio": 2000,
+     "materias": [
+      {
+       "c": "0857",
+       "n": "compl"
+      }
+     ],
+     "num": "17"
+    },
+    {
+     "titulo": "Evaluación de Bibliotecas",
+     "autor": "Arriola Navarrete, O.",
+     "editorial": "Alfagrama",
+     "anio": 2006,
+     "materias": [
+      {
+       "c": "0857",
+       "n": "compl"
+      }
+     ],
+     "num": "18"
+    },
+    {
+     "titulo": "Evaluación de bibliotecas: un modelo desde la óptica de los sistemas de gestión de calidad",
+     "autor": "Arriola Navarrete, O.",
+     "editorial": "Alfagrama",
+     "anio": 2006,
+     "materias": [
+      {
+       "c": "0879",
+       "n": "compl"
+      }
+     ],
+     "num": "19"
+    },
+    {
+     "titulo": "Historia de las bibliotecas",
+     "autor": "Barbier, Frédéric",
+     "editorial": "De Alejandría a las bibliotecas virtuales",
+     "anio": 2015,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "20"
+    },
+    {
+     "titulo": "Managing scientific information and research data",
+     "autor": "Baykoucheva, S.",
+     "editorial": "Chandos Publishing",
+     "anio": 2015,
+     "materias": [
+      {
+       "c": "0870",
+       "n": "obl"
+      }
+     ],
+     "num": "21"
+    },
+    {
+     "titulo": "Preservation management of digital materials: a handbook",
+     "autor": "Beagrie, N.; Jones, M.",
+     "editorial": "Digital",
+     "anio": 2008,
+     "materias": [
+      {
+       "c": "0850",
+       "n": "compl"
+      }
+     ],
+     "num": "22"
+    },
+    {
+     "titulo": "El advenimiento de la sociedad post-industrial: Un intento de prognosis social",
+     "autor": "Bell, Daniel",
+     "editorial": "Alianza",
+     "anio": 1973,
+     "materias": [
+      {
+       "c": "0858",
+       "n": "obl"
+      }
+     ],
+     "num": "23"
+    },
+    {
+     "titulo": "Teoría general de los sistemas",
+     "autor": "Bertalanffy, Ludwig von",
+     "editorial": "México, D.F. : Fondo de Cultura Económica",
+     "anio": 1992,
+     "materias": [
+      {
+       "c": "0806",
+       "n": "obl"
+      }
+     ],
+     "num": "24"
+    },
+    {
+     "titulo": "Open-source software for libraries",
+     "autor": "Bisson, C.",
+     "editorial": "Library Technology Reports,43:3, 5- 53",
+     "anio": 2007,
+     "materias": [
+      {
+       "c": "0850",
+       "n": "compl"
+      }
+     ],
+     "num": "25"
+    },
+    {
+     "titulo": "Cómo se hace una investigación",
+     "autor": "Blaxter, L., Hughes, C., & Tight, M.",
+     "editorial": "Gedisa",
+     "anio": 2000,
+     "materias": [
+      {
+       "c": "0862",
+       "n": "compl"
+      }
+     ],
+     "num": "26"
+    },
+    {
+     "titulo": "Holding On to Reality: The Nature of Information at the Turn of the Millennium",
+     "autor": "Borgmann, Albert",
+     "editorial": "University Of Chicago Press",
+     "anio": 1999,
+     "materias": [
+      {
+       "c": "0858",
+       "n": "obl"
+      }
+     ],
+     "num": "27"
+    },
+    {
+     "titulo": "Sorting Things Out : Classification and Its Consequences",
+     "autor": "Bowker, Geoffrey C, Star, Susan Leigh",
+     "editorial": "Massachusetts Institute of Technology",
+     "anio": 2000,
+     "materias": [
+      {
+       "c": "0856",
+       "n": "obl"
+      }
+     ],
+     "num": "28"
+    },
+    {
+     "titulo": "Information literacy: a framework for higher education",
+     "autor": "Bruce, C. S.",
+     "editorial": "Australian",
+     "anio": 1995,
+     "materias": [
+      {
+       "c": "0871",
+       "n": "obl"
+      }
+     ],
+     "num": "29"
+    },
+    {
+     "titulo": "Strategic planning for public and non profit organizations",
+     "autor": "Bryson, J. M.",
+     "editorial": "Jossey Bass",
+     "anio": 2004,
+     "materias": [
+      {
+       "c": "0878",
+       "n": "obl"
+      }
+     ],
+     "num": "30"
+    },
+    {
+     "titulo": "Libreros, editores e impresores de Buenos Aires: esbozo para una Historia del Libro argentino",
+     "autor": "Buonocore, Domingo",
+     "editorial": "Bowker",
+     "anio": 1974,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "31"
+    },
+    {
+     "titulo": "Historia social del conocimiento: de Gutenberg a Diderot",
+     "autor": "Burke, P.",
+     "editorial": "Paidós",
+     "anio": 2002,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "32"
+    },
+    {
+     "titulo": "Excesos lectores, ascetismos iconográficos",
+     "autor": "Burucúa, José Emilio",
+     "editorial": "Ampersand",
+     "anio": 2017,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "33"
+    },
+    {
+     "titulo": "Historia universal de la destrucción de los libros: de las tablillas sumerias a la guerra de Irak",
+     "autor": "Báez, F.",
+     "editorial": "Sudamericana",
+     "anio": 2005,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "34"
+    },
+    {
+     "titulo": "Administración de bibliotecas: el planeamiento y el control",
+     "autor": "Cagnoli, Roberto",
+     "editorial": "EB",
+     "anio": 1996,
+     "materias": [
+      {
+       "c": "0860",
+       "n": "obl"
+      }
+     ],
+     "num": "35"
+    },
+    {
+     "titulo": "Administración de bibliotecas",
+     "autor": "Cagnoli, Roberto V.",
+     "editorial": "EB publicaciones",
+     "anio": 1996,
+     "materias": [
+      {
+       "c": "0859",
+       "n": "obl"
+      }
+     ],
+     "num": "36"
+    },
+    {
+     "titulo": "Historia de la escritura: de Mesopotamia hasta nuestros días",
+     "autor": "Calvet, Louis-Jean",
+     "editorial": "Paidós",
+     "anio": 2001,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "37"
+    },
+    {
+     "titulo": "La véritable histoire de la bibliothèque d'Alexandrie",
+     "autor": "Canfora, Luciano",
+     "editorial": "Éditions Desjonquères",
+     "anio": 1988,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "38"
+    },
+    {
+     "titulo": "Elogio del papel: contra el colonialismo digital",
+     "autor": "Casati, R.",
+     "editorial": "Ariel",
+     "anio": 2015,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "39"
+    },
+    {
+     "titulo": "La cocina de la escritura",
+     "autor": "Cassany, D.",
+     "editorial": "Anagrama",
+     "anio": 1995,
+     "materias": [
+      {
+       "c": "0862",
+       "n": "obl"
+      }
+     ],
+     "num": "40"
+    },
+    {
+     "titulo": "Escuchar a los muertos con los ojos",
+     "autor": "Chartier, R.",
+     "editorial": "Katz",
+     "anio": 2008,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "41"
+    },
+    {
+     "titulo": "La mano del autor y el espíritu del impresor: siglos XVI-XVIII",
+     "autor": "Chartier, Roger",
+     "editorial": "Katz; Eudeba",
+     "anio": 2016,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "42"
+    },
+    {
+     "titulo": "Planeación estratégica. Fundamentos y aplicaciones. 2da. ed",
+     "autor": "Chiavenato, I. y Sapiro, A.",
+     "editorial": "Mc Graw Hill",
+     "anio": 2011,
+     "materias": [
+      {
+       "c": "0878",
+       "n": "compl"
+      }
+     ],
+     "num": "43"
+    },
+    {
+     "titulo": "Planeamiento estratégico: utilizando el Cuadro de Mando Integral (Balanced Scorecard)",
+     "autor": "Choque Larrauri, R.",
+     "editorial": "Marcombo",
+     "anio": 2017,
+     "materias": [
+      {
+       "c": "0878",
+       "n": "compl"
+      }
+     ],
+     "num": "44"
+    },
+    {
+     "titulo": "Dinámica de grupos y educación",
+     "autor": "Cirigliano, F. J. G.; Villaverde, A.",
+     "editorial": "Lumen/Humanitas",
+     "anio": 1997,
+     "materias": [
+      {
+       "c": "0871",
+       "n": "obl"
+      }
+     ],
+     "num": "45"
+    },
+    {
+     "titulo": "Bibliotecas cuyanas del siglo XVIII",
+     "autor": "Comadrán Ruiz, Jorge",
+     "editorial": "Universidad Nacional de Cuyo",
+     "anio": 1961,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "46"
+    },
+    {
+     "titulo": "Manual de búsqueda documental y práctica bibliográfica",
+     "autor": "Cordón García, J. A., López Lucas, J., & Vaquero Pulido, J. R.",
+     "editorial": "Pirámide",
+     "anio": 1999,
+     "materias": [
+      {
+       "c": "0862",
+       "n": "obl"
+      }
+     ],
+     "num": "47"
+    },
+    {
+     "titulo": "Las nuevas fuentes de información: información y búsqueda documental en el contexto de la web 2.0",
+     "autor": "Cordón García, José et. al",
+     "editorial": "Pirámide",
+     "anio": 2016,
+     "materias": [
+      {
+       "c": "0857",
+       "n": "obl"
+      }
+     ],
+     "num": "48"
+    },
+    {
+     "titulo": "El beso de Lamourette",
+     "autor": "Darnton, R.",
+     "editorial": "Fondo de Cultura Económica",
+     "anio": 2010,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "49"
+    },
+    {
+     "titulo": "Las razones del libro: futuro, presente y pasado",
+     "autor": "Darnton, R.",
+     "editorial": "Trama Editorial",
+     "anio": 2010,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "50"
+    },
+    {
+     "titulo": "El coloquio de los lectores",
+     "autor": "Darnton, Robert",
+     "editorial": "Fondo de Cultura Económica",
+     "anio": 2003,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "51"
+    },
+    {
+     "titulo": "Introducción a los sistemas de bases de datos",
+     "autor": "Date, C. J.",
+     "editorial": "Pearson Education",
+     "anio": 2001,
+     "materias": [
+      {
+       "c": "0850",
+       "n": "obl"
+      }
+     ],
+     "num": "52"
+    },
+    {
+     "titulo": "Métodos de enseñanza: didáctica general para maestros y profesores",
+     "autor": "Davini, María Cristina",
+     "editorial": "Santillana",
+     "anio": 2008,
+     "materias": [
+      {
+       "c": "0871",
+       "n": "compl"
+      }
+     ],
+     "num": "53"
+    },
+    {
+     "titulo": "Seis sombreros para pensar",
+     "autor": "De Bono, Edward",
+     "editorial": "Paidós",
+     "anio": 2008,
+     "materias": [
+      {
+       "c": "0881",
+       "n": "obl"
+      }
+     ],
+     "num": "54"
+    },
+    {
+     "titulo": "Information needs and uses",
+     "autor": "Dervin, B., & Michael Nilan",
+     "editorial": "Annual Review of",
+     "anio": 1986,
+     "materias": [
+      {
+       "c": "0871",
+       "n": "compl"
+      }
+     ],
+     "num": "55"
+    },
+    {
+     "titulo": "Sistema de Clasificación Decimal Dewey",
+     "autor": "Dewey, M.",
+     "editorial": "Rojas Eberhard Editores",
+     "anio": 1995,
+     "materias": [
+      {
+       "c": "0856",
+       "n": "obl"
+      }
+     ],
+     "num": "56"
+    },
+    {
+     "titulo": "Evolução teórico- metodológica dos estudos de comportamento informacional de usuários",
+     "autor": "Dias Gasque Gonçalves, C. K.; Souza Costa, Sely Maria de",
+     "editorial": "Ciência da",
+     "anio": 2010,
+     "materias": [
+      {
+       "c": "0871",
+       "n": "obl"
+      }
+     ],
+     "num": "57"
+    },
+    {
+     "titulo": "Pureza y peligro : un análisis de los conceptos de contaminación",
+     "autor": "Douglas, Mary (1966, 2007)",
+     "editorial": "Nueva visión",
+     "anio": null,
+     "materias": [
+      {
+       "c": "0856",
+       "n": "obl"
+      }
+     ],
+     "num": "58"
+    },
+    {
+     "titulo": "Fundamentos de marketing: teoría y experiencia",
+     "autor": "Dvoskin, Roberto",
+     "editorial": "Granica",
+     "anio": 2004,
+     "materias": [
+      {
+       "c": "0860",
+       "n": "obl"
+      }
+     ],
+     "num": "59"
+    },
+    {
+     "titulo": "Cómo se hace una tesis: Técnicas y procedimientos de estudio, investigación y escritura",
+     "autor": "Eco, U.",
+     "editorial": "Gedisa ; Buenos Aires: Celtia",
+     "anio": 1986,
+     "materias": [
+      {
+       "c": "0862",
+       "n": "obl"
+      }
+     ],
+     "num": "60"
+    },
+    {
+     "titulo": "Nadie acabará con los libros",
+     "autor": "Eco, U. y Carrière, J.",
+     "editorial": "Lumen",
+     "anio": 2010,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "61"
+    },
+    {
+     "titulo": "Information literacy: Essential skills for the information age (2nd ed. )",
+     "autor": "Eisenberg, M. B., Lowe, C. A., & Spitzer, K. L.",
+     "editorial": "Westport, Conn.: Libraries Unlimited",
+     "anio": 2004,
+     "materias": [
+      {
+       "c": "0862",
+       "n": "obl"
+      }
+     ],
+     "num": "62"
+    },
+    {
+     "titulo": "La revolución del libro",
+     "autor": "Escarpit, Robert",
+     "editorial": "Alianza",
+     "anio": 1968,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "63"
+    },
+    {
+     "titulo": "Cotización de colecciones bibliotecarias: fundamentos y procedimientos para una valoración",
+     "autor": "Escobar-Carballal, Sarah T.",
+     "editorial": "Alfagrama",
+     "anio": 2006,
+     "materias": [
+      {
+       "c": "0872",
+       "n": "obl"
+      }
+     ],
+     "num": "64"
+    },
+    {
+     "titulo": "Historia de las bibliotecas",
+     "autor": "Escolar Sobrino, Hipólito",
+     "editorial": "Fundación Germán Sánchez Ruipérez",
+     "anio": 1985,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "65"
+    },
+    {
+     "titulo": "Historia del libro",
+     "autor": "Escolar Sobrino, Hipólito",
+     "editorial": "Fundación Germán Sánchez Ruipérez",
+     "anio": 1988,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "66"
+    },
+    {
+     "titulo": "La biblioteca de Alejandría",
+     "autor": "Escolar Sobrino, Hipólito",
+     "editorial": "Gredos",
+     "anio": 2001,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "67"
+    },
+    {
+     "titulo": "Manual de Historia del libro",
+     "autor": "Escolar Sobrino, Hipólito",
+     "editorial": "Gredos",
+     "anio": 2000,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "68"
+    },
+    {
+     "titulo": "Developing library and information center collections",
+     "autor": "Evans, G. E., Zarnosky Saponaro, M.",
+     "editorial": "Libraries Unlimited",
+     "anio": 2005,
+     "materias": [
+      {
+       "c": "0866",
+       "n": "obl"
+      }
+     ],
+     "num": "69"
+    },
+    {
+     "titulo": "Collection management basics",
+     "autor": "Evans, G.Edward y Margaret Zarnosky Saponaro",
+     "editorial": "Santa",
+     "anio": 2012,
+     "materias": [
+      {
+       "c": "0872",
+       "n": "obl"
+      }
+     ],
+     "num": "70"
+    },
+    {
+     "titulo": "La aparición del libro",
+     "autor": "Febvre, Lucien y Henri-Jean Martin",
+     "editorial": "Fondo de Cultura Económica",
+     "anio": 2014,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "71"
+    },
+    {
+     "titulo": "Búsqueda y recuperación de la información",
+     "autor": "Ferran, N. & Pérez-Montoro, M.",
+     "editorial": "Editorial UOC",
+     "anio": 2009,
+     "materias": [
+      {
+       "c": "0862",
+       "n": "obl"
+      }
+     ],
+     "num": "72"
+    },
+    {
+     "titulo": "El nuevo ciclo empresarial",
+     "autor": "Fine, Charles",
+     "editorial": "Paidós",
+     "anio": 2000,
+     "materias": [
+      {
+       "c": "0881",
+       "n": "compl"
+      }
+     ],
+     "num": "73"
+    },
+    {
+     "titulo": "Una introducción a la historia del libro",
+     "autor": "Finkelstein, D. y McCleery, A.",
+     "editorial": "Paidós",
+     "anio": 2014,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "74"
+    },
+    {
+     "titulo": "The subject approach to information",
+     "autor": "Foskett, A.C.",
+     "editorial": "Library Association",
+     "anio": 1997,
+     "materias": [
+      {
+       "c": "0856",
+       "n": "obl"
+      }
+     ],
+     "num": "75"
+    },
+    {
+     "titulo": "Berlín 1900: prensa, lectores y vida moderna",
+     "autor": "Fritzsche, P.",
+     "editorial": "Siglo XXI Editores",
+     "anio": 2008,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "76"
+    },
+    {
+     "titulo": "La colección de materiales de la biblioteca",
+     "autor": "Fuentes Romero, Juan José",
+     "editorial": "Arco Libros & La Muralla",
+     "anio": 2010,
+     "materias": [
+      {
+       "c": "0859",
+       "n": "obl"
+      }
+     ],
+     "num": "77"
+    },
+    {
+     "titulo": "Bibliotecas argentinas durante la dominación hispánica",
+     "autor": "Furlong, Guillermo",
+     "editorial": "Huarpes",
+     "anio": 1944,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "78"
+    },
+    {
+     "titulo": "Historia y bibliografía de las primeras imprentas rioplatenses: 1700-1850",
+     "autor": "Furlong, Guillermo",
+     "editorial": "Guarania",
+     "anio": 1953,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "79"
+    },
+    {
+     "titulo": "Servicio de referencia: una propuesta integradora",
+     "autor": "García, I. L., Portugal, M.",
+     "editorial": "Alfagrama",
+     "anio": 2008,
+     "materias": [
+      {
+       "c": "0846",
+       "n": "compl"
+      }
+     ],
+     "num": "80"
+    },
+    {
+     "titulo": "Manual de técnicas de investigación para estudiantes de Ciencias Sociales",
+     "autor": "Garza Mercado, A.",
+     "editorial": "El Colegio de México",
+     "anio": 1996,
+     "materias": [
+      {
+       "c": "0862",
+       "n": "obl"
+      }
+     ],
+     "num": "81"
+    },
+    {
+     "titulo": "Historia de la escritura",
+     "autor": "Gelb, Ignace J.",
+     "editorial": "Alianza",
+     "anio": 1976,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "82"
+    },
+    {
+     "titulo": "Recursos informacionales para compartir: acceso, disponibilidad y uso",
+     "autor": "Giannasi-Kaimen, M. J.",
+     "editorial": "Alfagrama",
+     "anio": 2010,
+     "materias": [
+      {
+       "c": "0870",
+       "n": "compl"
+      }
+     ],
+     "num": "83"
+    },
+    {
+     "titulo": "El queso y los gusanos",
+     "autor": "Ginzburg, C.",
+     "editorial": "Muchnik",
+     "anio": 1999,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "84"
+    },
+    {
+     "titulo": "Tentativas",
+     "autor": "Ginzburg, C.",
+     "editorial": "Prohistoria ediciones",
+     "anio": 2004,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "85"
+    },
+    {
+     "titulo": "Historia de la Biblioteca Nacional: estado de una polémica",
+     "autor": "González, Horacio",
+     "editorial": "Biblioteca Nacional",
+     "anio": 2010,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "86"
+    },
+    {
+     "titulo": "Manual de publicaciones de la American Psychological Association",
+     "autor": "Guerra, F. M., Peña, A. G. S. R., & American Psychological Association",
+     "editorial": "Manual Moderno",
+     "anio": 2010,
+     "materias": [
+      {
+       "c": "0862",
+       "n": "obl"
+      }
+     ],
+     "num": "87"
+    },
+    {
+     "titulo": "La alfabetización informacional como servicio de las bibliotecas",
+     "autor": "Gómez Hernández, José A.",
+     "editorial": "Referencias, 7",
+     "anio": 2002,
+     "materias": [
+      {
+       "c": "0857",
+       "n": "compl"
+      }
+     ],
+     "num": "88"
+    },
+    {
+     "titulo": "Historia universal de la escritura",
+     "autor": "Haarmann, Harald",
+     "editorial": "Gredos",
+     "anio": 2001,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "89"
+    },
+    {
+     "titulo": "Information seeking behaviour of astronomy/astrophysics scientists",
+     "autor": "Hemant, K. ; Surya, N.",
+     "editorial": "Aslib",
+     "anio": 2013,
+     "materias": [
+      {
+       "c": "0870",
+       "n": "compl"
+      }
+     ],
+     "num": "90"
+    },
+    {
+     "titulo": "Administración y estrategia",
+     "autor": "Hermida, Jorge",
+     "editorial": "Ediciones Macchi",
+     "anio": 2004,
+     "materias": [
+      {
+       "c": "0859",
+       "n": "obl"
+      }
+     ],
+     "num": "91"
+    },
+    {
+     "titulo": "Metodología de la Investigación",
+     "autor": "Hernandez Sampieri, R.; Fernandez Collado, C. y Baptista Lucio, P.",
+     "editorial": "Mc Graw - Hill Interamericana",
+     "anio": 2014,
+     "materias": [
+      {
+       "c": "0894",
+       "n": "compl"
+      }
+     ],
+     "num": "92"
+    },
+    {
+     "titulo": "El perfil del usuario de información",
+     "autor": "Hernández Salazar, P.",
+     "editorial": "Investigación",
+     "anio": 1993,
+     "materias": [
+      {
+       "c": "0871",
+       "n": "obl"
+      }
+     ],
+     "num": "93"
+    },
+    {
+     "titulo": "A History of Libraries",
+     "autor": "Hessel, Alfred",
+     "editorial": "The Scarecrow",
+     "anio": 1955,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "94"
+    },
+    {
+     "titulo": "Planificar para obtener resultados",
+     "autor": "Himmel, E. y Wilson, W. J.",
+     "editorial": "Milenio",
+     "anio": 2001,
+     "materias": [
+      {
+       "c": "0878",
+       "n": "compl"
+      }
+     ],
+     "num": "95"
+    },
+    {
+     "titulo": "Organizing audiovisual and electronic resources for access : a cataloging guide",
+     "autor": "Hsieh-Yee, Ingrid",
+     "editorial": "Englewood, Co.: Libraries Unlimited",
+     "anio": 2006,
+     "materias": [
+      {
+       "c": "0866",
+       "n": "obl"
+      }
+     ],
+     "num": "96"
+    },
+    {
+     "titulo": "Psicología e internet",
+     "autor": "International Conference on System Sciences, ACM, Hawaii. Vayreda i Duran; Domènech I Argemí, Miguel",
+     "editorial": "Barcelona",
+     "anio": 2007,
+     "materias": [
+      {
+       "c": "0806",
+       "n": "obl"
+      }
+     ],
+     "num": "97"
+    },
+    {
+     "titulo": "Fantasmas del saber (lo que queda de la lectura)",
+     "autor": "Jitrik, Noé",
+     "editorial": "Ampersand",
+     "anio": 2017,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "98"
+    },
+    {
+     "titulo": "Fundamentals of Collection Development and Management",
+     "autor": "Johnson, Peggy",
+     "editorial": "American Library Association",
+     "anio": 2018,
+     "materias": [
+      {
+       "c": "0872",
+       "n": "obl"
+      }
+     ],
+     "num": "99"
+    },
+    {
+     "titulo": "Information-seeking behavior: patterns and concepts",
+     "autor": "Krikelas, J.",
+     "editorial": "Drexel Library",
+     "anio": 1983,
+     "materias": [
+      {
+       "c": "0871",
+       "n": "compl"
+      }
+     ],
+     "num": "100"
+    },
+    {
+     "titulo": "Seeking meaning: a process approach to library and information services (Information management, policy, and services",
+     "autor": "Kuhlthau, C. C.",
+     "editorial": "Norwood, N.J.: Ablex",
+     "anio": 1993,
+     "materias": [
+      {
+       "c": "0871",
+       "n": "compl"
+      }
+     ],
+     "num": "101"
+    },
+    {
+     "titulo": "Evaluación de la biblioteca",
+     "autor": "Lancaster, Frederick W.",
+     "editorial": "ANABAD",
+     "anio": 1996,
+     "materias": [
+      {
+       "c": "0872",
+       "n": "obl"
+      }
+     ],
+     "num": "102"
+    },
+    {
+     "titulo": "Clasificación de los métodos de investigación (Diapositivas de PowerPoint)",
+     "autor": "Lassi, M. S.",
+     "editorial": "Material de cátedra",
+     "anio": 2020,
+     "materias": [
+      {
+       "c": "0894",
+       "n": "obl"
+      }
+     ],
+     "num": "103"
+    },
+    {
+     "titulo": "Proyección de la investigación: procedimientos y cronograma (Diapositivas de PowerPoint)",
+     "autor": "Lassi, M. S.",
+     "editorial": "Material de cátedra",
+     "anio": 2020,
+     "materias": [
+      {
+       "c": "0894",
+       "n": "obl"
+      }
+     ],
+     "num": "104"
+    },
+    {
+     "titulo": "Técnicas e instrumentos de recolección de datos. (Diapositivas de PowerPoint)",
+     "autor": "Lassi, M. S.",
+     "editorial": "Material de cátedra",
+     "anio": 2020,
+     "materias": [
+      {
+       "c": "0894",
+       "n": "obl"
+      }
+     ],
+     "num": "105"
+    },
+    {
+     "titulo": "La esperanza de pandora: ensayos sobre la realidad de los estudios de la ciencia",
+     "autor": "Latour, Bruno",
+     "editorial": "Gedisa",
+     "anio": 2001,
+     "materias": [
+      {
+       "c": "0858",
+       "n": "obl"
+      }
+     ],
+     "num": "106"
+    },
+    {
+     "titulo": "Los libros del Conquistador",
+     "autor": "Leonard, Irving. A.",
+     "editorial": "Fondo de Cultura Económica",
+     "anio": 1996,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "107"
+    },
+    {
+     "titulo": "Historia de las bibliotecas del mundo: desde la invención de la escritura hasta la era de la computación",
+     "autor": "Lerner, Fred",
+     "editorial": "Troquel",
+     "anio": 1999,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "108"
+    },
+    {
+     "titulo": "La pantalla ubicua. Televisores, computadoras y otras pantallas",
+     "autor": "Levis, Diego",
+     "editorial": "La Crujía",
+     "anio": 2009,
+     "materias": [
+      {
+       "c": "0858",
+       "n": "obl"
+      }
+     ],
+     "num": "109"
+    },
+    {
+     "titulo": "Teorías de la lectura: libros, cuerpos y bibliomanía",
+     "autor": "Littau, K.",
+     "editorial": "Manantial",
+     "anio": 2008,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "110"
+    },
+    {
+     "titulo": "Nuestras bibliotecas desde 1810",
+     "autor": "Lucero, Amador L.",
+     "editorial": "Coni",
+     "anio": 1910,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "111"
+    },
+    {
+     "titulo": "Materiales cartográficos: Manual de catalogación",
+     "autor": "Líter Mayayo, C.",
+     "editorial": "Arco Libros",
+     "anio": 1999,
+     "materias": [
+      {
+       "c": "0866",
+       "n": "obl"
+      }
+     ],
+     "num": "112"
+    },
+    {
+     "titulo": "Técnicas de persuasión y relaciones públicas",
+     "autor": "Manganaro Rosas, Daniel",
+     "editorial": "Plus Ultra",
+     "anio": 1993,
+     "materias": [
+      {
+       "c": "0881",
+       "n": "obl"
+      }
+     ],
+     "num": "113"
+    },
+    {
+     "titulo": "Servicio de referencia virtual: realidad y perspectivas",
+     "autor": "Manso Rodríguez, Ramón Pinto, María",
+     "editorial": "Trea",
+     "anio": 2014,
+     "materias": [
+      {
+       "c": "0857",
+       "n": "compl"
+      }
+     ],
+     "num": "114"
+    },
+    {
+     "titulo": "Diccionario de bibliología y ciencias afines",
+     "autor": "Martinez de Sousa, J.",
+     "editorial": "Trea",
+     "anio": 2004,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "115"
+    },
+    {
+     "titulo": "El carácter transfigurable de los objetos digitales",
+     "autor": "Marton, A.",
+     "editorial": "Artnodes",
+     "anio": 2010,
+     "materias": [
+      {
+       "c": "0862",
+       "n": "compl"
+      }
+     ],
+     "num": "116"
+    },
+    {
+     "titulo": "Fuentes de información general",
+     "autor": "Martín Vega, A.",
+     "editorial": "TREA",
+     "anio": 1996,
+     "materias": [
+      {
+       "c": "0857",
+       "n": "compl"
+      }
+     ],
+     "num": "117"
+    },
+    {
+     "titulo": "Diccionario de redacción y estilo",
+     "autor": "Martínez de Sousa, J.",
+     "editorial": "Pirámide",
+     "anio": 1997,
+     "materias": [
+      {
+       "c": "0862",
+       "n": "obl"
+      }
+     ],
+     "num": "118"
+    },
+    {
+     "titulo": "Pequeña historia del libro",
+     "autor": "Martínez de Souza, José",
+     "editorial": "Trea",
+     "anio": 2002,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "119"
+    },
+    {
+     "titulo": "Les bibliothèques",
+     "autor": "Massan, André y Paule Salvan",
+     "editorial": "Press Universitaires de France",
+     "anio": 1961,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "120"
+    },
+    {
+     "titulo": "Maxwell’s handbook for AACR2: Explaining and illustrating the Anglo- American cataloguing rules through the 2003 update",
+     "autor": "Maxwell, R. L.",
+     "editorial": "American Library",
+     "anio": 2004,
+     "materias": [
+      {
+       "c": "0866",
+       "n": "obl"
+      }
+     ],
+     "num": "121"
+    },
+    {
+     "titulo": "Maxwell’s handbook for RDA: Explaining and illustrating RDA: Resource Description and Access Using MARC 21",
+     "autor": "Maxwell, R. L.",
+     "editorial": "American Library Association",
+     "anio": 2014,
+     "materias": [
+      {
+       "c": "0866",
+       "n": "obl"
+      }
+     ],
+     "num": "122"
+    },
+    {
+     "titulo": "Bases para la administración de bibliotecas: organización y servicios",
+     "autor": "Melnik, Diana; Pereira, María E.",
+     "editorial": "Alfagrama",
+     "anio": 2010,
+     "materias": [
+      {
+       "c": "0881",
+       "n": "obl"
+      }
+     ],
+     "num": "123"
+    },
+    {
+     "titulo": "Sobre tesis y tesistas. Lecciones de enseñanza – aprendizaje",
+     "autor": "Mendicoa, G.",
+     "editorial": "Espacio Editorial",
+     "anio": 2003,
+     "materias": [
+      {
+       "c": "0894",
+       "n": "obl"
+      }
+     ],
+     "num": "124"
+    },
+    {
+     "titulo": "Introducción general a las ciencias y técnicas de la información y documentación. 2da de",
+     "autor": "Menou, M.J., & Guinchat, C.",
+     "editorial": "CINDOC/UNESCO",
+     "anio": 1990,
+     "materias": [
+      {
+       "c": "0856",
+       "n": "obl"
+      }
+     ],
+     "num": "125"
+    },
+    {
+     "titulo": "Introducción a la Historia del Libro y de las Bibliotecas",
+     "autor": "Millares Carlo, Agustín",
+     "editorial": "Fondo de",
+     "anio": 1971,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "126"
+    },
+    {
+     "titulo": "Diseño de organizaciones eficientes",
+     "autor": "Mintzberg, Henry",
+     "editorial": "El Ateneo",
+     "anio": 1996,
+     "materias": [
+      {
+       "c": "0881",
+       "n": "obl"
+      }
+     ],
+     "num": "127"
+    },
+    {
+     "titulo": "Introducción a la administración y gestión de bibliotecas",
+     "autor": "Monfasani, Rosa; Murray, Pablo",
+     "editorial": "Alfagrama",
+     "anio": 2020,
+     "materias": [
+      {
+       "c": "0881",
+       "n": "obl"
+      }
+     ],
+     "num": "128"
+    },
+    {
+     "titulo": "Historia del alfabeto",
+     "autor": "Moorhouse, A. C.",
+     "editorial": "Fondo de Cultura Económica",
+     "anio": 1965,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "129"
+    },
+    {
+     "titulo": "Presenting information",
+     "autor": "Nankivell, C., & Shoolbred, M.",
+     "editorial": "Library Association Publishing",
+     "anio": 1995,
+     "materias": [
+      {
+       "c": "0862",
+       "n": "obl"
+      }
+     ],
+     "num": "130"
+    },
+    {
+     "titulo": "Oralidad y escritura",
+     "autor": "Ong, W. J.",
+     "editorial": "Fondo de Cultura Económica",
+     "anio": 1993,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "131"
+    },
+    {
+     "titulo": "La política de investigación científica y tecnológica argentina: historia y perspectivas",
+     "autor": "Oteiza, E.",
+     "editorial": "Centro Editor de América Latina",
+     "anio": 1992,
+     "materias": [
+      {
+       "c": "0870",
+       "n": "obl"
+      }
+     ],
+     "num": "132"
+    },
+    {
+     "titulo": "Information needs and uses",
+     "autor": "Paisley, W. J.",
+     "editorial": "Annual Review of Information Science and Technology",
+     "anio": 1968,
+     "materias": [
+      {
+       "c": "0871",
+       "n": "compl"
+      }
+     ],
+     "num": "133"
+    },
+    {
+     "titulo": "Alfabetismo, escritura, sociedad",
+     "autor": "Petrucci, A.",
+     "editorial": "Gedisa",
+     "anio": 1999,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "134"
+    },
+    {
+     "titulo": "Escribir cartas, una historia milenaria",
+     "autor": "Petrucci, A.",
+     "editorial": "Ampersand",
+     "anio": 2018,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "135"
+    },
+    {
+     "titulo": "La escritura: ideología y representación",
+     "autor": "Petrucci, A.",
+     "editorial": "Ampersand",
+     "anio": 2013,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "136"
+    },
+    {
+     "titulo": "Impacto y visibilidad de las revistas científicas",
+     "autor": "Piccone, M.S.",
+     "editorial": "Biblioteca Nacional",
+     "anio": 2011,
+     "materias": [
+      {
+       "c": "0870",
+       "n": "obl"
+      }
+     ],
+     "num": "137"
+    },
+    {
+     "titulo": "Investigación científica",
+     "autor": "Polit, D. y Hungler B.",
+     "editorial": "México, Mc Graw - Hill Interamericana",
+     "anio": 1995,
+     "materias": [
+      {
+       "c": "0893",
+       "n": "obl"
+      }
+     ],
+     "num": "138"
+    },
+    {
+     "titulo": "Ventaja competitiva: creación y sostenibilidad de un rendimiento superior",
+     "autor": "Porter, Michael E.",
+     "editorial": "Pirámide",
+     "anio": 2010,
+     "materias": [
+      {
+       "c": "0881",
+       "n": "obl"
+      }
+     ],
+     "num": "139"
+    },
+    {
+     "titulo": "Teoría y nuevos escenarios de la biblioteconomía",
+     "autor": "Pérez Pulido, Margarita; Herrera Morillas, José Luis",
+     "editorial": "Alfagrama",
+     "anio": 2006,
+     "materias": [
+      {
+       "c": "0881",
+       "n": "obl"
+      }
+     ],
+     "num": "140"
+    },
+    {
+     "titulo": "Posicionamiento",
+     "autor": "Ries, Al",
+     "editorial": "McGraw-Hill",
+     "anio": 1989,
+     "materias": [
+      {
+       "c": "0860",
+       "n": "obl"
+      }
+     ],
+     "num": "141"
+    },
+    {
+     "titulo": "El documento: entre la tradición y la renovación",
+     "autor": "Rodríguez Bravo, B.",
+     "editorial": "Trea",
+     "anio": 2002,
+     "materias": [
+      {
+       "c": "0857",
+       "n": "obl"
+      }
+     ],
+     "num": "142"
+    },
+    {
+     "titulo": "Pautas para el estudio de recursos y la elaboración de productos y servicios de información",
+     "autor": "Romanos de Tiratel, Susana y otros",
+     "editorial": "Universidad de Buenos Aires, Facultad de Filosofía y Letras",
+     "anio": 2010,
+     "materias": [
+      {
+       "c": "0872",
+       "n": "obl"
+      }
+     ],
+     "num": "143"
+    },
+    {
+     "titulo": "La cuarta revolución. Seis lecciones sobre el futuro del libro",
+     "autor": "Roncaglia, G.",
+     "editorial": "Eduvim",
+     "anio": 2012,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "144"
+    },
+    {
+     "titulo": "Information architecture for the World Wide Web.3er ed",
+     "autor": "Rosenfeld, L; Morville, P.",
+     "editorial": "O'rReilly",
+     "anio": 2006,
+     "materias": [
+      {
+       "c": "0806",
+       "n": "obl"
+      }
+     ],
+     "num": "145"
+    },
+    {
+     "titulo": "La biblioteca porteña del obispo Azamor y Ramírez: 1788-1796",
+     "autor": "Rípodas Ardanaz, Daisy",
+     "editorial": "PRHISCO-CONICET",
+     "anio": 1994,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "146"
+    },
+    {
+     "titulo": "Manual de bibliotecología. (2ª ed. ampl. y actual.)",
+     "autor": "Sabor, Josefa E.",
+     "editorial": "Kapelusz Mexicana",
+     "anio": 1984,
+     "materias": [
+      {
+       "c": "0857",
+       "n": "obl"
+      }
+     ],
+     "num": "147"
+    },
+    {
+     "titulo": "Manual de fuentes de información",
+     "autor": "Sabor, Josefa E.",
+     "editorial": "Marymar",
+     "anio": 1978,
+     "materias": [
+      {
+       "c": "0857",
+       "n": "compl"
+      }
+     ],
+     "num": "148"
+    },
+    {
+     "titulo": "Métodos de enseñanza de la bibliotecología",
+     "autor": "Sabor, Josefa E.",
+     "editorial": "Unesco",
+     "anio": 1968,
+     "materias": [
+      {
+       "c": "0854",
+       "n": "obl"
+      }
+     ],
+     "num": "149"
+    },
+    {
+     "titulo": "Marketing. Conceptos y estrategias",
+     "autor": "SantesmasesMestre, Miguel et al",
+     "editorial": "Pirámide",
+     "anio": 2009,
+     "materias": [
+      {
+       "c": "0860",
+       "n": "obl"
+      }
+     ],
+     "num": "150"
+    },
+    {
+     "titulo": "El futuro del libro",
+     "autor": "Schmitz-Kuhl, M.",
+     "editorial": "Eduvim",
+     "anio": 2016,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "151"
+    },
+    {
+     "titulo": "Nuevo producto: creatividad, innovación y marketing",
+     "autor": "SchnarchKirberg, Alejandro",
+     "editorial": "McGraw Hil",
+     "anio": 2001,
+     "materias": [
+      {
+       "c": "0860",
+       "n": "obl"
+      }
+     ],
+     "num": "152"
+    },
+    {
+     "titulo": "Hacer click: hacia una sociosemiótica de las interacciones digitales",
+     "autor": "Scolari, S.",
+     "editorial": "Gedisa",
+     "anio": 2004,
+     "materias": [
+      {
+       "c": "0806",
+       "n": "obl"
+      }
+     ],
+     "num": "153"
+    },
+    {
+     "titulo": "Cómo se estudia : La organización del trabajo intelectual",
+     "autor": "Serafini, M. T.",
+     "editorial": "Paidós",
+     "anio": 2003,
+     "materias": [
+      {
+       "c": "0862",
+       "n": "obl"
+      }
+     ],
+     "num": "154"
+    },
+    {
+     "titulo": "Tesis doctorales y trabajos de investigación científica: Metodología general de su elaboración y documentación",
+     "autor": "Sierra Bravo, R.",
+     "editorial": "Paraninfo",
+     "anio": 1996,
+     "materias": [
+      {
+       "c": "0862",
+       "n": "obl"
+      }
+     ],
+     "num": "155"
+    },
+    {
+     "titulo": "Técnicas de investigación social",
+     "autor": "Sierra Bravo, R.",
+     "editorial": "Editorial Paraninfo",
+     "anio": 1988,
+     "materias": [
+      {
+       "c": "0894",
+       "n": "obl"
+      }
+     ],
+     "num": "156"
+    },
+    {
+     "titulo": "A Chronology of Librarianship",
+     "autor": "Smith, J.",
+     "editorial": "The Scarecrow Press",
+     "anio": 1968,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "157"
+    },
+    {
+     "titulo": "Reference and information services: an introduction. 5th. ed",
+     "autor": "Smith, Linda. C. ; Wong, Melissa A. editors",
+     "editorial": "Libraries",
+     "anio": 2016,
+     "materias": [
+      {
+       "c": "0857",
+       "n": "compl"
+      }
+     ],
+     "num": "158"
+    },
+    {
+     "titulo": "Responsabilidad social: estrategias sostenibles para el desarrollo y la competitividad",
+     "autor": "Solano Cornejo, David",
+     "editorial": "ESAN",
+     "anio": 2009,
+     "materias": [
+      {
+       "c": "0881",
+       "n": "obl"
+      }
+     ],
+     "num": "159"
+    },
+    {
+     "titulo": "Manual de incunables (Historia de la imprenta hasta el siglo XVIII)",
+     "autor": "Sosa, Guillermo S.",
+     "editorial": "Historia del Libro",
+     "anio": 1972,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "160"
+    },
+    {
+     "titulo": "Indicadores de desempeño: naturaleza, utilidad y construcción",
+     "autor": "Stubbs, E. A.",
+     "editorial": "Ciência da",
+     "anio": 2004,
+     "materias": [
+      {
+       "c": "0879",
+       "n": "compl"
+      }
+     ],
+     "num": "161"
+    },
+    {
+     "titulo": "Didáctica básica para la alfabetización informacional",
+     "autor": "Tarango, Javier, ed",
+     "editorial": "Alfagrama",
+     "anio": 2012,
+     "materias": [
+      {
+       "c": "0871",
+       "n": "obl"
+      }
+     ],
+     "num": "162"
+    },
+    {
+     "titulo": "Introduction to cataloging and classification",
+     "autor": "Taylor, A. G.",
+     "editorial": "Littleton, Co.: Libraries Unlimited",
+     "anio": 2006,
+     "materias": [
+      {
+       "c": "0866",
+       "n": "obl"
+      }
+     ],
+     "num": "163"
+    },
+    {
+     "titulo": "Ancient Libraries",
+     "autor": "Thompson, James Westfall",
+     "editorial": "Archon Books",
+     "anio": 1962,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "164"
+    },
+    {
+     "titulo": "The Medieval Library",
+     "autor": "Thompson, James Westfall",
+     "editorial": "Reprinted with a supplement by Blanche B",
+     "anio": 1967,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "165"
+    },
+    {
+     "titulo": "Software libre para servicios de información digital",
+     "autor": "Tramullas, Jesús; Garrido, Piedad, Eds",
+     "editorial": "Madrid",
+     "anio": 2006,
+     "materias": [
+      {
+       "c": "0806",
+       "n": "obl"
+      }
+     ],
+     "num": "166"
+    },
+    {
+     "titulo": "Un aporte al estudio de la estructura de las colecciones y la acción cultural de las bibliotecas obreras argentinas",
+     "autor": "Tripaldi, Nicolás M.",
+     "editorial": "Grebyd/Noticias. 6",
+     "anio": 1995,
+     "materias": [
+      {
+       "c": "0872",
+       "n": "obl"
+      }
+     ],
+     "num": "167"
+    },
+    {
+     "titulo": "Del papiro al hipertexto: ensayo sobre las mutaciones del texto y la lectura",
+     "autor": "Vandendorpe, C.",
+     "editorial": "Fondo de Cultura Económica",
+     "anio": 2003,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "168"
+    },
+    {
+     "titulo": "Esto no es un libro",
+     "autor": "Verón, E.",
+     "editorial": "Gedisa",
+     "anio": 1999,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "169"
+    },
+    {
+     "titulo": "Cómo escribir trabajos de investigación",
+     "autor": "Walker, M.",
+     "editorial": "Gedisa",
+     "anio": 2000,
+     "materias": [
+      {
+       "c": "0862",
+       "n": "obl"
+      }
+     ],
+     "num": "170"
+    },
+    {
+     "titulo": "Estudio de la comunidad: cómo averiguar recursos, cómo organizar esfuerzos",
+     "autor": "Ware, Caroline F.",
+     "editorial": "Humanitas",
+     "anio": 1963,
+     "materias": [
+      {
+       "c": "0871",
+       "n": "compl"
+      }
+     ],
+     "num": "171"
+    },
+    {
+     "titulo": "La escritura y el libro",
+     "autor": "Weise, Oskar",
+     "editorial": "Labor",
+     "anio": 1935,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "172"
+    },
+    {
+     "titulo": "Elaboração de uma Política de Desenvolvimento de Coleções em bibliotecas universitárias",
+     "autor": "Weitzel,Simone da Rocha",
+     "editorial": "Interciencia",
+     "anio": 2013,
+     "materias": [
+      {
+       "c": "0872",
+       "n": "obl"
+      }
+     ],
+     "num": "173"
+    },
+    {
+     "titulo": "Encyclopedia of Library History",
+     "autor": "Wiegand, Wayne A. y Donald G. Davis, Jr., eds",
+     "editorial": "Garland",
+     "anio": 1994,
+     "materias": [
+      {
+       "c": "0808",
+       "n": "obl"
+      }
+     ],
+     "num": "174"
+    },
+    {
+     "titulo": "Glut: mastering information through the ages",
+     "autor": "Wright, Alex",
+     "editorial": "Joseph Henry Press",
+     "anio": 2007,
+     "materias": [
+      {
+       "c": "0858",
+       "n": "obl"
+      }
+     ],
+     "num": "175"
+    },
+    {
+     "titulo": "Output measures for public libraries: a manual of standardized procedures",
+     "autor": "Zweizig, D. & Rodger, E. J.",
+     "editorial": "American Library Association",
+     "anio": 1982,
+     "materias": [
+      {
+       "c": "0879",
+       "n": "compl"
+      }
+     ],
+     "num": "176"
+    }
+   ]
+  }
+ ]
+}
