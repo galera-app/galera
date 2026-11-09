@@ -293,7 +293,7 @@ async function conIdiomas(of) {
   return of;
 }
 // Scripts bajo demanda (MARCO.carga lo escribe tools/armar.py). Cada pantalla pide los suyos; el resto de la gente no los baja.
-const modsDe = () => V.tab === 'horarios' || V.tab === 'calendario' ? 'horarios' : V.tab === 'glosario' ? 'grafo' : V.tab === 'arcade' ? 'arcade' : V.tab === 'simuladores' && V.sim ? 'sim' : '';
+const modsDe = () => V.tab === 'horarios' || V.tab === 'calendario' ? 'horarios' : V.tab === 'glosario' ? 'grafo' : V.tab === 'arcade' ? 'arcade' : V.tab === 'simuladores' && V.sim ? 'sim' : V.tab === 'imprimir' ? 'imprenta' : '';
 const SANEAR = ['papel', 'paginacion', 'cronograma', 'arcade'];
 const modsCargados = {}, modsPromesa = {};
 const cargarScript = n => modsPromesa[n] || (modsPromesa[n] = new Promise((ok, mal) => {
@@ -426,7 +426,7 @@ function precargar() {
   const t = V.tab;
   if (t === 'resumenes') return cargarResumenes().then(() => V.res.apunte ? traerApunte().catch(() => {}) : null);
   if (t === 'biblioteca') return Promise.all([cargarBiblioteca(), cargarBibExtra('sobre', 'libros-sobre-libros.json'), cargarBibExtra('prog', 'libros-programas.json'), V.bib === 'per' ? cargarBibExtra('per', 'periodicas.json') : null]);
-  const f = { simuladores: cargarSimInfo, arcade: cargarSimInfo, glosario: cargarGlosario, preguntas: cargarPreguntas, lecturas: cargarLecturas, directorio: cargarDirectorio, eventos: cargarEventos, sostener: cargarSostener, novedades: cargarNovedades, links: cargarLinksLibro, inicio: cargarNovedades }[t];
+  const f = { simuladores: cargarSimInfo, arcade: cargarSimInfo, glosario: cargarGlosario, preguntas: cargarPreguntas, lecturas: cargarLecturas, directorio: cargarDirectorio, eventos: cargarEventos, sostener: cargarSostener, novedades: cargarNovedades, links: cargarLinksLibro, inicio: cargarNovedades, imprimir: () => typeof cargarChecklist === 'function' ? cargarChecklist() : null }[t];
   return f ? f() : null;
 }
 // Para tools/prerender.js: deja el estado como lo vería alguien sin datos que entra por esa dirección.
@@ -505,15 +505,16 @@ function iniciarPerfil() {
 const PERFILES_INICIO = [['estudiante', 'Estudiar', 'Para estudiantes de Edición: plan, notas, horarios y apuntes de la carrera.'], ['profesional', 'Trabajar', 'Para profesionales del libro: herramientas, eventos, contactos y los apuntes de Edición.']];
 const PLURAL_PERFIL = { estudiante: 'estudiantes', profesional: 'profesionales del libro' };
 const BAJADAS = {
-  estudiante: { eventos: 'Ferias, jornadas y convocatorias del libro.', carrera: 'Tus materias, notas y lo que te falta para recibirte.', horarios: 'Armá tu cuatrimestre y mirá si se pisan los horarios.', calendario: 'Inscripciones, mesas de final y feriados del año.', resumenes: 'Apuntes por materia y simulacros de parcial.', biblioteca: 'La bibliografía de cada materia, en un solo lugar.', glosario: 'Los términos de la carrera, explicados en corto.', simuladores: 'Papel, imposición, escandallo, cronogramas y contratos.', directorio: 'Editoriales de todo el país, de la A a la Z.', links: 'Campus, SIU Guaraní y trámites de la facultad.', lecturas: 'Qué se lee en Letras, materia por materia, para ampliar tus lecturas.' },
-  profesional: { simuladores: 'Papel, imposición, escandallo, cronogramas y contratos.', eventos: 'Ferias, jornadas y convocatorias del sector.', directorio: 'Editoriales, imprentas y distribuidoras del país.', links: 'Cámaras, organismos y recursos del sector.', resumenes: 'Los apuntes de la carrera, para repasar la teoría.', glosario: 'Términos de edición, imprenta y derecho de autor.', biblioteca: 'Libros sobre libros y manuales para consultar.', lecturas: 'Qué se lee en Letras, con lo que está en dominio público.' }
+  estudiante: { eventos: 'Ferias, jornadas y convocatorias del libro.', carrera: 'Tus materias, notas y lo que te falta para recibirte.', horarios: 'Armá tu cuatrimestre y mirá si se pisan los horarios.', calendario: 'Inscripciones, mesas de final y feriados del año.', resumenes: 'Apuntes por materia y simulacros de parcial.', biblioteca: 'La bibliografía de cada materia, en un solo lugar.', glosario: 'Los términos de la carrera, explicados en corto.', simuladores: 'Papel, imposición, escandallo, cronogramas y contratos.', directorio: 'Editoriales de todo el país, de la A a la Z.', links: 'Campus, SIU Guaraní y trámites de la facultad.', lecturas: 'Qué se lee en Letras, materia por materia, para ampliar tus lecturas.', imprimir: 'Revisá tu PDF e imponé tu fanzine o acaballado.' },
+  profesional: { simuladores: 'Papel, imposición, escandallo, cronogramas y contratos.', eventos: 'Ferias, jornadas y convocatorias del sector.', directorio: 'Editoriales, imprentas y distribuidoras del país.', links: 'Cámaras, organismos y recursos del sector.', resumenes: 'Los apuntes de la carrera, para repasar la teoría.', glosario: 'Términos de edición, imprenta y derecho de autor.', biblioteca: 'Libros sobre libros y manuales para consultar.', lecturas: 'Qué se lee en Letras, con lo que está en dominio público.', imprimir: 'Revisá el PDF antes de mandarlo a la imprenta.' }
 };
 const ICONO_INICIO = {
   carrera: 'M4 11l8-6 8 6v8a1 1 0 0 1-1 1h-4v-5H9v5H5a1 1 0 0 1-1-1z', horarios: 'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM12 7v5l3 2', calendario: 'M4 6h16v14H4zM4 10h16M8 3v4M16 3v4',
   resumenes: 'M6 3h9l4 4v14H6zM14 3v5h5M9 13h7M9 17h5', biblioteca: 'M5 4h10a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3zM5 17a3 3 0 0 1 3-3h10', glosario: 'M5 4h9a5 5 0 0 1 5 5v11H5zM9 9h6M9 13h6',
   simuladores: 'M5 3h14v18H5zM8 7h8M8 11h2M12 11h2M8 15h2M12 15h2M8 18h2M12 18h2M16 15v3', directorio: 'M4 20V8l8-4 8 4v12M9 20v-6h6v6',
   links: 'M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1', eventos: 'M3 10v4h4l6 4V6l-6 4zM16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11',
-  lecturas: 'M5 4h5a2 2 0 0 1 2 2v14a2 2 0 0 0-2-2H5zM19 4h-5a2 2 0 0 0-2 2v14a2 2 0 0 1 2-2h5z'
+  lecturas: 'M5 4h5a2 2 0 0 1 2 2v14a2 2 0 0 0-2-2H5zM19 4h-5a2 2 0 0 0-2 2v14a2 2 0 0 1 2-2h5z',
+  imprimir: 'M7 9V3h10v6M7 17H5a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2M7 14h10v7H7z'
 };
 const ROMANOS = ['I', 'II', 'III', 'IV', 'V'];
 const MESES_LARGOS = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
@@ -615,7 +616,7 @@ function render() {
   document.title = tituloPagina();
   altoCab();
   const gr = grupoDe(V.tab); if (gr) (V.gUlt = V.gUlt || {})[gr[0]] = V.tab;
-  conFoco($('#main'), () => { $('#main').innerHTML = (V.demo ? bandaEjemplo() : '') + subnav() + conTitulo({ doc: () => V.docHtml, inicio: vInicio, carrera: vCarrera, horarios: vHorarios, calendario: vCalendario, resumenes: vResumenes, biblioteca: vBiblioteca, simuladores: vSimuladores, glosario: vGlosario, preguntas: vPreguntas, lecturas: vLecturas, buscar: vBuscar, directorio: vDirectorio, links: vLinks, novedades: vNovedades, sostener: vSostener, eventos: vEventos, arcade: () => vArcade() + arcadeInfo(), config: vConfig }[V.tab]()); capitulares(); ajustarPoster(); });
+  conFoco($('#main'), () => { $('#main').innerHTML = (V.demo ? bandaEjemplo() : '') + subnav() + conTitulo({ doc: () => V.docHtml, inicio: vInicio, carrera: vCarrera, horarios: vHorarios, calendario: vCalendario, resumenes: vResumenes, biblioteca: vBiblioteca, simuladores: vSimuladores, glosario: vGlosario, preguntas: vPreguntas, lecturas: vLecturas, buscar: vBuscar, directorio: vDirectorio, links: vLinks, novedades: vNovedades, sostener: vSostener, eventos: vEventos, arcade: () => vArcade() + arcadeInfo(), config: vConfig, imprimir: () => vImprimir() }[V.tab]()); capitulares(); ajustarPoster(); });
   $('#main').className = V.tab === 'doc' ? V.docClase : '';
   document.body.classList.toggle('lectura', V.tab === 'doc');
   const can = document.querySelector('link[rel="canonical"]'); if (can && V.tab !== 'doc') can.href = 'https://galera.com.ar' + rutaActual().split('#')[0].split('?')[0];
@@ -659,7 +660,7 @@ const MAS_INFO = {
   biblioteca: ['Libros y manuales para consultar', 'M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3zM9 8h6'], simuladores: ['Calculadoras para las cuentas del libro', ICONO.simuladores], glosario: ['Términos de edición', ICONO.glosario],
   directorio: ['Editoriales de Argentina', 'M12 21s-6-5.5-6-10a6 6 0 0 1 12 0c0 4.5-6 10-6 10zM12 9v3'], links: ['Sitios y trámites de la carrera', ICONO.links], resumenes: ['Apuntes por materia', ICONO.resumenes],
   novedades: ['Lo último que se publicó', 'M6 17h12l-1.5-2v-4a4.5 4.5 0 0 0-9 0v4zM10 20h4'], sostener: ['Aportes y cuentas claras', 'M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.6-7 10-7 10z'],
-  config: ['Tus datos y la apariencia', 'M5 7h9M18 7h1M5 17h1M10 17h9M14 5v4M6 15v4'], eventos: ['Ferias y fechas del libro', ICONO.eventos], lecturas: ['Qué se lee en Letras', 'M5 4h5a2 2 0 0 1 2 2v14a2 2 0 0 0-2-2H5zM19 4h-5a2 2 0 0 0-2 2v14a2 2 0 0 1 2-2h5z'], carrera: ['Tus materias y tu promedio', ICONO.carrera], horarios: ['Armá tu semana', ICONO.horarios], calendario: ['Fechas y mesas', ICONO.calendario] };
+  config: ['Tus datos y la apariencia', 'M5 7h9M18 7h1M5 17h1M10 17h9M14 5v4M6 15v4'], eventos: ['Ferias y fechas del libro', ICONO.eventos], imprimir: ['Revisá tu PDF antes de la imprenta', 'M7 9V3h10v6M7 17H5a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2M7 14h10v7H7z'], lecturas: ['Qué se lee en Letras', 'M5 4h5a2 2 0 0 1 2 2v14a2 2 0 0 0-2-2H5zM19 4h-5a2 2 0 0 0-2 2v14a2 2 0 0 1 2-2h5z'], carrera: ['Tus materias y tu promedio', ICONO.carrera], horarios: ['Armá tu semana', ICONO.horarios], calendario: ['Fechas y mesas', ICONO.calendario] };
 const filaMas = (t, onclick, actual, sub, ico) => `<li><button type="button" ${actual ? 'aria-current="page"' : ''} ${onclick}>${ico ? `<span class="mas-ico">${svgIcono(ico)}</span>` : ''}<span class="mas-t">${t}${sub ? `<small>${sub}</small>` : ''}</span><i aria-hidden="true"></i></button></li>`;
 function abrirMas() {
   const otras = tabsActivas().filter(([id]) => !grupoDe(id));

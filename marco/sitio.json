@@ -37,6 +37,12 @@
    "titulo": "Simuladores para editores: papel, paginación y costos · Galera",
    "desc": "Calculadoras y mapas para estudiantes y editores: papel e imposición, formatos y serie A, paginación, leyes del libro, escandallo, comparador de títulos y ecosistema del libro. Gratis y sin cuenta."
   },
+  "imprimir": {
+   "t": "Antes de imprimir",
+   "url": "/antes-de-imprimir/",
+   "titulo": "Antes de imprimir: revisá tu PDF e imponé tu fanzine · Galera",
+   "desc": "Revisá tu PDF antes de la imprenta (sangrado, fuentes, resolución, color), imponelo como fanzine o acaballado y repasá lo que falla en el ripeo. Gratis."
+  },
   "glosario": {
    "t": "Glosario",
    "url": "/glosario/",
@@ -129,6 +135,7 @@
    "resumenes",
    "biblioteca",
    "simuladores",
+   "imprimir",
    "glosario",
    "eventos",
    "directorio",
@@ -141,6 +148,7 @@
   ],
   "profesional": [
    "simuladores",
+   "imprimir",
    "eventos",
    "resumenes",
    "biblioteca",
@@ -175,6 +183,7 @@
      "resumenes",
      "biblioteca",
      "simuladores",
+     "imprimir",
      "glosario"
     ]
    ],
@@ -203,7 +212,8 @@
    [
     "Herramientas",
     [
-     "simuladores"
+     "simuladores",
+     "imprimir"
     ]
    ],
    [
@@ -256,6 +266,7 @@
      "resumenes",
      "biblioteca",
      "simuladores",
+     "imprimir",
      "glosario"
     ]
    ],
@@ -277,7 +288,8 @@
     "Herramientas",
     "simuladores",
     [
-     "simuladores"
+     "simuladores",
+     "imprimir"
     ]
    ],
    [

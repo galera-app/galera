@@ -33,6 +33,8 @@ jobs:
           PY
       - name: La sintaxis de los JS es válida
         run: git ls-files '*.js' | xargs -n1 node --check
+      - name: Antes de imprimir analiza e impone bien (PDF de prueba)
+        run: node tools/probar_imprenta.js
       - name: Instalar Pagefind (el buscador)
         run: pip install "pagefind[extended]==1.6.0" rjsmin==1.3.0 rcssmin==1.3.0
       - name: Las páginas llevan marcas y el armado de marco/ funciona
