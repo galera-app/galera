@@ -1,5 +1,5 @@
 {
- "nota": "Tarifarios y valores de referencia publicados por asociaciones y colegios, para quien trabaja en el libro. Solo se guarda quién lo publica, para qué rubro, en qué unidad, de qué fecha y dónde está: los montos se leen en la fuente, porque se actualizan. Son orientativos, no obligatorios. controlado: última vez que tarifas_links.py vio el link andando.",
+ "nota": "Tarifarios y valores de referencia que publican asociaciones, colegios, sindicatos y universidades para quien trabaja en el libro en Argentina, reunidos en un solo lugar. Cada fuente dice quién la publica, para qué rubro, en qué unidad, de qué edición es, cuándo la abrimos y si sigue vigente; los valores se copian tal como figuran en el original, con su link. Son orientativos y no obligatorios: el mercado, el cliente y la inflación los mueven, y los de distintas ediciones no se pueden comparar sin ajustar. Lo que no pudimos verificar no se copia: va a «huecos». consultado: día en que se abrió el original. controlado: última vez que tarifas_links.py vio el link andando.",
  "rubros": [
   {
    "id": "traduccion",
@@ -10,12 +10,28 @@
    "t": "Corrección y edición de textos"
   },
   {
+   "id": "escritura",
+   "t": "Escritura, derechos de autor y participaciones"
+  },
+  {
    "id": "diseno",
    "t": "Diseño y maquetación"
   },
   {
    "id": "ilustracion",
    "t": "Ilustración"
+  },
+  {
+   "id": "fotografia",
+   "t": "Fotografía"
+  },
+  {
+   "id": "derechos",
+   "t": "Licencias y reprografía"
+  },
+  {
+   "id": "tramites",
+   "t": "Registro y trámites del libro"
   }
  ],
  "fuentes": [
@@ -29,10 +45,75 @@
    "pais": "AR",
    "edicion": "2026-09",
    "url": "https://www.traductores.org.ar/wp-content/uploads/2026/08/01-Aranceles_Septiembre-2026-.pdf",
-   "alcance": "Traducción pública y legalizada, no literaria ni editorial. Página de todas las ediciones: https://www.traductores.org.ar/matriculados/aranceles-orientativos/",
+   "alcance": "Traducción pública y legalizada (por foja) y traducciones sin carácter público (por palabra, mínimo de 250 palabras). No es un tarifario de traducción literaria ni editorial: para eso, el de la AATI. Página de todas las ediciones: https://www.traductores.org.ar/matriculados/aranceles-orientativos/",
    "actualiza": "semestral (mayo y septiembre)",
    "estado": "vigente",
-   "controlado": "2026-10-19"
+   "controlado": "2026-11-09",
+   "consultado": "2026-11-09",
+   "valores": [
+    {
+     "c": "Traducción sin carácter público, al español, columna I (francés, inglés, italiano, portugués)",
+     "v": "$ 155",
+     "u": "palabra",
+     "min": 155,
+     "max": 155,
+     "cid": "trad-al-es",
+     "n": "Mínimo: el equivalente a 250 palabras. Columna V (chino, coreano, japonés): $ 256"
+    },
+    {
+     "c": "Traducción sin carácter público, a idioma extranjero, columna I",
+     "v": "$ 186",
+     "u": "palabra",
+     "min": 186,
+     "max": 186,
+     "cid": "trad-del-es",
+     "n": "Columna V: $ 307"
+    },
+    {
+     "c": "Documentos personales, al español, columna I",
+     "v": "$ 76.900",
+     "u": "foja",
+     "min": 76900,
+     "max": 76900,
+     "n": "Traducción con carácter público; la foja equivale a 500 palabras del documento fuente"
+    },
+    {
+     "c": "Documentos notariales, judiciales, contratos y técnicos, al español, columna I",
+     "v": "$ 107.600",
+     "u": "foja",
+     "min": 107600,
+     "max": 107600
+    },
+    {
+     "c": "Primera corrección de la traducción (cotejo con el original)",
+     "v": "entre el 50 % y el 70 % del valor de la traducción",
+     "u": "porcentaje",
+     "min": 50,
+     "max": 70
+    },
+    {
+     "c": "Corrección final",
+     "v": "entre el 30 % y el 50 % del valor de la traducción",
+     "u": "porcentaje",
+     "min": 30,
+     "max": 50
+    },
+    {
+     "c": "Subtitulado de videos (subtitulado, temporizado y pegado)",
+     "v": "$ 30.800",
+     "u": "minuto",
+     "min": 30800,
+     "max": 30800
+    },
+    {
+     "c": "Traducción de audio",
+     "v": "$ 25.200",
+     "u": "minuto",
+     "min": 25200,
+     "max": 25200
+    }
+   ],
+   "vigencia": "vigente"
   },
   {
    "id": "ctpcba-peritos",
@@ -47,22 +128,141 @@
    "alcance": "Pericias judiciales; el Colegio los toma como referencia sobre todo en el fuero penal. No son tarifas de traducción editorial.",
    "actualiza": "semestral (mayo y septiembre)",
    "estado": "vigente",
-   "controlado": "2026-10-19"
+   "controlado": "2026-11-09",
+   "consultado": "2026-11-09",
+   "valores": [],
+   "vigencia": "vigente"
   },
   {
    "id": "uner-setpyc",
    "quien": "Facultad de Ciencias de la Educación (UNER) con SETPyC y TACER",
    "rubro": "correccion",
-   "que": "Tarifario de referencia de periodismo y comunicación para independientes monotributistas: corrección ortotipográfica y de estilo, diseño editorial por página, diseño de portada, prólogo y contratapa",
-   "unidad": "por 1.000 caracteres con espacios (corrección); por página (diseño editorial); por trabajo (portada)",
+   "que": "Tarifario de referencia de periodismo y comunicación para independientes monotributistas de Entre Ríos: corrección, prólogos, escritura por encargo, diseño editorial y de portada, fotoperiodismo, entre otros",
+   "unidad": "por 1.000 caracteres con espacios (corrección y escritura); por página (diseño editorial); por trabajo (portada); por hora (diseño)",
    "moneda": "ARS",
    "pais": "AR",
    "edicion": "2026-08",
    "url": "https://www.fcedu.uner.edu.ar/wp-content/uploads/2026/08/Tarifario-Agosto.pdf",
-   "alcance": "Entre Ríos. Distingue instituciones y particulares. Se actualiza por IPC; para ediciones cita el tarifario de la Unión de Escritoras y Escritores.",
+   "alcance": "Entre Ríos. Elaborado por la FCEDU-UNER, el sindicato SETPyC y TACER. Banda mínima en pesos; distingue instituciones y particulares; se actualiza con el IPC. Para ediciones cita el tarifario de la Unión de Escritoras y Escritores.",
    "actualiza": "con el IPC, varias veces por año",
-   "estado": "la columna instituciones/particulares se confirma abriendo el PDF",
-   "controlado": "2026-10-19"
+   "estado": "vigente (actualización agosto 2026). Sus valores de corrección son menores que los de la UEE de marzo 2026 que dice tomar como base; el PDF no lo explica",
+   "controlado": "2026-11-09",
+   "consultado": "2026-11-09",
+   "valores": [
+    {
+     "c": "Corrección ortotipográfica, instituciones",
+     "v": "$ 2.200 - $ 3.200",
+     "u": "mil-caracteres",
+     "min": 2200,
+     "max": 3200,
+     "cid": "corr-orto",
+     "n": "Instituciones: públicas, privadas y ONG con más de 20 empleados"
+    },
+    {
+     "c": "Corrección ortotipográfica, particulares",
+     "v": "$ 2.200 - $ 2.700",
+     "u": "mil-caracteres",
+     "min": 2200,
+     "max": 2700,
+     "cid": "corr-orto"
+    },
+    {
+     "c": "Corrección ortotipográfica más estilo, instituciones y particulares",
+     "v": "$ 2.700 - $ 3.200",
+     "u": "mil-caracteres",
+     "min": 2700,
+     "max": 3200,
+     "cid": "corr-estilo"
+    },
+    {
+     "c": "Prólogo o contratapa de libro de hasta 220 páginas, instituciones",
+     "v": "$ 8.550 - $ 11.550",
+     "u": "mil-caracteres",
+     "min": 8550,
+     "max": 11550,
+     "cid": "prologo",
+     "n": "Unidad tal como la imprime el PDF, que lo pone en la columna de 1.000 caracteres con espacio"
+    },
+    {
+     "c": "Prólogo o contratapa de libro de hasta 220 páginas, particulares",
+     "v": "$ 6.900 - $ 9.550",
+     "u": "mil-caracteres",
+     "min": 6900,
+     "max": 9550,
+     "cid": "prologo"
+    },
+    {
+     "c": "Texto inédito de ficción o no ficción",
+     "v": "$ 20.650 - $ 28.700",
+     "u": "mil-caracteres",
+     "min": 20650,
+     "max": 28700
+    },
+    {
+     "c": "Escritura de libros por encargo (ghostwriting), con investigación y entrevistas",
+     "v": "$ 37.400 - $ 54.500",
+     "u": "mil-caracteres",
+     "min": 37400,
+     "max": 54500
+    },
+    {
+     "c": "Reseña de libros",
+     "v": "$ 10.500 - $ 13.250",
+     "u": "mil-caracteres",
+     "min": 10500,
+     "max": 13250
+    },
+    {
+     "c": "Diseño, asesoramiento, consultoría o supervisión",
+     "v": "$ 20.650 - $ 25.350",
+     "u": "hora",
+     "min": 20650,
+     "max": 25350
+    },
+    {
+     "c": "Diseño de portada",
+     "v": "$ 114.900 - $ 287.300",
+     "u": "trabajo",
+     "min": 114900,
+     "max": 287300,
+     "cid": "diseno-portada"
+    },
+    {
+     "c": "Diseño editorial, página compuesta",
+     "v": "$ 32.200",
+     "u": "pagina",
+     "min": 32200,
+     "max": 32200,
+     "cid": "diseno-pagina"
+    },
+    {
+     "c": "Diseño editorial, página simple",
+     "v": "$ 18.450",
+     "u": "pagina",
+     "min": 18450,
+     "max": 18450,
+     "cid": "diseno-pagina"
+    },
+    {
+     "c": "Diseño de revista (hasta 30 páginas)",
+     "v": "$ 344.700 - $ 574.650",
+     "u": "trabajo",
+     "min": 344700,
+     "max": 574650
+    },
+    {
+     "c": "Adaptaciones de diseño",
+     "v": "50% del precio del trabajo original",
+     "u": "porcentaje",
+     "min": 50,
+     "max": 50
+    }
+   ],
+   "vigencia": "vigente",
+   "rubros_extra": [
+    "diseno",
+    "escritura"
+   ]
   },
   {
    "id": "efa",
@@ -77,7 +277,10 @@
    "alcance": "Mercado estadounidense; sirve de referencia de estructura y de órdenes de magnitud, no de precios locales.",
    "actualiza": "cada dos o tres años",
    "estado": "vigente",
-   "controlado": "2026-10-19"
+   "controlado": "2026-11-09",
+   "consultado": "2026-10-19",
+   "valores": [],
+   "vigencia": "vigente"
   },
   {
    "id": "ciep",
@@ -92,7 +295,10 @@
    "alcance": "Mercado británico. Se revisan cada año.",
    "actualiza": "anual",
    "estado": "la edición exacta se confirma en la página",
-   "controlado": "2026-10-19"
+   "controlado": "2026-11-09",
+   "consultado": "2026-10-19",
+   "valores": [],
+   "vigencia": "a confirmar"
   },
   {
    "id": "aoi",
@@ -107,13 +313,597 @@
    "alcance": "España. Advierte que sus tablas no son máximos ni mínimos. Sirve como método (cómo se descompone el precio por uso y cesión), no por los valores.",
    "actualiza": "irregular",
    "estado": "desactualizado: usar solo como método",
-   "controlado": "2026-10-19"
+   "controlado": "2026-11-09",
+   "consultado": "2026-10-19",
+   "valores": [],
+   "vigencia": "desactualizado"
+  },
+  {
+   "id": "aati-aranceles",
+   "quien": "Asociación Argentina de Traductores e Intérpretes (AATI)",
+   "rubro": "traduccion",
+   "que": "Aranceles orientativos mínimos: traducción general y técnico-científica, traducción para editoriales (ficción y ensayo; técnico-científica), traducción audiovisual e interpretación",
+   "unidad": "por palabra, por 1.000 palabras (ficción y ensayo para editoriales), por minuto de video (audiovisual) y por jornada (interpretación)",
+   "moneda": "ARS (audiovisual en USD)",
+   "pais": "AR",
+   "edicion": "2026-10",
+   "url": "https://www.aati.org.ar/aranceles-orientativos",
+   "alcance": "Valor mínimo promedio sugerido, para inglés, francés o portugués; otros idiomas pueden ir hasta 40 % más. Las tarifas editoriales son independientes del porcentaje de derechos de autor que se acuerde con la editorial y valen para obras en prosa. Los socios no deberían cobrar 20 % menos. También publica interpretación presencial y remota.",
+   "actualiza": "irregular; la página indica desde cuándo rigen",
+   "estado": "vigente (rige desde el 10 de octubre de 2026)",
+   "vigencia": "vigente",
+   "controlado": "2026-11-09",
+   "consultado": "2026-11-09",
+   "valores": [
+    {
+     "c": "Traducción de ficción y ensayo para editoriales, al español",
+     "v": "$ 42 800,00",
+     "u": "mil-palabras",
+     "min": 42800,
+     "max": 42800
+    },
+    {
+     "c": "Traducción de ficción y ensayo para editoriales, a idioma extranjero",
+     "v": "$ 53 400,00",
+     "u": "mil-palabras",
+     "min": 53400,
+     "max": 53400
+    },
+    {
+     "c": "Traducción de ficción y ensayo para editoriales, al español (equivalente por palabra)",
+     "v": "$ 42,80 (42.800 ÷ 1.000)",
+     "u": "palabra",
+     "min": 42.8,
+     "max": 42.8,
+     "cid": "trad-al-es",
+     "n": "Convertido por Galera de la tarifa por millar; no figura así en la fuente"
+    },
+    {
+     "c": "Traducción de ficción y ensayo para editoriales, a idioma extranjero (equivalente por palabra)",
+     "v": "$ 53,40 (53.400 ÷ 1.000)",
+     "u": "palabra",
+     "min": 53.4,
+     "max": 53.4,
+     "cid": "trad-del-es",
+     "n": "Convertido por Galera de la tarifa por millar"
+    },
+    {
+     "c": "Traducción técnico-científica para editoriales, al español",
+     "v": "$ 67,00",
+     "u": "palabra",
+     "min": 67,
+     "max": 67,
+     "cid": "trad-al-es"
+    },
+    {
+     "c": "Traducción técnico-científica para editoriales, a idioma extranjero",
+     "v": "$ 73,00",
+     "u": "palabra",
+     "min": 73,
+     "max": 73,
+     "cid": "trad-del-es"
+    },
+    {
+     "c": "Traducción general y técnico-científica para clientes finales, idioma extranjero a español",
+     "v": "$ 124,00",
+     "u": "palabra",
+     "min": 124,
+     "max": 124,
+     "cid": "trad-al-es"
+    },
+    {
+     "c": "Traducción general y técnico-científica para clientes finales, español a idioma extranjero",
+     "v": "$ 145,00",
+     "u": "palabra",
+     "min": 145,
+     "max": 145,
+     "cid": "trad-del-es"
+    },
+    {
+     "c": "Traducción general, de idioma extranjero a idioma extranjero",
+     "v": "$ 248,00",
+     "u": "palabra",
+     "min": 248,
+     "max": 248
+    },
+    {
+     "c": "Traducción con alta densidad terminológica (listados de términos, planillas, diagramas)",
+     "v": "$ 228,00",
+     "u": "palabra",
+     "min": 228,
+     "max": 228
+    },
+    {
+     "c": "Traducción general y técnico-científica, tarifa mínima",
+     "v": "$ 70 500,00",
+     "u": "trabajo",
+     "min": 70500,
+     "max": 70500
+    },
+    {
+     "c": "Corrección de traducciones",
+     "v": "50 % del valor de la traducción",
+     "u": "porcentaje",
+     "min": 50,
+     "max": 50
+    },
+    {
+     "c": "Referencia de otro mercado: Europa, al español (promedio)",
+     "v": "EUR 0,10",
+     "u": "palabra",
+     "min": 0.1,
+     "max": 0.1,
+     "m": "EUR"
+    },
+    {
+     "c": "Referencia de otro mercado: EE. UU., al español (promedio)",
+     "v": "USD 0,12",
+     "u": "palabra",
+     "min": 0.12,
+     "max": 0.12,
+     "m": "USD"
+    },
+    {
+     "c": "Traducción de guion audiovisual (solo texto), lengua extranjera a español",
+     "v": "USD 0,10",
+     "u": "palabra",
+     "min": 0.1,
+     "max": 0.1,
+     "m": "USD"
+    },
+    {
+     "c": "Traducción y adaptación para doblaje, lengua extranjera a español",
+     "v": "USD 8,25",
+     "u": "minuto",
+     "min": 8.25,
+     "max": 8.25,
+     "m": "USD"
+    },
+    {
+     "c": "Subtitulado y temporizado (origination), lengua extranjera a español",
+     "v": "USD 9,75",
+     "u": "minuto",
+     "min": 9.75,
+     "max": 9.75,
+     "m": "USD"
+    },
+    {
+     "c": "Interpretación, hasta 8 horas",
+     "v": "$ 735 000",
+     "u": "jornada",
+     "min": 735000,
+     "max": 735000
+    }
+   ]
+  },
+  {
+   "id": "uee",
+   "quien": "Unión de Escritoras y Escritores (UEE)",
+   "rubro": "escritura",
+   "rubros_extra": [
+    "correccion"
+   ],
+   "que": "Tarifario de referencia de la actividad de escritura y edición: corrección, informes de lectura, prólogos, textos inéditos, medios, escritura por encargo, participaciones, docencia, jurados y derechos de autor",
+   "unidad": "por 1.000 caracteres con espacios (corrección, textos, medios); por actividad (participaciones, talleres); por carilla (jurado de preselección); porcentaje sobre el precio de tapa (derechos y adelanto)",
+   "moneda": "ARS",
+   "pais": "AR",
+   "edicion": "2026-03",
+   "url": "https://uniondeescritorasyescritores.wordpress.com/wp-content/uploads/2026/02/tarifario-marzo-2026-5.pdf",
+   "alcance": "Banda mínima en pesos, calculada con la variación del IPC (la primera edición, de 2022, se calculó sobre el salario mínimo). Distingue instituciones y particulares en la edición. Página del tarifario: https://uniondeescritorasyescritores.wordpress.com/tarifario-3/. Dos cifras del PDF parecen errores de tipeo (prólogo para instituciones y taller grupal): se copian como figuran.",
+   "actualiza": "con el IPC, un par de veces por año",
+   "estado": "vigente (edición de marzo de 2026; la página puede traer otra más nueva)",
+   "vigencia": "vigente",
+   "controlado": "2026-11-09",
+   "consultado": "2026-11-09",
+   "valores": [
+    {
+     "c": "Corrección ortotipográfica, instituciones",
+     "v": "$ 3574,9 y $ 5360",
+     "u": "mil-caracteres",
+     "min": 3574.9,
+     "max": 5360,
+     "cid": "corr-orto"
+    },
+    {
+     "c": "Corrección ortotipográfica, particulares",
+     "v": "$ 3421 y $ 4468",
+     "u": "mil-caracteres",
+     "min": 3421,
+     "max": 4468,
+     "cid": "corr-orto"
+    },
+    {
+     "c": "Corrección ortotipográfica más estilo, instituciones",
+     "v": "$ 4062 y $ 5360",
+     "u": "mil-caracteres",
+     "min": 4062,
+     "max": 5360,
+     "cid": "corr-estilo"
+    },
+    {
+     "c": "Corrección ortotipográfica más estilo, particulares",
+     "v": "$ 4468 y $ 5360",
+     "u": "mil-caracteres",
+     "min": 4468,
+     "max": 5360,
+     "cid": "corr-estilo"
+    },
+    {
+     "c": "Informes de lectura (sin edición), instituciones",
+     "v": "$ 5360 y $ 7148,2",
+     "u": "mil-caracteres",
+     "min": 5360,
+     "max": 7148.2
+    },
+    {
+     "c": "Informes de lectura (sin edición), particulares",
+     "v": "$ 5360 y $ 7148",
+     "u": "mil-caracteres",
+     "min": 5360,
+     "max": 7148
+    },
+    {
+     "c": "Prólogo o contratapa para libro de hasta 220 páginas, instituciones",
+     "v": "$ 103500 y $ 115000",
+     "u": "mil-caracteres",
+     "min": 103500,
+     "max": 115000,
+     "cid": "prologo",
+     "n": "Posible error de tipeo en la fuente: la edición de abril de 2025 decía $ 10274 y $ 14126"
+    },
+    {
+     "c": "Prólogo o contratapa para libro de hasta 220 páginas, particulares",
+     "v": "$ 11615 y $ 16081,6",
+     "u": "mil-caracteres",
+     "min": 11615,
+     "max": 16081.6,
+     "cid": "prologo"
+    },
+    {
+     "c": "Texto inédito de ficción o no ficción",
+     "v": "$ 34846 y $ 48248,25",
+     "u": "mil-caracteres",
+     "min": 34846,
+     "max": 48248.25
+    },
+    {
+     "c": "Reseña de libros, columna, nota de opinión o entrevista",
+     "v": "$ 17870,2 y $ 22370,14",
+     "u": "mil-caracteres",
+     "min": 17870.2,
+     "max": 22370.14
+    },
+    {
+     "c": "Ghostwriting (incluye investigación y entrevistas)",
+     "v": "entre $ 62545 y $ 91978,84",
+     "u": "mil-caracteres",
+     "min": 62545,
+     "max": 91978.84
+    },
+    {
+     "c": "Derechos de autor sobre el precio de tapa (PVP)",
+     "v": "entre 10 % y 15 %",
+     "u": "porcentaje",
+     "min": 10,
+     "max": 15,
+     "cid": "regalias"
+    },
+    {
+     "c": "Adelanto de derechos",
+     "v": "5 % del total de la tirada a PVP",
+     "u": "porcentaje",
+     "min": 5,
+     "max": 5
+    },
+    {
+     "c": "Presentación de libros en ferias y festivales",
+     "v": "a partir de $ 232312,3",
+     "u": "trabajo",
+     "min": 232312.3
+    },
+    {
+     "c": "Debates, coloquios, mesas redondas y lecturas (varios participantes)",
+     "v": "a partir de $ 116157",
+     "u": "trabajo",
+     "min": 116157
+    },
+    {
+     "c": "Charla o conferencia individual (instituciones sin fines de lucro o particulares)",
+     "v": "a partir de $ 278657,65",
+     "u": "trabajo",
+     "min": 278657.65
+    },
+    {
+     "c": "Charlas o conferencias en empresas",
+     "v": "a partir de $ 804160,5",
+     "u": "trabajo",
+     "min": 804160.5
+    },
+    {
+     "c": "Taller grupal por encuentro (particular)",
+     "v": "$ 27681 y $ 464623",
+     "u": "trabajo",
+     "min": 27681,
+     "max": 464623,
+     "n": "Posible error de tipeo en la fuente (en abril de 2025 decía $ 19893 y $ 33390)"
+    },
+    {
+     "c": "Clínica individual por encuentro u hora (particular)",
+     "v": "$ 80416 y $ 160832",
+     "u": "hora",
+     "min": 80416,
+     "max": 160832
+    },
+    {
+     "c": "Talleres en ferias, festivales o instituciones (un encuentro)",
+     "v": "a partir de $ 231261,78",
+     "u": "trabajo",
+     "min": 231261.78
+    },
+    {
+     "c": "Jurado de preselección (novela, cuento, poesía, no ficción)",
+     "v": "$ 287,5 y $ 342,7",
+     "u": "pagina",
+     "min": 287.5,
+     "max": 342.7,
+     "n": "Por carilla leída"
+    },
+    {
+     "c": "Jurado final",
+     "v": "a partir de $ 2291593,15",
+     "u": "trabajo",
+     "min": 2291593.15
+    }
+   ]
+  },
+  {
+   "id": "argra",
+   "quien": "Asociación de Reporteros Gráficos de la República Argentina (ARGRA)",
+   "rubro": "fotografia",
+   "que": "Precios sugeridos de fotografías para uso editorial en la Argentina: coberturas, reportajes, día de viaje, archivo, republicación y tratamiento digital",
+   "unidad": "por cobertura (con cantidad de fotos entregadas); por foto de archivo; por hora de trabajo; porcentaje en recargos y republicación",
+   "moneda": "ARS",
+   "pais": "AR",
+   "edicion": "2026-08",
+   "url": "https://www.argra.org.ar/web/tarifario.php",
+   "alcance": "Autorización de uso o publicación, no venta ni cesión de derechos de autor. Solo uso editorial: el publicitario lleva otros importes. No incluye movilidad, alimentación, hospedaje, seguro, producción ni acreditaciones. La mención del autor es obligatoria (art. 52, ley 11.723). El tarifario es una imagen: http://argra.org.ar/web/assets/images/tarifario2026argra.jpg.jpeg",
+   "actualiza": "anual o más seguido",
+   "estado": "vigente (agosto 2026)",
+   "vigencia": "vigente",
+   "controlado": "2026-11-09",
+   "consultado": "2026-11-09",
+   "valores": [
+    {
+     "c": "Cobertura fotoperiodística editorial, nota corta (hasta 2 horas, 10 fotos)",
+     "v": "a partir de $ 105.000",
+     "u": "jornada",
+     "min": 105000
+    },
+    {
+     "c": "Cobertura fotoperiodística editorial, nota corta (hasta 4 horas, 20 fotos)",
+     "v": "a partir de $ 162.000",
+     "u": "jornada",
+     "min": 162000
+    },
+    {
+     "c": "Reportaje fotográfico de revista, moda o deporte; nota de tapa (25 fotos)",
+     "v": "a partir de $ 202.000",
+     "u": "jornada",
+     "min": 202000
+    },
+    {
+     "c": "Día de viaje (25 fotos)",
+     "v": "a partir de $ 256.000",
+     "u": "jornada",
+     "min": 256000
+    },
+    {
+     "c": "Recargo por horario nocturno (21:00 a 06:00)",
+     "v": "25 %",
+     "u": "porcentaje",
+     "min": 25,
+     "max": 25
+    },
+    {
+     "c": "Recargo por feriados",
+     "v": "25 %",
+     "u": "porcentaje",
+     "min": 25,
+     "max": 25
+    },
+    {
+     "c": "Adicional por zona patagónica",
+     "v": "14 %",
+     "u": "porcentaje",
+     "min": 14,
+     "max": 14
+    },
+    {
+     "c": "Fotografía de archivo (derecho a una publicación)",
+     "v": "a partir de $ 105.000",
+     "u": "uso",
+     "min": 105000
+    },
+    {
+     "c": "Republicación de una fotografía",
+     "v": "40 %",
+     "u": "porcentaje",
+     "min": 40,
+     "max": 40,
+     "n": "En la imagen figura como «% 40» y no aclara sobre qué base"
+    },
+    {
+     "c": "Tratamiento digital de la imagen, intervención",
+     "v": "$ 65.000",
+     "u": "hora",
+     "min": 65000,
+     "max": 65000
+    }
+   ]
+  },
+  {
+   "id": "cadra-foto",
+   "quien": "CADRA (Centro de Administración de Derechos Reprográficos)",
+   "rubro": "fotografia",
+   "rubros_extra": [
+    "derechos"
+   ],
+   "que": "Tarifario de licencias para usos fotográficos (publicaciones editoriales, periódicas, publicidad, audiovisuales, digital) y tarifario por derechos reprográficos para instituciones educativas, centros de impresión y bibliotecas",
+   "unidad": "por uso (portada, página interior, etc.) con tirada de hasta 3.000 ejemplares; por alumno, por equipo o por usuario en reprografía",
+   "moneda": "ARS",
+   "pais": "AR",
+   "edicion": "2026",
+   "url": "https://www.cadra.org.ar/licencias",
+   "alcance": "Son tarifas de licencia que paga quien usa la obra, no honorarios del autor; sirven para saber qué cobra la sociedad de gestión. Las de obras escritas varían por región (se copian las de CABA y Patagonia; hay otras dos, para NEA y NOA, y para Buenos Aires, Centro y Cuyo) y tienen bonificaciones. PDF de fotografía: https://cadra.org.ar/wp-content/uploads/2026/04/TARIFAS_5_FOTO_2026-1.pdf. PDF de CABA y Patagonia: https://cadra.org.ar/wp-content/uploads/2026/04/TARIFAS_2_CABA_Y_PATAGONIA_2026.pdf. En la fuente hay también un tarifario de prensa y una calculadora.",
+   "actualiza": "anual",
+   "estado": "vigente (2026)",
+   "vigencia": "vigente",
+   "controlado": "2026-11-09",
+   "consultado": "2026-11-09",
+   "valores": [
+    {
+     "c": "Foto en portada de libro impreso o electrónico (tirada hasta 3.000)",
+     "v": "$ 803.400",
+     "u": "uso",
+     "min": 803400,
+     "max": 803400
+    },
+    {
+     "c": "Foto en contratapa o solapa de libro",
+     "v": "$ 468.650",
+     "u": "uso",
+     "min": 468650,
+     "max": 468650
+    },
+    {
+     "c": "Foto en página interior de libro impreso",
+     "v": "$ 401.700",
+     "u": "uso",
+     "min": 401700,
+     "max": 401700
+    },
+    {
+     "c": "Foto en doble página interior de libro impreso",
+     "v": "$ 535.600",
+     "u": "uso",
+     "min": 535600,
+     "max": 535600
+    },
+    {
+     "c": "Reprografía, universidades (CABA y Patagonia)",
+     "v": "$ 15.890",
+     "u": "alumno",
+     "min": 15890,
+     "max": 15890,
+     "n": "Por alumno"
+    },
+    {
+     "c": "Reprografía, bibliotecas públicas y privadas (CABA y Patagonia)",
+     "v": "$ 9.455",
+     "u": "alumno",
+     "min": 9455,
+     "max": 9455,
+     "n": "Por usuario; también $ 248.523 por equipo"
+    }
+   ]
+  },
+  {
+   "id": "dnda-registro",
+   "quien": "Dirección Nacional del Derecho de Autor (DNDA, Ministerio de Justicia)",
+   "rubro": "tramites",
+   "que": "Costo de registrar la edición de un libro publicado: arancel del trámite más tasa al Fondo Nacional de las Artes",
+   "unidad": "por trámite, más una tasa proporcional al precio de costo y la cantidad de ejemplares",
+   "moneda": "ARS",
+   "pais": "AR",
+   "edicion": "s/f",
+   "url": "https://www.argentina.gob.ar/registrar-la-autoria-de-una-obra-escrita-publicada",
+   "alcance": "La obra debe estar publicada y con ISBN antes de iniciar el trámite (por TAD, dentro de los 90 días). La página no muestra fecha de edición ni de actualización.",
+   "actualiza": "sin dato",
+   "estado": "a confirmar: la página no trae fecha y el monto puede haber cambiado; confirmarlo en la calculadora de la DNDA antes de pagar",
+   "vigencia": "a confirmar",
+   "controlado": "2026-11-09",
+   "consultado": "2026-11-09",
+   "valores": [
+    {
+     "c": "Arancel del trámite (Fondo Cooperador Ley 23.412 DNDA-CAL)",
+     "v": "$ 2.300",
+     "u": "tramite",
+     "min": 2300,
+     "max": 2300
+    },
+    {
+     "c": "Tasa al Fondo Nacional de las Artes",
+     "v": "0,2 % del precio de costo por la cantidad de ejemplares; mínimo $ 4,11",
+     "u": "porcentaje",
+     "min": 0.2,
+     "max": 0.2
+    }
+   ]
   }
  ],
  "huecos": [
-  "AATI: no publica una tabla de tarifas de traducción literaria que se haya podido verificar; consultar aati.org.ar.",
-  "Ilustración en Argentina: no se encontró un tarifario de una asociación local.",
-  "Diseño editorial con alcance nacional: no se encontró; el único con valores por página es el de Entre Ríos.",
-  "Unión de Escritoras y Escritores: su tarifario se cita, pero no se encontró publicado."
- ]
+  "AATI: sí publica aranceles de traducción, incluidos los editoriales (copiados arriba). De corrección solo dice «50 % del valor de la traducción».",
+  "Correctores: no se encontró un tarifario de una asociación argentina de correctores. Hay valores de corrección en la UEE (nacional) y en la UNER (Entre Ríos).",
+  "Ilustración en Argentina: no se encontró un tarifario de una asociación local; el único con método es el de AOI (España, 2017, desactualizado).",
+  "Diseño gráfico y editorial con alcance nacional: no se encontró. El único con valores por página es el de Entre Ríos (UNER).",
+  "Cispren y la Facultad de Ciencias de la Comunicación (UNC): la prensa informó en noviembre de 2024 un tarifario de referencia para Córdoba, pero no se encontró el documento publicado.",
+  "Otros colegios de traductores públicos (Provincia de Buenos Aires, Córdoba, Santa Fe, etc.): no se encontraron tablas publicadas.",
+  "Imprentas y preprensa: se cotiza por presupuesto; no hay tarifario público de precios. La Federación Gráfica Bonaerense tiene escalas salariales, que no son precios de venta.",
+  "Distribución y librerías: las condiciones (descuentos, consignación) se pactan por contrato; no se encontró una tabla pública.",
+  "Agentes literarios: no se encontró un tarifario ni un porcentaje publicado por una asociación argentina.",
+  "Narradores y audiolibros: no se encontró un tarifario argentino. La guía de Gravy for the Brain (LATAM) no tiene tabla de Argentina.",
+  "Edición editorial freelance (lectura, edición de desarrollo): fuera de los informes de lectura de la UEE, no se encontró un tarifario local.",
+  "Arancel de la Agencia ISBN (Cámara Argentina del Libro): las páginas leídas de isbn.org.ar no muestran el monto; confirmarlo con la Agencia.",
+  "SADE (Sociedad Argentina de Escritores): su sitio no se pudo abrir con certificado válido; no se verificó si publica tarifas.",
+  "ARGRA publica su tarifario como imagen: las cifras se leyeron a ojo del original y conviene releerlas cuando cambie la edición."
+ ],
+ "unidades": {
+  "palabra": "por palabra",
+  "mil-palabras": "por 1.000 palabras",
+  "mil-caracteres": "por 1.000 caracteres con espacios",
+  "hora": "por hora",
+  "pagina": "por página",
+  "trabajo": "por trabajo o actividad",
+  "jornada": "por cobertura o jornada",
+  "minuto": "por minuto de video o audio",
+  "porcentaje": "porcentaje",
+  "uso": "por uso o licencia",
+  "foja": "por foja",
+  "alumno": "por alumno o usuario (licencia)",
+  "tramite": "por trámite"
+ },
+ "comparables": {
+  "trad-al-es": {
+   "t": "Traducción al español, por palabra (ARS)",
+   "u": "palabra"
+  },
+  "trad-del-es": {
+   "t": "Traducción del español a otro idioma, por palabra (ARS)",
+   "u": "palabra"
+  },
+  "corr-estilo": {
+   "t": "Corrección ortotipográfica y de estilo, por 1.000 caracteres con espacios (ARS)",
+   "u": "mil-caracteres"
+  },
+  "corr-orto": {
+   "t": "Corrección ortotipográfica, por 1.000 caracteres con espacios (ARS)",
+   "u": "mil-caracteres"
+  },
+  "prologo": {
+   "t": "Prólogo o contratapa de libro de hasta 220 páginas (ARS, banda mínima)",
+   "u": "mil-caracteres"
+  },
+  "diseno-pagina": {
+   "t": "Diseño editorial, por página (ARS)",
+   "u": "pagina"
+  },
+  "diseno-portada": {
+   "t": "Diseño de portada (ARS)",
+   "u": "trabajo"
+  },
+  "regalias": {
+   "t": "Derechos de autor sobre el precio de tapa (%)",
+   "u": "porcentaje"
+  }
+ }
 }

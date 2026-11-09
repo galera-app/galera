@@ -2322,7 +2322,9 @@ function vContratos() {
 }
 
 // =====================================================================
-// TARIFARIO (perfil profesional): datos/tarifas.json. Solo quién publica, rubro, unidad, fecha y link; los montos se leen en la fuente. Filtro de la sesión (V.tar).
+// TARIFARIO (perfil profesional): datos/tarifas.json. Cada fuente trae quién la publica, rubro, unidad, edición, fecha en que se abrió el original (consultado),
+// vigencia y, cuando se pudo abrir el original, los valores tal como figuran (valores[]: c concepto, v texto, u unidad, min/max y cid para comparar).
+// Lo que no se verificó va a «huecos». Filtros de la sesión: V.tar (rubro), V.tarU (unidad), V.tarV (solo vigentes), V.tarC (comparador).
 // =====================================================================
 async function cargarTarifas() {
   if (D.tarifas || cargarTarifas.va) return;
@@ -2331,25 +2333,52 @@ async function cargarTarifas() {
   if (V.sim === 'tarifario') render();
 }
 function tarRubro(id) { V.tar = id; render(); }
+function tarUnidad(u) { V.tarU = u; render(); }
+function tarVigentes() { V.tarV = !V.tarV; render(); }
+function tarComparar(c) { V.tarC = c; render(); }
+const tarFecha = s => s ? String(s).split('-').reverse().join('/') : '';
+const tarEdicion = e => e === 's/f' ? 'sin fecha' : e.length === 7 ? MESES_LARGOS[+e.slice(5) - 1] + ' de ' + e.slice(0, 4) : e;
 function vTarifario() {
   if (!D.tarifas) { cargarTarifas(); return '<p class="cargando">Cargando los tarifarios…</p>'; }
   const T = D.tarifas;
   if (T.error) return '<p class="vacio">No pude cargar esto. Puede ser la conexión. <button class="btn sec" type="button" onclick="location.reload()">Probar de nuevo</button></p>';
-  const sel = V.tar || '', pestana = (k, t) => `<button class="btn ch ${sel === k ? '' : 'lin'}" aria-pressed="${sel === k}" onclick="tarRubro(${arg(k)})">${esc(t)}</button>`;
-  const lista = T.fuentes.filter(f => !sel || f.rubro === sel);
-  const desact = f => /desactualizado/i.test(f.estado || '');
-  return `<p class="chico tenue u-margin-0-0-10px">${esc(T.nota.split(" controlado:")[0])}</p>
+  const sel = V.tar || '', selU = V.tarU || '', soloVig = !!V.tarV, UN = T.unidades || {};
+  const pestana = (k, t) => `<button class="btn ch ${sel === k ? '' : 'lin'}" aria-pressed="${sel === k}" onclick="tarRubro(${arg(k)})">${esc(t)}</button>`;
+  const vigente = f => (f.vigencia || 'vigente') === 'vigente';
+  const delRubro = f => !sel || f.rubro === sel || (f.rubros_extra || []).indexOf(sel) >= 0;
+  const valoresDe = f => (f.valores || []).filter(x => !selU || x.u === selU);
+  const lista = T.fuentes.filter(f => delRubro(f) && (!soloVig || vigente(f)) && (!selU || valoresDe(f).length));
+  const unidades = [...new Set(T.fuentes.filter(delRubro).flatMap(f => (f.valores || []).map(x => x.u)))].filter(u => UN[u]);
+  const chip = f => { const v = f.vigencia || 'vigente'; return v === 'vigente' ? `<span class="chip ok">Edición ${esc(tarEdicion(f.edicion))}</span>` : `<span class="chip ojo">${v === 'desactualizado' ? 'Desactualizado' : 'A confirmar'} · ${esc(tarEdicion(f.edicion))}</span>`; };
+  const tabla = f => { const vs = valoresDe(f); return vs.length ? `<details class="u-margin-0-0-10px"><summary><b>Valores copiados de la fuente (${vs.length})</b></summary>
+      <div class="tabla-scroll" tabindex="0" role="region" aria-label="${esc('Valores de ' + f.quien + ', se desplaza hacia los costados')}"><table class="tabla"><thead><tr><th>Concepto</th><th>Valor</th><th>Unidad</th></tr></thead><tbody>${vs.map(x => `<tr><td>${esc(x.c)}${x.n ? `<br><span class="chico tenue">${esc(x.n)}</span>` : ''}</td><td><b>${esc(x.v)}</b>${x.m && x.m !== f.moneda ? ` <span class="chico tenue">(${esc(x.m)})</span>` : ''}</td><td class="chico">${esc(UN[x.u] || x.u)}</td></tr>`).join('')}</tbody></table></div></details>` : '<p class="u-mb6 chico tenue">Los valores no se copiaron: se leen en la fuente.</p>'; };
+  // Comparador: los renglones con el mismo «cid» de todas las fuentes, ordenados de menor a mayor.
+  const comp = T.comparables || {}, selC = V.tarC || '';
+  const filasC = selC ? T.fuentes.flatMap(f => (f.valores || []).filter(x => x.cid === selC && x.min != null).map(x => ({ f, x }))).filter(r => !soloVig || vigente(r.f)).sort((a, b) => a.x.min - b.x.min) : [];
+  const edis = [...new Set(filasC.map(r => r.f.edicion))];
+  const comparador = Object.keys(comp).length ? `<div class="titulo-sec"><h2>Comparador</h2></div><div class="tarjeta u-margin-bottom-8px">
+      <label class="c" for="tar-comp">Qué comparar</label>
+      <select id="tar-comp" onchange="tarComparar(this.value)"><option value="">Elegí un concepto</option>${Object.keys(comp).map(k => `<option value="${esc(k)}" ${selC === k ? 'selected' : ''}>${esc(comp[k].t)}</option>`).join('')}</select>
+      ${selC ? (filasC.length ? `<div class="tabla-scroll" tabindex="0" role="region" aria-label="Comparación, se desplaza hacia los costados"><table class="tabla"><thead><tr><th>Quién</th><th>Edición</th><th>Valor</th><th>Fuente</th></tr></thead><tbody>${filasC.map(r => `<tr><td>${esc(r.f.quien)}<br><span class="chico tenue">${esc(r.x.c)}</span></td><td class="chico">${esc(tarEdicion(r.f.edicion))}${vigente(r.f) ? '' : ' <span class="chip ojo">' + esc(r.f.vigencia) + '</span>'}</td><td><b>${esc(r.x.v)}</b></td><td class="chico"><a href="${urlSegura(r.f.url)}" target="_blank" rel="noopener">Abrir ↗</a><br><span class="tenue">abierto el ${esc(tarFecha(r.f.consultado))}</span></td></tr>`).join('')}</tbody></table></div>
+        <p class="chico tenue">${edis.length > 1 ? '⚠️ Son ediciones de distintos meses: con la inflación no se pueden comparar de frente. ' : ''}Cada fuente define distinto a quién le cobra y qué incluye; leé el alcance en su ficha antes de usar una cifra.</p>` : '<p class="chico tenue">No hay fuentes con ese concepto para el filtro elegido.</p>') : ''}
+    </div>` : '';
+  return `<p class="u-mb10" role="note"><b>Orientativo.</b> Estos valores los publican asociaciones, colegios y universidades como referencia: no son obligatorios, no son precios de mercado ni asesoramiento. Cada uno muestra su edición y el día en que lo abrimos; si la edición es vieja, pedí la actual a la fuente.</p>
+    <p class="chico tenue u-margin-0-0-10px">${esc(T.nota.split(" consultado:")[0])}</p>
     <div class="u-mb10 eligen" role="group" aria-label="Rubro">${pestana('', 'Todos')}${T.rubros.map(r => pestana(r.id, r.t)).join('')}</div>
+    <div class="acciones u-mb10">${unidades.length ? `<label class="c" for="tar-uni">Unidad</label><select id="tar-uni" onchange="tarUnidad(this.value)"><option value="">Todas las unidades</option>${unidades.map(u => `<option value="${esc(u)}" ${selU === u ? 'selected' : ''}>${esc(UN[u])}</option>`).join('')}</select>` : ''}
+      <button class="btn ch ${soloVig ? '' : 'lin'}" aria-pressed="${soloVig}" onclick="tarVigentes()">Solo vigentes</button></div>
     ${lista.length ? lista.map(f => `<article class="tarjeta u-margin-bottom-8px">
       <h3 class="u-mb4">${esc(f.quien)}</h3>
       <p class="u-mb6">${esc(f.que)}</p>
       <p class="u-mb4 chico"><b>Unidad:</b> ${esc(f.unidad)}</p>
       <p class="u-mb4 chico"><b>Alcance:</b> ${esc(f.alcance)}</p>
-      <p class="u-mb6 chico"><span class="chip ${desact(f) ? 'ojo' : 'ok'}">${desact(f) ? 'Desactualizado' : 'Edición ' + esc(f.edicion)}</span> <span class="chip">${esc(f.pais)} · ${esc(f.moneda)}</span> <span class="chip">Se actualiza: ${esc(f.actualiza)}</span></p>
-      ${desact(f) || (f.estado && f.estado !== 'vigente') ? `<p class="u-mb6 chico tenue">⚠️ ${esc(f.estado)}</p>` : ''}
-      <a class="btn sec" href="${urlSegura(f.url)}" target="_blank" rel="noopener">Ver los valores en la fuente ↗</a>
-      ${f.controlado ? `<span class="chico tenue u-margin-left-8px">✓ Link revisado el ${fmt(f.controlado)}</span>` : ''}
-    </article>`).join('') : '<p class="vacio">No hay tarifarios publicados para este rubro.</p>'}
+      <p class="u-mb6 chico">${chip(f)} <span class="chip">${esc(f.pais)} · ${esc(f.moneda)}</span> <span class="chip">Se actualiza: ${esc(f.actualiza)}</span> <span class="chip">Abierto el ${esc(tarFecha(f.consultado))}</span></p>
+      ${(f.vigencia || 'vigente') !== 'vigente' || (f.estado && !/^vigente/i.test(f.estado)) ? `<p class="u-mb6 chico tenue">⚠️ ${esc(f.estado)}</p>` : ''}
+      ${tabla(f)}
+      <a class="btn sec" href="${urlSegura(f.url)}" target="_blank" rel="noopener">${(f.valores || []).length ? 'Abrir el original ↗' : 'Ver los valores en la fuente ↗'}</a>
+      ${f.controlado ? `<span class="chico tenue u-margin-left-8px">✓ Link revisado el ${esc(tarFecha(f.controlado))}</span>` : ''}
+    </article>`).join('') : '<p class="vacio">No hay tarifarios publicados para este filtro.</p>'}
+    ${comparador}
     ${!sel && (T.huecos || []).length ? `<div class="titulo-sec"><h2>Lo que no se encontró</h2></div><div class="tarjeta"><ul class="u-margin-0_padding-left-18px">${T.huecos.map(h => `<li class="chico">${esc(h)}</li>`).join('')}</ul></div>` : ''}
     <p class="chico tenue">Los valores son orientativos y no obligatorios. Si conocés otro tarifario público, contámelo con «Contame qué falta».</p>`;
 }
