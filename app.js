@@ -19,7 +19,7 @@ const TODAS_TABS = TABS.concat(tabsDe(MARCO.tabs_ocultas));   // el Arcade no ti
 const esPro = () => E.perfil === 'profesional';
 const tabsActivas = () => esPro() ? TABS_PRO : TABS;
 const ajustarTab = () => { if (esPro() && V.tab !== 'inicio' && V.tab !== 'doc' && V.tab !== 'buscar' && !TABS_PRO.some(t => t[0] === V.tab)) { V.tab = 'simuladores'; V.sim = ''; } };
-const CONTACTO = 'fidelchaves96@gmail.com'; // el mismo mail público de ficha.github.io
+const CONTACTO = 'hola@galera.com.ar'; // alias público de Galera (Email Routing)
 const SOPORTE = 'soporte@galera.com.ar'; // errores y fallas de la app
 const V = { sim: '', nov: '', lec: '', pos: false, faq: '', faqAbierta: '', faqEnviada: '', faqCerrada: '', bib: 'libros', perIdi: 'es', perTipo: '', bl: { q: '', origen: '', tema: '', mat: '', n: 0 }, tab: 'inicio', cambiaPerfil: false, vista: 'tabla', oferta: '', verPasados: false, calFiltro: 'todo', sugeridas: null, verAprobadas: false, verSem: false,
   res: { materia: '', apunte: '', sec: '' }, busq: '', bus: { q: '', pide: null, hecha: null, res: [], rap: [], pregs: [], error: false }, quiz: {}, ayuda: {}, tema: '', glo: { q: '', mat: '', vista: 'lista', sel: -1, vb: null }, dir: { tipo: 'editorial', q: '', prov: '', linea: '', web: false, letra: '' },
