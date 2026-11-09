@@ -1047,3 +1047,23 @@ dialog .botones .gl-btn,dialog .gl-btn{min-height:44px}
 .lm-ley{display:inline-block;width:14px;height:0;border-top:2px solid var(--tinta);vertical-align:middle}
 .lm-ley-p{border-top:2px dashed var(--mal)}
 .lm-ley-s{border-top:2px dotted var(--tenue)}
+
+/* v145: Imprenta (imprenta-editor.js): editor con vista previa de Typst */
+.gl-pr-ops{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:flex-end;margin:12px 0}
+.gl-pr-campo{display:flex;flex-direction:column;gap:4px;font-size:var(--t-sm);color:var(--texto2);min-width:9rem;flex:1 1 9rem}
+.gl-pr-campo input,.gl-pr-campo select{font:inherit;color:var(--texto);background:var(--bg);border:1px solid var(--borde-campo);border-radius:var(--radio);padding:7px 9px;min-height:40px}
+.gl-pr-chks{gap:6px 18px;align-items:center}
+.gl-pr-chk{display:inline-flex;gap:6px;align-items:center;font-size:var(--t-sm);min-height:32px}
+.gl-pr-trabajo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:start}
+.gl-pr-lbl{display:block;font-size:var(--t-sm);margin-bottom:6px}
+.gl-pr-texto{width:100%;min-height:62vh;resize:vertical;font:15px/1.55 var(--serif);color:var(--texto);background:var(--bg);border:1px solid var(--borde-campo);border-radius:var(--radio);padding:12px 14px;box-sizing:border-box}
+.gl-pr-fila{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.gl-pr-abrir{cursor:pointer}
+.gl-pr-der{position:sticky;top:12px}
+.gl-pr-vista{background:var(--sup2);border-radius:var(--radio);padding:12px;max-height:70vh;overflow:auto}
+.gl-pr-vista:empty{display:none}
+.gl-pr-vista svg{display:block;width:100%;height:auto;max-width:460px;margin:0 auto}
+.gl-pr-papel{fill:#fff;stroke:#b8b8b8;stroke-width:.6}
+.gl-pr-mal{color:var(--mal)}
+.gl-pr-celu{display:none}
+@media (max-width:900px){.gl-pr-trabajo{grid-template-columns:minmax(0,1fr)}.gl-pr-der{position:static}.gl-pr-celu{display:block}.gl-pr-texto{min-height:40vh}}

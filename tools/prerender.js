@@ -49,7 +49,8 @@ const espera = async () => { do { await new Promise(r => setImmediate(r)); await
   // Los de carga perezosa (MARCO.carga, en marco.js) entran todos, antes de app.js: el prerender necesita cualquier pantalla.
   const corre = s => vm.runInContext(fs.readFileSync(path.join(raiz, s), 'utf8'), ctx, { filename: s });
   for (const s of scripts.filter(s => s !== 'app.js')) corre(s);
-  for (const g of Object.values(vm.runInContext('MARCO.carga', ctx))) for (const n of g) corre(n + '.js');
+  // Un script puede estar en más de un grupo (imprenta.js va con «Antes de imprimir» y con el editor): corre una sola vez.
+  for (const n of new Set([].concat(...Object.values(vm.runInContext('MARCO.carga', ctx))))) corre(n + '.js');
   corre('app.js');
   await espera();
   const ev = c => vm.runInContext(c, ctx);
