@@ -2534,7 +2534,7 @@ async function cargarSimInfo() {
   try { D.simInfo = await json('simuladores-info.json'); } catch (e) { D.simInfo = {}; }
   if (V.tab === 'simuladores' && V.sim) render();
 }
-const TEMAS_SIM = [['Producción y planificación', ['papel', 'paginacion', 'formatos', 'cronograma']], ['Costos y catálogo', ['escandallo', 'comparador']], ['Derecho', ['leyes', 'contratos']], ['Trabajo freelance', ['tarifario']], ['El sector', ['ecosistema']]];
+const TEMAS_SIM = [['Producción y planificación', ['papel', 'lomo', 'paginacion', 'formatos', 'cronograma']], ['Costos y catálogo', ['escandallo', 'comparador']], ['Derecho', ['leyes', 'contratos']], ['Trabajo freelance', ['tarifario']], ['El sector', ['ecosistema']]];
 function vSimuladores() {
   const sim = SIMULADORES.find(x => x.id === V.sim);
   const plan = id => D.plan.materias.find(x => x.id === id) || { id, nombre: id, sigla: '' };
@@ -2547,7 +2547,7 @@ function vSimuladores() {
         <button class="gl-btn gl-btn--sec" type="button" data-clic="compSim" data-clic-a="[${arg(sim.id)},${arg(sim.t)},${arg(sim.id)}]">Compartir</button>
         <button class="gl-btn gl-btn--sec" type="button" data-clic="qrSim" data-clic-a="[${arg(sim.id)},${arg(sim.t)},${arg(sim.id)}]" aria-label="Código QR de este simulador">QR</button></div>
       <p class="gl-baja">${esc(p.sigla ? p.sigla + ' · ' : '')}${esc(p.nombre)}. ${esc(sim.d)}</p>${SOLO_AR.has(sim.id) ? '<p class="gl-chico"><span class="gl-chip">Argentina</span> Normas, modelos y referencias de Argentina: en otro país pueden ser distintos.</p>' : ''}
-      <div class="gl-sim-uso">` + (esPro() ? '' : vRetos(sim.id)) + { escandallo: vEscandalloUno, comparador: vComparador, papel: vPapel, paginacion: vPaginacion, cronograma: vCronograma, ecosistema: vEcosistema, formatos: vFormatos, leyes: vLeyes, contratos: vContratos, tarifario: vTarifario }[sim.id]() + `</div>${como}</div>`;
+      <div class="gl-sim-uso">` + (esPro() ? '' : vRetos(sim.id)) + { escandallo: vEscandalloUno, comparador: vComparador, papel: vPapel, lomo: vLomo, paginacion: vPaginacion, cronograma: vCronograma, ecosistema: vEcosistema, formatos: vFormatos, leyes: vLeyes, contratos: vContratos, tarifario: vTarifario }[sim.id]() + `</div>${como}</div>`;
   }
   cargarSimInfo();
   const est = id => (E.materias[id] || {}).estado, marca = id => est(id) === 'cursando' ? '<span class="gl-chip">la cursás</span>' : est(id) === 'regular' ? '<span class="gl-chip gl-chip--aviso">te falta el final</span>' : '';
