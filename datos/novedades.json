@@ -2,7 +2,7 @@
  "nota": "Lo que va en el mail de los lunes (Novedades.gs) y en la pestaña Novedades. v: número de versión (obligatorio; ver CHANGELOG.md). tipo: herramientas | resumenes | fechas. perfil: estudiante (por defecto) | profesional | todos; el mail y la pestaña Novedades lo usan para mostrar a cada perfil lo suyo. materias: ids del plan (vacío = para todas). url: solo links a galera.com.ar/. Sumar una entrada por cada cosa que se publica; el script manda solo lo posterior al último envío de cada persona, así que las viejas no se reenvían.",
  "novedades": [
   {
-   "v": 146,
+   "v": 147,
    "fecha": "2026-11-09",
    "tipo": "herramientas",
    "perfil": "todos",
@@ -10,6 +10,48 @@
    "titulo": "Dos mapas de lectura de literatura latinoamericana",
    "texto": "Los mapas de lectura suman Literatura Latinoamericana I (cátedras de Añón y El Jaber, de la conquista al modernismo) y Literatura Latinoamericana II (cátedra de Torres, naturaleza y extractivismo): 58 lecturas con su teoría, su póster para imprimir y enlaces a ediciones libres cuando existen.",
    "url": "https://galera.com.ar/lecturas/"
+  },
+  {
+   "v": 146,
+   "fecha": "2026-11-09",
+   "tipo": "herramientas",
+   "perfil": "profesional",
+   "materias": [],
+   "titulo": "Redactor de contratos del libro (borrador)",
+   "texto": "Armá borradores de contratos de traducción, edición, cesión de derechos, encargo, ilustración, corrección, coedición, autoedición y audiolibro, con la fuente de cada cláusula. Solo traducción y edición se apoyan en un modelo oficial: los otros siete llevan una franja de borrador sin revisión profesional. Nada se guarda ni se envía: se arma en tu navegador.",
+   "url": "https://galera.com.ar/simuladores/contratos.html"
+  },
+  {
+   "v": 145,
+   "fecha": "2026-11-09",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [
+    "0905"
+   ],
+   "titulo": "Calculadora de lomo y plantilla de tapa",
+   "texto": "Un simulador nuevo: con las páginas y el espesor del papel calcula el lomo de tu libro (rústica, con solapas o cartoné) y la tapa abierta con sangrado, y te baja una plantilla en PDF o SVG para diseñar encima.",
+   "url": "https://galera.com.ar/simuladores/lomo.html"
+  },
+  {
+   "v": 144,
+   "fecha": "2026-11-09",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "titulo": "Antes de imprimir: revisá tu PDF",
+   "texto": "Una pantalla nueva para no llevarte sorpresas en la imprenta: subí tu PDF y Galera revisa sangrado, fuentes, resolución de imágenes, color y páginas, sin que el archivo salga de tu compu. También lo impone como fanzine de una hoja o acaballado para imprimir en casa, y trae la lista de lo que más falla en el ripeo.",
+   "url": "https://galera.com.ar/antes-de-imprimir/"
+  },
+  {
+   "v": 143,
+   "fecha": "2026-11-09",
+   "tipo": "herramientas",
+   "perfil": "profesional",
+   "materias": [],
+   "titulo": "Directorio: nueva solapa de Instituciones",
+   "texto": "El Directorio suma una solapa con doce instituciones del mundo del libro: cámaras, agencias, la Biblioteca Nacional, ferias, gremios y asociaciones de traductores y escritores. Cada ficha trae su fuente y la fecha en que se leyó.",
+   "url": "https://galera.com.ar/directorio/"
   },
   {
    "v": 142,

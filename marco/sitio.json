@@ -37,6 +37,12 @@
    "titulo": "Simuladores para editores: papel, paginación y costos · Galera",
    "desc": "Calculadoras y mapas para estudiantes y editores: papel e imposición, formatos y serie A, paginación, leyes del libro, escandallo, comparador de títulos y ecosistema del libro. Gratis y sin cuenta."
   },
+  "imprimir": {
+   "t": "Antes de imprimir",
+   "url": "/antes-de-imprimir/",
+   "titulo": "Antes de imprimir: revisá tu PDF e imponé tu fanzine · Galera",
+   "desc": "Revisá tu PDF antes de la imprenta (sangrado, fuentes, resolución, color), imponelo como fanzine o acaballado y repasá lo que falla en el ripeo. Gratis."
+  },
   "glosario": {
    "t": "Glosario",
    "url": "/glosario/",
@@ -129,6 +135,7 @@
    "resumenes",
    "biblioteca",
    "simuladores",
+   "imprimir",
    "glosario",
    "eventos",
    "directorio",
@@ -141,6 +148,7 @@
   ],
   "profesional": [
    "simuladores",
+   "imprimir",
    "eventos",
    "resumenes",
    "biblioteca",
@@ -175,6 +183,7 @@
      "resumenes",
      "biblioteca",
      "simuladores",
+     "imprimir",
      "glosario"
     ]
    ],
@@ -203,7 +212,8 @@
    [
     "Herramientas",
     [
-     "simuladores"
+     "simuladores",
+     "imprimir"
     ]
    ],
    [
@@ -256,6 +266,7 @@
      "resumenes",
      "biblioteca",
      "simuladores",
+     "imprimir",
      "glosario"
     ]
    ],
@@ -277,7 +288,8 @@
     "Herramientas",
     "simuladores",
     [
-     "simuladores"
+     "simuladores",
+     "imprimir"
     ]
    ],
    [
@@ -332,7 +344,7 @@
  "csp": {
   "estatica": "default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self'; img-src 'self' data: https://*.google-analytics.com https://www.googletagmanager.com; connect-src 'self' https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com; object-src 'none'; base-uri 'none'; form-action 'none'",
   "estatica_estilos": "default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.google-analytics.com https://www.googletagmanager.com; connect-src 'self' https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com; object-src 'none'; base-uri 'none'; form-action 'none'",
-  "app": "default-src 'self'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.google-analytics.com https://www.googletagmanager.com; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com; object-src 'none'; base-uri 'none'; form-action 'none'"
+  "app": "default-src 'self'; script-src 'self' 'wasm-unsafe-eval' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.google-analytics.com https://www.googletagmanager.com; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com; object-src 'none'; base-uri 'none'; form-action 'none'"
  },
  "simuladores": [
   {
@@ -360,8 +372,8 @@
    "id": "contratos",
    "materia": "0919",
    "ico": "📝",
-   "t": "Contratos modelo: traducción y edición",
-   "d": "Completá los datos y armá un borrador de contrato de traducción (según el modelo de la AATI) o de edición (según los arts. 37 a 44 de la Ley 11.723), con la fuente de cada cláusula. Para descargar."
+   "t": "Redactor de contratos del libro",
+   "d": "Elegí el tipo de contrato (edición, traducción, cesión de derechos, encargo, ilustración, corrección, coedición, autoedición o audiolibro), completá los datos y descargá un borrador con la fuente y el porqué de cada cláusula. Orientativo: no es asesoramiento legal."
   },
   {
    "id": "leyes",
@@ -383,6 +395,13 @@
    "ico": "📄",
    "t": "Cálculo de papel e imposición",
    "d": "Pliegos, resmas, kilos y costo de los interiores o de la tapa, con pinza, cola, calles e imposición. Compara los formatos de pliego."
+  },
+  {
+   "id": "lomo",
+   "materia": "0905",
+   "ico": "📏",
+   "t": "Lomo y plantilla de tapa",
+   "d": "Cuánto mide el lomo según las páginas y el espesor del papel, cómo queda la tapa abierta y una plantilla en PDF o SVG para diseñar encima."
   },
   {
    "id": "escandallo",
