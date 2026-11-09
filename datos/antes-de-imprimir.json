@@ -22,13 +22,13 @@
       "t": "El archivo",
       "items": [
         { "id": "fuentes", "t": "Todas las fuentes incrustadas (o pasadas a curvas)", "d": "Las fuentes faltantes son el problema más frecuente (20,2 % de los casos): el equipo las reemplaza y el texto puede correrse de línea o de página.", "f": "e3", "auto": true },
-        { "id": "sangrado", "t": "3 mm de sangrado en todo lo que llega al borde", "d": "Fotos, fondos y filetes que tocan el corte tienen que pasarse unos 3 mm, para que no quede un filo blanco al refilar.", "f": "e4b", "auto": true },
+        { "id": "sangrado", "t": "Sangrado de 3 mm en todo lo que llega al borde", "d": "Fotos, fondos y filetes que tocan el corte tienen que pasarse unos 3 mm, para que no quede un filo blanco al refilar.", "f": "e4b", "auto": true },
         { "id": "seguridad", "t": "Texto lejos del corte", "d": "Dejá al menos 5 mm entre el texto y la línea de corte (más en el lomo de un libro grueso). La guillotina tiene tolerancia.", "f": "practica" },
         { "id": "resolucion", "t": "Imágenes a 300 ppp al tamaño impreso", "d": "La resolución se calcula con la lineatura de la trama: ppp = lpi × 2 × factor de calidad. Para 150 lpi, unos 300 ppp. Una foto ampliada pierde resolución: lo que cuenta es el tamaño en la página.", "f": "e4a", "auto": true },
         { "id": "rgb", "t": "Imágenes en CMYK o en escala de grises, no en RGB", "d": "Una imagen RGB sin convertir puede salir toda en la plancha de negro o con colores apagados. Si tu imprenta convierte al ripear, preguntale con qué perfil.", "f": "e3", "auto": true },
         { "id": "especiales", "t": "Colores especiales bien nombrados", "d": "Un color plano mal especificado imprime una quinta plancha que nadie pidió (10,9 % de los problemas). Decidí si cada Pantone va como tinta aparte o se separa en CMYK.", "f": "e3" },
         { "id": "negro", "t": "Texto negro en 100 % K y sobreimpreso", "d": "El texto negro y los filetes finos van en un solo canal (K) y con sobreimpresión, para que el fuera de registro no deje bordes de color. Para fondos negros grandes se usa negro enriquecido (por ejemplo, 100 K + 30/30/30).", "f": "e4a" },
-        { "id": "tac", "t": "Carga total de tinta dentro del límite", "d": "La suma de CMYK que aguanta el papel sin empastar (TAC) depende del sistema: como referencia, 270 en prensa digital y 320 en prensa plana. Confirmá el valor con tu imprenta.", "f": "e4a" },
+        { "id": "tac", "t": "Carga total de tinta dentro del límite", "d": "La suma de CMYK que aguanta el papel sin empastar (TAC) depende del sistema: como referencia, 270 % en prensa digital y 320 % en prensa plana. Confirmá el valor con tu imprenta.", "f": "e4a" },
         { "id": "pdfx", "t": "Exportá como PDF/X si la imprenta lo pide", "d": "PDF/X es el subconjunto de PDF pensado para imprenta: fija corte, sangrado y color, y reduce los archivos «no imprimibles».", "f": "e4b", "auto": true }
       ]
     },
