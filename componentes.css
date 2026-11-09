@@ -1032,3 +1032,18 @@ dialog .botones .gl-btn,dialog .gl-btn{min-height:44px}
 .gl-imp-item .gl-enlace,.gl-imp-item .gl-tenue{font-size:13px}
 @media (max-width:480px){.gl-imp-ch{grid-template-columns:minmax(0,1fr);gap:4px}}
 @media print{.gl-imp>.gl-imp-sec:not(.gl-imp-check),.gl-imp-acc{display:none}.gl-imp-item{break-inside:avoid}}
+/* v144: Lomo y plantilla de tapa (lomo.js) */
+.gl-lomo .lm-av{margin:8px 0 0;padding-left:18px}
+.gl-lomo .lm-av li{margin:2px 0}
+.gl-lomo .lm-av .lm-mal{color:var(--mal)}
+.gl-lomo .lm-av .lm-aviso::marker{color:var(--mostaza-tinta)}
+.lm-vista{margin:6px 0 8px;overflow:hidden}
+.lm-svg{display:block;width:100%;height:auto;max-height:420px}
+.lm-sangre{fill:var(--sup);stroke:var(--mal);stroke-width:.4}
+.lm-corte{fill:none;stroke:var(--tinta);stroke-width:.6}
+.lm-pliegue{stroke:var(--mal);stroke-width:.4;stroke-dasharray:2 1.5}
+.lm-segura{fill:none;stroke:var(--tenue);stroke-width:.3;stroke-dasharray:1 1}
+.lm-rot{fill:var(--texto2);font-family:var(--fuente)}
+.lm-ley{display:inline-block;width:14px;height:0;border-top:2px solid var(--tinta);vertical-align:middle}
+.lm-ley-p{border-top:2px dashed var(--mal)}
+.lm-ley-s{border-top:2px dotted var(--tenue)}
