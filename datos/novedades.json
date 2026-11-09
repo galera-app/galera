@@ -2,6 +2,16 @@
  "nota": "Lo que va en el mail de los lunes (Novedades.gs) y en la pestaña Novedades. v: número de versión (obligatorio; ver CHANGELOG.md). tipo: herramientas | resumenes | fechas. perfil: estudiante (por defecto) | profesional | todos; el mail y la pestaña Novedades lo usan para mostrar a cada perfil lo suyo. materias: ids del plan (vacío = para todas). url: solo links a galera.com.ar/. Sumar una entrada por cada cosa que se publica; el script manda solo lo posterior al último envío de cada persona, así que las viejas no se reenvían.",
  "novedades": [
   {
+   "v": 147,
+   "fecha": "2026-11-09",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "titulo": "Dos mapas de lectura de literatura latinoamericana",
+   "texto": "Los mapas de lectura suman Literatura Latinoamericana I (cátedras de Añón y El Jaber, de la conquista al modernismo) y Literatura Latinoamericana II (cátedra de Torres, naturaleza y extractivismo): 58 lecturas con su teoría, su póster para imprimir y enlaces a ediciones libres cuando existen.",
+   "url": "https://galera.com.ar/lecturas/"
+  },
+  {
    "v": 146,
    "fecha": "2026-11-09",
    "tipo": "herramientas",

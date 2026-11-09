@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-06",
+ "actualizado": "2026-11-09",
  "nota": "Los programas cambian cada año; estos son los de 2026.",
  "mapas": [
   {
@@ -3408,6 +3408,2348 @@
     "pie": "No es un canon oficial: es lo que esta cátedra pone a leer en 2026, y los programas cambian de un año a otro. Programa de Problemas de Literatura Argentina, cátedra de Soledad Quereilhac. Armado por Galera con los programas públicos del Departamento de Letras.",
     "alto": 166,
     "pad": 18
+   }
+  },
+  {
+   "id": "latinoamericana-siglos-xv-xix",
+   "titulo": "Literatura latinoamericana, siglos XV-XIX",
+   "bajada": "28 lecturas que proponen las dos cátedras de Literatura Latinoamericana I de Letras (FFyL, UBA) en 2026, en el orden en que se escribieron.",
+   "materia": "Literatura Latinoamericana I",
+   "catedras": [
+    {
+     "letra": "A",
+     "titular": "Valeria Añón",
+     "cuatrimestre": "2.º cuatrimestre de 2026",
+     "programa_url": "https://descargas.galera.com.ar/programas/letras/2026/literatura-latinoamericana-i-a-anon.pdf",
+     "hilo": {
+      "titulo": "Sujetos, espectros y fantasmas en la literatura latinoamericana (siglos XVI-XIX)",
+      "resumen": "Lee la literatura latinoamericana desde tres ideas: la subjetividad, el cuerpo y lo espectral, es decir, lo que los textos callan o apenas sugieren de la violencia colonial pero que sigue resonando en la escritura. Recorre a Colón, Cortés y Cabeza de Vaca, *La Araucana*, el Inca Garcilaso, Catalina de Erauso, sor Juana, Sigüenza y Góngora y Manzano, y cierra con Martí, Darío y el cuento modernista.",
+      "unidades": [
+       {
+        "num": "1",
+        "titulo": "Literatura, subjetividad, espectralidad"
+       },
+       {
+        "num": "2",
+        "titulo": "Sujetos imperiales, espectros coloniales"
+       },
+       {
+        "num": "3",
+        "titulo": "Subjetividades y espectralidades en clave épica: *La Araucana*"
+       },
+       {
+        "num": "4",
+        "titulo": "Subjetividades, espectros y fantasmas: los *Comentarios reales*"
+       },
+       {
+        "num": "5",
+        "titulo": "Letrados criollos, sujetos populares y figuras espectrales"
+       },
+       {
+        "num": "6",
+        "titulo": "Sujetos y cuerpos subalternos: el esclavo-cronista"
+       },
+       {
+        "num": "7",
+        "titulo": "Sujetos modernos y representaciones fantasmáticas: Martí, Darío, relato modernista"
+       }
+      ]
+     }
+    },
+    {
+     "letra": "B",
+     "titular": "Loreley El Jaber",
+     "cuatrimestre": "1.er cuatrimestre de 2026",
+     "programa_url": "https://descargas.galera.com.ar/programas/letras/2026/literatura-latinoamericana-i-b-el-jaber.pdf",
+     "hilo": {
+      "titulo": "Más allá del centro: en el borde. Voces y subalternidades en la literatura latinoamericana",
+      "resumen": "Es un programa sobre la voz, pero no la del poderoso sino la del subalterno: indios y mestizos, plebe, negros y esclavos, mujeres. Pregunta en qué condiciones estos sujetos hablan y cómo toman la palabra, y trata la subalternidad como una forma de la territorialidad y también de la discursividad.",
+      "unidades": [
+       {
+        "num": "1",
+        "titulo": "Indios, indias, mestizos, mestizas"
+       },
+       {
+        "num": "2",
+        "titulo": "La plebe, el pueblo"
+       },
+       {
+        "num": "3",
+        "titulo": "Negros, negras, esclavos, esclavas"
+       },
+       {
+        "num": "4",
+        "titulo": "Mujeres"
+       }
+      ]
+     }
+    }
+   ],
+   "tramos": [
+    {
+     "num": "I",
+     "nombre": "Encuentro, conquista y guerra"
+    },
+    {
+     "num": "II",
+     "nombre": "Voces andinas"
+    },
+    {
+     "num": "III",
+     "nombre": "Letrados, plebe y mujeres en el barroco"
+    },
+    {
+     "num": "IV",
+     "nombre": "Esclavitud y antiesclavismo"
+    },
+    {
+     "num": "V",
+     "nombre": "Martí y la crónica"
+    },
+    {
+     "num": "VI",
+     "nombre": "Darío y el modernismo"
+    }
+   ],
+   "nota_tramos": "Los tramos de este mapa (I a VI) ordenan las dos listas por época y tema; no son las unidades de ninguna de las dos cátedras.",
+   "obras": [
+    {
+     "num": "01",
+     "tramo": "I",
+     "titulo": "Diario del primer viaje",
+     "pieza": false,
+     "autor": "Cristóbal Colón",
+     "anio": "1492–1493",
+     "genero": "crónica",
+     "catedras": "A",
+     "desc": "Bitácora del primer viaje de Colón a las Indias, con las primeras descripciones de las tierras y los pueblos que encuentra.",
+     "teoria": [
+      "T1",
+      "T2"
+     ],
+     "url": "https://es.wikisource.org/wiki/Diario_de_a_bordo_del_primer_viaje_de_Crist%C3%B3bal_Col%C3%B3n",
+     "fuente": "Wikisource",
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "Diario del primer viaje",
+      "autor": "Cristóbal Colón",
+      "anio": "1492–1493"
+     }
+    },
+    {
+     "num": "02",
+     "tramo": "I",
+     "titulo": "Cartas de Colón",
+     "pieza": false,
+     "autor": "Cristóbal Colón",
+     "anio": "1493",
+     "genero": "carta",
+     "catedras": "A",
+     "desc": "Cartas con las que Colón cuenta al regreso el resultado de su viaje, entre ellas la dirigida a Luis de Santángel.",
+     "teoria": [
+      "T1",
+      "T2"
+     ],
+     "url": "",
+     "fuente": "",
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "Cartas de Colón",
+      "autor": "Cristóbal Colón",
+      "anio": "1493"
+     }
+    },
+    {
+     "num": "03",
+     "tramo": "I",
+     "titulo": "Segunda carta de relación",
+     "pieza": false,
+     "autor": "Hernán Cortés",
+     "anio": "1520",
+     "genero": "carta",
+     "catedras": "A",
+     "desc": "Carta al emperador Carlos V en la que Cortés cuenta la conquista de México y el avance hacia Tenochtitlan.",
+     "teoria": [
+      "T3",
+      "T4"
+     ],
+     "url": "https://es.wikisource.org/wiki/Cartas_del_famoso_conquistador_Hern%C3%A1n_Cort%C3%A9s",
+     "fuente": "Wikisource (índice de las cartas)",
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "Segunda carta de relación",
+      "autor": "Hernán Cortés",
+      "anio": "1520"
+     }
+    },
+    {
+     "num": "04",
+     "tramo": "I",
+     "titulo": "Naufragios",
+     "pieza": false,
+     "autor": "Álvar Núñez Cabeza de Vaca",
+     "anio": "1542",
+     "genero": "crónica",
+     "catedras": "A",
+     "desc": "Relato de una expedición que fracasa en la Florida y de los años de cautiverio y de marcha del autor entre pueblos indígenas.",
+     "teoria": [
+      "T5",
+      "T6"
+     ],
+     "url": "https://es.wikisource.org/wiki/Naufragios",
+     "fuente": "Wikisource",
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "Naufragios",
+      "autor": "Álvar Núñez Cabeza de Vaca",
+      "anio": "1542"
+     }
+    },
+    {
+     "num": "05",
+     "tramo": "I",
+     "titulo": "Cantares mexicanos",
+     "pieza": false,
+     "autor": "Anónimo",
+     "anio": "siglo XVI",
+     "genero": "poesía",
+     "catedras": "A",
+     "desc": "Colección de cantos en náhuatl, conservada en un manuscrito novohispano, que el programa lee en una selección.",
+     "teoria": [
+      "T7"
+     ],
+     "url": "",
+     "fuente": "",
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "Cantares mexicanos",
+      "autor": "Anónimo",
+      "anio": "siglo XVI"
+     }
+    },
+    {
+     "num": "06",
+     "tramo": "I",
+     "titulo": "Verdadera relación de lo que sucedió al gobernador Jaime Rasquin",
+     "pieza": false,
+     "autor": "Alonso Gómez de Santoya",
+     "anio": "1559",
+     "genero": "crónica",
+     "catedras": "B",
+     "desc": "Relato del viaje al Río de la Plata del gobernador Jaime Rasquin, atravesado por el hambre y los motines a bordo.",
+     "teoria": [
+      "T8"
+     ],
+     "url": "",
+     "fuente": "",
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "Verdadera relación… Jaime Rasquin",
+      "autor": "Alonso Gómez de Santoya",
+      "anio": "1559"
+     }
+    },
+    {
+     "num": "07",
+     "tramo": "I",
+     "titulo": "La Araucana",
+     "pieza": false,
+     "autor": "Alonso de Ercilla",
+     "anio": "1569",
+     "genero": "poesía",
+     "catedras": "A",
+     "desc": "Poema épico sobre la guerra de los españoles contra los mapuches en Chile, escrito por un soldado que estuvo allí. Se lee en selección.",
+     "teoria": [
+      "T9"
+     ],
+     "url": "https://es.wikisource.org/wiki/La_araucana",
+     "fuente": "Wikisource",
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "La Araucana",
+      "autor": "Alonso de Ercilla",
+      "anio": "1569"
+     }
+    },
+    {
+     "num": "08",
+     "tramo": "II",
+     "titulo": "Instrucción al licenciado don Lope García de Castro",
+     "pieza": false,
+     "autor": "Titu Cusi Yupanqui",
+     "anio": "1570",
+     "genero": "crónica",
+     "catedras": "B",
+     "desc": "Relato de la conquista del Perú desde el lado del Inca de Vilcabamba, dirigido a un funcionario de la Corona.",
+     "teoria": [
+      "T10",
+      "T11"
+     ],
+     "url": "",
+     "fuente": "",
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "Instrucción al licenciado Lope García de Castro",
+      "autor": "Titu Cusi Yupanqui",
+      "anio": "1570"
+     }
+    },
+    {
+     "num": "09",
+     "tramo": "II",
+     "titulo": "Comentarios reales",
+     "pieza": false,
+     "autor": "Inca Garcilaso de la Vega",
+     "anio": "1609",
+     "genero": "crónica",
+     "catedras": "A y B",
+     "desc": "Historia del Perú incaico escrita por el hijo de una noble inca y un capitán español. Se lee en selección.",
+     "teoria": [
+      "T11",
+      "T12",
+      "T13"
+     ],
+     "url": "https://es.wikisource.org/wiki/Comentarios_reales",
+     "fuente": "Wikisource",
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "Comentarios reales",
+      "autor": "Inca Garcilaso de la Vega",
+      "anio": "1609"
+     }
+    },
+    {
+     "num": "10",
+     "tramo": "II",
+     "titulo": "El primer nueva corónica y buen gobierno",
+     "pieza": false,
+     "autor": "Felipe Guamán Poma de Ayala",
+     "anio": "c. 1615",
+     "genero": "crónica",
+     "catedras": "B",
+     "desc": "Larga carta ilustrada con cientos de dibujos, dirigida al rey de España, con una mirada andina sobre la conquista y el mal gobierno colonial. Se lee en selección.",
+     "teoria": [
+      "T10",
+      "T11"
+     ],
+     "url": "https://es.wikisource.org/wiki/Nueva_cor%C3%B3nica_y_buen_gobierno",
+     "fuente": "Wikisource",
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "El primer nueva corónica y buen gobierno",
+      "autor": "Felipe Guamán Poma de Ayala",
+      "anio": "c. 1615"
+     }
+    },
+    {
+     "num": "11",
+     "tramo": "II",
+     "titulo": "Historia general del Perú",
+     "pieza": false,
+     "autor": "Inca Garcilaso de la Vega",
+     "anio": "1617",
+     "genero": "crónica",
+     "catedras": "B",
+     "desc": "Segunda parte de los Comentarios reales: narra la conquista del Perú. El programa pide los capítulos XXII a XXV.",
+     "teoria": [
+      "T12"
+     ],
+     "url": "",
+     "fuente": "",
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "Historia general del Perú",
+      "autor": "Inca Garcilaso de la Vega",
+      "anio": "1617"
+     }
+    },
+    {
+     "num": "12",
+     "tramo": "III",
+     "titulo": "Historia de la Monja Alférez",
+     "pieza": false,
+     "autor": "Catalina de Erauso",
+     "anio": "1624",
+     "genero": "autobiografía",
+     "catedras": "A y B",
+     "desc": "Autobiografía de una mujer que vivió como soldado en América con ropa de varón.",
+     "teoria": [
+      "T14"
+     ],
+     "url": "",
+     "fuente": "",
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "Historia de la Monja Alférez",
+      "autor": "Catalina de Erauso",
+      "anio": "1624"
+     }
+    },
+    {
+     "num": "13",
+     "tramo": "III",
+     "titulo": "Respuesta a sor Filotea de la Cruz",
+     "pieza": false,
+     "autor": "Sor Juana Inés de la Cruz",
+     "anio": "1691",
+     "genero": "carta",
+     "catedras": "A y B",
+     "desc": "Carta en la que sor Juana defiende su derecho a estudiar y a escribir, y responde a un obispo que la había criticado.",
+     "teoria": [
+      "T15",
+      "T16",
+      "T17"
+     ],
+     "url": "https://es.wikisource.org/wiki/Respuesta_a_sor_Filotea_de_la_Cruz",
+     "fuente": "Wikisource",
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "Respuesta a sor Filotea de la Cruz",
+      "autor": "Sor Juana Inés de la Cruz",
+      "anio": "1691"
+     }
+    },
+    {
+     "num": "14",
+     "tramo": "III",
+     "titulo": "Poesía y cartas",
+     "pieza": false,
+     "autor": "Sor Juana Inés de la Cruz",
+     "anio": "siglo XVII",
+     "genero": "poesía",
+     "catedras": "A",
+     "desc": "Selección de poemas y cartas de la monja y poeta novohispana, en la edición que usa la cátedra.",
+     "teoria": [
+      "T17"
+     ],
+     "url": "",
+     "fuente": "",
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "Poesía y cartas",
+      "autor": "Sor Juana Inés de la Cruz",
+      "anio": "siglo XVII"
+     }
+    },
+    {
+     "num": "15",
+     "tramo": "III",
+     "titulo": "Alboroto y motín de los indios de México",
+     "pieza": false,
+     "autor": "Carlos de Sigüenza y Góngora",
+     "anio": "1692",
+     "genero": "crónica",
+     "catedras": "A y B",
+     "desc": "Relato de un letrado criollo sobre el motín popular de 1692 en la ciudad de México.",
+     "teoria": [
+      "T18",
+      "T19"
+     ],
+     "url": "",
+     "fuente": "",
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "Alboroto y motín de los indios de México",
+      "autor": "Carlos de Sigüenza y Góngora",
+      "anio": "1692"
+     }
+    },
+    {
+     "num": "16",
+     "tramo": "IV",
+     "titulo": "Autobiografía de un esclavo",
+     "pieza": false,
+     "autor": "Juan Francisco Manzano",
+     "anio": "1835",
+     "genero": "autobiografía",
+     "catedras": "A y B",
+     "desc": "Autobiografía del poeta cubano Juan Francisco Manzano, que cuenta su vida como esclavo.",
+     "teoria": [
+      "T20",
+      "T21"
+     ],
+     "url": "",
+     "fuente": "",
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "Autobiografía de un esclavo",
+      "autor": "Juan Francisco Manzano",
+      "anio": "1835"
+     }
+    },
+    {
+     "num": "17",
+     "tramo": "IV",
+     "titulo": "Sab",
+     "pieza": false,
+     "autor": "Gertrudis Gómez de Avellaneda",
+     "anio": "1841",
+     "genero": "novela",
+     "catedras": "B",
+     "desc": "Novela cubana antiesclavista sobre un esclavo mulato enamorado de la hija de su amo.",
+     "teoria": [
+      "T22"
+     ],
+     "url": "",
+     "fuente": "",
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "Sab",
+      "autor": "Gertrudis Gómez de Avellaneda",
+      "anio": "1841"
+     }
+    },
+    {
+     "num": "18",
+     "tramo": "IV",
+     "titulo": "Antología de poetas negros y esclavos de Cuba",
+     "pieza": false,
+     "autor": "Varios autores",
+     "anio": "siglo XIX",
+     "genero": "poesía",
+     "catedras": "B",
+     "desc": "Selección de poemas de autores y autoras negros y esclavos de Cuba, armada por la cátedra.",
+     "teoria": [
+      "T23",
+      "T24"
+     ],
+     "url": "",
+     "fuente": "",
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "Antología de poetas negros y esclavos",
+      "autor": "Varios autores",
+      "anio": "siglo XIX"
+     }
+    },
+    {
+     "num": "19",
+     "tramo": "V",
+     "titulo": "El presidio político en Cuba",
+     "pieza": false,
+     "autor": "José Martí",
+     "anio": "1871",
+     "genero": "ensayo",
+     "catedras": "B",
+     "desc": "Denuncia del trato a los presos políticos en Cuba, escrita por Martí a los 18 años.",
+     "teoria": [
+      "T25"
+     ],
+     "url": "",
+     "fuente": "",
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "El presidio político en Cuba",
+      "autor": "José Martí",
+      "anio": "1871"
+     }
+    },
+    {
+     "num": "20",
+     "tramo": "V",
+     "titulo": "Escenas norteamericanas",
+     "pieza": false,
+     "autor": "José Martí",
+     "anio": "siglo XIX",
+     "genero": "crónica",
+     "catedras": "A",
+     "desc": "Crónicas de Martí sobre la vida en los Estados Unidos. El programa las lee en selección.",
+     "teoria": [
+      "T26"
+     ],
+     "url": "",
+     "fuente": "",
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "Escenas norteamericanas",
+      "autor": "José Martí",
+      "anio": "siglo XIX"
+     }
+    },
+    {
+     "num": "21",
+     "tramo": "V",
+     "titulo": "Nuestra América",
+     "pieza": false,
+     "autor": "José Martí",
+     "anio": "1891",
+     "genero": "ensayo",
+     "catedras": "A",
+     "desc": "Ensayo en el que Martí pide conocer y pensar América desde sí misma y no desde modelos ajenos.",
+     "teoria": [
+      "T27"
+     ],
+     "url": "https://es.wikisource.org/wiki/Nuestra_Am%C3%A9rica",
+     "fuente": "Wikisource",
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "Nuestra América",
+      "autor": "José Martí",
+      "anio": "1891"
+     }
+    },
+    {
+     "num": "22",
+     "tramo": "V",
+     "titulo": "Versos sencillos",
+     "pieza": false,
+     "autor": "José Martí",
+     "anio": "1891",
+     "genero": "poesía",
+     "catedras": "A",
+     "desc": "Libro de poemas breves con los que Martí vuelve sobre su vida y sus ideas.",
+     "teoria": [
+      "T28"
+     ],
+     "url": "https://es.wikisource.org/wiki/Versos_sencillos",
+     "fuente": "Wikisource",
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "Versos sencillos",
+      "autor": "José Martí",
+      "anio": "1891"
+     }
+    },
+    {
+     "num": "23",
+     "tramo": "VI",
+     "titulo": "Azul...",
+     "pieza": false,
+     "autor": "Rubén Darío",
+     "anio": "1888",
+     "genero": "cuento y poesía",
+     "catedras": "A",
+     "desc": "Libro de cuentos y poemas de Darío, considerado el inicio del modernismo hispanoamericano.",
+     "teoria": [
+      "T29"
+     ],
+     "url": "",
+     "fuente": "",
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "Azul...",
+      "autor": "Rubén Darío",
+      "anio": "1888"
+     }
+    },
+    {
+     "num": "24",
+     "tramo": "VI",
+     "titulo": "Prosas profanas y otros poemas",
+     "pieza": false,
+     "autor": "Rubén Darío",
+     "anio": "1896",
+     "genero": "poesía",
+     "catedras": "A",
+     "desc": "Libro de poemas del modernismo, de lenguaje refinado y cosmopolita. El programa cita ediciones de 1896 y 1901.",
+     "teoria": [
+      "T29"
+     ],
+     "url": "https://es.wikisource.org/wiki/Prosas_profanas",
+     "fuente": "Wikisource",
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "Prosas profanas y otros poemas",
+      "autor": "Rubén Darío",
+      "anio": "1896"
+     }
+    },
+    {
+     "num": "25",
+     "tramo": "VI",
+     "titulo": "El triunfo de Calibán",
+     "pieza": false,
+     "autor": "Rubén Darío",
+     "anio": "1898",
+     "genero": "ensayo",
+     "catedras": "A",
+     "desc": "Artículo en el que Darío reacciona contra el poder de los Estados Unidos tras la guerra de 1898.",
+     "teoria": [
+      "T30"
+     ],
+     "url": "",
+     "fuente": "",
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "El triunfo de Calibán",
+      "autor": "Rubén Darío",
+      "anio": "1898"
+     }
+    },
+    {
+     "num": "26",
+     "tramo": "VI",
+     "titulo": "Peregrinaciones",
+     "pieza": false,
+     "autor": "Rubén Darío",
+     "anio": "1901",
+     "genero": "crónica",
+     "catedras": "A",
+     "desc": "Crónicas de viaje de Darío por Europa. El programa las lee en selección.",
+     "teoria": [],
+     "url": "",
+     "fuente": "",
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "Peregrinaciones",
+      "autor": "Rubén Darío",
+      "anio": "1901"
+     }
+    },
+    {
+     "num": "27",
+     "tramo": "VI",
+     "titulo": "Cantos de vida y esperanza",
+     "pieza": false,
+     "autor": "Rubén Darío",
+     "anio": "1905",
+     "genero": "poesía",
+     "catedras": "A",
+     "desc": "Libro de poemas con el que Darío vuelve sobre su obra anterior y mira a América y a España.",
+     "teoria": [
+      "T31"
+     ],
+     "url": "https://es.wikisource.org/wiki/Cantos_de_vida_y_esperanza",
+     "fuente": "Wikisource",
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "Cantos de vida y esperanza",
+      "autor": "Rubén Darío",
+      "anio": "1905"
+     }
+    },
+    {
+     "num": "28",
+     "tramo": "VI",
+     "titulo": "Antología de cuentos modernistas",
+     "pieza": false,
+     "autor": "Varios autores",
+     "anio": "fines del siglo XIX",
+     "genero": "cuento",
+     "catedras": "A",
+     "desc": "Antología de cuentos del modernismo hispanoamericano, a cargo de la cátedra.",
+     "teoria": [
+      "T32"
+     ],
+     "url": "",
+     "fuente": "",
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "Antología de cuentos modernistas",
+      "autor": "Varios autores",
+      "anio": "fines del siglo XIX"
+     }
+    }
+   ],
+   "teoria": [
+    {
+     "n": "T1",
+     "autor": "Rolena Adorno",
+     "titulo": "El sujeto colonial y la construcción cultural de la alteridad",
+     "corto": "El sujeto colonial y la alteridad",
+     "donde": "Revista de Crítica Literaria Latinoamericana 14 (28)",
+     "catedras": "A",
+     "obras": "1 y 2",
+     "autor_corto": "Adorno",
+     "titulo_corto": "El sujeto colonial y la alteridad",
+     "obras_poster": "1, 2",
+     "cat_poster": "A"
+    },
+    {
+     "n": "T2",
+     "autor": "Margarita Zamora",
+     "titulo": "Leer a Colón",
+     "corto": "Leer a Colón",
+     "donde": "En Reading Columbus (1993)",
+     "catedras": "A",
+     "obras": "1 y 2",
+     "autor_corto": "Zamora",
+     "titulo_corto": "Leer a Colón",
+     "obras_poster": "1, 2",
+     "cat_poster": "A"
+    },
+    {
+     "n": "T3",
+     "autor": "Beatriz Aracil Varón",
+     "titulo": "Yo, don Hernando Cortés. Reflexiones en torno a la escritura cortesiana",
+     "corto": "Yo, don Hernando Cortés",
+     "donde": "Iberoamericana-Vervuert (2016), caps. II y IV",
+     "catedras": "A",
+     "obras": "3",
+     "autor_corto": "Aracil Varón",
+     "titulo_corto": "Yo, don Hernando Cortés",
+     "obras_poster": "3",
+     "cat_poster": "A"
+    },
+    {
+     "n": "T4",
+     "autor": "Jorge Checa",
+     "titulo": "Cortés y el espacio de la conquista: la Segunda carta de relación",
+     "corto": "Cortés y el espacio de la conquista",
+     "donde": "MLN 111 (2)",
+     "catedras": "A",
+     "obras": "3",
+     "autor_corto": "Checa",
+     "titulo_corto": "Cortés y el espacio de la conquista",
+     "obras_poster": "3",
+     "cat_poster": "A"
+    },
+    {
+     "n": "T5",
+     "autor": "Sylvia Molloy",
+     "titulo": "Alteridad y reconocimiento en los Naufragios de Alvar Núñez Cabeza de Vaca",
+     "corto": "Alteridad y reconocimiento en los Naufragios",
+     "donde": "Nueva Revista de Filología Hispánica 35 (2)",
+     "catedras": "A",
+     "obras": "4",
+     "autor_corto": "Molloy",
+     "titulo_corto": "Alteridad y reconocimiento en los Naufragios",
+     "obras_poster": "4",
+     "cat_poster": "A"
+    },
+    {
+     "n": "T6",
+     "autor": "Carlos A. Jáuregui",
+     "titulo": "Cabeza de Vaca, Mala Cosa y las vicisitudes de la extrañeza",
+     "corto": "Cabeza de Vaca y Mala Cosa",
+     "donde": "Revista de Estudios Hispánicos 48 (3)",
+     "catedras": "A",
+     "obras": "4",
+     "autor_corto": "Jáuregui",
+     "titulo_corto": "Cabeza de Vaca y Mala Cosa",
+     "obras_poster": "4",
+     "cat_poster": "A"
+    },
+    {
+     "n": "T7",
+     "autor": "David Colmenares",
+     "titulo": "Su herencia fue el llanto. Pathos, memoria y condensación temporal en los Cantares mexicanos",
+     "corto": "Su herencia fue el llanto",
+     "donde": "Colonial Latin American Review 30 (1)",
+     "catedras": "A",
+     "obras": "5",
+     "autor_corto": "Colmenares",
+     "titulo_corto": "Su herencia fue el llanto",
+     "obras_poster": "5",
+     "cat_poster": "A"
+    },
+    {
+     "n": "T8",
+     "autor": "Loreley El Jaber",
+     "titulo": "Tirano a bordo. Desesperación, hambre y motines en el viaje de Jaime Rasquin",
+     "corto": "Tirano a bordo",
+     "donde": "En Motines y traición en el Río de la Plata (2025)",
+     "catedras": "B",
+     "obras": "6",
+     "autor_corto": "El Jaber",
+     "titulo_corto": "Tirano a bordo",
+     "obras_poster": "6",
+     "cat_poster": "B"
+    },
+    {
+     "n": "T9",
+     "autor": "Joaquín Zuleta Carrandi",
+     "titulo": "Quiero mudar en lloro amargo el canto: violencia, decoro y varietas en La Araucana (1569) de Alonso de Ercilla",
+     "corto": "Violencia, decoro y varietas en La Araucana",
+     "donde": "RILCE 36 (1)",
+     "catedras": "A",
+     "obras": "7",
+     "autor_corto": "Zuleta Carrandi",
+     "titulo_corto": "Violencia, decoro y varietas en La Araucana",
+     "obras_poster": "7",
+     "cat_poster": "A"
+    },
+    {
+     "n": "T10",
+     "autor": "Raquel Chang-Rodríguez",
+     "titulo": "Rebelión y religión en Titu Cusi y Guamán Poma",
+     "corto": "Rebelión y religión: Titu Cusi y Guamán Poma",
+     "donde": "En El discurso disidente (1991)",
+     "catedras": "B",
+     "obras": "8 y 10",
+     "autor_corto": "Chang-Rodríguez",
+     "titulo_corto": "Rebelión y religión: Titu Cusi y Guamán Poma",
+     "obras_poster": "8, 10",
+     "cat_poster": "B"
+    },
+    {
+     "n": "T11",
+     "autor": "Antonio Cornejo Polar",
+     "titulo": "Escribir en el aire. Ensayo sobre la heterogeneidad socio-cultural en las literaturas andinas",
+     "corto": "Escribir en el aire",
+     "donde": "Caps. 1 y 2 (cátedra B) y cap. II (cátedra A)",
+     "catedras": "A y B",
+     "obras": "8 a 10",
+     "autor_corto": "Cornejo Polar",
+     "titulo_corto": "Escribir en el aire",
+     "obras_poster": "8–10",
+     "cat_poster": "A B"
+    },
+    {
+     "n": "T12",
+     "autor": "José Antonio Mazzotti",
+     "titulo": "Coros mestizos del Inca Garcilaso. Resonancias andinas",
+     "corto": "Coros mestizos del Inca Garcilaso",
+     "donde": "Introducción y primera parte (1996)",
+     "catedras": "B",
+     "obras": "9 y 11",
+     "autor_corto": "Mazzotti",
+     "titulo_corto": "Coros mestizos del Inca Garcilaso",
+     "obras_poster": "9, 11",
+     "cat_poster": "B"
+    },
+    {
+     "n": "T13",
+     "autor": "José A. Rodríguez Garrido",
+     "titulo": "La identidad del enunciador en los Comentarios reales",
+     "corto": "La identidad del enunciador",
+     "donde": "Revista Iberoamericana 61 (172-173)",
+     "catedras": "A",
+     "obras": "9",
+     "autor_corto": "Rodríguez Garrido",
+     "titulo_corto": "La identidad del enunciador",
+     "obras_poster": "9",
+     "cat_poster": "A"
+    },
+    {
+     "n": "T14",
+     "autor": "Beatriz Ferrús Antón",
+     "titulo": "Monja alférez o El binomio imposible",
+     "corto": "Monja alférez o El binomio imposible",
+     "donde": "En Aún y más allá: mujeres y discursos (2001)",
+     "catedras": "B",
+     "obras": "12",
+     "autor_corto": "Ferrús Antón",
+     "titulo_corto": "Monja alférez o El binomio imposible",
+     "obras_poster": "12",
+     "cat_poster": "B"
+    },
+    {
+     "n": "T15",
+     "autor": "Josefina Ludmer",
+     "titulo": "Tretas del débil",
+     "corto": "Tretas del débil",
+     "donde": "En La sartén por el mango (1984)",
+     "catedras": "A y B",
+     "obras": "13",
+     "autor_corto": "Ludmer",
+     "titulo_corto": "Tretas del débil",
+     "obras_poster": "13",
+     "cat_poster": "A B"
+    },
+    {
+     "n": "T16",
+     "autor": "Beatriz Colombi",
+     "titulo": "La respuesta y sus vestidos, tipos discursivos y redes de poder en la Respuesta a Sor Filotea de Sor Juana Inés de la Cruz",
+     "corto": "La respuesta y sus vestidos",
+     "donde": "Mora 2 (1996)",
+     "catedras": "A y B",
+     "obras": "13",
+     "autor_corto": "Colombi",
+     "titulo_corto": "La respuesta y sus vestidos",
+     "obras_poster": "13",
+     "cat_poster": "A B"
+    },
+    {
+     "n": "T17",
+     "autor": "Octavio Paz",
+     "titulo": "Óyeme con los ojos",
+     "corto": "Óyeme con los ojos",
+     "donde": "En Sor Juana o Las trampas de la fe (1982)",
+     "catedras": "A",
+     "obras": "13 y 14",
+     "autor_corto": "Paz",
+     "titulo_corto": "Óyeme con los ojos",
+     "obras_poster": "13, 14",
+     "cat_poster": "A"
+    },
+    {
+     "n": "T18",
+     "autor": "Susana Zanetti",
+     "titulo": "El letrado y la plebe: Alboroto y motín de México de 1692 de Carlos de Sigüenza y Góngora",
+     "corto": "El letrado y la plebe",
+     "donde": "En Lecturas críticas de textos hispánicos, vol. 2 (2000)",
+     "catedras": "A y B",
+     "obras": "15",
+     "autor_corto": "Zanetti",
+     "titulo_corto": "El letrado y la plebe",
+     "obras_poster": "15",
+     "cat_poster": "A B"
+    },
+    {
+     "n": "T19",
+     "autor": "Ángel Rama",
+     "titulo": "La ciudad letrada",
+     "corto": "La ciudad letrada",
+     "donde": "1984",
+     "catedras": "A y B",
+     "obras": "15",
+     "autor_corto": "Rama",
+     "titulo_corto": "La ciudad letrada",
+     "obras_poster": "15",
+     "cat_poster": "A B"
+    },
+    {
+     "n": "T20",
+     "autor": "Sylvia Molloy",
+     "titulo": "De la sujeción al sujeto. La autobiografía de Juan Francisco Manzano",
+     "corto": "De la sujeción al sujeto",
+     "donde": "En Acto de presencia (1992)",
+     "catedras": "A y B",
+     "obras": "16",
+     "autor_corto": "Molloy",
+     "titulo_corto": "De la sujeción al sujeto",
+     "obras_poster": "16",
+     "cat_poster": "A B"
+    },
+    {
+     "n": "T21",
+     "autor": "Antonio Vera-León",
+     "titulo": "Juan Francisco Manzano: el estilo bárbaro de la nación",
+     "corto": "Manzano: el estilo bárbaro de la nación",
+     "donde": "Hispamérica (1991)",
+     "catedras": "B",
+     "obras": "16",
+     "autor_corto": "Vera-León",
+     "titulo_corto": "Manzano: el estilo bárbaro de la nación",
+     "obras_poster": "16",
+     "cat_poster": "B"
+    },
+    {
+     "n": "T22",
+     "autor": "Doris Sommer",
+     "titulo": "Sab, c'est moi",
+     "corto": "Sab, c'est moi",
+     "donde": "En Ficciones fundacionales (2004)",
+     "catedras": "B",
+     "obras": "17",
+     "autor_corto": "Sommer",
+     "titulo_corto": "Sab, c'est moi",
+     "obras_poster": "17",
+     "cat_poster": "B"
+    },
+    {
+     "n": "T23",
+     "autor": "Saulo Antonio Fernández Núñez",
+     "titulo": "El poeta esclavo Juan Antonio Frías y su contribución a la identidad",
+     "corto": "El poeta esclavo Juan Antonio Frías",
+     "donde": "Islas (2006)",
+     "catedras": "B",
+     "obras": "18",
+     "autor_corto": "Fernández Núñez",
+     "titulo_corto": "El poeta esclavo Juan Antonio Frías",
+     "obras_poster": "18",
+     "cat_poster": "B"
+    },
+    {
+     "n": "T24",
+     "autor": "María Alejandra Aguilar Dornelles",
+     "titulo": "Heroísmo y conciencia racial en la obra de la poeta afrocubana Cristina Ayala",
+     "corto": "Heroísmo y conciencia racial: Cristina Ayala",
+     "donde": "Meridional (2016)",
+     "catedras": "B",
+     "obras": "18",
+     "autor_corto": "Aguilar Dornelles",
+     "titulo_corto": "Heroísmo y conciencia racial: Cristina Ayala",
+     "obras_poster": "18",
+     "cat_poster": "B"
+    },
+    {
+     "n": "T25",
+     "autor": "Celina Manzoni",
+     "titulo": "José Martí y la escritura de los límites. El presidio político en Cuba",
+     "corto": "Martí y la escritura de los límites",
+     "donde": "Zama 9 (2017)",
+     "catedras": "B",
+     "obras": "19",
+     "autor_corto": "Manzoni",
+     "titulo_corto": "Martí y la escritura de los límites",
+     "obras_poster": "19",
+     "cat_poster": "B"
+    },
+    {
+     "n": "T26",
+     "autor": "Beatriz Colombi",
+     "titulo": "Las Escenas norteamericanas entre otras escenas",
+     "corto": "Escenas norteamericanas entre otras escenas",
+     "donde": "En Viaje intelectual (2004)",
+     "catedras": "A",
+     "obras": "20",
+     "autor_corto": "Colombi",
+     "titulo_corto": "Escenas norteamericanas entre otras escenas",
+     "obras_poster": "20",
+     "cat_poster": "A"
+    },
+    {
+     "n": "T27",
+     "autor": "Julio Ramos",
+     "titulo": "Nuestra América: arte del buen gobierno",
+     "corto": "Nuestra América: arte del buen gobierno",
+     "donde": "En Desencuentros de la modernidad en América Latina (1989)",
+     "catedras": "A",
+     "obras": "21",
+     "autor_corto": "Ramos",
+     "titulo_corto": "Nuestra América: arte del buen gobierno",
+     "obras_poster": "21",
+     "cat_poster": "A"
+    },
+    {
+     "n": "T28",
+     "autor": "Susana Zanetti",
+     "titulo": "Es pequeño - es mi vida. La tensión autobiográfica en Versos sencillos de José Martí",
+     "corto": "Es pequeño - es mi vida",
+     "donde": "Actas del congreso José Martí, UNLP (1994)",
+     "catedras": "A",
+     "obras": "22",
+     "autor_corto": "Zanetti",
+     "titulo_corto": "Es pequeño - es mi vida",
+     "obras_poster": "22",
+     "cat_poster": "A"
+    },
+    {
+     "n": "T29",
+     "autor": "Ángel Rama",
+     "titulo": "El poeta frente a la modernidad",
+     "corto": "El poeta frente a la modernidad",
+     "donde": "En Literatura y clase social (1983)",
+     "catedras": "A",
+     "obras": "23 y 24",
+     "autor_corto": "Rama",
+     "titulo_corto": "El poeta frente a la modernidad",
+     "obras_poster": "23, 24",
+     "cat_poster": "A"
+    },
+    {
+     "n": "T30",
+     "autor": "Beatriz Colombi",
+     "titulo": "El Triunfo de Calibán y el discurso latino",
+     "corto": "El Triunfo de Calibán y el discurso latino",
+     "donde": "En Viaje intelectual (2004)",
+     "catedras": "A",
+     "obras": "25",
+     "autor_corto": "Colombi",
+     "titulo_corto": "El Triunfo de Calibán y el discurso latino",
+     "obras_poster": "25",
+     "cat_poster": "A"
+    },
+    {
+     "n": "T31",
+     "autor": "Sylvia Molloy",
+     "titulo": "Ser y decir en Darío: el poema liminar de Cantos de vida y esperanza",
+     "corto": "Ser y decir en Darío",
+     "donde": "Texto crítico 38 (1988)",
+     "catedras": "A",
+     "obras": "27",
+     "autor_corto": "Molloy",
+     "titulo_corto": "Ser y decir en Darío",
+     "obras_poster": "27",
+     "cat_poster": "A"
+    },
+    {
+     "n": "T32",
+     "autor": "Gabriela Mora",
+     "titulo": "Palabras liminares; A manera de introducción/conclusión",
+     "corto": "Palabras liminares",
+     "donde": "En El cuento modernista hispanoamericano (1996)",
+     "catedras": "A",
+     "obras": "28",
+     "autor_corto": "Mora",
+     "titulo_corto": "Palabras liminares",
+     "obras_poster": "28",
+     "cat_poster": "A"
+    }
+   ],
+   "poster": {
+    "bajada": "28 lecturas que proponen las dos cátedras de Literatura Latinoamericana I de Letras (FFyL, UBA) en 2026. Tachá cada una cuando la termines.",
+    "subtitulo": "Literatura latinoamericana, de la conquista al modernismo",
+    "tramos": [
+     [
+      "I",
+      "Encuentro, conquista y guerra"
+     ],
+     [
+      "II",
+      "Voces andinas"
+     ],
+     [
+      "III",
+      "Letrados, plebe y mujeres en el barroco"
+     ],
+     [
+      "IV",
+      "Esclavitud y antiesclavismo"
+     ],
+     [
+      "V",
+      "Martí y la crónica"
+     ],
+     [
+      "VI",
+      "Darío y el modernismo"
+     ]
+    ],
+    "nota_teoria": "Cada T de una lectura remite a un texto crítico de los mismos programas. Los títulos completos están en la guía.",
+    "pie": "No es un canon oficial: es lo que estas cátedras ponen a leer este año. Cátedra A: Valeria Añón, 2.º cuatrimestre. Cátedra B: Loreley El Jaber, 1.er cuatrimestre. Armado por Galera con los programas públicos del Departamento de Letras.",
+    "alto": 166
+   }
+  },
+  {
+   "id": "latinoamericana-siglos-xx-xxi",
+   "titulo": "Literatura latinoamericana, siglos XX-XXI",
+   "bajada": "Naturaleza, extractivismos y violencias: las 30 lecturas de Literatura Latinoamericana II, la cátedra de Alejandra Torres en Letras (FFyL, UBA), 1.er cuatrimestre de 2026.",
+   "materia": "Literatura Latinoamericana II",
+   "catedras": [
+    {
+     "letra": "",
+     "titular": "Alejandra Torres",
+     "cuatrimestre": "1.er cuatrimestre de 2026",
+     "programa_url": "https://descargas.galera.com.ar/programas/letras/2026/literatura-latinoamericana-ii-torres.pdf",
+     "hilo": {
+      "titulo": "Mundo (in)habitable en la literatura latinoamericana, siglo XX-XXI. Naturaleza, extractivismos y violencias",
+      "resumen": "Pregunta cómo la literatura latinoamericana representa el modo de habitar el mundo, cómo pensó las economías y culturas extractivas y qué cambia con la crisis climática. Parte de los debates sobre naturaleza y cultura (transculturación, heterogeneidad, ecocrítica, pensamiento descolonial) y los sigue de García Márquez a Arguedas, Rulfo y Roa Bastos, y de las vanguardias a las reescrituras actuales de la antropofagia.",
+      "unidades": [
+       {
+        "num": "1",
+        "titulo": "Naturaleza y cultura en el marco de los procesos de transculturación"
+       },
+       {
+        "num": "2",
+        "titulo": "Violencia contra la naturaleza y la sociedad"
+       },
+       {
+        "num": "3",
+        "titulo": "Ontologías alternativas en el pasaje del Modernismo a la Vanguardia"
+       },
+       {
+        "num": "4",
+        "titulo": "Feminismos, violencias y ecopoéticas"
+       },
+       {
+        "num": "5",
+        "titulo": "Relato e imaginación en las reescrituras de la antropofagia y el extractivismo"
+       }
+      ]
+     }
+    }
+   ],
+   "tramos": [
+    {
+     "num": "I",
+     "nombre": "Naturaleza y cultura: transculturación"
+    },
+    {
+     "num": "II",
+     "nombre": "Violencia contra la naturaleza y la sociedad"
+    },
+    {
+     "num": "III",
+     "nombre": "Ontologías alternativas: del Modernismo a la Vanguardia"
+    },
+    {
+     "num": "IV",
+     "nombre": "Feminismos, violencias y ecopoéticas"
+    },
+    {
+     "num": "V",
+     "nombre": "Antropofagia y extractivismo hoy"
+    }
+   ],
+   "nota_tramos": "Cada tramo del mapa es una unidad del programa.",
+   "obras": [
+    {
+     "num": "01",
+     "tramo": "I",
+     "unidad": "1",
+     "titulo": "Los funerales de la Mamá Grande",
+     "pieza": false,
+     "autor": "Gabriel García Márquez",
+     "anio": "1962",
+     "genero": "cuento",
+     "catedras": "",
+     "desc": "Libro de cuentos de García Márquez; el que le da título cuenta el funeral de una matriarca poderosa.",
+     "teoria": [
+      "T1",
+      "T2"
+     ],
+     "url": "",
+     "fuente": "",
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "Los funerales de la Mamá Grande",
+      "autor": "Gabriel García Márquez",
+      "anio": "1962"
+     }
+    },
+    {
+     "num": "02",
+     "tramo": "I",
+     "unidad": "1",
+     "titulo": "Cien años de soledad",
+     "pieza": false,
+     "autor": "Gabriel García Márquez",
+     "anio": "1967",
+     "genero": "novela",
+     "catedras": "",
+     "desc": "Historia de la familia Buendía a lo largo de siete generaciones en Macondo, un pueblo que nace, crece y desaparece.",
+     "teoria": [
+      "T1",
+      "T2",
+      "T3"
+     ],
+     "url": "",
+     "fuente": "",
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "Cien años de soledad",
+      "autor": "Gabriel García Márquez",
+      "anio": "1967"
+     }
+    },
+    {
+     "num": "03",
+     "tramo": "I",
+     "unidad": "1",
+     "titulo": "La soledad de América Latina",
+     "pieza": true,
+     "autor": "Gabriel García Márquez",
+     "anio": "1982",
+     "genero": "ensayo",
+     "catedras": "",
+     "desc": "Discurso de García Márquez al recibir el Nobel de Literatura.",
+     "teoria": [
+      "T4"
+     ],
+     "url": "",
+     "fuente": "",
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "La soledad de América Latina",
+      "autor": "Gabriel García Márquez",
+      "anio": "1982"
+     }
+    },
+    {
+     "num": "04",
+     "tramo": "II",
+     "unidad": "2",
+     "titulo": "Agua",
+     "pieza": true,
+     "autor": "José María Arguedas",
+     "anio": "1933",
+     "genero": "cuento",
+     "catedras": "",
+     "desc": "Cuento de Arguedas sobre una comunidad andina y la disputa por el agua.",
+     "teoria": [
+      "T5"
+     ],
+     "url": "",
+     "fuente": "",
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "Agua",
+      "autor": "José María Arguedas",
+      "anio": "1933"
+     }
+    },
+    {
+     "num": "05",
+     "tramo": "II",
+     "unidad": "2",
+     "titulo": "Cómo viven los mineros de Cerro de Pasco",
+     "pieza": true,
+     "autor": "José María Arguedas",
+     "anio": "1936",
+     "genero": "crónica",
+     "catedras": "",
+     "desc": "Crónica de Arguedas sobre la vida de los mineros de Cerro de Pasco, en el Perú.",
+     "teoria": [
+      "T5"
+     ],
+     "url": "",
+     "fuente": "",
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "Cómo viven los mineros de Cerro de Pasco",
+      "autor": "José María Arguedas",
+      "anio": "1936"
+     }
+    },
+    {
+     "num": "06",
+     "tramo": "II",
+     "unidad": "2",
+     "titulo": "El llano en llamas",
+     "pieza": false,
+     "autor": "Juan Rulfo",
+     "anio": "1953",
+     "genero": "cuento",
+     "catedras": "",
+     "desc": "Libro de cuentos de Rulfo ambientados en el campo mexicano.",
+     "teoria": [
+      "T6",
+      "T7"
+     ],
+     "url": "",
+     "fuente": "",
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "El llano en llamas",
+      "autor": "Juan Rulfo",
+      "anio": "1953"
+     }
+    },
+    {
+     "num": "07",
+     "tramo": "II",
+     "unidad": "2",
+     "titulo": "Los ríos profundos",
+     "pieza": false,
+     "autor": "José María Arguedas",
+     "anio": "1958",
+     "genero": "novela",
+     "catedras": "",
+     "desc": "Un adolescente criado entre indígenas llega a un colegio religioso de una ciudad andina y la mira con sus ojos.",
+     "teoria": [
+      "T5"
+     ],
+     "url": "",
+     "fuente": "",
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "Los ríos profundos",
+      "autor": "José María Arguedas",
+      "anio": "1958"
+     }
+    },
+    {
+     "num": "08",
+     "tramo": "II",
+     "unidad": "2",
+     "titulo": "El sueño del pongo",
+     "pieza": true,
+     "autor": "José María Arguedas",
+     "anio": "1965",
+     "genero": "cuento",
+     "catedras": "",
+     "desc": "Cuento sobre un siervo de hacienda, el pongo, y su patrón.",
+     "teoria": [
+      "T8"
+     ],
+     "url": "",
+     "fuente": "",
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "El sueño del pongo",
+      "autor": "José María Arguedas",
+      "anio": "1965"
+     }
+    },
+    {
+     "num": "09",
+     "tramo": "II",
+     "unidad": "2",
+     "titulo": "Moriencia",
+     "pieza": true,
+     "autor": "Augusto Roa Bastos",
+     "anio": "1969",
+     "genero": "cuento",
+     "catedras": "",
+     "desc": "",
+     "teoria": [
+      "T9",
+      "T10"
+     ],
+     "url": "",
+     "fuente": "",
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "Moriencia",
+      "autor": "Augusto Roa Bastos",
+      "anio": "1969"
+     }
+    },
+    {
+     "num": "10",
+     "tramo": "II",
+     "unidad": "2",
+     "titulo": "Ecología y cultura",
+     "pieza": true,
+     "autor": "Augusto Roa Bastos",
+     "anio": "2017",
+     "genero": "ensayo",
+     "catedras": "",
+     "desc": "Textos de Roa Bastos sobre el medio ambiente y la relación entre naturaleza y cultura. El programa los lee en selección.",
+     "teoria": [
+      "T10"
+     ],
+     "url": "",
+     "fuente": "",
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "Ecología y cultura",
+      "autor": "Augusto Roa Bastos",
+      "anio": "2017"
+     }
+    },
+    {
+     "num": "11",
+     "tramo": "III",
+     "unidad": "3",
+     "titulo": "El triunfo de Calibán",
+     "pieza": true,
+     "autor": "Rubén Darío",
+     "anio": "1898",
+     "genero": "ensayo",
+     "catedras": "",
+     "desc": "Artículo en el que Darío reacciona contra el poder de los Estados Unidos tras la guerra de 1898.",
+     "teoria": [
+      "T11",
+      "T12"
+     ],
+     "url": "",
+     "fuente": "",
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "El triunfo de Calibán",
+      "autor": "Rubén Darío",
+      "anio": "1898"
+     }
+    },
+    {
+     "num": "12",
+     "tramo": "III",
+     "unidad": "3",
+     "titulo": "Ariel",
+     "pieza": false,
+     "autor": "José Enrique Rodó",
+     "anio": "1900",
+     "genero": "ensayo",
+     "catedras": "",
+     "desc": "Ensayo en el que un maestro habla a sus jóvenes discípulos sobre los valores del espíritu frente al utilitarismo. Se lee en selección.",
+     "teoria": [
+      "T11",
+      "T12"
+     ],
+     "url": "https://es.wikisource.org/wiki/Ariel",
+     "fuente": "Wikisource",
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "Ariel",
+      "autor": "José Enrique Rodó",
+      "anio": "1900"
+     }
+    },
+    {
+     "num": "13",
+     "tramo": "III",
+     "unidad": "3",
+     "titulo": "Nuestros indios",
+     "pieza": true,
+     "autor": "Manuel González Prada",
+     "anio": "1904",
+     "genero": "ensayo",
+     "catedras": "",
+     "desc": "Ensayo de González Prada sobre la situación de los indígenas del Perú.",
+     "teoria": [
+      "T13"
+     ],
+     "url": "",
+     "fuente": "",
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "Nuestros indios",
+      "autor": "Manuel González Prada",
+      "anio": "1904"
+     }
+    },
+    {
+     "num": "14",
+     "tramo": "III",
+     "unidad": "3",
+     "titulo": "Ariel",
+     "pieza": true,
+     "autor": "Pedro Henríquez Ureña",
+     "anio": "1905",
+     "genero": "ensayo",
+     "catedras": "",
+     "desc": "Texto de Henríquez Ureña sobre el *Ariel* de Rodó.",
+     "teoria": [],
+     "url": "",
+     "fuente": "",
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "Ariel (Henríquez Ureña)",
+      "autor": "Pedro Henríquez Ureña",
+      "anio": "1905"
+     }
+    },
+    {
+     "num": "15",
+     "tramo": "III",
+     "unidad": "3",
+     "titulo": "Nostalgias imperiales",
+     "pieza": true,
+     "autor": "César Vallejo",
+     "anio": "1918",
+     "genero": "poesía",
+     "catedras": "",
+     "desc": "Poema de Vallejo sobre el pasado americano, que integra *Los heraldos negros*.",
+     "teoria": [
+      "T14",
+      "T15"
+     ],
+     "url": "",
+     "fuente": "",
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "Nostalgias imperiales",
+      "autor": "César Vallejo",
+      "anio": "1918"
+     }
+    },
+    {
+     "num": "16",
+     "tramo": "III",
+     "unidad": "3",
+     "titulo": "Trilce",
+     "pieza": false,
+     "autor": "César Vallejo",
+     "anio": "1922",
+     "genero": "poesía",
+     "catedras": "",
+     "desc": "Libro de poemas de Vallejo con un lenguaje roto y nuevo. Se lee en selección.",
+     "teoria": [
+      "T16",
+      "T14"
+     ],
+     "url": "https://es.wikisource.org/wiki/Trilce",
+     "fuente": "Wikisource",
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "Trilce",
+      "autor": "César Vallejo",
+      "anio": "1922"
+     }
+    },
+    {
+     "num": "17",
+     "tramo": "III",
+     "unidad": "3",
+     "titulo": "Una esperanza i el mar",
+     "pieza": false,
+     "autor": "Magda Portal",
+     "anio": "1927",
+     "genero": "poesía",
+     "catedras": "",
+     "desc": "Libro de poemas de Magda Portal, poeta peruana de la vanguardia.",
+     "teoria": [
+      "T17",
+      "T18"
+     ],
+     "url": "",
+     "fuente": "",
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "Una esperanza i el mar",
+      "autor": "Magda Portal",
+      "anio": "1927"
+     }
+    },
+    {
+     "num": "18",
+     "tramo": "III",
+     "unidad": "3",
+     "titulo": "Manifiesto antropófago",
+     "pieza": true,
+     "autor": "Oswald de Andrade",
+     "anio": "1928",
+     "genero": "ensayo",
+     "catedras": "",
+     "desc": "Manifiesto brasileño que propone «devorar» las influencias extranjeras para crear una cultura propia.",
+     "teoria": [
+      "T19",
+      "T20",
+      "T21"
+     ],
+     "url": "",
+     "fuente": "",
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "Manifiesto antropófago",
+      "autor": "Oswald de Andrade",
+      "anio": "1928"
+     }
+    },
+    {
+     "num": "19",
+     "tramo": "III",
+     "unidad": "3",
+     "titulo": "Caliban",
+     "pieza": true,
+     "autor": "Roberto Fernández Retamar",
+     "anio": "1971",
+     "genero": "ensayo",
+     "catedras": "",
+     "desc": "Ensayo que toma a Calibán, el personaje de *La tempestad*, como figura de América Latina.",
+     "teoria": [
+      "T22"
+     ],
+     "url": "",
+     "fuente": "",
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "Caliban",
+      "autor": "Roberto Fernández Retamar",
+      "anio": "1971"
+     }
+    },
+    {
+     "num": "20",
+     "tramo": "III",
+     "unidad": "3",
+     "titulo": "Caliban ante la antropofagia",
+     "pieza": true,
+     "autor": "Roberto Fernández Retamar",
+     "anio": "1999",
+     "genero": "ensayo",
+     "catedras": "",
+     "desc": "Texto posterior en el que Fernández Retamar vuelve sobre su *Caliban*.",
+     "teoria": [
+      "T22"
+     ],
+     "url": "",
+     "fuente": "",
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "Caliban ante la antropofagia",
+      "autor": "Roberto Fernández Retamar",
+      "anio": "1999"
+     }
+    },
+    {
+     "num": "21",
+     "tramo": "III",
+     "unidad": "3",
+     "titulo": "Antropofagia zombi",
+     "pieza": false,
+     "autor": "Suely Rolnik",
+     "anio": "2023",
+     "genero": "ensayo",
+     "catedras": "",
+     "desc": "",
+     "teoria": [
+      "T21"
+     ],
+     "url": "",
+     "fuente": "",
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "Antropofagia zombi",
+      "autor": "Suely Rolnik",
+      "anio": "2023"
+     }
+    },
+    {
+     "num": "22",
+     "tramo": "IV",
+     "unidad": "4",
+     "titulo": "Balún Canán",
+     "pieza": false,
+     "autor": "Rosario Castellanos",
+     "anio": "1957",
+     "genero": "novela",
+     "catedras": "",
+     "desc": "Novela de Castellanos ambientada en Chiapas, con una niña que ve el mundo de los terratenientes y el de los mayas.",
+     "teoria": [
+      "T23",
+      "T24"
+     ],
+     "url": "",
+     "fuente": "",
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "Balún Canán",
+      "autor": "Rosario Castellanos",
+      "anio": "1957"
+     }
+    },
+    {
+     "num": "23",
+     "tramo": "IV",
+     "unidad": "4",
+     "titulo": "Ecopoemas",
+     "pieza": true,
+     "autor": "Nicanor Parra",
+     "anio": "1982",
+     "genero": "poesía",
+     "catedras": "",
+     "desc": "Poemas breves del antipoeta chileno sobre ecología. Se leen en selección.",
+     "teoria": [
+      "T25"
+     ],
+     "url": "",
+     "fuente": "",
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "Ecopoemas",
+      "autor": "Nicanor Parra",
+      "anio": "1982"
+     }
+    },
+    {
+     "num": "24",
+     "tramo": "IV",
+     "unidad": "4",
+     "titulo": "El invencible verano de Liliana",
+     "pieza": false,
+     "autor": "Cristina Rivera Garza",
+     "anio": "2021",
+     "genero": "no ficción",
+     "catedras": "",
+     "desc": "Libro de Rivera Garza sobre el femicidio de su hermana Liliana en 1990, hecho de testimonios y documentos.",
+     "teoria": [
+      "T26"
+     ],
+     "url": "",
+     "fuente": "",
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "El invencible verano de Liliana",
+      "autor": "Cristina Rivera Garza",
+      "anio": "2021"
+     }
+    },
+    {
+     "num": "25",
+     "tramo": "V",
+     "unidad": "5",
+     "titulo": "Historias de caníbales",
+     "pieza": true,
+     "autor": "Ventura García Calderón",
+     "anio": "1924",
+     "genero": "cuento",
+     "catedras": "",
+     "desc": "Cuento que, según un texto crítico del programa, parodia las narrativas de viaje.",
+     "teoria": [
+      "T27"
+     ],
+     "url": "",
+     "fuente": "",
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "Historias de caníbales",
+      "autor": "Ventura García Calderón",
+      "anio": "1924"
+     }
+    },
+    {
+     "num": "26",
+     "tramo": "V",
+     "unidad": "5",
+     "titulo": "El antropófago",
+     "pieza": true,
+     "autor": "Pablo Palacio",
+     "anio": "1927",
+     "genero": "cuento",
+     "catedras": "",
+     "desc": "",
+     "teoria": [
+      "T28"
+     ],
+     "url": "",
+     "fuente": "",
+     "derechos": "dominio público",
+     "poster": {
+      "titulo": "El antropófago",
+      "autor": "Pablo Palacio",
+      "anio": "1927"
+     }
+    },
+    {
+     "num": "27",
+     "tramo": "V",
+     "unidad": "5",
+     "titulo": "Caníbal",
+     "pieza": true,
+     "autor": "Liliana Colanzi",
+     "anio": "2017",
+     "genero": "cuento",
+     "catedras": "",
+     "desc": "Cuento del libro *Nuestro mundo muerto*.",
+     "teoria": [
+      "T29"
+     ],
+     "url": "",
+     "fuente": "",
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "Caníbal",
+      "autor": "Liliana Colanzi",
+      "anio": "2017"
+     }
+    },
+    {
+     "num": "28",
+     "tramo": "V",
+     "unidad": "5",
+     "titulo": "La compañía",
+     "pieza": false,
+     "autor": "Verónica Gerber Bicecci",
+     "anio": "2019",
+     "genero": "no ficción",
+     "catedras": "",
+     "desc": "Libro de Gerber Bicecci que mezcla poesía documental e historia oral para contar la minería y la violencia.",
+     "teoria": [
+      "T30"
+     ],
+     "url": "",
+     "fuente": "",
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "La compañía",
+      "autor": "Verónica Gerber Bicecci",
+      "anio": "2019"
+     }
+    },
+    {
+     "num": "29",
+     "tramo": "V",
+     "unidad": "5",
+     "titulo": "Noche de fiesta",
+     "pieza": true,
+     "autor": "Natalia García Freire",
+     "anio": "2019",
+     "genero": "cuento",
+     "catedras": "",
+     "desc": "Cuento publicado en la revista *La gran Belleza*, n.º 6.",
+     "teoria": [
+      "T31"
+     ],
+     "url": "",
+     "fuente": "",
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "Noche de fiesta",
+      "autor": "Natalia García Freire",
+      "anio": "2019"
+     }
+    },
+    {
+     "num": "30",
+     "tramo": "V",
+     "unidad": "5",
+     "titulo": "La santita",
+     "pieza": true,
+     "autor": "Mafe Moscoso",
+     "anio": "2024",
+     "genero": "cuento",
+     "catedras": "",
+     "desc": "Cuentos de *La santita*: el universo entrelazado y multiespecie de la cultura andina del presente.",
+     "teoria": [
+      "T31"
+     ],
+     "url": "",
+     "fuente": "",
+     "derechos": "derechos vigentes",
+     "poster": {
+      "titulo": "La santita",
+      "autor": "Mafe Moscoso",
+      "anio": "2024"
+     }
+    }
+   ],
+   "teoria": [
+    {
+     "n": "T1",
+     "autor": "Joaquín Marco",
+     "titulo": "El «realismo mágico» y el «real maravilloso»",
+     "corto": "El realismo mágico y el real maravilloso",
+     "donde": "En Historia de la cultura literaria en Hispanoamérica (FCE, 2010)",
+     "catedras": "",
+     "obras": "1 y 2",
+     "autor_corto": "Marco",
+     "titulo_corto": "El realismo mágico y el real maravilloso",
+     "obras_poster": "1, 2"
+    },
+    {
+     "n": "T2",
+     "autor": "Ángel Rama",
+     "titulo": "La narrativa de Gabriel García Márquez: edificación de un arte nacional y popular",
+     "corto": "García Márquez: un arte nacional y popular",
+     "donde": "Universidad Veracruzana (1985)",
+     "catedras": "",
+     "obras": "1 y 2",
+     "autor_corto": "Rama",
+     "titulo_corto": "García Márquez: un arte nacional y popular",
+     "obras_poster": "1, 2"
+    },
+    {
+     "n": "T3",
+     "autor": "Josefa Lago Graña",
+     "titulo": "La colmena y el hormiguero. Una lectura eco-crítica de Cien años de soledad",
+     "corto": "La colmena y el hormiguero",
+     "donde": "Káñina 39 (1) (2015)",
+     "catedras": "",
+     "obras": "2",
+     "autor_corto": "Lago Graña",
+     "titulo_corto": "La colmena y el hormiguero",
+     "obras_poster": "2"
+    },
+    {
+     "n": "T4",
+     "autor": "Antonio Cornejo Polar",
+     "titulo": "Mestizaje, transculturación, heterogeneidad",
+     "corto": "Mestizaje, transculturación, heterogeneidad",
+     "donde": "Revista de Crítica Literaria Latinoamericana 20 (40) (1994)",
+     "catedras": "",
+     "obras": "3",
+     "autor_corto": "Cornejo Polar",
+     "titulo_corto": "Mestizaje, transculturación, heterogeneidad",
+     "obras_poster": "3"
+    },
+    {
+     "n": "T5",
+     "autor": "Mauricio Ostria",
+     "titulo": "Globalización, ecología y literatura. Aproximación ecocrítica a textos literarios latinoamericanos",
+     "corto": "Globalización, ecología y literatura",
+     "donde": "Kipus 27 (2010)",
+     "catedras": "",
+     "obras": "4, 5 y 7",
+     "autor_corto": "Ostria",
+     "titulo_corto": "Globalización, ecología y literatura",
+     "obras_poster": "4, 5, 7"
+    },
+    {
+     "n": "T6",
+     "autor": "Gustavo Lespada",
+     "titulo": "El sustrato oral en la narrativa de Juan Rulfo",
+     "corto": "El sustrato oral en la narrativa de Rulfo",
+     "donde": "En Poéticas indígenas contemporáneas (Katatay, 2024)",
+     "catedras": "",
+     "obras": "6",
+     "autor_corto": "Lespada",
+     "titulo_corto": "El sustrato oral en la narrativa de Rulfo",
+     "obras_poster": "6"
+    },
+    {
+     "n": "T7",
+     "autor": "Walter D. Mignolo",
+     "titulo": "Escribir la oralidad: la obra de Juan Rulfo en el contexto de las literaturas del «Tercer Mundo»",
+     "corto": "Escribir la oralidad: Juan Rulfo",
+     "donde": "En Juan Rulfo, Toda la obra (Archivos, 1992)",
+     "catedras": "",
+     "obras": "6",
+     "autor_corto": "Mignolo",
+     "titulo_corto": "Escribir la oralidad: Juan Rulfo",
+     "obras_poster": "6"
+    },
+    {
+     "n": "T8",
+     "autor": "Silvia Graziano",
+     "titulo": "Para una relectura de «El sueño del pongo» (1965) de José María Arguedas",
+     "corto": "Relectura de «El sueño del pongo»",
+     "donde": "En Poéticas indígenas contemporáneas (Katatay, 2024)",
+     "catedras": "",
+     "obras": "8",
+     "autor_corto": "Graziano",
+     "titulo_corto": "Relectura de «El sueño del pongo»",
+     "obras_poster": "8"
+    },
+    {
+     "n": "T9",
+     "autor": "Martin Lienhard",
+     "titulo": "Una intertextualidad «indoamericana» y Moriencia de Augusto Roa Bastos",
+     "corto": "Una intertextualidad «indoamericana»",
+     "donde": "Revista Iberoamericana 127 (1984)",
+     "catedras": "",
+     "obras": "9",
+     "autor_corto": "Lienhard",
+     "titulo_corto": "Una intertextualidad «indoamericana»",
+     "obras_poster": "9"
+    },
+    {
+     "n": "T10",
+     "autor": "Bartomeu Melià",
+     "titulo": "Bilingüismo y escritura",
+     "corto": "Bilingüismo y escritura",
+     "donde": "En El Paraguay inventado (1997)",
+     "catedras": "",
+     "obras": "9 y 10",
+     "autor_corto": "Melià",
+     "titulo_corto": "Bilingüismo y escritura",
+     "obras_poster": "9, 10"
+    },
+    {
+     "n": "T11",
+     "autor": "Carlos Jáuregui",
+     "titulo": "Del canibalismo, el calibanismo y la antropofagia, al consumo",
+     "corto": "Canibalismo, calibanismo y antropofagia",
+     "donde": "En Canibalia (Iberoamericana-Vervuert, 2008)",
+     "catedras": "",
+     "obras": "11 y 12",
+     "autor_corto": "Jáuregui",
+     "titulo_corto": "Canibalismo, calibanismo y antropofagia",
+     "obras_poster": "11, 12"
+    },
+    {
+     "n": "T12",
+     "autor": "Julio Ramos",
+     "titulo": "Masa, cultura, latinoamericanismo",
+     "corto": "Masa, cultura, latinoamericanismo",
+     "donde": "En Desencuentros de la modernidad en América Latina (FCE, 1989)",
+     "catedras": "",
+     "obras": "11 y 12",
+     "autor_corto": "Ramos",
+     "titulo_corto": "Masa, cultura, latinoamericanismo",
+     "obras_poster": "11, 12"
+    },
+    {
+     "n": "T13",
+     "autor": "José Carlos Mariátegui",
+     "titulo": "El problema del indio",
+     "corto": "El problema del indio",
+     "donde": "En 7 ensayos de interpretación de la realidad peruana (1928)",
+     "catedras": "",
+     "obras": "13",
+     "autor_corto": "Mariátegui",
+     "titulo_corto": "El problema del indio",
+     "obras_poster": "13"
+    },
+    {
+     "n": "T14",
+     "autor": "Gustavo Lespada",
+     "titulo": "César Vallejo: la rebeldía del lenguaje",
+     "corto": "César Vallejo: la rebeldía del lenguaje",
+     "donde": "Actas del Congreso Internacional Vallejo (2014)",
+     "catedras": "",
+     "obras": "15 y 16",
+     "autor_corto": "Lespada",
+     "titulo_corto": "César Vallejo: la rebeldía del lenguaje",
+     "obras_poster": "15, 16"
+    },
+    {
+     "n": "T15",
+     "autor": "Gustavo Lespada",
+     "titulo": "La impronta andina en la poesía de César Vallejo",
+     "corto": "La impronta andina en la poesía de Vallejo",
+     "donde": "Zama 12",
+     "catedras": "",
+     "obras": "15",
+     "autor_corto": "Lespada",
+     "titulo_corto": "La impronta andina en la poesía de Vallejo",
+     "obras_poster": "15"
+    },
+    {
+     "n": "T16",
+     "autor": "Enrique Foffani",
+     "titulo": "Poesía y capitalismo en Trilce: la pérdida de la experiencia y el alquiler del mundo",
+     "corto": "Poesía y capitalismo en Trilce",
+     "donde": "En Vallejo y el dinero (2018)",
+     "catedras": "",
+     "obras": "16",
+     "autor_corto": "Foffani",
+     "titulo_corto": "Poesía y capitalismo en Trilce",
+     "obras_poster": "16"
+    },
+    {
+     "n": "T17",
+     "autor": "Evely Audry",
+     "titulo": "Magda Portal. Procesos de modernización, vanguardismo y compromiso",
+     "corto": "Magda Portal: vanguardismo y compromiso",
+     "donde": "Entre Caníbales, año 2, n.º 9 (2018)",
+     "catedras": "",
+     "obras": "17",
+     "autor_corto": "Audry",
+     "titulo_corto": "Magda Portal: vanguardismo y compromiso",
+     "obras_poster": "17"
+    },
+    {
+     "n": "T18",
+     "autor": "Mihai Grünfeld",
+     "titulo": "Voces femeninas de la vanguardia. El compromiso de Magda Portal",
+     "corto": "Voces femeninas de la vanguardia",
+     "donde": "Revista de Crítica Literaria Latinoamericana 51 (2000)",
+     "catedras": "",
+     "obras": "17",
+     "autor_corto": "Grünfeld",
+     "titulo_corto": "Voces femeninas de la vanguardia",
+     "obras_poster": "17"
+    },
+    {
+     "n": "T19",
+     "autor": "Raul Bopp",
+     "titulo": "Morte e vida da antropofagia",
+     "corto": "Morte e vida da antropofagia",
+     "donde": "Civilização Brasileira (1977)",
+     "catedras": "",
+     "obras": "18",
+     "autor_corto": "Bopp",
+     "titulo_corto": "Morte e vida da antropofagia",
+     "obras_poster": "18"
+    },
+    {
+     "n": "T20",
+     "autor": "Haroldo de Campos",
+     "titulo": "De la razón antropofágica: diálogo y diferencias en la cultura brasileña",
+     "corto": "De la razón antropofágica",
+     "donde": "Vuelta 68 (1982)",
+     "catedras": "",
+     "obras": "18",
+     "autor_corto": "De Campos",
+     "titulo_corto": "De la razón antropofágica",
+     "obras_poster": "18"
+    },
+    {
+     "n": "T21",
+     "autor": "Eduardo Viveiros de Castro",
+     "titulo": "El perspectivismo retoma la antropofagia oswaldiana en nuevos términos",
+     "corto": "El perspectivismo y la antropofagia",
+     "donde": "En La mirada del jaguar",
+     "catedras": "",
+     "obras": "18 y 21",
+     "autor_corto": "Viveiros de Castro",
+     "titulo_corto": "El perspectivismo y la antropofagia",
+     "obras_poster": "18, 21"
+    },
+    {
+     "n": "T22",
+     "autor": "Rosalba Campra",
+     "titulo": "Sobre centros, periferias y mudanzas en Roberto Fernández Retamar",
+     "corto": "Centros, periferias y mudanzas",
+     "donde": "En Itinerarios en la crítica hispanoamericana (2014)",
+     "catedras": "",
+     "obras": "19 y 20",
+     "autor_corto": "Campra",
+     "titulo_corto": "Centros, periferias y mudanzas",
+     "obras_poster": "19, 20"
+    },
+    {
+     "n": "T23",
+     "autor": "Raquel Mosqueda Rivera",
+     "titulo": "La palabra sagrada. Violencia y lenguaje en Balún Canán",
+     "corto": "La palabra sagrada",
+     "donde": "Literatura Mexicana 30 (1) (2019)",
+     "catedras": "",
+     "obras": "22",
+     "autor_corto": "Mosqueda Rivera",
+     "titulo_corto": "La palabra sagrada",
+     "obras_poster": "22"
+    },
+    {
+     "n": "T24",
+     "autor": "Margo Glantz",
+     "titulo": "Las hijas de la Malinche",
+     "corto": "Las hijas de la Malinche",
+     "donde": "En Esguince de cintura (Conaculta, 1994)",
+     "catedras": "",
+     "obras": "22",
+     "autor_corto": "Glantz",
+     "titulo_corto": "Las hijas de la Malinche",
+     "obras_poster": "22"
+    },
+    {
+     "n": "T25",
+     "autor": "Niall Binns",
+     "titulo": "Prólogo a El cielo se está cayendo a pedazos: ecopoemas, de Nicanor Parra",
+     "corto": "Prólogo a los ecopoemas de Parra",
+     "donde": "Vegueta (2016)",
+     "catedras": "",
+     "obras": "23",
+     "autor_corto": "Binns",
+     "titulo_corto": "Prólogo a los ecopoemas de Parra",
+     "obras_poster": "23"
+    },
+    {
+     "n": "T26",
+     "autor": "Paula Daniela Bianchi",
+     "titulo": "Femicidios, travesticidios y transfemicidios en la literatura ultracontemporánea latinoamericana",
+     "corto": "Femicidios, travesticidios y transfemicidios",
+     "donde": "Revista Iberoamericana (2023)",
+     "catedras": "",
+     "obras": "24",
+     "autor_corto": "Bianchi",
+     "titulo_corto": "Femicidios, travesticidios y transfemicidios",
+     "obras_poster": "24"
+    },
+    {
+     "n": "T27",
+     "autor": "Philip Krummrich",
+     "titulo": "Historias de caníbales: una parodia de las narrativas de viaje",
+     "corto": "Historias de caníbales: una parodia",
+     "donde": "Lejana 5 (2017)",
+     "catedras": "",
+     "obras": "25",
+     "autor_corto": "Krummrich",
+     "titulo_corto": "Historias de caníbales: una parodia",
+     "obras_poster": "25"
+    },
+    {
+     "n": "T28",
+     "autor": "Marina von der Pahlen",
+     "titulo": "Reír a satisfacción. El placer en la construcción de dos relatos de Pablo Palacio",
+     "corto": "Reír a satisfacción",
+     "donde": "En Revelaciones imperfectas (NJ Editor, 2009)",
+     "catedras": "",
+     "obras": "26",
+     "autor_corto": "Von der Pahlen",
+     "titulo_corto": "Reír a satisfacción",
+     "obras_poster": "26"
+    },
+    {
+     "n": "T29",
+     "autor": "Magdalena González Almada",
+     "titulo": "Escrituras migrantes: desplazamientos identitarios y territoriales en textos de Magela Baudoin, Fabiola Morales y Liliana Colanzi",
+     "corto": "Escrituras migrantes",
+     "donde": "Cuadernos del Hipogrifo 10 (2018)",
+     "catedras": "",
+     "obras": "27",
+     "autor_corto": "González Almada",
+     "titulo_corto": "Escrituras migrantes",
+     "obras_poster": "27"
+    },
+    {
+     "n": "T30",
+     "autor": "José Manuel Suárez Noriega",
+     "titulo": "Acercamientos desde la ecocrítica a dos ecoartefactos transtextuales de Verónica Gerber Bicecci",
+     "corto": "Ecoartefactos transtextuales",
+     "donde": "Estudios de Teoría Literaria 13 (30) (2024)",
+     "catedras": "",
+     "obras": "28",
+     "autor_corto": "Suárez Noriega",
+     "titulo_corto": "Ecoartefactos transtextuales",
+     "obras_poster": "28"
+    },
+    {
+     "n": "T31",
+     "autor": "Paula Daniela Bianchi",
+     "titulo": "«El futuro llegó hace rato». Comunidades en cuentos latinoamericanos del presente",
+     "corto": "El futuro llegó hace rato",
+     "donde": "Kamchatka 22 (2023)",
+     "catedras": "",
+     "obras": "29 y 30",
+     "autor_corto": "Bianchi",
+     "titulo_corto": "El futuro llegó hace rato",
+     "obras_poster": "29, 30"
+    }
+   ],
+   "poster": {
+    "bajada": "Las 30 lecturas de Literatura Latinoamericana II, cátedra de Alejandra Torres, Letras (FFyL, UBA), 1.er cuatrimestre de 2026. Tachá cada una cuando la termines.",
+    "subtitulo": "Naturaleza y extractivismo en la literatura latinoamericana",
+    "hilo": "Cómo la literatura latinoamericana imagina el modo de habitar el mundo, las economías extractivas y la crisis climática, de García Márquez y Arguedas a las reescrituras actuales de la antropofagia.",
+    "hilo_unidades": [
+     [
+      "I",
+      "Naturaleza y cultura: transculturación"
+     ],
+     [
+      "II",
+      "Violencia contra la naturaleza y la sociedad"
+     ]
+    ],
+    "nota_teoria": "Cada T de una lectura remite a un texto crítico del mismo programa. Los datos completos están en la guía.",
+    "pie": "No es un canon oficial: es lo que esta cátedra pone a leer en 2026, y los programas cambian de un año a otro. Programa de Literatura Latinoamericana II, cátedra de Alejandra Torres. Armado por Galera con los programas públicos del Departamento de Letras.",
+    "alto": 150,
+    "pad": 16
    }
   }
  ]
