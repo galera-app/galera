@@ -104,6 +104,11 @@ const Contratos = (() => {
   // opcional/def (se puede sacar; def = viene incluida), cond(v) (aparece solo si se cumple), revisar (sin norma que la respalde o
   // dudosa: «a revisar por abogado/a»). Cada campo puede traer si(v) para mostrarse solo cuando corresponde.
   // ---------------------------------------------------------------------------------------------------------------
+  // Franja de borrador (texto provisorio, a aprobar por Fidel). Solo traducción y edición tienen fuente (modelo AATI, Ley 11.723 arts. 37 a 44); los otros siete son redacción propia sin revisión profesional.
+  const CON_FUENTE = ['traduccion', 'edicion'];
+  const FRANJA_T = 'Borrador sin revisión profesional';
+  const FRANJA = 'Este modelo es una redacción de Galera sin respaldo en un modelo oficial ni revisión de un/a abogado/a. No lo firmes sin que lo lea un profesional.';
+  const franja = id => CON_FUENTE.indexOf(id) < 0 ? { t: FRANJA_T, d: FRANJA } : null;
   const AVISO = 'Plantilla orientativa: no es asesoramiento legal. Antes de firmar, conviene que la revise un/a abogado/a.';
   const miles = n => { const s = String(Math.round(Number(n) * 100) / 100).replace('.', ','), p = s.split(','); return p[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.') + (p[1] ? ',' + p[1] : ''); };
   const T = (id, etq, def, x) => Object.assign({ id, etq, tipo: 'texto', def: def == null ? '' : def }, x);
@@ -520,7 +525,7 @@ const Contratos = (() => {
     const r = generar(id, v), m = r.modelo, lug = 'En ______________, a los ___ días del mes de ______________ de ______, ';
     const nom = (k, e) => v[k] || FALTA(e), dom = k => v[k] ? `con domicilio en ${v[k]}` : 'domicilio y DNI o CUIT: ______________';
     const cab = lug + (m.cab ? m.cab(v) : `entre ${nom('p1', 'primera parte')} (${dom('dom1')}) y ${nom('p2', 'segunda parte')} (${dom('dom2')})`) + ':';
-    return { id, titulo: m.t.toUpperCase(), aviso: 'Borrador generado con Galera (galera.com.ar). ' + AVISO, cab, clausulas: r.clausulas, falta: r.falta,
+    return { id, franja: franja(id), titulo: m.t.toUpperCase(), aviso: 'Borrador generado con Galera (galera.com.ar). ' + AVISO, cab, clausulas: r.clausulas, falta: r.falta,
       cierre: 'Para que conste, las partes firman dos ejemplares de un mismo tenor.', firmas: [m.roles.a, m.roles.b], notas: !!o.notas };
   }
   const anexo = e => e.clausulas.map(c => ({ n: c.n, t: c.t, fuente: c.fuente, porque: c.porque, revisar: c.revisar }));
@@ -528,12 +533,12 @@ const Contratos = (() => {
   const NOTA_ANEXO = 'Cada cláusula indica de dónde sale. Las marcadas «a revisar por abogado/a» no tienen una norma que las respalde o admiten opciones que conviene que un profesional evalúe.';
 
   function documento(id, v, o) {
-    const e = estructura(id, v, o), L = [`# ${e.titulo}`, '', `> ${e.aviso}`, '', e.cab, '', ...e.clausulas.map(c => `**${c.n}. ${c.t}.** ${c.texto}`).flatMap(x => [x, '']), e.cierre, '', '______________________ &nbsp;&nbsp;&nbsp;&nbsp; ______________________', `${e.firmas[0]} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ${e.firmas[1]}`, ''];
+    const e = estructura(id, v, o), L = [`# ${e.titulo}`, '', ...(e.franja ? [`> **${e.franja.t.toUpperCase()}.** ${e.franja.d}`, ''] : []), `> ${e.aviso}`, '', e.cab, '', ...e.clausulas.map(c => `**${c.n}. ${c.t}.** ${c.texto}`).flatMap(x => [x, '']), e.cierre, '', '______________________ &nbsp;&nbsp;&nbsp;&nbsp; ______________________', `${e.firmas[0]} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ${e.firmas[1]}`, ''];
     if (e.notas) L.push('---', '', `## ${TIT_ANEXO}`, '', NOTA_ANEXO, '', ...anexo(e).flatMap(c => [`**${c.n}. ${c.t}.** Fuente: ${c.fuente}.${c.porque ? ' Por qué importa: ' + c.porque : ''}${c.revisar ? ' *A revisar por abogado/a.*' : ''}`, '']));
     return L.join('\n');
   }
   function texto(id, v, o) {
-    const e = estructura(id, v, o), L = [e.titulo, '='.repeat(e.titulo.length), '', e.aviso, '', e.cab, '', ...e.clausulas.map(c => `${c.n}. ${c.t}. ${c.texto}`).flatMap(x => [x, '']), e.cierre, '', '______________________        ______________________', `${e.firmas[0]}${' '.repeat(Math.max(2, 30 - e.firmas[0].length))}${e.firmas[1]}`, ''];
+    const e = estructura(id, v, o), L = [e.titulo, '='.repeat(e.titulo.length), '', ...(e.franja ? [`>>> ${e.franja.t.toUpperCase()}. ${e.franja.d} <<<`, ''] : []), e.aviso, '', e.cab, '', ...e.clausulas.map(c => `${c.n}. ${c.t}. ${c.texto}`).flatMap(x => [x, '']), e.cierre, '', '______________________        ______________________', `${e.firmas[0]}${' '.repeat(Math.max(2, 30 - e.firmas[0].length))}${e.firmas[1]}`, ''];
     if (e.notas) L.push('', TIT_ANEXO.toUpperCase(), '', NOTA_ANEXO, '', ...anexo(e).flatMap(c => [`${c.n}. ${c.t}. Fuente: ${c.fuente}.${c.porque ? ' Por qué importa: ' + c.porque : ''}${c.revisar ? ' [A revisar por abogado/a]' : ''}`, '']));
     return L.join('\n');
   }
@@ -542,7 +547,7 @@ const Contratos = (() => {
   // HTML autónomo del contrato (se usa para imprimir o guardar como PDF).
   function html(id, v, o) {
     const e = estructura(id, v, o);
-    return `<h1>${xesc(e.titulo)}</h1><p class="rc-aviso">${xesc(e.aviso)}</p><p>${marcar(e.cab)}</p>` + e.clausulas.map(c => `<p><b>${c.n}. ${xesc(c.t)}.</b> ${marcar(c.texto)}</p>`).join('') + `<p>${xesc(e.cierre)}</p><div class="rc-firmas"><p>______________________<br>${xesc(e.firmas[0])}</p><p>______________________<br>${xesc(e.firmas[1])}</p></div>`
+    return `<h1>${xesc(e.titulo)}</h1>${e.franja ? `<p class="rc-franja"><b>${xesc(e.franja.t)}.</b> ${xesc(e.franja.d)}</p>` : ''}<p class="rc-aviso">${xesc(e.aviso)}</p><p>${marcar(e.cab)}</p>` + e.clausulas.map(c => `<p><b>${c.n}. ${xesc(c.t)}.</b> ${marcar(c.texto)}</p>`).join('') + `<p>${xesc(e.cierre)}</p><div class="rc-firmas"><p>______________________<br>${xesc(e.firmas[0])}</p><p>______________________<br>${xesc(e.firmas[1])}</p></div>`
       + (e.notas ? `<h2>${xesc(TIT_ANEXO)}</h2><p>${xesc(NOTA_ANEXO)}</p>` + anexo(e).map(c => `<p><b>${c.n}. ${xesc(c.t)}.</b> Fuente: ${xesc(c.fuente)}.${c.porque ? ' Por qué importa: ' + xesc(c.porque) : ''}${c.revisar ? ' <i>A revisar por abogado/a.</i>' : ''}</p>`).join('') : '');
   }
 
@@ -573,7 +578,7 @@ const Contratos = (() => {
     const conMarcas = (t, f) => t.split(/(\[completar: [^\]]*\])/).filter(Boolean).map(s => run(s, Object.assign({}, f, /^\[completar:/.test(s) ? { mark: true } : {}))).join('');
     const par = (runs, p) => { p = p || {}; return `<w:p><w:pPr>${p.keep ? '<w:keepNext/>' : ''}<w:spacing w:after="${p.after == null ? 160 : p.after}" w:line="276" w:lineRule="auto"/><w:jc w:val="${p.jc || 'both'}"/></w:pPr>${runs}</w:p>`; };
     const celda = t => `<w:tc><w:tcPr><w:tcW w:w="4500" w:type="dxa"/></w:tcPr>${par(run('______________________'), { jc: 'center', after: 0 })}${par(run(t, { b: true }), { jc: 'center' })}</w:tc>`;
-    const cuerpo = [par(run(e.titulo, { b: true, sz: 30 }), { jc: 'center', after: 240 }), par(run(e.aviso, { i: true, sz: 20 }), { jc: 'left' }), par(conMarcas(e.cab)),
+    const cuerpo = [par(run(e.titulo, { b: true, sz: 30 }), { jc: 'center', after: 240 }), ...(e.franja ? [par(run(e.franja.t.toUpperCase() + '. ', { b: true, mark: true }) + run(e.franja.d, { b: true }), { jc: 'left' })] : []), par(run(e.aviso, { i: true, sz: 20 }), { jc: 'left' }), par(conMarcas(e.cab)),
       ...e.clausulas.map(c => par(run(`${c.n}. ${c.t}. `, { b: true }) + conMarcas(c.texto))), par(run(e.cierre)),
       `<w:tbl><w:tblPr><w:tblW w:w="9000" w:type="dxa"/></w:tblPr><w:tblGrid><w:gridCol w:w="4500"/><w:gridCol w:w="4500"/></w:tblGrid><w:tr>${celda(e.firmas[0])}${celda(e.firmas[1])}</w:tr></w:tbl>`];
     if (e.notas) cuerpo.push(par(run(TIT_ANEXO, { b: true, sz: 26 }), { jc: 'left', keep: true }), par(run(NOTA_ANEXO, { i: true }), { jc: 'left' }), ...anexo(e).map(c => par(run(`${c.n}. ${c.t}. `, { b: true }) + run(`Fuente: ${c.fuente}.${c.porque ? ' Por qué importa: ' + c.porque : ''}${c.revisar ? ' A revisar por abogado/a.' : ''}`), { jc: 'left' })));
@@ -587,6 +592,6 @@ const Contratos = (() => {
       { nombre: 'word/document.xml', datos: X + `<w:document ${W}><w:body>${cuerpo.join('')}${pie}</w:body></w:document>` }]);
   }
 
-  return { MODELOS, CLAUSULAS, FALTA, AVISO, defaults: defaults2, generar, avisos, documento, texto, html, docx, estructura, zip, crc32, visible, incluida, miles };
+  return { MODELOS, CLAUSULAS, FALTA, AVISO, franja, defaults: defaults2, generar, avisos, documento, texto, html, docx, estructura, zip, crc32, visible, incluida, miles };
 })();
 if (typeof module !== 'undefined') module.exports = Contratos;

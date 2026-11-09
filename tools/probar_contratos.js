@@ -167,5 +167,22 @@ console.log('.docx');
   check(C.crc32(new TextEncoder().encode('123456789')) === 0xCBF43926, 'crc32: valor de referencia del estándar');
 }
 
+// Franja «Borrador sin revisión profesional»: solo en los siete modelos sin fuente, en pantalla (vista), texto, Markdown, HTML de impresión y .docx.
+{
+  const SIN = ['cesion', 'encargo', 'ilustracion', 'correccion', 'coedicion', 'autoedicion', 'audiolibro'];
+  const bytes = id => Buffer.from(C.docx(id, con(id, CASOS[id]), {})).toString('utf8');
+  SIN.forEach(id => {
+    const v = con(id, CASOS[id]), F = C.franja(id);
+    check(F && /Borrador sin revisión profesional/.test(F.t), id + ': tiene franja de borrador');
+    check(C.html(id, v, {}).includes('class="rc-franja"') && C.html(id, v, {}).includes('Borrador sin revisión profesional'), id + ': franja en el HTML de impresión');
+    check(C.documento(id, v, {}).includes('BORRADOR SIN REVISIÓN PROFESIONAL') && C.texto(id, v, {}).includes('BORRADOR SIN REVISIÓN PROFESIONAL'), id + ': franja en Markdown y texto, no solo en el anexo');
+    check(bytes(id).includes('BORRADOR SIN REVISIÓN PROFESIONAL'), id + ': franja en el .docx');
+  });
+  ['traduccion', 'edicion'].forEach(id => {
+    const v = con(id, CASOS[id]);
+    check(C.franja(id) === null && !C.html(id, v, {}).includes('rc-franja') && !bytes(id).includes('BORRADOR SIN REVISIÓN'), id + ': sin franja (tiene fuente)');
+  });
+}
+
 console.log(`\n${ok} bien, ${mal} mal`);
 process.exit(mal ? 1 : 0);

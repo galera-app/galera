@@ -57,6 +57,7 @@ const Redactor = (() => {
     const datos = todos.filter(c => !esCampoElegible(c)), eleg = todos.filter(esCampoElegible);
     const pestana = k => `<button type="button" class="btn ch ${E.tipo === k ? '' : 'lin'}" aria-pressed="${E.tipo === k}" data-rc="tipo" data-rc-v="${k}">${esc(Contratos.MODELOS[k].corto)}</button>`;
     return `<div id="rc-raiz">
+      ${Contratos.franja(E.tipo) ? `<div class="tarjeta rc-franja" role="note"><p class="u-m0"><b>${esc(Contratos.franja(E.tipo).t)}.</b> ${esc(Contratos.franja(E.tipo).d)}</p></div>` : ''}
       <div class="tarjeta rc-aviso" role="note"><p class="u-m0"><b>Plantillas orientativas, no asesoramiento legal.</b> Antes de firmar, conviene que las revise un/a abogado/a. Las cláusulas marcadas «a revisar por abogado/a» son las que no se apoyan en una norma o admiten opciones que merecen opinión profesional. Todo se arma en tu navegador: lo que escribís no se envía ni se guarda en ningún lado y se pierde al cerrar o recargar la página.</p></div>
       <div class="u-mb10 eligen" role="group" aria-label="Tipo de contrato">${orden.map(pestana).join('')}</div>
       <p class="u-mt0 chico" id="rc-desc">${esc(m.d)}</p>
