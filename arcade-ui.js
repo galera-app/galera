@@ -58,9 +58,9 @@ function arcLetra(pos, d) {
 function arcSelIniciales() {
   const ini = (Arcade.iniciales(E.arcade.ini) || 'AAA').split('');
   return `<div class="arc-ini" role="group" aria-label="Tus iniciales: flechas arriba y abajo cambian la letra">${ini.map((c, i) => `<div class="arc-col">
-    <button class="arc-fl" type="button" aria-label="Letra ${i + 1} siguiente" onclick="arcLetra(${i},1)">▲</button>
+    <button class="arc-fl" type="button" aria-label="Letra ${i + 1} siguiente" data-clic="arcLetra" data-clic-a="[${ja(i)},1]">▲</button>
     <button class="arc-letra" type="button" data-f="ini-${i}" data-ini="${i}" aria-label="Letra ${i + 1}: ${c}">${c}</button>
-    <button class="arc-fl" type="button" aria-label="Letra ${i + 1} anterior" onclick="arcLetra(${i},-1)">▼</button></div>`).join('')}</div>`;
+    <button class="arc-fl" type="button" aria-label="Letra ${i + 1} anterior" data-clic="arcLetra" data-clic-a="[${ja(i)},-1]">▼</button></div>`).join('')}</div>`;
 }
 document.addEventListener('keydown', e => {
   const b = e.target && e.target.closest && e.target.closest('.arc-letra');
@@ -96,9 +96,9 @@ function vArcade() {
   const prac = ARC ? ARC.practicos : [];
   const tablero = (t, nombre, desc, accion) => `<div class="arc-tab ${A.top === t ? 'on' : ''}"><div class="crece"><b>${esc(nombre)}</b><div class="arc-tenue">${esc(desc)}</div>
       <div class="arc-rec">Tu mejor marca: <span class="arc-pts">${arcCero(arcMejor(t))}</span></div></div>
-      <div class="arc-bt"><button class="arc-btn" type="button" onclick="${accion}">Jugar</button><button class="arc-btn sec" type="button" onclick="arcVerTop(${arg(t)})" aria-label="Ver el top de ${esc(nombre)}">🏆 Top</button></div></div>`;
+      <div class="arc-bt"><button class="arc-btn" type="button" ${accion}>Jugar</button><button class="arc-btn sec" type="button" data-clic="arcVerTop" data-clic-a="[${arg(t)}]" aria-label="Ver el top de ${esc(nombre)}">🏆 Top</button></div></div>`;
   return `<div class="arc" data-tema="arcade">
-    <div class="fila" style="margin:0 0 4px"><button class="arc-btn sec" type="button" onclick="irResumenes('0911')">← Resúmenes de Corrección de Estilo</button></div>
+    <div class="fila" style="margin:0 0 4px"><button class="arc-btn sec" type="button" data-clic="irResumenes" data-clic-a="[&quot;0911&quot;]">← Resúmenes de Corrección de Estilo</button></div>
     <h2 class="arc-titulo">ARCADE</h2><p class="arc-sub">Corrección de Estilo · 2.º parcial</p>
     <p class="arc-start" aria-hidden="true">PRESS START</p>
     <p class="arc-tenue arc-centro">Una sala aparte y opcional: acá hay puntos y récords. Practicar sigue sin puntaje y sin compararte con nadie. Los puntos quedan en este navegador${ARCADE_URL ? ' y las marcas se suman al top de todos con tus tres letras (nada más)' : ''}. Para ver el ranking, tocá <b>🏆 Top</b> en cada tablero.</p>
@@ -106,10 +106,10 @@ function vArcade() {
     <h3 class="arc-h">Tus iniciales</h3>${arcSelIniciales()}
     <h3 class="arc-h">Teórico · 3 vidas y racha</h3>
     <p class="arc-tenue">100 por acierto; la racha multiplica (×2 desde 3, ×3 desde 6, ×4 desde 10) y las difíciles suman 50 antes de multiplicar. Errar cuesta una vida y corta la racha. Sin reloj.</p>
-    ${Arcade.TEORICOS.map(x => tablero(x[0], x[1], x[2], `arcEmpezarTeo(${arg(x[0])})`)).join('')}
+    ${Arcade.TEORICOS.map(x => tablero(x[0], x[1], x[2], dAcc('arcEmpezarTeo', x[0]))).join('')}
     <h3 class="arc-h">Práctico · tocá el error</h3>
     <p class="arc-tenue">Leé el texto y tocá cada error: primero se resalta y después tocás <b>Marcar</b>. +100 por error, −50 por sobrecorregir, +200 si no sobrecorregiste.</p>
-    ${prac.length ? prac.map(p => tablero('prac-' + p.id, p.titulo, p.errores + ' errores' + (p.tema ? ' · ' + p.tema : ''), `arcEmpezarPrac(${arg(p.id)})`)).join('') : ARC ? '<p class="arc-tenue">Los textos del Práctico llegan en los próximos días.</p>' : ''}
+    ${prac.length ? prac.map(p => tablero('prac-' + p.id, p.titulo, p.errores + ' errores' + (p.tema ? ' · ' + p.tema : ''), dAcc('arcEmpezarPrac', p.id))).join('') : ARC ? '<p class="arc-tenue">Los textos del Práctico llegan en los próximos días.</p>' : ''}
     <div class="arc-panel">${arcTopHtml(A.top)}</div>
   </div>`;
 }
@@ -160,7 +160,7 @@ function vArcTeo(A) {
   const ult = S.vidas <= 0 || S.i + 1 >= S.cola.length;
   const ops = q.opciones.map((o, x) => {
     const cls = u ? (x === q.correcta ? 'bien' : x === u.elegida ? 'mal' : 'apagada') : '';
-    return `<button class="arc-op ${cls}" type="button" ${u ? 'aria-disabled="true"' : ''} data-f="aq-${S.i}-${x}" onclick="arcResp(${x})"><b>${LETRAS[x]})</b> ${o}</button>`;
+    return `<button class="arc-op ${cls}" type="button" ${u ? 'aria-disabled="true"' : ''} data-f="aq-${S.i}-${x}" data-clic="arcResp" data-clic-a="[${ja(x)}]"><b>${LETRAS[x]})</b> ${o}</button>`;
   }).join('');
   return `<div class="arc" data-tema="arcade">
     <div class="arc-marcador"><span class="arc-vidas" role="img" aria-label="Vidas: ${S.vidas} de ${Arcade.VIDAS}">${'♥'.repeat(S.vidas)}${'♡'.repeat(Arcade.VIDAS - S.vidas)}</span>
@@ -168,8 +168,8 @@ function vArcTeo(A) {
     <p class="arc-tenue" style="margin:0 0 6px">${esc(arcNombre(A.tablero))} · pregunta ${S.i + 1}${q.dificil ? ' · <b class="arc-dif">DIFÍCIL +50</b>' : ''}</p>
     <div class="arc-card"><p class="arc-enun">${q.texto}</p><div class="arc-ops">${ops}</div>
     ${u ? `<p class="arc-dev ${u.ok ? 'ok' : 'no'}" role="status"><b>${u.ok ? '✓ ¡Bien! +' + u.ganado + (u.mult > 1 ? ' (×' + u.mult + ')' : '') : '✗ Era ' + LETRAS[q.correcta] + ')'}</b> ${q.respuesta}</p>
-      <div class="botones"><button class="arc-btn" type="button" data-f="aq-sig" onclick="arcSig()">${ult ? 'Ver mi resultado' : 'Siguiente'}</button></div>` : ''}</div>
-    <div class="fila"><button class="arc-btn sec" type="button" onclick="confirmar('¿Dejar la partida? No se guarda el puntaje.','Salir','Seguir jugando').then(o=>o&&arcSala())">Salir</button></div></div>`;
+      <div class="botones"><button class="arc-btn" type="button" data-f="aq-sig" data-clic="arcSig">${ult ? 'Ver mi resultado' : 'Siguiente'}</button></div>` : ''}</div>
+    <div class="fila"><button class="arc-btn sec" type="button" data-clic="arcSalirPartida">Salir</button></div></div>`;
 }
 function vArcFin(A) {
   const S = A.S, r = A.res || { puntos: S.puntos, ini: 'AAA', tablero: A.tablero, estado: 'local' };
@@ -179,7 +179,7 @@ function vArcFin(A) {
     ${r.record ? '<p class="arc-record">★ ¡NUEVO RÉCORD PERSONAL! ★</p>' : ''}
     <p>${porque} Aciertos: <b>${S.aciertos}</b> · mejor racha: <b>${S.mejorRacha}</b> · máximo posible en este tablero: <span class="arc-pts">${arcCero(A.max)}</span>.</p>
     ${arcMensajeDesafio(A, r.puntos)}<p class="arc-tenue">Jugaste como <b>${esc(r.ini)}</b>. ${arcEnvioTexto(r)}</p>
-    <div class="botones"><button class="arc-btn" type="button" onclick="arcEmpezarTeo(${arg(r.tablero)})">Jugar de nuevo</button>${A.semilla && Arcade.EJES[r.tablero] ? '<button class="arc-btn" type="button" onclick="arcDesafiar()">Superame 🕹️</button>' : ''}<button class="arc-btn sec" type="button" onclick="arcS().top=${arg(r.tablero)};arcSala()">Ver el top</button></div></div></div>`;
+    <div class="botones"><button class="arc-btn" type="button" data-clic="arcEmpezarTeo" data-clic-a="[${arg(r.tablero)}]">Jugar de nuevo</button>${A.semilla && Arcade.EJES[r.tablero] ? '<button class="arc-btn" type="button" data-clic="arcDesafiar">Superame 🕹️</button>' : ''}<button class="arc-btn sec" type="button" data-clic="arcTop" data-clic-a="[${arg(r.tablero)}]">Ver el top</button></div></div></div>`;
 }
 
 // ---------- práctico ----------
@@ -214,10 +214,10 @@ function vArcPrac(A) {
     let cls = '';
     if (m === 'e') cls = 'bien'; else if (m === 's') cls = 'sobre'; else if (m === 'n') cls = 'neutra';
     else if (fin && z && z.tipo === 'e') cls = 'perdida'; else if (A.sel === t.i) cls = 'sel';
-    return `<button class="arc-pal ${cls}" type="button" data-f="w-${t.i}" ${fin || m ? 'aria-disabled="true"' : ''} aria-pressed="${A.sel === t.i}" onclick="arcTocar(${t.i})">${esc(t.w)}</button>`;
+    return `<button class="arc-pal ${cls}" type="button" data-f="w-${t.i}" ${fin || m ? 'aria-disabled="true"' : ''} aria-pressed="${A.sel === t.i}" data-clic="arcTocar" data-clic-a="[${ja(t.i)}]">${esc(t.w)}</button>`;
   };
   const barra = !fin && A.sel >= 0 ? `<div class="arc-accion" role="group" aria-label="Confirmar"><span class="arc-sel">«${esc(T.tokens[A.sel].w)}»</span>
-      <button class="arc-btn" type="button" data-f="ac-marcar" onclick="arcMarcar()">Marcar</button><button class="arc-btn sec" type="button" onclick="arcCancelar()">Cancelar</button></div>` : '';
+      <button class="arc-btn" type="button" data-f="ac-marcar" data-clic="arcMarcar">Marcar</button><button class="arc-btn sec" type="button" data-clic="arcCancelar">Cancelar</button></div>` : '';
   const lista = fin ? `<div class="arc-card"><h3 class="arc-h">${S.impecable ? '★ CORRECTOR IMPECABLE +200 ★' : S.rindio ? 'Te rendiste' : 'Terminaste'}</h3>
       <p class="arc-grande" aria-label="Puntaje final">${arcCero(Arcade.puntosFinales(S))}</p>
       ${r && r.record ? '<p class="arc-record">★ ¡NUEVO RÉCORD PERSONAL! ★</p>' : ''}
@@ -226,13 +226,30 @@ function vArcPrac(A) {
       <ul class="arc-lista">${T.zonas.filter(z => z.tipo === 'e').map(z => `<li class="${S.halladas.indexOf(z.id) >= 0 ? 'ok' : 'no'}"><b>${S.halladas.indexOf(z.id) >= 0 ? '✓' : '✗'}</b> «${esc(z.orig)}» → «${esc(z.corr)}». ${esc(z.just)}</li>`).join('')}</ul>
       ${T.zonas.some(z => z.tipo === 'n') ? `<h4 class="arc-h">Opinables (no suman ni restan)</h4><ul class="arc-lista">${T.zonas.filter(z => z.tipo === 'n').map(z => `<li>«${esc(z.orig)}»${z.nota ? '. ' + esc(z.nota) : ''}</li>`).join('')}</ul>` : ''}
       ${P.fuente ? `<p class="arc-tenue">Fuente del texto: ${esc(P.fuente)}.</p>` : ''}
-      <div class="botones"><button class="arc-btn" type="button" onclick="arcEmpezarPrac(${arg(P.id)})">Jugar de nuevo</button><button class="arc-btn sec" type="button" onclick="arcS().top=${arg('prac-' + P.id)};arcSala()">Ver el top</button></div></div>` : '';
+      <div class="botones"><button class="arc-btn" type="button" data-clic="arcEmpezarPrac" data-clic-a="[${arg(P.id)}]">Jugar de nuevo</button><button class="arc-btn sec" type="button" data-clic="arcTop" data-clic-a="[${arg('prac-' + P.id)}]">Ver el top</button></div></div>` : '';
   return `<div class="arc" data-tema="arcade">
     <div class="arc-marcador"><span class="arc-pts" aria-label="Puntaje">${arcCero(Math.max(0, S.puntos))}</span><span class="arc-racha">${S.halladas.length}/${T.errores} errores</span>
-      ${fin ? '' : '<button class="arc-btn sec" type="button" onclick="confirmar(\'¿Te rendís? Se muestran los errores y se guarda el puntaje.\',\'Rendirme\',\'Seguir\').then(o=>o&&arcRendirse())">Me rindo</button>'}</div>
+      ${fin ? '' : '<button class="arc-btn sec" type="button" data-clic="arcRendirse2">Me rindo</button>'}</div>
     <p class="arc-tenue" style="margin:0 0 6px">${esc(P.titulo)} · tocá una palabra y después <b>Marcar</b>.</p>
     <p class="arc-msg" role="status">${esc(A.msg || '')}</p>
     <div class="arc-texto">${T.parrafos.map(par => `<p>${par.map(palabra).join(' ')}</p>`).join('')}</div>
     ${barra}${lista}
-    ${fin ? '' : '<div class="fila"><button class="arc-btn sec" type="button" onclick="confirmar(\'¿Dejar el texto? No se guarda el puntaje.\',\'Salir\',\'Seguir\').then(o=>o&&arcSala())">Salir</button></div>'}</div>`;
+    ${fin ? '' : '<div class="fila"><button class="arc-btn sec" type="button" data-clic="arcSalirTexto">Salir</button></div>'}</div>`;
 }
+
+// Manejadores por delegación (ver ACC en app.js).
+window.ACC = window.ACC || {};
+Object.assign(ACC, {
+  arcTop: (x) => { arcS().top = x; arcSala(); },
+  arcSalirPartida: () => confirmar('¿Dejar la partida? No se guarda el puntaje.', 'Salir', 'Seguir jugando').then(o => o && arcSala()),
+  arcSalirTexto: () => confirmar('¿Dejar el texto? No se guarda el puntaje.', 'Salir', 'Seguir').then(o => o && arcSala()),
+  arcRendirse2: () => confirmar('¿Te rendís? Se muestran los errores y se guarda el puntaje.', 'Rendirme', 'Seguir').then(o => o && arcRendirse()),
+});
+
+// Acciones registradas para la delegación de eventos (late binding: se resuelven al hacer clic).
+window.ACC = window.ACC || {};
+Object.assign(ACC, {
+  arcCancelar: (...a) => arcCancelar(...a), arcEmpezarPrac: (...a) => arcEmpezarPrac(...a), arcEmpezarTeo: (...a) => arcEmpezarTeo(...a),
+  arcLetra: (...a) => arcLetra(...a), arcMarcar: (...a) => arcMarcar(...a), arcResp: (...a) => arcResp(...a), arcSig: (...a) => arcSig(...a),
+  arcTocar: (...a) => arcTocar(...a), arcVerTop: (...a) => arcVerTop(...a),
+});

@@ -39,12 +39,18 @@ jobs:
         run: pip install "pagefind[extended]==1.6.0" rjsmin==1.3.0 rcssmin==1.3.0
       - name: Las páginas llevan marcas y el armado de marco/ funciona
         run: python tools/armar.py --comprobar
+      - name: Sin manejadores en línea (la CSP no permite scripts en línea)
+        run: python tools/controlar_acciones.py
       - name: Cada apunte publicado tiene sus descargas
         run: python tools/controlar_descargas.py
       - name: Armar el sitio publicable (dist/)
         env:
           GALERA_EXIGIR_BUSCADOR: "1"
         run: python tools/armar.py --salida dist
+      - name: Pruebas de mantenimiento (datos, sitemap, CSP, service worker; ~25 s)
+        run: python tools/probar.py dist
+      - name: Humo de los simuladores (sin DOM)
+        run: node tools/probar_simuladores.js
       - name: Capitulares góticas ambiguas (S, G, I, J) sin sin-cap
         run: python tools/controlar_capitulares.py dist
       - name: Las pantallas clave responden
