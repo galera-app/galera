@@ -45,13 +45,14 @@ const dAcc = (fn, ...a) => `data-clic="${fn}"` + (a.length ? ` data-clic-a="${ja
 // ─── Manejadores por delegación de eventos ───
 // La CSP no permite scripts en línea (sin 'unsafe-inline'), así que ningún elemento lleva manejadores en línea (los on* de HTML).
 // Cada uno declara data-<evento>="acción" y, si hace falta, data-<evento>-a="[args]" en JSON
+// Ojo: si algún día se pasa como argumento un objeto real con claves v/c/e/f/o/t, choca con estos marcadores: cambiarlos a {"$":"v"}.
 // ({"v":1} = value, {"c":1} = checked, {"e":1} = el evento, {"f":1} = primer archivo, {"o":1} = open, {"t":1} = el elemento)
 // y data-<evento>-pd (preventDefault). Eventos: clic, cambio, entra (input), foco, tecla (keydown), envia (submit), abre (toggle), falla (error).
 // Solo corre lo registrado en ACC (el listado de nombres está al final de cada archivo): un data-clic no puede llamar a cualquier función de window.
 // Para armar los atributos desde JS: dAcc(accion, ...args). tools/controlar_acciones.py comprueba que cada nombre esté registrado.
 window.ACC = window.ACC || {};
 (() => {
-  const camino = (k) => { const p = k.split('.'), u = p.pop(); let o = V; p.forEach(x => { o = o[x]; }); return [o, u]; };
+  const camino = (k) => { const p = k.split('.'), u = p.pop(); if ([...p, u].some(x => x === '__proto__' || x === 'prototype' || x === 'constructor')) throw new Error('ruta no permitida'); let o = V; p.forEach(x => { o = o[x]; }); return [o, u]; };
   Object.assign(ACC, {
     // Estado de la vista: V.<ruta> = valor, con el reinicio de la página (n) si se pide, y se vuelve a pintar.
     vAsig: (k, v, reinicia) => { const [o, u] = camino(k); o[u] = v; if (reinicia) o.n = 0; render(); },

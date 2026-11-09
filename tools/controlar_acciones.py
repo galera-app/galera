@@ -12,7 +12,7 @@ from pathlib import Path
 RAIZ = Path(__file__).resolve().parent.parent
 EVENTOS = "clic|cambio|entra|foco|tecla|envia|abre|falla"
 EN_LINEA = re.compile(r'\son(?:click|change|input|focus|blur|keydown|keyup|keypress|submit|toggle|error|load|pointerenter|pointerover|touchstart|mouseover|mouseenter)\s*=\s*["\']', re.I)
-JS = ["app.js", "compartir.js", "arcade-ui.js"]
+JS = sorted(q.name for q in RAIZ.glob("*.js") if q.name not in ("marco.js", "sw.js"))
 
 
 def leer(p):
