@@ -67,6 +67,7 @@ const Imprenta = (() => {
       let j = i; while (j < n && !esDelim(b[j])) j++;
       const w = texto(b, i, j); i = j;
       if (/^[+-]?(\d+\.?\d*|\.\d+)$/.test(w)) { ops.push({ v: +w }); continue; }
+      if (w === 'true' || w === 'false' || w === 'null') { ops.push({ v: w === 'true' }); continue; }   // operandos, no operadores (p. ej. /IM true)
       if (w === 'ID') {   // datos binarios de una imagen en línea: hasta « EI »
         const par = ops; i++;
         let k = i; while (k < n - 2 && !(esBlanco(b[k]) && b[k + 1] === 69 && b[k + 2] === 73 && (k + 3 >= n || esDelim(b[k + 3])))) k++;
@@ -99,7 +100,7 @@ const Imprenta = (() => {
     catch (e) { return { error: 'No pude leer el archivo como PDF. Puede estar dañado o no ser un PDF.' }; }
     const H = herramientas(L, doc), cat = doc.catalog;
     const R = { paginas: doc.getPageCount(), version: mv ? mv[1] : '?', cifrado: !!doc.isEncrypted, pdfx: '', pdfa: '', tamanos: [], fuentes: { total: 0, sin: [] },
-      imagenes: { n: 0, minPpi: Infinity, bajas: [], color: { RGB: 0, CMYK: 0, gris: 0, plana: 0, otro: 0 }, bitmap: 0 }, transparencia: false, rgbVector: 0, anotaciones: 0, girada: 0, chequeos: [] };
+      imagenes: { n: 0, minPpi: Infinity, bajas: [], color: { RGB: 0, CMYK: 0, gris: 0, plana: 0, otro: 0 }, bitmap: 0 }, transparencia: false, rgbVector: 0, anotaciones: 0, girada: 0, operadores: 0, truncado: false, chequeos: [] };
     const vc = H.nom(H.get(cat, 'Version')); if (vc && vc > R.version) R.version = vc;
 
     // PDF/X y PDF/A: OutputIntents (GTS_PDFX), el diccionario Info y los metadatos XMP.
@@ -137,7 +138,7 @@ const Imprenta = (() => {
       if (ancho < 2 || alto < 2 || !(img.w > 1) || !(img.h > 1)) return;   // puntitos y patrones: ruido
       const ppi = Math.round(Math.min(img.w / (ancho / 72), img.h / (alto / 72)));
       const umbral = img.bit ? 600 : 300;
-      if (ppi / umbral < R.imagenes.minPpi / (R.imagenes.minUmbral || 300) || R.imagenes.minPpi === Infinity) { R.imagenes.minPpi = ppi; R.imagenes.minUmbral = umbral; }
+      if (ppi < R.imagenes.minPpi) R.imagenes.minPpi = ppi;
       if (ppi < umbral && R.imagenes.bajas.length < 50) R.imagenes.bajas.push({ pag, ppi, bit: img.bit, mm: [Math.round(ancho / MM), Math.round(alto / MM)] });
     }
     function recorrer(contenido, res, ctm0, pag, prof) {
@@ -145,6 +146,8 @@ const Imprenta = (() => {
       revisarFuentes(res);
       const pila = []; let ctm = ctm0.slice();
       escanear(contenido, (op, a) => {
+        // Tope de operadores: un PDF con formas anidadas que se repiten puede crecer sin fin; pasado el tope, se deja de mirar.
+        if (++R.operadores > 3e6) { R.truncado = true; return; }
         if (op === 'q') pila.push(ctm.slice());
         else if (op === 'Q') { if (pila.length) ctm = pila.pop(); }
         else if (op === 'cm' && a.length >= 6) { const m = a.slice(-6).map(x => x.v); if (m.every(x => typeof x === 'number')) ctm = mult(m, ctm); }
@@ -157,7 +160,7 @@ const Imprenta = (() => {
           }
         } else if (op === 'BI') {
           const p = {}; for (let k = 0; k + 1 < a.length; k++) if (a[k].n && a[k + 1].v !== undefined) p[a[k].n] = a[k + 1].v;
-          const img = { w: p.W || p.Width, h: p.H || p.Height, bit: false };
+          const img = { w: p.W || p.Width, h: p.H || p.Height, bit: p.IM === true || p.ImageMask === true || p.BPC === 1 || p.BitsPerComponent === 1 };
           R.imagenes.n++; colocar(img, ctm, pag);
         } else if (op === 'Do' && a.length && a[a.length - 1].n) {
           const XO = H.get(res, 'XObject'), ref = XO instanceof L.PDFDict ? XO.get(H.N(a[a.length - 1].n)) : null, x = H.look(ref);
@@ -192,17 +195,17 @@ const Imprenta = (() => {
       const caja = k => { const b = H.get(p.node, k); return b ? (k === 'TrimBox' ? p.getTrimBox() : p.getBleedBox()) : null; };
       const media = p.getMediaBox(), trim = caja('TrimBox'), bleed = caja('BleedBox');
       const giro = ((p.getRotation().angle % 360) + 360) % 360; if (giro) R.girada++;
-      let sangrado = null, corte = null, nombre = '';
+      let sangrado = null, corte = null, nombre = '', deducido = false;
       if (trim) {
-        const B = bleed || media;
+        const B = bleed || p.getCropBox();   // sin BleedBox vale la CropBox (y si tampoco hay, la página entera)
         sangrado = Math.min(trim.x - B.x, trim.y - B.y, B.x + B.width - trim.x - trim.width, B.y + B.height - trim.y - trim.height) / MM;
         corte = [trim.width / MM, trim.height / MM];
         const rc = reconocer(corte[0], corte[1]); nombre = rc ? rc.nombre : '';
       } else {
         const rc = reconocer(media.width / MM, media.height / MM);
-        if (rc) { nombre = rc.nombre; if (rc.sangrado) { sangrado = rc.sangrado; corte = [media.width / MM - 2 * rc.sangrado, media.height / MM - 2 * rc.sangrado]; sangrado = -rc.sangrado; } else { sangrado = 0; corte = [media.width / MM, media.height / MM]; } }
+        if (rc) { nombre = rc.nombre; if (rc.sangrado) { sangrado = rc.sangrado; corte = [media.width / MM - 2 * rc.sangrado, media.height / MM - 2 * rc.sangrado]; deducido = true; } else { sangrado = 0; corte = [media.width / MM, media.height / MM]; } }
       }
-      R.tamanos.push({ media: [r1(media.width / MM), r1(media.height / MM)], corte: corte && corte.map(r1), declarado: !!trim, sangrado: sangrado === null ? null : r1(sangrado), nombre });
+      R.tamanos.push({ media: [r1(media.width / MM), r1(media.height / MM)], corte: corte && corte.map(r1), declarado: !!trim, sangrado: sangrado === null ? null : r1(sangrado), deducido, nombre });
       const an = H.items(H.get(p.node, 'Annots')); R.anotaciones += an.filter(a => !['Link'].includes(H.nom(H.get(a, 'Subtype')))).length;
       if (R.cifrado) return;
       const g = H.get(p.node, 'Group'); if (g && H.nom(H.get(g, 'S')) === 'Transparency') R.transparencia = true;
@@ -230,8 +233,9 @@ const Imprenta = (() => {
       distintos > 1 ? 'Encontré ' + distintos + ' tamaños distintos. En un libro, todas las páginas tienen que medir lo mismo al corte.' : (p0.declarado ? 'Es la medida al corte que declara el archivo (TrimBox).' : p0.corte ? 'El archivo no declara la caja de corte: la deduje del tamaño de la página.' : 'El archivo no declara la caja de corte y la medida no coincide con un formato conocido: confirmá el tamaño final con tu imprenta.'));
     const S = T.map(t => t.sangrado).filter(s => s !== null);
     if (!S.length) add('sangrado', 'aviso', 'No pude medir el sangrado', 'El archivo no declara las cajas de corte y sangrado. Si algo llega al borde, revisá en tu programa que tenga 3 mm de más por lado.');
+    else if (Math.min(...S) < -0.1) add('sangrado', 'mal', 'La caja de sangrado es más chica que la de corte', 'El archivo declara cajas que no cierran: así, lo que llega al borde puede quedar con filo blanco. Exportá de nuevo con 3 mm de sangrado.');
     else {
-      const min = Math.min(...S.map(Math.abs)), deducido = S.some(s => s < 0);
+      const min = Math.min(...S), deducido = T.some(t => t.deducido);
       if (min >= 2.9) add('sangrado', deducido ? 'aviso' : 'ok', 'Sangrado de ' + String(r1(min)).replace('.', ',') + ' mm', deducido ? 'Parece tener sangrado (la página mide el formato más 3 mm por lado), pero no declara la caja de corte. Avisale a la imprenta el tamaño final.' : 'Alcanza para lo que llega al borde.');
       else if (min > 0.1) add('sangrado', 'mal', 'Sangrado de ' + String(r1(min)).replace('.', ',') + ' mm: poco', 'Lo habitual son 3 mm por lado. Con menos, al refilar puede quedar un filo blanco.');
       else add('sangrado', 'aviso', 'Sin sangrado', 'La página mide exactamente el tamaño final. Si nada llega al borde, está bien; si hay fotos o fondos al corte, faltan 3 mm por lado.');
@@ -243,8 +247,8 @@ const Imprenta = (() => {
     if (!R.cifrado && I.n) {
       const b = I.bajas, peor = b.length ? b.reduce((x, y) => (y.ppi / (y.bit ? 600 : 300) < x.ppi / (x.bit ? 600 : 300) ? y : x)) : null;
       const nivel = !b.length ? 'ok' : peor.ppi < (peor.bit ? 300 : 150) ? 'mal' : 'aviso';
-      add('resolucion', nivel, !b.length ? 'Resolución de imágenes: ' + I.minPpi + ' ppp o más' : (b.length === 1 ? 'Una imagen' : b.length + (b.length === 50 ? ' o más' : '') + ' imágenes') + ' con poca resolución',
-        !b.length ? 'Medida al tamaño en que está puesta cada imagen (' + I.n + ' en total).' : 'La peor: ' + peor.ppi + ' ppp en la página ' + peor.pag + (peor.bit ? ' (dibujo de línea: conviene 600 ppp o más)' : '') + '. Páginas: ' + [...new Set(b.map(x => x.pag))].slice(0, 12).join(', ') + '. Para imprenta, 300 ppp al tamaño impreso; en una fotocopia se nota menos.');
+      add('resolucion', nivel, !b.length ? 'Resolución suficiente en todas las imágenes' : (b.length === 1 ? 'Una imagen' : b.length + (b.length === 50 ? ' o más' : '') + ' imágenes') + ' con poca resolución',
+        !b.length ? 'La de menor resolución tiene ' + I.minPpi + ' ppp al tamaño en que está puesta (' + I.n + (I.n === 1 ? ' imagen revisada).' : ' imágenes revisadas).') : 'La peor: ' + peor.ppi + ' ppp en la página ' + peor.pag + (peor.bit ? ' (dibujo de línea: conviene 600 ppp o más)' : '') + '. Páginas: ' + [...new Set(b.map(x => x.pag))].slice(0, 12).join(', ') + '. Para imprenta, 300 ppp al tamaño impreso; en una fotocopia se nota menos.');
       const c = I.color;
       if (c.RGB) add('color', 'aviso', (c.RGB === 1 ? 'Una imagen' : c.RGB + ' imágenes') + ' en RGB', 'Para offset conviene pasarlas a CMYK (o a grises si el libro va en negro). Algunas imprentas convierten al ripear: preguntá con qué perfil. En digital o en casa, suele andar igual.');
       else add('color', 'ok', 'Imágenes en ' + (c.CMYK ? 'CMYK' : 'grises') + (c.plana ? ' y tintas planas' : ''), (c.CMYK + c.gris + c.plana + I.bitmap) + ' imágenes revisadas.');
@@ -254,7 +258,8 @@ const Imprenta = (() => {
     add('pdfx', R.pdfx ? 'ok' : 'aviso', R.pdfx ? 'Declara ' + R.pdfx : 'No declara PDF/X', R.pdfx ? 'Galera no valida la norma completa: la imprenta o Acrobat Pro sí.' : 'Muchas imprentas digitales lo aceptan igual. Si es offset, preguntá si piden PDF/X-1a o X-4.' + (R.pdfa ? ' Es ' + R.pdfa + ', una norma de archivo, no de imprenta.' : ''));
     add('paginas', R.paginas % 4 ? 'aviso' : 'ok', R.paginas + (R.paginas === 1 ? ' página' : ' páginas'), R.paginas % 4 ? 'Para un acaballado hacen falta múltiplos de 4: sobran ' + (4 - R.paginas % 4) + ' en blanco. Para una rústica, preguntá el tamaño del pliego.' : 'Múltiplo de 4: sirve para acaballado.');
     if (R.anotaciones) add('anotaciones', 'aviso', 'Tiene comentarios o campos de formulario', 'Pueden no imprimirse, o imprimirse sin querer. Borralos o aplanalos antes de mandar.');
-    if (R.girada) add('girada', 'aviso', R.girada === 1 ? 'Una página está girada' : R.girada + ' páginas están giradas', 'Tienen rotación en el archivo. Revisá que se vean derechas antes de mandar o imponer.');
+    if (R.truncado) add('truncado', 'aviso', 'El archivo es muy complejo: no lo revisé entero', 'Tiene demasiados elementos anidados. Lo que no llegué a mirar puede tener imágenes de poca resolución o transparencias.');
+    if (R.girada) add('girada', 'aviso', R.girada === 1 ? 'Una página está girada' : R.girada + ' páginas están giradas', 'Tienen rotación en el archivo (pasa con los escaneos). Al imponer, Galera las endereza; igual, revisá que se vean derechas antes de mandarlas a la imprenta.');
     return C;
   }
 
@@ -287,18 +292,22 @@ const Imprenta = (() => {
     const conCont = pags.map(p => !!p.node.get(L.PDFName.of('Contents')));
     const incr = await dst.embedPages(pags.filter((p, i) => conCont[i]), cajas.filter((c, i) => conCont[i]));
     let k = 0; const emb = pags.map((p, i) => conCont[i] ? incr[k++] : null);
-    const e0 = emb.find(Boolean) || { width: pags[0].getWidth(), height: pags[0].getHeight() };
+    const rot = pags.map(p => ((p.getRotation().angle % 360) + 360) % 360).map(r => [0, 90, 180, 270].includes(r) ? r : 0);
+    const i0 = emb.findIndex(Boolean), b0 = i0 < 0 ? { width: pags[0].getWidth(), height: pags[0].getHeight() } : emb[i0];
+    const e0 = rot[Math.max(0, i0)] % 180 ? { width: b0.height, height: b0.width } : b0;
     const gris = L.rgb(0.6, 0.6, 0.6);
     const guia = (pg, x1, y1, x2, y2, rayada) => pg.drawLine({ start: { x: x1, y: y1 }, end: { x: x2, y: y2 }, thickness: 0.4, color: gris, dashArray: rayada ? [3, 3] : undefined });
     // Pone la página i en la celda (x, y, w, h), achicada si no entra, pegada al lado `pegar` ('der', 'izq' o centro) y con giro de 180° si g.
     function poner(pg, i, x, y, w, h, pegar, g, corr) {
       if (i === null || i === undefined || i >= n || !emb[i]) return;
-      const e = emb[i], esc = Math.min(1, w / e.width, h / e.height), pw = e.width * esc, ph = e.height * esc;
+      // /Rotate de la página (escaneos): se endereza sumando el giro al dibujarla. a = giro final, antihorario.
+      const e = emb[i], r = rot[i], de = r === 90 || r === 270, ew = de ? e.height : e.width, eh = de ? e.width : e.height;
+      const esc = Math.min(1, w / ew, h / eh), pw = ew * esc, ph = eh * esc;
       let px = pegar === 'der' ? x + w - pw : pegar === 'izq' ? x : x + (w - pw) / 2;
       px += corr || 0;
-      const py = y + (h - ph) / 2;
-      if (g) pg.drawPage(e, { x: px + pw, y: py + ph, xScale: esc, yScale: esc, rotate: L.degrees(180) });
-      else pg.drawPage(e, { x: px, y: py, xScale: esc, yScale: esc });
+      const py = y + (h - ph) / 2, a = (((g ? 180 : 0) - r) % 360 + 360) % 360;
+      const [ox, oy] = { 0: [0, 0], 90: [pw, 0], 180: [pw, ph], 270: [0, ph] }[a];
+      pg.drawPage(e, { x: px + ox, y: py + oy, xScale: esc, yScale: esc, rotate: L.degrees(a) });
     }
     let W, Hh, info;
     if (o.modo === 'fanzine') {
@@ -361,7 +370,7 @@ function vImprimir() {
       ${s.nombre ? `<span class="gl-imp-arch"><b>${esc(s.nombre)}</b> · ${pesoArchivo(s.peso)}</span>` : '<span class="gl-tenue">Hasta 200 MB. Mejor si es el PDF final, el mismo que vas a mandar.</span>'}</div>
     <div role="status" aria-live="polite">${s.cargando ? '<p class="gl-baja">Revisando el archivo…</p>' : s.error ? `<p class="gl-imp-error" role="alert">${esc(s.error)}</p>` : ''}</div>
     ${R && !s.cargando ? resultadoImp(R) : ''}</section>`;
-  return `<div class="gl-v gl-imp">${cab}${subir}${s.datos && !s.cargando && R && !R.error ? imponerImp(s, R) : ''}${checklistImp()}</div>`;
+  return `<div class="gl-v gl-imp">${cab}${subir}${s.datos && !s.cargando && R && !R.error && !R.cifrado ? imponerImp(s, R) : ''}${checklistImp()}</div>`;
 }
 function resultadoImp(R) {
   if (R.error) return `<p class="gl-imp-error" role="alert">${esc(R.error)}</p>`;
@@ -388,7 +397,7 @@ function imponerImp(s, R) {
 }
 function pasosImp(fz) {
   const P = fz ? ['Imprimí la hoja de un solo lado, apaisada y al 100 % (sin «ajustar a la página»).', 'Doblala por la mitad a lo largo, con lo impreso hacia afuera, y después en cuatro a lo ancho, para marcar los pliegues.', 'Abrila y doblala a lo ancho por la mitad. Cortá con tijera la línea oscura del centro, desde el pliegue hasta el cruce de los pliegues.', 'Desplegala, doblala a lo largo y empujá los extremos hacia el centro: el corte se abre en rombo y se arma la cruz.', 'Plegala como un librito, con la tapa afuera.']
-    : ['Imprimí a doble faz, al 100 % (sin «ajustar a la página») y volteando por el borde corto. Si tu impresora no hace doble faz, imprimí las páginas impares, dá vuelta la pila y después las pares.', 'Antes de la tirada, probá con una copia: doblala y fijate que las páginas queden en orden.', 'Apilá las hojas en el orden en que salieron, doblalas juntas por la mitad y abrochá en el pliegue (dos broches, a un cuarto de cada punta).', 'Si querés el borde parejo, refilá el lado abierto con guillotina o cúter y regla.'];
+    : ['Imprimí a doble faz, al 100 % (sin «ajustar a la página») y volteando por el borde corto. Si tu impresora no hace doble faz, imprimí las caras impares del PDF, da vuelta la pila y después las pares.', 'Antes de la tirada, probá con una copia: doblala y fijate que las páginas queden en orden.', 'Apilá las hojas en el orden en que salieron, doblalas juntas por la mitad y abrochá en el pliegue (dos broches, a un cuarto de cada punta).', 'Si querés el borde parejo, refilá el lado abierto con guillotina o cúter y regla.'];
   return `<details class="gl-imp-pasos"><summary>Cómo armarlo</summary><ol>${P.map(p => `<li>${esc(p)}</li>`).join('')}</ol></details>`;
 }
 function checklistImp() {

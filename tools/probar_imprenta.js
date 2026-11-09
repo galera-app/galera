@@ -48,7 +48,7 @@ function png8() {
     ok(R.tamanos[0].nombre === 'A4' && nivel(R, 'sangrado') === 'aviso' && nivel(R, 'paginas') === 'ok', 'A4 sin sangrado, 4 páginas');
     const d2 = await L.PDFDocument.create(); d2.addPage([(215.9 + 6) * MM, (279.4 + 6) * MM]);
     const R2 = await Imprenta.analizar(await d2.save());
-    ok(R2.tamanos[0].nombre === 'Carta' && R2.tamanos[0].sangrado === -3 && nivel(R2, 'sangrado') === 'aviso', 'carta + 3 mm: sangrado deducido');
+    ok(R2.tamanos[0].nombre === 'Carta' && R2.tamanos[0].sangrado === 3 && R2.tamanos[0].deducido && nivel(R2, 'sangrado') === 'aviso', 'carta + 3 mm: sangrado deducido');
   }
   // 3. Un archivo que no es PDF.
   {
@@ -78,6 +78,20 @@ function png8() {
     ok(rf.hojas === 1 && (await Imprenta.analizar(rf.bytes)).paginas === 1, 'fanzine: una hoja');
     let tiro = false; try { await Imprenta.imponer(b, { modo: 'fanzine' }); } catch (e) { tiro = /8 páginas/.test(e.message); }
     ok(tiro, 'fanzine con 10 páginas: avisa que lleva 8');
+    // Páginas con /Rotate 90 (escaneos): se imponen sin error y el analizador las marca.
+    const dr = await L.PDFDocument.create();
+    for (let i = 0; i < 8; i++) { const p = dr.addPage([148 * MM, 105 * MM]); p.setRotation(L.degrees(90)); p.drawText(String(i + 1), { x: 60 * MM, y: 40 * MM, size: 40, font: await dr.embedFont(L.StandardFonts.Helvetica) }); }
+    const br = await dr.save(), Rr = await Imprenta.analizar(br);
+    ok(Rr.girada === 8 && nivel(Rr, 'girada') === 'aviso', 'marca las 8 páginas giradas');
+    const rr = await Imprenta.imponer(br, { modo: 'fanzine', hoja: 'a4' });
+    if (process.env.IMP_SALIDA) require('fs').writeFileSync(process.env.IMP_SALIDA, rr.bytes);
+    ok(rr.hojas === 1, 'fanzine con páginas giradas: sin error');
+  }
+  // 7. BleedBox más chica que la TrimBox: se marca para arreglar.
+  {
+    const d = await L.PDFDocument.create(), p = d.addPage([160 * MM, 220 * MM]);
+    p.setTrimBox(5 * MM, 5 * MM, 150 * MM, 210 * MM); p.setBleedBox(6 * MM, 6 * MM, 148 * MM, 208 * MM);
+    ok(nivel(await Imprenta.analizar(await d.save()), 'sangrado') === 'mal', 'caja de sangrado más chica que la de corte');
   }
   // 6. El lector de contenido salta imágenes en línea y cadenas con paréntesis.
   {
