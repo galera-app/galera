@@ -2,6 +2,16 @@
  "nota": "Lo que va en el mail de los lunes (Novedades.gs) y en la pestaña Novedades. v: número de versión (obligatorio; ver CHANGELOG.md). tipo: herramientas | resumenes | fechas. perfil: estudiante (por defecto) | profesional | todos; el mail y la pestaña Novedades lo usan para mostrar a cada perfil lo suyo. materias: ids del plan (vacío = para todas). url: solo links a galera.com.ar/. Sumar una entrada por cada cosa que se publica; el script manda solo lo posterior al último envío de cada persona, así que las viejas no se reenvían.",
  "novedades": [
   {
+   "v": 146,
+   "fecha": "2026-11-09",
+   "tipo": "herramientas",
+   "perfil": "profesional",
+   "materias": [],
+   "titulo": "Redactor de contratos del libro (borrador)",
+   "texto": "Armá borradores de contratos de traducción, edición, cesión de derechos, encargo, ilustración, corrección, coedición, autoedición y audiolibro, con la fuente de cada cláusula. Solo traducción y edición se apoyan en un modelo oficial: los otros siete llevan una franja de borrador sin revisión profesional. Nada se guarda ni se envía: se arma en tu navegador.",
+   "url": "https://galera.com.ar/simuladores/contratos.html"
+  },
+  {
    "v": 145,
    "fecha": "2026-11-09",
    "tipo": "herramientas",
