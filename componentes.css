@@ -995,3 +995,31 @@ dialog .botones .gl-btn,dialog .gl-btn{min-height:44px}
 .apunte .tabla-apunte table{display:table;margin:0;max-width:none}
 .apunte .tabla-apunte:focus-visible{outline:2px solid var(--gl-lnk);outline-offset:2px}
 @media print{.apunte .tabla-apunte{overflow:visible;break-inside:avoid}.apunte .tabla-apunte table{width:100%}}
+
+/* Redactor de contratos (redactor.js) */
+.rc-cols { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; align-items: start; }
+@media (min-width: 1000px) { .rc-cols { grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); } }
+.rc-acciones { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 10px; }
+.rc-aviso { border-left: 4px solid var(--tinta); margin-bottom: 12px; }
+.rc-grupo { border: 1px solid var(--borde); border-radius: var(--radio); margin: 10px 0; padding: 4px 12px 10px; min-width: 0; }
+.rc-grupo legend { font-weight: 600; padding: 0 6px; }
+.rc-campo { margin: 8px 0; }
+.rc-campo[hidden] { display: none; }
+.rc-campo input[type="text"], .rc-campo input[type="number"], .rc-campo select { width: 100%; box-sizing: border-box; }
+.rc-ayuda { display: block; margin: 2px 0 4px; }
+.rc-check { gap: 8px; margin: 4px 0; }
+.rc-opciones { margin: 0 0 10px; }
+.rc-clausula mark, .rc-doc mark { background: #fde68a; color: #1d2430; padding: 0 2px; border-radius: 3px; }
+.rc-porque { border-top: 1px dashed var(--borde); padding-top: 6px; }
+.rc-doc { display: none; }
+@media print {
+  body.rc-imprimiendo > *:not(#rc-impresion) { display: none !important; }
+  body.rc-imprimiendo #rc-impresion { display: block; color: #000; background: #fff; font: 12pt/1.5 "Times New Roman", Times, serif; }
+  #rc-impresion h1 { font-size: 16pt; text-align: center; margin: 0 0 12pt; }
+  #rc-impresion h2 { font-size: 13pt; margin: 18pt 0 6pt; }
+  #rc-impresion p { max-width: none; margin: 0 0 8pt; text-align: justify; }
+  #rc-impresion .rc-aviso { font-style: italic; font-size: 10pt; border: 0; text-align: left; }
+  #rc-impresion .rc-firmas { display: flex; justify-content: space-around; margin-top: 48pt; break-inside: avoid; }
+  #rc-impresion .rc-firmas p { text-align: center; }
+  #rc-impresion mark { background: #ff0; color: #000; }
+}
