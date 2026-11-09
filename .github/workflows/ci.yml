@@ -45,6 +45,10 @@ jobs:
         env:
           GALERA_EXIGIR_BUSCADOR: "1"
         run: python tools/armar.py --salida dist
+      - name: Pruebas de mantenimiento (datos, sitemap, CSP, service worker; ~25 s)
+        run: python tools/probar.py dist
+      - name: Humo de los simuladores (sin DOM)
+        run: node tools/probar_simuladores.js
       - name: Capitulares góticas ambiguas (S, G, I, J) sin sin-cap
         run: python tools/controlar_capitulares.py dist
       - name: Las pantallas clave responden
