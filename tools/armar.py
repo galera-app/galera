@@ -121,7 +121,7 @@ def cabecera(rel):
 # Scripts que la app baja recién cuando una pantalla los necesita (los usa `cargarMods` en app.js; el prerender los suma todos).
 # El orden dentro de cada grupo es el de ejecución. No van en app-cierre.tpl.
 CARGA = {"horarios": ["horarios"], "grafo": ["grafo"], "arcade": ["arcade", "arcade-ui"],
-         "sim": ["escandallo", "papel", "paginacion", "cronograma", "ecosistema", "formatos", "lomo", "leyes", "contratos", "retos"],
+         "sim": ["escandallo", "papel", "paginacion", "cronograma", "ecosistema", "formatos", "lomo", "leyes", "contratos", "redactor", "retos"],
          "imprenta": ["imprenta"], "prensa": ["imprenta", "imprenta-editor"]}   # pdf-lib (vendor/) no va acá: lo baja imprenta.js recién cuando alguien elige un PDF
 
 META_COMUN = ('<meta name="referrer" content="strict-origin-when-cross-origin">\n'

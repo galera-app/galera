@@ -160,8 +160,8 @@ if (typeof module !== 'undefined') module.exports = Prensa;
 // ---------- Motor (typst.ts): compilador + renderer + fuentes OFL, bajados una vez y guardados por el navegador ----------
 const Motor = (() => {
   const BASE = '/vendor/typst/';
-  // D1 (consultas/104-galera-prensa.md): el WASM del compilador pesa 27 MB y no entra en Cloudflare Pages. Si se aloja en R2, cambia esta URL y se suma el host a connect-src.
-  const WASM = BASE + 'typst_ts_web_compiler_bg.wasm?v=0.7.0';
+  // D1 (consultas/104-galera-prensa.md): el WASM del compilador pesa 27 MB y no entra en Cloudflare Pages: vive en R2 (el host está en connect-src; el bucket responde con CORS).
+  const WASM = 'https://descargas.galera.com.ar/typst/0.7.0/typst_ts_web_compiler_bg.wasm';
   const FUENTES = ['Literata-Regular', 'Literata-Italic', 'Literata-Bold', 'Literata-BoldItalic', 'InstrumentSans-Regular', 'InstrumentSans-SemiBold', 'UnifrakturMaguntia-Book'];
   // El navegador ejecuta lo que le den: se baja el binario, se calcula su SHA-256 y solo si coincide con el fijado acá se inicializa.
   // Si el WASM se aloja en R2 (descargas.galera.com.ar), este control garantiza que sea el mismo que sale de tools/bajar_typst.py.

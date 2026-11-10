@@ -356,7 +356,7 @@
  "csp": {
   "estatica": "default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self'; img-src 'self' data: https://*.google-analytics.com https://www.googletagmanager.com; connect-src 'self' https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com; object-src 'none'; base-uri 'none'; form-action 'none'",
   "estatica_estilos": "default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.google-analytics.com https://www.googletagmanager.com; connect-src 'self' https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com; object-src 'none'; base-uri 'none'; form-action 'none'",
-  "app": "default-src 'self'; script-src 'self' 'wasm-unsafe-eval' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.google-analytics.com https://www.googletagmanager.com; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com; object-src 'none'; base-uri 'none'; form-action 'none'"
+  "app": "default-src 'self'; script-src 'self' 'wasm-unsafe-eval' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.google-analytics.com https://www.googletagmanager.com; connect-src 'self' https://descargas.galera.com.ar https://script.google.com https://script.googleusercontent.com https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com; object-src 'none'; base-uri 'none'; form-action 'none'"
  },
  "simuladores": [
   {
@@ -384,8 +384,8 @@
    "id": "contratos",
    "materia": "0919",
    "ico": "📝",
-   "t": "Contratos modelo: traducción y edición",
-   "d": "Completá los datos y armá un borrador de contrato de traducción (según el modelo de la AATI) o de edición (según los arts. 37 a 44 de la Ley 11.723), con la fuente de cada cláusula. Para descargar."
+   "t": "Redactor de contratos del libro",
+   "d": "Elegí el tipo de contrato (edición, traducción, cesión de derechos, encargo, ilustración, corrección, coedición, autoedición o audiolibro), completá los datos y descargá un borrador con la fuente y el porqué de cada cláusula. Orientativo: no es asesoramiento legal."
   },
   {
    "id": "leyes",

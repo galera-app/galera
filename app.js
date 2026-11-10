@@ -2368,38 +2368,10 @@ function vLeyes() {
 }
 
 // =====================================================================
-// CONTRATOS modelo (traducción y edición). Datos y textos en contratos.js (borrador a revisar). Estado solo de la sesión (V.con).
+// CONTRATOS: redactor de contratos del libro. Textos y reglas en contratos.js (sin DOM, con pruebas); pantalla y eventos en redactor.js.
+// Estado solo en memoria: nada se guarda ni se envía.
 // =====================================================================
-const conS = () => { if (!V.con) V.con = { modelo: 'traduccion', v: { traduccion: Contratos.defaults('traduccion'), edicion: Contratos.defaults('edicion') } }; return V.con; };
-function conModelo(id) { conS().modelo = id; render(); }
-function conSet(k, val, num) { const s = conS(); s.v[s.modelo][k] = num ? (val === '' ? '' : Number(val)) : val; $('#con-prev').innerHTML = conPrev(); }
-function conPrev() {
-  const s = conS(), r = Contratos.generar(s.modelo, s.v[s.modelo]);
-  const marca = t => esc(t).replace(/\[completar: [^\]]*\]/g, m => `<mark>${m}</mark>`);
-  return (r.avisos.length ? `<div class="u-mb10 tarjeta" role="status">${r.avisos.map(a => `<p class="u-mb4 chico">⚠️ ${esc(a)}</p>`).join('')}</div>` : '')
-    + `<p class="u-mb8 chico tenue">${r.falta.length ? `Faltan ${r.falta.length} dato${r.falta.length === 1 ? '' : 's'}: ${esc(r.falta.join(', '))}.` : 'No falta ningún dato.'}</p>`
-    + r.clausulas.map(c => `<article class="tarjeta u-margin-bottom-8px"><h3 class="u-mb4">${c.n}. ${esc(c.t)}</h3><p class="u-m0">${marca(c.texto)}</p><p class="u-mt6 chico tenue">Fuente: ${esc(c.fuente)}</p></article>`).join('');
-}
-function conCampo(c, v) {
-  const id = 'con-' + c.id, ayuda = c.ayuda ? `<span class="chico tenue u-display-block">${esc(c.ayuda)}</span>` : '';
-  if (c.tipo === 'check') return `<label class="fila u-gap-8px_margin-4px-0"><input type="checkbox" ${v[c.id] ? 'checked' : ''} data-cambio="conSet" data-cambio-a="[${arg(c.id)},{&quot;c&quot;:1}]"> <span>${esc(c.etq)}</span></label>`;
-  if (c.tipo === 'opcion') return `<div class="u-margin-8px-0"><label for="${id}">${esc(c.etq)}</label><select id="${id}" data-cambio="conSet" data-cambio-a="[${arg(c.id)},{&quot;v&quot;:1}]">${c.opciones.map(([k, t]) => `<option value="${esc(k)}" ${v[c.id] === k ? 'selected' : ''}>${esc(t)}</option>`).join('')}</select></div>`;
-  const n = c.tipo === 'num';
-  return `<div class="u-margin-8px-0"><label for="${id}">${esc(c.etq)}</label>${ayuda}<input id="${id}" ${n ? 'type="number" min="0" step="any" inputmode="decimal"' : 'type="text"'} autocomplete="off" value="${esc(v[c.id])}" class="u-w100" data-entra="conSet" data-entra-a="[${arg(c.id)},{&quot;v&quot;:1},${ja(n)}]"></div>`;
-}
-function conDescargar() { const s = conS(); descargar(`contrato-${s.modelo}.md`, Contratos.documento(s.modelo, s.v[s.modelo]), 'text/markdown;charset=utf-8'); }
-function conCopiar() { const s = conS(), t = Contratos.documento(s.modelo, s.v[s.modelo]); if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(() => aviso('Contrato copiado'), () => aviso('No se pudo copiar. Descargalo en su lugar.')); else aviso('No se pudo copiar. Descargalo en su lugar.'); }
-function vContratos() {
-  const s = conS(), M = Contratos.MODELOS, m = M[s.modelo], v = s.v[s.modelo];
-  const pestana = k => `<button class="btn ch ${s.modelo === k ? '' : 'lin'}" aria-pressed="${s.modelo === k}" data-clic="conModelo" data-clic-a="[${arg(k)}]">${esc(M[k].corto)}</button>`;
-  let grupo = '';
-  const campos = m.campos.map(c => { const h = c.grupo && c.grupo !== grupo ? `<p class="chico u-margin-10px-0-0"><b>${esc(c.grupo)}</b></p>` : ''; grupo = c.grupo || ''; return h + conCampo(c, v); }).join('');
-  return `<p class="chico tenue u-margin-0-0-10px">⚠️ Borrador: lo revisa una docente antes de darlo por bueno. Es un <b>modelo orientativo, no asesoramiento legal</b>: antes de firmar, que lo revise un abogado. No se guarda ni se envía nada: lo que escribís queda en esta pantalla.</p>
-    <div class="u-mb10 eligen" role="group" aria-label="Tipo de contrato">${pestana('traduccion')}${pestana('edicion')}</div>
-    <p class="u-mt0 chico">${esc(m.d)}</p>
-    <div class="ley-cols"><div class="tarjeta"><h3 class="u-mb4">Datos</h3>${campos}</div>
-      <div><div class="acciones u-margin-0-0-10px"><button class="btn" data-clic="conDescargar">Descargar (.md)</button><button class="btn sec" data-clic="conCopiar">Copiar el texto</button></div><div id="con-prev">${conPrev()}</div></div></div>`;
-}
+function vContratos() { return Redactor.vista(); }
 
 // =====================================================================
 // TARIFARIO (perfil profesional): datos/tarifas.json. Solo quién publica, rubro, unidad, fecha y link; los montos se leen en la fuente. Filtro de la sesión (V.tar).
@@ -3951,7 +3923,7 @@ function vLinksPro() {
   if (D.linksLibro.error) return `<div class="gl-v gl-links">${cabLinks}<p class="gl-vacio" role="alert">No pude cargar esto. Puede ser la conexión. <button class="gl-btn gl-btn--sec" type="button" data-clic="recargar">Probar de nuevo</button></p></div>`;
   return `<div class="gl-v gl-links">${cabLinks}<p class="gl-baja">Los sitios oficiales que más se usan para registrar, informarse y moverse en el sector del libro. Los de afuera se abren en una pestaña nueva. Si falta alguno, avisame con «Contame qué falta».</p>
     <div class="gl-links-g">` + D.linksLibro.grupos.map(g => grupoLinks(esc(g.grupo), g.links.map(linkExt).join(''))).join('') +
-    grupoLinks('En Galera', linkInt('Leyes del libro', 'La pirámide de normas y el traductor jurídico.', dAcc('irSim', 'leyes'), '/simuladores/leyes.html') + linkInt('Contratos modelo', 'Borrador de contrato de traducción o de edición, con la fuente de cada cláusula.', dAcc('irSim', 'contratos'), '/simuladores/contratos.html') + linkInt('Planificador de libros', 'Del original a la reimpresión, con Gantt, PERT y Roy.', '', 'libro/cronograma/')) + '</div>' +
+    grupoLinks('En Galera', linkInt('Leyes del libro', 'La pirámide de normas y el traductor jurídico.', dAcc('irSim', 'leyes'), '/simuladores/leyes.html') + linkInt('Redactor de contratos', 'Borradores de contratos del libro (edición, traducción, cesión, encargo, audiolibro y más), con la fuente de cada cláusula.', dAcc('irSim', 'contratos'), '/simuladores/contratos.html') + linkInt('Planificador de libros', 'Del original a la reimpresión, con Gantt, PERT y Roy.', '', 'libro/cronograma/')) + '</div>' +
     (D.linksLibro.verificado ? `<p class="gl-chico gl-m32">Links revisados el ${fmt(D.linksLibro.verificado)}.</p>` : '') + '</div>';
 }
 function vLinks() {
@@ -4238,8 +4210,8 @@ Object.assign(ACC, {
   cambiarOferta: (...a) => cambiarOferta(...a), cambiarPerfil: (...a) => cambiarPerfil(...a), campo: (...a) => campo(...a),
   cargarBusqueda: (...a) => cargarBusqueda(...a), cerrar: (...a) => cerrar(...a), cerrarRespuesta: (...a) => cerrarRespuesta(...a),
   cfgIr: (...a) => cfgIr(...a), compartirCursada: (...a) => compartirCursada(...a), compartirPantalla: (...a) => compartirPantalla(...a),
-  compartirTraspaso: (...a) => compartirTraspaso(...a), conCopiar: (...a) => conCopiar(...a), conDescargar: (...a) => conDescargar(...a),
-  conModelo: (...a) => conModelo(...a), conSet: (...a) => conSet(...a), confirmarBaja: (...a) => confirmarBaja(...a), copiar: (...a) => copiar(...a),
+  compartirTraspaso: (...a) => compartirTraspaso(...a), 
+  confirmarBaja: (...a) => confirmarBaja(...a), copiar: (...a) => copiar(...a),
   copiarRecorrido: (...a) => copiarRecorrido(...a), copiarTraspaso: (...a) => copiarTraspaso(...a), descargo: (...a) => descargo(...a),
   ecoAjustar: (...a) => ecoAjustar(...a), ecoCat: (...a) => ecoCat(...a), ecoElegir: (...a) => ecoElegir(...a), ecoPaso: (...a) => ecoPaso(...a),
   ecoPractica: (...a) => ecoPractica(...a), ecoSig: (...a) => ecoSig(...a), ecoTecla: (...a) => ecoTecla(...a), ecoZoom: (...a) => ecoZoom(...a),
