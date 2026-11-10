@@ -12,6 +12,16 @@
    "url": "https://galera.com.ar/imprenta/"
   },
   {
+   "v": 148,
+   "fecha": "2026-11-09",
+   "tipo": "herramientas",
+   "perfil": "profesional",
+   "materias": [],
+   "titulo": "Tarifario de tarifarios: los valores, con su fuente",
+   "texto": "El tarifario ahora muestra los valores que publican las asociaciones y colegios de traducción, corrección, escritura, fotografía y licencias, tal como figuran en cada fuente, con su edición, la fecha en que se consultó y el enlace al original. Podés filtrar por rubro y unidad, ver solo los vigentes y comparar un mismo concepto entre fuentes. Son orientativos: confirmá siempre en el original.",
+   "url": "https://galera.com.ar/simuladores/tarifario.html"
+  },
+  {
    "v": 147,
    "fecha": "2026-11-09",
    "tipo": "herramientas",
