@@ -10,7 +10,7 @@
       {"id": "otro-dispositivo", "t": "Pasar tus datos a otro dispositivo", "d": "Seguir en el celular lo que hiciste en la compu, con un link o un código QR.", "estado": "listo"},
       {"id": "leyes", "t": "Fichas de leyes del libro y del autor", "d": "Las leyes que importan en edición, en palabras simples.", "estado": "listo"},
       {"id": "tarifario", "t": "Tarifario del sector", "d": "Cuánto se cobra por corrección, traducción, diseño y otras tareas editoriales.", "estado": "listo"},
-      {"id": "contratos", "t": "Contratos modelo", "d": "Borradores de contrato de traducción y de edición, para revisar con un abogado.", "estado": "listo"},
+      {"id": "contratos", "t": "Redactor de contratos", "d": "Borradores de contratos del libro (edición, traducción, cesión, encargo, ilustración, corrección, coedición, autoedición y audiolibro), para revisar con un/a abogado/a.", "estado": "listo"},
       {"id": "mapa-editoriales", "t": "Mapa de editoriales argentinas", "d": "Dónde están las editoriales del país y qué publican.", "estado": "listo"},
       {"id": "resumenes-derecho", "t": "Resúmenes de Derechos Editoriales y del Autor", "d": "Nueve unidades con autoevaluación. Es un borrador, a la espera de una revisión del área.", "estado": "listo"},
       {"id": "preguntas", "t": "Preguntas frecuentes", "d": "45 respuestas sobre cursada, inscripción, finales, idiomas y título, y un lugar para dejar tu pregunta.", "estado": "listo"}
