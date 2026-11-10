@@ -2,6 +2,17 @@
  "nota": "Lo que va en el mail de los lunes (Novedades.gs) y en la pestaña Novedades. v: número de versión (obligatorio; ver CHANGELOG.md). tipo: herramientas | resumenes | fechas. perfil: estudiante (por defecto) | profesional | todos; el mail y la pestaña Novedades lo usan para mostrar a cada perfil lo suyo. materias: ids del plan (vacío = para todas). url: solo links a galera.com.ar/. Sumar una entrada por cada cosa que se publica; el script manda solo lo posterior al último envío de cada persona, así que las viejas no se reenvían.",
  "novedades": [
   {
+   "v": 150,
+   "fecha": "2026-11-10",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "menor": true,
+   "titulo": "Suscripción por mail: más fácil de confirmar",
+   "texto": "Al suscribirte, Galera te dice de qué remitente llega el mail de confirmación y dónde buscarlo si no aparece. Si confirmás pasados los 7 días, podés volver a suscribirte en un toque. Quien no confirma recibe un único recordatorio a los 3 días.",
+   "url": "https://galera.com.ar/"
+  },
+  {
    "v": 149,
    "fecha": "2026-11-09",
    "tipo": "herramientas",
