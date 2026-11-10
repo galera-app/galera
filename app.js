@@ -23,6 +23,7 @@ const CONTACTO = 'hola@galera.com.ar'; // alias público de Galera (Email Routin
 const SOPORTE = 'soporte@galera.com.ar'; // errores y fallas de la app
 const V = { sim: '', nov: '', lec: '', pos: false, faq: '', faqAbierta: '', faqEnviada: '', faqCerrada: '', bib: 'libros', perIdi: 'es', perTipo: '', bl: { q: '', origen: '', tema: '', mat: '', n: 0 }, tab: 'inicio', cambiaPerfil: false, vista: 'tabla', oferta: '', verPasados: false, calFiltro: 'todo', sugeridas: null, verAprobadas: false, verSem: false,
   res: { materia: '', apunte: '', sec: '' }, busq: '', bus: { q: '', pide: null, hecha: null, res: [], rap: [], pregs: [], error: false }, quiz: {}, ayuda: {}, tema: '', glo: { q: '', mat: '', vista: 'lista', sel: -1, vb: null }, dir: { tipo: 'editorial', q: '', prov: '', linea: '', web: false, letra: '' },
+  invitar: false, invitarTab: '', invitarListo: false, invitaVista: false,
   demo: null, prac: null, retos: false, ausencia: 0, retomado: false, recNota: false }; // demo: el estado real guardado aparte mientras se mira el ejemplo; prac: la ronda de práctica en curso
 // Datos para donar por transferencia (sin comisión). Alias vacío = no se muestra el botón.
 const DONAR = { alias: 'fidel.mercado', cvu: '0000003100037663540198', cafecito: 'https://cafecito.app/fidelchaves' };
@@ -133,7 +134,7 @@ function aviso(t) { const a = $('#aviso'); a.textContent = t; a.classList.add('o
 // retos (resueltos), aprob (materias ya registradas), ultimo (último apunte abierto).
 const juegoVacio = () => ({ on: true, rondas: {}, hitos: [], retos: {}, aprob: [], ultimo: '' });
 function estadoVacio() { return { v: 1, carrera: 'edicion', perfil: '', vioAyuda: false, materias: {}, horarios: {}, escandallo: null, comparador: null, papel: null, paginacion: null, cronograma: null, leidos: {}, lecturas: {}, descarga: '',
-  copia: '', modif: '', primera: '', visto: '', practica: {}, juego: juegoVacio(), arcade: typeof Arcade === 'undefined' ? null : Arcade.sanear(null) }; }
+  copia: '', modif: '', primera: '', visto: '', invitacion: '', practica: {}, juego: juegoVacio(), arcade: typeof Arcade === 'undefined' ? null : Arcade.sanear(null) }; }
 // Todo lo que entra (de localStorage o de un archivo importado) se reconstruye campo por campo:
 // solo tipos, formatos y largos esperados. Lo que no encaja se descarta.
 const RE_ID = /^(?!__proto__$|constructor$|prototype$)[\w.-]{1,60}$/, RE_FECHA = /^\d{4}-\d\d-\d\d$/, RE_HORA = /^\d\d:\d\d$/;
@@ -242,6 +243,8 @@ function normalizar(e) {
     if (Object.keys(hechas).length) out.lecturas[id] = hechas;
   });
   ['copia', 'modif', 'primera', 'visto'].forEach(k => { if (RE_FECHA.test(e[k] || '')) out[k] = e[k]; });
+  // Invitación a las novedades por mail (una sola por persona): vista, abierta, cerrada o ya pedida. Nunca sale del navegador.
+  out.invitacion = ['vista', 'clic', 'cerrada', 'pidio'].indexOf(e.invitacion) >= 0 ? e.invitacion : '';
   // Práctica: por pregunta, cuántas veces salió bien y mal, y cuándo fue la última.
   const P = e.practica && typeof e.practica === 'object' ? e.practica : {};
   const veces = v => Number.isInteger(v) && v >= 0 ? Math.min(v, 999) : 0;
@@ -446,6 +449,8 @@ function registrarVisita() {
 function primeraCarga() {
   if (E.primera || V.demo) return;
   E.primera = E.visto = hoy(); medir('primera_carga');
+  // Arma la invitación a las novedades por mail, sin abrir nada ahora: se muestra al volver al plan o al calendario (ver invitacionNov).
+  if (!llegoTraspaso && NOVEDADES) { V.invitar = true; V.invitarTab = V.tab; }
 }
 // ¿Qué te representa? Se pregunta una sola vez; quien ya tenía datos cargados sigue como estudiante, y quien llega por un link a una pantalla no es interrumpido.
 function elegirPerfil() {
@@ -609,6 +614,7 @@ function render() {
     return;
   }
   ajustarTab();
+  if (V.invitar && !V.invitarListo && V.tab !== V.invitarTab) V.invitarListo = true;   // la persona ya cambió de pantalla: recién ahora puede verla
   dibujarPestanas();
   dibujarInferior();
   document.body.dataset.tab = V.tab;
@@ -617,7 +623,7 @@ function render() {
   document.title = tituloPagina();
   altoCab();
   const gr = grupoDe(V.tab); if (gr) (V.gUlt = V.gUlt || {})[gr[0]] = V.tab;
-  conFoco($('#main'), () => { $('#main').innerHTML = (V.demo ? bandaEjemplo() : '') + subnav() + conTitulo({ doc: () => V.docHtml, inicio: vInicio, carrera: vCarrera, horarios: vHorarios, calendario: vCalendario, resumenes: vResumenes, biblioteca: vBiblioteca, simuladores: vSimuladores, glosario: vGlosario, preguntas: vPreguntas, lecturas: vLecturas, buscar: vBuscar, directorio: vDirectorio, links: vLinks, novedades: vNovedades, sostener: vSostener, eventos: vEventos, arcade: () => vArcade() + arcadeInfo(), config: vConfig, imprimir: () => vImprimir(), imprenta: () => vImprenta() }[V.tab]()); capitulares(); ajustarPoster(); });
+  conFoco($('#main'), () => { $('#main').innerHTML = (V.demo ? bandaEjemplo() : '') + subnav() + invitacionNov() + conTitulo({ doc: () => V.docHtml, inicio: vInicio, carrera: vCarrera, horarios: vHorarios, calendario: vCalendario, resumenes: vResumenes, biblioteca: vBiblioteca, simuladores: vSimuladores, glosario: vGlosario, preguntas: vPreguntas, lecturas: vLecturas, buscar: vBuscar, directorio: vDirectorio, links: vLinks, novedades: vNovedades, sostener: vSostener, eventos: vEventos, arcade: () => vArcade() + arcadeInfo(), config: vConfig, imprimir: () => vImprimir(), imprenta: () => vImprenta() }[V.tab]()); capitulares(); ajustarPoster(); });
   $('#main').className = V.tab === 'doc' ? V.docClase : '';
   document.body.classList.toggle('lectura', V.tab === 'doc');
   const can = document.querySelector('link[rel="canonical"]'); if (can && V.tab !== 'doc') can.href = 'https://galera.com.ar' + rutaActual().split('#')[0].split('?')[0];
@@ -4046,6 +4052,22 @@ function avisame() {
     <p class="chico tenue" id="n-n">Uso tu mail solo para esto y no lo comparto. Primero te mando un mail para que confirmes (si no confirmás, se borra) y en cada novedad vas a tener el link para cambiar lo que recibís o darte de baja. No se manda nada de tus notas ni de tus horarios.</p>`, 'nov');
   setTimeout(() => $('#n-m').focus(), 50);
 }
+// Invitación a suscribirse, tras la primera carga: una tarjeta no modal, una sola vez por persona, solo en el plan y el calendario.
+// Nunca en el ejemplo ni con datos traídos de otro dispositivo; se apaga al cerrarla, al abrirla o al pedir la suscripción (E.invitacion).
+function invitacionNov() {
+  if (!NOVEDADES || V.demo || !V.invitarListo || (V.tab !== 'carrera' && V.tab !== 'calendario')) return '';
+  if (E.invitacion === '' ) { E.invitacion = 'vista'; V.invitaVista = true; guardar(true); medir('nov_invitacion_vista'); }
+  else if (!(E.invitacion === 'vista' && V.invitaVista)) return '';
+  return `<section class="gl-invita" role="region" aria-labelledby="inv-t"><div class="gl-crece"><b id="inv-t">¿Te aviso lo que cambia?</b>
+    <span>Si querés, te aviso los lunes de las mesas y fechas de tus materias. Es gratis y te das de baja cuando quieras.</span></div>
+    <div class="gl-invita-b"><button class="gl-btn" type="button" data-clic="invitacionAbrir">Avisame los lunes</button><button class="gl-btn gl-btn--sec" type="button" data-clic="invitacionCerrar">No, gracias</button></div></section>`;
+}
+function invitacionSacar(estado) {
+  E.invitacion = estado; V.invitaVista = false; guardar(true);
+  const t = document.querySelector('.gl-invita'); if (t) { t.remove(); focoTitulo(); }
+}
+function invitacionAbrir() { medir('nov_invitacion_clic'); invitacionSacar('clic'); avisame(); }
+function invitacionCerrar() { medir('nov_invitacion_cerrada'); invitacionSacar('cerrada'); }
 async function enviarAviso() {
   const email = val('n-m'), temas = temasMarcados();
   if (!mailValido(email)) return aviso('Revisá el mail: parece que tiene un error');
@@ -4055,6 +4077,7 @@ async function enviarAviso() {
   boton.disabled = true; boton.textContent = 'Enviando…';
   try {
     await postNov({ accion: 'suscribir', email, temas, materias, web: val('n-w'), ms: Date.now() - novAbierta });
+    E.invitacion = 'pidio'; V.invitaVista = false; guardar(true);   // ya pidió: la invitación no vuelve
     abrir(cab('📬 Revisá tu mail') + `<div role="status"><p>Te mandé un mail a <b>${esc(email)}</b> para que confirmes. Llega de <b>Galera</b> (hola@galera.com.ar) con el asunto <b>«Confirmá tu suscripción a Galera»</b>. Tocá el botón que trae y listo: desde el próximo lunes te llegan las novedades.</p>
       <p class="chico tenue">Si no lo ves en unos minutos, mirá en <b>Spam</b> o <b>Promociones</b>; si está ahí, marcalo como «No es spam». El link sirve por 7 días. Si te equivocaste de mail, simplemente no lo confirmes y se borra solo.</p></div>
       <div class="botones"><button class="btn" data-clic="cerrar">Listo</button></div>`, 'nov');
@@ -4236,7 +4259,7 @@ Object.assign(ACC, {
   abrirLibro: (...a) => abrirLibro(...a), abrirMas: (...a) => abrirMas(...a), abrirMateria: (...a) => abrirMateria(...a),
   abrirRecorrido: (...a) => abrirRecorrido(...a), abrirRespuesta: (...a) => abrirRespuesta(...a), abrirTraspaso: (...a) => abrirTraspaso(...a),
   aceptarTraspaso: (...a) => aceptarTraspaso(...a), alternarGrupo: (...a) => alternarGrupo(...a), autoPrac: (...a) => autoPrac(...a),
-  avisame: (...a) => avisame(...a), ayudaCalendario: (...a) => ayudaCalendario(...a), bajarRecorrido: (...a) => bajarRecorrido(...a),
+  avisame: (...a) => avisame(...a), invitacionAbrir: (...a) => invitacionAbrir(...a), invitacionCerrar: (...a) => invitacionCerrar(...a), ayudaCalendario: (...a) => ayudaCalendario(...a), bajarRecorrido: (...a) => bajarRecorrido(...a),
   bloqueo: (...a) => bloqueo(...a), borrarAplazo: (...a) => borrarAplazo(...a), borrarBloqueo: (...a) => borrarBloqueo(...a),
   borrarExamen: (...a) => borrarExamen(...a), borrarHitos: (...a) => borrarHitos(...a), borrarPropia: (...a) => borrarPropia(...a),
   borrarTodo: (...a) => borrarTodo(...a), buscarEnviar: (...a) => buscarEnviar(...a), buscarRes: (...a) => buscarRes(...a),
