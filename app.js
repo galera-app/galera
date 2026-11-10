@@ -4027,7 +4027,7 @@ async function postNov(cuerpo) {
   // text/plain evita la consulta previa (preflight) del navegador, que Apps Script no responde.
   const r = await fetch(BUZON, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(Object.assign({ sitio: 'cursada' }, cuerpo)) });
   const j = await r.json();
-  if (!j.ok) throw new Error(j.error || 'No se pudo completar');
+  if (!j.ok) { const err = new Error(j.error || 'No se pudo completar'); err.codigo = j.codigo; throw err; }   // codigo: 'vencido' cuando el link ya no sirve
   return j;
 }
 const checksTemas = marcados => TEMAS_NOV.map(([k, t]) => `<label class="chico fila nov-op"><input type="checkbox" data-f="nt-${k}" id="nt-${k}" ${(marcados ? marcados.indexOf(k) >= 0 : (k !== 'profesional' || esPro())) ? 'checked' : ''}> <span>${t}</span></label>`).join('');
@@ -4055,8 +4055,8 @@ async function enviarAviso() {
   boton.disabled = true; boton.textContent = 'Enviando…';
   try {
     await postNov({ accion: 'suscribir', email, temas, materias, web: val('n-w'), ms: Date.now() - novAbierta });
-    abrir(cab('📬 Revisá tu mail') + `<p>Te mandé un mail a <b>${esc(email)}</b> para que confirmes. Tocá el botón que trae y listo: desde el próximo lunes te llegan las novedades.</p>
-      <p class="chico tenue">Si no lo ves en unos minutos, mirá en <b>Spam</b> o <b>Promociones</b>. Si te equivocaste de mail, simplemente no lo confirmes y se borra solo.</p>
+    abrir(cab('📬 Revisá tu mail') + `<div role="status"><p>Te mandé un mail a <b>${esc(email)}</b> para que confirmes. Llega de <b>Galera</b> (hola@galera.com.ar) con el asunto <b>«Confirmá tu suscripción a Galera»</b>. Tocá el botón que trae y listo: desde el próximo lunes te llegan las novedades.</p>
+      <p class="chico tenue">Si no lo ves en unos minutos, mirá en <b>Spam</b> o <b>Promociones</b>; si está ahí, marcalo como «No es spam». El link sirve por 7 días. Si te equivocaste de mail, simplemente no lo confirmes y se borra solo.</p></div>
       <div class="botones"><button class="btn" data-clic="cerrar">Listo</button></div>`, 'nov');
   } catch (e) {
     boton.disabled = false; boton.textContent = 'Suscribirme';
@@ -4090,7 +4090,12 @@ async function confirmarNov() {
     await postNov({ accion: 'confirmar', token: novToken });
     abrir(cab('✅ ¡Listo!') + `<p>Tu mail quedó confirmado. Desde el próximo lunes, a las 8:00, te llega lo nuevo de Galera que elegiste recibir. Si un lunes no hay nada para vos, no te escribo.</p>
       <div class="botones"><button class="btn" data-clic="cerrar">Seguir en Galera</button><button class="btn lin" data-clic="verPrefsNov">Cambiar lo que recibo</button></div>`, 'nov');
-  } catch (e) { abrir(cab('No se pudo confirmar') + errNov(e), 'nov'); }
+  } catch (e) {
+    // Link vencido (la fila se purgó a los 7 días o ya no existe): en vez de un error seco, se ofrece volver a suscribirse con un toque.
+    if (e.codigo === 'vencido') abrir(cab('Este link ya no sirve') + `<div role="status"><p>Pasaron más de 7 días desde tu pedido y, como no se confirmó, borramos tu mail. Si todavía querés recibir las novedades de Galera, podés pedirlas de nuevo.</p></div>
+      <div class="botones"><button class="btn" data-clic="avisame">Volver a suscribirme</button><button class="btn lin" data-clic="cerrar">Ahora no</button></div>`, 'nov');
+    else abrir(cab('No se pudo confirmar') + errNov(e), 'nov');
+  }
 }
 async function verPrefsNov() {
   abrir(cab('🔔 Lo que recibís') + '<p class="cargando">Buscando tus preferencias…</p>', 'nov');
