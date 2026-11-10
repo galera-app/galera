@@ -89,6 +89,13 @@ a.gl-cont::after{content:"";margin-left:auto;width:20px;height:20px;background:c
 .gl-aviso>svg{flex:none;color:var(--gl-bad)}
 .gl-aviso b{display:block;font:600 16px/24px var(--gl-sans)}
 
+/* Invitación a las novedades por mail (tras la primera carga): tarjeta no modal, arriba del plan o del calendario */
+.gl-invita{display:flex;flex-wrap:wrap;gap:12px 16px;align-items:center;margin:0 0 16px;padding:12px 16px;border-radius:var(--gl-r);background:var(--gl-card);color:var(--gl-ink)}
+.gl-invita>div:first-child{flex:1 1 260px;min-width:0}
+.gl-invita b{display:block;font:600 16px/24px var(--gl-sans)}
+.gl-invita span{display:block;font:400 14px/20px var(--gl-sans);color:var(--gl-t2)}
+.gl-invita-b{display:flex;flex-wrap:wrap;gap:8px}
+
 /* Botones: 44 en toque, 40 compacto (solo escritorio con puntero) */
 .gl-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 20px;border:0;border-radius:var(--gl-r);font:500 16px/24px var(--gl-sans);background:var(--gl-mark);color:var(--gl-on-mark);cursor:pointer;text-decoration:none}
 .gl-btn--sec{background:var(--gl-sky);color:var(--gl-click)}
