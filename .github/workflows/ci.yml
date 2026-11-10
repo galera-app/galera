@@ -37,6 +37,8 @@ jobs:
         run: node tools/probar_imprenta.js
       - name: Pruebas de la calculadora de lomo
         run: node tools/probar_lomo.js
+      - name: Imprenta arma fanzine y acaballado con Typst (baja el motor de npm, verificado)
+        run: python tools/bajar_typst.py && node tools/probar_prensa.mjs
       - name: Pruebas del redactor de contratos
         run: node tools/probar_contratos.js
       - name: Instalar Pagefind (el buscador)

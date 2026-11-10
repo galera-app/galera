@@ -122,7 +122,7 @@ def cabecera(rel):
 # El orden dentro de cada grupo es el de ejecución. No van en app-cierre.tpl.
 CARGA = {"horarios": ["horarios"], "grafo": ["grafo"], "arcade": ["arcade", "arcade-ui"],
          "sim": ["escandallo", "papel", "paginacion", "cronograma", "ecosistema", "formatos", "lomo", "leyes", "contratos", "redactor", "retos"],
-         "imprenta": ["imprenta"]}   # pdf-lib (vendor/) no va acá: lo baja imprenta.js recién cuando alguien elige un PDF
+         "imprenta": ["imprenta"], "prensa": ["imprenta", "imprenta-editor"]}   # pdf-lib (vendor/) no va acá: lo baja imprenta.js recién cuando alguien elige un PDF
 
 META_COMUN = ('<meta name="referrer" content="strict-origin-when-cross-origin">\n'
               '<meta name="author" content="Fidel Chaves">\n'

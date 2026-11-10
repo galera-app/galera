@@ -1,8 +1,9 @@
 # Solo lo lee Cloudflare Pages, o sea el sitio de prueba y las vistas previas. En producción no se publica.
 # noindex: que no aparezca en Google. CSP: sin Analytics y sin escribir en el buzón ni en el arcade reales.
+# descargas.galera.com.ar es solo lectura: de ahí baja la Imprenta el compilador de Typst.
 /*
   X-Robots-Tag: noindex
-  Content-Security-Policy: connect-src 'self'; script-src 'self' 'wasm-unsafe-eval'
+  Content-Security-Policy: connect-src 'self' https://descargas.galera.com.ar; script-src 'self' 'wasm-unsafe-eval'
 
 # Archivos de Pagefind con hash del contenido en el nombre: no cambian nunca. Sin hash (no tocar): pagefind.js, pagefind-entry.json, wasm.
 /pagefind/index/*
