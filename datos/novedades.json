@@ -2,6 +2,17 @@
  "nota": "Lo que va en el mail de los lunes (Novedades.gs) y en la pestaña Novedades. v: número de versión (obligatorio; ver CHANGELOG.md). tipo: herramientas | resumenes | fechas. perfil: estudiante (por defecto) | profesional | todos; el mail y la pestaña Novedades lo usan para mostrar a cada perfil lo suyo. materias: ids del plan (vacío = para todas). url: solo links a galera.com.ar/. Sumar una entrada por cada cosa que se publica; el script manda solo lo posterior al último envío de cada persona, así que las viejas no se reenvían.",
  "novedades": [
   {
+   "v": 152,
+   "fecha": "2026-11-10",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "menor": true,
+   "titulo": "Párrafos con links: interlineado parejo en el celular",
+   "texto": "En Mi carrera, los links que van dentro de una frase (como «Cómo funciona» o «Miralo con un ejemplo») ya no estiran la línea: el espacio entre renglones es el mismo en todo el párrafo. Se tocan igual de fácil.",
+   "url": "https://galera.com.ar/"
+  },
+  {
    "v": 151,
    "fecha": "2026-11-10",
    "tipo": "herramientas",
