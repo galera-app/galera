@@ -556,7 +556,8 @@ main:has(>.gl-v){max-width:1224px;padding:48px 16px 80px}
 /* v113 · auditoría final: táctiles de 44 y desborde en celular */
 @media (max-width:560px){
 .btn{min-height:44px}
-button.enlace{min-height:44px;display:inline-flex;align-items:center}
+button.enlace{position:relative}
+button.enlace::after{content:'';position:absolute;inset:-12px -4px}
 main summary{padding-block:10px;min-height:44px;box-sizing:border-box}
 .fila.vecinos a{display:inline-flex;align-items:center;min-height:44px}
 .apunte{overflow-wrap:break-word}
