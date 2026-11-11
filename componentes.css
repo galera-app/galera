@@ -598,6 +598,15 @@ main summary{padding-block:10px;min-height:44px;box-sizing:border-box}
 .gl-res .fin-apunte{max-width:760px}
 .gl-vecinos{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-top:32px;max-width:760px}
 .gl-vecinos .gl-btn{height:auto;min-height:44px;padding-block:8px;text-align:left}
+/* Apunte en celular: el título y el comienzo del texto entran en la primera pantalla. Sin «← volver» (las migas ya llevan a la materia),
+   las cuatro acciones en una sola fila y la caja de descarga reducida al botón (su título queda para lectores de pantalla). El orden del DOM no cambia. */
+@media (max-width:720px){
+  .gl-barra-apunte{justify-content:space-between;gap:0 4px;margin:0 0 8px}
+  .gl-barra-apunte>a,.gl-barra-apunte>.gl-crece{display:none}
+  .gl-barra-apunte .gl-btn{min-width:44px;padding:0 4px;font-size:14px;line-height:20px}
+  #desc-apunte{padding:12px;gap:4px 12px}
+  #desc-apunte>div:first-child{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+}
 .gl-campo-sel{display:block}
 .gl-campo-sel select{min-width:200px;max-width:100%}
 .gl-sim-uso{margin-top:24px}
