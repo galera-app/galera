@@ -99,7 +99,12 @@ h1,h2,h3,.portada h2,.practica h2,.perfil b,.avance b,.recorrido .area{font-fami
 .galletas .botones{align-items:center;margin:0}
 .galletas .btn{display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;height:40px;min-height:40px;font-family:inherit;font-size:14px;line-height:1;padding:0 16px;border:1.5px solid transparent;text-align:center}
 .galletas .btn.lin{border-color:var(--borde)}
-@media (max-width:720px){.galletas .btn{height:44px;min-height:44px}}
+@media (max-width:720px){
+.galletas .btn{height:44px;min-height:44px;min-width:44px;padding:0 10px}
+.galletas,.galletas.on{padding:6px 12px;flex-wrap:nowrap;gap:0 10px;justify-content:space-between;align-items:center}
+.galletas p{flex:1 1 0;min-width:0;line-height:18px}
+.galletas .botones{flex:none;gap:6px}
+}
 
 /* Menú con grupos de las páginas estáticas (el lienzo: Cabecera) */
 .sub a{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border-radius:4px;color:var(--texto);text-decoration:none}

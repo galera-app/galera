@@ -484,9 +484,9 @@ svg.eco.zoom { touch-action: none; cursor: grab; }
   .inferior [aria-current] { color: var(--tinta); }
   .inferior [aria-current] svg { fill: var(--tinta-suave); }
   body { padding-bottom: calc(64px + env(safe-area-inset-bottom)); }
-  .galletas { left: 12px; right: 12px; bottom: calc(68px + env(safe-area-inset-bottom)); border: 0; border-radius: var(--radio); padding: 10px 12px; box-shadow: 0 8px 28px rgba(0,0,0,.22), 0 0 0 1px var(--borde); }
-  .galletas.on { justify-content: space-between; }
-  .galletas p { flex: 1 1 140px; }
+  /* Aviso de Analytics: una franja pegada encima de la barra inferior (57 px + zona segura), no una tarjeta. El detalle de la fila va en galera.css. */
+  .galletas { left: 0; right: 0; bottom: calc(57px + env(safe-area-inset-bottom)); border: 0; border-top: 1px solid var(--borde); border-radius: 0; box-shadow: none; }
+  body:has(.galletas.on) { padding-bottom: calc(152px + env(safe-area-inset-bottom)); }
 }
 @media print { .inferior { display: none !important; } }
 
