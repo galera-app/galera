@@ -6,9 +6,9 @@
     <nav class="pestanas" id="pestanas" aria-label="Secciones"></nav>
     <div class="acciones">
       <a class="ib ib-buscar" href="/buscar/" data-precarga title="Buscar en Galera" aria-label="Buscar en Galera"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg></a>
-      <button class="ib" type="button" id="tema" data-clic="cambiarTema" aria-label="Cambiar a modo oscuro" aria-pressed="false"></button>
+      <button class="ib" type="button" id="tema" data-clic="cambiarTema" aria-label="Cambiar a modo oscuro" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 019.5 4 8 8 0 1020 14.5z"/></svg></button>
       <button class="ib ib-pc" type="button" data-clic="abrirDatos" title="Tus datos" aria-label="Tus datos: guardar una copia"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M8 11l4 4 4-4M5 19h14"/></svg><span class="ib-t">Tus datos</span></button>
-      <button class="ib ib-pc" data-nov hidden type="button" data-clic="avisame" title="Avisame por mail" aria-label="Avisame por mail, los lunes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3zM3 7l9 7 9-7"/></svg><span class="ib-t">Avisame</span></button>
+      <button class="ib ib-pc" data-nov type="button" data-clic="avisame" title="Avisame por mail" aria-label="Avisame por mail, los lunes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3zM3 7l9 7 9-7"/></svg><span class="ib-t">Avisame</span></button>
       <button class="ib hdr-comp" type="button" data-clic="compartirPantalla" title="Compartir" aria-label="Compartir esta pantalla"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V3M8 7l4-4 4 4M5 12v8h14v-8"/></svg><span class="ib-t">Compartir</span></button>
     </div>
   </div>
