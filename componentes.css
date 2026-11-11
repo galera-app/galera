@@ -557,7 +557,8 @@ main:has(>.gl-v){max-width:1224px;padding:48px 16px 80px}
 @media (max-width:560px){
 .btn{min-height:44px}
 button.enlace{position:relative}
-button.enlace::after{content:'';position:absolute;inset:-12px -4px}
+button.enlace::after{content:'';position:absolute;inset:-2px -4px}
+.pie-enlaces .enlace::after{content:none}
 main summary{padding-block:10px;min-height:44px;box-sizing:border-box}
 .fila.vecinos a{display:inline-flex;align-items:center;min-height:44px}
 .apunte{overflow-wrap:break-word}
