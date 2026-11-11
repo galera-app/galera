@@ -2,6 +2,17 @@
  "nota": "Lo que va en el mail de los lunes (Novedades.gs) y en la pestaña Novedades. v: número de versión (obligatorio; ver CHANGELOG.md). tipo: herramientas | resumenes | fechas. perfil: estudiante (por defecto) | profesional | todos; el mail y la pestaña Novedades lo usan para mostrar a cada perfil lo suyo. materias: ids del plan (vacío = para todas). url: solo links a galera.com.ar/. Sumar una entrada por cada cosa que se publica; el script manda solo lo posterior al último envío de cada persona, así que las viejas no se reenvían.",
  "novedades": [
   {
+   "v": 153,
+   "fecha": "2026-11-10",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "menor": true,
+   "titulo": "Apuntes en el celular: el título se ve sin bajar tanto",
+   "texto": "En la página de un apunte, en pantallas de hasta 720 px, sacamos el «volver» repetido (las migas de arriba ya llevan a la materia) y juntamos Marcar como leído, Imprimir, Compartir y QR en una sola fila. La caja de descarga quedó más baja: el título del apunte y el comienzo del texto entran antes en la pantalla.",
+   "url": "https://galera.com.ar/"
+  },
+  {
    "v": 152,
    "fecha": "2026-11-10",
    "tipo": "herramientas",
