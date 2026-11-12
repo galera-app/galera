@@ -1,10 +1,10 @@
 /* Galera: tokens de diseño, la única fuente de los valores que se ven (colores, radios, tipografías), en claro y en oscuro.
    Ninguna otra hoja los redefine. Sirve también para Figma y para otras páginas.
-   Pendiente (10b): la capa --gl- de componentes.css sigue aparte; el oscuro está escrito dos veces porque hay que cubrir
+   La capa --gl- de componentes.css ya no repite estos valores (10b); el oscuro está escrito dos veces porque hay que cubrir
    «oscuro del sistema» y «oscuro elegido» (data-theme). */
 :root {
   color-scheme: light;
-  --bg: #fff; --sup: #fff; --sup2: #F5F7FA; --borde: #E3E8EE; --borde-campo: #89939E; --texto: #212121; --texto2: #4D4D4D; --tenue: #666;
+  --bg: #fff; --sup: #fff; --sup2: #F5F7FA; --borde: #E3E8EE; --borde-campo: #89939E; --texto: #212121; --texto2: #4D4D4D; --tenue: #666; --tenue-2: #717171; /* --tenue-2: gris de apoyo de componentes; no es --tenue (#666): decisión pendiente de Fidel */
   /* La tinta azul de la marca: --tinta para texto y enlaces, --marca para trazos y subrayados, --marca-suave para rellenos. */
   --tinta: #0560C8; --tinta-suave: #DBEDFF; --marca: #0671E0; --marca-suave: #DBEDFF;
   --ok: #1d7a46; --ok-suave: #dff2e6; --ojo: #8a4b00; --ojo-suave: #fdecd2; --mal: #b3261e; --mal-suave: #fbe1de;
@@ -19,10 +19,10 @@
   --serif: "Literata", Georgia, serif;
 }
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) { color-scheme: dark; --bg: #14171A; --sup: #14171A; --sup2: #1D2125; --borde: #2E3338; --borde-campo: #6B747D; --texto: #ECEFF1; --texto2: #B7BDC4; --tenue: #9AA1A9;
+  :root:not([data-theme="light"]) { color-scheme: dark; --bg: #14171A; --sup: #14171A; --sup2: #1D2125; --borde: #2E3338; --borde-campo: #6B747D; --texto: #ECEFF1; --texto2: #B7BDC4; --tenue: #9AA1A9; --tenue-2: #9AA1A9;
     --azul-texto: #7DBBF8; --tinta: #7DBBF8; --tinta-suave: #12304D; --marca: #5AA9F5; --marca-suave: #1d2c42;
     --ok: #63cc92; --ok-suave: #16331f; --ojo: #f0b155; --ojo-suave: #3a2a10; --mal: #f08179; --mal-suave: #401c19; --sombra: none; }
 }
-:root[data-theme="dark"] { color-scheme: dark; --bg: #14171A; --sup: #14171A; --sup2: #1D2125; --borde: #2E3338; --borde-campo: #6B747D; --texto: #ECEFF1; --texto2: #B7BDC4; --tenue: #9AA1A9;
+:root[data-theme="dark"] { color-scheme: dark; --bg: #14171A; --sup: #14171A; --sup2: #1D2125; --borde: #2E3338; --borde-campo: #6B747D; --texto: #ECEFF1; --texto2: #B7BDC4; --tenue: #9AA1A9; --tenue-2: #9AA1A9;
     --azul-texto: #7DBBF8; --tinta: #7DBBF8; --tinta-suave: #12304D; --marca: #5AA9F5; --marca-suave: #1d2c42;
     --ok: #63cc92; --ok-suave: #16331f; --ojo: #f0b155; --ojo-suave: #3a2a10; --mal: #f08179; --mal-suave: #401c19; --sombra: none; }
