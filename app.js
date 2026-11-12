@@ -628,7 +628,27 @@ function render() {
   document.body.classList.toggle('lectura', V.tab === 'doc');
   const can = document.querySelector('link[rel="canonical"]'); if (can && V.tab !== 'doc') can.href = 'https://galera.com.ar' + rutaActual().split('#')[0].split('?')[0];
   ponerMeta();
+  vigiarIndice();
   mostrarMain();
+}
+// Índice al margen del apunte (escritorio): marca con aria-current el link de la sección que se está leyendo. Sin IntersectionObserver, queda sin marcar.
+let ioIndice = null;
+function vigiarIndice() {
+  if (ioIndice) { ioIndice.disconnect(); ioIndice = null; }
+  const nav = document.querySelector('.indice-margen');
+  if (!nav || typeof IntersectionObserver === 'undefined') return;
+  const links = [...nav.querySelectorAll('a[href^="#"]')];
+  const objetivos = links.map(l => document.getElementById(decodeURIComponent(l.getAttribute('href').slice(1))));
+  const marcar = () => {
+    const tope = window.innerHeight * 0.3;   // el borde de la franja que vigila el observador
+    let k = -1;
+    objetivos.forEach((h, i) => { if (h && h.getBoundingClientRect().top <= tope) k = i; });
+    links.forEach((l, i) => { if (i === k) l.setAttribute('aria-current', 'location'); else l.removeAttribute('aria-current'); });
+    if (k >= 0) { const l = links[k], t = l.offsetTop; if (t < nav.scrollTop || t + l.offsetHeight > nav.scrollTop + nav.clientHeight) nav.scrollTop = t - nav.clientHeight / 2; }   // si el índice es más alto que la ventana, el link activo queda a la vista
+  };
+  ioIndice = new IntersectionObserver(marcar, { rootMargin: '0px 0px -70% 0px', threshold: [0, 1] });
+  objetivos.forEach(h => { if (h) ioIndice.observe(h); });
+  marcar();
 }
 // Capitular de Iniciales: solo en el título de la pantalla (no en subtítulos) y si empieza con mayúscula y minúscula (nunca en cifras ni siglas, como «2.º cuatrimestre» o «CBC»).
 function capitulares() { const h = document.querySelector('#main .titulo-sec h1, #main .titulo-sec h2'); if (h && /^[¿¡]?[A-ZÁÉÍÓÚÑ][a-záéíóúñü]/.test(h.textContent.trim())) h.classList.add('cap'); }
@@ -1853,9 +1873,13 @@ function vApunte() {
       ${ya ? `<p class="chico devolucion ${r === p.correcta ? 'ok' : 'no'}" role="status"><b>${r === p.correcta ? '¡Bien!' : 'Era ' + correcta}</b> ${p.respuesta}</p>` : ''}</div>`;
   };
   seccionar(a);
+  const itemsIndice = `${a.secciones.map(x => `<li class="${x.n === 3 ? 'sub' : ''}"><a href="#s-${esc(x.id)}">${esc(x.t)}</a></li>`).join('')}
+    ${a.preguntas.length ? '<li><a href="#autoevaluacion">Autoevaluación</a></li>' : ''}`;
   const indice = a.secciones.length > 2 ? `<details class="indice-apunte"><summary>En este apunte <span class="gl-chip">${a.secciones.length} partes</span></summary><ol>
-    ${a.secciones.map(x => `<li class="${x.n === 3 ? 'sub' : ''}"><a href="#s-${esc(x.id)}">${esc(x.t)}</a></li>`).join('')}
-    ${a.preguntas.length ? '<li><a href="#autoevaluacion">Autoevaluación</a></li>' : ''}</ol></details>` : '';
+    ${itemsIndice}</ol></details>` : '';
+  // En escritorio (≥1100 px) el índice va al margen, fijo: es un <nav> aparte y el <details> se oculta con display:none (un solo índice expuesto). En celular pasa lo contrario.
+  const indiceMargen = a.secciones.length > 2 ? `<nav class="indice-margen no-imprimir" aria-label="Índice del apunte"><p class="indice-margen-t">En este apunte</p><ol>
+    ${itemsIndice}</ol></nav>` : '';
   const leido = !!E.leidos[k];
   const botonLeido = donde => `<button class="gl-btn ${leido ? 'gl-btn--sec' : 'gl-btn--ter'}" type="button" data-f="leido-${donde}" aria-pressed="${leido}" data-clic="marcarLeido" data-clic-a="[${arg(k)}]">${leido ? 'Leído' : 'Marcar como leído'}</button>`;
   const clave = a.preguntas.length ? `<section class="solo-imprimir"><h2>Respuestas</h2><ol>${a.preguntas.map(p => `<li>${p.tipo === 'abierta' ? '' : `<b>${p.tipo === 'vf' ? ['Verdadero', 'Falso'][p.correcta] : LETRAS[p.correcta] + ')'}</b> `}${p.respuesta}</li>`).join('')}</ol></section>` : '';
@@ -1865,8 +1889,8 @@ function vApunte() {
       <button class="gl-btn gl-btn--ter" type="button" data-clic="linkSeccion" data-clic-a="[&quot;&quot;,${arg(a.titulo)}]">Compartir</button>
       <button class="gl-btn gl-btn--ter" type="button" data-clic="qrApunte" data-clic-a="[${arg(materia)},${arg(apunte)},${arg(a.titulo)},${arg(k)}]" aria-label="Código QR de este apunte">QR</button></div>
     ${descargaApunte(materia, apunte)}
-    <article class="gl-tarjeta apunte"><p class="solo-imprimir chico">${esc(m.nombre)} · Resúmenes de Galera (galera.com.ar)</p>
-      <p class="gl-chico gl-m4 no-imprimir">${esc(m.nombre)}${ap ? ' · ' + ap.min + ' min de lectura' : ''}</p><h1>${esc(a.titulo)}</h1>${indice}${a.cuerpoConIds}</article>
+    <div class="gl-apunte-fila"><article class="gl-tarjeta apunte"><p class="solo-imprimir chico">${esc(m.nombre)} · Resúmenes de Galera (galera.com.ar)</p>
+      <p class="gl-chico gl-m4 no-imprimir">${esc(m.nombre)}${ap ? ' · ' + ap.min + ' min de lectura' : ''}</p><h1>${esc(a.titulo)}</h1>${indice}${a.cuerpoConIds}</article>${indiceMargen}</div>
     ${a.preguntas.length ? `<section id="autoevaluacion" class="gl-auto"><div class="gl-cab"><h2 class="gl-t2">Autoevaluación <button class="ancla" type="button" data-clic="linkSeccion" data-clic-a="[&quot;autoevaluacion&quot;,&quot;Autoevaluación&quot;]" aria-label="Copiar el link a la autoevaluación" title="Copiar el link a esta parte">#</button></h2><span class="gl-crece"></span>
       ${cerradas.length ? `<span class="gl-chico">${hechas.length ? `<b>${bien.length} de ${hechas.length}</b> bien` : 'Tocá la opción que te parezca correcta'}${hechas.length ? ` · <button class="gl-enlace" type="button" data-clic="quizReset" data-clic-a="[${arg(k)}]">Empezar de nuevo</button>` : ''}</span>` : ''}</div>
       <div class="gl-tarjeta">${a.preguntas.map(pregunta).join('')}</div>${bloqueFinAuto(materia, apunte, bien.length, hechas.length, cerradas.length)}</section>` : ''}
