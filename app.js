@@ -657,11 +657,11 @@ function capitulares() { const h = document.querySelector('#main .titulo-sec h1,
 function altoCab() { const c = document.querySelector('.cabecera'); if (c) document.documentElement.style.setProperty('--alto-cab', c.offsetHeight + 'px'); }
 window.addEventListener('resize', altoCab);
 window.addEventListener('resize', () => ajustarPoster());
-// Barra inferior del celular (≤720 px; en escritorio siguen las pestañas de arriba): cuatro destinos directos y "Más" con el resto.
+// Barra inferior del celular (≤720 px; en escritorio siguen las pestañas de arriba): hasta cuatro destinos directos (cinco en el perfil estudiante) y "Más" con el resto.
 const ICONO = { carrera: 'M4 11l8-6 8 6v8a1 1 0 0 1-1 1h-4v-5H9v5H5a1 1 0 0 1-1-1z', horarios: 'M4 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zM4 10h16M9 3v4M15 3v4',
   calendario: 'M5 4h14v16H5zM5 9h14M9 13h2M13 13h2M9 16h2', simuladores: 'M6 3h12a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM8 7h8M8 11h2M12 11h2M8 15h2M12 15h2', eventos: 'M5 4h14v16H5zM5 9h14M12 12v5M9.5 14.5h5', glosario: 'M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3zM9 8h6M9 12h6', links: 'M9 15l6-6M10 7l1-1a3.5 3.5 0 0 1 5 5l-1 1M14 17l-1 1a3.5 3.5 0 0 1-5-5l1-1', resumenes: 'M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3zM5 17a3 3 0 0 1 3-3h11', mas: 'M5 12h.01M12 12h.01M19 12h.01' };
 // Grupos de navegación (v66). Mismos nombres para los dos perfiles, con otro contenido; en el celular cada grupo es un botón de la barra y
-// sus pestañas aparecen como subnavegación fija arriba. Herramientas (los antiguos Simuladores) es un grupo propio y compartido.
+// sus pestañas aparecen como subnavegación fija arriba. Producir (Simuladores, Antes de imprimir e Imprenta) es un grupo propio en los dos perfiles.
 const GRUPOS = MARCO.barra_celular;
 const gruposActivos = () => GRUPOS[esPro() ? 'profesional' : 'estudiante'];
 const grupoDe = tab => gruposActivos().find(g => g[3].includes(tab));
