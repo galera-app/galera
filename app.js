@@ -3655,10 +3655,16 @@ function glosarioLista() {
     + grupos.map(g => `<section class="gl-letra" id="glo-${esc(g.ini)}"><h2 class="gl-letra-h" aria-label="Letra ${esc(g.ini)}">${esc(g.ini)}</h2>${g.L.map(fila).join('')}</section>`).join('');
 }
 const inicialGlo = t => { const c = sinTildes(t).replace(/[^a-z0-9]/g, '').charAt(0).toUpperCase(); return /[A-Z]/.test(c) ? c : '#'; };
-// «Ir a la letra»: las letras con términos (según lo que se está viendo) son enlaces; las demás quedan apagadas.
+// Índice alfabético único (Glosario y Directorio): A a Z más «#»; las letras con elementos (`hay`) se dibujan con `item(letra, cls)`, las demás quedan apagadas.
+// `activa` marca la letra elegida (solo el Directorio, donde la letra filtra).
+function azIndice(hay, item, activa) {
+  return 'ABCDEFGHIJKLMNOPQRSTUVWXYZ#'.split('').filter(l => l !== '#' || hay.has(l))
+    .map(l => hay.has(l) ? item(l, `gl-az${l === activa ? ' on' : ''}`) : `<span class="gl-az off" aria-hidden="true">${l}</span>`).join('');
+}
+// «Ir a la letra» del Glosario: las letras con términos (según lo que se está viendo) son enlaces.
 function gloAz() {
   const hay = new Set(glosarioFiltrado().map(i => inicialGlo(D.glosario.terminos[i].t)));
-  return 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map(l => hay.has(l) ? `<a class="gl-az" href="#glo-${l}">${l}</a>` : `<span class="gl-az off" aria-hidden="true">${l}</span>`).join('');
+  return azIndice(hay, (l, c) => `<a class="${c}" href="#glo-${l}">${l}</a>`);
 }
 // Grafo: los términos son nodos y se unen cuando la definición de uno nombra al otro (datos/glosario.json, «relaciones»; lo arma glosario.py).
 // La disposición sale de grafo.js; el zoom y el arrastre son los del mapa del Ecosistema (ecoSetVB y los eventos de svg.eco).
@@ -3797,7 +3803,7 @@ function vDirectorio() {
         <p class="gl-aviso-cob"><b>Cobertura.</b> ${esc(tipo.cobertura)}</p></aside>
       <section class="gl-dir-main" aria-label="Mapa y fichas"><div id="dir-mapa">${directorioMapaVista()}</div><div id="dir-lista">${directorioLista()}</div></section>
       <aside class="gl-dir-riel" aria-label="Índice">
-        ${letras.length > 1 && actoresDelTipo().length > 60 ? `<p class="gl-rotulo">Ir a la letra</p><div class="dir-letras" role="group" aria-label="Ir a la letra">${letras.map(l => `<button type="button" class="${V.dir.letra === l ? 'on' : ''}" aria-pressed="${V.dir.letra === l}" data-clic="vAsig" data-clic-a="[&quot;dir.letra&quot;,${arg(V.dir.letra === l ? '' : l)},true]">${l}</button>`).join('')}</div>` : ''}
+        ${letras.length > 1 && actoresDelTipo().length > 60 ? `<p class="gl-rotulo">Ir a la letra</p><div class="gl-azs" role="group" aria-label="Ir a la letra">${azIndice(new Set(letras), (l, c) => `<button type="button" class="${c}" aria-pressed="${V.dir.letra === l}" data-clic="vAsig" data-clic-a="[&quot;dir.letra&quot;,${arg(V.dir.letra === l ? '' : l)},true]">${l}</button>`, V.dir.letra)}</div>` : ''}
         <div class="gl-tarjeta gl-m16"><b>¿Falta una?</b><span class="gl-chico">Sugerí una editorial, imprenta o librería que no esté.</span><button class="gl-btn gl-btn--sec" type="button" data-clic="sugerirActor">Sugerí un actor</button></div>
         </aside></div></div>`;
 }

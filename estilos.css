@@ -582,10 +582,6 @@ svg.eco.zoom { touch-action: none; cursor: grab; }
 .dir-cab { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 380px); gap: 16px; align-items: start; margin-bottom: 14px; }
 .dir-filtros { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
 .dir-filtros input[type=search], .dir-filtros select { width: 100%; }
-.dir-letras { display: flex; flex-wrap: wrap; gap: 4px; }
-.dir-letras button { min-width: 34px; min-height: 34px; padding: 0 6px; font-weight: 700; color: var(--texto2); background: transparent; border: 1.5px solid var(--borde); border-radius: var(--radio); cursor: pointer; }
-.dir-letras button.on { background: var(--tinta); border-color: var(--tinta); color: var(--sup); }
-.dir-letras button:hover:not(.on) { background: var(--tinta-suave); }
 .dir-web { display: flex; gap: 8px; align-items: center; min-height: 44px; font-size: var(--t-base); cursor: pointer; }
 .dir-web input { width: 20px; height: 20px; accent-color: var(--tinta); }
 .dir-fig { margin: 0; justify-self: center; text-align: center; }

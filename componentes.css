@@ -486,8 +486,6 @@ a.gl-tapa:focus-visible{outline:2px solid var(--gl-ink);outline-offset:2px}
 .gl-v .dir-cab{margin-top:24px;gap:24px}
 .gl-v .dir-filtros{gap:16px}
 .gl-v .dir-filtros input[type=search]{height:48px;padding:0 12px;border:1px solid var(--gl-bd);border-radius:var(--gl-r);background:var(--gl-bg);font:400 16px/24px var(--gl-sans);color:var(--gl-ink)}
-.gl-v .dir-letras button{min-width:44px;min-height:44px;border:1px solid var(--gl-bd);border-radius:var(--gl-r);font:500 14px/20px var(--gl-sans)}
-.gl-v .dir-letras button.on{background:var(--gl-ink);border-color:var(--gl-ink);color:var(--gl-bg)}
 .gl-v .glo-tags{display:flex;flex-wrap:wrap;gap:8px;margin:0}
 .gl-v .gl-enlace{display:inline-flex}
 main:has(>.gl-v){max-width:1224px;padding:48px 16px 80px}
@@ -627,6 +625,9 @@ main summary{padding-block:10px;min-height:44px;box-sizing:border-box}
 .gl-az{display:grid;place-items:center;width:44px;height:44px;border-radius:var(--gl-r);font:500 14px var(--gl-sans);color:var(--gl-ink);text-decoration:none}
 a.gl-az:hover{background:var(--gl-sky);color:var(--gl-click)}
 .gl-az.off{color:var(--gl-bd)}
+button.gl-az{padding:0;border:0;background:none;cursor:pointer}
+button.gl-az:hover{background:var(--gl-sky);color:var(--gl-click)}
+.gl-az.on,button.gl-az.on:hover{background:var(--gl-ink);color:var(--gl-bg)}
 .gl-az:focus-visible{outline:2px solid var(--gl-ink);outline-offset:2px}
 .gl-letra{margin-top:40px;scroll-margin-top:88px}
 .gl-letra:first-of-type{margin-top:24px}
@@ -656,7 +657,6 @@ a.gl-az:hover{background:var(--gl-sky);color:var(--gl-click)}
 .gl-dir-fila .meta{font:400 14px/20px var(--gl-sans);color:var(--gl-t2)}
 .gl-dir-fila .meta a{color:var(--gl-lnk);text-underline-offset:3px}
 .gl-dir-sitio{flex:none;display:inline-flex;align-items:center;min-height:44px;font:500 14px/20px var(--gl-sans);color:var(--gl-lnk);text-decoration:underline;text-underline-offset:3px}
-.gl-dir-riel .dir-letras{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px}
 .gl-dir-riel #dir-mapa{margin-top:16px}
 .gl-dir-riel .dir-mapa{max-width:100%;height:auto}
 /* Hoja «Más» */
