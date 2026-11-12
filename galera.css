@@ -45,11 +45,8 @@ h1,h2,h3{letter-spacing:-.02em}
 }
 
 h2.cap{font-size:1.75rem;line-height:1.2;font-weight:600;letter-spacing:-.03em}
-/* Capital de párrafo (Iniciales): tres líneas de alto, solo en lectura larga */
-p.capital::first-letter{font-family:var(--gotica);float:left;font-size:90px;line-height:72px;padding:4px 10px 0 0;color:var(--marca)}
 
-/* Inicio: ahora en la capa gl- (componentes.css). Queda la inicial gótica de los títulos de pantalla. */
-h2.cap::first-letter{font-family:var(--gotica);font-weight:400;font-size:1.12em;letter-spacing:0;color:var(--marca)}
+/* Inicio: ahora en la capa gl- (componentes.css). La inicial gótica es una por pantalla, solo en el h1 (tools/controlar_capitulares.py). */
 main:has(>.gl-inicio){padding-top:56px;padding-bottom:64px}
 @media (max-width:720px){main:has(>.gl-inicio){padding-top:20px;padding-bottom:32px}}
 

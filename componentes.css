@@ -57,8 +57,7 @@
 .gl-display{font-size:56px;line-height:60px;letter-spacing:-.03em}
 .gl-t1{font-size:40px;line-height:44px}.gl-t2{font-size:28px;line-height:36px}.gl-t3{font-size:20px;line-height:28px}
 @media (max-width:600px){.gl-display{font-size:36px;line-height:40px}.gl-t1{font-size:32px;line-height:36px}.gl-t2{font-size:24px;line-height:30px}.gl-t3{font-size:18px;line-height:26px}}
-.gl-display::first-letter,.gl-t1::first-letter,.gl-t3.gl-inicial::first-letter{font-family:var(--gl-got);font-weight:400;font-size:1.12em;letter-spacing:0;color:var(--gl-mark)}
-.gl-sin-inicial::first-letter{font-family:inherit!important;font-weight:inherit!important;font-size:1em!important;color:inherit!important}
+.gl-display::first-letter,.gl-t1::first-letter{font-family:var(--gl-got);font-weight:400;font-size:1.12em;letter-spacing:0;color:var(--gl-mark)}
 .gl-cuerpo{font:400 16px/24px var(--gl-sans);color:var(--gl-ink)}
 .gl-chico{font:400 14px/20px var(--gl-sans);color:var(--gl-t2)}
 .gl-lectura-texto{font:400 18px/30px var(--gl-serif);max-width:66ch}
@@ -168,7 +167,6 @@ a.gl-cont::after{content:"";margin-left:auto;width:20px;height:20px;background:c
 .gl-sumario>.gl-rotulo{text-align:center;letter-spacing:.3em}
 .gl-cap{margin-bottom:4px}
 .gl-cap .gn{font:500 30px/36px var(--gl-serif);color:var(--gl-ink)}
-.gl-cap .gn::first-letter{font-family:var(--gl-got);font-size:1.25em;font-weight:400;color:var(--gl-mark)}
 .gl-lista{list-style:none;margin:0;padding:0}
 .gl-ent{display:block;padding:14px 0 14px 48px;border-bottom:1px solid var(--gl-line);text-decoration:none;color:var(--gl-ink)}
 .gl-ent:hover b,.gl-ent:focus-visible b{color:var(--gl-lnk)}
@@ -361,7 +359,6 @@ main:has(>.gl-hor),main:has(>.gl-calx){max-width:1224px;padding:48px 16px 80px}
 .gl-doc p.gl-lead{font-size:20px;line-height:32px;margin-top:0}
 .gl-doc p a,.gl-doc li a,.gl-doc .gl-chico a{color:var(--gl-lnk);text-decoration:underline;text-underline-offset:3px}
 .gl-doc code{font:500 .88em var(--gl-sans);padding:1px 4px;border-radius:var(--gl-r);background:var(--gl-card)}
-.gl-doc p.capital::first-letter{color:var(--gl-mark)}
 .gl-toc{border-bottom:1px solid var(--gl-line)}
 .gl-toc a{display:flex;align-items:center;min-height:44px;padding:0 12px;border-top:1px solid var(--gl-line);font:400 16px/24px var(--gl-sans);color:var(--gl-t2);text-decoration:none}
 .gl-toc a:hover{color:var(--gl-lnk)}
