@@ -138,6 +138,18 @@ a.gl-cont::after{content:"";margin-left:auto;width:20px;height:20px;background:c
 /* Inicio (ticket 03): tope, selector de perfil, divisores, índice por capítulos y colofón. Tablero InicioC-C1. */
 .gl-inicio{padding-block:0}
 .gl-tope{text-align:center}
+/* Buscador del Inicio: un renglón de índice (filete de tinta, serif itálica) que lleva al buscador de siempre (/buscar/). */
+.gl-bi{display:flex;align-items:stretch;max-width:480px;margin:24px auto 0;border-bottom:1px solid var(--gl-ink);text-align:left}
+.gl-bi-c{display:flex;align-items:center;gap:10px;flex:1 1 auto;min-width:0;min-height:44px;margin:0}
+.gl-bi-c svg{flex:none;width:20px;height:20px;fill:none;stroke:var(--gl-t2);stroke-width:2;stroke-linecap:round}
+.gl-bi-c input{flex:1 1 auto;min-width:0;height:48px;padding:0;border:0;border-radius:0;background:transparent;color:var(--gl-ink);font:italic 400 18px/28px var(--gl-serif);-webkit-appearance:none;appearance:none}
+.gl-bi-c input::placeholder{color:var(--gl-t2);opacity:1}
+.gl-bi-c input:focus,.gl-bi-c input:focus-visible{outline:0}
+.gl-bi:focus-within{outline:2px solid var(--gl-ink);outline-offset:2px}
+.gl-bi-b{flex:none;min-width:44px;min-height:44px;padding:0 4px 0 12px;border:0;background:none;color:var(--gl-lnk);font:600 13px/16px var(--gl-sans);letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
+.gl-bi-b:hover{color:var(--gl-click)}
+.gl-bi-b:focus-visible{outline:2px solid var(--gl-ink);outline-offset:-2px}
+@media (max-width:600px){.gl-bi{margin-top:16px}}
 .gl-tope h2{font-size:44px;line-height:52px}
 .gl-sub,.gl-cerr{margin:8px auto 0;font:italic 400 18px/28px var(--gl-serif);color:var(--gl-t2)}
 .gl-cerr{display:flex;justify-content:center;align-items:center;gap:6px;margin-top:12px}
