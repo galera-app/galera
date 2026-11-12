@@ -8,6 +8,12 @@
   /* La tinta azul de la marca: --tinta para texto y enlaces, --marca para trazos y subrayados, --marca-suave para rellenos. */
   --tinta: #0560C8; --tinta-suave: #DBEDFF; --marca: #0671E0; --marca-suave: #DBEDFF;
   --ok: #1d7a46; --ok-suave: #dff2e6; --ojo: #8a4b00; --ojo-suave: #fdecd2; --mal: #b3261e; --mal-suave: #fbe1de;
+  /* Estados de una materia (pendiente, cursando, regular, aprobada) y colores de error y de aprobado pleno; antes eran --gl-* de componentes.css. */
+  --estado-pen-fondo: #F5F7FA; --estado-pen-texto: #4D4D4D; --estado-pen-aro: #8996A3;
+  --estado-cur-fondo: #DBEDFF; --estado-cur-texto: #0053AD;
+  --estado-reg-fondo: #FFEBC9; --estado-reg-texto: #7A4A00;
+  --estado-apr-fondo: #CFF0E2; --estado-apr-texto: #00573B;
+  --estado-error: #C33025; --estado-ok-pleno: #006B4A;
   --ancho: 1360px; --radio: 4px; --sombra: none;
   /* Escala tipográfica: xs 12 px, sm 14 px, base 16 px, md 18 px; los títulos grandes quedan sueltos. */
   --t-xs: .75rem; --t-sm: .875rem; --t-base: 1rem; --t-md: 1.125rem; --t-lg: 1.25rem; --t-xl: 1.5rem; --t-2xl: 2rem;
@@ -21,8 +27,14 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) { color-scheme: dark; --bg: #14171A; --sup: #14171A; --sup2: #1D2125; --borde: #2E3338; --borde-campo: #6B747D; --texto: #ECEFF1; --texto2: #B7BDC4; --tenue: #9AA1A9; --tenue-2: #9AA1A9;
     --azul-texto: #7DBBF8; --tinta: #7DBBF8; --tinta-suave: #12304D; --marca: #5AA9F5; --marca-suave: #1d2c42;
-    --ok: #63cc92; --ok-suave: #16331f; --ojo: #f0b155; --ojo-suave: #3a2a10; --mal: #f08179; --mal-suave: #401c19; --sombra: none; }
+    --ok: #63cc92; --ok-suave: #16331f; --ojo: #f0b155; --ojo-suave: #3a2a10; --mal: #f08179; --mal-suave: #401c19; --sombra: none;
+    --estado-pen-fondo: #1D2125; --estado-pen-texto: #B7BDC4; --estado-pen-aro: #6B747D;
+    --estado-cur-fondo: #12304D; --estado-cur-texto: #9CCBF8; --estado-reg-fondo: #3F2E10; --estado-reg-texto: #F2C27A; --estado-apr-fondo: #0F3A2B; --estado-apr-texto: #7FD9B5;
+    --estado-error: #F28B82; }
 }
 :root[data-theme="dark"] { color-scheme: dark; --bg: #14171A; --sup: #14171A; --sup2: #1D2125; --borde: #2E3338; --borde-campo: #6B747D; --texto: #ECEFF1; --texto2: #B7BDC4; --tenue: #9AA1A9; --tenue-2: #9AA1A9;
     --azul-texto: #7DBBF8; --tinta: #7DBBF8; --tinta-suave: #12304D; --marca: #5AA9F5; --marca-suave: #1d2c42;
-    --ok: #63cc92; --ok-suave: #16331f; --ojo: #f0b155; --ojo-suave: #3a2a10; --mal: #f08179; --mal-suave: #401c19; --sombra: none; }
+    --ok: #63cc92; --ok-suave: #16331f; --ojo: #f0b155; --ojo-suave: #3a2a10; --mal: #f08179; --mal-suave: #401c19; --sombra: none;
+    --estado-pen-fondo: #1D2125; --estado-pen-texto: #B7BDC4; --estado-pen-aro: #6B747D;
+    --estado-cur-fondo: #12304D; --estado-cur-texto: #9CCBF8; --estado-reg-fondo: #3F2E10; --estado-reg-texto: #F2C27A; --estado-apr-fondo: #0F3A2B; --estado-apr-texto: #7FD9B5;
+    --estado-error: #F28B82; }
