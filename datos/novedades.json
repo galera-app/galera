@@ -2,6 +2,17 @@
  "nota": "Lo que va en el mail de los lunes (Novedades.gs) y en la pestaña Novedades. v: número de versión (obligatorio; ver CHANGELOG.md). tipo: herramientas | resumenes | fechas. perfil: estudiante (por defecto) | profesional | todos; el mail y la pestaña Novedades lo usan para mostrar a cada perfil lo suyo. materias: ids del plan (vacío = para todas). url: solo links a galera.com.ar/. Sumar una entrada por cada cosa que se publica; el script manda solo lo posterior al último envío de cada persona, así que las viejas no se reenvían.",
  "novedades": [
   {
+   "v": 156,
+   "fecha": "2026-11-11",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "menor": true,
+   "titulo": "El índice del apunte queda al margen en la computadora",
+   "texto": "En la computadora (pantallas desde 1100 px), el índice de cada apunte ya no está cerrado adentro del texto: queda siempre a la vista en el margen derecho, fijo mientras leés, y marca la sección en la que estás. El apunte, además, va sobre el fondo de la página, sin el panel gris. En el celular y en pantallas más angostas no cambia nada.",
+   "url": "https://galera.com.ar/"
+  },
+  {
    "v": 155,
    "fecha": "2026-11-10",
    "tipo": "herramientas",

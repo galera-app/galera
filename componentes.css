@@ -1114,3 +1114,22 @@ dialog .botones .gl-btn,dialog .gl-btn{min-height:44px}
 .gl-pr-mal{color:var(--mal)}
 .gl-pr-celu{display:none}
 @media (max-width:900px){.gl-pr-trabajo{grid-template-columns:minmax(0,1fr)}.gl-pr-der{position:static}.gl-pr-celu{display:block}.gl-pr-texto{min-height:40vh}}
+
+/* v156 · Apunte en escritorio (≥1100 px): el texto va sobre el fondo de la página y el índice queda al margen derecho, fijo al desplazarse.
+   Por debajo de 1100 px (incluido el celular) sigue el <details> dentro del artículo. Son dos elementos y uno solo se muestra (display:none lo saca del árbol de accesibilidad y del Tab). */
+.indice-margen{display:none}
+@media (min-width:1100px){
+  .gl-apunte-fila{display:grid;grid-template-columns:minmax(0,712px) 216px;column-gap:72px;align-items:start}
+  .gl-res .gl-apunte-fila article.apunte{padding:0;max-width:none;background:none;border-radius:0}
+  .gl-apunte-fila .indice-apunte{display:none}
+  .indice-margen{display:block;position:sticky;top:calc(var(--alto-cab,64px) + 24px);max-height:calc(100vh - var(--alto-cab,64px) - 48px);overflow:auto;margin-top:8px;font:400 14px/20px var(--gl-sans);color:var(--gl-t2)}
+  .indice-margen-t{margin:0 0 8px;font:600 12px/16px var(--gl-sans);letter-spacing:.06em;text-transform:uppercase;color:var(--gl-t3)}
+  .indice-margen ol{margin:0;padding:0;list-style:none;border-left:1px solid var(--gl-line)}
+  .indice-margen li{display:block;margin:0;padding:0;border:0}
+  .indice-margen a{display:block;min-height:0;margin-left:-1px;padding:4px 0 4px 15px;border-left:2px solid transparent;color:var(--gl-t2);text-decoration:none;overflow-wrap:anywhere}
+  .indice-margen .sub a{padding-left:27px}
+  .indice-margen a:hover{color:var(--gl-ink);text-decoration:underline;text-underline-offset:3px}
+  .indice-margen a[aria-current]{color:var(--gl-ink);border-left-color:var(--gl-lnk)}
+  .indice-margen a:focus-visible{outline:2px solid var(--gl-lnk);outline-offset:2px}
+}
+@media print{.gl-apunte-fila{display:block}.indice-margen{display:none!important}}
