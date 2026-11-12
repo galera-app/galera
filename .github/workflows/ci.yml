@@ -57,7 +57,7 @@ jobs:
         run: python tools/probar.py dist
       - name: Humo de los simuladores (sin DOM)
         run: node tools/probar_simuladores.js
-      - name: Capitulares góticas: una por pantalla, solo en el h1 (y sin letras ambiguas sin sin-cap)
+      - name: "Capitulares góticas: una por pantalla, solo en el h1 (y sin letras ambiguas sin sin-cap)"
         run: python tools/controlar_capitulares.py dist
       - name: Las pantallas clave responden
         run: |
