@@ -1092,7 +1092,7 @@ dialog .botones .gl-btn,dialog .gl-btn{min-height:44px}
 .gl-lomo .lm-av{margin:8px 0 0;padding-left:18px}
 .gl-lomo .lm-av li{margin:2px 0}
 .gl-lomo .lm-av .lm-mal{color:var(--mal)}
-.gl-lomo .lm-av .lm-aviso::marker{color:var(--mostaza-tinta)}
+.gl-lomo .lm-av .lm-aviso::marker{color:var(--tinta)}
 .lm-vista{margin:6px 0 8px;overflow:hidden}
 .lm-svg{display:block;width:100%;height:auto;max-height:420px}
 .lm-sangre{fill:var(--sup);stroke:var(--mal);stroke-width:.4}

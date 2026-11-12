@@ -3,16 +3,7 @@
 @font-face{font-family:"Literata";src:url(fonts/literata.woff2) format("woff2");font-weight:400 500;font-style:normal;font-display:swap}
 @font-face{font-family:"Literata";src:url(fonts/literata-italic.woff2) format("woff2");font-weight:400;font-style:italic;font-display:swap}
 @font-face{font-family:"UnifrakturMaguntia";src:url(fonts/unifraktur.woff2) format("woff2");font-weight:400;font-display:swap}
-:root{
-  --bg:#fff; --sup:#fff; --sup2:#F5F7FA; --borde:#E3E8EE; --borde-campo:#89939E; --texto:#212121; --texto2:#4D4D4D; --tenue:#666;
-  --tinta:#0560C8; --tinta-suave:#DBEDFF; --mostaza:#0671E0; --mostaza-tinta:#0560C8; --mostaza-suave:#DBEDFF;
-  --radio:4px; --sombra:none; --marca:#0671E0;
-  --fuente:"Instrument Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-  --gotica:"UnifrakturMaguntia",serif;
-  --serif:"Literata",Georgia,serif;
-}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14171A;--sup:#14171A;--sup2:#1D2125;--borde:#2E3338;--borde-campo:#6B747D;--texto:#ECEFF1;--texto2:#B7BDC4;--tenue:#9AA1A9;--tinta:#7DBBF8;--tinta-suave:#12304D;--mostaza:#5AA9F5;--mostaza-tinta:#7DBBF8;--mostaza-suave:#1d2c42;--marca:#5AA9F5}}
-:root[data-theme="dark"]{--bg:#14171A;--sup:#14171A;--sup2:#1D2125;--borde:#2E3338;--borde-campo:#6B747D;--texto:#ECEFF1;--texto2:#B7BDC4;--tenue:#9AA1A9;--tinta:#7DBBF8;--tinta-suave:#12304D;--mostaza:#5AA9F5;--mostaza-tinta:#7DBBF8;--mostaza-suave:#1d2c42;--marca:#5AA9F5}
+/* Los tokens (colores, radios, tipografías) viven solo en tokens.css. */
 body{font-family:var(--fuente)}
 h1,h2,h3{letter-spacing:-.02em}
 
