@@ -66,6 +66,7 @@ window.ACC = window.ACC || {};
     setPagChk: (id, c) => setPag(id, c ? '1' : '0', true),
     blMas: (n) => { V.bl.n = n; $('#bl-lista').innerHTML = estanteLibros(); },
     blBuscar: (v) => { V.bl.q = v; V.bl.n = 0; $('#bl-lista').innerHTML = estanteLibros(); },
+    buscarInicio: (e) => { e.preventDefault(); const q = String(($('#inicio-q') || {}).value || '').trim().slice(0, 100); V.bus.q = q; ir('buscar'); },
     busRepetir: () => { V.bus.pide = null; lanzarBusqueda(); pintarBusqueda(); },
     busTipeo: (v) => { clearTimeout(buscarEnviar.t); buscarEnviar.t = setTimeout(() => buscarCon(v), 350); },
     dirMas: (n) => { V.dir.n = n; $('#dir-lista').innerHTML = directorioLista(); },
@@ -546,7 +547,7 @@ function vInicio() {
     ? `<p class="gl-sub">Elegí tu perfil: el índice se ordena según lo que hacés.</p>
       <div class="gl-perfiles" role="group" aria-label="Perfil">${PERFILES_INICIO.map(([id, t, s]) => `<button type="button" class="gl-perfil ${E.perfil === id ? 'on' : ''}" aria-pressed="${E.perfil === id}" data-clic="elegirEnInicio" data-clic-a="[${arg(id)}]"><span class="pn">${t}</span><span class="ps">${s}</span></button>`).join('')}</div>`
     : `<p class="gl-cerr">Índice para <b>${PLURAL_PERFIL[per]}</b> · <button class="gl-enlace" type="button" data-clic="cambiarEnInicio">Cambiar</button></p>`;
-  return `<div class="gl-lectura gl-inicio"><div class="gl-tope"><h2 class="gl-t1">¿Qué venís a hacer?</h2><p class="gl-baja">${esc(MARCO.marca.frase)}.</p>${selector}</div>
+  return `<div class="gl-lectura gl-inicio"><div class="gl-tope"><h2 class="gl-t1">¿Qué venís a hacer?</h2><p class="gl-baja">${esc(MARCO.marca.frase)}.</p><form class="gl-bi" role="search" data-envia="buscarInicio" data-envia-a="[{&quot;e&quot;:1}]"><label class="gl-bi-c" for="inicio-q"><span class="solo-lector">Buscar en Galera</span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg><input id="inicio-q" name="q" type="search" maxlength="100" enterkeyhint="search" autocomplete="off" placeholder="Buscar en Galera…" data-precarga></label><button class="gl-bi-b" type="submit">Buscar</button></form>${selector}</div>
     <div class="gl-sp"><div class="gl-dv" role="separator"><span class="fl"></span></div></div>
     <div class="gl-sumario"><h2 class="gl-rotulo">Índice</h2>${grupos.map(([n, ids], i) => `<section aria-labelledby="ig-${i}"><h3 class="gl-cap" id="ig-${i}"><span class="num" aria-hidden="true">${ROMANOS[i]}</span><span class="gn">${n}</span></h3>
       <ul class="gl-lista">${ids.map(id => `<li><a class="gl-ent" href="${urlTab(id)}"><span class="et"><b>${rotuloTab(id)}</b><span class="guia" aria-hidden="true"></span><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="${ICONO_INICIO[id]}"/></svg></span></span><span class="bj">${BAJADAS[per][id]}</span></a></li>`).join('')}</ul></section>`).join('')}</div>
