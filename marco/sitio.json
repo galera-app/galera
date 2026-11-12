@@ -190,10 +190,15 @@
     [
      "resumenes",
      "biblioteca",
+     "glosario"
+    ]
+   ],
+   [
+    "Producir",
+    [
      "simuladores",
      "imprimir",
-     "imprenta",
-     "glosario"
+     "imprenta"
     ]
    ],
    [
@@ -219,7 +224,7 @@
   ],
   "profesional": [
    [
-    "Herramientas",
+    "Producir",
     [
      "simuladores",
      "imprimir",
@@ -275,10 +280,17 @@
     [
      "resumenes",
      "biblioteca",
+     "glosario"
+    ]
+   ],
+   [
+    "producir",
+    "Producir",
+    "simuladores",
+    [
      "simuladores",
      "imprimir",
-     "imprenta",
-     "glosario"
+     "imprenta"
     ]
    ],
    [
@@ -295,8 +307,8 @@
   ],
   "profesional": [
    [
-    "herramientas",
-    "Herramientas",
+    "producir",
+    "Producir",
     "simuladores",
     [
      "simuladores",

@@ -2,6 +2,17 @@
  "nota": "Lo que va en el mail de los lunes (Novedades.gs) y en la pestaña Novedades. v: número de versión (obligatorio; ver CHANGELOG.md). tipo: herramientas | resumenes | fechas. perfil: estudiante (por defecto) | profesional | todos; el mail y la pestaña Novedades lo usan para mostrar a cada perfil lo suyo. materias: ids del plan (vacío = para todas). url: solo links a galera.com.ar/. Sumar una entrada por cada cosa que se publica; el script manda solo lo posterior al último envío de cada persona, así que las viejas no se reenvían.",
  "novedades": [
   {
+   "v": 159,
+   "fecha": "2026-11-12",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "menor": true,
+   "titulo": "Producir tiene su propio lugar en el menú",
+   "texto": "Simuladores, Antes de imprimir e Imprenta pasan a un grupo propio, Producir, en el menú de los dos perfiles. En el perfil estudiante, Estudiar queda con Resúmenes, Biblioteca y Glosario; en el profesional, el grupo que se llamaba Herramientas ahora se llama Producir. En el celular, la barra de abajo del perfil estudiante pasa a tener cinco lugares: Planificar, Estudiar, Producir, Descubrir y Más.",
+   "url": "https://galera.com.ar/simuladores/"
+  },
+  {
    "v": 158,
    "fecha": "2026-11-12",
    "tipo": "herramientas",
