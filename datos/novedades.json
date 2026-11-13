@@ -2,6 +2,18 @@
  "nota": "Lo que va en el mail de los lunes (Novedades.gs) y en la pestaña Novedades. v: número de versión (obligatorio; ver CHANGELOG.md). tipo: herramientas | resumenes | fechas. perfil: estudiante (por defecto) | profesional | todos; el mail y la pestaña Novedades lo usan para mostrar a cada perfil lo suyo. materias: ids del plan (vacío = para todas). url: solo links a galera.com.ar/. Sumar una entrada por cada cosa que se publica; el script manda solo lo posterior al último envío de cada persona, así que las viejas no se reenvían.",
  "novedades": [
   {
+   "v": 165,
+   "fecha": "2026-11-13",
+   "tipo": "resumenes",
+   "perfil": "estudiante",
+   "materias": [
+    "idioma2"
+   ],
+   "titulo": "Guía para el final de Francés, para los tres niveles",
+   "texto": "En Resúmenes hay una guía para preparar el final de Francés de Edición, que sirve para Elemental, Medio y Superior, regulares o libres: cómo es el examen, los modelos publicados y cómo practicar con ellos. La cátedra no publicó criterios de evaluación, programa ni método: lo que falta está marcado.",
+   "url": "https://galera.com.ar/r/frances/"
+  },
+  {
    "v": 164,
    "fecha": "2026-11-13",
    "tipo": "resumenes",

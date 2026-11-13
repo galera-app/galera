@@ -1056,6 +1056,23 @@
    ],
    "pdfs": [],
    "aviso": "Sirve para los tres niveles (Elemental, Medio y Superior). Del Superior no hay modelo de examen publicado: lo que no está confirmado figura como HUECO. Consultalo con la cátedra antes de rendir."
+  },
+  {
+   "id": "frances",
+   "nombre": "Francés (niveles 1, 2 y 3)",
+   "anio": 2026,
+   "examen": "el final",
+   "apuntes": [
+    {
+     "id": "e1-guia-del-final-de-frances",
+     "t": "Guía para el final de Francés: los tres niveles",
+     "clave": "E1",
+     "min": 28,
+     "preguntas": 0
+    }
+   ],
+   "pdfs": [],
+   "aviso": "Sirve para los tres niveles (Elemental, Medio y Superior). La cátedra de Francés no publicó criterios de evaluación, programa ni método: lo que no está confirmado figura como HUECO. Consultalo con la cátedra antes de rendir."
   }
  ]
 }
