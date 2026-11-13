@@ -2,6 +2,20 @@
  "nota": "Lo que va en el mail de los lunes (Novedades.gs) y en la pestaña Novedades. v: número de versión (obligatorio; ver CHANGELOG.md). tipo: herramientas | resumenes | fechas. perfil: estudiante (por defecto) | profesional | todos; el mail y la pestaña Novedades lo usan para mostrar a cada perfil lo suyo. materias: ids del plan (vacío = para todas). url: solo links a galera.com.ar/. Sumar una entrada por cada cosa que se publica; el script manda solo lo posterior al último envío de cada persona, así que las viejas no se reenvían.",
  "novedades": [
   {
+   "v": 164,
+   "fecha": "2026-11-13",
+   "tipo": "resumenes",
+   "perfil": "estudiante",
+   "materias": [
+    "ingles1",
+    "ingles2",
+    "ingles3"
+   ],
+   "titulo": "Guía para el final de Inglés, para los tres niveles",
+   "texto": "En Resúmenes hay una guía para preparar el final de Inglés de Edición, que sirve para Elemental, Medio y Superior, regulares o libres: cómo es el examen, el método de lectura de la cátedra, errores frecuentes y cómo practicar con los modelos. Del Superior no hay modelo de examen publicado: lo que falta está marcado.",
+   "url": "https://galera.com.ar/r/ingles/"
+  },
+  {
    "v": 163,
    "fecha": "2026-11-12",
    "tipo": "herramientas",
