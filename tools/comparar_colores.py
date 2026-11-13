@@ -1,5 +1,5 @@
 """Compara colores computados de Galera entre dos armados (antes y después de tocar tokens).
-Uso: python tools/comparar_colores.py medir <dist> <salida.json> [--capturas <carpeta> --prefijo antes]
+Uso (con GALERA_ESTADO=<estado.json> carga ese estado en localStorage): python tools/comparar_colores.py medir <dist> <salida.json> [--capturas <carpeta> --prefijo antes]
      python tools/comparar_colores.py diff <antes.json> <despues.json> [--alias viejo=nuevo ...]
 Mide, por pantalla, modo (claro, oscuro del sistema, oscuro elegido, claro elegido con sistema oscuro) y ancho (375, 1280):
 color, fondo, bordes, contorno, relleno, trazo, sombra, imágenes de fondo (con var() ya resuelta), también de ::before, ::after y ::first-letter,
@@ -7,6 +7,7 @@ y el valor computado de cada variable --* de :root. Necesita Playwright con Chro
 import functools
 import http.server
 import json
+import os
 import sys
 import threading
 from pathlib import Path
@@ -65,6 +66,8 @@ def medir(dist, salida, capturas=None, prefijo="antes"):
                 ctx = b.new_context(viewport={"width": w, "height": h}, color_scheme=esquema, reduced_motion="reduce", service_workers="block")
                 if tema:
                     ctx.add_init_script(f"try{{localStorage.setItem('cursada.tema','{tema}')}}catch(e){{}}")
+                if os.environ.get("GALERA_ESTADO"):  # archivo JSON con un estado de ejemplo (Mi carrera con materias cargadas)
+                    ctx.add_init_script("try{localStorage.setItem('cursada.v1',%s)}catch(e){}" % json.dumps(Path(os.environ["GALERA_ESTADO"]).read_text(encoding="utf-8")))
                 pg = ctx.new_page()
                 for nom, ruta in PANTALLAS.items():
                     pg.goto(base + ruta, wait_until="networkidle")
