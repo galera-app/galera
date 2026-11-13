@@ -1,0 +1,53 @@
+{
+ "materia": "ingles",
+ "nombre": "Inglés (niveles 1, 2 y 3)",
+ "version_sitio": "v164",
+ "generado": "2026-11-13",
+ "base_url": "https://descargas.galera.com.ar/r/ingles/",
+ "apuntes": [
+  {
+   "id": "e1-guia-del-final-de-ingles",
+   "titulo": "Guía para el final de Inglés (Los tres niveles)",
+   "fuente_sha256": "c6472191f459f66a",
+   "pagina_web": "https://galera.com.ar/r/ingles/e1-guia-del-final-de-ingles.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e1-guia-del-final-de-ingles-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/ingles/e1-guia-del-final-de-ingles-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 119991,
+     "paginas": 11,
+     "sha256": "e75d6d69bd471542",
+     "generado": "2026-11-13"
+    },
+    "A5": {
+     "archivo": "e1-guia-del-final-de-ingles-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/ingles/e1-guia-del-final-de-ingles-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 128780,
+     "paginas": 20,
+     "sha256": "ceab0ba54d0ff47f",
+     "generado": "2026-11-13"
+    },
+    "cuadernillo": {
+     "archivo": "e1-guia-del-final-de-ingles-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/ingles/e1-guia-del-final-de-ingles-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 473062,
+     "paginas": 10,
+     "sha256": "15c408b0eb588c70",
+     "generado": "2026-11-13"
+    },
+    "epub": {
+     "archivo": "e1-guia-del-final-de-ingles.epub",
+     "url": "https://descargas.galera.com.ar/r/ingles/e1-guia-del-final-de-ingles.epub",
+     "mime": "application/epub+zip",
+     "bytes": 484952,
+     "paginas": null,
+     "sha256": "90c4c311147439ba",
+     "generado": "2026-11-13"
+    }
+   }
+  }
+ ]
+}

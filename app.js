@@ -273,6 +273,9 @@ const mat = id => (E.materias[id] = E.materias[id] || { estado: 'pendiente', exa
 const datosMateria = id => D.plan.materias.find(m => m.id === id);
 // Datos de la opción elegida en una electiva (programa, régimen), si los tiene.
 function opcion(m) { const e = E.materias[m.id]; return (m.opciones || []).find(o => e && o.id === e.opcion) || null; }
+// Id de Resúmenes de una materia del plan: el de la opción elegida o el propio. Los tres niveles de Inglés comparten un resumen («ingles», ver resumenes.py).
+const RES_DE = { ingles1: 'ingles', ingles2: 'ingles', ingles3: 'ingles' };
+const resDe = (m, o) => (o && o.id) || RES_DE[m.id] || m.id;
 // Programas de una materia (o de la opción elegida): uno oficial o varios (una página por cátedra).
 // Si es una electiva sin elegir, junta los de todas sus opciones, con el nombre de cada una.
 function programas(m, o) {
@@ -865,7 +868,7 @@ function retosRefrescar() {
 }
 // Recorrido de una materia aprobada: un texto sobrio con lo que hiciste. Nada sale del navegador: se copia o se baja a mano, y la nota va solo si la tildás.
 function textoRecorrido(id) {
-  const m = datosMateria(id), e = mat(id), o = opcion(m), rid = (o && o.id) || m.id, R = ((D.resumenes || {}).materias || []).find(x => x.id === rid);
+  const m = datosMateria(id), e = mat(id), o = opcion(m), rid = resDe(m, o), R = ((D.resumenes || {}).materias || []).find(x => x.id === rid);
   const L = [`Aprobé ${nombreDe(m)}${e.aprobada ? ' el ' + fecha(e.aprobada).toLocaleDateString('es-AR', { day: 'numeric', month: 'long', year: 'numeric' }) : ''}${e.cuando ? ' (' + e.cuando + ')' : ''}.`];
   if (V.recNota && num(e.nota)) L.push('Nota final: ' + e.nota + '.');
   if (R) L.push(`Apuntes leídos: ${leidosDe(R)} de ${R.apuntes.length}.`);
@@ -1178,8 +1181,8 @@ function abrirMateria(id) {
       ${x.fecha >= hoy() ? `<button class="btn lin ch" data-clic="mesaAMisFechas" data-clic-a="[${arg(id)},${arg(x.fecha)},${arg(x.hora)},${arg(x.aula)}]">Voy a esta</button>` : ''}</div>`).join('') : ''}
     ${progs.length ? `<div class="c">${progs.length === 1 ? 'Programa' : 'Programas'}</div>${progs.map(p => `<p class="u-margin-2px-0"><a href="${urlSegura(p.url)}" target="_blank" rel="noopener">${esc(p.t)} ↗</a></p>`).join('')}` : ''}
     ${vBibliografia((o && o.id) || m.id, id)}
-    ${D.resumenes && D.resumenes.materias.some(x => x.id === ((o && o.id) || m.id)) ? `<p class="fila u-margin-12px-0-0"><button class="btn sec ch" data-clic="cerrarIrRes" data-clic-a="[${arg((o && o.id) || m.id)}]">📚 Resúmenes de esta materia</button>
-      <button class="btn sec ch" data-clic="empezarPractica" data-clic-a="[${arg((o && o.id) || m.id)}]">🧠 Practicar con preguntas</button></p>` : ''}
+    ${D.resumenes && D.resumenes.materias.some(x => x.id === resDe(m, o)) ? `<p class="fila u-margin-12px-0-0"><button class="btn sec ch" data-clic="cerrarIrRes" data-clic-a="[${arg(resDe(m, o))}]">📚 Resúmenes de esta materia</button>
+      ${D.resumenes.materias.find(x => x.id === resDe(m, o)).apuntes.some(a => a.preguntas) ? `<button class="btn sec ch" data-clic="empezarPractica" data-clic-a="[${arg(resDe(m, o))}]">🧠 Practicar con preguntas</button>` : ''}</p>` : ''}
     ${recursos.length ? `<div class="c">Apuntes y recursos</div>${recursos.map(r => `<p class="u-margin-2px-0"><a href="${urlSegura(r.url)}" target="_blank" rel="noopener">${esc(r.t)} ↗</a></p>`).join('')}` : ''}
     ${juegoOn() && e.estado === 'aprobada' ? `<p class="fila u-margin-10px-0-0"><button class="btn lin ch" data-clic="abrirRecorrido" data-clic-a="[${arg(id)}]">📋 Mi recorrido en esta materia</button></p>` : ''}
     <div class="titulo-sec"><h3>Parciales, entregas y finales</h3></div>
@@ -1536,8 +1539,8 @@ function calAlternar(g) { const o = V.calOcultos = V.calOcultos || [], i = o.ind
 function repasos() {
   const R = (D.resumenes && D.resumenes.materias) || [], t = hoy(), out = [];
   D.plan.materias.forEach(m => {
-    const o = opcion(m), res = (o && o.id) || m.id;
-    if (!R.some(r => r.id === res)) return;
+    const o = opcion(m), res = resDe(m, o);
+    if (!R.some(r => r.id === res && r.apuntes.some(a => a.preguntas))) return; // sin preguntas no hay repaso que proponer
     ((E.materias[m.id] || {}).examenes || []).filter(x => x.fecha > t && ['Parcial', 'Recuperatorio', 'Final'].indexOf(x.tipo) >= 0).forEach(x => {
       [7, 3, 1].forEach(d => {
         const f = fecha(x.fecha); f.setDate(f.getDate() - d);

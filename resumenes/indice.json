@@ -1039,6 +1039,23 @@
     "Adorno, Theodor y Horkheimer, Max. 1988, \"La Industria Cultural. Iluminismo como mistificación de masas\", en: Adorno, Theodor y Horkheimer, Max. Dialéctica del iluminismo. Buenos Aires, Sudamericana.",
     "Película “Pajarito Gomez”, dir. Rodolfo Kuhn, Argentina, 1965."
    ]
+  },
+  {
+   "id": "ingles",
+   "nombre": "Inglés (niveles 1, 2 y 3)",
+   "anio": 2026,
+   "examen": "el final",
+   "apuntes": [
+    {
+     "id": "e1-guia-del-final-de-ingles",
+     "t": "Guía para el final de Inglés: los tres niveles",
+     "clave": "E1",
+     "min": 20,
+     "preguntas": 0
+    }
+   ],
+   "pdfs": [],
+   "aviso": "Sirve para los tres niveles (Elemental, Medio y Superior). Del Superior no hay modelo de examen publicado: lo que no está confirmado figura como HUECO. Consultalo con la cátedra antes de rendir."
   }
  ]
 }
