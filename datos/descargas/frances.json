@@ -1,0 +1,53 @@
+{
+ "materia": "frances",
+ "nombre": "Francés (niveles 1, 2 y 3)",
+ "version_sitio": "v165",
+ "generado": "2026-11-13",
+ "base_url": "https://descargas.galera.com.ar/r/frances/",
+ "apuntes": [
+  {
+   "id": "e1-guia-del-final-de-frances",
+   "titulo": "Guía para el final de Francés (Los tres niveles)",
+   "fuente_sha256": "c0792b33e045ec54",
+   "pagina_web": "https://galera.com.ar/r/frances/e1-guia-del-final-de-frances.html",
+   "archivos": {
+    "A4": {
+     "archivo": "e1-guia-del-final-de-frances-A4.pdf",
+     "url": "https://descargas.galera.com.ar/r/frances/e1-guia-del-final-de-frances-A4.pdf",
+     "mime": "application/pdf",
+     "bytes": 144887,
+     "paginas": 15,
+     "sha256": "3e635a09f2ef1359",
+     "generado": "2026-11-13"
+    },
+    "A5": {
+     "archivo": "e1-guia-del-final-de-frances-A5.pdf",
+     "url": "https://descargas.galera.com.ar/r/frances/e1-guia-del-final-de-frances-A5.pdf",
+     "mime": "application/pdf",
+     "bytes": 155987,
+     "paginas": 26,
+     "sha256": "3b0f04a8ac7ed3c8",
+     "generado": "2026-11-13"
+    },
+    "cuadernillo": {
+     "archivo": "e1-guia-del-final-de-frances-cuadernillo.pdf",
+     "url": "https://descargas.galera.com.ar/r/frances/e1-guia-del-final-de-frances-cuadernillo.pdf",
+     "mime": "application/pdf",
+     "bytes": 503855,
+     "paginas": 14,
+     "sha256": "5b71369d8b9d2e48",
+     "generado": "2026-11-13"
+    },
+    "epub": {
+     "archivo": "e1-guia-del-final-de-frances.epub",
+     "url": "https://descargas.galera.com.ar/r/frances/e1-guia-del-final-de-frances.epub",
+     "mime": "application/epub+zip",
+     "bytes": 489917,
+     "paginas": null,
+     "sha256": "958106d01b1a0657",
+     "generado": "2026-11-13"
+    }
+   }
+  }
+ ]
+}
