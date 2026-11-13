@@ -108,27 +108,11 @@ h1,h2,h3,.portada h2,.practica h2,.perfil b,.avance b,.recorrido .area{font-fami
 .marca-estado .ge{width:14px;height:14px;margin-right:4px;vertical-align:0}
 .tag-est{display:inline-flex;align-items:center;height:24px;padding:0 8px;border-radius:4px;font:500 12px/16px var(--fuente);white-space:nowrap}
 .tag-est .ge{width:14px;height:14px;margin-right:6px;vertical-align:0}
-.tag-est.pen{background:#F5F7FA;color:#4D4D4D;box-shadow:inset 0 0 0 1px #8996A3}
-.tag-est.cur{background:#DBEDFF;color:#0053AD}
-.tag-est.reg{background:#FFEBC9;color:#7A4A00}
-.tag-est.ok{background:#CFF0E2;color:#00573B}
-.mat.cursando .marca-estado{color:#0053AD}.mat.regular .marca-estado{color:#7A4A00}.mat.aprobada .marca-estado{color:#00573B}
-@media (prefers-color-scheme:dark){
-:root:not([data-theme="light"]) .tag-est.pen{background:#1D2125;color:#B7BDC4;box-shadow:inset 0 0 0 1px #6B747D}
-:root:not([data-theme="light"]) .tag-est.cur{background:#12304D;color:#9CCBF8}
-:root:not([data-theme="light"]) .tag-est.reg{background:#3F2E10;color:#F2C27A}
-:root:not([data-theme="light"]) .tag-est.ok{background:#0F3A2B;color:#7FD9B5}
-:root:not([data-theme="light"]) .mat.regular .marca-estado{color:#F2C27A}
-:root:not([data-theme="light"]) .mat.aprobada .marca-estado{color:#7FD9B5}
-:root:not([data-theme="light"]) .mat.cursando .marca-estado{color:#9CCBF8}
-}
-:root[data-theme="dark"] .tag-est.pen{background:#1D2125;color:#B7BDC4;box-shadow:inset 0 0 0 1px #6B747D}
-:root[data-theme="dark"] .tag-est.cur{background:#12304D;color:#9CCBF8}
-:root[data-theme="dark"] .tag-est.reg{background:#3F2E10;color:#F2C27A}
-:root[data-theme="dark"] .tag-est.ok{background:#0F3A2B;color:#7FD9B5}
-:root[data-theme="dark"] .mat.cursando .marca-estado{color:#9CCBF8}
-:root[data-theme="dark"] .mat.regular .marca-estado{color:#F2C27A}
-:root[data-theme="dark"] .mat.aprobada .marca-estado{color:#7FD9B5}
+.tag-est.pen{background:var(--estado-pen-fondo);color:var(--estado-pen-texto);box-shadow:inset 0 0 0 1px var(--estado-pen-aro)}
+.tag-est.cur{background:var(--estado-cur-fondo);color:var(--estado-cur-texto)}
+.tag-est.reg{background:var(--estado-reg-fondo);color:var(--estado-reg-texto)}
+.tag-est.ok{background:var(--estado-apr-fondo);color:var(--estado-apr-texto)}
+.mat.cursando .marca-estado{color:var(--estado-cur-texto)}.mat.regular .marca-estado{color:var(--estado-reg-texto)}.mat.aprobada .marca-estado{color:var(--estado-apr-texto)}
 
 /* Divisores, nivel 2 (hoja Divisores): el corte de sección de las páginas de lectura son tres asteriscos */
 .lectura hr{border:0;height:auto;margin:32px 0;text-align:center;color:var(--texto2);overflow:visible}

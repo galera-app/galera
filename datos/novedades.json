@@ -16,6 +16,17 @@
    "url": "https://galera.com.ar/r/ingles/"
   },
   {
+   "v": 163,
+   "fecha": "2026-11-12",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "menor": true,
+   "titulo": "Colores de estado y tamaños de letra con nombre propio",
+   "texto": "Por dentro, los colores de pendiente, cursando, regular y aprobada, y los tamaños de letra de la escala, pasaron a tener nombre en un solo archivo. No cambia nada a la vista.",
+   "url": "https://galera.com.ar/"
+  },
+  {
    "v": 162,
    "fecha": "2026-11-12",
    "tipo": "herramientas",
