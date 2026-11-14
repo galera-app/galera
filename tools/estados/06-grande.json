@@ -1,0 +1,6575 @@
+{
+ "v": 1,
+ "carrera": "edicion",
+ "perfil": "estudiante",
+ "vioAyuda": true,
+ "materias": {
+  "ipc": {
+   "estado": "regular",
+   "nota": "6",
+   "detalle": "ddddddddddddddddddddddddd",
+   "apuntes": "línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. ",
+   "examenes": [
+    {
+     "id": "ipc-e0",
+     "tipo": "Parcial",
+     "fecha": "2026-01-10",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "4"
+    },
+    {
+     "id": "ipc-e1",
+     "tipo": "Parcial",
+     "fecha": "2026-02-11",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "5"
+    },
+    {
+     "id": "ipc-e2",
+     "tipo": "Parcial",
+     "fecha": "2026-03-12",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "6"
+    },
+    {
+     "id": "ipc-e3",
+     "tipo": "Parcial",
+     "fecha": "2026-04-13",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "7"
+    },
+    {
+     "id": "ipc-e4",
+     "tipo": "Parcial",
+     "fecha": "2026-05-14",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "8"
+    },
+    {
+     "id": "ipc-e5",
+     "tipo": "Parcial",
+     "fecha": "2026-06-15",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "9"
+    },
+    {
+     "id": "ipc-e6",
+     "tipo": "Parcial",
+     "fecha": "2026-07-16",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "10"
+    },
+    {
+     "id": "ipc-e7",
+     "tipo": "Parcial",
+     "fecha": "2026-08-17",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "11"
+    },
+    {
+     "id": "ipc-e8",
+     "tipo": "Parcial",
+     "fecha": "2026-09-18",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "12"
+    },
+    {
+     "id": "ipc-e9",
+     "tipo": "Parcial",
+     "fecha": "2026-01-10",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "13"
+    }
+   ]
+  },
+  "icse": {
+   "estado": "pendiente",
+   "nota": "",
+   "detalle": "dddddddddddddddddddddddddddddddddddddddddddddddddddd",
+   "apuntes": "línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. ",
+   "examenes": [
+    {
+     "id": "icse-e0",
+     "tipo": "Parcial",
+     "fecha": "2026-01-10",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "4"
+    },
+    {
+     "id": "icse-e1",
+     "tipo": "Parcial",
+     "fecha": "2026-02-11",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "5"
+    },
+    {
+     "id": "icse-e2",
+     "tipo": "Parcial",
+     "fecha": "2026-03-12",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "6"
+    },
+    {
+     "id": "icse-e3",
+     "tipo": "Parcial",
+     "fecha": "2026-04-13",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "7"
+    },
+    {
+     "id": "icse-e4",
+     "tipo": "Parcial",
+     "fecha": "2026-05-14",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "8"
+    },
+    {
+     "id": "icse-e5",
+     "tipo": "Parcial",
+     "fecha": "2026-06-15",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "9"
+    },
+    {
+     "id": "icse-e6",
+     "tipo": "Parcial",
+     "fecha": "2026-07-16",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "10"
+    },
+    {
+     "id": "icse-e7",
+     "tipo": "Parcial",
+     "fecha": "2026-08-17",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "11"
+    },
+    {
+     "id": "icse-e8",
+     "tipo": "Parcial",
+     "fecha": "2026-09-18",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "12"
+    },
+    {
+     "id": "icse-e9",
+     "tipo": "Parcial",
+     "fecha": "2026-01-10",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "13"
+    }
+   ]
+  },
+  "0902": {
+   "estado": "pendiente",
+   "nota": "7,5",
+   "detalle": "ddddddddddddddddddddddddddddddddddddd",
+   "apuntes": "línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. ",
+   "examenes": [
+    {
+     "id": "0902-e0",
+     "tipo": "Parcial",
+     "fecha": "2026-01-10",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "4"
+    },
+    {
+     "id": "0902-e1",
+     "tipo": "Parcial",
+     "fecha": "2026-02-11",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "5"
+    },
+    {
+     "id": "0902-e2",
+     "tipo": "Parcial",
+     "fecha": "2026-03-12",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "6"
+    },
+    {
+     "id": "0902-e3",
+     "tipo": "Parcial",
+     "fecha": "2026-04-13",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "7"
+    },
+    {
+     "id": "0902-e4",
+     "tipo": "Parcial",
+     "fecha": "2026-05-14",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "8"
+    },
+    {
+     "id": "0902-e5",
+     "tipo": "Parcial",
+     "fecha": "2026-06-15",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "9"
+    },
+    {
+     "id": "0902-e6",
+     "tipo": "Parcial",
+     "fecha": "2026-07-16",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "10"
+    },
+    {
+     "id": "0902-e7",
+     "tipo": "Parcial",
+     "fecha": "2026-08-17",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "11"
+    },
+    {
+     "id": "0902-e8",
+     "tipo": "Parcial",
+     "fecha": "2026-09-18",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "12"
+    },
+    {
+     "id": "0902-e9",
+     "tipo": "Parcial",
+     "fecha": "2026-01-10",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "13"
+    }
+   ]
+  },
+  "0913": {
+   "estado": "pendiente",
+   "nota": "6",
+   "detalle": "dd",
+   "apuntes": "línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. ",
+   "examenes": [
+    {
+     "id": "0913-e0",
+     "tipo": "Parcial",
+     "fecha": "2026-01-10",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "4"
+    },
+    {
+     "id": "0913-e1",
+     "tipo": "Parcial",
+     "fecha": "2026-02-11",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "5"
+    },
+    {
+     "id": "0913-e2",
+     "tipo": "Parcial",
+     "fecha": "2026-03-12",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "6"
+    },
+    {
+     "id": "0913-e3",
+     "tipo": "Parcial",
+     "fecha": "2026-04-13",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "7"
+    },
+    {
+     "id": "0913-e4",
+     "tipo": "Parcial",
+     "fecha": "2026-05-14",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "8"
+    },
+    {
+     "id": "0913-e5",
+     "tipo": "Parcial",
+     "fecha": "2026-06-15",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "9"
+    },
+    {
+     "id": "0913-e6",
+     "tipo": "Parcial",
+     "fecha": "2026-07-16",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "10"
+    },
+    {
+     "id": "0913-e7",
+     "tipo": "Parcial",
+     "fecha": "2026-08-17",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "11"
+    },
+    {
+     "id": "0913-e8",
+     "tipo": "Parcial",
+     "fecha": "2026-09-18",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "12"
+    },
+    {
+     "id": "0913-e9",
+     "tipo": "Parcial",
+     "fecha": "2026-01-10",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "13"
+    }
+   ]
+  },
+  "0914": {
+   "estado": "pendiente",
+   "nota": "10",
+   "detalle": "dddddddddddddddddddddddddd",
+   "apuntes": "línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. ",
+   "examenes": [
+    {
+     "id": "0914-e0",
+     "tipo": "Parcial",
+     "fecha": "2026-01-10",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "4"
+    },
+    {
+     "id": "0914-e1",
+     "tipo": "Parcial",
+     "fecha": "2026-02-11",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "5"
+    },
+    {
+     "id": "0914-e2",
+     "tipo": "Parcial",
+     "fecha": "2026-03-12",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "6"
+    },
+    {
+     "id": "0914-e3",
+     "tipo": "Parcial",
+     "fecha": "2026-04-13",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "7"
+    },
+    {
+     "id": "0914-e4",
+     "tipo": "Parcial",
+     "fecha": "2026-05-14",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "8"
+    },
+    {
+     "id": "0914-e5",
+     "tipo": "Parcial",
+     "fecha": "2026-06-15",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "9"
+    },
+    {
+     "id": "0914-e6",
+     "tipo": "Parcial",
+     "fecha": "2026-07-16",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "10"
+    },
+    {
+     "id": "0914-e7",
+     "tipo": "Parcial",
+     "fecha": "2026-08-17",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "11"
+    },
+    {
+     "id": "0914-e8",
+     "tipo": "Parcial",
+     "fecha": "2026-09-18",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "12"
+    },
+    {
+     "id": "0914-e9",
+     "tipo": "Parcial",
+     "fecha": "2026-01-10",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "13"
+    }
+   ]
+  },
+  "0915": {
+   "estado": "pendiente",
+   "nota": "6",
+   "detalle": "ddddd",
+   "apuntes": "línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. ",
+   "examenes": [
+    {
+     "id": "0915-e0",
+     "tipo": "Parcial",
+     "fecha": "2026-01-10",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "4"
+    },
+    {
+     "id": "0915-e1",
+     "tipo": "Parcial",
+     "fecha": "2026-02-11",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "5"
+    },
+    {
+     "id": "0915-e2",
+     "tipo": "Parcial",
+     "fecha": "2026-03-12",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "6"
+    },
+    {
+     "id": "0915-e3",
+     "tipo": "Parcial",
+     "fecha": "2026-04-13",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "7"
+    },
+    {
+     "id": "0915-e4",
+     "tipo": "Parcial",
+     "fecha": "2026-05-14",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "8"
+    },
+    {
+     "id": "0915-e5",
+     "tipo": "Parcial",
+     "fecha": "2026-06-15",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "9"
+    },
+    {
+     "id": "0915-e6",
+     "tipo": "Parcial",
+     "fecha": "2026-07-16",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "10"
+    },
+    {
+     "id": "0915-e7",
+     "tipo": "Parcial",
+     "fecha": "2026-08-17",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "11"
+    },
+    {
+     "id": "0915-e8",
+     "tipo": "Parcial",
+     "fecha": "2026-09-18",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "12"
+    },
+    {
+     "id": "0915-e9",
+     "tipo": "Parcial",
+     "fecha": "2026-01-10",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "13"
+    }
+   ]
+  },
+  "0905": {
+   "estado": "aprobada",
+   "nota": "",
+   "detalle": "dddddddddddddddddddddddddddddddddddddddddddddddddddd",
+   "apuntes": "línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. ",
+   "examenes": [
+    {
+     "id": "0905-e0",
+     "tipo": "Parcial",
+     "fecha": "2026-01-10",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "4"
+    },
+    {
+     "id": "0905-e1",
+     "tipo": "Parcial",
+     "fecha": "2026-02-11",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "5"
+    },
+    {
+     "id": "0905-e2",
+     "tipo": "Parcial",
+     "fecha": "2026-03-12",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "6"
+    },
+    {
+     "id": "0905-e3",
+     "tipo": "Parcial",
+     "fecha": "2026-04-13",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "7"
+    },
+    {
+     "id": "0905-e4",
+     "tipo": "Parcial",
+     "fecha": "2026-05-14",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "8"
+    },
+    {
+     "id": "0905-e5",
+     "tipo": "Parcial",
+     "fecha": "2026-06-15",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "9"
+    },
+    {
+     "id": "0905-e6",
+     "tipo": "Parcial",
+     "fecha": "2026-07-16",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "10"
+    },
+    {
+     "id": "0905-e7",
+     "tipo": "Parcial",
+     "fecha": "2026-08-17",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "11"
+    },
+    {
+     "id": "0905-e8",
+     "tipo": "Parcial",
+     "fecha": "2026-09-18",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "12"
+    },
+    {
+     "id": "0905-e9",
+     "tipo": "Parcial",
+     "fecha": "2026-01-10",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "13"
+    }
+   ]
+  },
+  "0916": {
+   "estado": "pendiente",
+   "nota": "6",
+   "detalle": "dddddddddddddddddddddddddddddddddddddddd",
+   "apuntes": "línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. ",
+   "examenes": [
+    {
+     "id": "0916-e0",
+     "tipo": "Parcial",
+     "fecha": "2026-01-10",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "4"
+    },
+    {
+     "id": "0916-e1",
+     "tipo": "Parcial",
+     "fecha": "2026-02-11",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "5"
+    },
+    {
+     "id": "0916-e2",
+     "tipo": "Parcial",
+     "fecha": "2026-03-12",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "6"
+    },
+    {
+     "id": "0916-e3",
+     "tipo": "Parcial",
+     "fecha": "2026-04-13",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "7"
+    },
+    {
+     "id": "0916-e4",
+     "tipo": "Parcial",
+     "fecha": "2026-05-14",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "8"
+    },
+    {
+     "id": "0916-e5",
+     "tipo": "Parcial",
+     "fecha": "2026-06-15",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "9"
+    },
+    {
+     "id": "0916-e6",
+     "tipo": "Parcial",
+     "fecha": "2026-07-16",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "10"
+    },
+    {
+     "id": "0916-e7",
+     "tipo": "Parcial",
+     "fecha": "2026-08-17",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "11"
+    },
+    {
+     "id": "0916-e8",
+     "tipo": "Parcial",
+     "fecha": "2026-09-18",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "12"
+    },
+    {
+     "id": "0916-e9",
+     "tipo": "Parcial",
+     "fecha": "2026-01-10",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "13"
+    }
+   ]
+  },
+  "0917": {
+   "estado": "pendiente",
+   "nota": "10",
+   "detalle": "ddd",
+   "apuntes": "línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. ",
+   "examenes": [
+    {
+     "id": "0917-e0",
+     "tipo": "Parcial",
+     "fecha": "2026-01-10",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "4"
+    },
+    {
+     "id": "0917-e1",
+     "tipo": "Parcial",
+     "fecha": "2026-02-11",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "5"
+    },
+    {
+     "id": "0917-e2",
+     "tipo": "Parcial",
+     "fecha": "2026-03-12",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "6"
+    },
+    {
+     "id": "0917-e3",
+     "tipo": "Parcial",
+     "fecha": "2026-04-13",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "7"
+    },
+    {
+     "id": "0917-e4",
+     "tipo": "Parcial",
+     "fecha": "2026-05-14",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "8"
+    },
+    {
+     "id": "0917-e5",
+     "tipo": "Parcial",
+     "fecha": "2026-06-15",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "9"
+    },
+    {
+     "id": "0917-e6",
+     "tipo": "Parcial",
+     "fecha": "2026-07-16",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "10"
+    },
+    {
+     "id": "0917-e7",
+     "tipo": "Parcial",
+     "fecha": "2026-08-17",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "11"
+    },
+    {
+     "id": "0917-e8",
+     "tipo": "Parcial",
+     "fecha": "2026-09-18",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "12"
+    },
+    {
+     "id": "0917-e9",
+     "tipo": "Parcial",
+     "fecha": "2026-01-10",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "13"
+    }
+   ]
+  },
+  "0918": {
+   "estado": "cursando",
+   "nota": "",
+   "detalle": "ddddddddddddddddddddddddddddddddddd",
+   "apuntes": "línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. ",
+   "examenes": [
+    {
+     "id": "0918-e0",
+     "tipo": "Parcial",
+     "fecha": "2026-01-10",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "4"
+    },
+    {
+     "id": "0918-e1",
+     "tipo": "Parcial",
+     "fecha": "2026-02-11",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "5"
+    },
+    {
+     "id": "0918-e2",
+     "tipo": "Parcial",
+     "fecha": "2026-03-12",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "6"
+    },
+    {
+     "id": "0918-e3",
+     "tipo": "Parcial",
+     "fecha": "2026-04-13",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "7"
+    },
+    {
+     "id": "0918-e4",
+     "tipo": "Parcial",
+     "fecha": "2026-05-14",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "8"
+    },
+    {
+     "id": "0918-e5",
+     "tipo": "Parcial",
+     "fecha": "2026-06-15",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "9"
+    },
+    {
+     "id": "0918-e6",
+     "tipo": "Parcial",
+     "fecha": "2026-07-16",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "10"
+    },
+    {
+     "id": "0918-e7",
+     "tipo": "Parcial",
+     "fecha": "2026-08-17",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "11"
+    },
+    {
+     "id": "0918-e8",
+     "tipo": "Parcial",
+     "fecha": "2026-09-18",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "12"
+    },
+    {
+     "id": "0918-e9",
+     "tipo": "Parcial",
+     "fecha": "2026-01-10",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "13"
+    }
+   ]
+  },
+  "0909": {
+   "estado": "cursando",
+   "nota": "7,5",
+   "detalle": "dddddddddddddddddddddddddd",
+   "apuntes": "línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. ",
+   "examenes": [
+    {
+     "id": "0909-e0",
+     "tipo": "Parcial",
+     "fecha": "2026-01-10",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "4"
+    },
+    {
+     "id": "0909-e1",
+     "tipo": "Parcial",
+     "fecha": "2026-02-11",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "5"
+    },
+    {
+     "id": "0909-e2",
+     "tipo": "Parcial",
+     "fecha": "2026-03-12",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "6"
+    },
+    {
+     "id": "0909-e3",
+     "tipo": "Parcial",
+     "fecha": "2026-04-13",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "7"
+    },
+    {
+     "id": "0909-e4",
+     "tipo": "Parcial",
+     "fecha": "2026-05-14",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "8"
+    },
+    {
+     "id": "0909-e5",
+     "tipo": "Parcial",
+     "fecha": "2026-06-15",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "9"
+    },
+    {
+     "id": "0909-e6",
+     "tipo": "Parcial",
+     "fecha": "2026-07-16",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "10"
+    },
+    {
+     "id": "0909-e7",
+     "tipo": "Parcial",
+     "fecha": "2026-08-17",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "11"
+    },
+    {
+     "id": "0909-e8",
+     "tipo": "Parcial",
+     "fecha": "2026-09-18",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "12"
+    },
+    {
+     "id": "0909-e9",
+     "tipo": "Parcial",
+     "fecha": "2026-01-10",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "13"
+    }
+   ]
+  },
+  "0919": {
+   "estado": "cursando",
+   "nota": "",
+   "detalle": "dddddddddddddddddddddddddddddddddddd",
+   "apuntes": "línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. ",
+   "examenes": [
+    {
+     "id": "0919-e0",
+     "tipo": "Parcial",
+     "fecha": "2026-01-10",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "4"
+    },
+    {
+     "id": "0919-e1",
+     "tipo": "Parcial",
+     "fecha": "2026-02-11",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "5"
+    },
+    {
+     "id": "0919-e2",
+     "tipo": "Parcial",
+     "fecha": "2026-03-12",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "6"
+    },
+    {
+     "id": "0919-e3",
+     "tipo": "Parcial",
+     "fecha": "2026-04-13",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "7"
+    },
+    {
+     "id": "0919-e4",
+     "tipo": "Parcial",
+     "fecha": "2026-05-14",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "8"
+    },
+    {
+     "id": "0919-e5",
+     "tipo": "Parcial",
+     "fecha": "2026-06-15",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "9"
+    },
+    {
+     "id": "0919-e6",
+     "tipo": "Parcial",
+     "fecha": "2026-07-16",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "10"
+    },
+    {
+     "id": "0919-e7",
+     "tipo": "Parcial",
+     "fecha": "2026-08-17",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "11"
+    },
+    {
+     "id": "0919-e8",
+     "tipo": "Parcial",
+     "fecha": "2026-09-18",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "12"
+    },
+    {
+     "id": "0919-e9",
+     "tipo": "Parcial",
+     "fecha": "2026-01-10",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "13"
+    }
+   ]
+  },
+  "0911": {
+   "estado": "regular",
+   "nota": "6",
+   "detalle": "dddddd",
+   "apuntes": "línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. ",
+   "examenes": [
+    {
+     "id": "0911-e0",
+     "tipo": "Parcial",
+     "fecha": "2026-01-10",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "4"
+    },
+    {
+     "id": "0911-e1",
+     "tipo": "Parcial",
+     "fecha": "2026-02-11",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "5"
+    },
+    {
+     "id": "0911-e2",
+     "tipo": "Parcial",
+     "fecha": "2026-03-12",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "6"
+    },
+    {
+     "id": "0911-e3",
+     "tipo": "Parcial",
+     "fecha": "2026-04-13",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "7"
+    },
+    {
+     "id": "0911-e4",
+     "tipo": "Parcial",
+     "fecha": "2026-05-14",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "8"
+    },
+    {
+     "id": "0911-e5",
+     "tipo": "Parcial",
+     "fecha": "2026-06-15",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "9"
+    },
+    {
+     "id": "0911-e6",
+     "tipo": "Parcial",
+     "fecha": "2026-07-16",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "10"
+    },
+    {
+     "id": "0911-e7",
+     "tipo": "Parcial",
+     "fecha": "2026-08-17",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "11"
+    },
+    {
+     "id": "0911-e8",
+     "tipo": "Parcial",
+     "fecha": "2026-09-18",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "12"
+    },
+    {
+     "id": "0911-e9",
+     "tipo": "Parcial",
+     "fecha": "2026-01-10",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "13"
+    }
+   ]
+  },
+  "0920": {
+   "estado": "cursando",
+   "nota": "7,5",
+   "detalle": "dddddd",
+   "apuntes": "línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. ",
+   "examenes": [
+    {
+     "id": "0920-e0",
+     "tipo": "Parcial",
+     "fecha": "2026-01-10",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "4"
+    },
+    {
+     "id": "0920-e1",
+     "tipo": "Parcial",
+     "fecha": "2026-02-11",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "5"
+    },
+    {
+     "id": "0920-e2",
+     "tipo": "Parcial",
+     "fecha": "2026-03-12",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "6"
+    },
+    {
+     "id": "0920-e3",
+     "tipo": "Parcial",
+     "fecha": "2026-04-13",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "7"
+    },
+    {
+     "id": "0920-e4",
+     "tipo": "Parcial",
+     "fecha": "2026-05-14",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "8"
+    },
+    {
+     "id": "0920-e5",
+     "tipo": "Parcial",
+     "fecha": "2026-06-15",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "9"
+    },
+    {
+     "id": "0920-e6",
+     "tipo": "Parcial",
+     "fecha": "2026-07-16",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "10"
+    },
+    {
+     "id": "0920-e7",
+     "tipo": "Parcial",
+     "fecha": "2026-08-17",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "11"
+    },
+    {
+     "id": "0920-e8",
+     "tipo": "Parcial",
+     "fecha": "2026-09-18",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "12"
+    },
+    {
+     "id": "0920-e9",
+     "tipo": "Parcial",
+     "fecha": "2026-01-10",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "13"
+    }
+   ]
+  },
+  "literaria": {
+   "estado": "pendiente",
+   "nota": "",
+   "detalle": "ddddddddddddddddddddddddddddddddddddddd",
+   "apuntes": "línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. ",
+   "examenes": [
+    {
+     "id": "literaria-e0",
+     "tipo": "Parcial",
+     "fecha": "2026-01-10",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "4"
+    },
+    {
+     "id": "literaria-e1",
+     "tipo": "Parcial",
+     "fecha": "2026-02-11",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "5"
+    },
+    {
+     "id": "literaria-e2",
+     "tipo": "Parcial",
+     "fecha": "2026-03-12",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "6"
+    },
+    {
+     "id": "literaria-e3",
+     "tipo": "Parcial",
+     "fecha": "2026-04-13",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "7"
+    },
+    {
+     "id": "literaria-e4",
+     "tipo": "Parcial",
+     "fecha": "2026-05-14",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "8"
+    },
+    {
+     "id": "literaria-e5",
+     "tipo": "Parcial",
+     "fecha": "2026-06-15",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "9"
+    },
+    {
+     "id": "literaria-e6",
+     "tipo": "Parcial",
+     "fecha": "2026-07-16",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "10"
+    },
+    {
+     "id": "literaria-e7",
+     "tipo": "Parcial",
+     "fecha": "2026-08-17",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "11"
+    },
+    {
+     "id": "literaria-e8",
+     "tipo": "Parcial",
+     "fecha": "2026-09-18",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "12"
+    },
+    {
+     "id": "literaria-e9",
+     "tipo": "Parcial",
+     "fecha": "2026-01-10",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "13"
+    }
+   ]
+  },
+  "metodologia": {
+   "estado": "cursando",
+   "nota": "10",
+   "detalle": "ddddddddddddddddddddddddddddddddddddddddddd",
+   "apuntes": "línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. ",
+   "examenes": [
+    {
+     "id": "metodologia-e0",
+     "tipo": "Parcial",
+     "fecha": "2026-01-10",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "4"
+    },
+    {
+     "id": "metodologia-e1",
+     "tipo": "Parcial",
+     "fecha": "2026-02-11",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "5"
+    },
+    {
+     "id": "metodologia-e2",
+     "tipo": "Parcial",
+     "fecha": "2026-03-12",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "6"
+    },
+    {
+     "id": "metodologia-e3",
+     "tipo": "Parcial",
+     "fecha": "2026-04-13",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "7"
+    },
+    {
+     "id": "metodologia-e4",
+     "tipo": "Parcial",
+     "fecha": "2026-05-14",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "8"
+    },
+    {
+     "id": "metodologia-e5",
+     "tipo": "Parcial",
+     "fecha": "2026-06-15",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "9"
+    },
+    {
+     "id": "metodologia-e6",
+     "tipo": "Parcial",
+     "fecha": "2026-07-16",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "10"
+    },
+    {
+     "id": "metodologia-e7",
+     "tipo": "Parcial",
+     "fecha": "2026-08-17",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "11"
+    },
+    {
+     "id": "metodologia-e8",
+     "tipo": "Parcial",
+     "fecha": "2026-09-18",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "12"
+    },
+    {
+     "id": "metodologia-e9",
+     "tipo": "Parcial",
+     "fecha": "2026-01-10",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "13"
+    }
+   ]
+  },
+  "digital": {
+   "estado": "aprobada",
+   "nota": "7,5",
+   "detalle": "ddddddddddddddddddddddddddddd",
+   "apuntes": "línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. ",
+   "examenes": [
+    {
+     "id": "digital-e0",
+     "tipo": "Parcial",
+     "fecha": "2026-01-10",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "4"
+    },
+    {
+     "id": "digital-e1",
+     "tipo": "Parcial",
+     "fecha": "2026-02-11",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "5"
+    },
+    {
+     "id": "digital-e2",
+     "tipo": "Parcial",
+     "fecha": "2026-03-12",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "6"
+    },
+    {
+     "id": "digital-e3",
+     "tipo": "Parcial",
+     "fecha": "2026-04-13",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "7"
+    },
+    {
+     "id": "digital-e4",
+     "tipo": "Parcial",
+     "fecha": "2026-05-14",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "8"
+    },
+    {
+     "id": "digital-e5",
+     "tipo": "Parcial",
+     "fecha": "2026-06-15",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "9"
+    },
+    {
+     "id": "digital-e6",
+     "tipo": "Parcial",
+     "fecha": "2026-07-16",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "10"
+    },
+    {
+     "id": "digital-e7",
+     "tipo": "Parcial",
+     "fecha": "2026-08-17",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "11"
+    },
+    {
+     "id": "digital-e8",
+     "tipo": "Parcial",
+     "fecha": "2026-09-18",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "12"
+    },
+    {
+     "id": "digital-e9",
+     "tipo": "Parcial",
+     "fecha": "2026-01-10",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "13"
+    }
+   ]
+  },
+  "seminario": {
+   "estado": "aprobada",
+   "nota": "7,5",
+   "detalle": "ddddddddddddddddddd",
+   "apuntes": "línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. ",
+   "examenes": [
+    {
+     "id": "seminario-e0",
+     "tipo": "Parcial",
+     "fecha": "2026-01-10",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "4"
+    },
+    {
+     "id": "seminario-e1",
+     "tipo": "Parcial",
+     "fecha": "2026-02-11",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "5"
+    },
+    {
+     "id": "seminario-e2",
+     "tipo": "Parcial",
+     "fecha": "2026-03-12",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "6"
+    },
+    {
+     "id": "seminario-e3",
+     "tipo": "Parcial",
+     "fecha": "2026-04-13",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "7"
+    },
+    {
+     "id": "seminario-e4",
+     "tipo": "Parcial",
+     "fecha": "2026-05-14",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "8"
+    },
+    {
+     "id": "seminario-e5",
+     "tipo": "Parcial",
+     "fecha": "2026-06-15",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "9"
+    },
+    {
+     "id": "seminario-e6",
+     "tipo": "Parcial",
+     "fecha": "2026-07-16",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "10"
+    },
+    {
+     "id": "seminario-e7",
+     "tipo": "Parcial",
+     "fecha": "2026-08-17",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "11"
+    },
+    {
+     "id": "seminario-e8",
+     "tipo": "Parcial",
+     "fecha": "2026-09-18",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "12"
+    },
+    {
+     "id": "seminario-e9",
+     "tipo": "Parcial",
+     "fecha": "2026-01-10",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "13"
+    }
+   ]
+  },
+  "ingles1": {
+   "estado": "cursando",
+   "nota": "6",
+   "detalle": "dddddddddddddddddddddddddddddddddddddddddddd",
+   "apuntes": "línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. ",
+   "examenes": [
+    {
+     "id": "ingles1-e0",
+     "tipo": "Parcial",
+     "fecha": "2026-01-10",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "4"
+    },
+    {
+     "id": "ingles1-e1",
+     "tipo": "Parcial",
+     "fecha": "2026-02-11",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "5"
+    },
+    {
+     "id": "ingles1-e2",
+     "tipo": "Parcial",
+     "fecha": "2026-03-12",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "6"
+    },
+    {
+     "id": "ingles1-e3",
+     "tipo": "Parcial",
+     "fecha": "2026-04-13",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "7"
+    },
+    {
+     "id": "ingles1-e4",
+     "tipo": "Parcial",
+     "fecha": "2026-05-14",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "8"
+    },
+    {
+     "id": "ingles1-e5",
+     "tipo": "Parcial",
+     "fecha": "2026-06-15",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "9"
+    },
+    {
+     "id": "ingles1-e6",
+     "tipo": "Parcial",
+     "fecha": "2026-07-16",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "10"
+    },
+    {
+     "id": "ingles1-e7",
+     "tipo": "Parcial",
+     "fecha": "2026-08-17",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "11"
+    },
+    {
+     "id": "ingles1-e8",
+     "tipo": "Parcial",
+     "fecha": "2026-09-18",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "12"
+    },
+    {
+     "id": "ingles1-e9",
+     "tipo": "Parcial",
+     "fecha": "2026-01-10",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "13"
+    }
+   ]
+  },
+  "ingles2": {
+   "estado": "cursando",
+   "nota": "",
+   "detalle": "dddddddddddddddddddddddddddddddddddd",
+   "apuntes": "línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. ",
+   "examenes": [
+    {
+     "id": "ingles2-e0",
+     "tipo": "Parcial",
+     "fecha": "2026-01-10",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "4"
+    },
+    {
+     "id": "ingles2-e1",
+     "tipo": "Parcial",
+     "fecha": "2026-02-11",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "5"
+    },
+    {
+     "id": "ingles2-e2",
+     "tipo": "Parcial",
+     "fecha": "2026-03-12",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "6"
+    },
+    {
+     "id": "ingles2-e3",
+     "tipo": "Parcial",
+     "fecha": "2026-04-13",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "7"
+    },
+    {
+     "id": "ingles2-e4",
+     "tipo": "Parcial",
+     "fecha": "2026-05-14",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "8"
+    },
+    {
+     "id": "ingles2-e5",
+     "tipo": "Parcial",
+     "fecha": "2026-06-15",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "9"
+    },
+    {
+     "id": "ingles2-e6",
+     "tipo": "Parcial",
+     "fecha": "2026-07-16",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "10"
+    },
+    {
+     "id": "ingles2-e7",
+     "tipo": "Parcial",
+     "fecha": "2026-08-17",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "11"
+    },
+    {
+     "id": "ingles2-e8",
+     "tipo": "Parcial",
+     "fecha": "2026-09-18",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "12"
+    },
+    {
+     "id": "ingles2-e9",
+     "tipo": "Parcial",
+     "fecha": "2026-01-10",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "13"
+    }
+   ]
+  },
+  "ingles3": {
+   "estado": "regular",
+   "nota": "10",
+   "detalle": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+   "apuntes": "línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. ",
+   "examenes": [
+    {
+     "id": "ingles3-e0",
+     "tipo": "Parcial",
+     "fecha": "2026-01-10",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "4"
+    },
+    {
+     "id": "ingles3-e1",
+     "tipo": "Parcial",
+     "fecha": "2026-02-11",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "5"
+    },
+    {
+     "id": "ingles3-e2",
+     "tipo": "Parcial",
+     "fecha": "2026-03-12",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "6"
+    },
+    {
+     "id": "ingles3-e3",
+     "tipo": "Parcial",
+     "fecha": "2026-04-13",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "7"
+    },
+    {
+     "id": "ingles3-e4",
+     "tipo": "Parcial",
+     "fecha": "2026-05-14",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "8"
+    },
+    {
+     "id": "ingles3-e5",
+     "tipo": "Parcial",
+     "fecha": "2026-06-15",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "9"
+    },
+    {
+     "id": "ingles3-e6",
+     "tipo": "Parcial",
+     "fecha": "2026-07-16",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "10"
+    },
+    {
+     "id": "ingles3-e7",
+     "tipo": "Parcial",
+     "fecha": "2026-08-17",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "11"
+    },
+    {
+     "id": "ingles3-e8",
+     "tipo": "Parcial",
+     "fecha": "2026-09-18",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "12"
+    },
+    {
+     "id": "ingles3-e9",
+     "tipo": "Parcial",
+     "fecha": "2026-01-10",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "13"
+    }
+   ]
+  },
+  "idioma2": {
+   "estado": "regular",
+   "nota": "10",
+   "detalle": "dddddddddddddddddd",
+   "apuntes": "línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. ",
+   "examenes": [
+    {
+     "id": "idioma2-e0",
+     "tipo": "Parcial",
+     "fecha": "2026-01-10",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "4"
+    },
+    {
+     "id": "idioma2-e1",
+     "tipo": "Parcial",
+     "fecha": "2026-02-11",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "5"
+    },
+    {
+     "id": "idioma2-e2",
+     "tipo": "Parcial",
+     "fecha": "2026-03-12",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "6"
+    },
+    {
+     "id": "idioma2-e3",
+     "tipo": "Parcial",
+     "fecha": "2026-04-13",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "7"
+    },
+    {
+     "id": "idioma2-e4",
+     "tipo": "Parcial",
+     "fecha": "2026-05-14",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "8"
+    },
+    {
+     "id": "idioma2-e5",
+     "tipo": "Parcial",
+     "fecha": "2026-06-15",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "9"
+    },
+    {
+     "id": "idioma2-e6",
+     "tipo": "Parcial",
+     "fecha": "2026-07-16",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "10"
+    },
+    {
+     "id": "idioma2-e7",
+     "tipo": "Parcial",
+     "fecha": "2026-08-17",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "11"
+    },
+    {
+     "id": "idioma2-e8",
+     "tipo": "Parcial",
+     "fecha": "2026-09-18",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "12"
+    },
+    {
+     "id": "idioma2-e9",
+     "tipo": "Parcial",
+     "fecha": "2026-01-10",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "13"
+    }
+   ]
+  },
+  "final": {
+   "estado": "pendiente",
+   "nota": "",
+   "detalle": "dddddddddddddddddddddddddddddddd",
+   "apuntes": "línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. línea de apuntes con ñ y tildes. ",
+   "examenes": [
+    {
+     "id": "final-e0",
+     "tipo": "Parcial",
+     "fecha": "2026-01-10",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "4"
+    },
+    {
+     "id": "final-e1",
+     "tipo": "Parcial",
+     "fecha": "2026-02-11",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "5"
+    },
+    {
+     "id": "final-e2",
+     "tipo": "Parcial",
+     "fecha": "2026-03-12",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "6"
+    },
+    {
+     "id": "final-e3",
+     "tipo": "Parcial",
+     "fecha": "2026-04-13",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "7"
+    },
+    {
+     "id": "final-e4",
+     "tipo": "Parcial",
+     "fecha": "2026-05-14",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "8"
+    },
+    {
+     "id": "final-e5",
+     "tipo": "Parcial",
+     "fecha": "2026-06-15",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "9"
+    },
+    {
+     "id": "final-e6",
+     "tipo": "Parcial",
+     "fecha": "2026-07-16",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "10"
+    },
+    {
+     "id": "final-e7",
+     "tipo": "Parcial",
+     "fecha": "2026-08-17",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "11"
+    },
+    {
+     "id": "final-e8",
+     "tipo": "Parcial",
+     "fecha": "2026-09-18",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "12"
+    },
+    {
+     "id": "final-e9",
+     "tipo": "Parcial",
+     "fecha": "2026-01-10",
+     "hora": "18:00",
+     "detalle": "xxxxxxxxxxxxxxxxxxxx",
+     "nota": "13"
+    }
+   ]
+  },
+  "ok_id.con-puntos": {
+   "estado": "aprobada",
+   "nota": "8"
+  }
+ },
+ "horarios": {
+  "h0": {
+   "materias": [
+    "m0",
+    "m1",
+    "m2",
+    "m3",
+    "m4"
+   ],
+   "elegidas": {
+    "m0|Teórico": "c0",
+    "m1|Teórico": "c1",
+    "m2|Teórico": "c2",
+    "m3|Teórico": "c3",
+    "m4|Teórico": "c4"
+   },
+   "sinSabado": false,
+   "listo": false,
+   "propias": [],
+   "bloqueos": [
+    {
+     "dia": 1,
+     "desde": "09:00",
+     "hasta": "10:00",
+     "t": "b"
+    }
+   ]
+  },
+  "h1": {
+   "materias": [
+    "m0",
+    "m1",
+    "m2",
+    "m3",
+    "m4"
+   ],
+   "elegidas": {
+    "m0|Teórico": "c0",
+    "m1|Teórico": "c1",
+    "m2|Teórico": "c2",
+    "m3|Teórico": "c3",
+    "m4|Teórico": "c4"
+   },
+   "sinSabado": true,
+   "listo": false,
+   "propias": [],
+   "bloqueos": [
+    {
+     "dia": 2,
+     "desde": "09:00",
+     "hasta": "10:00",
+     "t": "b"
+    }
+   ]
+  },
+  "h2": {
+   "materias": [
+    "m0",
+    "m1",
+    "m2",
+    "m3",
+    "m4"
+   ],
+   "elegidas": {
+    "m0|Teórico": "c0",
+    "m1|Teórico": "c1",
+    "m2|Teórico": "c2",
+    "m3|Teórico": "c3",
+    "m4|Teórico": "c4"
+   },
+   "sinSabado": false,
+   "listo": false,
+   "propias": [],
+   "bloqueos": [
+    {
+     "dia": 3,
+     "desde": "09:00",
+     "hasta": "10:00",
+     "t": "b"
+    }
+   ]
+  },
+  "h3": {
+   "materias": [
+    "m0",
+    "m1",
+    "m2",
+    "m3",
+    "m4"
+   ],
+   "elegidas": {
+    "m0|Teórico": "c0",
+    "m1|Teórico": "c1",
+    "m2|Teórico": "c2",
+    "m3|Teórico": "c3",
+    "m4|Teórico": "c4"
+   },
+   "sinSabado": true,
+   "listo": false,
+   "propias": [],
+   "bloqueos": [
+    {
+     "dia": 4,
+     "desde": "09:00",
+     "hasta": "10:00",
+     "t": "b"
+    }
+   ]
+  },
+  "h4": {
+   "materias": [
+    "m0",
+    "m1",
+    "m2",
+    "m3",
+    "m4"
+   ],
+   "elegidas": {
+    "m0|Teórico": "c0",
+    "m1|Teórico": "c1",
+    "m2|Teórico": "c2",
+    "m3|Teórico": "c3",
+    "m4|Teórico": "c4"
+   },
+   "sinSabado": false,
+   "listo": false,
+   "propias": [],
+   "bloqueos": [
+    {
+     "dia": 5,
+     "desde": "09:00",
+     "hasta": "10:00",
+     "t": "b"
+    }
+   ]
+  },
+  "h5": {
+   "materias": [
+    "m0",
+    "m1",
+    "m2",
+    "m3",
+    "m4"
+   ],
+   "elegidas": {
+    "m0|Teórico": "c0",
+    "m1|Teórico": "c1",
+    "m2|Teórico": "c2",
+    "m3|Teórico": "c3",
+    "m4|Teórico": "c4"
+   },
+   "sinSabado": true,
+   "listo": false,
+   "propias": [],
+   "bloqueos": [
+    {
+     "dia": 6,
+     "desde": "09:00",
+     "hasta": "10:00",
+     "t": "b"
+    }
+   ]
+  },
+  "h6": {
+   "materias": [
+    "m0",
+    "m1",
+    "m2",
+    "m3",
+    "m4"
+   ],
+   "elegidas": {
+    "m0|Teórico": "c0",
+    "m1|Teórico": "c1",
+    "m2|Teórico": "c2",
+    "m3|Teórico": "c3",
+    "m4|Teórico": "c4"
+   },
+   "sinSabado": false,
+   "listo": false,
+   "propias": [],
+   "bloqueos": [
+    {
+     "dia": 1,
+     "desde": "09:00",
+     "hasta": "10:00",
+     "t": "b"
+    }
+   ]
+  },
+  "h7": {
+   "materias": [
+    "m0",
+    "m1",
+    "m2",
+    "m3",
+    "m4"
+   ],
+   "elegidas": {
+    "m0|Teórico": "c0",
+    "m1|Teórico": "c1",
+    "m2|Teórico": "c2",
+    "m3|Teórico": "c3",
+    "m4|Teórico": "c4"
+   },
+   "sinSabado": true,
+   "listo": false,
+   "propias": [],
+   "bloqueos": [
+    {
+     "dia": 2,
+     "desde": "09:00",
+     "hasta": "10:00",
+     "t": "b"
+    }
+   ]
+  },
+  "h8": {
+   "materias": [
+    "m0",
+    "m1",
+    "m2",
+    "m3",
+    "m4"
+   ],
+   "elegidas": {
+    "m0|Teórico": "c0",
+    "m1|Teórico": "c1",
+    "m2|Teórico": "c2",
+    "m3|Teórico": "c3",
+    "m4|Teórico": "c4"
+   },
+   "sinSabado": false,
+   "listo": false,
+   "propias": [],
+   "bloqueos": [
+    {
+     "dia": 3,
+     "desde": "09:00",
+     "hasta": "10:00",
+     "t": "b"
+    }
+   ]
+  },
+  "h9": {
+   "materias": [
+    "m0",
+    "m1",
+    "m2",
+    "m3",
+    "m4"
+   ],
+   "elegidas": {
+    "m0|Teórico": "c0",
+    "m1|Teórico": "c1",
+    "m2|Teórico": "c2",
+    "m3|Teórico": "c3",
+    "m4|Teórico": "c4"
+   },
+   "sinSabado": true,
+   "listo": false,
+   "propias": [],
+   "bloqueos": [
+    {
+     "dia": 4,
+     "desde": "09:00",
+     "hasta": "10:00",
+     "t": "b"
+    }
+   ]
+  },
+  "h10": {
+   "materias": [
+    "m0",
+    "m1",
+    "m2",
+    "m3",
+    "m4"
+   ],
+   "elegidas": {
+    "m0|Teórico": "c0",
+    "m1|Teórico": "c1",
+    "m2|Teórico": "c2",
+    "m3|Teórico": "c3",
+    "m4|Teórico": "c4"
+   },
+   "sinSabado": false,
+   "listo": false,
+   "propias": [],
+   "bloqueos": [
+    {
+     "dia": 5,
+     "desde": "09:00",
+     "hasta": "10:00",
+     "t": "b"
+    }
+   ]
+  },
+  "h11": {
+   "materias": [
+    "m0",
+    "m1",
+    "m2",
+    "m3",
+    "m4"
+   ],
+   "elegidas": {
+    "m0|Teórico": "c0",
+    "m1|Teórico": "c1",
+    "m2|Teórico": "c2",
+    "m3|Teórico": "c3",
+    "m4|Teórico": "c4"
+   },
+   "sinSabado": true,
+   "listo": false,
+   "propias": [],
+   "bloqueos": [
+    {
+     "dia": 6,
+     "desde": "09:00",
+     "hasta": "10:00",
+     "t": "b"
+    }
+   ]
+  },
+  "h12": {
+   "materias": [
+    "m0",
+    "m1",
+    "m2",
+    "m3",
+    "m4"
+   ],
+   "elegidas": {
+    "m0|Teórico": "c0",
+    "m1|Teórico": "c1",
+    "m2|Teórico": "c2",
+    "m3|Teórico": "c3",
+    "m4|Teórico": "c4"
+   },
+   "sinSabado": false,
+   "listo": false,
+   "propias": [],
+   "bloqueos": [
+    {
+     "dia": 1,
+     "desde": "09:00",
+     "hasta": "10:00",
+     "t": "b"
+    }
+   ]
+  },
+  "h13": {
+   "materias": [
+    "m0",
+    "m1",
+    "m2",
+    "m3",
+    "m4"
+   ],
+   "elegidas": {
+    "m0|Teórico": "c0",
+    "m1|Teórico": "c1",
+    "m2|Teórico": "c2",
+    "m3|Teórico": "c3",
+    "m4|Teórico": "c4"
+   },
+   "sinSabado": true,
+   "listo": false,
+   "propias": [],
+   "bloqueos": [
+    {
+     "dia": 2,
+     "desde": "09:00",
+     "hasta": "10:00",
+     "t": "b"
+    }
+   ]
+  },
+  "h14": {
+   "materias": [
+    "m0",
+    "m1",
+    "m2",
+    "m3",
+    "m4"
+   ],
+   "elegidas": {
+    "m0|Teórico": "c0",
+    "m1|Teórico": "c1",
+    "m2|Teórico": "c2",
+    "m3|Teórico": "c3",
+    "m4|Teórico": "c4"
+   },
+   "sinSabado": false,
+   "listo": false,
+   "propias": [],
+   "bloqueos": [
+    {
+     "dia": 3,
+     "desde": "09:00",
+     "hasta": "10:00",
+     "t": "b"
+    }
+   ]
+  },
+  "h15": {
+   "materias": [
+    "m0",
+    "m1",
+    "m2",
+    "m3",
+    "m4"
+   ],
+   "elegidas": {
+    "m0|Teórico": "c0",
+    "m1|Teórico": "c1",
+    "m2|Teórico": "c2",
+    "m3|Teórico": "c3",
+    "m4|Teórico": "c4"
+   },
+   "sinSabado": true,
+   "listo": false,
+   "propias": [],
+   "bloqueos": [
+    {
+     "dia": 4,
+     "desde": "09:00",
+     "hasta": "10:00",
+     "t": "b"
+    }
+   ]
+  },
+  "h16": {
+   "materias": [
+    "m0",
+    "m1",
+    "m2",
+    "m3",
+    "m4"
+   ],
+   "elegidas": {
+    "m0|Teórico": "c0",
+    "m1|Teórico": "c1",
+    "m2|Teórico": "c2",
+    "m3|Teórico": "c3",
+    "m4|Teórico": "c4"
+   },
+   "sinSabado": false,
+   "listo": false,
+   "propias": [],
+   "bloqueos": [
+    {
+     "dia": 5,
+     "desde": "09:00",
+     "hasta": "10:00",
+     "t": "b"
+    }
+   ]
+  },
+  "h17": {
+   "materias": [
+    "m0",
+    "m1",
+    "m2",
+    "m3",
+    "m4"
+   ],
+   "elegidas": {
+    "m0|Teórico": "c0",
+    "m1|Teórico": "c1",
+    "m2|Teórico": "c2",
+    "m3|Teórico": "c3",
+    "m4|Teórico": "c4"
+   },
+   "sinSabado": true,
+   "listo": false,
+   "propias": [],
+   "bloqueos": [
+    {
+     "dia": 6,
+     "desde": "09:00",
+     "hasta": "10:00",
+     "t": "b"
+    }
+   ]
+  },
+  "h18": {
+   "materias": [
+    "m0",
+    "m1",
+    "m2",
+    "m3",
+    "m4"
+   ],
+   "elegidas": {
+    "m0|Teórico": "c0",
+    "m1|Teórico": "c1",
+    "m2|Teórico": "c2",
+    "m3|Teórico": "c3",
+    "m4|Teórico": "c4"
+   },
+   "sinSabado": false,
+   "listo": false,
+   "propias": [],
+   "bloqueos": [
+    {
+     "dia": 1,
+     "desde": "09:00",
+     "hasta": "10:00",
+     "t": "b"
+    }
+   ]
+  },
+  "h19": {
+   "materias": [
+    "m0",
+    "m1",
+    "m2",
+    "m3",
+    "m4"
+   ],
+   "elegidas": {
+    "m0|Teórico": "c0",
+    "m1|Teórico": "c1",
+    "m2|Teórico": "c2",
+    "m3|Teórico": "c3",
+    "m4|Teórico": "c4"
+   },
+   "sinSabado": true,
+   "listo": false,
+   "propias": [],
+   "bloqueos": [
+    {
+     "dia": 2,
+     "desde": "09:00",
+     "hasta": "10:00",
+     "t": "b"
+    }
+   ]
+  },
+  "h20": {
+   "materias": [
+    "m0",
+    "m1",
+    "m2",
+    "m3",
+    "m4"
+   ],
+   "elegidas": {
+    "m0|Teórico": "c0",
+    "m1|Teórico": "c1",
+    "m2|Teórico": "c2",
+    "m3|Teórico": "c3",
+    "m4|Teórico": "c4"
+   },
+   "sinSabado": false,
+   "listo": false,
+   "propias": [],
+   "bloqueos": [
+    {
+     "dia": 3,
+     "desde": "09:00",
+     "hasta": "10:00",
+     "t": "b"
+    }
+   ]
+  },
+  "h21": {
+   "materias": [
+    "m0",
+    "m1",
+    "m2",
+    "m3",
+    "m4"
+   ],
+   "elegidas": {
+    "m0|Teórico": "c0",
+    "m1|Teórico": "c1",
+    "m2|Teórico": "c2",
+    "m3|Teórico": "c3",
+    "m4|Teórico": "c4"
+   },
+   "sinSabado": true,
+   "listo": false,
+   "propias": [],
+   "bloqueos": [
+    {
+     "dia": 4,
+     "desde": "09:00",
+     "hasta": "10:00",
+     "t": "b"
+    }
+   ]
+  },
+  "h22": {
+   "materias": [
+    "m0",
+    "m1",
+    "m2",
+    "m3",
+    "m4"
+   ],
+   "elegidas": {
+    "m0|Teórico": "c0",
+    "m1|Teórico": "c1",
+    "m2|Teórico": "c2",
+    "m3|Teórico": "c3",
+    "m4|Teórico": "c4"
+   },
+   "sinSabado": false,
+   "listo": false,
+   "propias": [],
+   "bloqueos": [
+    {
+     "dia": 5,
+     "desde": "09:00",
+     "hasta": "10:00",
+     "t": "b"
+    }
+   ]
+  },
+  "h23": {
+   "materias": [
+    "m0",
+    "m1",
+    "m2",
+    "m3",
+    "m4"
+   ],
+   "elegidas": {
+    "m0|Teórico": "c0",
+    "m1|Teórico": "c1",
+    "m2|Teórico": "c2",
+    "m3|Teórico": "c3",
+    "m4|Teórico": "c4"
+   },
+   "sinSabado": true,
+   "listo": false,
+   "propias": [],
+   "bloqueos": [
+    {
+     "dia": 6,
+     "desde": "09:00",
+     "hasta": "10:00",
+     "t": "b"
+    }
+   ]
+  },
+  "h24": {
+   "materias": [
+    "m0",
+    "m1",
+    "m2",
+    "m3",
+    "m4"
+   ],
+   "elegidas": {
+    "m0|Teórico": "c0",
+    "m1|Teórico": "c1",
+    "m2|Teórico": "c2",
+    "m3|Teórico": "c3",
+    "m4|Teórico": "c4"
+   },
+   "sinSabado": false,
+   "listo": false,
+   "propias": [],
+   "bloqueos": [
+    {
+     "dia": 1,
+     "desde": "09:00",
+     "hasta": "10:00",
+     "t": "b"
+    }
+   ]
+  },
+  "h25": {
+   "materias": [
+    "m0",
+    "m1",
+    "m2",
+    "m3",
+    "m4"
+   ],
+   "elegidas": {
+    "m0|Teórico": "c0",
+    "m1|Teórico": "c1",
+    "m2|Teórico": "c2",
+    "m3|Teórico": "c3",
+    "m4|Teórico": "c4"
+   },
+   "sinSabado": true,
+   "listo": false,
+   "propias": [],
+   "bloqueos": [
+    {
+     "dia": 2,
+     "desde": "09:00",
+     "hasta": "10:00",
+     "t": "b"
+    }
+   ]
+  },
+  "h26": {
+   "materias": [
+    "m0",
+    "m1",
+    "m2",
+    "m3",
+    "m4"
+   ],
+   "elegidas": {
+    "m0|Teórico": "c0",
+    "m1|Teórico": "c1",
+    "m2|Teórico": "c2",
+    "m3|Teórico": "c3",
+    "m4|Teórico": "c4"
+   },
+   "sinSabado": false,
+   "listo": false,
+   "propias": [],
+   "bloqueos": [
+    {
+     "dia": 3,
+     "desde": "09:00",
+     "hasta": "10:00",
+     "t": "b"
+    }
+   ]
+  },
+  "h27": {
+   "materias": [
+    "m0",
+    "m1",
+    "m2",
+    "m3",
+    "m4"
+   ],
+   "elegidas": {
+    "m0|Teórico": "c0",
+    "m1|Teórico": "c1",
+    "m2|Teórico": "c2",
+    "m3|Teórico": "c3",
+    "m4|Teórico": "c4"
+   },
+   "sinSabado": true,
+   "listo": false,
+   "propias": [],
+   "bloqueos": [
+    {
+     "dia": 4,
+     "desde": "09:00",
+     "hasta": "10:00",
+     "t": "b"
+    }
+   ]
+  },
+  "h28": {
+   "materias": [
+    "m0",
+    "m1",
+    "m2",
+    "m3",
+    "m4"
+   ],
+   "elegidas": {
+    "m0|Teórico": "c0",
+    "m1|Teórico": "c1",
+    "m2|Teórico": "c2",
+    "m3|Teórico": "c3",
+    "m4|Teórico": "c4"
+   },
+   "sinSabado": false,
+   "listo": false,
+   "propias": [],
+   "bloqueos": [
+    {
+     "dia": 5,
+     "desde": "09:00",
+     "hasta": "10:00",
+     "t": "b"
+    }
+   ]
+  },
+  "h29": {
+   "materias": [
+    "m0",
+    "m1",
+    "m2",
+    "m3",
+    "m4"
+   ],
+   "elegidas": {
+    "m0|Teórico": "c0",
+    "m1|Teórico": "c1",
+    "m2|Teórico": "c2",
+    "m3|Teórico": "c3",
+    "m4|Teórico": "c4"
+   },
+   "sinSabado": true,
+   "listo": false,
+   "propias": [],
+   "bloqueos": [
+    {
+     "dia": 6,
+     "desde": "09:00",
+     "hasta": "10:00",
+     "t": "b"
+    }
+   ]
+  },
+  "h30": {
+   "materias": [
+    "m0",
+    "m1",
+    "m2",
+    "m3",
+    "m4"
+   ],
+   "elegidas": {
+    "m0|Teórico": "c0",
+    "m1|Teórico": "c1",
+    "m2|Teórico": "c2",
+    "m3|Teórico": "c3",
+    "m4|Teórico": "c4"
+   },
+   "sinSabado": false,
+   "listo": false,
+   "propias": [],
+   "bloqueos": [
+    {
+     "dia": 1,
+     "desde": "09:00",
+     "hasta": "10:00",
+     "t": "b"
+    }
+   ]
+  },
+  "h31": {
+   "materias": [
+    "m0",
+    "m1",
+    "m2",
+    "m3",
+    "m4"
+   ],
+   "elegidas": {
+    "m0|Teórico": "c0",
+    "m1|Teórico": "c1",
+    "m2|Teórico": "c2",
+    "m3|Teórico": "c3",
+    "m4|Teórico": "c4"
+   },
+   "sinSabado": true,
+   "listo": false,
+   "propias": [],
+   "bloqueos": [
+    {
+     "dia": 2,
+     "desde": "09:00",
+     "hasta": "10:00",
+     "t": "b"
+    }
+   ]
+  },
+  "h32": {
+   "materias": [
+    "m0",
+    "m1",
+    "m2",
+    "m3",
+    "m4"
+   ],
+   "elegidas": {
+    "m0|Teórico": "c0",
+    "m1|Teórico": "c1",
+    "m2|Teórico": "c2",
+    "m3|Teórico": "c3",
+    "m4|Teórico": "c4"
+   },
+   "sinSabado": false,
+   "listo": false,
+   "propias": [],
+   "bloqueos": [
+    {
+     "dia": 3,
+     "desde": "09:00",
+     "hasta": "10:00",
+     "t": "b"
+    }
+   ]
+  },
+  "h33": {
+   "materias": [
+    "m0",
+    "m1",
+    "m2",
+    "m3",
+    "m4"
+   ],
+   "elegidas": {
+    "m0|Teórico": "c0",
+    "m1|Teórico": "c1",
+    "m2|Teórico": "c2",
+    "m3|Teórico": "c3",
+    "m4|Teórico": "c4"
+   },
+   "sinSabado": true,
+   "listo": false,
+   "propias": [],
+   "bloqueos": [
+    {
+     "dia": 4,
+     "desde": "09:00",
+     "hasta": "10:00",
+     "t": "b"
+    }
+   ]
+  },
+  "h34": {
+   "materias": [
+    "m0",
+    "m1",
+    "m2",
+    "m3",
+    "m4"
+   ],
+   "elegidas": {
+    "m0|Teórico": "c0",
+    "m1|Teórico": "c1",
+    "m2|Teórico": "c2",
+    "m3|Teórico": "c3",
+    "m4|Teórico": "c4"
+   },
+   "sinSabado": false,
+   "listo": false,
+   "propias": [],
+   "bloqueos": [
+    {
+     "dia": 5,
+     "desde": "09:00",
+     "hasta": "10:00",
+     "t": "b"
+    }
+   ]
+  },
+  "h35": {
+   "materias": [
+    "m0",
+    "m1",
+    "m2",
+    "m3",
+    "m4"
+   ],
+   "elegidas": {
+    "m0|Teórico": "c0",
+    "m1|Teórico": "c1",
+    "m2|Teórico": "c2",
+    "m3|Teórico": "c3",
+    "m4|Teórico": "c4"
+   },
+   "sinSabado": true,
+   "listo": false,
+   "propias": [],
+   "bloqueos": [
+    {
+     "dia": 6,
+     "desde": "09:00",
+     "hasta": "10:00",
+     "t": "b"
+    }
+   ]
+  },
+  "h36": {
+   "materias": [
+    "m0",
+    "m1",
+    "m2",
+    "m3",
+    "m4"
+   ],
+   "elegidas": {
+    "m0|Teórico": "c0",
+    "m1|Teórico": "c1",
+    "m2|Teórico": "c2",
+    "m3|Teórico": "c3",
+    "m4|Teórico": "c4"
+   },
+   "sinSabado": false,
+   "listo": false,
+   "propias": [],
+   "bloqueos": [
+    {
+     "dia": 1,
+     "desde": "09:00",
+     "hasta": "10:00",
+     "t": "b"
+    }
+   ]
+  },
+  "h37": {
+   "materias": [
+    "m0",
+    "m1",
+    "m2",
+    "m3",
+    "m4"
+   ],
+   "elegidas": {
+    "m0|Teórico": "c0",
+    "m1|Teórico": "c1",
+    "m2|Teórico": "c2",
+    "m3|Teórico": "c3",
+    "m4|Teórico": "c4"
+   },
+   "sinSabado": true,
+   "listo": false,
+   "propias": [],
+   "bloqueos": [
+    {
+     "dia": 2,
+     "desde": "09:00",
+     "hasta": "10:00",
+     "t": "b"
+    }
+   ]
+  },
+  "h38": {
+   "materias": [
+    "m0",
+    "m1",
+    "m2",
+    "m3",
+    "m4"
+   ],
+   "elegidas": {
+    "m0|Teórico": "c0",
+    "m1|Teórico": "c1",
+    "m2|Teórico": "c2",
+    "m3|Teórico": "c3",
+    "m4|Teórico": "c4"
+   },
+   "sinSabado": false,
+   "listo": false,
+   "propias": [],
+   "bloqueos": [
+    {
+     "dia": 3,
+     "desde": "09:00",
+     "hasta": "10:00",
+     "t": "b"
+    }
+   ]
+  },
+  "h39": {
+   "materias": [
+    "m0",
+    "m1",
+    "m2",
+    "m3",
+    "m4"
+   ],
+   "elegidas": {
+    "m0|Teórico": "c0",
+    "m1|Teórico": "c1",
+    "m2|Teórico": "c2",
+    "m3|Teórico": "c3",
+    "m4|Teórico": "c4"
+   },
+   "sinSabado": true,
+   "listo": false,
+   "propias": [],
+   "bloqueos": [
+    {
+     "dia": 4,
+     "desde": "09:00",
+     "hasta": "10:00",
+     "t": "b"
+    }
+   ]
+  }
+ },
+ "leidos": {
+  "0920/ap0": "2026-01-10",
+  "0915/ap1": "2026-02-11",
+  "0909/ap2": "2026-03-12",
+  "0914/ap3": "2026-04-13",
+  "metodologia/ap4": "2026-05-14",
+  "0920/ap5": "2026-06-15",
+  "icse/ap6": "2026-07-16",
+  "idioma2/ap7": "2026-08-17",
+  "0902/ap8": "2026-09-18",
+  "seminario/ap9": "2026-01-10",
+  "ingles1/ap10": "2026-02-11",
+  "0909/ap11": "2026-03-12",
+  "0909/ap12": "2026-04-13",
+  "final/ap13": "2026-05-14",
+  "0919/ap14": "2026-06-15",
+  "ingles2/ap15": "2026-07-16",
+  "metodologia/ap16": "2026-08-17",
+  "ingles1/ap17": "2026-09-18",
+  "literaria/ap18": "2026-01-10",
+  "0902/ap19": "2026-02-11",
+  "0902/ap20": "2026-03-12",
+  "0917/ap21": "2026-04-13",
+  "metodologia/ap22": "2026-05-14",
+  "final/ap23": "2026-06-15",
+  "idioma2/ap24": "2026-07-16",
+  "0902/ap25": "2026-08-17",
+  "icse/ap26": "2026-09-18",
+  "final/ap27": "2026-01-10",
+  "0918/ap28": "2026-02-11",
+  "ingles3/ap29": "2026-03-12",
+  "ingles1/ap30": "2026-04-13",
+  "idioma2/ap31": "2026-05-14",
+  "literaria/ap32": "2026-06-15",
+  "0918/ap33": "2026-07-16",
+  "final/ap34": "2026-08-17",
+  "0911/ap35": "2026-09-18",
+  "idioma2/ap36": "2026-01-10",
+  "0919/ap37": "2026-02-11",
+  "ipc/ap38": "2026-03-12",
+  "literaria/ap39": "2026-04-13",
+  "0919/ap40": "2026-05-14",
+  "0915/ap41": "2026-06-15",
+  "ingles2/ap42": "2026-07-16",
+  "0913/ap43": "2026-08-17",
+  "metodologia/ap44": "2026-09-18",
+  "icse/ap45": "2026-01-10",
+  "0905/ap46": "2026-02-11",
+  "0918/ap47": "2026-03-12",
+  "0914/ap48": "2026-04-13",
+  "0916/ap49": "2026-05-14",
+  "0911/ap50": "2026-06-15",
+  "0911/ap51": "2026-07-16",
+  "metodologia/ap52": "2026-08-17",
+  "0902/ap53": "2026-09-18",
+  "0915/ap54": "2026-01-10",
+  "literaria/ap55": "2026-02-11",
+  "0911/ap56": "2026-03-12",
+  "seminario/ap57": "2026-04-13",
+  "0917/ap58": "2026-05-14",
+  "0914/ap59": "2026-06-15",
+  "0920/ap60": "2026-07-16",
+  "seminario/ap61": "2026-08-17",
+  "0917/ap62": "2026-09-18",
+  "final/ap63": "2026-01-10",
+  "0920/ap64": "2026-02-11",
+  "0919/ap65": "2026-03-12",
+  "idioma2/ap66": "2026-04-13",
+  "0911/ap67": "2026-05-14",
+  "0916/ap68": "2026-06-15",
+  "0914/ap69": "2026-07-16",
+  "0902/ap70": "2026-08-17",
+  "0915/ap71": "2026-09-18",
+  "0914/ap72": "2026-01-10",
+  "0916/ap73": "2026-02-11",
+  "idioma2/ap74": "2026-03-12",
+  "0916/ap75": "2026-04-13",
+  "ipc/ap76": "2026-05-14",
+  "metodologia/ap77": "2026-06-15",
+  "ingles1/ap78": "2026-07-16",
+  "0915/ap79": "2026-08-17",
+  "0917/ap80": "2026-09-18",
+  "0918/ap81": "2026-01-10",
+  "ipc/ap82": "2026-02-11",
+  "0914/ap83": "2026-03-12",
+  "0920/ap84": "2026-04-13",
+  "seminario/ap85": "2026-05-14",
+  "0919/ap86": "2026-06-15",
+  "ingles2/ap87": "2026-07-16",
+  "ingles1/ap88": "2026-08-17",
+  "0909/ap89": "2026-09-18",
+  "0914/ap90": "2026-01-10",
+  "final/ap91": "2026-02-11",
+  "digital/ap92": "2026-03-12",
+  "ingles2/ap93": "2026-04-13",
+  "ingles3/ap94": "2026-05-14",
+  "idioma2/ap95": "2026-06-15",
+  "icse/ap96": "2026-07-16",
+  "literaria/ap97": "2026-08-17",
+  "idioma2/ap98": "2026-09-18",
+  "seminario/ap99": "2026-01-10",
+  "0911/ap100": "2026-02-11",
+  "0911/ap101": "2026-03-12",
+  "0911/ap102": "2026-04-13",
+  "0911/ap103": "2026-05-14",
+  "0913/ap104": "2026-06-15",
+  "metodologia/ap105": "2026-07-16",
+  "ingles3/ap106": "2026-08-17",
+  "0911/ap107": "2026-09-18",
+  "icse/ap108": "2026-01-10",
+  "0905/ap109": "2026-02-11",
+  "0902/ap110": "2026-03-12",
+  "0905/ap111": "2026-04-13",
+  "literaria/ap112": "2026-05-14",
+  "0915/ap113": "2026-06-15",
+  "0913/ap114": "2026-07-16",
+  "0909/ap115": "2026-08-17",
+  "ingles2/ap116": "2026-09-18",
+  "icse/ap117": "2026-01-10",
+  "0913/ap118": "2026-02-11",
+  "ipc/ap119": "2026-03-12",
+  "ingles1/ap120": "2026-04-13",
+  "0914/ap121": "2026-05-14",
+  "seminario/ap122": "2026-06-15",
+  "0913/ap123": "2026-07-16",
+  "0919/ap124": "2026-08-17",
+  "ingles2/ap125": "2026-09-18",
+  "ipc/ap126": "2026-01-10",
+  "0902/ap127": "2026-02-11",
+  "0905/ap128": "2026-03-12",
+  "ingles2/ap129": "2026-04-13",
+  "0911/ap130": "2026-05-14",
+  "0914/ap131": "2026-06-15",
+  "ingles3/ap132": "2026-07-16",
+  "0917/ap133": "2026-08-17",
+  "0919/ap134": "2026-09-18",
+  "ingles2/ap135": "2026-01-10",
+  "0919/ap136": "2026-02-11",
+  "metodologia/ap137": "2026-03-12",
+  "0913/ap138": "2026-04-13",
+  "0913/ap139": "2026-05-14",
+  "metodologia/ap140": "2026-06-15",
+  "literaria/ap141": "2026-07-16",
+  "metodologia/ap142": "2026-08-17",
+  "metodologia/ap143": "2026-09-18",
+  "0918/ap144": "2026-01-10",
+  "0902/ap145": "2026-02-11",
+  "0914/ap146": "2026-03-12",
+  "0913/ap147": "2026-04-13",
+  "0909/ap148": "2026-05-14",
+  "0917/ap149": "2026-06-15",
+  "metodologia/ap150": "2026-07-16",
+  "final/ap151": "2026-08-17",
+  "0915/ap152": "2026-09-18",
+  "digital/ap153": "2026-01-10",
+  "ipc/ap154": "2026-02-11",
+  "0905/ap155": "2026-03-12",
+  "digital/ap156": "2026-04-13",
+  "0919/ap157": "2026-05-14",
+  "0914/ap158": "2026-06-15",
+  "final/ap159": "2026-07-16",
+  "seminario/ap160": "2026-08-17",
+  "ipc/ap161": "2026-09-18",
+  "digital/ap162": "2026-01-10",
+  "0918/ap163": "2026-02-11",
+  "ingles3/ap164": "2026-03-12",
+  "0902/ap165": "2026-04-13",
+  "final/ap166": "2026-05-14",
+  "0917/ap167": "2026-06-15",
+  "digital/ap168": "2026-07-16",
+  "0919/ap169": "2026-08-17",
+  "0915/ap170": "2026-09-18",
+  "0919/ap171": "2026-01-10",
+  "0916/ap172": "2026-02-11",
+  "seminario/ap173": "2026-03-12",
+  "seminario/ap174": "2026-04-13",
+  "digital/ap175": "2026-05-14",
+  "0909/ap176": "2026-06-15",
+  "ingles3/ap177": "2026-07-16",
+  "0916/ap178": "2026-08-17",
+  "ingles2/ap179": "2026-09-18",
+  "0905/ap180": "2026-01-10",
+  "0916/ap181": "2026-02-11",
+  "0911/ap182": "2026-03-12",
+  "0916/ap183": "2026-04-13",
+  "0905/ap184": "2026-05-14",
+  "digital/ap185": "2026-06-15",
+  "metodologia/ap186": "2026-07-16",
+  "0919/ap187": "2026-08-17",
+  "ipc/ap188": "2026-09-18",
+  "ipc/ap189": "2026-01-10",
+  "0917/ap190": "2026-02-11",
+  "metodologia/ap191": "2026-03-12",
+  "0917/ap192": "2026-04-13",
+  "0905/ap193": "2026-05-14",
+  "final/ap194": "2026-06-15",
+  "ingles2/ap195": "2026-07-16",
+  "0919/ap196": "2026-08-17",
+  "literaria/ap197": "2026-09-18",
+  "0919/ap198": "2026-01-10",
+  "0919/ap199": "2026-02-11"
+ },
+ "practica": {
+  "0902/ap0/0": [
+   1,
+   0,
+   "2026-05-01"
+  ],
+  "0916/ap1/1": [
+   3,
+   1,
+   "2026-05-02"
+  ],
+  "0909/ap2/2": [
+   1,
+   3,
+   "2026-05-03"
+  ],
+  "ingles2/ap3/3": [
+   4,
+   0,
+   "2026-05-04"
+  ],
+  "metodologia/ap4/4": [
+   5,
+   2,
+   "2026-05-05"
+  ],
+  "ingles3/ap5/5": [
+   0,
+   5,
+   "2026-05-06"
+  ],
+  "0913/ap6/6": [
+   3,
+   5,
+   "2026-05-07"
+  ],
+  "0905/ap7/7": [
+   3,
+   1,
+   "2026-05-08"
+  ],
+  "0920/ap8/8": [
+   5,
+   2,
+   "2026-05-09"
+  ],
+  "0902/ap9/9": [
+   5,
+   3,
+   "2026-05-01"
+  ],
+  "literaria/ap10/10": [
+   3,
+   5,
+   "2026-05-02"
+  ],
+  "0902/ap11/11": [
+   5,
+   1,
+   "2026-05-03"
+  ],
+  "0915/ap12/12": [
+   1,
+   0,
+   "2026-05-04"
+  ],
+  "0914/ap13/13": [
+   4,
+   3,
+   "2026-05-05"
+  ],
+  "ingles3/ap14/14": [
+   1,
+   4,
+   "2026-05-06"
+  ],
+  "ingles2/ap15/15": [
+   3,
+   5,
+   "2026-05-07"
+  ],
+  "0919/ap16/16": [
+   1,
+   4,
+   "2026-05-08"
+  ],
+  "seminario/ap17/17": [
+   1,
+   0,
+   "2026-05-09"
+  ],
+  "ipc/ap18/18": [
+   5,
+   5,
+   "2026-05-01"
+  ],
+  "0913/ap19/19": [
+   4,
+   5,
+   "2026-05-02"
+  ],
+  "0914/ap20/20": [
+   3,
+   1,
+   "2026-05-03"
+  ],
+  "0905/ap21/21": [
+   0,
+   2,
+   "2026-05-04"
+  ],
+  "0905/ap22/22": [
+   2,
+   4,
+   "2026-05-05"
+  ],
+  "0916/ap23/23": [
+   4,
+   2,
+   "2026-05-06"
+  ],
+  "0917/ap24/24": [
+   4,
+   3,
+   "2026-05-07"
+  ],
+  "0914/ap25/25": [
+   0,
+   5,
+   "2026-05-08"
+  ],
+  "0919/ap26/26": [
+   3,
+   5,
+   "2026-05-09"
+  ],
+  "ingles1/ap27/27": [
+   4,
+   3,
+   "2026-05-01"
+  ],
+  "digital/ap28/28": [
+   1,
+   4,
+   "2026-05-02"
+  ],
+  "0914/ap29/29": [
+   4,
+   4,
+   "2026-05-03"
+  ],
+  "ipc/ap0/30": [
+   3,
+   1,
+   "2026-05-04"
+  ],
+  "ingles2/ap1/31": [
+   0,
+   1,
+   "2026-05-05"
+  ],
+  "0915/ap2/32": [
+   1,
+   3,
+   "2026-05-06"
+  ],
+  "ingles2/ap3/33": [
+   5,
+   0,
+   "2026-05-07"
+  ],
+  "seminario/ap4/34": [
+   0,
+   2,
+   "2026-05-08"
+  ],
+  "idioma2/ap5/35": [
+   4,
+   4,
+   "2026-05-09"
+  ],
+  "seminario/ap6/36": [
+   3,
+   0,
+   "2026-05-01"
+  ],
+  "seminario/ap7/37": [
+   0,
+   1,
+   "2026-05-02"
+  ],
+  "0905/ap8/38": [
+   2,
+   0,
+   "2026-05-03"
+  ],
+  "0913/ap9/39": [
+   4,
+   3,
+   "2026-05-04"
+  ],
+  "seminario/ap10/40": [
+   0,
+   0,
+   "2026-05-05"
+  ],
+  "literaria/ap11/41": [
+   2,
+   4,
+   "2026-05-06"
+  ],
+  "digital/ap12/42": [
+   4,
+   4,
+   "2026-05-07"
+  ],
+  "0905/ap13/43": [
+   5,
+   2,
+   "2026-05-08"
+  ],
+  "literaria/ap14/44": [
+   4,
+   4,
+   "2026-05-09"
+  ],
+  "metodologia/ap15/45": [
+   4,
+   1,
+   "2026-05-01"
+  ],
+  "final/ap16/46": [
+   4,
+   2,
+   "2026-05-02"
+  ],
+  "seminario/ap17/47": [
+   1,
+   3,
+   "2026-05-03"
+  ],
+  "0914/ap18/48": [
+   3,
+   0,
+   "2026-05-04"
+  ],
+  "0911/ap19/49": [
+   3,
+   2,
+   "2026-05-05"
+  ],
+  "0902/ap20/50": [
+   5,
+   1,
+   "2026-05-06"
+  ],
+  "0920/ap21/51": [
+   0,
+   1,
+   "2026-05-07"
+  ],
+  "idioma2/ap22/52": [
+   2,
+   0,
+   "2026-05-08"
+  ],
+  "0914/ap23/53": [
+   5,
+   5,
+   "2026-05-09"
+  ],
+  "idioma2/ap24/54": [
+   2,
+   1,
+   "2026-05-01"
+  ],
+  "0917/ap25/55": [
+   1,
+   3,
+   "2026-05-02"
+  ],
+  "0916/ap26/56": [
+   5,
+   0,
+   "2026-05-03"
+  ],
+  "0911/ap27/57": [
+   3,
+   1,
+   "2026-05-04"
+  ],
+  "idioma2/ap28/58": [
+   1,
+   1,
+   "2026-05-05"
+  ],
+  "final/ap29/59": [
+   3,
+   4,
+   "2026-05-06"
+  ],
+  "0911/ap0/60": [
+   2,
+   3,
+   "2026-05-07"
+  ],
+  "0905/ap1/61": [
+   2,
+   2,
+   "2026-05-08"
+  ],
+  "0902/ap2/62": [
+   5,
+   2,
+   "2026-05-09"
+  ],
+  "ipc/ap3/63": [
+   2,
+   4,
+   "2026-05-01"
+  ],
+  "literaria/ap4/64": [
+   3,
+   5,
+   "2026-05-02"
+  ],
+  "ipc/ap5/65": [
+   3,
+   2,
+   "2026-05-03"
+  ],
+  "digital/ap6/66": [
+   4,
+   2,
+   "2026-05-04"
+  ],
+  "digital/ap7/67": [
+   0,
+   0,
+   "2026-05-05"
+  ],
+  "0916/ap8/68": [
+   0,
+   0,
+   "2026-05-06"
+  ],
+  "0917/ap9/69": [
+   2,
+   0,
+   "2026-05-07"
+  ],
+  "0915/ap10/70": [
+   2,
+   1,
+   "2026-05-08"
+  ],
+  "0920/ap11/71": [
+   5,
+   2,
+   "2026-05-09"
+  ],
+  "0911/ap12/72": [
+   1,
+   4,
+   "2026-05-01"
+  ],
+  "digital/ap13/73": [
+   4,
+   3,
+   "2026-05-02"
+  ],
+  "final/ap14/74": [
+   2,
+   0,
+   "2026-05-03"
+  ],
+  "0917/ap15/75": [
+   0,
+   5,
+   "2026-05-04"
+  ],
+  "0915/ap16/76": [
+   3,
+   0,
+   "2026-05-05"
+  ],
+  "0917/ap17/77": [
+   0,
+   5,
+   "2026-05-06"
+  ],
+  "0902/ap18/78": [
+   2,
+   0,
+   "2026-05-07"
+  ],
+  "ingles2/ap19/79": [
+   1,
+   0,
+   "2026-05-08"
+  ],
+  "0917/ap20/80": [
+   0,
+   3,
+   "2026-05-09"
+  ],
+  "ipc/ap21/81": [
+   2,
+   4,
+   "2026-05-01"
+  ],
+  "0920/ap22/82": [
+   2,
+   4,
+   "2026-05-02"
+  ],
+  "0914/ap23/83": [
+   0,
+   4,
+   "2026-05-03"
+  ],
+  "final/ap24/84": [
+   1,
+   0,
+   "2026-05-04"
+  ],
+  "0915/ap25/85": [
+   2,
+   0,
+   "2026-05-05"
+  ],
+  "0915/ap26/86": [
+   1,
+   2,
+   "2026-05-06"
+  ],
+  "ingles3/ap27/87": [
+   2,
+   4,
+   "2026-05-07"
+  ],
+  "0905/ap28/88": [
+   2,
+   3,
+   "2026-05-08"
+  ],
+  "digital/ap29/89": [
+   5,
+   1,
+   "2026-05-09"
+  ],
+  "0917/ap0/90": [
+   2,
+   0,
+   "2026-05-01"
+  ],
+  "0917/ap1/91": [
+   0,
+   0,
+   "2026-05-02"
+  ],
+  "ipc/ap2/92": [
+   5,
+   4,
+   "2026-05-03"
+  ],
+  "seminario/ap3/93": [
+   1,
+   4,
+   "2026-05-04"
+  ],
+  "metodologia/ap4/94": [
+   1,
+   3,
+   "2026-05-05"
+  ],
+  "0913/ap5/95": [
+   5,
+   5,
+   "2026-05-06"
+  ],
+  "0920/ap6/96": [
+   5,
+   3,
+   "2026-05-07"
+  ],
+  "seminario/ap7/97": [
+   3,
+   4,
+   "2026-05-08"
+  ],
+  "0918/ap8/98": [
+   5,
+   1,
+   "2026-05-09"
+  ],
+  "0916/ap9/99": [
+   2,
+   1,
+   "2026-05-01"
+  ],
+  "final/ap10/100": [
+   5,
+   5,
+   "2026-05-02"
+  ],
+  "0914/ap11/101": [
+   3,
+   2,
+   "2026-05-03"
+  ],
+  "icse/ap12/102": [
+   1,
+   0,
+   "2026-05-04"
+  ],
+  "0902/ap13/103": [
+   5,
+   5,
+   "2026-05-05"
+  ],
+  "0917/ap14/104": [
+   3,
+   1,
+   "2026-05-06"
+  ],
+  "icse/ap15/105": [
+   0,
+   5,
+   "2026-05-07"
+  ],
+  "0911/ap16/106": [
+   4,
+   5,
+   "2026-05-08"
+  ],
+  "0918/ap17/107": [
+   4,
+   1,
+   "2026-05-09"
+  ],
+  "final/ap18/108": [
+   2,
+   0,
+   "2026-05-01"
+  ],
+  "literaria/ap19/109": [
+   1,
+   1,
+   "2026-05-02"
+  ],
+  "0917/ap20/110": [
+   3,
+   0,
+   "2026-05-03"
+  ],
+  "0917/ap21/111": [
+   2,
+   2,
+   "2026-05-04"
+  ],
+  "seminario/ap22/112": [
+   2,
+   1,
+   "2026-05-05"
+  ],
+  "icse/ap23/113": [
+   2,
+   1,
+   "2026-05-06"
+  ],
+  "0919/ap24/114": [
+   1,
+   0,
+   "2026-05-07"
+  ],
+  "0909/ap25/115": [
+   3,
+   0,
+   "2026-05-08"
+  ],
+  "metodologia/ap26/116": [
+   2,
+   4,
+   "2026-05-09"
+  ],
+  "ingles3/ap27/117": [
+   1,
+   1,
+   "2026-05-01"
+  ],
+  "digital/ap28/118": [
+   0,
+   0,
+   "2026-05-02"
+  ],
+  "0917/ap29/119": [
+   0,
+   1,
+   "2026-05-03"
+  ],
+  "0911/ap0/120": [
+   4,
+   0,
+   "2026-05-04"
+  ],
+  "0911/ap1/121": [
+   0,
+   2,
+   "2026-05-05"
+  ],
+  "0918/ap2/122": [
+   5,
+   1,
+   "2026-05-06"
+  ],
+  "0902/ap3/123": [
+   4,
+   4,
+   "2026-05-07"
+  ],
+  "0914/ap4/124": [
+   5,
+   5,
+   "2026-05-08"
+  ],
+  "ingles2/ap5/125": [
+   3,
+   2,
+   "2026-05-09"
+  ],
+  "metodologia/ap6/126": [
+   1,
+   2,
+   "2026-05-01"
+  ],
+  "ingles2/ap7/127": [
+   5,
+   1,
+   "2026-05-02"
+  ],
+  "icse/ap8/128": [
+   5,
+   4,
+   "2026-05-03"
+  ],
+  "ingles3/ap9/129": [
+   3,
+   5,
+   "2026-05-04"
+  ],
+  "final/ap10/130": [
+   4,
+   1,
+   "2026-05-05"
+  ],
+  "digital/ap11/131": [
+   4,
+   4,
+   "2026-05-06"
+  ],
+  "ipc/ap12/132": [
+   5,
+   4,
+   "2026-05-07"
+  ],
+  "final/ap13/133": [
+   5,
+   5,
+   "2026-05-08"
+  ],
+  "ingles3/ap14/134": [
+   1,
+   0,
+   "2026-05-09"
+  ],
+  "ipc/ap15/135": [
+   0,
+   1,
+   "2026-05-01"
+  ],
+  "ingles3/ap16/136": [
+   2,
+   0,
+   "2026-05-02"
+  ],
+  "0911/ap17/137": [
+   3,
+   4,
+   "2026-05-03"
+  ],
+  "icse/ap18/138": [
+   5,
+   0,
+   "2026-05-04"
+  ],
+  "ingles3/ap19/139": [
+   4,
+   5,
+   "2026-05-05"
+  ],
+  "0916/ap20/140": [
+   3,
+   2,
+   "2026-05-06"
+  ],
+  "ipc/ap21/141": [
+   3,
+   0,
+   "2026-05-07"
+  ],
+  "digital/ap22/142": [
+   4,
+   0,
+   "2026-05-08"
+  ],
+  "idioma2/ap23/143": [
+   4,
+   0,
+   "2026-05-09"
+  ],
+  "metodologia/ap24/144": [
+   2,
+   0,
+   "2026-05-01"
+  ],
+  "0917/ap25/145": [
+   1,
+   5,
+   "2026-05-02"
+  ],
+  "0905/ap26/146": [
+   1,
+   5,
+   "2026-05-03"
+  ],
+  "ingles3/ap27/147": [
+   3,
+   3,
+   "2026-05-04"
+  ],
+  "0911/ap28/148": [
+   0,
+   3,
+   "2026-05-05"
+  ],
+  "idioma2/ap29/149": [
+   2,
+   0,
+   "2026-05-06"
+  ],
+  "ingles2/ap0/150": [
+   5,
+   5,
+   "2026-05-07"
+  ],
+  "0905/ap1/151": [
+   0,
+   4,
+   "2026-05-08"
+  ],
+  "0914/ap2/152": [
+   2,
+   2,
+   "2026-05-09"
+  ],
+  "ingles3/ap3/153": [
+   5,
+   5,
+   "2026-05-01"
+  ],
+  "0918/ap4/154": [
+   4,
+   4,
+   "2026-05-02"
+  ],
+  "0914/ap5/155": [
+   0,
+   3,
+   "2026-05-03"
+  ],
+  "icse/ap6/156": [
+   3,
+   2,
+   "2026-05-04"
+  ],
+  "idioma2/ap7/157": [
+   0,
+   5,
+   "2026-05-05"
+  ],
+  "0905/ap8/158": [
+   5,
+   3,
+   "2026-05-06"
+  ],
+  "0918/ap9/159": [
+   5,
+   4,
+   "2026-05-07"
+  ],
+  "0918/ap10/160": [
+   3,
+   3,
+   "2026-05-08"
+  ],
+  "literaria/ap11/161": [
+   0,
+   4,
+   "2026-05-09"
+  ],
+  "0905/ap12/162": [
+   2,
+   0,
+   "2026-05-01"
+  ],
+  "metodologia/ap13/163": [
+   0,
+   2,
+   "2026-05-02"
+  ],
+  "literaria/ap14/164": [
+   0,
+   4,
+   "2026-05-03"
+  ],
+  "literaria/ap15/165": [
+   2,
+   3,
+   "2026-05-04"
+  ],
+  "0905/ap16/166": [
+   1,
+   0,
+   "2026-05-05"
+  ],
+  "ingles1/ap17/167": [
+   0,
+   1,
+   "2026-05-06"
+  ],
+  "digital/ap18/168": [
+   2,
+   2,
+   "2026-05-07"
+  ],
+  "0914/ap19/169": [
+   4,
+   5,
+   "2026-05-08"
+  ],
+  "digital/ap20/170": [
+   2,
+   0,
+   "2026-05-09"
+  ],
+  "final/ap21/171": [
+   2,
+   1,
+   "2026-05-01"
+  ],
+  "metodologia/ap22/172": [
+   3,
+   3,
+   "2026-05-02"
+  ],
+  "ipc/ap23/173": [
+   1,
+   0,
+   "2026-05-03"
+  ],
+  "metodologia/ap24/174": [
+   5,
+   3,
+   "2026-05-04"
+  ],
+  "0911/ap25/175": [
+   2,
+   5,
+   "2026-05-05"
+  ],
+  "0914/ap26/176": [
+   3,
+   2,
+   "2026-05-06"
+  ],
+  "0911/ap27/177": [
+   2,
+   0,
+   "2026-05-07"
+  ],
+  "0909/ap28/178": [
+   0,
+   2,
+   "2026-05-08"
+  ],
+  "0909/ap29/179": [
+   3,
+   0,
+   "2026-05-09"
+  ],
+  "0905/ap0/180": [
+   5,
+   0,
+   "2026-05-01"
+  ],
+  "0918/ap1/181": [
+   2,
+   2,
+   "2026-05-02"
+  ],
+  "0902/ap2/182": [
+   3,
+   3,
+   "2026-05-03"
+  ],
+  "ingles1/ap3/183": [
+   0,
+   2,
+   "2026-05-04"
+  ],
+  "0920/ap4/184": [
+   2,
+   0,
+   "2026-05-05"
+  ],
+  "0917/ap5/185": [
+   0,
+   0,
+   "2026-05-06"
+  ],
+  "idioma2/ap6/186": [
+   2,
+   5,
+   "2026-05-07"
+  ],
+  "0914/ap7/187": [
+   1,
+   2,
+   "2026-05-08"
+  ],
+  "0920/ap8/188": [
+   4,
+   2,
+   "2026-05-09"
+  ],
+  "0905/ap9/189": [
+   2,
+   3,
+   "2026-05-01"
+  ],
+  "ipc/ap10/190": [
+   5,
+   3,
+   "2026-05-02"
+  ],
+  "seminario/ap11/191": [
+   4,
+   1,
+   "2026-05-03"
+  ],
+  "0902/ap12/192": [
+   0,
+   5,
+   "2026-05-04"
+  ],
+  "0920/ap13/193": [
+   3,
+   4,
+   "2026-05-05"
+  ],
+  "0914/ap14/194": [
+   5,
+   2,
+   "2026-05-06"
+  ],
+  "metodologia/ap15/195": [
+   0,
+   4,
+   "2026-05-07"
+  ],
+  "0914/ap16/196": [
+   1,
+   3,
+   "2026-05-08"
+  ],
+  "0920/ap17/197": [
+   2,
+   2,
+   "2026-05-09"
+  ],
+  "0918/ap18/198": [
+   2,
+   5,
+   "2026-05-01"
+  ],
+  "ingles3/ap19/199": [
+   2,
+   3,
+   "2026-05-02"
+  ],
+  "ingles3/ap20/200": [
+   1,
+   2,
+   "2026-05-03"
+  ],
+  "metodologia/ap21/201": [
+   4,
+   5,
+   "2026-05-04"
+  ],
+  "0911/ap22/202": [
+   0,
+   1,
+   "2026-05-05"
+  ],
+  "ingles3/ap23/203": [
+   1,
+   0,
+   "2026-05-06"
+  ],
+  "0905/ap24/204": [
+   4,
+   3,
+   "2026-05-07"
+  ],
+  "seminario/ap25/205": [
+   1,
+   3,
+   "2026-05-08"
+  ],
+  "0909/ap26/206": [
+   3,
+   3,
+   "2026-05-09"
+  ],
+  "0914/ap27/207": [
+   4,
+   1,
+   "2026-05-01"
+  ],
+  "0916/ap28/208": [
+   0,
+   1,
+   "2026-05-02"
+  ],
+  "0909/ap29/209": [
+   4,
+   0,
+   "2026-05-03"
+  ],
+  "0909/ap0/210": [
+   1,
+   2,
+   "2026-05-04"
+  ],
+  "0917/ap1/211": [
+   4,
+   1,
+   "2026-05-05"
+  ],
+  "ipc/ap2/212": [
+   5,
+   3,
+   "2026-05-06"
+  ],
+  "0911/ap3/213": [
+   3,
+   5,
+   "2026-05-07"
+  ],
+  "digital/ap4/214": [
+   1,
+   3,
+   "2026-05-08"
+  ],
+  "0917/ap5/215": [
+   2,
+   0,
+   "2026-05-09"
+  ],
+  "metodologia/ap6/216": [
+   2,
+   4,
+   "2026-05-01"
+  ],
+  "0919/ap7/217": [
+   1,
+   5,
+   "2026-05-02"
+  ],
+  "digital/ap8/218": [
+   4,
+   5,
+   "2026-05-03"
+  ],
+  "0905/ap9/219": [
+   0,
+   2,
+   "2026-05-04"
+  ],
+  "0916/ap10/220": [
+   3,
+   3,
+   "2026-05-05"
+  ],
+  "ingles3/ap11/221": [
+   3,
+   3,
+   "2026-05-06"
+  ],
+  "0918/ap12/222": [
+   0,
+   1,
+   "2026-05-07"
+  ],
+  "icse/ap13/223": [
+   3,
+   5,
+   "2026-05-08"
+  ],
+  "metodologia/ap14/224": [
+   4,
+   3,
+   "2026-05-09"
+  ],
+  "ipc/ap15/225": [
+   0,
+   3,
+   "2026-05-01"
+  ],
+  "digital/ap16/226": [
+   3,
+   3,
+   "2026-05-02"
+  ],
+  "0916/ap17/227": [
+   0,
+   1,
+   "2026-05-03"
+  ],
+  "0914/ap18/228": [
+   1,
+   4,
+   "2026-05-04"
+  ],
+  "idioma2/ap19/229": [
+   0,
+   5,
+   "2026-05-05"
+  ],
+  "final/ap20/230": [
+   5,
+   3,
+   "2026-05-06"
+  ],
+  "0902/ap21/231": [
+   4,
+   0,
+   "2026-05-07"
+  ],
+  "ipc/ap22/232": [
+   1,
+   1,
+   "2026-05-08"
+  ],
+  "ingles1/ap23/233": [
+   0,
+   5,
+   "2026-05-09"
+  ],
+  "final/ap24/234": [
+   2,
+   1,
+   "2026-05-01"
+  ],
+  "ingles3/ap25/235": [
+   2,
+   4,
+   "2026-05-02"
+  ],
+  "ingles3/ap26/236": [
+   3,
+   5,
+   "2026-05-03"
+  ],
+  "0913/ap27/237": [
+   0,
+   0,
+   "2026-05-04"
+  ],
+  "0918/ap28/238": [
+   4,
+   4,
+   "2026-05-05"
+  ],
+  "0905/ap29/239": [
+   3,
+   2,
+   "2026-05-06"
+  ],
+  "0916/ap0/240": [
+   4,
+   0,
+   "2026-05-07"
+  ],
+  "ipc/ap1/241": [
+   4,
+   2,
+   "2026-05-08"
+  ],
+  "literaria/ap2/242": [
+   2,
+   2,
+   "2026-05-09"
+  ],
+  "ingles3/ap3/243": [
+   1,
+   3,
+   "2026-05-01"
+  ],
+  "digital/ap4/244": [
+   1,
+   4,
+   "2026-05-02"
+  ],
+  "0916/ap5/245": [
+   0,
+   3,
+   "2026-05-03"
+  ],
+  "final/ap6/246": [
+   5,
+   2,
+   "2026-05-04"
+  ],
+  "icse/ap7/247": [
+   0,
+   1,
+   "2026-05-05"
+  ],
+  "metodologia/ap8/248": [
+   5,
+   5,
+   "2026-05-06"
+  ],
+  "0920/ap9/249": [
+   0,
+   2,
+   "2026-05-07"
+  ],
+  "0916/ap10/250": [
+   5,
+   3,
+   "2026-05-08"
+  ],
+  "0919/ap11/251": [
+   1,
+   3,
+   "2026-05-09"
+  ],
+  "icse/ap12/252": [
+   5,
+   2,
+   "2026-05-01"
+  ],
+  "final/ap13/253": [
+   3,
+   2,
+   "2026-05-02"
+  ],
+  "idioma2/ap14/254": [
+   3,
+   1,
+   "2026-05-03"
+  ],
+  "ipc/ap15/255": [
+   2,
+   5,
+   "2026-05-04"
+  ],
+  "digital/ap16/256": [
+   0,
+   1,
+   "2026-05-05"
+  ],
+  "metodologia/ap17/257": [
+   1,
+   2,
+   "2026-05-06"
+  ],
+  "0905/ap18/258": [
+   1,
+   3,
+   "2026-05-07"
+  ],
+  "0916/ap19/259": [
+   2,
+   2,
+   "2026-05-08"
+  ],
+  "0913/ap20/260": [
+   4,
+   3,
+   "2026-05-09"
+  ],
+  "ingles2/ap21/261": [
+   1,
+   1,
+   "2026-05-01"
+  ],
+  "metodologia/ap22/262": [
+   3,
+   5,
+   "2026-05-02"
+  ],
+  "icse/ap23/263": [
+   4,
+   1,
+   "2026-05-03"
+  ],
+  "0911/ap24/264": [
+   0,
+   1,
+   "2026-05-04"
+  ],
+  "ipc/ap25/265": [
+   4,
+   1,
+   "2026-05-05"
+  ],
+  "0920/ap26/266": [
+   0,
+   5,
+   "2026-05-06"
+  ],
+  "icse/ap27/267": [
+   1,
+   3,
+   "2026-05-07"
+  ],
+  "literaria/ap28/268": [
+   5,
+   2,
+   "2026-05-08"
+  ],
+  "0913/ap29/269": [
+   0,
+   1,
+   "2026-05-09"
+  ],
+  "0909/ap0/270": [
+   1,
+   1,
+   "2026-05-01"
+  ],
+  "ingles3/ap1/271": [
+   4,
+   5,
+   "2026-05-02"
+  ],
+  "literaria/ap2/272": [
+   0,
+   2,
+   "2026-05-03"
+  ],
+  "idioma2/ap3/273": [
+   5,
+   3,
+   "2026-05-04"
+  ],
+  "0919/ap4/274": [
+   2,
+   3,
+   "2026-05-05"
+  ],
+  "0915/ap5/275": [
+   0,
+   0,
+   "2026-05-06"
+  ],
+  "0902/ap6/276": [
+   2,
+   0,
+   "2026-05-07"
+  ],
+  "0919/ap7/277": [
+   3,
+   0,
+   "2026-05-08"
+  ],
+  "seminario/ap8/278": [
+   1,
+   3,
+   "2026-05-09"
+  ],
+  "0919/ap9/279": [
+   2,
+   3,
+   "2026-05-01"
+  ],
+  "0902/ap10/280": [
+   0,
+   5,
+   "2026-05-02"
+  ],
+  "metodologia/ap11/281": [
+   1,
+   2,
+   "2026-05-03"
+  ],
+  "seminario/ap12/282": [
+   3,
+   1,
+   "2026-05-04"
+  ],
+  "0909/ap13/283": [
+   2,
+   5,
+   "2026-05-05"
+  ],
+  "metodologia/ap14/284": [
+   0,
+   5,
+   "2026-05-06"
+  ],
+  "0920/ap15/285": [
+   1,
+   5,
+   "2026-05-07"
+  ],
+  "0911/ap16/286": [
+   0,
+   3,
+   "2026-05-08"
+  ],
+  "icse/ap17/287": [
+   3,
+   0,
+   "2026-05-09"
+  ],
+  "icse/ap18/288": [
+   2,
+   1,
+   "2026-05-01"
+  ],
+  "0902/ap19/289": [
+   4,
+   2,
+   "2026-05-02"
+  ],
+  "0919/ap20/290": [
+   2,
+   2,
+   "2026-05-03"
+  ],
+  "ingles2/ap21/291": [
+   0,
+   2,
+   "2026-05-04"
+  ],
+  "final/ap22/292": [
+   5,
+   2,
+   "2026-05-05"
+  ],
+  "0917/ap23/293": [
+   2,
+   0,
+   "2026-05-06"
+  ],
+  "ingles2/ap24/294": [
+   5,
+   0,
+   "2026-05-07"
+  ],
+  "ipc/ap25/295": [
+   1,
+   0,
+   "2026-05-08"
+  ],
+  "metodologia/ap26/296": [
+   5,
+   3,
+   "2026-05-09"
+  ],
+  "0911/ap27/297": [
+   2,
+   3,
+   "2026-05-01"
+  ],
+  "metodologia/ap28/298": [
+   1,
+   3,
+   "2026-05-02"
+  ],
+  "0915/ap29/299": [
+   0,
+   5,
+   "2026-05-03"
+  ],
+  "0918/ap0/300": [
+   5,
+   1,
+   "2026-05-04"
+  ],
+  "ingles2/ap1/301": [
+   1,
+   2,
+   "2026-05-05"
+  ],
+  "0909/ap2/302": [
+   3,
+   2,
+   "2026-05-06"
+  ],
+  "ingles2/ap3/303": [
+   0,
+   4,
+   "2026-05-07"
+  ],
+  "0905/ap4/304": [
+   3,
+   1,
+   "2026-05-08"
+  ],
+  "0916/ap5/305": [
+   3,
+   0,
+   "2026-05-09"
+  ],
+  "ingles3/ap6/306": [
+   0,
+   3,
+   "2026-05-01"
+  ],
+  "seminario/ap7/307": [
+   4,
+   2,
+   "2026-05-02"
+  ],
+  "0915/ap8/308": [
+   3,
+   0,
+   "2026-05-03"
+  ],
+  "0902/ap9/309": [
+   2,
+   4,
+   "2026-05-04"
+  ],
+  "0902/ap10/310": [
+   1,
+   0,
+   "2026-05-05"
+  ],
+  "0920/ap11/311": [
+   3,
+   5,
+   "2026-05-06"
+  ],
+  "literaria/ap12/312": [
+   1,
+   1,
+   "2026-05-07"
+  ],
+  "0914/ap13/313": [
+   3,
+   3,
+   "2026-05-08"
+  ],
+  "ingles2/ap14/314": [
+   5,
+   1,
+   "2026-05-09"
+  ],
+  "seminario/ap15/315": [
+   5,
+   0,
+   "2026-05-01"
+  ],
+  "0918/ap16/316": [
+   2,
+   2,
+   "2026-05-02"
+  ],
+  "ingles1/ap17/317": [
+   2,
+   2,
+   "2026-05-03"
+  ],
+  "0917/ap18/318": [
+   5,
+   2,
+   "2026-05-04"
+  ],
+  "0905/ap19/319": [
+   3,
+   1,
+   "2026-05-05"
+  ],
+  "0915/ap20/320": [
+   1,
+   1,
+   "2026-05-06"
+  ],
+  "0914/ap21/321": [
+   2,
+   4,
+   "2026-05-07"
+  ],
+  "0905/ap22/322": [
+   2,
+   0,
+   "2026-05-08"
+  ],
+  "0911/ap23/323": [
+   2,
+   1,
+   "2026-05-09"
+  ],
+  "digital/ap24/324": [
+   4,
+   1,
+   "2026-05-01"
+  ],
+  "ingles3/ap25/325": [
+   0,
+   5,
+   "2026-05-02"
+  ],
+  "literaria/ap26/326": [
+   0,
+   0,
+   "2026-05-03"
+  ],
+  "ipc/ap27/327": [
+   3,
+   1,
+   "2026-05-04"
+  ],
+  "literaria/ap28/328": [
+   2,
+   0,
+   "2026-05-05"
+  ],
+  "0918/ap29/329": [
+   1,
+   0,
+   "2026-05-06"
+  ],
+  "icse/ap0/330": [
+   1,
+   4,
+   "2026-05-07"
+  ],
+  "ingles1/ap1/331": [
+   1,
+   0,
+   "2026-05-08"
+  ],
+  "0919/ap2/332": [
+   4,
+   1,
+   "2026-05-09"
+  ],
+  "literaria/ap3/333": [
+   4,
+   2,
+   "2026-05-01"
+  ],
+  "idioma2/ap4/334": [
+   0,
+   0,
+   "2026-05-02"
+  ],
+  "ingles3/ap5/335": [
+   4,
+   5,
+   "2026-05-03"
+  ],
+  "ingles2/ap6/336": [
+   2,
+   1,
+   "2026-05-04"
+  ],
+  "icse/ap7/337": [
+   2,
+   2,
+   "2026-05-05"
+  ],
+  "0914/ap8/338": [
+   0,
+   1,
+   "2026-05-06"
+  ],
+  "0917/ap9/339": [
+   0,
+   4,
+   "2026-05-07"
+  ],
+  "ingles3/ap10/340": [
+   1,
+   0,
+   "2026-05-08"
+  ],
+  "0909/ap11/341": [
+   3,
+   5,
+   "2026-05-09"
+  ],
+  "0919/ap12/342": [
+   1,
+   4,
+   "2026-05-01"
+  ],
+  "0918/ap13/343": [
+   0,
+   1,
+   "2026-05-02"
+  ],
+  "icse/ap14/344": [
+   3,
+   4,
+   "2026-05-03"
+  ],
+  "metodologia/ap15/345": [
+   0,
+   3,
+   "2026-05-04"
+  ],
+  "0913/ap16/346": [
+   3,
+   5,
+   "2026-05-05"
+  ],
+  "seminario/ap17/347": [
+   1,
+   5,
+   "2026-05-06"
+  ],
+  "seminario/ap18/348": [
+   0,
+   5,
+   "2026-05-07"
+  ],
+  "0915/ap19/349": [
+   3,
+   5,
+   "2026-05-08"
+  ],
+  "0917/ap20/350": [
+   3,
+   2,
+   "2026-05-09"
+  ],
+  "idioma2/ap21/351": [
+   2,
+   3,
+   "2026-05-01"
+  ],
+  "icse/ap22/352": [
+   2,
+   5,
+   "2026-05-02"
+  ],
+  "ingles1/ap23/353": [
+   2,
+   3,
+   "2026-05-03"
+  ],
+  "0920/ap24/354": [
+   0,
+   2,
+   "2026-05-04"
+  ],
+  "ingles3/ap25/355": [
+   1,
+   3,
+   "2026-05-05"
+  ],
+  "0911/ap26/356": [
+   1,
+   0,
+   "2026-05-06"
+  ],
+  "0920/ap27/357": [
+   1,
+   3,
+   "2026-05-07"
+  ],
+  "0913/ap28/358": [
+   0,
+   3,
+   "2026-05-08"
+  ],
+  "ingles1/ap29/359": [
+   2,
+   3,
+   "2026-05-09"
+  ],
+  "0915/ap0/360": [
+   1,
+   0,
+   "2026-05-01"
+  ],
+  "icse/ap1/361": [
+   4,
+   1,
+   "2026-05-02"
+  ],
+  "ingles3/ap2/362": [
+   3,
+   0,
+   "2026-05-03"
+  ],
+  "ingles1/ap3/363": [
+   4,
+   2,
+   "2026-05-04"
+  ],
+  "digital/ap4/364": [
+   1,
+   1,
+   "2026-05-05"
+  ],
+  "0919/ap5/365": [
+   2,
+   1,
+   "2026-05-06"
+  ],
+  "digital/ap6/366": [
+   1,
+   0,
+   "2026-05-07"
+  ],
+  "0913/ap7/367": [
+   3,
+   3,
+   "2026-05-08"
+  ],
+  "0905/ap8/368": [
+   2,
+   1,
+   "2026-05-09"
+  ],
+  "icse/ap9/369": [
+   3,
+   2,
+   "2026-05-01"
+  ],
+  "icse/ap10/370": [
+   4,
+   5,
+   "2026-05-02"
+  ],
+  "0911/ap11/371": [
+   0,
+   5,
+   "2026-05-03"
+  ],
+  "ingles2/ap12/372": [
+   5,
+   1,
+   "2026-05-04"
+  ],
+  "ingles3/ap13/373": [
+   1,
+   4,
+   "2026-05-05"
+  ],
+  "0911/ap14/374": [
+   4,
+   1,
+   "2026-05-06"
+  ],
+  "metodologia/ap15/375": [
+   1,
+   4,
+   "2026-05-07"
+  ],
+  "0905/ap16/376": [
+   0,
+   3,
+   "2026-05-08"
+  ],
+  "digital/ap17/377": [
+   1,
+   3,
+   "2026-05-09"
+  ],
+  "0919/ap18/378": [
+   0,
+   1,
+   "2026-05-01"
+  ],
+  "0916/ap19/379": [
+   5,
+   1,
+   "2026-05-02"
+  ],
+  "icse/ap20/380": [
+   4,
+   5,
+   "2026-05-03"
+  ],
+  "icse/ap21/381": [
+   5,
+   2,
+   "2026-05-04"
+  ],
+  "0913/ap22/382": [
+   3,
+   4,
+   "2026-05-05"
+  ],
+  "literaria/ap23/383": [
+   4,
+   5,
+   "2026-05-06"
+  ],
+  "0918/ap24/384": [
+   5,
+   3,
+   "2026-05-07"
+  ],
+  "0918/ap25/385": [
+   4,
+   1,
+   "2026-05-08"
+  ],
+  "0920/ap26/386": [
+   3,
+   5,
+   "2026-05-09"
+  ],
+  "0919/ap27/387": [
+   3,
+   4,
+   "2026-05-01"
+  ],
+  "literaria/ap28/388": [
+   1,
+   0,
+   "2026-05-02"
+  ],
+  "ipc/ap29/389": [
+   4,
+   3,
+   "2026-05-03"
+  ],
+  "literaria/ap0/390": [
+   1,
+   3,
+   "2026-05-04"
+  ],
+  "ingles2/ap1/391": [
+   3,
+   1,
+   "2026-05-05"
+  ],
+  "metodologia/ap2/392": [
+   3,
+   0,
+   "2026-05-06"
+  ],
+  "0902/ap3/393": [
+   1,
+   2,
+   "2026-05-07"
+  ],
+  "0920/ap4/394": [
+   2,
+   0,
+   "2026-05-08"
+  ],
+  "literaria/ap5/395": [
+   4,
+   4,
+   "2026-05-09"
+  ],
+  "idioma2/ap6/396": [
+   0,
+   0,
+   "2026-05-01"
+  ],
+  "ingles3/ap7/397": [
+   1,
+   0,
+   "2026-05-02"
+  ],
+  "0909/ap8/398": [
+   5,
+   4,
+   "2026-05-03"
+  ],
+  "0902/ap9/399": [
+   0,
+   4,
+   "2026-05-04"
+  ],
+  "0911/ap10/400": [
+   5,
+   1,
+   "2026-05-05"
+  ],
+  "ipc/ap11/401": [
+   0,
+   4,
+   "2026-05-06"
+  ],
+  "final/ap12/402": [
+   0,
+   1,
+   "2026-05-07"
+  ],
+  "0914/ap13/403": [
+   3,
+   2,
+   "2026-05-08"
+  ],
+  "0915/ap14/404": [
+   5,
+   5,
+   "2026-05-09"
+  ],
+  "0916/ap15/405": [
+   0,
+   2,
+   "2026-05-01"
+  ],
+  "ingles2/ap16/406": [
+   2,
+   1,
+   "2026-05-02"
+  ],
+  "0909/ap17/407": [
+   4,
+   2,
+   "2026-05-03"
+  ],
+  "literaria/ap18/408": [
+   1,
+   2,
+   "2026-05-04"
+  ],
+  "digital/ap19/409": [
+   3,
+   1,
+   "2026-05-05"
+  ],
+  "ingles1/ap20/410": [
+   2,
+   4,
+   "2026-05-06"
+  ],
+  "digital/ap21/411": [
+   1,
+   2,
+   "2026-05-07"
+  ],
+  "0919/ap22/412": [
+   0,
+   1,
+   "2026-05-08"
+  ],
+  "0915/ap23/413": [
+   3,
+   1,
+   "2026-05-09"
+  ],
+  "ingles3/ap24/414": [
+   2,
+   5,
+   "2026-05-01"
+  ],
+  "0909/ap25/415": [
+   3,
+   1,
+   "2026-05-02"
+  ],
+  "0917/ap26/416": [
+   0,
+   4,
+   "2026-05-03"
+  ],
+  "icse/ap27/417": [
+   5,
+   2,
+   "2026-05-04"
+  ],
+  "literaria/ap28/418": [
+   4,
+   4,
+   "2026-05-05"
+  ],
+  "ingles1/ap29/419": [
+   5,
+   0,
+   "2026-05-06"
+  ],
+  "0917/ap0/420": [
+   4,
+   5,
+   "2026-05-07"
+  ],
+  "0911/ap1/421": [
+   5,
+   2,
+   "2026-05-08"
+  ],
+  "0917/ap2/422": [
+   3,
+   2,
+   "2026-05-09"
+  ],
+  "ingles1/ap3/423": [
+   1,
+   2,
+   "2026-05-01"
+  ],
+  "0909/ap4/424": [
+   0,
+   3,
+   "2026-05-02"
+  ],
+  "0916/ap5/425": [
+   1,
+   4,
+   "2026-05-03"
+  ],
+  "icse/ap6/426": [
+   2,
+   4,
+   "2026-05-04"
+  ],
+  "0917/ap7/427": [
+   2,
+   5,
+   "2026-05-05"
+  ],
+  "ingles1/ap8/428": [
+   5,
+   2,
+   "2026-05-06"
+  ],
+  "ipc/ap9/429": [
+   5,
+   0,
+   "2026-05-07"
+  ],
+  "0916/ap10/430": [
+   1,
+   2,
+   "2026-05-08"
+  ],
+  "ingles2/ap11/431": [
+   5,
+   3,
+   "2026-05-09"
+  ],
+  "0920/ap12/432": [
+   4,
+   2,
+   "2026-05-01"
+  ],
+  "icse/ap13/433": [
+   1,
+   3,
+   "2026-05-02"
+  ],
+  "0916/ap14/434": [
+   4,
+   5,
+   "2026-05-03"
+  ],
+  "icse/ap15/435": [
+   0,
+   0,
+   "2026-05-04"
+  ],
+  "ipc/ap16/436": [
+   4,
+   2,
+   "2026-05-05"
+  ],
+  "0918/ap17/437": [
+   0,
+   4,
+   "2026-05-06"
+  ],
+  "0919/ap18/438": [
+   4,
+   1,
+   "2026-05-07"
+  ],
+  "0920/ap19/439": [
+   4,
+   2,
+   "2026-05-08"
+  ],
+  "ingles1/ap20/440": [
+   1,
+   1,
+   "2026-05-09"
+  ],
+  "0919/ap21/441": [
+   4,
+   3,
+   "2026-05-01"
+  ],
+  "0915/ap22/442": [
+   1,
+   0,
+   "2026-05-02"
+  ],
+  "0916/ap23/443": [
+   5,
+   1,
+   "2026-05-03"
+  ],
+  "literaria/ap24/444": [
+   0,
+   0,
+   "2026-05-04"
+  ],
+  "ingles3/ap25/445": [
+   1,
+   5,
+   "2026-05-05"
+  ],
+  "0917/ap26/446": [
+   3,
+   2,
+   "2026-05-06"
+  ],
+  "ipc/ap27/447": [
+   0,
+   5,
+   "2026-05-07"
+  ],
+  "seminario/ap28/448": [
+   2,
+   4,
+   "2026-05-08"
+  ],
+  "ingles3/ap29/449": [
+   4,
+   3,
+   "2026-05-09"
+  ],
+  "ingles2/ap0/450": [
+   4,
+   5,
+   "2026-05-01"
+  ],
+  "metodologia/ap1/451": [
+   1,
+   1,
+   "2026-05-02"
+  ],
+  "ipc/ap2/452": [
+   0,
+   0,
+   "2026-05-03"
+  ],
+  "seminario/ap3/453": [
+   0,
+   3,
+   "2026-05-04"
+  ],
+  "0915/ap4/454": [
+   1,
+   1,
+   "2026-05-05"
+  ],
+  "icse/ap5/455": [
+   0,
+   0,
+   "2026-05-06"
+  ],
+  "ingles2/ap6/456": [
+   4,
+   5,
+   "2026-05-07"
+  ],
+  "0905/ap7/457": [
+   1,
+   3,
+   "2026-05-08"
+  ],
+  "0905/ap8/458": [
+   4,
+   4,
+   "2026-05-09"
+  ],
+  "ingles3/ap9/459": [
+   4,
+   5,
+   "2026-05-01"
+  ],
+  "ingles3/ap10/460": [
+   3,
+   4,
+   "2026-05-02"
+  ],
+  "0915/ap11/461": [
+   4,
+   2,
+   "2026-05-03"
+  ],
+  "0902/ap12/462": [
+   2,
+   5,
+   "2026-05-04"
+  ],
+  "icse/ap13/463": [
+   5,
+   3,
+   "2026-05-05"
+  ],
+  "final/ap14/464": [
+   4,
+   0,
+   "2026-05-06"
+  ],
+  "0911/ap15/465": [
+   3,
+   5,
+   "2026-05-07"
+  ],
+  "literaria/ap16/466": [
+   0,
+   5,
+   "2026-05-08"
+  ],
+  "ingles3/ap17/467": [
+   3,
+   1,
+   "2026-05-09"
+  ],
+  "0916/ap18/468": [
+   0,
+   2,
+   "2026-05-01"
+  ],
+  "0916/ap19/469": [
+   5,
+   0,
+   "2026-05-02"
+  ],
+  "0913/ap20/470": [
+   2,
+   5,
+   "2026-05-03"
+  ],
+  "final/ap21/471": [
+   2,
+   5,
+   "2026-05-04"
+  ],
+  "icse/ap22/472": [
+   2,
+   5,
+   "2026-05-05"
+  ],
+  "seminario/ap23/473": [
+   5,
+   3,
+   "2026-05-06"
+  ],
+  "idioma2/ap24/474": [
+   4,
+   2,
+   "2026-05-07"
+  ],
+  "0918/ap25/475": [
+   5,
+   1,
+   "2026-05-08"
+  ],
+  "0902/ap26/476": [
+   4,
+   0,
+   "2026-05-09"
+  ],
+  "0915/ap27/477": [
+   2,
+   1,
+   "2026-05-01"
+  ],
+  "0905/ap28/478": [
+   1,
+   5,
+   "2026-05-02"
+  ],
+  "0909/ap29/479": [
+   1,
+   3,
+   "2026-05-03"
+  ],
+  "0909/ap0/480": [
+   4,
+   1,
+   "2026-05-04"
+  ],
+  "0911/ap1/481": [
+   5,
+   5,
+   "2026-05-05"
+  ],
+  "idioma2/ap2/482": [
+   4,
+   3,
+   "2026-05-06"
+  ],
+  "metodologia/ap3/483": [
+   4,
+   5,
+   "2026-05-07"
+  ],
+  "ipc/ap4/484": [
+   0,
+   3,
+   "2026-05-08"
+  ],
+  "0916/ap5/485": [
+   4,
+   2,
+   "2026-05-09"
+  ],
+  "0905/ap6/486": [
+   3,
+   4,
+   "2026-05-01"
+  ],
+  "ingles1/ap7/487": [
+   0,
+   4,
+   "2026-05-02"
+  ],
+  "0915/ap8/488": [
+   1,
+   0,
+   "2026-05-03"
+  ],
+  "ipc/ap9/489": [
+   0,
+   0,
+   "2026-05-04"
+  ],
+  "ingles2/ap10/490": [
+   1,
+   2,
+   "2026-05-05"
+  ],
+  "0914/ap11/491": [
+   5,
+   0,
+   "2026-05-06"
+  ],
+  "ipc/ap12/492": [
+   0,
+   1,
+   "2026-05-07"
+  ],
+  "final/ap13/493": [
+   5,
+   5,
+   "2026-05-08"
+  ],
+  "icse/ap14/494": [
+   5,
+   0,
+   "2026-05-09"
+  ],
+  "icse/ap15/495": [
+   0,
+   4,
+   "2026-05-01"
+  ],
+  "0919/ap16/496": [
+   1,
+   4,
+   "2026-05-02"
+  ],
+  "idioma2/ap17/497": [
+   0,
+   5,
+   "2026-05-03"
+  ],
+  "0911/ap18/498": [
+   0,
+   1,
+   "2026-05-04"
+  ],
+  "0905/ap19/499": [
+   1,
+   0,
+   "2026-05-05"
+  ],
+  "icse/ap20/500": [
+   0,
+   5,
+   "2026-05-06"
+  ],
+  "0902/ap21/501": [
+   5,
+   5,
+   "2026-05-07"
+  ],
+  "0918/ap22/502": [
+   3,
+   0,
+   "2026-05-08"
+  ],
+  "0914/ap23/503": [
+   0,
+   5,
+   "2026-05-09"
+  ],
+  "0905/ap24/504": [
+   2,
+   2,
+   "2026-05-01"
+  ],
+  "0909/ap25/505": [
+   3,
+   2,
+   "2026-05-02"
+  ],
+  "ipc/ap26/506": [
+   2,
+   2,
+   "2026-05-03"
+  ],
+  "0918/ap27/507": [
+   0,
+   5,
+   "2026-05-04"
+  ],
+  "0919/ap28/508": [
+   2,
+   4,
+   "2026-05-05"
+  ],
+  "digital/ap29/509": [
+   3,
+   2,
+   "2026-05-06"
+  ],
+  "ingles2/ap0/510": [
+   5,
+   0,
+   "2026-05-07"
+  ],
+  "0920/ap1/511": [
+   0,
+   3,
+   "2026-05-08"
+  ],
+  "digital/ap2/512": [
+   0,
+   2,
+   "2026-05-09"
+  ],
+  "metodologia/ap3/513": [
+   5,
+   0,
+   "2026-05-01"
+  ],
+  "seminario/ap4/514": [
+   4,
+   1,
+   "2026-05-02"
+  ],
+  "final/ap5/515": [
+   0,
+   4,
+   "2026-05-03"
+  ],
+  "0918/ap6/516": [
+   1,
+   3,
+   "2026-05-04"
+  ],
+  "ipc/ap7/517": [
+   4,
+   1,
+   "2026-05-05"
+  ],
+  "0918/ap8/518": [
+   0,
+   0,
+   "2026-05-06"
+  ],
+  "0919/ap9/519": [
+   3,
+   0,
+   "2026-05-07"
+  ],
+  "metodologia/ap10/520": [
+   5,
+   1,
+   "2026-05-08"
+  ],
+  "metodologia/ap11/521": [
+   4,
+   2,
+   "2026-05-09"
+  ],
+  "digital/ap12/522": [
+   2,
+   4,
+   "2026-05-01"
+  ],
+  "0915/ap13/523": [
+   2,
+   1,
+   "2026-05-02"
+  ],
+  "final/ap14/524": [
+   1,
+   3,
+   "2026-05-03"
+  ],
+  "0915/ap15/525": [
+   0,
+   5,
+   "2026-05-04"
+  ],
+  "0902/ap16/526": [
+   3,
+   5,
+   "2026-05-05"
+  ],
+  "seminario/ap17/527": [
+   0,
+   5,
+   "2026-05-06"
+  ],
+  "0909/ap18/528": [
+   2,
+   0,
+   "2026-05-07"
+  ],
+  "0911/ap19/529": [
+   3,
+   5,
+   "2026-05-08"
+  ],
+  "0902/ap20/530": [
+   3,
+   5,
+   "2026-05-09"
+  ],
+  "ipc/ap21/531": [
+   2,
+   1,
+   "2026-05-01"
+  ],
+  "0918/ap22/532": [
+   2,
+   3,
+   "2026-05-02"
+  ],
+  "seminario/ap23/533": [
+   4,
+   1,
+   "2026-05-03"
+  ],
+  "0911/ap24/534": [
+   5,
+   1,
+   "2026-05-04"
+  ],
+  "literaria/ap25/535": [
+   1,
+   4,
+   "2026-05-05"
+  ],
+  "ingles2/ap26/536": [
+   5,
+   4,
+   "2026-05-06"
+  ],
+  "ingles3/ap27/537": [
+   0,
+   2,
+   "2026-05-07"
+  ],
+  "ingles1/ap28/538": [
+   2,
+   4,
+   "2026-05-08"
+  ],
+  "0914/ap29/539": [
+   3,
+   5,
+   "2026-05-09"
+  ],
+  "seminario/ap0/540": [
+   5,
+   2,
+   "2026-05-01"
+  ],
+  "0915/ap1/541": [
+   3,
+   3,
+   "2026-05-02"
+  ],
+  "final/ap2/542": [
+   2,
+   4,
+   "2026-05-03"
+  ],
+  "0916/ap3/543": [
+   1,
+   2,
+   "2026-05-04"
+  ],
+  "literaria/ap4/544": [
+   5,
+   5,
+   "2026-05-05"
+  ],
+  "0916/ap5/545": [
+   4,
+   1,
+   "2026-05-06"
+  ],
+  "0917/ap6/546": [
+   2,
+   5,
+   "2026-05-07"
+  ],
+  "ingles2/ap7/547": [
+   1,
+   5,
+   "2026-05-08"
+  ],
+  "0914/ap8/548": [
+   1,
+   5,
+   "2026-05-09"
+  ],
+  "0909/ap9/549": [
+   4,
+   4,
+   "2026-05-01"
+  ],
+  "0919/ap10/550": [
+   1,
+   1,
+   "2026-05-02"
+  ],
+  "0909/ap11/551": [
+   1,
+   2,
+   "2026-05-03"
+  ],
+  "0913/ap12/552": [
+   1,
+   5,
+   "2026-05-04"
+  ],
+  "0913/ap13/553": [
+   1,
+   3,
+   "2026-05-05"
+  ],
+  "0914/ap14/554": [
+   1,
+   2,
+   "2026-05-06"
+  ],
+  "0918/ap15/555": [
+   3,
+   2,
+   "2026-05-07"
+  ],
+  "0905/ap16/556": [
+   0,
+   5,
+   "2026-05-08"
+  ],
+  "0913/ap17/557": [
+   2,
+   1,
+   "2026-05-09"
+  ],
+  "0911/ap18/558": [
+   3,
+   0,
+   "2026-05-01"
+  ],
+  "ipc/ap19/559": [
+   3,
+   3,
+   "2026-05-02"
+  ],
+  "final/ap20/560": [
+   1,
+   4,
+   "2026-05-03"
+  ],
+  "ingles3/ap21/561": [
+   2,
+   3,
+   "2026-05-04"
+  ],
+  "ipc/ap22/562": [
+   1,
+   2,
+   "2026-05-05"
+  ],
+  "ingles2/ap23/563": [
+   5,
+   3,
+   "2026-05-06"
+  ],
+  "ipc/ap24/564": [
+   5,
+   1,
+   "2026-05-07"
+  ],
+  "0920/ap25/565": [
+   5,
+   4,
+   "2026-05-08"
+  ],
+  "ingles1/ap26/566": [
+   5,
+   5,
+   "2026-05-09"
+  ],
+  "0920/ap27/567": [
+   1,
+   5,
+   "2026-05-01"
+  ],
+  "ingles3/ap28/568": [
+   5,
+   5,
+   "2026-05-02"
+  ],
+  "ingles1/ap29/569": [
+   1,
+   5,
+   "2026-05-03"
+  ],
+  "0915/ap0/570": [
+   5,
+   0,
+   "2026-05-04"
+  ],
+  "literaria/ap1/571": [
+   3,
+   2,
+   "2026-05-05"
+  ],
+  "0917/ap2/572": [
+   5,
+   5,
+   "2026-05-06"
+  ],
+  "0913/ap3/573": [
+   3,
+   1,
+   "2026-05-07"
+  ],
+  "0911/ap4/574": [
+   5,
+   5,
+   "2026-05-08"
+  ],
+  "ingles3/ap5/575": [
+   1,
+   2,
+   "2026-05-09"
+  ],
+  "0920/ap6/576": [
+   3,
+   3,
+   "2026-05-01"
+  ],
+  "ipc/ap7/577": [
+   4,
+   3,
+   "2026-05-02"
+  ],
+  "digital/ap8/578": [
+   5,
+   5,
+   "2026-05-03"
+  ],
+  "0915/ap9/579": [
+   5,
+   2,
+   "2026-05-04"
+  ],
+  "ipc/ap10/580": [
+   3,
+   3,
+   "2026-05-05"
+  ],
+  "0913/ap11/581": [
+   0,
+   2,
+   "2026-05-06"
+  ],
+  "seminario/ap12/582": [
+   1,
+   1,
+   "2026-05-07"
+  ],
+  "final/ap13/583": [
+   1,
+   4,
+   "2026-05-08"
+  ],
+  "0919/ap14/584": [
+   0,
+   4,
+   "2026-05-09"
+  ],
+  "literaria/ap15/585": [
+   4,
+   1,
+   "2026-05-01"
+  ],
+  "final/ap16/586": [
+   3,
+   4,
+   "2026-05-02"
+  ],
+  "ipc/ap17/587": [
+   5,
+   2,
+   "2026-05-03"
+  ],
+  "digital/ap18/588": [
+   2,
+   3,
+   "2026-05-04"
+  ],
+  "literaria/ap19/589": [
+   1,
+   5,
+   "2026-05-05"
+  ],
+  "0915/ap20/590": [
+   3,
+   4,
+   "2026-05-06"
+  ],
+  "0913/ap21/591": [
+   5,
+   4,
+   "2026-05-07"
+  ],
+  "0919/ap22/592": [
+   5,
+   0,
+   "2026-05-08"
+  ],
+  "0917/ap23/593": [
+   2,
+   3,
+   "2026-05-09"
+  ],
+  "0911/ap24/594": [
+   0,
+   0,
+   "2026-05-01"
+  ],
+  "0902/ap25/595": [
+   3,
+   3,
+   "2026-05-02"
+  ],
+  "ingles3/ap26/596": [
+   5,
+   5,
+   "2026-05-03"
+  ],
+  "0919/ap27/597": [
+   4,
+   2,
+   "2026-05-04"
+  ],
+  "0913/ap28/598": [
+   1,
+   2,
+   "2026-05-05"
+  ],
+  "0911/ap29/599": [
+   4,
+   1,
+   "2026-05-06"
+  ]
+ },
+ "juego": {
+  "on": true,
+  "rondas": {},
+  "hitos": [
+   [
+    "2026-01-01",
+    "hito 0"
+   ],
+   [
+    "2026-01-02",
+    "hito 1"
+   ],
+   [
+    "2026-01-03",
+    "hito 2"
+   ],
+   [
+    "2026-01-04",
+    "hito 3"
+   ],
+   [
+    "2026-01-05",
+    "hito 4"
+   ],
+   [
+    "2026-01-06",
+    "hito 5"
+   ],
+   [
+    "2026-01-07",
+    "hito 6"
+   ],
+   [
+    "2026-01-08",
+    "hito 7"
+   ],
+   [
+    "2026-01-09",
+    "hito 8"
+   ],
+   [
+    "2026-01-01",
+    "hito 9"
+   ],
+   [
+    "2026-01-02",
+    "hito 10"
+   ],
+   [
+    "2026-01-03",
+    "hito 11"
+   ],
+   [
+    "2026-01-04",
+    "hito 12"
+   ],
+   [
+    "2026-01-05",
+    "hito 13"
+   ],
+   [
+    "2026-01-06",
+    "hito 14"
+   ],
+   [
+    "2026-01-07",
+    "hito 15"
+   ],
+   [
+    "2026-01-08",
+    "hito 16"
+   ],
+   [
+    "2026-01-09",
+    "hito 17"
+   ],
+   [
+    "2026-01-01",
+    "hito 18"
+   ],
+   [
+    "2026-01-02",
+    "hito 19"
+   ],
+   [
+    "2026-01-03",
+    "hito 20"
+   ],
+   [
+    "2026-01-04",
+    "hito 21"
+   ],
+   [
+    "2026-01-05",
+    "hito 22"
+   ],
+   [
+    "2026-01-06",
+    "hito 23"
+   ],
+   [
+    "2026-01-07",
+    "hito 24"
+   ],
+   [
+    "2026-01-08",
+    "hito 25"
+   ],
+   [
+    "2026-01-09",
+    "hito 26"
+   ],
+   [
+    "2026-01-01",
+    "hito 27"
+   ],
+   [
+    "2026-01-02",
+    "hito 28"
+   ],
+   [
+    "2026-01-03",
+    "hito 29"
+   ],
+   [
+    "2026-01-04",
+    "hito 30"
+   ],
+   [
+    "2026-01-05",
+    "hito 31"
+   ],
+   [
+    "2026-01-06",
+    "hito 32"
+   ],
+   [
+    "2026-01-07",
+    "hito 33"
+   ],
+   [
+    "2026-01-08",
+    "hito 34"
+   ],
+   [
+    "2026-01-09",
+    "hito 35"
+   ],
+   [
+    "2026-01-01",
+    "hito 36"
+   ],
+   [
+    "2026-01-02",
+    "hito 37"
+   ],
+   [
+    "2026-01-03",
+    "hito 38"
+   ],
+   [
+    "2026-01-04",
+    "hito 39"
+   ],
+   [
+    "2026-01-05",
+    "hito 40"
+   ],
+   [
+    "2026-01-06",
+    "hito 41"
+   ],
+   [
+    "2026-01-07",
+    "hito 42"
+   ],
+   [
+    "2026-01-08",
+    "hito 43"
+   ],
+   [
+    "2026-01-09",
+    "hito 44"
+   ],
+   [
+    "2026-01-01",
+    "hito 45"
+   ],
+   [
+    "2026-01-02",
+    "hito 46"
+   ],
+   [
+    "2026-01-03",
+    "hito 47"
+   ],
+   [
+    "2026-01-04",
+    "hito 48"
+   ],
+   [
+    "2026-01-05",
+    "hito 49"
+   ],
+   [
+    "2026-01-06",
+    "hito 50"
+   ],
+   [
+    "2026-01-07",
+    "hito 51"
+   ],
+   [
+    "2026-01-08",
+    "hito 52"
+   ],
+   [
+    "2026-01-09",
+    "hito 53"
+   ],
+   [
+    "2026-01-01",
+    "hito 54"
+   ],
+   [
+    "2026-01-02",
+    "hito 55"
+   ],
+   [
+    "2026-01-03",
+    "hito 56"
+   ],
+   [
+    "2026-01-04",
+    "hito 57"
+   ],
+   [
+    "2026-01-05",
+    "hito 58"
+   ],
+   [
+    "2026-01-06",
+    "hito 59"
+   ]
+  ],
+  "retos": {},
+  "aprob": [],
+  "ultimo": ""
+ },
+ "copia": "2026-09-01",
+ "modif": "2026-09-05",
+ "primera": "2026-03-01",
+ "visto": "2026-09-05"
+}
