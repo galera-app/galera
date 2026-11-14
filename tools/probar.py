@@ -83,6 +83,7 @@ class Pagina(HTMLParser):
         self.title, self._en_title = "", False
         self.meta, self.metas, self.links, self.recursos = {}, [], [], []
         self.lang, self.ld, self.en_linea, self.on_attrs, self.estilos = "", 0, [], [], 0
+        self.style_attrs = []
         self._script = None
 
     def handle_starttag(self, tag, attrs):
@@ -113,6 +114,8 @@ class Pagina(HTMLParser):
             self.recursos.append((tag, a["src"], ""))
         elif tag == "form" and a.get("action"):
             self.recursos.append((tag, a["action"], ""))
+        if "style" in a:
+            self.style_attrs.append(f"<{tag} style={a['style'][:40]!r}>")
         for k in a:
             if k.startswith("on"):
                 self.on_attrs.append(f"<{tag} {k}=…>")
@@ -455,6 +458,18 @@ class TestSitio(unittest.TestCase):
                 malas += [f"{rel}: {a} con CSP que no admite manejadores en línea" for a in sorted(set(pg.on_attrs))]
             if "'unsafe-inline'" not in c.get("style-src", []) and pg.estilos:
                 malas.append(f"{rel}: <style> en línea con CSP que no lo admite")
+        self.assertEqual(malas[:25], [])
+
+    def test_sin_atributos_style(self):
+        # Con style-src sin 'unsafe-inline', el navegador ignora style="…". Los valores dinámicos van en data-est (lo aplica
+        # estilar() en app.js) y los fijos en clases u-*. Excepciones: las páginas sin CSP (SIN_CSP: el descargable del
+        # Planificador y la prueba de componentes) y prueba/index.html (el sitio de pruebas internas, mismas excepciones que
+        # EXCEPCIONES de tools/controlar_estilos.py), que traen su propio estilo en línea a propósito.
+        malas = []
+        for rel, pg in paginas().items():
+            if rel in SIN_CSP or rel == "prueba/index.html":
+                continue
+            malas += [f"{rel}: {a}" for a in sorted(set(pg.style_attrs))]
         self.assertEqual(malas[:25], [])
 
     def test_csp_origenes_declarados(self):

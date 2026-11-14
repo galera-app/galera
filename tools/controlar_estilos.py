@@ -4,6 +4,7 @@
 Falla si aparece, en un HTML, una plantilla de marco/, un JS de la app o tools/armar.py:
 - un atributo style="…" (también dentro de strings de JS que se vuelcan con innerHTML);
 - una etiqueta <style>;
+- setAttribute('style', …);
 - 'unsafe-inline' en style-src de marco/sitio.json.
 No cuenta `el.style.x = …` ni `style.setProperty` (CSSOM: la CSP no lo bloquea). Un valor dinámico va como
 data-est="width:30%;left:2%" (lo aplica estilar() en app.js); un valor fijo, como clase u-* en estilos.css.
@@ -19,6 +20,8 @@ EXCEPCIONES = {"libro/planificador-de-libros.html", "prueba/componentes/index.ht
 # Los <style> dentro de un SVG que se baja como archivo (no se inserta en la página) están permitidos.
 ESTILO_EN_ARCHIVO = {"lomo.js"}
 ATRIBUTO = re.compile(r"""[\s'"`]style\s*=\s*["'\\]|style=\$\{""")
+# setAttribute('style', …) también lo bloquea la CSP (a diferencia de el.style.x, que es CSSOM).
+SET_ATTR = re.compile(r"""setAttribute\(\s*['"`]style['"`]""")
 ETIQUETA = re.compile(r"<style[\s>]", re.I)
 IGNORAR = ("vendor", "node_modules", "dist", ".claude", "_galera-armado")
 
@@ -45,6 +48,8 @@ for rel, p in fuentes():
             continue
         if ATRIBUTO.search(linea):
             errores.append(f"{r}:{n}: atributo style en línea (usá una clase u-* o data-est)")
+        if SET_ATTR.search(linea):
+            errores.append(f"{r}:{n}: setAttribute('style', …) (la CSP lo bloquea: usá data-est o el.style.x)")
         if ETIQUETA.search(linea) and p.name not in ESTILO_EN_ARCHIVO:
             errores.append(f"{r}:{n}: etiqueta <style> en línea (pasala a una hoja de estilos)")
 
