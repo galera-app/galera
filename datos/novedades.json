@@ -12,6 +12,38 @@
    "url": "https://galera.com.ar/libro/cronograma/"
   },
   {
+   "v": 168,
+   "fecha": "2026-11-14",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "titulo": "Los calendarios que bajás de Galera cambian de identificador",
+   "texto": "Los archivos .ics de Horarios, Calendario y el planificador de libros ahora identifican cada evento con la dirección de Galera. Si importaste un calendario viejo en Google Calendar, Outlook o el celular, borralo y volvé a bajarlo: si lo sumás encima, los eventos aparecen dos veces. Como terminó el cuatrimestre, no se pierde ninguna clase en curso.",
+   "url": "https://galera.com.ar/horarios/"
+  },
+  {
+   "v": 167,
+   "fecha": "2026-11-14",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "menor": true,
+   "titulo": "Galera, más cerrada a código ajeno",
+   "texto": "Por dentro, la página dejó de aceptar estilos escritos en línea, una puerta que usan algunos ataques. No cambia nada a la vista.",
+   "url": "https://galera.com.ar/"
+  },
+  {
+   "v": 166,
+   "mail": false,
+   "fecha": "2026-11-14",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "titulo": "La vista previa de Galera dice lo que Galera es",
+   "texto": "Cuando compartís un link de Galera, la imagen que aparece ahora dice «Herramientas abiertas para quienes hacen libros en español y una guía para cursar Edición en la UBA», igual que la home. Se fue la frase vieja, y el texto alternativo de la imagen se actualizó en las páginas que todavía la describían con esa frase.",
+   "url": "https://galera.com.ar/"
+  },
+  {
    "v": 165,
    "fecha": "2026-11-13",
    "tipo": "resumenes",
@@ -270,7 +302,7 @@
    "perfil": "todos",
    "materias": [],
    "titulo": "Galera, para quienes hacen libros",
-   "texto": "Ahora la portada dice lo que Galera ya era: herramientas abiertas para quienes hacen libros en español, y la guía para cursar Edición en la UBA. Cambiaron la frase de la portada, Prensa, la firma y los títulos de varias pantallas, y se sumó un resumen en inglés.",
+   "texto": "Ahora la portada dice lo que Galera ya era: herramientas abiertas para quienes hacen libros en español y una guía para cursar Edición en la UBA. Cambiaron la frase de la portada, Prensa, la firma y los títulos de varias pantallas, y se sumó un resumen en inglés.",
    "url": "https://galera.com.ar/"
   },
   {

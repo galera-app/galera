@@ -1,0 +1,132 @@
+{
+ "v": 1,
+ "carrera": 42,
+ "perfil": [
+  "estudiante"
+ ],
+ "vioAyuda": "si",
+ "materias": {
+  "ipc": {
+   "estado": "aprobada",
+   "nota": "8"
+  },
+  "icse": {
+   "estado": "inventado",
+   "nota": 8,
+   "aprobada": 20260101,
+   "detalle": {
+    "x": 1
+   },
+   "apuntes": null,
+   "aplazos": "123",
+   "examenes": "ninguno"
+  },
+  "0902": null,
+  "0913": "cursando",
+  "0914": [],
+  "id con espacios": {
+   "estado": "aprobada"
+  },
+  "__proto__": {
+   "estado": "aprobada"
+  },
+  "constructor": {
+   "estado": "aprobada"
+  },
+  "0915": {
+   "estado": "cursando",
+   "nota": "10,5",
+   "examenes": [
+    null,
+    7,
+    {
+     "id": "x y",
+     "tipo": null,
+     "fecha": "mañana",
+     "hora": "9",
+     "nota": 5
+    },
+    {
+     "tipo": "Final",
+     "fecha": "2026-12-10",
+     "hora": "10:30"
+    }
+   ]
+  }
+ },
+ "horarios": {
+  "a": null,
+  "b": {
+   "materias": "0911",
+   "elegidas": [
+    1,
+    2
+   ],
+   "propias": [
+    null,
+    {
+     "materia": "X",
+     "bloques": [
+      {
+       "dia": 9,
+       "desde": "10:00",
+       "hasta": "09:00"
+      }
+     ]
+    }
+   ],
+   "bloqueos": [
+    {
+     "dia": "1",
+     "desde": "08:00",
+     "hasta": "09:00",
+     "t": 5
+    }
+   ]
+  }
+ },
+ "escandallo": {
+  "modo": "magia",
+  "pvp": 18000,
+  "tirada": "<script>",
+  "canales": "no",
+  "usarCanales": 1
+ },
+ "comparador": [],
+ "papel": "x",
+ "paginacion": 5,
+ "cronograma": {
+  "metodo": "x",
+  "plazo": null
+ },
+ "leidos": {
+  "0911/e1": "hoy",
+  "mal": "2026-01-01"
+ },
+ "lecturas": [
+  1,
+  2
+ ],
+ "practica": {
+  "0911/e1/1": "bien",
+  "0911/e1/2": [
+   1,
+   2,
+   "2026-01-01"
+  ]
+ },
+ "juego": {
+  "on": "no",
+  "rondas": {
+   "0911": "x"
+  },
+  "hitos": "a",
+  "retos": [],
+  "aprob": "ipc",
+  "ultimo": "../../x"
+ },
+ "arcade": "A",
+ "descarga": "docx",
+ "invitacion": 7,
+ "copia": "ayer"
+}

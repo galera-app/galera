@@ -840,3 +840,12 @@ dialog.conf .btn { min-height: 44px; }
 .u-width-110px { width:110px !important; }
 .u-width-70px { width:70px !important; }
 .u-width-90px { width:90px !important; }
+
+/* v167: estilos que estaban en línea (style=), para sacar 'unsafe-inline' de style-src */
+.u-margin-0-0-4px { margin:0 0 4px !important; }
+.u-margin-0-0-6px { margin:0 0 6px !important; }
+.u-margin-top-0 { margin-top:0 !important; }
+.u-max-width-600px_margin-40px-auto_padding-0-16px { max-width:600px !important; margin:40px auto !important; padding:0 16px !important; }
+.u-min-height-208px { min-height:208px !important; }
+.u-text-align-center_overflow-wrap-anywhere { text-align:center !important; overflow-wrap:anywhere !important; }
+.u-width-100 { width:100% !important; }
