@@ -38,13 +38,13 @@ S = json.loads(MARCA_USO.sub(lambda m: json.dumps(MARCA[m.group(1)], ensure_asci
 CHEV = '<svg class="cv" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>'
 # Solo el planificador y su archivo descargable son independientes de la app: todo lo demás lleva la cabecera, el pie y los guiones de la app.
 SUELTAS = {"libro/cronograma/index.html", "libro/planificador-de-libros.html", "prueba/index.html", "prueba/componentes/index.html"}
-CSP_PAGINA = {"libro/cronograma/index.html": "estatica_estilos"}
+CSP_PAGINA = {}
 DESCARGABLE = "libro/planificador-de-libros.html"
 CSS = ["tokens.css", "estilos.css", "galera.css", "componentes.css"]
 GRUPOS = S["menu"]["estudiante"]
 ACTUAL = ' aria-current="page"'
-# Lo que no se publica: control de versiones, CI, herramientas y las fuentes del marco.
-NO_PUBLICAR = {".git", ".github", "tools", "marco", "dist", "__pycache__"}
+# Lo que no se publica: control de versiones, CI, herramientas, las fuentes del marco y el README (documentación interna del repo).
+NO_PUBLICAR = {".git", ".github", "tools", "marco", "dist", "__pycache__", "README.md"}
 # Buscador: Pagefind indexa el <main> de cada página armada (y de ninguna más: ni /buscar/, ni la 404, ni las noindex).
 SIN_INDICE = {"404.html", "buscar/index.html"}
 # Chrome de pantalla que no es contenido (botones, migas, bloque de descarga, «¿Terminaste de leerlo?», vecinos, textos solo de impresión).

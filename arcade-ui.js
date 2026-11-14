@@ -98,7 +98,7 @@ function vArcade() {
       <div class="arc-rec">Tu mejor marca: <span class="arc-pts">${arcCero(arcMejor(t))}</span></div></div>
       <div class="arc-bt"><button class="arc-btn" type="button" ${accion}>Jugar</button><button class="arc-btn sec" type="button" data-clic="arcVerTop" data-clic-a="[${arg(t)}]" aria-label="Ver el top de ${esc(nombre)}">🏆 Top</button></div></div>`;
   return `<div class="arc" data-tema="arcade">
-    <div class="fila" style="margin:0 0 4px"><button class="arc-btn sec" type="button" data-clic="irResumenes" data-clic-a="[&quot;0911&quot;]">← Resúmenes de Corrección de Estilo</button></div>
+    <div class="fila u-margin-0-0-4px"><button class="arc-btn sec" type="button" data-clic="irResumenes" data-clic-a="[&quot;0911&quot;]">← Resúmenes de Corrección de Estilo</button></div>
     <h2 class="arc-titulo">ARCADE</h2><p class="arc-sub">Corrección de Estilo · 2.º parcial</p>
     <p class="arc-start" aria-hidden="true">PRESS START</p>
     <p class="arc-tenue arc-centro">Una sala aparte y opcional: acá hay puntos y récords. Practicar sigue sin puntaje y sin compararte con nadie. Los puntos quedan en este navegador${ARCADE_URL ? ' y las marcas se suman al top de todos con tus tres letras (nada más)' : ''}. Para ver el ranking, tocá <b>🏆 Top</b> en cada tablero.</p>
@@ -165,7 +165,7 @@ function vArcTeo(A) {
   return `<div class="arc" data-tema="arcade">
     <div class="arc-marcador"><span class="arc-vidas" role="img" aria-label="Vidas: ${S.vidas} de ${Arcade.VIDAS}">${'♥'.repeat(S.vidas)}${'♡'.repeat(Arcade.VIDAS - S.vidas)}</span>
       <span class="arc-pts" aria-label="Puntaje">${arcCero(S.puntos)}</span><span class="arc-racha">${S.racha >= 3 ? '×' + m + ' · ' : ''}racha ${S.racha}</span></div>
-    <p class="arc-tenue" style="margin:0 0 6px">${esc(arcNombre(A.tablero))} · pregunta ${S.i + 1}${q.dificil ? ' · <b class="arc-dif">DIFÍCIL +50</b>' : ''}</p>
+    <p class="arc-tenue u-margin-0-0-6px">${esc(arcNombre(A.tablero))} · pregunta ${S.i + 1}${q.dificil ? ' · <b class="arc-dif">DIFÍCIL +50</b>' : ''}</p>
     <div class="arc-card"><p class="arc-enun">${q.texto}</p><div class="arc-ops">${ops}</div>
     ${u ? `<p class="arc-dev ${u.ok ? 'ok' : 'no'}" role="status"><b>${u.ok ? '✓ ¡Bien! +' + u.ganado + (u.mult > 1 ? ' (×' + u.mult + ')' : '') : '✗ Era ' + LETRAS[q.correcta] + ')'}</b> ${q.respuesta}</p>
       <div class="botones"><button class="arc-btn" type="button" data-f="aq-sig" data-clic="arcSig">${ult ? 'Ver mi resultado' : 'Siguiente'}</button></div>` : ''}</div>
@@ -230,7 +230,7 @@ function vArcPrac(A) {
   return `<div class="arc" data-tema="arcade">
     <div class="arc-marcador"><span class="arc-pts" aria-label="Puntaje">${arcCero(Math.max(0, S.puntos))}</span><span class="arc-racha">${S.halladas.length}/${T.errores} errores</span>
       ${fin ? '' : '<button class="arc-btn sec" type="button" data-clic="arcRendirse2">Me rindo</button>'}</div>
-    <p class="arc-tenue" style="margin:0 0 6px">${esc(P.titulo)} · tocá una palabra y después <b>Marcar</b>.</p>
+    <p class="arc-tenue u-margin-0-0-6px">${esc(P.titulo)} · tocá una palabra y después <b>Marcar</b>.</p>
     <p class="arc-msg" role="status">${esc(A.msg || '')}</p>
     <div class="arc-texto">${T.parrafos.map(par => `<p>${par.map(palabra).join(' ')}</p>`).join('')}</div>
     ${barra}${lista}
