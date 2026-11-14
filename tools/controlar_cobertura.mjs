@@ -18,16 +18,19 @@ if (!lcov || !fs.existsSync(lcov)) { console.error('Falta el informe lcov: node 
 function leer(texto) {
   const por = {}; let act = null;
   for (const l of texto.split(/\r?\n/)) {
-    if (l.startsWith('SF:')) { const f = l.slice(3).replace(/[\\]/g, '/').replace(/^\.\//, ''); act = /^[\w.-]+\.js$/.test(f) ? (por[f] = { lh: 0, lf: 0 }) : null; }
+    if (l.startsWith('SF:')) { const f = l.slice(3).replace(/[\\]/g, '/').replace(/^\.\//, ''); act = /^[\w.-]+\.js$/.test(f) ? (por[f] = { lh: NaN, lf: NaN }) : null; }
     else if (act && l.startsWith('LH:')) act.lh = Number(l.slice(3));
     else if (act && l.startsWith('LF:')) act.lf = Number(l.slice(3));
   }
   return por;
 }
 const abajo = x => Math.floor(x * 100) / 100;   // dos decimales, redondeando hacia abajo (nunca se promete de más)
-const pct = o => o.lf ? abajo(100 * o.lh / o.lf) : 100;
+const pct = o => abajo(100 * o.lh / o.lf);
 
 const hoy = leer(fs.readFileSync(lcov, 'utf8'));
+// Un archivo sin líneas contadas (falta LF o LH, o LF es 0) NO es 100 %: es un informe roto o un archivo que no se midió.
+const sinLineas = Object.keys(hoy).filter(f => !(hoy[f].lf > 0) || !(hoy[f].lh >= 0));
+if (sinLineas.length) { console.error('Archivos sin líneas contadas en el informe (no se pueden dar por cubiertos): ' + sinLineas.join(', ')); process.exit(1); }
 const archivos = Object.keys(hoy).sort();
 if (!archivos.length) { console.error('El informe no trae ningún archivo del sitio: ¿se corrió desde la raíz del repo?'); process.exit(2); }
 const tot = archivos.reduce((s, f) => ({ lh: s.lh + hoy[f].lh, lf: s.lf + hoy[f].lf }), { lh: 0, lf: 0 });
@@ -43,7 +46,7 @@ const nuevos = archivos.filter(f => !(f in base.archivos));
 
 console.log(`Cobertura de líneas (total ${pct(tot)} %, base ${base.total} %):`);
 archivos.forEach(f => console.log(`  ${f.padEnd(20)} ${String(pct(hoy[f])).padStart(6)} %   (base ${f in base.archivos ? base.archivos[f] + ' %' : 'sin base'})`));
-if (nuevos.length && !actualizar) console.log(`Archivos sin base (no frenan): ${nuevos.join(', ')}. Se suman con --actualizar.`);
+if (nuevos.length && !actualizar) console.log(`Archivos sin base: ${nuevos.join(', ')}. No frenan por sí solos, pero cuentan en el total. Se suman con --actualizar.`);
 
 if (fallas.length) { console.error('\nLa cobertura bajó:\n  ' + fallas.join('\n  ')); process.exit(1); }
 

@@ -77,10 +77,12 @@ for (const f of ARCHIVOS) {
     }
   });
 
-  test(`${f}: el estado normalizado entra en un QR o link sin cambios de forma (solo tipos JSON)`, () => {
+  test(`${f}: pasar a otro dispositivo (link comprimido) lo devuelve igual, salvo las fechas propias del navegador`, async () => {
+    const Traspaso = cargar('traspaso');
     const a = norm(CON, leer(f));
-    assert.deepEqual(a, JSON.parse(JSON.stringify(a)));
-    assert.ok(JSON.stringify(a).length < 600000);
+    const llega = norm(CON, await Traspaso.desempaquetar(await Traspaso.empaquetar(a)));
+    const esperado = Object.assign({}, a, { copia: '', modif: '', primera: '', visto: '' });   // paraEnviar() las saca a propósito
+    assert.deepEqual(llega, esperado);
   });
 }
 
