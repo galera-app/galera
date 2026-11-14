@@ -80,3 +80,4 @@ const Formatos = (() => {
 
   return { SERIE_A, PLIEGOS, LIBROS, GRUPOS, TODOS, BASES, RAIZ2, porId, relacion, desvio, bipartir, cadena, entran, area, mosaico };
 })();
+if (typeof module !== 'undefined') module.exports = Formatos;

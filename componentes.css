@@ -963,6 +963,8 @@ a.gl-lec-mapa .gl-lec-av{margin-top:auto;padding-top:8px}
 .lp-web{flex-shrink:0;font-weight:600;color:#212121}
 .lp-web span{color:#0671E0}
 @media print{
+  @page poster{size:A3 portrait;margin:0}
+  .lp-hoja{page:poster}
   body:has(.lp-hoja){margin:0;background:#fff}
   body:has(.lp-hoja)>*:not(main){display:none!important}
   body:has(.lp-hoja) #main{display:block;margin:0!important;padding:0!important;max-width:none!important;min-height:0!important}
@@ -1126,3 +1128,7 @@ dialog .botones .gl-btn,dialog .gl-btn{min-height:44px}
   .indice-margen a:focus-visible{outline:2px solid var(--tinta);outline-offset:2px}
 }
 @media print{.gl-apunte-fila{display:block}.indice-margen{display:none!important}}
+/* v167: el SVG de Typst traía un <style> en línea (la CSP no lo admite); estas son las reglas que importan, acotadas a su documento. */
+.typst-doc{fill:none}
+.typst-doc .typst-text{pointer-events:bounding-box}
+.typst-doc .pseudo-link{fill:transparent;cursor:pointer;pointer-events:all}

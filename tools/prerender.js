@@ -16,7 +16,7 @@ class El {
 }
 const porId = {};
 const elemento = id => porId[id] = porId[id] || new El(id);
-const documento = { title: 'Galera: tu carrera de Edición, en orden (UBA)', documentElement: new El('html'), body: new El('body'), head: new El('head'), activeElement: null, referrer: '', cookie: '',
+const documento = { title: 'Galera: herramientas abiertas para quienes hacen libros', documentElement: new El('html'), body: new El('body'), head: new El('head'), activeElement: null, referrer: '', cookie: '',
   querySelector: s => { const m = /^#([\w-]+)$/.exec(s); return m ? elemento(m[1]) : null; }, querySelectorAll: () => [], getElementById: elemento, createElement: () => new El(''), addEventListener() {}, removeEventListener() {} };
 const ubic = { pathname: '/', search: '', hash: '', origin: 'https://galera.com.ar', host: 'galera.com.ar', hostname: 'galera.com.ar', protocol: 'https:', get href() { return this.origin + this.pathname + this.search + this.hash; }, reload() {}, replace() {}, assign() {} };
 const pon = u => { const x = new URL(u, ubic.origin); ubic.pathname = x.pathname; ubic.search = x.search; ubic.hash = x.hash; };

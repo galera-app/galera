@@ -1,0 +1,341 @@
+{
+ "v": 1,
+ "carrera": "edicion",
+ "perfil": "estudiante",
+ "vioAyuda": true,
+ "materias": {
+  "ipc": {
+   "estado": "aprobada",
+   "nota": "8",
+   "aprobada": "2025-07-15"
+  },
+  "icse": {
+   "estado": "aprobada",
+   "nota": "7,5",
+   "aprobada": "2025-12-10",
+   "apuntes": "Notas libres con tildes: ñandú, ¿qué?"
+  },
+  "0902": {
+   "estado": "regular",
+   "aplazos": [
+    "1",
+    "2"
+   ],
+   "examenes": [
+    {
+     "id": "ex1",
+     "tipo": "Parcial",
+     "fecha": "2026-05-04",
+     "hora": "18:00",
+     "detalle": "1.er parcial",
+     "nota": "6"
+    }
+   ]
+  },
+  "0913": {
+   "estado": "pendiente"
+  },
+  "0914": {
+   "estado": "pendiente"
+  },
+  "0915": {
+   "estado": "pendiente"
+  },
+  "0905": {
+   "estado": "pendiente"
+  },
+  "0916": {
+   "estado": "pendiente"
+  },
+  "0917": {
+   "estado": "pendiente"
+  },
+  "0918": {
+   "estado": "pendiente"
+  },
+  "0909": {
+   "estado": "pendiente"
+  },
+  "0919": {
+   "estado": "pendiente"
+  },
+  "0911": {
+   "estado": "cursando",
+   "cuando": "Martes y jueves 18 h",
+   "detalle": "Comisión 3"
+  },
+  "0920": {
+   "estado": "pendiente"
+  },
+  "literaria": {
+   "estado": "cursando",
+   "opcion": "literaria-a"
+  },
+  "metodologia": {
+   "estado": "pendiente"
+  },
+  "digital": {
+   "estado": "pendiente"
+  },
+  "seminario": {
+   "estado": "cursando",
+   "detalle": "Seminario de poesía"
+  },
+  "ingles1": {
+   "estado": "aprobada",
+   "nota": "9",
+   "aprobada": "2026-02-20"
+  },
+  "ingles2": {
+   "estado": "pendiente"
+  },
+  "ingles3": {
+   "estado": "pendiente"
+  },
+  "idioma2": {
+   "estado": "pendiente"
+  },
+  "final": {
+   "estado": "pendiente"
+  }
+ },
+ "horarios": {
+  "2026-2c": {
+   "materias": [
+    "0911",
+    "0905"
+   ],
+   "elegidas": {
+    "0911|Teórico": "c-t1",
+    "0911|Práctico": "c-p3"
+   },
+   "sinSabado": true,
+   "listo": true,
+   "propias": [
+    {
+     "id": "p1",
+     "materia": "Taller propio",
+     "tipo": "Práctico",
+     "nombre": "A",
+     "docente": "Ana",
+     "aula": "12",
+     "bloques": [
+      {
+       "dia": 2,
+       "desde": "18:00",
+       "hasta": "20:00"
+      }
+     ]
+    }
+   ],
+   "bloqueos": [
+    {
+     "dia": 1,
+     "desde": "09:00",
+     "hasta": "13:00",
+     "t": "Trabajo"
+    }
+   ]
+  }
+ },
+ "escandallo": {
+  "modo": "demanda",
+  "usarCanales": true,
+  "canales": [
+   {
+    "t": "Librerías",
+    "desc": "40",
+    "part": "60",
+    "plazo": "60"
+   },
+   {
+    "t": "Kioscos",
+    "desc": "60",
+    "part": "40",
+    "plazo": "30"
+   }
+  ],
+  "pvp": "18.000",
+  "tirada": "2000",
+  "cpu": "2100",
+  "preproduccion": "",
+  "industrial": "",
+  "paginas": "200",
+  "porPliego": "8",
+  "precioPliego": "100",
+  "tapasPorPliego": "2",
+  "precioTapa": "400",
+  "encuadernado": "300",
+  "descuento": "40",
+  "invendibles": "4,6",
+  "derechos": "5",
+  "incobrables": "2",
+  "comisiones": "2",
+  "flete": "3",
+  "publicidad": "6",
+  "ce": "3.000.000"
+ },
+ "comparador": {
+  "ce": "100000",
+  "ganancia": "",
+  "titulos": [
+   {
+    "t": "M",
+    "pvp": "",
+    "desc": "",
+    "inu": "10",
+    "cdu": "8",
+    "q": "1000"
+   },
+   {
+    "t": "N",
+    "pvp": "100",
+    "desc": "40",
+    "inu": "",
+    "cdu": "30",
+    "q": "10"
+   }
+  ]
+ },
+ "papel": {
+  "tipo": "tapa",
+  "formato": "65x95",
+  "cortes": "2",
+  "hojasPaquete": "250",
+  "ancho": "14",
+  "alto": "20",
+  "paginas": "",
+  "solapa": "7",
+  "lomo": "1",
+  "tirada": "3000",
+  "demasia": "10",
+  "gramaje": "300",
+  "precioKg": "2800",
+  "fa": "",
+  "fb": "",
+  "calle": "1",
+  "lateral": "1",
+  "pinza": "2",
+  "cola": "1.5",
+  "forzar": "",
+  "espesor": ""
+ },
+ "paginacion": {
+  "multiplo": "32",
+  "capRecto": "1",
+  "capPortada": "1",
+  "paginas": "200",
+  "caracteres": "",
+  "porPagina": "",
+  "capitulos": "10",
+  "partes": {
+   "prologo": {
+    "on": true,
+    "pags": "4",
+    "ini": "recto"
+   },
+   "colofon": {
+    "on": true,
+    "pags": "1",
+    "ini": "sigue"
+   }
+  }
+ },
+ "cronograma": {
+  "metodo": "pert",
+  "plazo": "70",
+  "inicio": "2026-03-16",
+  "tareas": [
+   {
+    "id": "T1",
+    "t": "Contratación",
+    "d": "5",
+    "a": "3",
+    "m": "5",
+    "b": "10",
+    "pre": []
+   },
+   {
+    "id": "T2",
+    "t": "Edición",
+    "d": "15",
+    "a": "10",
+    "m": "15",
+    "b": "25",
+    "pre": [
+     "T1"
+    ]
+   }
+  ]
+ },
+ "leidos": {
+  "0911/e1-clases": "2026-09-01",
+  "0902/e1-el-editor": "2026-09-03"
+ },
+ "lecturas": {
+  "argentina-siglo-xix": {
+   "1": true,
+   "3": true
+  }
+ },
+ "practica": {
+  "0911/e1-clases/1": [
+   2,
+   1,
+   "2026-09-01"
+  ],
+  "0911/e1-clases/2": [
+   0,
+   3,
+   "2026-09-02"
+  ]
+ },
+ "juego": {
+  "on": true,
+  "rondas": {
+   "0911": [
+    3,
+    5,
+    "2026-09-01"
+   ]
+  },
+  "hitos": [
+   [
+    "2026-02-20",
+    "Aprobaste Inglés 1"
+   ]
+  ],
+  "retos": {
+   "esc-margen": "2026-09-05"
+  },
+  "aprob": [
+   "ipc",
+   "icse",
+   "ingles1"
+  ],
+  "ultimo": "0911/e1-clases"
+ },
+ "arcade": {
+  "ini": "FCH",
+  "mejores": {
+   "teo-1p": [
+    [
+     1200,
+     "2026-09-01",
+     "FCH"
+    ],
+    [
+     800,
+     "2026-08-20",
+     "FCH"
+    ]
+   ]
+  }
+ },
+ "descarga": "A5",
+ "invitacion": "cerrada",
+ "copia": "2026-09-01",
+ "modif": "2026-09-05",
+ "primera": "2026-03-01",
+ "visto": "2026-09-05"
+}
