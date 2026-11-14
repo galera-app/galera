@@ -1,9 +1,22 @@
-# Solo lo lee Cloudflare Pages, o sea el sitio de prueba y las vistas previas. En producción no se publica.
-# noindex: que no aparezca en Google. CSP: sin Analytics y sin escribir en el buzón ni en el arcade reales.
-# descargas.galera.com.ar es solo lectura: de ahí baja la Imprenta el compilador de Typst.
+# Lo lee Cloudflare Pages: el sitio de prueba (prueba.galera.com.ar) y las vistas previas. galera.com.ar sale por GitHub Pages,
+# que no admite cabeceras propias, y el despliegue borra este archivo de dist/ (desplegar.yml). Las mismas cabeceras de seguridad
+# tienen que llegar a producción con una regla de Cloudflare (pasos en README.md, sección «Cabeceras de seguridad»).
+#
+# Solo prueba y vistas previas (si producción pasara a Cloudflare Pages, sacar esto de acá antes de publicar):
+#   X-Robots-Tag: noindex  que no aparezca en Google.
+#   CSP: sin Analytics y sin escribir en el buzón ni en el arcade reales. descargas.galera.com.ar es solo lectura: de ahí baja la
+#   Imprenta el compilador de Typst (WASM).
+# Comunes con producción (valores a copiar tal cual en la regla de Cloudflare):
+#   frame-ancestors 'none' va en la CSP en cabecera (en la meta CSP de las páginas no funciona) y X-Frame-Options: DENY es el respaldo
+#   para navegadores viejos. HSTS de un año, sin includeSubDomains ni preload (ver README). Permissions-Policy: lo que Galera no usa.
 /*
   X-Robots-Tag: noindex
-  Content-Security-Policy: connect-src 'self' https://descargas.galera.com.ar; script-src 'self' 'wasm-unsafe-eval'
+  Content-Security-Policy: connect-src 'self' https://descargas.galera.com.ar; script-src 'self' 'wasm-unsafe-eval'; frame-ancestors 'none'
+  Strict-Transport-Security: max-age=31536000
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+  X-Frame-Options: DENY
 
 # Archivos de Pagefind con hash del contenido en el nombre: no cambian nunca. Sin hash (no tocar): pagefind.js, pagefind-entry.json, wasm.
 /pagefind/index/*

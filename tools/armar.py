@@ -43,8 +43,8 @@ DESCARGABLE = "libro/planificador-de-libros.html"
 CSS = ["tokens.css", "estilos.css", "galera.css", "componentes.css"]
 GRUPOS = S["menu"]["estudiante"]
 ACTUAL = ' aria-current="page"'
-# Lo que no se publica: control de versiones, CI, herramientas y las fuentes del marco.
-NO_PUBLICAR = {".git", ".github", "tools", "marco", "dist", "__pycache__"}
+# Lo que no se publica: control de versiones, CI, herramientas, las fuentes del marco y el README (documentación interna del repo).
+NO_PUBLICAR = {".git", ".github", "tools", "marco", "dist", "__pycache__", "README.md"}
 # Buscador: Pagefind indexa el <main> de cada página armada (y de ninguna más: ni /buscar/, ni la 404, ni las noindex).
 SIN_INDICE = {"404.html", "buscar/index.html"}
 # Chrome de pantalla que no es contenido (botones, migas, bloque de descarga, «¿Terminaste de leerlo?», vecinos, textos solo de impresión).
