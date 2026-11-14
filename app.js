@@ -273,7 +273,7 @@ function normalizar(e) {
   return out;
 }
 function cargarEstado() {
-  try { const e = JSON.parse(localStorage.getItem(CLAVE)); if (e && e.v === 1) return estadoVacio(); } catch (err) { }
+  try { const e = JSON.parse(localStorage.getItem(CLAVE)); if (e && e.v === 1) return normalizar(e); } catch (err) { }
   return estadoVacio();
 }
 // El estado se carga recién acá: normalizar() usa constantes (RE_ID, TIPOS…) que antes de este punto todavía no existen,
