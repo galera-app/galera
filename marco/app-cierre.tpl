@@ -1,4 +1,4 @@
-<noscript><p style="max-width:600px;margin:40px auto;padding:0 16px">Las cuentas, las notas y los filtros de Galera necesitan JavaScript: todo se calcula en tu navegador, nada viaja a un servidor.</p></noscript>
+<noscript><p class="u-max-width-600px_margin-40px-auto_padding-0-16px">Las cuentas, las notas y los filtros de Galera necesitan JavaScript: todo se calcula en tu navegador, nada viaja a un servidor.</p></noscript>
 <nav class="inferior" id="inferior" aria-label="Secciones principales"></nav>
 <dialog id="dlg" aria-labelledby="dlg-t"></dialog>
 <div class="aviso" id="aviso" role="status" aria-live="polite"></div>

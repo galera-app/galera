@@ -143,7 +143,7 @@
       '<section class="tarjeta no-imprimir"><h2>' + (C.vista === 'catalogo' ? '2' : '4') + '. Guardar y exportar</h2>' +
       '<div class="fila">' + boton('pdf', 'Imprimir o guardar PDF', 'sec') + (C.vista === 'catalogo' ? '' : boton('ics', 'Calendario (.ics)', 'sec') + boton('csv', 'Planilla (.csv)', 'sec')) + boton('json', 'Copia completa (.json)', 'sec') +
       '<label class="btn lin ch" for="lb-importar">Abrir una copia (.json)</label><input id="lb-importar" type="file" accept="application/json,.json" class="solo-lector"></div>' +
-      '<p class="chico tenue" style="margin:8px 0 0">Tus datos quedan solo en este navegador. La copia .json trae todos tus libros y te deja pasarlos a otro dispositivo o guardarlos; al abrirla, los libros se suman a los que ya tenés. El .ics y el .csv son del libro abierto y traen fechas solo si cargaste una fecha de inicio o de salida.</p></section>';
+      '<p class="chico tenue u-margin-8px-0-0">Tus datos quedan solo en este navegador. La copia .json trae todos tus libros y te deja pasarlos a otro dispositivo o guardarlos; al abrirla, los libros se suman a los que ya tenés. El .ics y el .csv son del libro abierto y traen fechas solo si cargaste una fecha de inicio o de salida.</p></section>';
   }
 
   function tusLibros() {
@@ -156,27 +156,27 @@
       gente.map(function (n) { return '<option value="' + esc(n) + '"' + (n.toLowerCase() === C.filtro.toLowerCase() ? ' selected' : '') + '>' + esc(n) + '</option>'; }).join('') +
       '<option value="_sin"' + (C.filtro === '_sin' ? ' selected' : '') + '>Sin responsable</option></select></div>' : '';
     return '<section class="tarjeta no-imprimir"><h2>Tus libros</h2>' +
-      '<p class="chico tenue" style="margin:4px 0 8px">Cada libro tiene su cronograma. El <b>catálogo</b> los junta en una sola línea de tiempo, con una barra por título y sus hitos.</p>' +
+      '<p class="chico tenue u-margin-4px-0-8px">Cada libro tiene su cronograma. El <b>catálogo</b> los junta en una sola línea de tiempo, con una barra por título y sus hitos.</p>' +
       '<div class="fila" role="group" aria-label="Libros">' + boton('catalogo', '📚 Catálogo', C.vista === 'catalogo' ? '' : 'sec', ' aria-pressed="' + (C.vista === 'catalogo') + '"') + chipsL +
       boton('nuevo', '+ Libro nuevo', 'lin') + boton('duplicar', 'Duplicar este', 'lin') + boton('borrar', 'Quitar este', 'lin') + '</div>' +
-      '<div class="fila" style="margin:10px 0 0"><label class="elige"><input type="checkbox" data-f="verRol"' + (C.verRol ? ' checked' : '') + '> Mostrar responsables</label><label class="elige"><input type="checkbox" data-f="seguir"' + (C.seguir ? ' checked' : '') + '> Seguimiento (avance, fechas reales y línea base)</label></div>' + (filtro ? '<div class="dos">' + filtro + '</div>' : '') + '</section>';
+      '<div class="fila u-margin-10px-0-0"><label class="elige"><input type="checkbox" data-f="verRol"' + (C.verRol ? ' checked' : '') + '> Mostrar responsables</label><label class="elige"><input type="checkbox" data-f="seguir"' + (C.seguir ? ' checked' : '') + '> Seguimiento (avance, fechas reales y línea base)</label></div>' + (filtro ? '<div class="dos">' + filtro + '</div>' : '') + '</section>';
   }
 
   function libroVista(chips, pl, met) {
     return '<section class="tarjeta no-imprimir"><h2>1. Tu libro</h2>' +
-      '<p class="chico tenue" style="margin:4px 0 8px">Partí de una plantilla: es el proceso completo, del original a la liquidación de derechos y la reimpresión. Podés sacar, sumar y cambiar lo que quieras; cada tarea se puede marcar «no aplica».</p>' +
+      '<p class="chico tenue u-margin-4px-0-8px">Partí de una plantilla: es el proceso completo, del original a la liquidación de derechos y la reimpresión. Podés sacar, sumar y cambiar lo que quieras; cada tarea se puede marcar «no aplica».</p>' +
       '<div class="fila" role="group" aria-label="Plantilla">' + chips + '</div>' +
-      (pl ? '<p class="chico tenue" style="margin:8px 0 0">' + esc(pl.d) + '</p>' : '') +
+      (pl ? '<p class="chico tenue u-margin-8px-0-0">' + esc(pl.d) + '</p>' : '') +
       '<div class="dos"><div class="campo-esc"><label class="c" for="lb-titulo">Título del libro</label><input id="lb-titulo" data-f="titulo" value="' + esc(S.titulo) + '" placeholder="opcional" maxlength="80"></div>' +
       '<div class="campo-esc"><label class="c" for="lb-modo">Calendario</label><select id="lb-modo" data-f="modo"><option value="desde"' + (S.modo === 'desde' ? ' selected' : '') + '>Desde una fecha de inicio</option><option value="hasta"' + (S.modo === 'hasta' ? ' selected' : '') + '>Hacia atrás, desde la fecha de salida</option></select></div>' +
       '<div class="campo-esc"><label class="c" for="lb-fecha">' + (S.modo === 'hasta' ? 'Fecha de salida (fin)' : 'Fecha de inicio') + '</label><input id="lb-fecha" type="date" data-f="fecha" value="' + esc(S.fecha) + '"></div>' +
       '<div class="campo-esc"><label class="c" for="lb-plazo">Plazo para PERT (días hábiles)</label><input id="lb-plazo" data-f="plazo" inputmode="numeric" value="' + esc(S.plazo) + '" placeholder="opcional"></div></div>' +
-      '<p class="chico tenue" style="margin:6px 0 0">Los días son hábiles: se saltean sábados, domingos y feriados nacionales.</p></section>' +
+      '<p class="chico tenue u-margin-6px-0-0">Los días son hábiles: se saltean sábados, domingos y feriados nacionales.</p></section>' +
       '<section class="tarjeta"><div class="titulo-sec"><h2>2. El cronograma</h2></div>' +
-      '<div class="fila no-imprimir" role="group" aria-label="Método" style="margin:6px 0 10px">' + met + boton('plegar', 'Plegar fases', 'lin') + boton('desplegar', 'Ver todas las tareas', 'lin') + '</div>' +
+      '<div class="fila no-imprimir u-margin-6px-0-10px" role="group" aria-label="Método">' + met + boton('plegar', 'Plegar fases', 'lin') + boton('desplegar', 'Ver todas las tareas', 'lin') + '</div>' +
       '<div id="lb-res" aria-live="polite">' + resultado() + '</div></section>' +
       '<section class="tarjeta no-imprimir"><h2>3. Las tareas</h2>' +
-      '<p class="chico tenue" style="margin:4px 0 8px">Cada tarea tiene su duración en días hábiles (en PERT, optimista, probable y pesimista) y las <b>previas</b>: el número de la tarea de la que depende. Para otros tipos de dependencia, sumá el tipo y el retardo: <code>12</code> (termina → empieza), <code>12SS+3</code> (empieza 3 días después de que empiece la 12), <code>12FF</code> (termina junto con la 12), <code>12SF-2</code> (empieza → termina). Las duraciones son <b>orientativas</b>: ajustalas a tu equipo.</p>' +
+      '<p class="chico tenue u-margin-4px-0-8px">Cada tarea tiene su duración en días hábiles (en PERT, optimista, probable y pesimista) y las <b>previas</b>: el número de la tarea de la que depende. Para otros tipos de dependencia, sumá el tipo y el retardo: <code>12</code> (termina → empieza), <code>12SS+3</code> (empieza 3 días después de que empiece la 12), <code>12FF</code> (termina junto con la 12), <code>12SF-2</code> (empieza → termina). Las duraciones son <b>orientativas</b>: ajustalas a tu equipo.</p>' +
       equipoVista() + '<div id="lb-tareas">' + tablaTareas() + '</div></section>';
   }
 
@@ -202,7 +202,7 @@
       var cab = '<th>N.º</th><th>Tarea</th><th>Días</th>' + (usaPert ? '<th>a</th><th>m</th><th>b</th>' : '') + '<th>Previas</th>' + (C.seguir ? '<th>Avance %</th><th>Empezó</th><th>Terminó</th>' : '') + (C.verRol ? '<th>Responsable <span class="chico tenue">(rol sugerido)</span></th>' : '') + '<th></th><th></th>';
       return '<details class="lb-fase" open><summary><b>' + (fa.id ? fa.id + ' · ' : '') + esc(fa.t) + '</b> <span class="chico tenue">(' + lista.length + ')</span></summary>' +
         '<div class="tabla-scroll"><table class="tabla cr-tareas"><thead><tr>' + cab + '</tr></thead><tbody>' + filas + '</tbody></table></div>' +
-        '<p style="margin:6px 0 12px"><button type="button" class="btn lin ch" data-acc="sumar" data-f="' + fa.id + '">+ Tarea en esta fase</button></p></details>';
+        '<p class="u-margin-6px-0-12px"><button type="button" class="btn lin ch" data-acc="sumar" data-f="' + fa.id + '">+ Tarea en esta fase</button></p></details>';
     }).join('');
   }
 
@@ -233,8 +233,8 @@
       nota = 'Línea base fijada el ' + fmtF(b.fecha) + '. ';
     }
     out += '</div>';
-    return out + '<div class="fila no-imprimir" style="margin:6px 0">' + boton('base', b ? 'Volver a fijar la línea base' : 'Fijar línea base', 'sec') + (b ? boton('sinbase', 'Quitar la línea base', 'lin') : '') + '</div>' +
-      '<p class="chico tenue no-imprimir" style="margin:0 0 6px">' + nota + 'La <b>línea base</b> guarda las fechas planeadas de hoy para compararlas con lo que pase después (la raya fina bajo cada barra). Las fechas del plan no se corren solas con el avance: si el proyecto se atrasa, cambiá la fecha de inicio o las duraciones y mirá el desvío contra la base.</p>';
+    return out + '<div class="fila no-imprimir u-margin-6px-0">' + boton('base', b ? 'Volver a fijar la línea base' : 'Fijar línea base', 'sec') + (b ? boton('sinbase', 'Quitar la línea base', 'lin') : '') + '</div>' +
+      '<p class="chico tenue no-imprimir u-margin-0-0-6px">' + nota + 'La <b>línea base</b> guarda las fechas planeadas de hoy para compararlas con lo que pase después (la raya fina bajo cada barra). Las fechas del plan no se corren solas con el avance: si el proyecto se atrasa, cambiá la fecha de inicio o las duraciones y mirá el desvío contra la base.</p>';
   }
   // Quién cubre cada rol en este libro: rellena las tareas que no tienen responsable propio.
   function equipoVista() {
@@ -243,7 +243,7 @@
     var opts = '<datalist id="lb-personas">' + personas().map(function (n) { return '<option value="' + esc(n) + '">'; }).join('') + '</datalist>';
     if (!roles.length) return opts;
     return opts + '<details class="lb-equipo"><summary><b>Equipo del libro</b> <span class="chico tenue">(quién cubre cada rol)</span></summary>' +
-      '<p class="chico tenue" style="margin:6px 0">Escribí un nombre por rol y se asigna a todas las tareas de ese rol que no tengan responsable propio. Después podés cambiar tarea por tarea. Con dos nombres en una tarea, separalos con coma.</p>' +
+      '<p class="chico tenue u-margin-6px-0">Escribí un nombre por rol y se asigna a todas las tareas de ese rol que no tengan responsable propio. Después podés cambiar tarea por tarea. Con dos nombres en una tarea, separalos con coma.</p>' +
       '<div class="dos">' + roles.map(function (c) { return '<div class="campo-esc"><label class="c" for="lb-eq-' + c + '">' + esc(P.roles[c]) + '</label><input id="lb-eq-' + c + '" list="lb-personas" data-eq="' + c + '" maxlength="40" value="' + esc((S.equipo || {})[c] || '') + '" placeholder="nombre"></div>'; }).join('') + '</div></details>';
   }
 
@@ -258,7 +258,7 @@
   }
   function catalogoVista() {
     return '<section class="tarjeta"><div class="titulo-sec"><h2>1. El catálogo</h2></div>' +
-      '<p class="chico tenue no-imprimir" style="margin:4px 0 8px">Cada barra va de la primera a la última tarea del libro, según su fecha de inicio o de salida; los rombos son los hitos (contrato, ISBN, imprenta, lanzamiento…). Tocá el nombre para abrir el cronograma de ese libro.</p>' +
+      '<p class="chico tenue no-imprimir u-margin-4px-0-8px">Cada barra va de la primera a la última tarea del libro, según su fecha de inicio o de salida; los rombos son los hitos (contrato, ISBN, imprenta, lanzamiento…). Tocá el nombre para abrir el cronograma de ese libro.</p>' +
       '<div id="lb-res" aria-live="polite">' + catalogo() + '</div></section>';
   }
   function catalogo() {
@@ -272,7 +272,7 @@
       var hitos = visibles.filter(function (x) { return x.hito; }).map(function (x) { return { t: x.t, f: fd[x.id].hasta }; });
       filas.push({ lid: L.lid, nombre: nombre, desde: desde, hasta: hasta, hitos: hitos, tarde: !c.fe.llega && L.modo === 'hasta', n: visibles.length });
     });
-    var avisoSin = sin.length ? '<p class="chico tenue" style="margin:8px 0 0">No se dibujan: ' + esc(sin.join('; ')) + '.</p>' : '';
+    var avisoSin = sin.length ? '<p class="chico tenue u-margin-8px-0-0">No se dibujan: ' + esc(sin.join('; ')) + '.</p>' : '';
     if (!filas.length) return '<p class="vacio">' + (filtrando ? 'Ningún libro tiene tareas para ese filtro.' : 'Sumá un libro con tareas y fecha para verlo acá.') + '</p>' + avisoSin;
     var min = Math.min.apply(null, filas.map(function (f) { return aDia(f.desde); })), max = Math.max.apply(null, filas.map(function (f) { return aDia(f.hasta); })), T = Math.max(max - min + 1, 1);
     var corta = function (iso) { return T > 330 ? fmtF(iso).slice(0, 6) + iso.slice(2, 4) : fmtF(iso).slice(0, 5); };
@@ -287,8 +287,8 @@
         '<span class="cr-pista"><span class="cr-barra ' + (f.tarde ? 'tarde' : 'fase') + '" data-izq="' + izq + '" data-ancho="' + ancho + '" title="' + esc(f.nombre) + '"></span>' + rombos + marca + '</span>' +
         '<span class="cr-dias chico tenue">' + corta(f.desde) + '–' + corta(f.hasta) + (filtrando ? '<br>' + f.n + ' tareas' : '') + '</span></div>';
     }).join('');
-    return (filtrando ? '<p class="chico" style="margin:0 0 6px">Solo las tareas de <b>' + esc(C.filtro === '_sin' ? 'nadie (sin responsable)' : C.filtro) + '</b>.</p>' : '') + eje + '<div class="cr-gantt lb-gantt" role="list">' + cuerpo + '</div>' +
-      '<p class="chico tenue" style="margin:8px 0 0"><span class="cr-barra fase cr-ref"></span> Libro (de la primera a la última tarea) · <span class="lb-hito cr-ref"></span> Hito · <span class="lb-hoy cr-ref"></span> Hoy · <span class="cr-barra tarde cr-ref"></span> Ya no llega a la fecha de salida</p>' + avisoSin;
+    return (filtrando ? '<p class="chico u-margin-0-0-6px">Solo las tareas de <b>' + esc(C.filtro === '_sin' ? 'nadie (sin responsable)' : C.filtro) + '</b>.</p>' : '') + eje + '<div class="cr-gantt lb-gantt" role="list">' + cuerpo + '</div>' +
+      '<p class="chico tenue u-margin-8px-0-0"><span class="cr-barra fase cr-ref"></span> Libro (de la primera a la última tarea) · <span class="lb-hito cr-ref"></span> Hito · <span class="lb-hoy cr-ref"></span> Hoy · <span class="cr-barra tarde cr-ref"></span> Ya no llega a la fecha de salida</p>' + avisoSin;
   }
 
   // ---------- resultados ----------
@@ -296,22 +296,22 @@
     if (C.vista === 'catalogo') return catalogo();
     var c = calcular();
     if (c.vacio) return '<p class="vacio">Sumá tareas para ver el cronograma.</p>';
-    if (c.error) return '<p class="chico alerta" style="margin:0">⚠ ' + esc(c.error) + '</p>';
+    if (c.error) return '<p class="chico alerta u-margin-0">⚠ ' + esc(c.error) + '</p>';
     var res = c.res, fe = c.fe, ts = S.tareas, T = res.total || 1, H = hoyISO();
     var dato = function (b, t) { return '<div class="dato"><b>' + b + '</b><span>' + t + '</span></div>'; };
     var criticas = res.tareas.filter(function (v) { return v.crit && !v.na; }).length;
     var out = '<div class="pag-datos">' + dato(f1(res.total), 'días hábiles en total') + (fe ? dato(fmtF(fe.inicio), 'inicio') + dato(fmtF(fe.fin), 'fin') : '') + dato(criticas, 'tareas críticas') +
       (S.metodo === 'pert' && res.prob != null ? dato(Math.round(res.prob * 100) + ' %', 'de llegar en ' + S.plazo + ' días') : '') + '</div>';
-    if (S.titulo) out = '<p class="chico" style="margin:0 0 6px"><b>' + esc(S.titulo) + '</b></p>' + out;
-    if (C.filtro && C.verRol) out = '<p class="chico" style="margin:0 0 6px">Solo las tareas de <b>' + esc(C.filtro === '_sin' ? 'nadie (sin responsable)' : C.filtro) + '</b> (las fechas y la ruta crítica son las del libro entero).</p>' + out;
+    if (S.titulo) out = '<p class="chico u-margin-0-0-6px"><b>' + esc(S.titulo) + '</b></p>' + out;
+    if (C.filtro && C.verRol) out = '<p class="chico u-margin-0-0-6px">Solo las tareas de <b>' + esc(C.filtro === '_sin' ? 'nadie (sin responsable)' : C.filtro) + '</b> (las fechas y la ruta crítica son las del libro entero).</p>' + out;
     if (fe && S.modo === 'hasta' && !fe.llega) {
       var falta = Cronograma.habilesEntre(H, fe.inicio, FERIADOS);
-      out += '<p class="chico alerta" style="margin:8px 0">⚠ Para salir el ' + fmtF(S.fecha) + ' tendrías que haber empezado el ' + fmtF(fe.inicio) + ': hoy faltan ' + Math.abs(falta) + ' días hábiles. ' + fe.tarde.length + ' tareas (en rojo) ya no llegan: acortá duraciones, superponé tareas o corré la fecha.</p>';
+      out += '<p class="chico alerta u-margin-8px-0">⚠ Para salir el ' + fmtF(S.fecha) + ' tendrías que haber empezado el ' + fmtF(fe.inicio) + ': hoy faltan ' + Math.abs(falta) + ' días hábiles. ' + fe.tarde.length + ' tareas (en rojo) ya no llegan: acortá duraciones, superponé tareas o corré la fecha.</p>';
     } else if (fe && S.modo === 'hasta') {
-      out += '<p class="chico" style="margin:8px 0">Para salir el ' + fmtF(S.fecha) + ' tenés que empezar el <b>' + fmtF(fe.inicio) + '</b>. Hoy te sobran ' + Cronograma.habilesEntre(H, fe.inicio, FERIADOS) + ' días hábiles.</p>';
+      out += '<p class="chico u-margin-8px-0">Para salir el ' + fmtF(S.fecha) + ' tenés que empezar el <b>' + fmtF(fe.inicio) + '</b>. Hoy te sobran ' + Cronograma.habilesEntre(H, fe.inicio, FERIADOS) + ' días hábiles.</p>';
     }
     if (fe && ANIOS_FERIADOS && parseInt(fe.fin.slice(0, 4), 10) > ANIOS_FERIADOS) {
-      out += '<p class="chico tenue" style="margin:6px 0">Los feriados de ' + (ANIOS_FERIADOS + 1) + ' todavía no están publicados: las fechas de ese año no los descuentan.</p>';
+      out += '<p class="chico tenue u-margin-6px-0">Los feriados de ' + (ANIOS_FERIADOS + 1) + ' todavía no están publicados: las fechas de ese año no los descuentan.</p>';
     }
     if (C.seguir) out += segResumen(res, fe);
     if (S.metodo === 'gantt') return out + gantt(res, fe, T);
@@ -347,7 +347,7 @@
       });
     });
     return ejeX(fe, T) + '<div class="cr-gantt lb-gantt" role="list">' + filas + '</div>' +
-      '<p class="chico tenue" style="margin:8px 0 0"><span class="cr-barra crit cr-ref"></span> Ruta crítica · <span class="cr-barra cr-ref"></span> Con holgura · <span class="cr-barra tarde cr-ref"></span> Ya no llega · <span class="cr-hol cr-ref"></span> Margen que puede demorarse' + (C.seguir ? ' · <span class="lb-prog cr-ref"></span> Avance · <span class="lb-base cr-ref"></span> Línea base · <span class="lb-real cr-ref"></span> Real' : '') + '</p>';
+      '<p class="chico tenue u-margin-8px-0-0"><span class="cr-barra crit cr-ref"></span> Ruta crítica · <span class="cr-barra cr-ref"></span> Con holgura · <span class="cr-barra tarde cr-ref"></span> Ya no llega · <span class="cr-hol cr-ref"></span> Margen que puede demorarse' + (C.seguir ? ' · <span class="lb-prog cr-ref"></span> Avance · <span class="lb-base cr-ref"></span> Línea base · <span class="lb-real cr-ref"></span> Real' : '') + '</p>';
   }
   // Posiciones (en días hábiles desde el inicio) de la línea base y de las fechas reales de una tarea.
   function segBarra(id, fe) {
@@ -389,12 +389,12 @@
       return flecha + '<g><rect x="' + x + '" y="' + y + '" width="' + W + '" height="' + Hh + '" rx="8" class="cr-nodo crit"/><text x="' + (x + 8) + '" y="' + (y + 20) + '" class="cr-t1">' + i + '. ' + esc(nom) + '</text>' + l2 + '</g>';
     }).join('');
     var ancho = 20 + ruta.length * W + (ruta.length - 1) * GX;
-    return '<h3 style="margin:12px 0 6px">Ruta crítica (' + ruta.length + ' tareas)</h3><div class="cr-red" tabindex="0" role="img" aria-label="Ruta crítica de ' + ruta.length + ' tareas"><svg viewBox="0 0 ' + ancho + ' ' + (Hh + 20) + '" width="' + ancho + '" height="' + (Hh + 20) + '"><defs><marker id="lb-fl" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L8 4L0 8z" class="cr-punta"/></marker></defs>' + nodos + '</svg></div>' +
-      '<p class="chico tenue" style="margin:6px 0 0">' + (tipo === 'roy' ? 'En cada caja: <b>T</b> = inicio y fin más tempranos; <b>L</b> = más tardíos; <b>h</b> = holgura.' : 'En cada caja: duración esperada <b>te</b> = (a + 4m + b) ÷ 6 y varianza <b>σ²</b>.') + ' Solo se dibuja la ruta crítica; el resto está en la tabla de abajo.</p>';
+    return '<h3 class="u-margin-12px-0-6px">Ruta crítica (' + ruta.length + ' tareas)</h3><div class="cr-red" tabindex="0" role="img" aria-label="Ruta crítica de ' + ruta.length + ' tareas"><svg viewBox="0 0 ' + ancho + ' ' + (Hh + 20) + '" width="' + ancho + '" height="' + (Hh + 20) + '"><defs><marker id="lb-fl" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L8 4L0 8z" class="cr-punta"/></marker></defs>' + nodos + '</svg></div>' +
+      '<p class="chico tenue u-margin-6px-0-0">' + (tipo === 'roy' ? 'En cada caja: <b>T</b> = inicio y fin más tempranos; <b>L</b> = más tardíos; <b>h</b> = holgura.' : 'En cada caja: duración esperada <b>te</b> = (a + 4m + b) ÷ 6 y varianza <b>σ²</b>.') + ' Solo se dibuja la ruta crítica; el resto está en la tabla de abajo.</p>';
   }
   function tablaCritica(res) {
     var ts = S.tareas, filas = res.tareas.filter(function (v) { return !v.na; }).slice().sort(function (a, b) { return a.hol - b.hol || a.es - b.es; }).slice(0, 15);
-    return '<h3 style="margin:14px 0 6px">Las 15 tareas con menos holgura</h3><div class="tabla-scroll"><table class="tabla"><thead><tr><th>N.º</th><th>Tarea</th><th>Inicio</th><th>Fin</th><th>Holgura</th></tr></thead><tbody>' +
+    return '<h3 class="u-margin-14px-0-6px">Las 15 tareas con menos holgura</h3><div class="tabla-scroll"><table class="tabla"><thead><tr><th>N.º</th><th>Tarea</th><th>Inicio</th><th>Fin</th><th>Holgura</th></tr></thead><tbody>' +
       filas.map(function (v) { return '<tr><td>' + (ts.findIndex(function (z) { return z.id === v.id; }) + 1) + '</td><td>' + esc(v.t) + '</td><td>' + f1(v.es) + '</td><td>' + f1(v.ef) + '</td><td>' + (v.crit ? '<b class="alerta">0 (crítica)</b>' : f1(v.hol)) + '</td></tr>'; }).join('') + '</tbody></table></div>';
   }
 

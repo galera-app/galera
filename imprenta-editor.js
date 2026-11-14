@@ -197,10 +197,15 @@ const Motor = (() => {
     if (!datos) throw new Error((r && r.diagnostics || []).map(d => d.message || JSON.stringify(d)).join(' · ') || 'Typst no devolvió nada');
     return datos;
   }
+  // La CSP no admite <style> ni style= en línea y el SVG de Typst trae los dos: se sacan. Las reglas que sirven viven en componentes.css (.typst-doc, .pseudo-link) y los style= (overflow, font-size) pasan a atributos de presentación.
+  function sinEstilosEnLinea(svg) {
+    return svg.replace(/<style[\s\S]*?<\/style>/g, '').replace(/ style="([^"]*)"/g, (m, d) => d.split(';').map(x => x.split(':')).filter(x => x.length === 2 && /^[a-z-]+$/.test(x[0].trim())) // estilos-ok: lee el style= del SVG de Typst, no lo escribe
+      .map(x => ' ' + x[0].trim() + '="' + x[1].trim() + '"').join(''));
+  }
   // Ojo: el SVG se inserta con innerHTML y solo se le quitan los <script>. Lo demás lo frena la CSP sin 'unsafe-inline' (#74): no volver a permitirlo.
   function vista(fuente) {
     const v = compilar(fuente, 'vector'), s = R.session_from_artifact(v, 'vector');
-    try { const P = s.pages_info, tam = []; for (let i = 0; i < P.page_count; i++) { const p = P.page(i); tam.push([p.width_pt, p.height_pt]); } return { svg: R.svg_data(s).replace(/<script[\s\S]*?<\/script>/g, ''), paginas: P.page_count, tam }; } finally { s.free(); }
+    try { const P = s.pages_info, tam = []; for (let i = 0; i < P.page_count; i++) { const p = P.page(i); tam.push([p.width_pt, p.height_pt]); } return { svg: sinEstilosEnLinea(R.svg_data(s).replace(/<script[\s\S]*?<\/script>/g, '')), paginas: P.page_count, tam }; } finally { s.free(); }
   }
   return { prender, compilar, vista, listo: () => !!C, WASM };
 })();
@@ -264,7 +269,7 @@ function vImprenta() {
   const s = prensaS(), fz = s.formato === 'fanzine';
   if (typeof document !== 'undefined' && typeof PRERENDER === 'undefined') { prensaCargarTurndown(); if (Motor.listo()) setTimeout(prensaActualizar, 0); }   // cada render rehace la vista previa
   const sel = (k, t, opts) => `<label class="gl-pr-campo"><span>${t}</span><select data-pr="opcion" data-pr-k="${k}">${opts.map(([v, x]) => `<option value="${esc(v)}"${String(s[k]) === v ? ' selected' : ''}>${esc(x)}</option>`).join('')}</select></label>`;
-  const txt = (k, t, ph, w) => `<label class="gl-pr-campo"${w ? ` style="max-width:${w}"` : ''}><span>${t}</span><input data-pr="texto-op" data-pr-k="${k}" value="${esc(s[k] || '')}" placeholder="${esc(ph || '')}" autocomplete="off"${k === 'cuerpo' ? ' inputmode="decimal" maxlength="5"' : ' maxlength="120"'}></label>`;
+  const txt = (k, t, ph, w) => `<label class="gl-pr-campo"${w ? ` data-est="max-width:${w}"` : ''}><span>${t}</span><input data-pr="texto-op" data-pr-k="${k}" value="${esc(s[k] || '')}" placeholder="${esc(ph || '')}" autocomplete="off"${k === 'cuerpo' ? ' inputmode="decimal" maxlength="5"' : ' maxlength="120"'}></label>`;
   const chk = (k, t) => `<label class="gl-pr-chk"><input type="checkbox" data-pr="opcion" data-pr-k="${k}"${s[k] ? ' checked' : ''}> ${t}</label>`;
   return `<div class="gl-v gl-pr">
     <div class="gl-cab"><h1 class="gl-t1 sin-cap">Imprenta</h1></div>

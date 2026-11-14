@@ -47,6 +47,8 @@ jobs:
         run: python tools/armar.py --comprobar
       - name: Sin manejadores en línea (la CSP no permite scripts en línea)
         run: python tools/controlar_acciones.py
+      - name: Sin estilos en línea (la CSP no permite style= ni <style>)
+        run: python tools/controlar_estilos.py
       - name: Cada apunte publicado tiene sus descargas
         run: python tools/controlar_descargas.py
       - name: Armar el sitio publicable (dist/)
