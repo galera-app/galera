@@ -38,7 +38,7 @@ S = json.loads(MARCA_USO.sub(lambda m: json.dumps(MARCA[m.group(1)], ensure_asci
 CHEV = '<svg class="cv" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>'
 # Solo el planificador y su archivo descargable son independientes de la app: todo lo demás lleva la cabecera, el pie y los guiones de la app.
 SUELTAS = {"libro/cronograma/index.html", "libro/planificador-de-libros.html", "prueba/index.html", "prueba/componentes/index.html"}
-CSP_PAGINA = {"libro/cronograma/index.html": "estatica_estilos"}
+CSP_PAGINA = {}
 DESCARGABLE = "libro/planificador-de-libros.html"
 CSS = ["tokens.css", "estilos.css", "galera.css", "componentes.css"]
 GRUPOS = S["menu"]["estudiante"]

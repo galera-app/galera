@@ -5,6 +5,25 @@
 // Anti-clickjacking (la CSP en <meta> no admite frame-ancestors): si otra página nos encuadra, salimos del marco.
 if (window.top !== window.self) { try { window.top.location = window.self.location; } catch (e) { document.documentElement.style.display = 'none'; } }
 
+// Estilos dinámicos sin atributo style (la CSP no admite style en línea): data-est="width:30%;left:2%" se aplica por CSSOM, que sí está permitido.
+const EST_OK = /^(width|height|left|top|min-height|max-width|font-size|background|border-left|--[a-z]+)$/;
+function estilar(n) {
+  if (n.nodeType !== 1) return;
+  const todos = n.hasAttribute('data-est') ? [n] : [];
+  n.querySelectorAll('[data-est]').forEach(e => todos.push(e));
+  todos.forEach(e => {
+    String(e.getAttribute('data-est')).split(';').forEach(d => {
+      const i = d.indexOf(':'), p = d.slice(0, i).trim(), v = d.slice(i + 1).trim();
+      if (i > 0 && EST_OK.test(p) && !/url\(|expression/i.test(v)) e.style.setProperty(p, v);
+    });
+    e.removeAttribute('data-est');
+  });
+}
+if (typeof MutationObserver === 'function') { // (el prerender corre sin DOM real: ahí queda el data-est y el navegador lo aplica al cargar)
+  new MutationObserver(ms => ms.forEach(m => m.addedNodes.forEach(estilar))).observe(document.documentElement, { childList: true, subtree: true });
+  estilar(document.documentElement);
+}
+
 const CLAVE = 'cursada.v1';
 const ESTADOS = { pendiente: 'Pendiente', cursando: 'Cursando', regular: 'Regular (falta el final)', aprobada: 'Aprobada' };
 const MESES = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
@@ -1360,12 +1379,12 @@ function grilla(sel, bloqueos, ch) {
   const enChoque = new Set(ch.flatMap(x => [x.a.id, x.b.id]));
   const horas = []; for (let m = desde; m < hasta; m += 60) horas.push(m);
   const pos = b => `top:${(Horarios.min(b.desde) - desde) * PX}px;height:${(Horarios.min(b.hasta) - Horarios.min(b.desde)) * PX - 2}px`;
-  const col = d => `<div class="gl-scol" style="height:${alto}px">
-    ${bloqueos.filter(b => b.dia === d).map(b => `<div class="gl-bq gl-bq--bloq" style="${pos(b)}"><span>${esc(b.t || 'No puedo')}</span><span class="gl-bh">${b.desde} – ${b.hasta}</span></div>`).join('')}
-    ${sel.flatMap(c => c.bloques.filter(b => b.dia === d).map(b => `<div class="gl-bq ${enChoque.has(c.id) ? 'gl-bq--choque' : ''}" title="${esc(nombreMateria(c.materia))} · ${esc(c.tipo)} ${esc(c.nombre || '')}" style="${pos(b)}">
+  const col = d => `<div class="gl-scol" data-est="height:${alto}px">
+    ${bloqueos.filter(b => b.dia === d).map(b => `<div class="gl-bq gl-bq--bloq" data-est="${pos(b)}"><span>${esc(b.t || 'No puedo')}</span><span class="gl-bh">${b.desde} – ${b.hasta}</span></div>`).join('')}
+    ${sel.flatMap(c => c.bloques.filter(b => b.dia === d).map(b => `<div class="gl-bq ${enChoque.has(c.id) ? 'gl-bq--choque' : ''}" title="${esc(nombreMateria(c.materia))} · ${esc(c.tipo)} ${esc(c.nombre || '')}" data-est="${pos(b)}">
       <span>${esc(nombreMateria(c.materia))}</span><span class="gl-bh">${b.desde} – ${b.hasta} · ${esc(c.tipo.toLowerCase())}${c.aula ? ' · ' + esc(c.aula) : ''}</span></div>`)).join('')}</div>`;
   return `<div class="gl-sem" aria-hidden="true"><div class="gl-sdia"></div>${[1, 2, 3, 4, 5, 6].map(d => `<div class="gl-sdia">${Horarios.DIAS[d].slice(0, 3)}</div>`).join('')}
-    <div class="gl-shoras" style="height:${alto}px">${horas.filter(m => (m / 60) % 2 === 0).map(m => `<span class="gl-shora" style="top:${(m - desde) * PX}px">${String(m / 60).padStart(2, '0')}</span>`).join('')}</div>
+    <div class="gl-shoras" data-est="height:${alto}px">${horas.filter(m => (m / 60) % 2 === 0).map(m => `<span class="gl-shora" data-est="top:${(m - desde) * PX}px">${String(m / 60).padStart(2, '0')}</span>`).join('')}</div>
     ${[1, 2, 3, 4, 5, 6].map(col).join('')}</div>`;
 }
 // Celular: el día elegido, con sus clases en bloques (la grilla de la semana queda para pantallas anchas).
@@ -1482,7 +1501,7 @@ function vCalendarioIn() {
     <div class="gl-crece">${e.res ? `${esc(e.t)}: <button class="gl-enlace" data-clic="empezarPractica" data-clic-a="[${arg(e.res)}]">practicar ${RONDA} preguntas</button>` : e.materia ? `<button class="gl-enlace" data-clic="abrirMateria" data-clic-a="[${arg(e.materia)}]">${esc(e.t)}</button>` : esc(e.t)}${e.hora ? ' · ' + esc(e.hora) + ' h' : ''}${enCurso && e.desde !== e.hasta ? ' <span class="gl-chico">(en curso)</span>' : ''}</div>
     <span class="gl-chip ${(chip[e.tipo] || chip.info)[0]}">${(chip[e.tipo] || chip.info)[1]}</span></div>`; };
   let semana = '';
-  if (periodo) { const n = Math.floor((fecha(t) - fecha(periodo.desde)) / 6048e5) + 1, tot = Math.ceil((fecha(periodo.hasta) - fecha(periodo.desde)) / 6048e5); semana = `<div class="gl-tarjeta"><p class="gl-cuerpo"><b>${esc(periodo.nombre)}</b>: semana ${n} de ${tot}</p><div class="gl-barra-p"><i style="width:${Math.round(n * 100 / tot)}%;background:var(--tinta)"></i></div></div>`; }
+  if (periodo) { const n = Math.floor((fecha(t) - fecha(periodo.desde)) / 6048e5) + 1, tot = Math.ceil((fecha(periodo.hasta) - fecha(periodo.desde)) / 6048e5); semana = `<div class="gl-tarjeta"><p class="gl-cuerpo"><b>${esc(periodo.nombre)}</b>: semana ${n} de ${tot}</p><div class="gl-barra-p"><i data-est="width:${Math.round(n * 100 / tot)}%;background:var(--tinta)"></i></div></div>`; }
   if ((V.calVista || 'mes') === 'mes') return calMes(todos, t, semana, turnos);
   return `${calCab()}${semana}<div class="gl-sec"><h2 class="gl-t2">Lo que viene</h2><span class="gl-flex">${V.oferta && E.horarios[V.oferta] && elegidas().length && periodoDe(V.oferta) ? '<button class="gl-btn gl-btn--sec gl-btn--c" data-clic="ayudaCalendario">Llevar mi cursada al calendario</button>' : ''}${misFechas().length ? '<button class="gl-btn gl-btn--sec gl-btn--c" data-clic="exportarIcs">Llevar mis fechas al calendario (.ics)</button>' : ''}</span></div>
     <div class="gl-flex">${calVistaSeg()}<div class="gl-seg" role="group" aria-label="Qué fechas ver">${[['todo', 'Todo'], ['mias', 'Mis fechas'], ['oficial', 'Oficial']].map(([k, n]) => `<button class="${filtro === k ? 'on' : ''}" aria-pressed="${filtro === k}" data-clic="vAsig" data-clic-a="[&quot;calFiltro&quot;,${arg(k)}]">${n}</button>`).join('')}</div>
@@ -1672,7 +1691,7 @@ function vResumenes() {
   const solo = V.resFiltro === 'con', total = R.materias.length + faltan.length;
   const con = primero(R.materias).map((r, k) => {
     const preg = r.apuntes.reduce((t, a) => t + (a.preguntas || 0), 0), p = plan(r.id), [d, s] = PLACAS[k % 3];
-    return `<li><div class="gl-tarjeta gl-mat"><div class="placa" style="--d:${d};--s:${s}"></div><div class="cuerpo"><span class="meta gl-num">${esc(p.sigla || r.id)}</span>
+    return `<li><div class="gl-tarjeta gl-mat"><div class="placa" data-est="--d:${d};--s:${s}"></div><div class="cuerpo"><span class="meta gl-num">${esc(p.sigla || r.id)}</span>
       <h2 class="gl-t3"><a class="cubre" href="/r/${esc(r.id)}/">${esc(r.nombre)}</a></h2><span class="crece"></span>
       <span class="etiquetas"><span class="gl-chip">Apuntes</span>${preg ? '<span class="gl-chip">Simulacros</span>' : ''}${marca(r.id)}</span>
       <span class="meta gl-num">${r.apuntes.length} apuntes${preg ? ` · ${preg} preguntas` : ''}${r.pdfs.length ? ` · ${r.pdfs.length} PDF` : ''}</span>
@@ -1722,7 +1741,7 @@ function vMateriaRes(m) {
 const leidosDe = m => m.apuntes.filter(a => E.leidos[m.id + '/' + a.id]).length;
 function avanceLectura(m) {
   const n = leidosDe(m);
-  return n ? `<span class="meta gl-num">${n} de ${m.apuntes.length} leídos</span><span class="gl-barra-p" aria-hidden="true"><i style="width:${Math.round(n / m.apuntes.length * 100)}%"></i></span>` : '';
+  return n ? `<span class="meta gl-num">${n} de ${m.apuntes.length} leídos</span><span class="gl-barra-p" aria-hidden="true"><i data-est="width:${Math.round(n / m.apuntes.length * 100)}%"></i></span>` : '';
 }
 function marcarLeido(k) {
   if (!/^[\w.-]{1,60}\/[\w.-]{1,60}$/.test(k)) return;
@@ -1975,7 +1994,7 @@ function vPractica() {
         <div class="botones"><button class="btn" data-f="pq-sig" data-clic="siguientePrac">${P.i + 1 < P.cola.length ? 'Siguiente' : 'Ver cómo me fue'}</button></div>` : ''}`;
   }
   return volver + `<span class="crece"></span><span class="chico tenue">Pregunta ${P.i + 1} de ${P.cola.length}</span></div>
-    <div class="barra u-margin-8px-0-12px" aria-hidden="true" ><i style="width:${Math.round(P.i * 100 / P.cola.length)}%"></i></div>
+    <div class="barra u-margin-8px-0-12px" aria-hidden="true" ><i data-est="width:${Math.round(P.i * 100 / P.cola.length)}%"></i></div>
     <div class="tarjeta practica"><p class="u-mb6 chico tenue">${esc(it.ap.clave)} · ${esc(it.ap.t)}</p>
     <p class="enunciado">${p.tipo === 'vf' ? '<span class="chip">V o F</span> ' : ''}${p.texto}</p>${cuerpo}</div>`;
 }
@@ -2089,7 +2108,7 @@ function vEcosistema() {
     const partes = a.t.length > 15 && a.t.includes(' ') ? [a.t.slice(0, a.t.lastIndexOf(' ', 15) > 0 ? a.t.lastIndexOf(' ', 15) : a.t.indexOf(' ')), a.t.slice((a.t.lastIndexOf(' ', 15) > 0 ? a.t.lastIndexOf(' ', 15) : a.t.indexOf(' ')) + 1)] : [a.t];
     return `<g class="eco-n c${c.n} ${luz(a) ? '' : 'apaga'} ${sel && sel.id === a.id ? 'sel' : ''} ${ok ? 'bien' : ''} ${mal ? 'mal' : ''}" tabindex="0" role="button" data-f="eco-${a.id}"
         aria-label="${esc(prac ? 'Actor sin nombre, categoría ' + c.t : a.t + ', ' + c.t)}" data-clic="ecoElegir" data-clic-a="[${arg(a.id)}]" data-tecla="ecoTecla" data-tecla-a="[{&quot;e&quot;:1},${arg(a.id)}]">
-      <circle cx="${px(a)}" cy="${py(a)}" r="${rad(a)}"/><text class="eco-ico" x="${px(a)}" y="${py(a) + (a.r ? 9 : 7)}" text-anchor="middle" style="font-size:${(a.r ? 26 : 20) * (vert ? .85 : 1)}px">${a.ico}</text>
+      <circle cx="${px(a)}" cy="${py(a)}" r="${rad(a)}"/><text class="eco-ico" x="${px(a)}" y="${py(a) + (a.r ? 9 : 7)}" text-anchor="middle" data-est="font-size:${(a.r ? 26 : 20) * (vert ? .85 : 1)}px">${a.ico}</text>
       ${prac && !prac.resp ? '' : `<text class="eco-t" text-anchor="middle" x="${px(a)}" y="${py(a) + rad(a) + 15}">${partes.map((p, i) => `<tspan x="${px(a)}" dy="${i ? 14 : 0}">${esc(p)}</tspan>`).join('')}</text>`}
     </g>`;
   }).join('');
@@ -2149,7 +2168,7 @@ async function cargarBiblioteca() {
   if (V.tab === 'biblioteca') render();
 }
 // Tapa: la imagen guardada, o una tapa tipográfica si no hay (o si la imagen no carga).
-const tapa = (l, grande) => `<span class="gl-tapa${grande ? ' grande' : ''}"><span class="lomo"></span><span class="ti">${esc(l.t)}</span><span class="au">${esc(l.autor)}</span><span class="tr" style="--s:${6 + (l.t.length % 3)}px"></span>
+const tapa = (l, grande) => `<span class="gl-tapa${grande ? ' grande' : ''}"><span class="lomo"></span><span class="ti">${esc(l.t)}</span><span class="au">${esc(l.autor)}</span><span class="tr" data-est="--s:${6 + (l.t.length % 3)}px"></span>
   ${grande && !l.sinTapa ? `<img src="/biblioteca/${esc(l.id)}.jpg" alt="" loading="lazy" data-falla="quitar" data-falla-a="[{&quot;t&quot;:1}]">` : ''}</span>`;
 // Biblioteca tiene dos solapas: «Libros» (los recomendados, la colección «Libros sobre Libros» del FCE y los libros de la bibliografía de los programas, todo junto
 // y filtrable por origen, tema y materia) y las publicaciones periódicas del sector.
@@ -2302,7 +2321,7 @@ function vFormatos() {
     if (!elegida) ultimoY = y;
     return `<text class="fmt-t g${f.grupo} ${elegida ? 'sel' : ''}" x="${fs * 0.4}" y="${y}" font-size="${fs}">${esc(f.t)}</text>`;
   }).join('');
-  const svg = `<svg class="fmt" viewBox="${-pad} ${-pad} ${W + pad * 2} ${H + pad * 2}" role="group" aria-label="Formatos de papel a escala, apoyados en la misma esquina. Los mismos formatos están en la lista de abajo." style="max-width:${Math.max(180, Math.round(520 * (W + pad * 2) / (H + pad * 2)))}px">${rects}${etiquetas}</svg>`;
+  const svg = `<svg class="fmt" viewBox="${-pad} ${-pad} ${W + pad * 2} ${H + pad * 2}" role="group" aria-label="Formatos de papel a escala, apoyados en la misma esquina. Los mismos formatos están en la lista de abajo." data-est="max-width:${Math.max(180, Math.round(520 * (W + pad * 2) / (H + pad * 2)))}px">${rects}${etiquetas}</svg>`;
   const chips = F.GRUPOS.filter(g => vis.some(f => f.grupo === g.id)).map(g => `<div class="fmt-grupo"><span class="chico tenue">${esc(g.t)}</span><div class="fila">${vis.filter(f => f.grupo === g.id).map(f =>
     `<button class="btn ch ${f.id === sel.id ? '' : 'sec'}" aria-pressed="${f.id === sel.id}" data-clic="fmtSel" data-clic-a="[${arg(f.id)}]">${esc(f.t)}</button>`).join('')}</div></div>`).join('');
   // --- Ficha del formato elegido ---
@@ -2318,7 +2337,7 @@ function vFormatos() {
   const tmin = 1, tmax = 1.8, pos = v => ((v - tmin) / (tmax - tmin) * 100).toFixed(1);
   const tabla = `<div class="fmt-tabla" role="table" aria-label="Relación de aspecto de cada formato"><div class="fmt-th" role="row"><span role="columnheader">Formato</span><span role="columnheader" class="num">Largo ÷ corto</span><span role="columnheader" class="num">Desvío</span><span role="columnheader">1,0 · √2 · 1,8</span></div>` +
     vis.map(f => { const rr = F.relacion(f), d = F.desvio(f), ok = Math.abs(d) < 0.5; return `<button class="fmt-fila ${f.id === sel.id ? 'sel' : ''}" role="row" data-clic="fmtSel" data-clic-a="[${arg(f.id)}]"><span role="cell">${esc(fmtNombre(f))}</span><span role="cell" class="num">${fmtN(rr, 3)}</span><span role="cell" class="num ${ok ? 'ok' : ''}">${fmtDv(d)}</span>
-      <span role="cell" class="fmt-pista" aria-hidden="true"><i class="fmt-raiz" style="left:${pos(F.RAIZ2)}%"></i><i class="fmt-pto g${f.grupo} ${ok ? 'ok' : ''}" style="left:${pos(Math.min(tmax, rr))}%"></i></span></button>`; }).join('') + '</div>';
+      <span role="cell" class="fmt-pista" aria-hidden="true"><i class="fmt-raiz" data-est="left:${pos(F.RAIZ2)}%"></i><i class="fmt-pto g${f.grupo} ${ok ? 'ok' : ''}" data-est="left:${pos(Math.min(tmax, rr))}%"></i></span></button>`; }).join('') + '</div>';
   // --- Demostración: doblar a la mitad ---
   const base = F.BASES.find(b => b.id === s.base) || F.BASES[0], cad = F.cadena(base, s.pasos), serie = base.id === 'a3';
   const rel = c => Math.max(c.ancho, c.alto) / Math.min(c.ancho, c.alto);
@@ -2332,7 +2351,7 @@ function vFormatos() {
       `<text class="fmt-t ${ok ? 'ok' : 'mal'}" x="${x0 + c.ancho / 2}" y="${c.alto + dfs * 1.5}" font-size="${dfs}" text-anchor="middle">${fmtN(rr, 3)}</text>` +
       `<text class="fmt-t" x="${x0 + c.ancho / 2}" y="${c.alto + dfs * 2.9}" font-size="${dfs * 0.8}" text-anchor="middle">${fmtN(c.ancho)} × ${fmtN(c.alto)}</text>`;
   }).join('');
-  const demo = `<svg class="fmt fmt-demo" viewBox="${-dh * 0.03} ${-dh * 0.04} ${total + dh * 0.06} ${dh + dfs * 3.6}" role="img" aria-label="Un ${esc(base.t)} doblado a la mitad ${s.pasos} ${s.pasos === 1 ? 'vez' : 'veces'}, con la relación de aspecto de cada mitad" style="max-width:${Math.max(160, Math.round(460 * (total + dh * 0.06) / (dh + dfs * 3.6)))}px">${piezas}</svg>`;
+  const demo = `<svg class="fmt fmt-demo" viewBox="${-dh * 0.03} ${-dh * 0.04} ${total + dh * 0.06} ${dh + dfs * 3.6}" role="img" aria-label="Un ${esc(base.t)} doblado a la mitad ${s.pasos} ${s.pasos === 1 ? 'vez' : 'veces'}, con la relación de aspecto de cada mitad" data-est="max-width:${Math.max(160, Math.round(460 * (total + dh * 0.06) / (dh + dfs * 3.6)))}px">${piezas}</svg>`;
   const bases = F.BASES.map(b => `<button class="btn ch ${b.id === base.id ? '' : 'sec'}" aria-pressed="${b.id === base.id}" data-clic="fmtBase" data-clic-a="[${arg(b.id)}]">${esc(b.t)}</button>`).join('');
   const rels = cad.map(rel);
   const veredicto = serie ? 'Cada mitad es una réplica a escala del papel que se dobló: el largo ÷ corto no cambia.' : `Cada doblez cambia la forma: la relación salta entre ${fmtN(Math.min(...rels), 3)} y ${fmtN(Math.max(...rels), 3)}, así que las mitades no son semejantes al original.`;
@@ -2380,7 +2399,7 @@ function vLeyes() {
     <input id="ley-q" type="search" autocomplete="off" placeholder="Buscar un término, por ejemplo «derecho moral»" value="${esc(s.q)}" class="u-width-100_margin-bottom-12px" data-entra="leyBuscar" data-entra-a="[{&quot;v&quot;:1}]">
     <div id="ley-lista">${leyTerminos()}</div>`;
   const bandas = L.NIVELES.map(nv => { const ancho = 46 + (nv.n - 1) * 13.5;
-    return `<div class="ley-banda n${nv.n}" style="width:${ancho}%"><b class="ley-bt">${esc(nv.t)}</b>
+    return `<div class="ley-banda n${nv.n}" data-est="width:${ancho}%"><b class="ley-bt">${esc(nv.t)}</b>
       <div class="fila ley-chips">${L.NORMAS.filter(n => n.nivel === nv.n).map(n => `<button class="btn ch ${n.id === sel.id ? '' : 'sec'}" aria-pressed="${n.id === sel.id}" data-clic="leySel" data-clic-a="[${arg(n.id)}]">${esc(n.t.split(' · ')[0])}</button>`).join('')}</div></div>`; }).join('');
   const nv = L.nivel(sel.nivel), dep = L.normaPorId(sel.depende), deps = L.dependientes(sel.id);
   const lista = (arr, vacio) => arr.length ? arr.map(n => `<button class="enlace" type="button" data-clic="leySel" data-clic-a="[${arg(n.id)}]">${esc(n.t.split(' · ')[0])}</button>`).join(', ') : vacio;
@@ -2585,10 +2604,10 @@ function vSimuladores() {
   }
   cargarSimInfo();
   const est = id => (E.materias[id] || {}).estado, marca = id => est(id) === 'cursando' ? '<span class="gl-chip">la cursás</span>' : est(id) === 'regular' ? '<span class="gl-chip gl-chip--aviso">te falta el final</span>' : '';
-  const tarjeta = x => { const p = plan(x.materia); return `<li><div class="gl-tarjeta gl-mat" style="min-height:208px"><div class="cuerpo"><span class="meta">${esc(p.sigla ? p.sigla + ' · ' : '')}${esc(p.nombre)}</span>
+  const tarjeta = x => { const p = plan(x.materia); return `<li><div class="gl-tarjeta gl-mat u-min-height-208px"><div class="cuerpo"><span class="meta">${esc(p.sigla ? p.sigla + ' · ' : '')}${esc(p.nombre)}</span>
       <h3 class="gl-t3"><a class="cubre" href="/simuladores/${esc(x.id)}.html">${esc(x.t)}</a></h3><span class="meta">${esc(x.d)}</span><span class="crece"></span>
       <span class="etiquetas">${SOLO_AR.has(x.id) ? '<span class="gl-chip">Argentina</span>' : ''}${marca(x.materia)}</span><span class="pie"><span>Calculadora</span></span></div></div></li>`; };
-  const planif = `<li><div class="gl-tarjeta gl-mat" style="min-height:208px"><div class="cuerpo"><span class="meta">Fundamentos de la Producción de Impresos</span>
+  const planif = `<li><div class="gl-tarjeta gl-mat u-min-height-208px"><div class="cuerpo"><span class="meta">Fundamentos de la Producción de Impresos</span>
       <h3 class="gl-t3"><a class="cubre" href="/libro/cronograma/">Planificador de libros</a></h3><span class="meta">Del original a la reimpresión: Gantt, PERT y Roy, con feriados, dependencias, varios títulos y responsables.</span><span class="crece"></span>
       <span class="etiquetas"><span class="gl-chip">Nuevo</span></span><span class="pie"><span>Herramienta completa</span></span></div></div></li>`;
   return `<div class="gl-v gl-sim"><div class="gl-cab"><h1 class="gl-display sin-cap">Simuladores</h1></div>
@@ -2660,7 +2679,7 @@ function cmpResultado() {
   const dato = (b, t, k) => `<div class="dato"><b>${b}</b><span>${t} ${ay(k, t)}</span>${exp(k)}</div>`;
   const grupos = ['AB', 'AD', 'CB', 'CD'].map(q => {
     const L = r.titulos.filter(x => x.cuadrante === q), a = Escandallo.ACCIONES[q];
-    return `<div class="tarjeta" style="border-left:5px solid var(--${a.tono})"><div class="fila"><b class="crece">${a.accion}</b><span class="chip ${a.tono}">${q}</span></div>
+    return `<div class="tarjeta" data-est="border-left:5px solid var(--${a.tono})"><div class="fila"><b class="crece">${a.accion}</b><span class="chip ${a.tono}">${q}</span></div>
       <p class="chico u-margin-4px-0">${L.length ? L.map(x => `<b>${esc(x.t)}</b>`).join(', ') : '<span class="tenue">Ninguno</span>'}</p><p class="u-m0 chico tenue">${a.texto}</p></div>`;
   }).join('');
   let pe = '';
@@ -2750,7 +2769,7 @@ function escResultado() {
   const veredicto = { ok: 'Viable: el margen supera el 30 % (criterio de la cátedra).', ojo: 'En el límite: el margen está entre 25 y 30 % (criterio de la cátedra).', mal: r.mcu <= 0 ? 'No cierra: el libro cuesta más de lo que ingresa.' : 'No conviene: el margen es menor que el 25 % (criterio de la cátedra).' }[nivel];
   const pe = (k, t, v) => `<div class="dato"><b>${v == null ? '—' : n2(Math.ceil(v - 1e-9), 0)}</b><span>${t} ${ay(k)}</span>${exp(k)}${v != null && v > r.tirada ? '<span class="chip mal">más que la tirada</span>' : ''}</div>`;
   return `<div class="tarjeta"><h3>El escandallo</h3>
-    ${ch ? `<p class="chico ${Math.abs(ch.part - 100) > 0.001 ? 'alerta' : 'tenue'}" style="margin:4px 0 8px">Descuento promedio ponderado: <b>${n2(ch.desc)} %</b> · plazo de cobro promedio: <b>${n2(ch.plazo, 1)} días</b>${Math.abs(ch.part - 100) > 0.001 ? ` · ⚠ las participaciones suman ${n2(ch.part)} %, no 100 %` : ''}</p>` : ''}
+    ${ch ? `<p class="chico ${Math.abs(ch.part - 100) > 0.001 ? 'alerta' : 'tenue'} u-margin-4px-0-8px">Descuento promedio ponderado: <b>${n2(ch.desc)} %</b> · plazo de cobro promedio: <b>${n2(ch.plazo, 1)} días</b>${Math.abs(ch.part - 100) > 0.001 ? ` · ⚠ las participaciones suman ${n2(ch.part)} %, no 100 %` : ''}</p>` : ''}
     ${r.dem ? `<p class="chico tenue u-margin-4px-0-8px">Por ejemplar: interior ${n2(r.dem.pliegos)} pliegos = ${$$(r.dem.interior)}, tapa ${$$(r.dem.tapa)} y encuadernado ${$$(r.dem.encuadernado)} → ${$$(r.dem.unitario)}.</p>` : ''}
     <table class="escandallo"><tbody>
       ${fila('pvp', 'PVP', $$(r.pvp))}
@@ -2764,7 +2783,7 @@ function escResultado() {
       ${fila('mcu', '= Margen de contribución unitario (MCU)', $$(r.mcu), 'total')}
       ${fila('mcuPct', 'MCU %', n2(r.mcuPct, 4) + ' <span class="tenue">(' + n2(pct) + ' %)</span>', 'total')}
     </tbody></table>
-    <div class="veredicto ${nivel}"><div class="barra"><i style="width:${Math.max(0, Math.min(100, pct))}%"></i><span class="marca25"></span><span class="marca30"></span></div><b>${veredicto}</b></div></div>
+    <div class="veredicto ${nivel}"><div class="barra"><i data-est="width:${Math.max(0, Math.min(100, pct))}%"></i><span class="marca25"></span><span class="marca30"></span></div><b>${veredicto}</b></div></div>
     <div class="tarjeta"><h3>Costos</h3><div class="resumen">
       <div class="dato"><b>${$$(r.cdu)}</b><span>Costo directo unitario (CDU), <b class="por">por ejemplar</b> ${ay('cdu')}</span>${exp('cdu')}</div>
       <div class="dato"><b>${$$(r.totalGastos)}</b><span>Gastos comerciales, <b class="por">por ejemplar</b> ${ay('gastos')}</span>${exp('gastos')}</div>
@@ -3116,7 +3135,7 @@ function crResultado() {
     return `<div class="tarjeta"><h3>Gantt</h3><div class="pag-datos">${dato(crF(r.total), 'días hábiles en total')}${dato(r.criticas.length, 'tareas críticas')}</div>
       <p class="u-my6 chico">Termina a los <b>${crF(r.total)}</b> días${fechaFin(r.total)}.</p>
       <div class="cr-gantt" role="list">${r.tareas.map((v, i) => `<div class="cr-fila" role="listitem"><span class="cr-nom">${i + 1}. ${esc(v.t)}</span>
-        <span class="cr-pista"><span class="cr-barra ${v.crit ? 'crit' : ''}" style="left:${v.es / T * 100}%;width:${Math.max(v.dur / T * 100, 0.8)}%" title="${esc(v.t)}: día ${crF(v.es)} al ${crF(v.ef)}"></span>${v.hol > 0 ? `<span class="cr-hol" style="left:${v.ef / T * 100}%;width:${v.hol / T * 100}%" title="Holgura: ${crF(v.hol)} días"></span>` : ''}</span>
+        <span class="cr-pista"><span class="cr-barra ${v.crit ? 'crit' : ''}" data-est="left:${v.es / T * 100}%;width:${Math.max(v.dur / T * 100, 0.8)}%" title="${esc(v.t)}: día ${crF(v.es)} al ${crF(v.ef)}"></span>${v.hol > 0 ? `<span class="cr-hol" data-est="left:${v.ef / T * 100}%;width:${v.hol / T * 100}%" title="Holgura: ${crF(v.hol)} días"></span>` : ''}</span>
         <span class="cr-dias chico tenue">${crF(v.es)}–${crF(v.ef)}</span></div>`).join('')}</div>
       <p class="u-mt8 chico tenue"><span class="cr-barra crit cr-ref"></span> Ruta crítica · <span class="cr-barra cr-ref"></span> Con holgura · <span class="cr-hol cr-ref"></span> Margen que puede demorarse ${ay('crHolgura')}</p>${exp('crHolgura')}</div>`;
   };
@@ -3493,7 +3512,7 @@ const enCursiva = s => esc(s).replace(/\*([^*]+)\*/g, '<i>$1</i>');
 const lecturasHechas = m => { const h = E.lecturas[m.id] || {}; return m.obras.filter(o => h[o.num]).length; };
 const avanceLecturas = (m, vivo) => {
   const n = lecturasHechas(m), N = m.obras.length;
-  return `<div class="gl-lec-av" data-pagefind-ignore><span class="gl-chico gl-num"${vivo ? ' role="status"' : ''}>${n} de ${N} leídas</span><span class="gl-barra-p" aria-hidden="true"><i style="width:${Math.round(n / N * 100)}%"></i></span></div>`;
+  return `<div class="gl-lec-av" data-pagefind-ignore><span class="gl-chico gl-num"${vivo ? ' role="status"' : ''}>${n} de ${N} leídas</span><span class="gl-barra-p" aria-hidden="true"><i data-est="width:${Math.round(n / N * 100)}%"></i></span></div>`;
 };
 const titularesMapa = m => m.catedras.map(c => c.titular).join(' y ');
 function marcarLectura(id, n) {
@@ -3595,7 +3614,6 @@ function vPoster(m) {
     <p class="gl-lec-aviso gl-lp-fuera" role="note">Pensado para imprimir en A3 (29,7 × 42 cm). En A4 sale reducido.</p>
     <div class="gl-lp-acc gl-lp-fuera"><button class="gl-btn" type="button" data-clic="imprimir" data-clic-a="[${arg('lecturas/' + m.id + '/poster')}]">Imprimir</button>
       <a class="gl-btn gl-btn--sec" href="/lecturas/${esc(m.id)}/">Volver al mapa</a></div>
-    <style>@media print{@page{size:A3 portrait;margin:0}}</style>
     <div class="lp-esc"><div class="lp-hoja">
       <header class="lp-cab"><div class="lp-cab-i"><div class="lp-logo"><span>g</span>alera</div>
         <h1 class="lp-h1">${gotica('Mapa de lectura')}</h1><div class="lp-sub">${esc(P.subtitulo)}</div></div>

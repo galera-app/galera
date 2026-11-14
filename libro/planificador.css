@@ -45,3 +45,17 @@ tr.lb-info td { background: var(--sup2); border-bottom: 1px solid var(--borde); 
 .tabla.cr-tareas input[type=date].nota { min-width: 9.5em; }
 .lb-descarga { margin: 12px 0 0; }
 @media print { .lb-prog, .lb-base, .lb-real { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
+
+/* v167: estilos que estaban en línea (style=), para sacar 'unsafe-inline' de style-src */
+.u-margin-0 { margin:0 !important; }
+.u-margin-0-0-6px { margin:0 0 6px !important; }
+.u-margin-10px-0-0 { margin:10px 0 0 !important; }
+.u-margin-12px-0-6px { margin:12px 0 6px !important; }
+.u-margin-14px-0-6px { margin:14px 0 6px !important; }
+.u-margin-4px-0-8px { margin:4px 0 8px !important; }
+.u-margin-6px-0 { margin:6px 0 !important; }
+.u-margin-6px-0-0 { margin:6px 0 0 !important; }
+.u-margin-6px-0-10px { margin:6px 0 10px !important; }
+.u-margin-6px-0-12px { margin:6px 0 12px !important; }
+.u-margin-8px-0 { margin:8px 0 !important; }
+.u-margin-8px-0-0 { margin:8px 0 0 !important; }
