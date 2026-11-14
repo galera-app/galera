@@ -11,7 +11,7 @@ permissions:
 jobs:
   controles:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with:
@@ -19,6 +19,9 @@ jobs:
       - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
         with:
           python-version: "3.12"
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: "22"   # el corredor de pruebas con cobertura (reporter lcov) pide Node 22 o más
       - name: Los JSON de datos son válidos
         run: |
           python - <<'PY'
@@ -59,6 +62,8 @@ jobs:
         run: python tools/probar.py dist
       - name: Humo de los simuladores (sin DOM)
         run: node tools/probar_simuladores.js
+      - name: "Pruebas de unidad con cobertura (la cobertura no puede bajar)"
+        run: node tools/pruebas_unidad.mjs
       - name: "Capitulares góticas: una por pantalla, solo en el h1 (y sin letras ambiguas sin sin-cap)"
         run: python tools/controlar_capitulares.py dist
       - name: Las pantallas clave responden
@@ -68,5 +73,12 @@ jobs:
           python tools/humo.py http://localhost:8000
           curl -fsS http://localhost:8000/buscar/ >/dev/null
           test -f dist/pagefind/pagefind.js
+      - name: "Navegador real: 8 pantallas con tamaño de iPhone en Chromium y WebKit"
+        env:
+          GALERA_EXIGIR_BUSCADOR: "1"
+        run: |
+          pip install playwright==1.65.2
+          python -m playwright install --with-deps chromium webkit
+          python tools/navegador.py --navegador todos --dist dist --estados
       - name: SEO y vista previa (cero fallas)
         run: python tools/verificar_seo.py dist --dominio https://galera.com.ar

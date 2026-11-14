@@ -1,0 +1,90 @@
+{
+ "v": 1,
+ "carrera": "edicion",
+ "perfil": "profesional",
+ "vioAyuda": true,
+ "tema": "oscuro",
+ "ultimaVisita": "2026-05-01",
+ "version": 3,
+ "materias": {
+  "ipc": {
+   "estado": "aprobada",
+   "nota": "9",
+   "aprobada": "2025-07-15",
+   "favorita": true,
+   "color": "#fa0"
+  },
+  "0911": {
+   "estado": "cursando",
+   "nota": "",
+   "cuando": "Martes 18 h",
+   "comision": "3",
+   "examenes": [
+    {
+     "id": "p1",
+     "tipo": "Parcial",
+     "fecha": "2026-09-28",
+     "hora": "18:00",
+     "detalle": "1.er parcial",
+     "nota": "",
+     "recordar": true
+    }
+   ]
+  },
+  "0905": {
+   "estado": "pendiente",
+   "prioridad": 2
+  }
+ },
+ "horarios": {
+  "2026-2c": {
+   "materias": [
+    "0911"
+   ],
+   "elegidas": {
+    "0911|Teórico": "c1"
+   },
+   "sinSabado": true,
+   "listo": false,
+   "orden": [
+    1,
+    2
+   ]
+  }
+ },
+ "escandallo": {
+  "modo": "cpu",
+  "pvp": "18000",
+  "tirada": "2000",
+  "cpu": "2100",
+  "descuento": "40",
+  "invendibles": "4,6",
+  "derechos": "5",
+  "flete": "3",
+  "comisiones": "2",
+  "publicidad": "6",
+  "incobrables": "2",
+  "ce": "",
+  "margenObjetivo": "60",
+  "usarCanales": false,
+  "canales": []
+ },
+ "leidos": {},
+ "copia": "2026-05-01",
+ "modif": "2026-05-02",
+ "primera": "2026-03-01",
+ "visto": "2026-05-02",
+ "practica": {},
+ "juego": {
+  "on": true,
+  "rondas": {},
+  "hitos": [],
+  "retos": {},
+  "aprob": [
+   "ipc"
+  ],
+  "ultimo": "",
+  "puntos": 1200,
+  "racha": 3
+ }
+}

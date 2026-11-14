@@ -1,0 +1,8 @@
+{
+ "materias": {
+  "ipc": { "estado": "aprobada", "nota": "8" },
+  "icse": { "estado": "pendiente", "nota": "8" },
+  "0915": { "estado": "cursando", "nota": "10,5" }
+ },
+ "ausentes": ["0902", "0913", "id con espacios", "__proto__", "constructor"]
+}

@@ -1,0 +1,27 @@
+{
+ "v": 1,
+ "carrera": "edicion",
+ "perfil": "estudiante",
+ "vioAyuda": true,
+ "materias": {
+  "ipc": {
+   "estado": "aprobada",
+   "nota": "8",
+   "aprobada": "2025-07-15"
+  },
+  "icse": {
+   "estado": "cursando"
+  },
+  "0902": {
+   "estado": "regular",
+   "aplazos": [
+    "1"
+   ]
+  }
+ },
+ "horarios": {},
+ "leidos": {},
+ "primera": "2026-03-01",
+ "visto": "2026-03-02",
+ "practica": {}
+}
