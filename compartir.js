@@ -69,7 +69,7 @@ function abrirImagen(cv, o) {
     const file = new File([blob], o.archivo, { type: 'image/png' });
     const puede = !!(navigator.canShare && navigator.canShare({ files: [file] }));
     IMG_COMP = { blob, file, o };
-    abrir(cab(o.titulo) + `<p class="chico tenue" style="margin-top:0">${esc(o.intro)}</p>
+    abrir(cab(o.titulo) + `<p class="chico tenue u-margin-top-0">${esc(o.intro)}</p>
       <img class="img-comp" src="${cv.toDataURL('image/png')}" alt="${esc(o.alt)}" width="${cv.width}" height="${cv.height}">
       <div class="botones">${puede ? '<button class="btn" data-clic="enviarImagen">Compartir</button>' : ''}<button class="btn ${puede ? 'sec' : ''}" data-clic="bajarImagen">Descargar (.png)</button><button class="btn lin" data-clic="cerrar">Cerrar</button></div>`, 'img-comp');
   }, 'image/png');
@@ -104,8 +104,8 @@ function abrirQR(url, titulo, tipo, id) {
   if (!m) return aviso('No se pudo armar el QR de este link');
   QR_ACTUAL = { url, titulo, m };
   medir('share', { method: 'qr', content_type: tipo || 'pantalla', item_id: id || V.tab });
-  abrir(cab('Código QR') + `<p style="margin-top:0"><b>${esc(titulo)}</b></p><div class="qr-caja">${Traspaso.qrSvg(m, 'Código QR de ' + titulo)}</div>
-    <p class="chico tenue" style="text-align:center;overflow-wrap:anywhere">${esc(url)}</p>
+  abrir(cab('Código QR') + `<p class="u-margin-top-0"><b>${esc(titulo)}</b></p><div class="qr-caja">${Traspaso.qrSvg(m, 'Código QR de ' + titulo)}</div>
+    <p class="chico tenue u-text-align-center_overflow-wrap-anywhere">${esc(url)}</p>
     <p class="chico tenue">Sirve para pegarlo en una cartelera o en un apunte en papel: quien lo escanee abre esta misma pantalla.</p>
     <div class="botones"><button class="btn" data-clic="bajarQR">Descargar (.png)</button><button class="btn sec" data-clic="copiarQrActual">Copiar el link</button><button class="btn lin" data-clic="cerrar">Cerrar</button></div>`, 'qr');
 }
@@ -203,7 +203,7 @@ function linkSemana() {
   HOR_LINK = location.origin + location.pathname + '#horario=' + encodeURIComponent(V.oferta + '~' + sel.map(c => c.id).join('~'));
   const m = Traspaso.qrDeTexto(HOR_LINK);
   medir('share', { method: 'link', content_type: 'horario', item_id: V.oferta });
-  abrir(cab('Link para ver mi horario') + `<p style="margin-top:0">Quien lo abra ve tu semana <b>en modo lectura</b>, sin cuenta y sin poder cambiar nada. No lleva notas ni otros datos tuyos.</p>
+  abrir(cab('Link para ver mi horario') + `<p class="u-margin-top-0">Quien lo abra ve tu semana <b>en modo lectura</b>, sin cuenta y sin poder cambiar nada. No lleva notas ni otros datos tuyos.</p>
     ${m ? `<div class="qr-caja">${Traspaso.qrSvg(m, 'Código QR con tu horario')}</div>` : ''}
     <div class="botones"><button class="btn" data-clic="copiarHorLink">Copiar el link</button>${navigator.share ? '<button class="btn sec" data-clic="compartirHorLink">Compartir</button>' : ''}<button class="btn lin" data-clic="cerrar">Cerrar</button></div>`, 'hor-link');
 }
@@ -212,7 +212,7 @@ function abrirSemanaCompartida(oferta_, ids) {
   const sel = of ? ids.map(id => of.comisiones.find(c => c.id === id)).filter(Boolean) : [];
   if (!sel.length) return abrir(cab('Horario compartido') + `<p>Este horario es de un cuatrimestre que no está cargado o el link quedó incompleto.</p><div class="botones"><button class="btn" data-clic="cerrar">Cerrar</button></div>`, 'hor-comp');
   const cv = cvSemana(sel, of.nombre);
-  abrir(cab('Horario compartido') + `<p class="chico tenue" style="margin-top:0">Alguien te pasó su semana. Solo se puede mirar: no cambia nada de lo tuyo.</p>
+  abrir(cab('Horario compartido') + `<p class="chico tenue u-margin-top-0">Alguien te pasó su semana. Solo se puede mirar: no cambia nada de lo tuyo.</p>
     <img class="img-comp" src="${cv.toDataURL('image/png')}" alt="Grilla semanal del horario compartido" width="1080" height="1080">${listaSemana(sel)}
     <div class="botones"><button class="btn" data-clic="cerrarIr" data-clic-a="[&quot;horarios&quot;]">Armar el mío</button><button class="btn lin" data-clic="cerrar">Cerrar</button></div>`, 'hor-comp');
 }
@@ -239,10 +239,10 @@ async function abrirPasarAmigo() {
   AMIGO_URL = location.origin + location.pathname + '#datos=' + t;
   const m = Traspaso.qrDeTexto(AMIGO_URL);
   medir('share', { method: 'link', content_type: 'plan', item_id: 'amigo' });
-  abrir(cab(T) + `<p style="margin-top:0">Tu amigo abre el link y ya tiene cargadas las <b>${n} ${n === 1 ? 'materia' : 'materias'}</b> en las que estás (aprobadas y cursando). <b>No van tus notas, fechas, horarios ni apuntes.</b></p>
+  abrir(cab(T) + `<p class="u-margin-top-0">Tu amigo abre el link y ya tiene cargadas las <b>${n} ${n === 1 ? 'materia' : 'materias'}</b> en las que estás (aprobadas y cursando). <b>No van tus notas, fechas, horarios ni apuntes.</b></p>
     ${m ? `<div class="qr-caja">${Traspaso.qrSvg(m, 'Código QR con tu plan, sin notas')}</div>` : '<p class="chico tenue">Es un link largo para un QR: usá «Copiar el link».</p>'}
     <div class="botones"><button class="btn" data-clic="copiarAmigoUrl">Copiar el link</button>${navigator.share ? '<button class="btn sec" data-clic="compartirAmigoUrl">Compartir</button>' : ''}<button class="btn lin" data-clic="cerrar">Cerrar</button></div>
-    <p class="chico tenue" style="margin-top:10px">El link lleva el plan adentro y no pasa por ningún servidor. Mandalo solo a quien quieras.</p>`, 'amigo');
+    <p class="chico tenue u-margin-top-10px">El link lleva el plan adentro y no pasa por ningún servidor. Mandalo solo a quien quieras.</p>`, 'amigo');
 }
 
 // ---------- «¿Le sirve a alguien?» ----------
@@ -309,7 +309,7 @@ function abrirLogros() {
   const L = logros(), p = progreso(), av = pctAvance(p.total[0], p.total[1]), sig = HITOS_AVANCE.find(n => n > av);
   const falta = sig ? Math.ceil(sig * p.total[1] / 100) - p.total[0] : 0;
   abrir(cab('Mis logros') + (L.length
-    ? `<p class="chico tenue" style="margin-top:0">Cada uno se puede compartir como imagen sobria, sin tu nombre ni tus notas.</p>
+    ? `<p class="chico tenue u-margin-top-0">Cada uno se puede compartir como imagen sobria, sin tu nombre ni tus notas.</p>
       <ul class="lista-mas">${L.slice().reverse().map(g => `<li><button type="button" data-clic="compartirLogro" data-clic-a="[${arg(g.id)}]"><span>${esc(g.frase)}<small>${esc(g.detalle || '')}</small></span><i aria-hidden="true"></i></button></li>`).join('')}</ul>`
     : '<p class="vacio">Todavía no hay logros: marcá las materias que aprobaste y aparecen solos.</p>')
     + (falta > 0 ? `<p class="chico tenue">Para el ${sig} % te ${falta === 1 ? 'falta 1 requisito' : 'faltan ' + falta + ' requisitos'}.</p>` : '')
@@ -337,7 +337,7 @@ function mostrarFelicitacion() {
   el = document.getElementById('felicita'); if (el) el.remove();
   V.invito = true;
   el = document.createElement('div'); el.id = 'felicita'; el.className = 'invita'; el.setAttribute('role', 'status');
-  el.innerHTML = `<span class="crece"><b>¡Aprobaste!</b> ¿Querés dejar tu apunte para quien viene detrás?${unica ? `<small class="tenue" style="display:block">${esc(nombreDe(unica))}</small>` : ''}</span>
+  el.innerHTML = `<span class="crece"><b>¡Aprobaste!</b> ¿Querés dejar tu apunte para quien viene detrás?${unica ? `<small class="tenue u-display-block">${esc(nombreDe(unica))}</small>` : ''}</span>
     <button class="btn ch" type="button" id="fe-ap">Dejar mi apunte</button>${hito ? '<button class="btn sec ch" type="button" id="fe-lo">Compartir mi logro</button>' : ''}<button class="btn lin ch" type="button" id="fe-no">Ahora no</button><button class="enlace chico" type="button" id="fe-nunca">No mostrar más</button>`;
   document.body.appendChild(el);
   const quitar = () => { clearTimeout(t); el.remove(); };
@@ -355,8 +355,8 @@ document.getElementById('dlg').addEventListener('close', () => { if (FELIC) setT
 function sumarApunte(id) {
   if (V.demo) return aviso('Estás viendo el ejemplo: salí del ejemplo para sumar tu resumen');
   const L = D.plan.materias.filter(m => m.grupo === 'cbc' || m.grupo === 'grado');
-  abrir(cab('Sumá tu resumen') + `<p class="chico tenue" style="margin-top:0">Si tenés un resumen de una materia que ya cursaste, mandámelo por mail para quien viene detrás. <b>Lo reviso antes de publicarlo</b> (que sea correcto, que sea tuyo y que cite la bibliografía) y te aviso si hace falta algún cambio.</p>
-    <label class="c">Materia</label><select id="a-m" style="width:100%">${L.map(m => `<option value="${esc(m.id)}" ${m.id === id ? 'selected' : ''}>${esc(nombreDe(m))}</option>`).join('')}</select>
+  abrir(cab('Sumá tu resumen') + `<p class="chico tenue u-margin-top-0">Si tenés un resumen de una materia que ya cursaste, mandámelo por mail para quien viene detrás. <b>Lo reviso antes de publicarlo</b> (que sea correcto, que sea tuyo y que cite la bibliografía) y te aviso si hace falta algún cambio.</p>
+    <label class="c">Materia</label><select class="u-width-100" id="a-m">${L.map(m => `<option value="${esc(m.id)}" ${m.id === id ? 'selected' : ''}>${esc(nombreDe(m))}</option>`).join('')}</select>
     <p class="chico tenue">Se abre tu programa de correo con el mensaje armado. Pegá el link a tu resumen (Drive, Docs…) o adjuntá el archivo, y aclarame cómo querés que te acredite.</p>
     <div class="botones"><button class="btn" data-clic="mailApunte">Escribirme por mail</button><button class="btn lin" data-clic="cerrar">Cancelar</button></div>
     <p class="chico tenue">¿No se abre? Escribí a <b>${esc(CONTACTO)}</b>. No se manda nada de tus notas ni de tus horarios.</p>`, 'apunte-nuevo');
@@ -434,7 +434,7 @@ function arcDesafiar() {
 function abrirDesafio(tablero, semilla, puntos) {
   if (!Arcade.EJES[tablero] || !/^[a-z0-9]{4,10}$/.test(semilla) || !(puntos > 0 && puntos <= 999999)) return false;
   irArcade();
-  abrir(cab('Te desafiaron') + `<p style="margin-top:0">Alguien hizo <b>${arcCero(puntos)}</b> en el Arcade de Corrección de Estilo (${esc(arcNombre(tablero))}). Es el mismo tablero, con las mismas preguntas en el mismo orden.</p>
+  abrir(cab('Te desafiaron') + `<p class="u-margin-top-0">Alguien hizo <b>${arcCero(puntos)}</b> en el Arcade de Corrección de Estilo (${esc(arcNombre(tablero))}). Es el mismo tablero, con las mismas preguntas en el mismo orden.</p>
     <div class="botones"><button class="btn" data-clic="cerrarArcTeo" data-clic-a="[${arg(tablero)},${arg(semilla)},${ja(puntos)}]">Aceptar el desafío</button><button class="btn lin" data-clic="cerrar">Ahora no</button></div>`, 'desafio');
   return true;
 }
