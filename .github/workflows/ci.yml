@@ -77,7 +77,7 @@ jobs:
         env:
           GALERA_EXIGIR_BUSCADOR: "1"
         run: |
-          pip install playwright
+          pip install playwright==1.65.2
           python -m playwright install --with-deps chromium webkit
           python tools/navegador.py --navegador todos --dist dist --estados
       - name: SEO y vista previa (cero fallas)
