@@ -1552,7 +1552,7 @@ function repasos() {
 }
 function descargar(nombre, texto, tipo) { const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([texto], { type: tipo })); a.download = nombre; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 2000); }
 function exportarIcs() {
-  const evs = misFechas().map((e, i) => ({ uid: 'cursada-' + i + '-' + e.desde.replace(/-/g, '') + '@ficha.github.io', t: e.t, fecha: e.desde, desde: /^\d\d?:\d\d$/.test(e.hora || '') ? e.hora.padStart(5, '0') : '' }));
+  const evs = misFechas().map((e, i) => ({ uid: 'galera-fecha-' + i + '-' + e.desde.replace(/-/g, '') + '@galera.com.ar', t: e.t, fecha: e.desde, desde: /^\d\d?:\d\d$/.test(e.hora || '') ? e.hora.padStart(5, '0') : '' }));
   descargar('mis-fechas-galera.ics', Horarios.ics(evs, hoy()), 'text/calendar');
 }
 // La cursada elegida en Horarios, como clases que se repiten cada semana entre el inicio y el fin del cuatrimestre
@@ -1565,7 +1565,7 @@ function exportarCursada() {
   if (!sel.length) return aviso('Elegí primero tus comisiones');
   const fer = feriadosEn(p), clases = Horarios.clases(sel, p, fer.map(f => f.fecha));
   const evs = clases.map(x => ({
-    uid: 'cursada-' + V.oferta + '-' + x.c.id + '-' + x.i + '@ficha.github.io',
+    uid: 'galera-clase-' + V.oferta + '-' + x.c.id + '-' + x.i + '@galera.com.ar',
     t: nombreMateria(x.c.materia) + ' (' + x.c.tipo.toLowerCase() + (x.c.nombre ? ' ' + x.c.nombre : '') + ')',
     fecha: x.primera, desde: x.b.desde, hasta: x.b.hasta, ultima: x.ultima, sin: x.sin,
     lugar: x.c.aula ? 'Aula ' + x.c.aula : x.c.modalidad || '',
