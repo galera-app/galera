@@ -11,7 +11,7 @@ permissions:
 jobs:
   controles:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
         with:
@@ -71,5 +71,12 @@ jobs:
           python tools/humo.py http://localhost:8000
           curl -fsS http://localhost:8000/buscar/ >/dev/null
           test -f dist/pagefind/pagefind.js
+      - name: "Navegador real: 8 pantallas con tamaño de iPhone en Chromium y WebKit"
+        env:
+          GALERA_EXIGIR_BUSCADOR: "1"
+        run: |
+          pip install playwright
+          python -m playwright install --with-deps chromium webkit
+          python tools/navegador.py --navegador todos --dist dist
       - name: SEO y vista previa (cero fallas)
         run: python tools/verificar_seo.py dist --dominio https://galera.com.ar
