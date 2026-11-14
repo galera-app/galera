@@ -910,6 +910,15 @@ dialog.conf .btn { min-height: 44px; }
 .u-width-110px { width:110px !important; }
 .u-width-70px { width:70px !important; }
 .u-width-90px { width:90px !important; }
+
+/* v167: estilos que estaban en línea (style=), para sacar 'unsafe-inline' de style-src */
+.u-margin-0-0-4px { margin:0 0 4px !important; }
+.u-margin-0-0-6px { margin:0 0 6px !important; }
+.u-margin-top-0 { margin-top:0 !important; }
+.u-max-width-600px_margin-40px-auto_padding-0-16px { max-width:600px !important; margin:40px auto !important; padding:0 16px !important; }
+.u-min-height-208px { min-height:208px !important; }
+.u-text-align-center_overflow-wrap-anywhere { text-align:center !important; overflow-wrap:anywhere !important; }
+.u-width-100 { width:100% !important; }
 /* galera.css */
 /* Galera: capa de estilo del lienzo (C1 sobria) sobre estilos.css. Redefine tokens, cabecera, barra del celular e índice de inicio. */
 /* Los tokens (colores, radios, tipografías) viven solo en tokens.css. */
@@ -2040,6 +2049,8 @@ a.gl-lec-mapa .gl-lec-av{margin-top:auto;padding-top:8px}
 .lp-web{flex-shrink:0;font-weight:600;color:#212121}
 .lp-web span{color:#0671E0}
 @media print{
+  @page poster{size:A3 portrait;margin:0}
+  .lp-hoja{page:poster}
   body:has(.lp-hoja){margin:0;background:#fff}
   body:has(.lp-hoja)>*:not(main){display:none!important}
   body:has(.lp-hoja) #main{display:block;margin:0!important;padding:0!important;max-width:none!important;min-height:0!important}
@@ -2203,6 +2214,10 @@ dialog .botones .gl-btn,dialog .gl-btn{min-height:44px}
   .indice-margen a:focus-visible{outline:2px solid var(--tinta);outline-offset:2px}
 }
 @media print{.gl-apunte-fila{display:block}.indice-margen{display:none!important}}
+/* v167: el SVG de Typst traía un <style> en línea (la CSP no lo admite); estas son las reglas que importan, acotadas a su documento. */
+.typst-doc{fill:none}
+.typst-doc .typst-text{pointer-events:bounding-box}
+.typst-doc .pseudo-link{fill:transparent;cursor:pointer;pointer-events:all}
 /* libro/planificador.css */
 /* Planificador de libros (Cursada). Se suma a /cursada/estilos.css. */
 .lectura-main.lb-main { max-width: 1100px; }
@@ -2233,7 +2248,7 @@ tr.lb-info td { background: var(--sup2); border-bottom: 1px solid var(--borde); 
 }
 .tabla.cr-tareas .elige { padding: 4px 8px; font-size: .78rem; white-space: nowrap; }
 .tabla.cr-tareas .elige input { min-width: 0; width: 18px; height: 18px; min-height: 0; padding: 0; }
-.lb-hito { display: inline-block; position: absolute; top: 50%; width: 11px; height: 11px; margin: -5.5px 0 0 -5.5px; background: var(--marca); border: 1.5px solid var(--tinta); transform: rotate(45deg); z-index: 2; }
+.lb-hito { display: inline-block; position: absolute; top: 50%; width: 11px; height: 11px; margin: -5.5px 0 0 -5.5px; background: var(--sup); border: 2px solid var(--tinta); box-sizing: border-box; transform: rotate(45deg); z-index: 2; }
 .lb-hoy { position: absolute; top: 0; bottom: 0; width: 0; border-left: 2px dashed var(--mal); z-index: 1; }
 .cr-ref.lb-hito, .cr-ref.lb-hoy { position: static; display: inline-block; vertical-align: middle; margin: 0 3px 0 0; }
 .cr-ref.lb-hoy { height: 12px; }
@@ -2251,6 +2266,20 @@ tr.lb-info td { background: var(--sup2); border-bottom: 1px solid var(--borde); 
 .tabla.cr-tareas input[type=date].nota { min-width: 9.5em; }
 .lb-descarga { margin: 12px 0 0; }
 @media print { .lb-prog, .lb-base, .lb-real { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
+
+/* v167: estilos que estaban en línea (style=), para sacar 'unsafe-inline' de style-src */
+.u-margin-0 { margin:0 !important; }
+.u-margin-0-0-6px { margin:0 0 6px !important; }
+.u-margin-10px-0-0 { margin:10px 0 0 !important; }
+.u-margin-12px-0-6px { margin:12px 0 6px !important; }
+.u-margin-14px-0-6px { margin:14px 0 6px !important; }
+.u-margin-4px-0-8px { margin:4px 0 8px !important; }
+.u-margin-6px-0 { margin:6px 0 !important; }
+.u-margin-6px-0-0 { margin:6px 0 0 !important; }
+.u-margin-6px-0-10px { margin:6px 0 10px !important; }
+.u-margin-6px-0-12px { margin:6px 0 12px !important; }
+.u-margin-8px-0 { margin:8px 0 !important; }
+.u-margin-8px-0-0 { margin:8px 0 0 !important; }
 </style>
 </head>
 <body class="lectura">

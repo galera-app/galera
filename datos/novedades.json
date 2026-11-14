@@ -8,7 +8,7 @@
    "perfil": "profesional",
    "materias": [],
    "titulo": "El planificador de libros descargable ahora se ve como Galera",
-   "texto": "El archivo del planificador de libros que bajás para usar sin internet pasó a los colores, las letras y el logo de Galera, en claro y en oscuro. Funciona igual que antes y tus libros guardados siguen ahí. Los hitos del cronograma ahora se marcan en azul.",
+   "texto": "El archivo del planificador de libros que bajás para usar sin internet pasó a los colores, las letras y el nombre de Galera, en claro y en oscuro. Funciona igual que antes. Tus libros se guardan en el navegador, no en el archivo: antes de reemplazar el viejo, bajá la «Copia completa (.json)» desde «Guardar y exportar» y abrila en el nuevo con «Abrir una copia». Los hitos del cronograma ahora son un rombo blanco con borde azul.",
    "url": "https://galera.com.ar/libro/cronograma/"
   },
   {

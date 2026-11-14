@@ -27,7 +27,7 @@ tr.lb-info td { background: var(--sup2); border-bottom: 1px solid var(--borde); 
 }
 .tabla.cr-tareas .elige { padding: 4px 8px; font-size: .78rem; white-space: nowrap; }
 .tabla.cr-tareas .elige input { min-width: 0; width: 18px; height: 18px; min-height: 0; padding: 0; }
-.lb-hito { display: inline-block; position: absolute; top: 50%; width: 11px; height: 11px; margin: -5.5px 0 0 -5.5px; background: var(--marca); border: 1.5px solid var(--tinta); transform: rotate(45deg); z-index: 2; }
+.lb-hito { display: inline-block; position: absolute; top: 50%; width: 11px; height: 11px; margin: -5.5px 0 0 -5.5px; background: var(--sup); border: 2px solid var(--tinta); box-sizing: border-box; transform: rotate(45deg); z-index: 2; }
 .lb-hoy { position: absolute; top: 0; bottom: 0; width: 0; border-left: 2px dashed var(--mal); z-index: 1; }
 .cr-ref.lb-hito, .cr-ref.lb-hoy { position: static; display: inline-block; vertical-align: middle; margin: 0 3px 0 0; }
 .cr-ref.lb-hoy { height: 12px; }
