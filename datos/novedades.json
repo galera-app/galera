@@ -8,7 +8,7 @@
    "perfil": "todos",
    "materias": [],
    "titulo": "Los calendarios que bajás de Galera cambian de identificador",
-   "texto": "Los archivos .ics de Horarios, Calendario y el planificador de libros ahora identifican cada evento con la dirección de Galera. Si importaste un calendario viejo en Google Calendar, Outlook o el celular, borralo y volvé a bajarlo: si lo sumás encima, los eventos aparecen dos veces. Como terminó el cuatrimestre, no se pierde ninguna clase en curso.",
+   "texto": "Los archivos .ics de Horarios, Calendario y el planificador de libros ahora identifican cada evento con la dirección de Galera. Si ya habías importado uno, al importar el nuevo los eventos van a aparecer dos veces. Si lo tenías en un calendario aparte, borrá ese calendario y volvé a bajarlo. Si lo sumaste a tu calendario principal (es lo que hace Google Calendar si no elegís otro), vas a tener que borrar los eventos viejos a mano antes de importar el nuevo.",
    "url": "https://galera.com.ar/horarios/"
   },
   {

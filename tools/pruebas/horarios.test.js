@@ -156,4 +156,5 @@ test('ics: un evento de día entero el último día del mes termina el primero d
 test('ics: sin eventos es un calendario válido y vacío', () => {
   const t = H.ics([], '2026-01-01');
   assert.ok(t.includes('BEGIN:VCALENDAR') && t.includes('END:VCALENDAR') && !t.includes('VEVENT'));
+  assert.ok(t.includes('PRODID:-//Galera//galera.com.ar//ES'), 'el PRODID nombra a Galera, no al dominio viejo');
 });
