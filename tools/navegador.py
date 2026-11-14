@@ -16,6 +16,7 @@ import argparse
 import http.server
 import json
 import os
+import re
 import socketserver
 import sys
 import threading
@@ -104,9 +105,96 @@ window.__csp = [];
 document.addEventListener('securitypolicyviolation', e => window.__csp.push(e.violatedDirective + ' ' + e.blockedURI));
 """
 
+RE_ID = re.compile(r"^(?!__proto__$|constructor$|prototype$)[\w.-]{1,60}$")
+RE_NOTA = re.compile(r"^\d{1,2}(,\d{1,2})?$")
+ESTADOS_VALIDOS = ("pendiente", "cursando", "regular", "aprobada")
+
 
 def estado_js(estado):
-    return "try { localStorage.setItem('cursada.v1', %s); } catch (e) {}" % json.dumps(json.dumps(estado))
+    """Siembra el estado UNA sola vez por pestaña (marca en sessionStorage): una recarga muestra lo que la app guardó,
+    no lo que sembramos."""
+    return ("try { if (!sessionStorage.getItem('__sembrado')) { localStorage.setItem('cursada.v1', %s); sessionStorage.setItem('__sembrado', '1'); } } catch (e) {}"
+            % json.dumps(json.dumps(estado)))
+
+
+def host_de(url):
+    return (urlparse(url or "").hostname or "").lower()
+
+
+def es_ignorado(url):
+    """Tercero que no corre en local, de la lista explícita (compara el host, no una subcadena de la URL)."""
+    h = host_de(url)
+    return any(h == t or h.endswith("." + t) for t in TERCEROS_IGNORADOS)
+
+
+def preparar_contexto(browser, origen, siembra=None):
+    # service_workers=block: el service worker de producción no debe esconder pedidos fallidos ni servir copias viejas.
+    ctx = browser.new_context(service_workers="block", **IPHONE)
+    ctx.add_init_script(INIT_JS)
+    if siembra is not None:
+        ctx.add_init_script(estado_js(siembra))
+    host = urlparse(origen).netloc
+
+    def red(route):
+        u = urlparse(route.request.url)
+        if u.netloc == host or u.scheme in ("data", "blob"):
+            route.continue_()
+        else:
+            route.abort()  # nada sale de la máquina
+    ctx.route("**/*", red)
+    return ctx
+
+
+def observar(page, fallas, origen):
+    """Engancha los controles comunes. Solo se ignoran los terceros de la lista explícita: un recurso del mismo origen
+    (o de un dominio no previsto) que falla hace fallar la pantalla."""
+    host = urlparse(origen).netloc
+
+    def consola(msg):
+        if msg.type != "error":
+            return
+        loc = (msg.location or {}).get("url", "")
+        if es_ignorado(loc):
+            return  # tercero cortado a propósito
+        fallas.append(f"consola: {msg.text[:200]}" + (f" ({loc})" if loc else ""))
+
+    def respuesta(r):
+        u = urlparse(r.url)
+        if u.netloc == host and r.status >= 400:
+            fallas.append(f"{r.status} en el mismo origen: {r.url}")
+
+    def fallo_pedido(req):
+        u = urlparse(req.url)
+        motivo = str(req.failure or "")
+        if u.netloc == host:
+            if "ABORTED" not in motivo.upper():  # abortado = navegación o recarga en curso
+                fallas.append(f"pedido fallido en el mismo origen: {req.url} ({motivo[:80]})")
+        elif u.scheme in ("http", "https") and not es_ignorado(req.url):
+            fallas.append(f"pedido a un dominio no previsto: {req.url}")
+
+    page.on("console", consola)
+    page.on("pageerror", lambda e: fallas.append(f"excepción de página: {str(e)[:200]}"))
+    page.on("response", respuesta)
+    page.on("requestfailed", fallo_pedido)
+
+
+def esperar_h1(page, fallas):
+    try:
+        page.locator("h1").first.wait_for(state="visible", timeout=10000)
+        if not page.locator("h1").first.inner_text().strip():
+            fallas.append("el h1 está vacío")
+    except Exception:
+        fallas.append("no muestra su h1")
+    page.wait_for_timeout(500)  # que terminen los scripts diferidos
+
+
+def csp(page, fallas):
+    for v in page.evaluate("window.__csp || []"):
+        fallas.append(f"violación de CSP: {v}")
+
+
+def sin_repetidos(xs):
+    return list(dict.fromkeys(xs))
 
 
 def probar_pantalla(browser, nombre, ruta, estado, origen, hay_buscador):
@@ -117,103 +205,116 @@ def probar_pantalla(browser, nombre, ruta, estado, origen, hay_buscador):
         print("      (se saltea: este dist no trae Pagefind; el CI lo exige con GALERA_EXIGIR_BUSCADOR=1)")
         return []
     fallas = []
-    # service_workers=block: el service worker de producción no debe esconder pedidos fallidos ni servir copias viejas.
-    ctx = browser.new_context(service_workers="block", **IPHONE)
+    ctx = preparar_contexto(browser, origen, estado)
     try:
-        ctx.add_init_script(INIT_JS)
-        if estado is not None:
-            ctx.add_init_script(estado_js(estado))
-        host = urlparse(origen).netloc
-
-        def red(route):
-            u = urlparse(route.request.url)
-            if u.netloc == host or u.scheme in ("data", "blob"):
-                route.continue_()
-            else:
-                route.abort()  # nada sale de la máquina
-        ctx.route("**/*", red)
-
         page = ctx.new_page()
-
-        def ignorado(url):
-            return any(t in (url or "") for t in TERCEROS_IGNORADOS)
-
-        def consola(msg):
-            if msg.type != "error":
-                return
-            loc = (msg.location or {}).get("url", "")
-            # «Failed to load resource» de un tercero cortado a propósito: no cuenta.
-            if ignorado(loc) or (loc and urlparse(loc).netloc != host and "Failed to load resource" in msg.text):
-                if not ignorado(loc):
-                    fallas.append(f"consola: pedido a un dominio no previsto ({loc}): {msg.text[:120]}")
-                return
-            fallas.append(f"consola: {msg.text[:200]}")
-
-        def respuesta(r):
-            if urlparse(r.url).netloc == host and r.status == 404:
-                fallas.append(f"404 en el mismo origen: {r.url}")
-
-        page.on("console", consola)
-        page.on("pageerror", lambda e: fallas.append(f"excepción de página: {str(e)[:200]}"))
-        page.on("response", respuesta)
-
+        observar(page, fallas, origen)
         page.goto(origen + ruta, wait_until="networkidle", timeout=30000)
-        try:
-            page.locator("h1").first.wait_for(state="visible", timeout=10000)
-            if not page.locator("h1").first.inner_text().strip():
-                fallas.append("el h1 está vacío")
-        except Exception:
-            fallas.append("no muestra su h1")
-        page.wait_for_timeout(500)  # que terminen los scripts diferidos
-        for v in page.evaluate("window.__csp || []"):
-            fallas.append(f"violación de CSP: {v}")
+        esperar_h1(page, fallas)
+        csp(page, fallas)
         if estado is not None:
-            guardado = page.evaluate("JSON.parse(localStorage.getItem('cursada.v1') || 'null')")
-            if not guardado or set(estado["materias"]) - set(guardado.get("materias", {})):
-                fallas.append("la app perdió materias del estado de ejemplo")
+            fallas += comparar_estado(page, estado, None)
     except Exception as e:  # tiempo agotado, navegación rota…
         fallas.append(f"no se pudo abrir: {str(e)[:200]}")
     finally:
         ctx.close()
+    return sin_repetidos(fallas)
+
+
+def esperado_de(entrada, extra):
+    """Lo que tiene que sobrevivir de un estado de entrada: cada materia válida (id permitido y valor objeto) con su
+    estado y su nota, si eran válidos. `extra` (tools/estados/esperado/<archivo>) suma materias con valores exactos y ausentes."""
+    esp, ausentes = {}, []
+    mats = entrada.get("materias") if isinstance(entrada.get("materias"), dict) else {}
+    for id_, m in mats.items():
+        if RE_ID.match(id_) and isinstance(m, dict):
+            e = {}
+            if m.get("estado") in ESTADOS_VALIDOS:
+                e["estado"] = m["estado"]
+            nota = m.get("nota")
+            if isinstance(nota, str) and RE_NOTA.match(nota):
+                e["nota"] = nota
+            esp[id_] = e
+        elif not isinstance(m, list):  # una lista se acepta como materia vacía (lenient): no se exige ni su presencia ni su ausencia
+            ausentes.append(id_)
+    for id_, e in ((extra or {}).get("materias") or {}).items():
+        esp[id_] = dict(esp.get(id_, {}), **e)
+    ausentes += (extra or {}).get("ausentes", [])
+    return esp, sorted({a for a in ausentes if a not in esp})
+
+
+def comparar_estado(page, entrada, extra):
+    """Después de que la app normalizó: le pide que guarde (guardar(true), la misma función que usa al editar, sin marcar
+    cambio), lee localStorage y compara con lo esperado; recarga y vuelve a comparar (el estado se sembró una sola vez);
+    y repite lo que hacen exportar() e importar() (stringify de E, parse, normalizar) sin pasar por el selector de archivos."""
+    fallas = []
+    esp, ausentes = esperado_de(entrada, extra)
+    listas = {k for k, v in (entrada.get("materias") or {}).items() if RE_ID.match(k) and isinstance(v, list)}  # una lista cuenta como materia vacía (lenient)
+
+    def leer():
+        return page.evaluate("JSON.parse(localStorage.getItem('cursada.v1') || 'null')")
+
+    def comparar(guardado, cuando):
+        if not guardado:
+            return [f"{cuando}: no hay estado en localStorage"]
+        out, mats = [], guardado.get("materias") or {}
+        for id_, e in esp.items():
+            if id_ not in mats:
+                out.append(f"{cuando}: se perdió la materia {id_}")
+                continue
+            for k, v in e.items():
+                if str(mats[id_].get(k)) != str(v):
+                    out.append(f"{cuando}: {id_}.{k} es {mats[id_].get(k)!r} y debía ser {v!r}")
+        for a in ausentes:
+            if a in mats and page.evaluate("(a) => Object.prototype.hasOwnProperty.call(JSON.parse(localStorage.getItem('cursada.v1')).materias, a)", a):
+                out.append(f"{cuando}: quedó la clave {a!r}, que debía descartarse")
+        extras = set(mats) - set(esp) - listas
+        if extras:
+            out.append(f"{cuando}: materias que no estaban: {sorted(extras)}")
+        return out
+
+    try:
+        page.evaluate("guardar(true)")
+    except Exception as e:
+        return [f"no pude pedirle a la app que guarde: {str(e)[:120]}"]
+    fallas += comparar(leer(), "después de normalizar")
+    ida_y_vuelta = page.evaluate(
+        "() => { const a = JSON.parse(JSON.stringify(E, null, 1)); const b = normalizar(a);"
+        " return JSON.stringify(b) === JSON.stringify(JSON.parse(JSON.stringify(E))); }")
+    if not ida_y_vuelta:
+        fallas.append("exportar e importar no devuelve lo mismo")
+    page.reload(wait_until="networkidle")
+    esperar_h1(page, fallas)
+    fallas += comparar(leer(), "después de recargar")
     return fallas
 
 
 def estados_viejos(browser, origen):
-    """Cada estado de tools/estados/*.json cargado en localStorage: /carrera/ tiene que abrir sin errores."""
+    """Cada estado de tools/estados/*.json: se siembra una vez, /carrera/ abre sin errores y lo válido sobrevive."""
     total = []
     for f in sorted(ESTADOS.glob("*.json")):
         est = json.loads(f.read_text(encoding="utf-8"))
-        fallas = _con_estado_crudo(browser, f.name, est, origen)
+        ex = ESTADOS / "esperado" / f.name
+        extra = json.loads(ex.read_text(encoding="utf-8")) if ex.is_file() else None
+        fallas = []
+        ctx = preparar_contexto(browser, origen, est)
+        try:
+            page = ctx.new_page()
+            observar(page, fallas, origen)
+            page.goto(origen + "/carrera/", wait_until="networkidle", timeout=30000)
+            esperar_h1(page, fallas)
+            csp(page, fallas)
+            fallas += comparar_estado(page, est, extra)
+        except Exception as e:
+            fallas.append(f"no se pudo abrir: {str(e)[:200]}")
+        finally:
+            ctx.close()
+        fallas = sin_repetidos(fallas)
         print(f"  {'ok  ' if not fallas else 'FALLA'} estado {f.name}")
         for x in fallas:
             print(f"        - {x}")
         total += [f"{f.name}: {x}" for x in fallas]
     return total
-
-
-def _con_estado_crudo(browser, nombre, crudo, origen):
-    fallas = []
-    ctx = browser.new_context(service_workers="block", **IPHONE)
-    try:
-        ctx.add_init_script(INIT_JS)
-        ctx.add_init_script("try { localStorage.setItem('cursada.v1', %s); } catch (e) {}" % json.dumps(json.dumps(crudo)))
-        host = urlparse(origen).netloc
-        ctx.route("**/*", lambda r: r.continue_() if urlparse(r.request.url).netloc == host else r.abort())
-        page = ctx.new_page()
-        page.on("pageerror", lambda e: fallas.append(f"excepción de página: {str(e)[:200]}"))
-        page.on("console", lambda m: m.type == "error" and "Failed to load resource" not in m.text and fallas.append(f"consola: {m.text[:200]}"))
-        page.goto(origen + "/carrera/", wait_until="networkidle", timeout=30000)
-        try:
-            page.locator("h1").first.wait_for(state="visible", timeout=10000)
-        except Exception:
-            fallas.append("no muestra su h1")
-        page.wait_for_timeout(500)
-        fallas += [f"violación de CSP: {v}" for v in page.evaluate("window.__csp || []")]
-    except Exception as e:
-        fallas.append(f"no se pudo abrir: {str(e)[:200]}")
-    finally:
-        ctx.close()
-    return fallas
 
 
 def main():
