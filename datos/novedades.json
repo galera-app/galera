@@ -2,6 +2,16 @@
  "nota": "Lo que va en el mail de los lunes (Novedades.gs) y en la pestaña Novedades. v: número de versión (obligatorio; ver CHANGELOG.md). tipo: herramientas | resumenes | fechas. perfil: estudiante (por defecto) | profesional | todos; el mail y la pestaña Novedades lo usan para mostrar a cada perfil lo suyo. materias: ids del plan (vacío = para todas). url: solo links a galera.com.ar/. Sumar una entrada por cada cosa que se publica; el script manda solo lo posterior al último envío de cada persona, así que las viejas no se reenvían.",
  "novedades": [
   {
+   "v": 170,
+   "fecha": "2026-11-14",
+   "tipo": "herramientas",
+   "perfil": "profesional",
+   "materias": [],
+   "titulo": "Los decimales como 0.125 ya no se leen como 125",
+   "texto": "Si escribías un decimal con punto y tres cifras, como 0.125, Galera lo leía como 125. Pasaba en las herramientas que leen números que escribís: escandallo, papel, paginación y el cronograma del planificador de libros (también en el archivo descargable). Ya está arreglado: 0.125 vale 0,125. Los números con miles, como 1.250 o 18.000, se leen igual que antes.",
+   "url": "https://galera.com.ar/escandallo/"
+  },
+  {
    "v": 169,
    "fecha": "2026-11-14",
    "tipo": "herramientas",

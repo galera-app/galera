@@ -49,8 +49,31 @@ test('Num.parse: un punto con cuatro cifras detrás o con dos es decimal', () =>
   assert.equal(Num.parse('4.60'), 4.6);
 });
 
-// «0.125» se lee como 125, porque «punto + tres cifras» se toma siempre como miles. Pero un grupo de miles no puede
+// «0.125» se leía como 125, porque «punto + tres cifras» se tomaba siempre como miles. Un grupo de miles no puede
 // ser el primero si empieza con 0: quien escribe 0.125 (un espesor, por ejemplo) quiere decir un decimal.
-test('Num.parse: 0.125 es un decimal, no 125', { todo: 'Bug posible: «0.125» da 125 (el patrón de miles acepta un 0 inicial)' }, () => {
+test('Num.parse: 0.125 es un decimal, no 125', () => {
   assert.equal(Num.parse('0.125'), 0.125);
+  assert.equal(Num.parse('0.5'), 0.5);
+  assert.equal(Num.parse('-0.125'), -0.125);
+  assert.equal(Num.parse('0,125'), 0.125);
+  assert.equal(Num.parse('0.250'), 0.25);
+  assert.equal(Num.parse('00.125'), 0.125);
+  assert.equal(Num.parse('12.5'), 12.5);
+});
+
+test('Num.parse: punto + tres cifras con un grupo inicial que no es 0 sigue siendo miles', () => {
+  assert.equal(Num.parse('1.250'), 1250);
+  assert.equal(Num.parse('10.500'), 10500);
+  assert.equal(Num.parse('1.000.000'), 1000000);
+  assert.equal(Num.parse('999.999'), 999999);
+  assert.equal(Num.parse('-1.250'), -1250);
+  assert.equal(Num.parse('1.250,5'), 1250.5);
+});
+
+test('Num.parse: bordes de punto + cifras', () => {
+  assert.equal(Num.parse('1.2345'), 1.2345);
+  assert.equal(Num.parse('0.1250'), 0.125);
+  // Ambiguo de verdad: «1.250» puede ser 1,25 con un cero de más o mil doscientos cincuenta. Se lee como miles
+  // (es lo que escribe quien copia de una planilla argentina); «1.250» como decimal hay que escribirlo «1,25».
+  assert.equal(Num.parse('1.250'), 1250);
 });
