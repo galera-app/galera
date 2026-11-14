@@ -95,3 +95,4 @@ const Paginacion = (() => {
 
   return { armar, estado, paginasTexto, PARTES, MULTIPLOS, INI, EJEMPLO, n };
 })();
+if (typeof module !== 'undefined') module.exports = Paginacion;

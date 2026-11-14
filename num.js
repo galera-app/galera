@@ -11,3 +11,4 @@ const Num = (() => {
   };
   return { parse };
 })();
+if (typeof module !== 'undefined') module.exports = Num;

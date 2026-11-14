@@ -171,3 +171,4 @@ var Horarios = (function () {
 
   return { DIAS: DIAS, min: min, hhmm: hhmm, sePisan: sePisan, choques: choques, resumen: resumen, grupos: grupos, sugerir: sugerir, clases: clases, ics: ics };
 })();
+if (typeof module !== 'undefined') module.exports = Horarios;
