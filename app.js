@@ -174,7 +174,7 @@ function normalizar(e) {
     if (!RE_ID.test(id) || !m || typeof m !== 'object') return;
     out.materias[id] = {
       estado: ESTADOS[m.estado] ? m.estado : 'pendiente', opcion: RE_ID.test(m.opcion || '') ? m.opcion : '', detalle: txt(m.detalle, 200),
-      nota: /^\d{1,2}(,\d{1,2})?$/.test(m.nota || '') ? m.nota : '', cuando: txt(m.cuando, 80), aprobada: RE_FECHA.test(m.aprobada || '') ? m.aprobada : '',
+      nota: /^\d{1,2}(,\d{1,2})?$/.test(m.nota || '') ? '' : '', cuando: txt(m.cuando, 80), aprobada: RE_FECHA.test(m.aprobada || '') ? m.aprobada : '',
       apuntes: txt(m.apuntes, 5000), aplazos: lista(m.aplazos, 20).map(String).filter(a => /^[123]$/.test(a)),
       examenes: lista(m.examenes, 60).filter(x => x && typeof x === 'object').map(x => ({ id: RE_ID.test(x.id || '') ? x.id : uid(), tipo: txt(x.tipo, 30) || 'Otro',
         fecha: RE_FECHA.test(x.fecha || '') ? x.fecha : '', hora: RE_HORA.test(x.hora || '') ? x.hora : '', detalle: txt(x.detalle, 200), nota: txt(x.nota, 10) }))
