@@ -1,0 +1,21 @@
+{
+ "nota": "Banco de grabados de las imágenes para compartir. Fuente única de archivo, obra, licencia, nivel y recortes. Solo dominio público o CC0, nada generado con IA. Las máscaras de img/grabados/ y los créditos de /legal/ salen de acá con tools/grabados_compartir.py.",
+ "grabados": [
+  {"id": "imprenta", "commons": "File:Buchdrucker-1568.png", "obra": "Jost Amman, Ständebuch (1568): el impresor", "licencia": "Dominio público", "nivel": "tirada", "recortes": {"base": [0, 0, 1, 1]}},
+  {"id": "encuadernador", "commons": "File:Buchbinder-1568.png", "obra": "Jost Amman, Ständebuch (1568): el encuadernador", "licencia": "Dominio público", "nivel": "tirada", "recortes": {"base": [0, 0, 1, 1]}},
+  {"id": "papelero", "commons": "File:Fotothek df tg 0002100 Ständebuch ^ Handwerk ^ Handel ^ Papierer ^ Papierhändler ^ Papiermacher.jpg", "obra": "Jost Amman, Ständebuch (1568): el papelero", "licencia": "Dominio público", "nivel": "tirada", "recortes": {"base": [0, 0, 1, 0.95]}},
+  {"id": "fundidor", "commons": "File:Schriftgiesser.jpg", "obra": "Jost Amman, Ständebuch (1568): el fundidor de tipos", "licencia": "Dominio público", "nivel": "tirada", "recortes": {"base": [0.02, 0.02, 0.98, 0.98]}},
+  {"id": "grabador", "commons": "File:Formschneider.jpg", "obra": "Jost Amman, Ständebuch (1568): el grabador de tacos", "licencia": "Dominio público", "nivel": "tirada", "recortes": {"base": [0.02, 0.02, 0.98, 0.98]}},
+  {"id": "briefmaler", "commons": "File:Briefmaler.jpg", "obra": "Jost Amman, Ständebuch (1568): el pintor de estampas", "licencia": "Dominio público", "nivel": "tirada", "recortes": {"base": [0.02, 0.02, 0.98, 0.98]}},
+  {"id": "dibujante", "commons": "File:Fotothek df tg 0002097 Ständebuch ^ Handwerk ^ Künstler ^ Zeichner.jpg", "obra": "Jost Amman, Ständebuch (1568): el dibujante", "licencia": "Dominio público", "nivel": "tirada", "recortes": {"base": [0.03, 0.03, 0.97, 0.97]}},
+  {"id": "monje", "commons": "File:Scriptorium-monk-at-work.jpg", "obra": "Monje copista en el scriptorium, grabado (Paul Lacroix)", "licencia": "Dominio público", "nivel": "tirada", "recortes": {"base": [0, 0, 1, 0.93]}},
+  {"id": "stradanus", "commons": "File:De uitvinding van de boekdrukkunst, objectno PK.OPB.0186.005.jpg", "ancho_fuente": 2560, "obra": "Johannes Stradanus, Nova Reperta (h. 1600): la imprenta", "licencia": "Dominio público", "nivel": "tirada", "recortes": {"base": [0.55, 0.05, 0.97, 0.88], "semana-historia": [0.37, 0.19, 0.95, 0.55], "semana-cuadrada": [0.35, 0.26, 0.97, 0.47], "desafio": [0.45, 0.12, 0.9, 0.78]}},
+  {"id": "diderot-caja", "commons": "File:Planche de l’Encyclopédie de Diderot et d’Alembert. Pl. 1. Imprimerie en Lettres, L’Opération de la casse, G.33153.jpg", "ancho_fuente": 2560, "obra": "Encyclopédie de Diderot y d’Alembert: la caja de imprenta", "licencia": "CC0", "nivel": "tirada", "recortes": {"base": [0.08, 0.06, 0.92, 0.395]}},
+  {"id": "mielot", "commons": "File:Jean Miélot, Brussels.jpg", "obra": "Jean Miélot en su escritorio (siglo XV)", "licencia": "Dominio público", "nivel": "ilustrada", "recortes": {"base": [0, 0, 1, 1]}},
+  {"id": "dragon", "commons": "File:AberdeenBestiaryFolio065vDragonDetail.jpg", "obra": "Bestiario de Aberdeen: el dragón y el elefante", "licencia": "Dominio público", "nivel": "ilustrada", "recortes": {"base": [0, 0, 1, 1]}},
+  {"id": "pantera", "commons": "File:AberdeenBestiaryFolio009rPantherDetail.jpg", "obra": "Bestiario de Aberdeen: la pantera", "licencia": "Dominio público", "nivel": "ilustrada", "recortes": {"base": [0, 0, 1, 1]}},
+  {"id": "basilisco", "commons": "File:Aberdeen Bestiary Basilisk.jpg", "obra": "Bestiario de Aberdeen: el basilisco", "licencia": "Dominio público", "nivel": "ilustrada", "recortes": {"base": [0, 0, 1, 1]}},
+  {"id": "cordero", "commons": "File:Aberdeen Lamb.jpg", "obra": "Bestiario de Aberdeen: el cordero", "licencia": "Dominio público", "nivel": "ilustrada", "recortes": {"base": [0, 0, 1, 1]}},
+  {"id": "adan", "commons": "File:AberdeenBestiaryFolio005rAdamNamesAnimalsDetail.jpg", "obra": "Bestiario de Aberdeen: Adán nombra a los animales", "licencia": "Dominio público", "nivel": "ilustrada", "recortes": {"base": [0, 0, 1, 1]}}
+ ]
+}

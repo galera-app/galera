@@ -54,6 +54,8 @@ jobs:
         run: python tools/controlar_estilos.py
       - name: Cada apunte publicado tiene sus descargas
         run: python tools/controlar_descargas.py
+      - name: Cada grabado de Compartir tiene sus máscaras y su crédito en /legal/
+        run: python tools/grabados_compartir.py --controlar
       - name: Armar el sitio publicable (dist/)
         env:
           GALERA_EXIGIR_BUSCADOR: "1"
