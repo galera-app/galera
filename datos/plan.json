@@ -3,7 +3,7 @@
   "etapas": [
     {"id": "ahora", "t": "Ahora", "items": [
       {"id": "apuntes-revisados", "t": "Apuntes revisados contra las fuentes", "d": "Correcciones en los resúmenes de Derechos Editoriales y del Autor, Teoría de los Medios y de la Cultura y Edición de Publicaciones Periódicas.", "estado": "planeado"},
-      {"id": "contratos-fuentes", "t": "Redactor de contratos, con el texto oficial de cada ley", "d": "Cada cláusula linkea la norma que cita y dice cuándo se cotejó.", "estado": "listo"}
+      {"id": "contratos-fuentes", "t": "Redactor de contratos, con el texto oficial de cada ley", "d": "Cada cita a la ley linkea el texto oficial y dice si se cotejó y cuándo.", "estado": "listo"}
     ]},
     {"id": "sigue", "t": "Lo que sigue", "items": [
       {"id": "materia-aprobada", "t": "Una imagen para compartir cuando aprobás una materia", "d": "Marcás la materia como aprobada y Galera arma una imagen para tus redes y un álbum con tu avance en la carrera.", "estado": "planeado"},
@@ -14,14 +14,14 @@
       {"id": "buzon", "t": "Buzón más a la vista, con respuesta pública", "d": "Lo que pedís con «Contame qué falta» va a tener su respuesta a la vista de todos.", "estado": "planeado"},
       {"id": "aporte-mensual", "t": "Aporte mensual", "d": "Una forma de apoyar a Galera todos los meses, por Mercado Pago o Cafecito.", "estado": "planeado"}
     ]},
-    {"id": "verano", "t": "En el verano", "items": [
+    {"id": "despues", "t": "Después", "items": [
       {"id": "libro-inverso", "t": "Un buscador de libros posibles", "d": "Cargás lo que tenés (plata, texto, precio de tapa y fecha) y Galera te muestra qué libros cierran y por qué no cierran los demás.", "estado": "planeado"},
       {"id": "isbn", "t": "ISBN y depósito legal, paso a paso", "d": "Los trámites que pide publicar un libro en la Argentina, con la fuente oficial de cada dato.", "estado": "planeado"}
     ]},
     {"id": "cuat1-2027", "t": "Para el 1.er cuatrimestre de 2027", "items": [
       {"id": "calendario-2027", "t": "Calendario académico 2027", "d": "Inscripciones, cursada, mesas y feriados del año nuevo, cada fecha con su fuente oficial.", "estado": "planeado"},
       {"id": "oferta-2027", "t": "Horarios e ingresantes del primer cuatrimestre", "d": "La oferta de comisiones de 2027 y la guía para quienes empiezan la carrera, al día.", "estado": "planeado"},
-      {"id": "redes", "t": "Galera en las redes", "d": "Ya están Instagram, LinkedIn, YouTube y un canal de WhatsApp; faltan las publicaciones.", "estado": "planeado"}
+      {"id": "redes", "t": "Galera en las redes", "d": "Publicaciones en Instagram, LinkedIn, YouTube y el canal de WhatsApp.", "estado": "planeado"}
     ]},
     {"id": "sin-fecha", "t": "Más adelante, sin fecha", "items": [
       {"id": "aviso-mail", "t": "El aviso de los lunes, con otra cara", "d": "Un mail más cuidado, con «Verlo online» y la posibilidad de invitar a alguien.", "estado": "planeado"},
