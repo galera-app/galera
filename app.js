@@ -3839,7 +3839,7 @@ function sugerirActor() {
 // =====================================================================
 // CÓMO SE SOSTIENE: horas de trabajo, costos, cómo ayudar y el plan público.
 // Datos: datos/sostener.json (lo cuenta .github/scripts/sostener_horas.py cada lunes desde los commits), datos/sostener-costos.json (a mano)
-// y datos/plan.json (el plan, agrupado por etapa). Nada de esto se escribe acá: esta pantalla solo lo dibuja.
+// y datos/plan.json (el plan, agrupado por etapa; se genera fuera del repo desde el plan de trabajo y no se edita a mano). Nada de esto se escribe acá: esta pantalla solo lo dibuja.
 // =====================================================================
 async function cargarSostener() {
   if (D.sostener || cargarSostener.va) return;
