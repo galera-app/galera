@@ -2,6 +2,16 @@
  "nota": "Lo que va en el mail de los lunes (Novedades.gs) y en la pestaña Novedades. v: número de versión (obligatorio; ver CHANGELOG.md). tipo: herramientas | resumenes | fechas. perfil: estudiante (por defecto) | profesional | todos; el mail y la pestaña Novedades lo usan para mostrar a cada perfil lo suyo. materias: ids del plan (vacío = para todas). url: solo links a galera.com.ar/. Sumar una entrada por cada cosa que se publica; el script manda solo lo posterior al último envío de cada persona, así que las viejas no se reenvían.",
  "novedades": [
   {
+   "v": 171,
+   "fecha": "2026-11-14",
+   "tipo": "herramientas",
+   "perfil": "profesional",
+   "materias": [],
+   "titulo": "El redactor de contratos ahora linkea el texto oficial de cada ley",
+   "texto": "Cotejamos las citas del redactor de contratos a la Ley 11.723 y al Código Civil y Comercial contra su texto oficial en argentina.gob.ar, y corregimos las que estaban mal (por ejemplo, el artículo de los créditos y la descripción del plazo de publicación). Debajo de cada cláusula ves el link a la norma y la fecha del cotejo. La Ley 22.399 (ISBN) figura como sin cotejar porque su texto oficial no cargó. Sigue siendo una plantilla orientativa: antes de firmar, que la revise un/a abogado/a.",
+   "url": "https://galera.com.ar/simuladores/contratos.html"
+  },
+  {
    "v": 170,
    "fecha": "2026-11-14",
    "tipo": "herramientas",

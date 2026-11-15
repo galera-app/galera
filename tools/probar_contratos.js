@@ -122,14 +122,38 @@ check(!C.avisos('cesion', con('cesion', { plazoAnios: 8 })).some(a => /AATI/.tes
 
 console.log('Solo se citan artículos verificados');
 {
-  // Artículos cotejados con el texto de InfoLEG (Ley 11.723 y CCyC) para esta herramienta. Si se agrega otro, hay que verificarlo antes.
-  const OK = new Set([4, 5, 6, 23, 24, 37, 38, 39, 40, 41, 42, 43, 44, 51, 52, 53, 54, 55, 790, 1077, 1078, 1083, 1086, 1087, 1088, 1091, 1251, 1252, 1253, 1254, 1255, 1256, 1257, 1261, 1262, 1614]);
+  // Artículos cotejados con el texto oficial de argentina.gob.ar/normativa (Ley 11.723 y CCyC) para esta herramienta. Si se agrega otro, hay que verificarlo antes.
+  const OK = new Set([4, 5, 6, 23, 24, 37, 38, 39, 40, 41, 42, 43, 44, 51, 52, 53, 54, 55, 57, 61, 790, 1077, 1078, 1083, 1086, 1087, 1088, 1091, 1251, 1252, 1253, 1254, 1255, 1256, 1257, 1261, 1262, 1614]);
   const malos = new Set();
   TIPOS.forEach(id => C.CLAUSULAS[id].forEach(c => {
     const textos = [c.fuente, c.porque, ...(c.vars ? [] : [])];
     textos.forEach(t => (String(t).match(/arts?\.\s*[\d.,\sya]+/g) || []).forEach(m => (m.replace(/arts?\./, '').match(/\d[\d.]*/g) || []).forEach(n => { if (!OK.has(Number(n.replace(/\.$/, ''))) && n !== '11.723' && !/^22/.test(n)) malos.add(`${id}/${c.id}: ${n}`); })));
   }));
   check(malos.size === 0, 'ninguna fuente cita un artículo fuera de la lista verificada' + (malos.size ? ': ' + [...malos].join(', ') : ''));
+}
+
+console.log('Texto oficial y fecha de cotejo de cada norma citada');
+{
+  // Cada norma que aparece en una `fuente` está en C.NORMAS: con URL oficial (argentina.gob.ar/normativa, InfoLEG, SAIJ o Boletín Oficial)
+  // y fecha AAAA-MM-DD, o explícitamente sin cotejar (url y verificado en null) para que la pantalla lo diga.
+  const OFICIAL = /^https:\/\/(www\.argentina\.gob\.ar\/normativa\/|servicios\.infoleg\.gob\.ar\/|www\.saij\.gob\.ar\/|www\.boletinoficial\.gob\.ar\/)/;
+  const SIN_COTEJAR = ['Ley 22.399'];
+  C.NORMAS.forEach(x => {
+    if (SIN_COTEJAR.includes(x.n)) check(x.url === null && x.verificado === null, `${x.n}: marcada sin cotejar (sin URL ni fecha inventadas)`);
+    else check(OFICIAL.test(x.url || '') && /^\d{4}-\d{2}-\d{2}$/.test(x.verificado || ''), `${x.n}: URL oficial y fecha de cotejo`);
+  });
+  const sinNorma = new Set();
+  TIPOS.forEach(id => C.CLAUSULAS[id].forEach(c => {
+    if (/Ley \d|CCyC|Código/.test(c.fuente) && !C.normasDe(c.fuente).length) sinNorma.add(`${id}/${c.t}`);
+    (c.fuente.match(/Ley [\d.]+|CCyC/g) || []).forEach(n => { if (!C.NORMAS.some(x => x.re.test(n))) sinNorma.add(`${id}/${c.t}: ${n}`); });
+  }));
+  check(sinNorma.size === 0, 'toda norma citada en una fuente tiene su entrada en NORMAS' + (sinNorma.size ? ': ' + [...sinNorma].join(', ') : ''));
+  const r = C.generar('edicion', con('edicion', CASOS.edicion));
+  check(r.clausulas.every(c => Array.isArray(c.normas)) && r.clausulas.some(c => c.normas.some(x => x.n === 'Ley 11.723' && x.url)), 'generar() pasa las normas de cada cláusula a la pantalla');
+  const md = C.documento('edicion', con('edicion', CASOS.edicion), { notas: true });
+  check(md.includes('Texto oficial: Ley 11.723, https://www.argentina.gob.ar/normativa/') && md.includes('cotejado el 14/11/2026'), 'el anexo de notas trae el link oficial y la fecha');
+  check(C.documento('coedicion', con('coedicion', CASOS.coedicion), { notas: true }).includes('Ley 22.399 (sin cotejar contra el texto oficial)'), 'la norma sin cotejar se dice como tal');
+  check(C.AVISO.includes('no es asesoramiento legal'), 'el aviso general sigue diciendo que no es asesoramiento legal');
 }
 
 console.log('Salidas');

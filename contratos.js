@@ -56,7 +56,7 @@ const Contratos = (() => {
         { id: 'regalia', etq: 'Regalía sobre el precio de tapa (%) (art. 40)', tipo: 'num', def: '', ayuda: 'El art. 40 exige que conste la retribución; sin ella se aplican los usos y costumbres.' },
         { id: 'anticipo', etq: 'Anticipo a cuenta de regalías (pesos; 0 si no hay)', tipo: 'num', def: 0 },
         { id: 'mesesEntrega', etq: 'Plazo de entrega de la obra (meses)', tipo: 'num', def: '' },
-        { id: 'mesesPublicacion', etq: 'Plazo de publicación (meses desde la entrega)', tipo: 'num', def: 24, ayuda: 'El modelo de la AATI usa 2 años; el art. 42 manda fijar plazo.' },
+        { id: 'mesesPublicacion', etq: 'Plazo de publicación (meses desde la entrega)', tipo: 'num', def: 24, ayuda: 'El modelo de la AATI usa 2 años; el art. 42 deja el plazo a un tribunal si no se pacta.' },
         { id: 'plazoAnios', etq: 'Duración del contrato (años)', tipo: 'num', def: 5 },
         { id: 'cortesia', etq: 'Ejemplares de cortesía al autor', tipo: 'num', def: 5 },
         { id: 'descuento', etq: 'Descuento al autor en compras propias (%)', tipo: 'num', def: 40 },
@@ -93,7 +93,7 @@ const Contratos = (() => {
       { t: 'Publicación', fuente: 'Ley 11.723, art. 42; plazos según modelo AATI, cláusula 5', f: g => `El EDITOR/A publicará la obra dentro de ${g('mesesPublicacion', 'meses')} meses de recibida, con una tolerancia excepcional de 6 meses. Si no lo hace, el AUTOR/A puede dar por rescindido el contrato sin más trámite, conserva lo cobrado y recupera todos los derechos concedidos.` },
       { t: 'Duración y fin del contrato', fuente: 'Ley 11.723, arts. 43 y 44; plazo según modelo AATI, cláusula 6', f: g => `El contrato dura ${g('plazoAnios', 'años')} años desde la firma. Termina antes, cualquiera sea el plazo, si se agotan las ediciones convenidas (art. 44). Al vencer el plazo, si el EDITOR/A conserva ejemplares sin vender, el AUTOR/A puede comprarlos a precio de costo más un 10 % de bonificación; si no lo hace, el EDITOR/A puede seguir vendiéndolos en las condiciones de este contrato (art. 43).` },
       { t: 'Ejemplares y compras del autor', fuente: 'Modelo AATI, cláusula 8 (adaptada)', f: g => `El EDITOR/A entregará al AUTOR/A ${g('cortesia', 'ejemplares de cortesía')} ejemplares de cortesía de la primera edición, que no pueden venderse. El AUTOR/A podrá comprar más con ${g('descuento', 'descuento')} % de descuento sobre el precio de tapa, para uso propio o para regalar sin fines de lucro.` },
-      { t: 'Créditos', fuente: 'Ley 11.723, art. 38; modelo AATI, cláusula 7 (adaptada)', f: () => `El nombre del AUTOR/A (o su seudónimo) figurará en tapa, portada y página de legales, y en catálogos, reseñas y publicidades donde figure el título de la obra.` },
+      { t: 'Créditos', fuente: 'Ley 11.723, art. 52; modelo AATI, cláusula 7 (adaptada)', f: () => `El nombre del AUTOR/A (o su seudónimo) figurará en tapa, portada y página de legales, y en catálogos, reseñas y publicidades donde figure el título de la obra.` },
       { t: 'Ley aplicable y tribunales', fuente: 'Modelo AATI, cláusula 12 (adaptada)', f: g => `Este contrato se rige por las leyes argentinas. Las partes constituyen domicilio en los indicados en el encabezamiento y se someten a los tribunales ordinarios de ${g('ciudad', 'ciudad')}, con renuncia a cualquier otro fuero.` },
     ],
   };
@@ -110,6 +110,16 @@ const Contratos = (() => {
   const FRANJA = 'Este modelo es una redacción de Galera sin respaldo en un modelo oficial ni revisión de un/a abogado/a. No lo firmes sin que lo lea un profesional.';
   const franja = id => CON_FUENTE.indexOf(id) < 0 ? { t: FRANJA_T, d: FRANJA } : null;
   const AVISO = 'Plantilla orientativa: no es asesoramiento legal. Antes de firmar, conviene que la revise un/a abogado/a.';
+  // Texto oficial de cada norma citada en `fuente` y fecha en que se cotejaron sus artículos (detalle: propuestas/2026-11-14-plan-galera/contratos-cotejo.md).
+  // url null = no se pudo abrir el texto oficial: se muestra como «sin cotejar».
+  const NORMAS = [
+    { n: 'Ley 11.723', re: /Ley 11\.723/, url: 'https://www.argentina.gob.ar/normativa/nacional/ley-11723-42755/actualizacion', verificado: '2026-11-14' },
+    { n: 'Código Civil y Comercial', re: /CCyC/, url: 'https://www.argentina.gob.ar/normativa/nacional/ley-26994-235975/texto', verificado: '2026-11-14' },
+    { n: 'Ley 22.399', re: /Ley 22\.399/, url: null, verificado: null }
+  ];
+  const normasDe = fuente => NORMAS.filter(x => x.re.test(fuente || '')).map(({ n, url, verificado }) => ({ n, url, verificado }));
+  const fechaAr = f => f ? f.split('-').reverse().join('/') : '';
+  const oficialTxt = c => c.normas && c.normas.length ? ' Texto oficial: ' + c.normas.map(x => x.url ? `${x.n}, ${x.url} (cotejado el ${fechaAr(x.verificado)})` : `${x.n} (sin cotejar contra el texto oficial)`).join('; ') + '.' : '';
   const miles = n => { const s = String(Math.round(Number(n) * 100) / 100).replace('.', ','), p = s.split(','); return p[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.') + (p[1] ? ',' + p[1] : ''); };
   const T = (id, etq, def, x) => Object.assign({ id, etq, tipo: 'texto', def: def == null ? '' : def }, x);
   const N = (id, etq, def, x) => Object.assign({ id, etq, tipo: 'num', def: def == null ? '' : def }, x);
@@ -137,7 +147,7 @@ const Contratos = (() => {
       { k: 'negociacion', etq: 'Negociación previa y después tribunales', f: g => `Este contrato se rige por las leyes argentinas. Antes de iniciar cualquier acción, las partes intentarán resolver sus diferencias por negociación directa y de buena fe durante ${g('diasNegociacion', 'días de negociación')} días corridos desde que una notifique el reclamo a la otra. Si no lo logran, se someten a los tribunales ordinarios de ${g('ciudad', 'ciudad')}, con renuncia a cualquier otro fuero.` },
       { k: 'arbitraje', etq: 'Arbitraje', f: g => `Este contrato se rige por las leyes argentinas. Toda diferencia derivada de él se resolverá por arbitraje ante ${g('arbitraje', 'tribunal o institución de arbitraje')}, conforme a su reglamento y con sede en ${g('ciudad', 'ciudad')}.` }] });
   const cRescision = vuelve => ({ id: 'rescision', t: 'Resolución del contrato', fuente: 'CCyC, arts. 1077, 1083, 1086 a 1088', revisar: true,
-    porque: 'El Código permite pactar una cláusula resolutoria expresa (art. 1086). Si no la pactás, rige la implícita (arts. 1087 y 1088), que exige un emplazamiento con apercibimiento de al menos 15 días, salvo excepciones. Pactarlo de antemano da certeza. Rescindir sin causa solo vale si el contrato lo permite (art. 1077): por eso hay una variante con preaviso.',
+    porque: 'El Código permite pactar una cláusula resolutoria expresa (art. 1086). Si no la pactás, rige la implícita (arts. 1087 y 1088), que exige un emplazamiento con apercibimiento de al menos 15 días, salvo excepciones. Pactarlo de antemano da certeza. Rescindir sin causa solo vale si el contrato o la ley lo prevén (art. 1077): por eso hay una variante con preaviso.',
     vars: [
       { k: 'incumplimiento', etq: 'Solo por incumplimiento, con intimación previa', f: g => `Si una de las partes incumple una obligación esencial de este contrato, la otra puede intimarla por medio fehaciente (por ejemplo, carta documento) a cumplir dentro de ${g('diasIntimacion', 'días de intimación')} días corridos, bajo apercibimiento de resolver el contrato. Vencido ese plazo sin cumplimiento, el contrato queda resuelto por la sola comunicación fehaciente de la parte cumplidora, sin perjuicio de los daños que correspondan y de lo ya pagado por trabajos o derechos efectivamente entregados o usados.${(vuelve && vuelve(g.r)) ? ' ' + vuelve(g.r) : ''}` },
       { k: 'preaviso', etq: 'Por incumplimiento, o sin causa con preaviso', f: g => `Si una de las partes incumple una obligación esencial de este contrato, la otra puede intimarla por medio fehaciente (por ejemplo, carta documento) a cumplir dentro de ${g('diasIntimacion', 'días de intimación')} días corridos, bajo apercibimiento de resolver el contrato. Además, cualquiera de las partes puede terminar el contrato sin expresar causa, con un preaviso fehaciente de ${g('diasPreaviso', 'días de preaviso')} días corridos; en ese caso se paga lo ya realizado o entregado hasta la terminación y no hay otra indemnización.${(vuelve && vuelve(g.r)) ? ' ' + vuelve(g.r) : ''}` }] });
@@ -210,9 +220,9 @@ const Contratos = (() => {
       f: g => `${g('p2')} (el ${g.r.b}) se obliga a realizar, de forma independiente, la obra descrita como «${g('obra')}» (el ENCARGO) a favor de ${g('p1')} (el ${g.r.a}), y este se obliga a pagar el precio. Las partes declaran que se promete un resultado entregable y que entre ellas no hay relación de dependencia.` },
     { id: 'entrega', t: 'Entrega y plazo', fuente: 'CCyC, art. 1256', porque: 'Entre las obligaciones del contratista figura cumplir el plazo (art. 1256). Si la demora depende del comitente (material, respuestas), conviene que el plazo se suspenda.',
       f: g => `El ${g.r.b} entregará ${g('entregables', 'qué se entrega')} dentro de ${g('diasEntrega', 'plazo de entrega')} días corridos desde la firma. Si el ${g.r.a} demora el material o sus respuestas, el plazo se suspende por el mismo tiempo.` },
-    { id: 'revisiones', t: 'Revisiones y aprobación', fuente: 'CCyC, art. 1257 (el comitente debe recibir la obra conforme a lo pactado); práctica contractual', revisar: true, porque: 'Sin un tope de revisiones, el trabajo se estira sin fin. Fijalo y acordá qué pasa si el comitente no responde.',
+    { id: 'revisiones', t: 'Revisiones y aprobación', fuente: 'CCyC, art. 1257 (el comitente debe recibir la obra ejecutada según el art. 1256); práctica contractual', revisar: true, porque: 'Sin un tope de revisiones, el trabajo se estira sin fin. Fijalo y acordá qué pasa si el comitente no responde.',
       f: g => `El precio incluye ${g('revisiones', 'rondas de revisión')} ronda(s) de revisión. El ${g.r.a} comunicará sus cambios por escrito dentro de ${g('diasRespuesta', 'días para responder')} días corridos de cada entrega; si no responde en ese plazo, la entrega se tiene por aprobada. Los cambios adicionales se presupuestan aparte.` },
-    { id: 'precio', t: 'Precio y forma de pago', fuente: 'CCyC, arts. 1255, 1257 y 1262', porque: 'El precio lo fijan las partes (art. 1255). Si es global, no se puede reclamar más por más trabajo, y si nada se pacta se presume precio global (arts. 1255 y 1262). Por eso conviene dejar claro qué incluye.', ref: [{ sim: 'tarifario', t: 'Mirá los tarifarios públicos de referencia' }],
+    { id: 'precio', t: 'Precio y forma de pago', fuente: 'CCyC, arts. 1255, 1257 y 1262', porque: 'El precio lo fijan las partes (art. 1255). Si es global, no se puede reclamar más por más trabajo, y si nada se pacta se presume precio global (art. 1262). Por eso conviene dejar claro qué incluye.', ref: [{ sim: 'tarifario', t: 'Mirá los tarifarios públicos de referencia' }],
       f: g => { const a = num(g.v.anticipoPct); return `El precio total del ENCARGO es de ${g.m('precio', 'precio total')}, precio global por el trabajo descrito.${a ? ` El ${a} % se paga al firmar y el saldo, contra la entrega final.` : ' Se paga contra la entrega final.'} Los pagos se harán dentro de los ${g('diasPago', 'días para pagar')} días corridos de cada vencimiento.${pagoUsd(g)}`; } },
     { id: 'derechos', t: 'Derechos sobre la obra', fuente: 'Ley 11.723, arts. 4 y 51', revisar: true, porque: 'La ley reconoce como titular al autor (art. 4) y prevé que los derechos se transfieran por cesión (art. 51). Por eso conviene que el contrato diga si se cede o solo se licencia: encargar una obra no lo resuelve por sí solo.',
       vars: [{ k: 'licencia', etq: 'Licencia de uso para un proyecto', f: g => `El ${g.r.b} conserva la titularidad de la obra y concede al ${g.r.a} una licencia para usarla en ${g('proyecto', 'proyecto o uso autorizado')}, para ${TERR[g.v.territorio] || FALTA('territorio')}, por ${g('plazoAnios', 'años de duración')} años. Todo otro uso requiere un acuerdo escrito aparte.` },
@@ -315,13 +325,13 @@ const Contratos = (() => {
       f: g => { const a = num(g.v.costoA), e = num(g.v.ejA); return `${g.r.a} asume el ${g('costoA', 'porcentaje de costos de A')} % de los costos de producción de la edición${a != null ? ` y ${g.r.b} el ${pct(100 - a)} %` : ''}. Los ejemplares se reparten así: ${g.r.a} recibe el ${g('ejA', 'porcentaje de ejemplares de A')} %${e != null ? ` y ${g.r.b} el ${pct(100 - e)} %` : ''}. Cada parte factura y paga sus partes de modo que los comprobantes respondan a lo que cada una asumió.`; } },
     { id: 'territorios', t: 'Territorios y venta', fuente: 'Práctica editorial', revisar: true, porque: 'Si cada coeditor vende en su territorio, conviene decir qué pasa con las ventas por internet y con quien compra fuera de zona.',
       f: g => `${g.r.a} venderá su parte de los ejemplares en ${g('terrA', 'territorio de A')} y ${g.r.b} en ${g('terrB', 'territorio de B')}. Ninguna venderá activamente en el territorio de la otra sin su acuerdo escrito. Cada parte fija el precio de venta al público en su territorio y avisa a la otra.` },
-    { id: 'isbn', t: 'ISBN y depósito legal', fuente: 'Ley 22.399 (ISBN); Ley 11.723 (depósito legal)', revisar: true, porque: 'Cada edición necesita su ISBN y cumplir el depósito legal. Acordá quién lo hace y cómo figuran las dos editoriales en la página de legales.', ref: [{ sim: 'leyes', t: 'Ver las fichas del ISBN y el depósito legal' }],
+    { id: 'isbn', t: 'ISBN y depósito legal', fuente: 'Ley 22.399 (ISBN); Ley 11.723, arts. 57 y 61 (depósito legal)', revisar: true, porque: 'Cada edición necesita su ISBN y cumplir el depósito legal. Acordá quién lo hace y cómo figuran las dos editoriales en la página de legales.', ref: [{ sim: 'leyes', t: 'Ver las fichas del ISBN y el depósito legal' }],
       f: g => `El ISBN y el depósito legal los tramita${g.v.isbn === 'cada' ? ' cada EDITORIAL para sus ejemplares' : ' ' + quien(g, g.v.isbn)}. En la página de legales y en la portada figurarán ambas EDITORIALES.` },
     { id: 'regalias', t: 'Regalías al autor', fuente: 'Ley 11.723, art. 40', porque: 'Alguien tiene que liquidarle al autor. Decidir quién y con qué datos evita que el autor reciba dos liquidaciones o ninguna.',
       f: g => `Se pagará al autor el ${g('regalia', 'regalía')} % del precio de venta al público de cada ejemplar vendido por ambas EDITORIALES. La liquidación la hace ${quien(g, g.v.liquida)} y la otra EDITORIAL le informa sus ventas cada ${g('mesesInforme', 'meses de informe')} meses.` },
     { id: 'informe', t: 'Informe de ventas', fuente: 'Práctica editorial; modelo AATI, cláusula 3.D (adaptada)', opcional: true, def: true, revisar: true, porque: 'Sin datos de ventas, no hay cuentas claras.',
       f: g => `Cada EDITORIAL enviará a la otra, cada ${g('mesesInforme', 'meses de informe')} meses, un informe con ejemplares vendidos, devueltos, en depósito y en consignación, y el precio de tapa.` },
-    { id: 'publicacion', t: 'Plazos y duración', fuente: 'Ley 11.723, arts. 42 y 43', porque: 'El art. 42 manda fijar plazo de publicación; si falta, lo fija un tribunal. El art. 43 prevé qué pasa con los ejemplares que quedan al vencer el contrato.',
+    { id: 'publicacion', t: 'Plazos y duración', fuente: 'Ley 11.723, arts. 42 y 43', porque: 'Si el contrato no fija plazo para publicar, el art. 42 deja que lo fije un tribunal en juicio sumario. Acordalo vos antes. El art. 43 prevé qué pasa con los ejemplares que quedan al vencer el contrato.',
       f: g => `La OBRA se publicará dentro de ${g('mesesPublicacion', 'meses para publicar')} meses de la firma. El contrato dura ${g('plazoAnios', 'años de duración')} años desde la firma. Al vencer, cada EDITORIAL podrá seguir vendiendo sus ejemplares en las condiciones de este contrato, y las existencias de una pueden ser ofrecidas a la otra a precio de costo antes de venderlas a un tercero.` },
     { id: 'cesion', t: 'Prohibición de ceder', fuente: 'Práctica contractual habitual', opcional: true, def: false, revisar: true, porque: 'Si una editorial se vende, ¿la otra sigue de socia con un tercero? Esta cláusula lo evita.',
       f: g => `Ninguna de las EDITORIALES puede ceder este contrato ni sus derechos sin el consentimiento escrito de la otra.` },
@@ -384,7 +394,7 @@ const Contratos = (() => {
       T('plataformas', 'Plataformas de distribución (opcional)', '', { si: v => v.inc_plataformas }),
       ...RESC, ...CONF, ...NOTIF, ...JUR] };
   CLAUSULAS.audiolibro = [
-    { id: 'objeto', t: 'Objeto', fuente: 'CCyC, art. 1614; Ley 11.723, arts. 51 y 38', porque: 'Pasar un libro a audio es una forma distinta de explotarlo: el contrato de edición en papel no la incluye salvo que se lo pacte (art. 38: el editor solo tiene los derechos que se le conceden). La cesión de otra explotación requiere acuerdo expreso.', ref: [{ sim: 'leyes', t: 'Ver las fichas de la Ley 11.723' }],
+    { id: 'objeto', t: 'Objeto', fuente: 'CCyC, art. 1614; Ley 11.723, arts. 51 y 38', porque: 'Pasar un libro a audio es una forma distinta de explotarlo: el contrato de edición en papel no la incluye salvo que se lo pacte (arts. 38 y 39: el autor conserva sus derechos y el editor solo tiene los de impresión, difusión y venta). La cesión de otra explotación requiere acuerdo expreso.', ref: [{ sim: 'leyes', t: 'Ver las fichas de la Ley 11.723' }],
       vars: [{ k: 'licencia', etq: 'Licencia exclusiva de uso', f: g => `${g('p1')} (el ${g.r.a}) concede a ${g('p2')} (el ${g.r.b}) una licencia para producir y explotar versiones en audio de la obra «${g('obra')}», de ${g('autor')} (la OBRA), en los términos de este contrato. El ${g.r.a} conserva la titularidad de los derechos.` },
         { k: 'cesion', etq: 'Cesión de los derechos en audio', f: g => `${g('p1')} (el ${g.r.a}) cede a ${g('p2')} (el ${g.r.b}) los derechos de edición y explotación en formato de audio de la obra «${g('obra')}», de ${g('autor')} (la OBRA), en los términos de este contrato. El ${g.r.a} conserva todos los demás derechos.` }] },
     { id: 'alcance', t: 'Versiones y reserva de derechos', fuente: 'Ley 11.723, arts. 38 y 52', porque: 'Un audiolibro no es un resumen: acotá qué versión se hace. El art. 52 conserva al autor la fidelidad del texto: cortes y cambios necesitan su aprobación.',
@@ -394,7 +404,7 @@ const Contratos = (() => {
     { id: 'narracion', t: 'Narración', fuente: 'Práctica contractual emergente (sin norma específica)', revisar: true, porque: 'La narración es la parte más delicada. Una voz humana implica sus propios derechos (los de quien narra); una voz sintética abre cuestiones nuevas, como no imitar a una persona real sin su permiso. Es un tema poco asentado: que lo revise un/a abogado/a.',
       vars: [{ k: 'humana', etq: 'Narración humana', f: g => `La narración la hará una persona, que el ${g.r.b} elige y contrata por su cuenta, y consigue de ella las autorizaciones necesarias para la explotación pactada. El ${g.r.b} responde ante el ${g.r.a} por esas autorizaciones. El ${g.r.a} puede aprobar una muestra antes de la grabación definitiva.` },
         { k: 'sintetica', etq: 'Voz sintética (inteligencia artificial)', f: g => `El ${g.r.a} autoriza que la narración se genere con voz sintética. No se podrá imitar ni clonar la voz de una persona real sin su autorización escrita, y el ${g.r.b} informará qué herramienta usa. El ${g.r.a} podrá aprobar una muestra antes de la versión definitiva.` }] },
-    { id: 'publicacion', t: 'Plazo para publicar y reversión', fuente: 'Ley 11.723, art. 42 (por analogía); práctica contractual', revisar: true, porque: 'El art. 42 manda fijar plazo de publicación en la edición; en el audio conviene lo mismo, y que los derechos vuelvan si no se publica.',
+    { id: 'publicacion', t: 'Plazo para publicar y reversión', fuente: 'Ley 11.723, art. 42 (por analogía); práctica contractual', revisar: true, porque: 'Si el contrato de edición no fija plazo para publicar, el art. 42 deja que lo fije un tribunal; en el audio conviene fijarlo siempre, y que los derechos vuelvan si no se publica.',
       f: g => `El ${g.r.b} publicará el audiolibro dentro de ${g('mesesPublicacion', 'meses para publicar')} meses de la firma. Si no lo hace, el ${g.r.a} puede dar por terminado el contrato sin más trámite, conserva lo cobrado y recupera los derechos.` },
     { id: 'retribucion', t: 'Retribución', fuente: 'Ley 11.723, art. 40 (por analogía); CCyC, art. 1614', revisar: true, porque: 'Lo que más cambia el resultado es la base de cálculo: sobre ingresos netos (después de comisiones de las plataformas) o sobre el precio de venta. Que quede escrito. Y pedí rendiciones de cuentas periódicas.',
       f: g => { const f = g.v.forma, base = g.v.base === 'precio' ? 'del precio de venta al público' : 'de los ingresos netos que efectivamente recibe el ' + g.r.b + ' por la venta de la OBRA en audio, sin otras deducciones que las comisiones de las plataformas'; const reg = `el ${g('regalia', 'regalía')} % ${base}`; return (f === 'unico' ? `El ${g.r.b} pagará al ${g.r.a} un pago único de ${g.m('precio', 'monto')}, no reembolsable.` : f === 'mixto' ? `El ${g.r.b} pagará al ${g.r.a} un anticipo de ${g.m('precio', 'anticipo')}, no reembolsable y a cuenta de regalías, y luego ${reg}.` : `El ${g.r.b} pagará al ${g.r.a} ${reg}.`) + (f === 'unico' ? '' : ` Cada ${g('mesesInforme', 'meses de informe')} meses enviará una liquidación con ventas, plataformas y montos recibidos.`) + ` Los pagos se harán dentro de los ${g('diasPago', 'días para pagar')} días corridos.` + pagoUsd(g); } },
@@ -442,7 +452,7 @@ const Contratos = (() => {
       'Ediciones y ejemplares': 'El art. 40 exige que conste el número de ediciones y los ejemplares de cada una. Sin esos datos, se aplican los usos y costumbres del lugar.',
       'Retribución': 'El art. 40 también exige la retribución del autor y presume el contrato oneroso. Pedí una liquidación por escrito cada año.',
       'Entrega de la obra': 'El art. 41 reparte el riesgo si la obra se pierde.',
-      'Publicación': 'El art. 42 manda fijar plazo de publicación; si no hay, lo fija un tribunal. Acordalo vos antes.',
+      'Publicación': 'Si el contrato no fija plazo para publicar, el art. 42 deja que lo fije un tribunal en juicio sumario. Acordalo vos antes.',
       'Duración y fin del contrato': 'El art. 43 prevé qué pasa con los ejemplares que sobran, y el art. 44 termina el contrato cuando se agotan las ediciones.',
       'Ejemplares y compras del autor': 'Detalle práctico: pedilo por escrito.',
       'Créditos': 'La mención del nombre es parte del derecho moral del autor (art. 52).',
@@ -486,7 +496,7 @@ const Contratos = (() => {
     CLAUSULAS[id].forEach(c => {
       if (!incluida(c, v)) return;
       const vr = c.vars ? variante(c, v) : null;
-      clausulas.push({ n: ++n, id: c.id, t: c.t, fuente: c.fuente, texto: (vr || c).f(g), porque: c.porque || '', ref: c.ref || [], revisar: !!c.revisar, opcional: !!c.opcional, variante: vr ? vr.etq : '' });
+      clausulas.push({ n: ++n, id: c.id, t: c.t, fuente: c.fuente, normas: normasDe(c.fuente), texto: (vr || c).f(g), porque: c.porque || '', ref: c.ref || [], revisar: !!c.revisar, opcional: !!c.opcional, variante: vr ? vr.etq : '' });
     });
     return { modelo: m, clausulas, falta: falta.map(k => etq[k] || k), avisos: avisos(id, v) };
   }
@@ -528,18 +538,18 @@ const Contratos = (() => {
     return { id, franja: franja(id), titulo: m.t.toUpperCase(), aviso: 'Borrador generado con Galera (galera.com.ar). ' + AVISO, cab, clausulas: r.clausulas, falta: r.falta,
       cierre: 'Para que conste, las partes firman dos ejemplares de un mismo tenor.', firmas: [m.roles.a, m.roles.b], notas: !!o.notas };
   }
-  const anexo = e => e.clausulas.map(c => ({ n: c.n, t: c.t, fuente: c.fuente, porque: c.porque, revisar: c.revisar }));
+  const anexo = e => e.clausulas.map(c => ({ n: c.n, t: c.t, fuente: c.fuente, oficial: oficialTxt(c), porque: c.porque, revisar: c.revisar }));
   const TIT_ANEXO = 'Anexo: notas de redacción (no forman parte del contrato)';
   const NOTA_ANEXO = 'Cada cláusula indica de dónde sale. Las marcadas «a revisar por abogado/a» no tienen una norma que las respalde o admiten opciones que conviene que un profesional evalúe.';
 
   function documento(id, v, o) {
     const e = estructura(id, v, o), L = [`# ${e.titulo}`, '', ...(e.franja ? [`> **${e.franja.t.toUpperCase()}.** ${e.franja.d}`, ''] : []), `> ${e.aviso}`, '', e.cab, '', ...e.clausulas.map(c => `**${c.n}. ${c.t}.** ${c.texto}`).flatMap(x => [x, '']), e.cierre, '', '______________________ &nbsp;&nbsp;&nbsp;&nbsp; ______________________', `${e.firmas[0]} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ${e.firmas[1]}`, ''];
-    if (e.notas) L.push('---', '', `## ${TIT_ANEXO}`, '', NOTA_ANEXO, '', ...anexo(e).flatMap(c => [`**${c.n}. ${c.t}.** Fuente: ${c.fuente}.${c.porque ? ' Por qué importa: ' + c.porque : ''}${c.revisar ? ' *A revisar por abogado/a.*' : ''}`, '']));
+    if (e.notas) L.push('---', '', `## ${TIT_ANEXO}`, '', NOTA_ANEXO, '', ...anexo(e).flatMap(c => [`**${c.n}. ${c.t}.** Fuente: ${c.fuente}.${c.oficial}${c.porque ? ' Por qué importa: ' + c.porque : ''}${c.revisar ? ' *A revisar por abogado/a.*' : ''}`, '']));
     return L.join('\n');
   }
   function texto(id, v, o) {
     const e = estructura(id, v, o), L = [e.titulo, '='.repeat(e.titulo.length), '', ...(e.franja ? [`>>> ${e.franja.t.toUpperCase()}. ${e.franja.d} <<<`, ''] : []), e.aviso, '', e.cab, '', ...e.clausulas.map(c => `${c.n}. ${c.t}. ${c.texto}`).flatMap(x => [x, '']), e.cierre, '', '______________________        ______________________', `${e.firmas[0]}${' '.repeat(Math.max(2, 30 - e.firmas[0].length))}${e.firmas[1]}`, ''];
-    if (e.notas) L.push('', TIT_ANEXO.toUpperCase(), '', NOTA_ANEXO, '', ...anexo(e).flatMap(c => [`${c.n}. ${c.t}. Fuente: ${c.fuente}.${c.porque ? ' Por qué importa: ' + c.porque : ''}${c.revisar ? ' [A revisar por abogado/a]' : ''}`, '']));
+    if (e.notas) L.push('', TIT_ANEXO.toUpperCase(), '', NOTA_ANEXO, '', ...anexo(e).flatMap(c => [`${c.n}. ${c.t}. Fuente: ${c.fuente}.${c.oficial}${c.porque ? ' Por qué importa: ' + c.porque : ''}${c.revisar ? ' [A revisar por abogado/a]' : ''}`, '']));
     return L.join('\n');
   }
   const xesc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -548,7 +558,7 @@ const Contratos = (() => {
   function html(id, v, o) {
     const e = estructura(id, v, o);
     return `<h1>${xesc(e.titulo)}</h1>${e.franja ? `<p class="rc-franja"><b>${xesc(e.franja.t)}.</b> ${xesc(e.franja.d)}</p>` : ''}<p class="rc-aviso">${xesc(e.aviso)}</p><p>${marcar(e.cab)}</p>` + e.clausulas.map(c => `<p><b>${c.n}. ${xesc(c.t)}.</b> ${marcar(c.texto)}</p>`).join('') + `<p>${xesc(e.cierre)}</p><div class="rc-firmas"><p>______________________<br>${xesc(e.firmas[0])}</p><p>______________________<br>${xesc(e.firmas[1])}</p></div>`
-      + (e.notas ? `<h2>${xesc(TIT_ANEXO)}</h2><p>${xesc(NOTA_ANEXO)}</p>` + anexo(e).map(c => `<p><b>${c.n}. ${xesc(c.t)}.</b> Fuente: ${xesc(c.fuente)}.${c.porque ? ' Por qué importa: ' + xesc(c.porque) : ''}${c.revisar ? ' <i>A revisar por abogado/a.</i>' : ''}</p>`).join('') : '');
+      + (e.notas ? `<h2>${xesc(TIT_ANEXO)}</h2><p>${xesc(NOTA_ANEXO)}</p>` + anexo(e).map(c => `<p><b>${c.n}. ${xesc(c.t)}.</b> Fuente: ${xesc(c.fuente)}.${xesc(c.oficial)}${c.porque ? ' Por qué importa: ' + xesc(c.porque) : ''}${c.revisar ? ' <i>A revisar por abogado/a.</i>' : ''}</p>`).join('') : '');
   }
 
   // .docx sin dependencias: un ZIP sin comprimir con las partes mínimas de un documento de Word.
@@ -581,7 +591,7 @@ const Contratos = (() => {
     const cuerpo = [par(run(e.titulo, { b: true, sz: 30 }), { jc: 'center', after: 240 }), ...(e.franja ? [par(run(e.franja.t.toUpperCase() + '. ', { b: true, mark: true }) + run(e.franja.d, { b: true }), { jc: 'left' })] : []), par(run(e.aviso, { i: true, sz: 20 }), { jc: 'left' }), par(conMarcas(e.cab)),
       ...e.clausulas.map(c => par(run(`${c.n}. ${c.t}. `, { b: true }) + conMarcas(c.texto))), par(run(e.cierre)),
       `<w:tbl><w:tblPr><w:tblW w:w="9000" w:type="dxa"/></w:tblPr><w:tblGrid><w:gridCol w:w="4500"/><w:gridCol w:w="4500"/></w:tblGrid><w:tr>${celda(e.firmas[0])}${celda(e.firmas[1])}</w:tr></w:tbl>`];
-    if (e.notas) cuerpo.push(par(run(TIT_ANEXO, { b: true, sz: 26 }), { jc: 'left', keep: true }), par(run(NOTA_ANEXO, { i: true }), { jc: 'left' }), ...anexo(e).map(c => par(run(`${c.n}. ${c.t}. `, { b: true }) + run(`Fuente: ${c.fuente}.${c.porque ? ' Por qué importa: ' + c.porque : ''}${c.revisar ? ' A revisar por abogado/a.' : ''}`), { jc: 'left' })));
+    if (e.notas) cuerpo.push(par(run(TIT_ANEXO, { b: true, sz: 26 }), { jc: 'left', keep: true }), par(run(NOTA_ANEXO, { i: true }), { jc: 'left' }), ...anexo(e).map(c => par(run(`${c.n}. ${c.t}. `, { b: true }) + run(`Fuente: ${c.fuente}.${c.oficial}${c.porque ? ' Por qué importa: ' + c.porque : ''}${c.revisar ? ' A revisar por abogado/a.' : ''}`), { jc: 'left' })));
     const pie = '<w:sectPr><w:pgSz w:w="11906" w:h="16838"/><w:pgMar w:top="1417" w:right="1417" w:bottom="1417" w:left="1417" w:header="708" w:footer="708" w:gutter="0"/></w:sectPr>';
     const X = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n';
     return zip([
@@ -592,6 +602,6 @@ const Contratos = (() => {
       { nombre: 'word/document.xml', datos: X + `<w:document ${W}><w:body>${cuerpo.join('')}${pie}</w:body></w:document>` }]);
   }
 
-  return { MODELOS, CLAUSULAS, FALTA, AVISO, franja, defaults: defaults2, generar, avisos, documento, texto, html, docx, estructura, zip, crc32, visible, incluida, miles };
+  return { MODELOS, CLAUSULAS, FALTA, AVISO, NORMAS, normasDe, franja, defaults: defaults2, generar, avisos, documento, texto, html, docx, estructura, zip, crc32, visible, incluida, miles };
 })();
 if (typeof module !== 'undefined') module.exports = Contratos;
