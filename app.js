@@ -60,7 +60,7 @@ const MECENAS = {
     { id: 'b', nombre: 'Cayo Mecenas', corto: 'Mecenas', dato: 'Protegió a Virgilio y a Horacio. De su nombre viene la palabra «mecenas».' }],
   2: [{ id: 'a', nombre: 'Cristina de Suecia', corto: 'Cristina', dato: 'Reina que reunió una de las grandes bibliotecas de su siglo y protegió a sabios y músicos.' },
     { id: 'b', nombre: 'Lorenzo de Médici', corto: 'Lorenzo', dato: 'Sostuvo a artistas y humanistas en la Florencia del siglo XV.' }],
-  3: [{ id: 'a', nombre: 'Victoria Ocampo', corto: 'Victoria', dato: 'Fundó y sostuvo la revista y la editorial Sur, desde 1931.' },
+  3: [{ id: 'a', nombre: 'Victoria Ocampo', corto: 'Victoria', dato: 'Fundó la revista Sur en 1931 y, dos años después, la editorial.' },
     { id: 'b', nombre: 'Federico de Montefeltro', corto: 'Federico', dato: 'Duque de Urbino: armó una de las bibliotecas de manuscritos más famosas de su tiempo.' }]
 };
 const extrasVacio = () => ({ mail: '', cafe: '', resumen: '', respuesta: '', mecenas: null });
@@ -444,7 +444,7 @@ function desdeUrl() {
 const esRutaApp = p => /^\/r\/(?:[\w.-]+\/(?:[\w.-]+\.html)?)?$/.test(p) || /^\/simuladores\/(?:[\w-]+\.html)?$/.test(p) || /^\/lecturas\/[\w.-]+\/(?:poster\/)?$/.test(p) || p === '/' || TODAS_TABS.some(([id]) => urlTab(id) === p);
 function abrirVista() { if (V.tab === 'resumenes' && V.res.apunte) return cargarApunte(); render(); window.scrollTo(0, 0); }
 const alCambiarHash = () => {
-  if (/^#(datos|horario|desafio)=/.test(location.hash)) { manejarLinkNov(); return; }
+  if (/^#(datos|horario|desafio)=|^#(avisame|aporte|cafe|colaboro)(=[123])?$/.test(location.hash)) { manejarLinkNov(); return; }
   if (rutaActual().split('#')[0] === location.pathname + location.search && !(location.hash && (/^#(pedidos|herramientas|escandallo)(\/|$)/.test(location.hash) || TODAS_TABS.some(t => t[0] === location.hash.slice(1).split('/')[0])))) {
     if (V.tab === 'resumenes' && V.res.apunte) { V.res.sec = location.hash.replace(/^#(s-)?/, ''); irSeccion(); }
     return;
@@ -738,7 +738,7 @@ function abrirMas() {
   let guardado = ''; try { guardado = localStorage.getItem('cursada.tema') || ''; } catch (e) { }
   const tema = guardado === 'dark' || guardado === 'light' ? guardado : 'auto';
   abrir(`${cab('Más')}<ul class="lista-mas">${otras.map(([id, t]) => { const [b, ic] = MAS_INFO[id] || []; return filaMas(t, dAcc('cerrarIr', id), V.tab === id, b, ic); }).join('')}</ul>
-    <ul class="lista-mas">${filaMas('Cambiar de perfil', dAcc('cerrarPerfil'), false, esPro() ? 'Ahora: profesional del libro' : 'Ahora: estudiante')}${filaMas('Tus datos', dAcc('abrirDatos'), false, E.copia ? 'Última: ' + fmt(E.copia) : 'Nunca')}${filaMas('Avisame por mail', dAcc('avisame'), false, 'Los lunes, lo nuevo del sitio')}${filaMas('Avisos de progreso', dAcc('abrirAjustes'))}${filaMas('Compartir esta pantalla', dAcc('compartirPantalla'))}${filaMas('Código QR de esta pantalla', dAcc('abrirQRPantalla'), false, 'Para pegar en una cartelera o un apunte')}${puedeInstalar() ? filaMas('Instalar en el celular', dAcc('instalarApp'), false, 'Se abre como una app, también sin conexión') : ''}${filaMas('Sumá tu resumen', dAcc('sumarApunte'), false, 'Para quien viene detrás; lo reviso antes de publicarlo')}${filaMas('Contame qué falta', dAcc('idea'))}</ul>
+    <ul class="lista-mas">${filaMas('Cambiar de perfil', dAcc('cerrarPerfil'), false, esPro() ? 'Ahora: profesional del libro' : 'Ahora: estudiante')}${filaMas('Tus datos', dAcc('abrirDatos'), false, E.copia ? 'Última: ' + fmt(E.copia) : 'Nunca')}${filaMas('Avisame por mail', dAcc('avisame'), false, 'Los lunes, lo nuevo del sitio')}${filaMas('Mis logros', dAcc('abrirLogros'), false, 'Tus tarjetas para compartir')}${filaMas('Avisos de progreso', dAcc('abrirAjustes'))}${filaMas('Compartir esta pantalla', dAcc('compartirPantalla'))}${filaMas('Código QR de esta pantalla', dAcc('abrirQRPantalla'), false, 'Para pegar en una cartelera o un apunte')}${puedeInstalar() ? filaMas('Instalar en el celular', dAcc('instalarApp'), false, 'Se abre como una app, también sin conexión') : ''}${filaMas('Sumá tu resumen', dAcc('sumarApunte'), false, 'Para quien viene detrás; lo reviso antes de publicarlo')}${filaMas('Contame qué falta', dAcc('idea'))}</ul>
     <p class="gl-rotulo">Apariencia</p><div class="gl-seg" role="group" aria-label="Apariencia">${[['auto', 'Automática'], ['light', 'Clara'], ['dark', 'Oscura']].map(([k, n]) => `<button type="button" class="${tema === k ? 'on' : ''}" aria-pressed="${tema === k}" data-clic="temaMas" data-clic-a="[${arg(k)}]">${n}</button>`).join('')}</div>`, 'mas');
 }
 // Navegación de escritorio (v70, del design system nuevo): grupos en la cabecera, con su fila de secciones debajo; los mismos grupos arman las columnas del pie.
@@ -4181,7 +4181,7 @@ function manejarLinkNov() {
   if (t) { history.replaceState(null, '', location.pathname + location.search); let ref = ''; try { ref = decodeURIComponent(t[1]); } catch (e) { ref = t[1]; } tengoTexto(ref); return true; }
   // v174: #avisame abre el formulario del mail; #aporte (=1, 2 o 3, desde /gracias/; no #mecenas, que es un ancla de /sostener/), #cafe y #colaboro dan la tarjeta de quien ayudó (compartir.js).
   const x = location.hash.match(/^#(avisame|aporte|cafe|colaboro)(?:=([123]))?$/);
-  if (x) { history.replaceState(null, '', location.pathname + location.search); if (x[1] === 'avisame') avisame(); else if (x[1] === 'aporte') elegirMecenas(x[2] || ''); else logroExtra(x[1] === 'cafe' ? 'cafe' : 'resumen'); return true; }
+  if (x) { history.replaceState(null, '', location.pathname + location.search); if (x[1] === 'avisame') { if (NOVEDADES) avisame(); else aviso('El mail de los lunes todavía no está disponible'); } else if (x[1] === 'aporte') elegirMecenas(x[2] || ''); else logroExtra(x[1] === 'cafe' ? 'cafe' : 'resumen'); return true; }
   const m = location.hash.match(/^#(confirmar|baja|novedades)=([0-9a-f-]{36})$/);
   if (!m) return false;
   history.replaceState(null, '', location.pathname + location.search);
@@ -4194,9 +4194,9 @@ async function confirmarNov() {
   abrir(cab('🔔 Novedades de Galera') + '<p class="cargando">Confirmando tu mail…</p>', 'nov');
   try {
     await postNov({ accion: 'confirmar', token: novToken });
-    const tarjeta = ganarExtra('mail');
+    const nueva = ganarExtra('mail'), tarjeta = !!E.extras.mail;
     abrir(cab('✅ ¡Listo!') + `<p>Tu mail quedó confirmado. Desde el próximo lunes, a las 8:00, te llega lo nuevo de Galera que elegiste recibir. Si un lunes no hay nada para vos, no te escribo.</p>
-      ${tarjeta ? '<p class="chico tenue">Y te ganaste una tarjeta nueva en «Mis logros».</p>' : ''}
+      ${nueva ? '<p class="chico tenue">Y te ganaste una tarjeta nueva: la encontrás siempre en «Más» → «Mis logros».</p>' : ''}
       <div class="botones"><button class="btn" data-clic="cerrar">Seguir en Galera</button>${tarjeta ? `<button class="btn sec" type="button" ${dAcc('compartirLogro', 'mail')}>Ver mi tarjeta</button>` : ''}<button class="btn lin" data-clic="verPrefsNov">Cambiar lo que recibo</button></div>`, 'nov');
   } catch (e) {
     // Link vencido (la fila se purgó a los 7 días o ya no existe): en vez de un error seco, se ofrece volver a suscribirse con un toque.

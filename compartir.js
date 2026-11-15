@@ -327,14 +327,15 @@ function abrirLogros() {
 // ---------- tarjetas por ayudar a Galera (v174) ----------
 // Mail confirmado y respuesta enviada los marca la app sola. El aporte, el café y los apuntes no se pueden verificar desde acá:
 // llegan por link (#aporte=N desde /gracias/, #cafe, #colaboro que Fidel manda al recibir un resumen) y se confía en quien lo abre, porque la tarjeta no da nada a cambio.
+// Devuelve true solo si la tarjeta es nueva (fuera del ejemplo).
 function ganarExtra(k) {
-  if (V.demo) return false;
-  if (!E.extras[k]) { E.extras[k] = hoy(); guardar(true); medir('logro_extra', { item_id: k }); }
+  if (V.demo || E.extras[k]) return false;
+  E.extras[k] = hoy(); guardar(true); medir('logro_extra', { item_id: k });
   return true;
 }
 function logroExtra(k) {
   if (V.demo) return aviso('Estás viendo el ejemplo: salí del ejemplo para guardar tu tarjeta');
-  if (ganarExtra(k)) compartirLogro(k);
+  ganarExtra(k); compartirLogro(k);
 }
 function elegirMecenas(n) {
   if (V.demo) return aviso('Estás viendo el ejemplo: salí del ejemplo para guardar tu tarjeta');
