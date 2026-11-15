@@ -5,8 +5,9 @@ const BRAND = { nombre: 'Galera', sitio: 'galera.com.ar', url: 'https://galera.c
 // Sistema de Galera: fondo blanco, tinta #212121, azul #0671E0, cinta de puntos arriba, «galera» en gótica con la g azul.
 const CV = { fondo: '#fff', tinta: '#212121', t2: '#4D4D4D', t3: '#717171', linea: '#E3E8EE', punto: '#ABBED1', acento: '#0671E0', mal: '#C33025' };
 const CV_FUENTE = '"Instrument Sans", system-ui, sans-serif', CV_GOTICA = '"UnifrakturMaguntia", "Times New Roman", serif';
+const CV_ARCADE = '"Jacquard 24", monospace'; // gótica pixelada de la imagen del desafío (recorte de 5 KB)
 // Las fuentes ya están en la página; esto solo pide que estén listas antes de dibujar.
-['400 20px "UnifrakturMaguntia"', '400 20px "Instrument Sans"', '600 20px "Instrument Sans"', '700 20px "Instrument Sans"'].forEach(f => { try { document.fonts.load(f); } catch (e) { } });
+['400 20px "UnifrakturMaguntia"', '400 20px "Instrument Sans"', '600 20px "Instrument Sans"', '700 20px "Instrument Sans"', '400 20px "Jacquard 24"'].forEach(f => { try { document.fonts.load(f); } catch (e) { } });
 
 // ---------- canvas ----------
 // Hilera de puntos de radio r y paso p dentro de un rectángulo (barras y cintas del sistema).
