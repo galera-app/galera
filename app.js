@@ -46,6 +46,14 @@ const V = { sim: '', nov: '', lec: '', pos: false, faq: '', faqAbierta: '', faqE
   demo: null, prac: null, retos: false, ausencia: 0, retomado: false, recNota: false }; // demo: el estado real guardado aparte mientras se mira el ejemplo; prac: la ronda de práctica en curso
 // Datos para donar por transferencia (sin comisión). Alias vacío = no se muestra el botón.
 const DONAR = { alias: 'fidel.mercado', cvu: '0000003100037663540198', cafecito: 'https://cafecito.app/fidelchaves' };
+// Aporte mensual: planes de Mercado Pago Suscripciones (ticket 1). Al pagar, Mercado Pago vuelve a /gracias/. Lista vacía = no se muestra.
+const APORTES = [
+  { monto: 2000, url: 'https://www.mercadopago.com.ar/subscriptions/checkout?preapproval_plan_id=47ab8bff687540cfa5bbdd4cb97eb9d4' },
+  { monto: 5000, url: 'https://mpago.la/2Z3vhYo' },
+  { monto: 10000, url: 'https://mpago.la/1XtvRix' }
+];
+const pesos = n => '$' + Number(n).toLocaleString('es-AR');
+function aporteClic(escalon) { medir('aporte_clic', { escalon }); }   // escalón 1, 2, 3 o «unico»: «vio la invitación → hizo clic»
 
 // ---------- utilidades ----------
 const $ = (s, el = document) => el.querySelector(s);
@@ -359,7 +367,7 @@ async function arrancarVista() {
   $('#subtitulo').textContent = 'Tus materias, tu promedio y tus horarios de ' + D.plan.nombre;
   registrarVisita();
   document.querySelectorAll('[data-nov]').forEach(el => { el.hidden = !NOVEDADES; });
-  if (DONAR.alias) $('#donar').innerHTML = `<button class="btn sec ch" type="button" data-clic="ir" data-clic-a="[&quot;sostener&quot;]">Invitar un cafecito</button>`;
+  if (DONAR.alias) $('#donar').innerHTML = `<button class="btn sec ch" type="button" data-clic="ir" data-clic-a="[&quot;sostener&quot;]">Ayudar a Galera</button>`;
   try { await precargar(); } catch (e) { /* cada vista muestra su propio aviso */ }
   V.arrancando = false;
   try { await cargarGrupo(modsDe()); } catch (e) { /* render() lo vuelve a intentar y avisa */ }
@@ -557,7 +565,7 @@ function colofonInicio(per) {
   const lista = ((D.novedades && D.novedades.novedades) || []).filter(n => n.perfil === 'todos' || n.perfil === per);
   const f = lista.map(n => n.fecha).sort().pop(), n = lista.filter(x => x.fecha === f).length;
   const ed = f ? `Esta edición de Galera se actualizó el ${fechaLarga(f)} y trae <a href="/novedades/">${n === 1 ? 'una novedad' : (['', '', 'dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho', 'nueve'][n] || n) + ' novedades'}</a>. ` : '';
-  return `<p class="gl-colofon">${ed}Se compuso en Instrument Sans y Literata, con la g en UnifrakturMaguntia, y se hizo en la ${esc(MARCO.marca.ubicacion)}. Se sostiene con <a href="/sostener/">cafecitos</a>; tus datos quedan en este navegador (<a href="/config/">ajustes</a>).</p>`;
+  return `<p class="gl-colofon">${ed}Se compuso en Instrument Sans y Literata, con la g en UnifrakturMaguntia, y se hizo en la ${esc(MARCO.marca.ubicacion)}. Se mantiene con <a href="/sostener/#ayudar">aportes</a>; tus datos quedan en este navegador (<a href="/config/">ajustes</a>).</p>`;
 }
 function vInicio() {
   cargarNovedades();
@@ -1170,7 +1178,7 @@ const emo = t => String(t).replace(/^(\p{Extended_Pictographic}️?)\s*/u, '<spa
 const cab = t => `<div class="cab"><h2 class="crece" id="dlg-t">${emo(t)}</h2><button class="x" data-clic="cerrar" aria-label="Cerrar">✕</button></div>`;
 const val = id => { const el = document.getElementById(id); return el ? el.value.trim() : ''; };
 
-// ---------- donar: vive en la pantalla «Cómo se sostiene» (vSostener) ----------
+// ---------- donar: vive en la pantalla «Cómo ayudar» (vSostener) ----------
 function copiar(t) {
   const listo = () => aviso('Copiado: ' + t);
   if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(listo, () => aviso('No se pudo copiar. Seleccioná el texto y copialo a mano.'));
@@ -3432,7 +3440,7 @@ const formRespuesta = id => `<form id="r-form" class="gl-faq-form" data-envia="m
     <div class="gl-campo"><label for="r-t">Tu respuesta</label><textarea id="r-t" maxlength="2000" rows="5" required aria-describedby="r-ayuda"></textarea></div>
     <p id="r-ayuda" class="gl-chico">Contá lo que sabés y de dónde sale: una página oficial o tu experiencia, y de cuándo. Solo texto, con dos links como máximo y sin datos personales de nadie.</p>
     <div class="gl-campo"><label for="r-f">Tu nombre, si querés que figure (opcional)</label><input id="r-f" maxlength="60" autocomplete="name" spellcheck="false"></div>
-    <label class="gl-faq-acepto"><input type="checkbox" id="r-a"><span>Acepto que mi nombre aparezca debajo de la respuesta y entre quienes colaboran, en Cómo se sostiene.</span></label>
+    <label class="gl-faq-acepto"><input type="checkbox" id="r-a"><span>Acepto que mi nombre aparezca debajo de la respuesta y entre quienes colaboran, en Cómo ayudar.</span></label>
     <div aria-hidden="true" class="u-oculto"><label>No completar<input id="r-w" tabindex="-1" autocomplete="off"></label></div>
     <div class="gl-faq-acc"><button class="gl-btn" id="r-b" type="submit">Enviar respuesta</button><button class="gl-btn gl-btn--sec" type="button" data-clic="cerrarRespuesta">Cancelar</button></div>
     <p id="r-estado" class="gl-baja" role="status" aria-live="polite"></p></form>`;
@@ -3837,7 +3845,7 @@ function sugerirActor() {
 // =====================================================================
 // LINKS ÚTILES y SUGERENCIAS
 // =====================================================================
-// CÓMO SE SOSTIENE: horas de trabajo, costos, cómo ayudar y el plan público.
+// CÓMO AYUDAR (ruta /sostener/): horas de trabajo, costos, cómo ayudar y el plan público.
 // Datos: datos/sostener.json (lo cuenta .github/scripts/sostener_horas.py cada lunes desde los commits), datos/sostener-costos.json (a mano)
 // y datos/plan.json (el plan, agrupado por etapa; se genera fuera del repo desde el plan de trabajo y no se edita a mano). Nada de esto se escribe acá: esta pantalla solo lo dibuja.
 // =====================================================================
@@ -3908,7 +3916,12 @@ function sostenerColaboradores(P) {
 function vSostener() {
   if (!D.sostener) { cargarSostener(); return '<p class="cargando">Cargando…</p>'; }
   const S = D.sostener, fila = (t, v) => `<div class="gl-donar"><span class="gl-chico">${t}</span><code>${esc(v)}</code><button class="gl-btn gl-btn--sec" type="button" data-clic="copiar" data-clic-a="[${arg(v)}]">Copiar</button></div>`;
-  return `<div class="gl-v gl-sost"><div class="gl-cab"><h1 class="gl-display">Cómo se sostiene</h1></div>
+  const mensual = APORTES.length ? `<div class="gl-tarjeta"><h3>Aporte mensual</h3><p>Se cobra solo cada mes por Mercado Pago, y lo cancelás cuando quieras.</p>
+        ${APORTES.map((x, i) => `<a class="gl-btn${i ? ' gl-btn--sec' : ''}" href="${urlSegura(x.url)}" target="_blank" rel="noopener" ${dAcc('aporteClic', String(i + 1))}>Aportar ${pesos(x.monto)} por mes</a>`).join('')}
+        <p class="gl-chico">Galera no ve tu tarjeta: el pago queda en Mercado Pago. La baja se hace desde Mercado Pago; para cambiar de monto, das de baja este y elegís otro. Si algo falla, escribime a <a href="mailto:${HOLA}">${HOLA}</a>.</p></div>` : '';
+  // En el celular el riel queda al final de la página: los montos van también como links acá, en «Con plata».
+  const montos = APORTES.map((x, i) => `<a href="${urlSegura(x.url)}" target="_blank" rel="noopener" ${dAcc('aporteClic', String(i + 1))}>${pesos(x.monto)} por mes</a>`).join(', ').replace(/, ([^,]*)$/, ' o $1');
+  return `<div class="gl-v gl-sost"><div class="gl-cab"><h1 class="gl-display">Cómo ayudar</h1></div>
     <p class="gl-baja">Galera es gratis, no pide cuenta y no tiene publicidad. Acá está cuánto trabajo lleva, qué cuesta y cómo ayudar.</p>
     <div class="gl-doc gl-doc--izq"><div class="gl-principal">
       <p class="gl-lead">Galera la hago yo, ${esc(MARCO.marca.firma)}, en mi tiempo libre. No pide registro ni vende datos: lo que cargás queda en tu dispositivo.</p>
@@ -3917,14 +3930,14 @@ function vSostener() {
       <p>Con más apoyo podría pagar un plan superior de Claude y avanzar más frentes por semana.</p>
       <h2 id="ayudar">Trabajar conmigo y colaborar</h2><p>Hay tres maneras de ayudar. Todas son opcionales.</p>
       <ul class="gl-formas">
-        <li><b>Con plata</b><p>Un aporte único, del monto que quieras, por <a href="${urlSegura(DONAR.cafecito)}" target="_blank" rel="noopener">Cafecito</a> o por transferencia al alias <b>${esc(DONAR.alias)}</b>, sin comisión. Los datos para copiar están a un costado.</p></li>
+        <li><b>Con plata</b><p>${APORTES.length ? `Un aporte mensual por Mercado Pago, que es lo que más ayuda porque permite planificar: ${montos}. O un` : 'Un'} aporte único, del monto que quieras, por <a href="${urlSegura(DONAR.cafecito)}" target="_blank" rel="noopener" ${dAcc('aporteClic', 'unico')}>Cafecito</a> o por transferencia al alias <b>${esc(DONAR.alias)}</b>, sin comisión. Los datos para copiar están a un costado.</p></li>
         <li><b>Con tiempo</b><p>Avisame de un error, sugerime lo que falta o mandame tus apuntes para sumarlos: los reviso a mano antes de publicarlos. Se hace desde «Contame qué falta» o por mail.</p></li>
         <li><b>Un proyecto en común</b><p>Si tenés un proyecto editorial en el que pueda sumar con corrección, redacción o armado de contenidos, contame. Escribime a <a href="mailto:${HOLA}">${HOLA}</a>.</p></li></ul>
       <h2 id="mecenas">Mecenas</h2>${sostenerMecenas(S.mecenas)}
       <h2 id="colaboradores">Colaboradores</h2>${sostenerColaboradores(S.preguntas)}
       ${sostenerPlan(S.plan)}</div>
-    <aside class="gl-riel" aria-label="Ayudar">
-      <div class="gl-tarjeta"><h3>Invitame un cafecito</h3><p>Un aporte único, del monto que quieras.</p><a class="gl-btn" href="${urlSegura(DONAR.cafecito)}" target="_blank" rel="noopener">Ir a Cafecito</a></div>
+    <aside class="gl-riel" aria-label="Ayudar">${mensual}
+      <div class="gl-tarjeta"><h3>Invitame un cafecito</h3><p>Un aporte único, del monto que quieras.</p><a class="gl-btn${APORTES.length ? ' gl-btn--sec' : ''}" href="${urlSegura(DONAR.cafecito)}" target="_blank" rel="noopener" ${dAcc('aporteClic', 'unico')}>Ir a Cafecito</a></div>
       <div class="gl-tarjeta"><h3>Transferencia</h3><p>Sin comisión, desde cualquier banco o billetera.</p>${DONAR.alias ? fila('Alias', DONAR.alias) : ''}${DONAR.cvu ? fila('CVU', DONAR.cvu) : ''}</div>
       <div class="gl-tarjeta"><h3>Escribime</h3><p>Para colaborar, sumar tus apuntes o proponer algo.</p><a class="gl-btn gl-btn--sec" href="mailto:${HOLA}">${HOLA}</a></div></aside></div></div>`;
 }
@@ -4309,7 +4322,7 @@ Object.assign(ACC, {
   abrirLibro: (...a) => abrirLibro(...a), abrirMas: (...a) => abrirMas(...a), abrirMateria: (...a) => abrirMateria(...a),
   abrirRecorrido: (...a) => abrirRecorrido(...a), abrirRespuesta: (...a) => abrirRespuesta(...a), abrirTraspaso: (...a) => abrirTraspaso(...a),
   aceptarTraspaso: (...a) => aceptarTraspaso(...a), alternarGrupo: (...a) => alternarGrupo(...a), autoPrac: (...a) => autoPrac(...a),
-  avisame: (...a) => avisame(...a), invitacionAbrir: (...a) => invitacionAbrir(...a), invitacionCerrar: (...a) => invitacionCerrar(...a), ayudaCalendario: (...a) => ayudaCalendario(...a), bajarRecorrido: (...a) => bajarRecorrido(...a),
+  avisame: (...a) => avisame(...a), aporteClic: (...a) => aporteClic(...a), invitacionAbrir: (...a) => invitacionAbrir(...a), invitacionCerrar: (...a) => invitacionCerrar(...a), ayudaCalendario: (...a) => ayudaCalendario(...a), bajarRecorrido: (...a) => bajarRecorrido(...a),
   bloqueo: (...a) => bloqueo(...a), borrarAplazo: (...a) => borrarAplazo(...a), borrarBloqueo: (...a) => borrarBloqueo(...a),
   borrarExamen: (...a) => borrarExamen(...a), borrarHitos: (...a) => borrarHitos(...a), borrarPropia: (...a) => borrarPropia(...a),
   borrarTodo: (...a) => borrarTodo(...a), buscarEnviar: (...a) => buscarEnviar(...a), buscarRes: (...a) => buscarRes(...a),
