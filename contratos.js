@@ -93,7 +93,7 @@ const Contratos = (() => {
       { t: 'Publicación', fuente: 'Ley 11.723, art. 42; plazos según modelo AATI, cláusula 5', f: g => `El EDITOR/A publicará la obra dentro de ${g('mesesPublicacion', 'meses')} meses de recibida, con una tolerancia excepcional de 6 meses. Si no lo hace, el AUTOR/A puede dar por rescindido el contrato sin más trámite, conserva lo cobrado y recupera todos los derechos concedidos.` },
       { t: 'Duración y fin del contrato', fuente: 'Ley 11.723, arts. 43 y 44; plazo según modelo AATI, cláusula 6', f: g => `El contrato dura ${g('plazoAnios', 'años')} años desde la firma. Termina antes, cualquiera sea el plazo, si se agotan las ediciones convenidas (art. 44). Al vencer el plazo, si el EDITOR/A conserva ejemplares sin vender, el AUTOR/A puede comprarlos a precio de costo más un 10 % de bonificación; si no lo hace, el EDITOR/A puede seguir vendiéndolos en las condiciones de este contrato (art. 43).` },
       { t: 'Ejemplares y compras del autor', fuente: 'Modelo AATI, cláusula 8 (adaptada)', f: g => `El EDITOR/A entregará al AUTOR/A ${g('cortesia', 'ejemplares de cortesía')} ejemplares de cortesía de la primera edición, que no pueden venderse. El AUTOR/A podrá comprar más con ${g('descuento', 'descuento')} % de descuento sobre el precio de tapa, para uso propio o para regalar sin fines de lucro.` },
-      { t: 'Créditos', fuente: 'Ley 11.723, art. 38; modelo AATI, cláusula 7 (adaptada)', f: () => `El nombre del AUTOR/A (o su seudónimo) figurará en tapa, portada y página de legales, y en catálogos, reseñas y publicidades donde figure el título de la obra.` },
+      { t: 'Créditos', fuente: 'Ley 11.723, art. 52; modelo AATI, cláusula 7 (adaptada)', f: () => `El nombre del AUTOR/A (o su seudónimo) figurará en tapa, portada y página de legales, y en catálogos, reseñas y publicidades donde figure el título de la obra.` },
       { t: 'Ley aplicable y tribunales', fuente: 'Modelo AATI, cláusula 12 (adaptada)', f: g => `Este contrato se rige por las leyes argentinas. Las partes constituyen domicilio en los indicados en el encabezamiento y se someten a los tribunales ordinarios de ${g('ciudad', 'ciudad')}, con renuncia a cualquier otro fuero.` },
     ],
   };
@@ -110,6 +110,16 @@ const Contratos = (() => {
   const FRANJA = 'Este modelo es una redacción de Galera sin respaldo en un modelo oficial ni revisión de un/a abogado/a. No lo firmes sin que lo lea un profesional.';
   const franja = id => CON_FUENTE.indexOf(id) < 0 ? { t: FRANJA_T, d: FRANJA } : null;
   const AVISO = 'Plantilla orientativa: no es asesoramiento legal. Antes de firmar, conviene que la revise un/a abogado/a.';
+  // Texto oficial de cada norma citada en `fuente` y fecha en que se cotejaron sus artículos (detalle: propuestas/2026-11-14-plan-galera/contratos-cotejo.md).
+  // url null = no se pudo abrir el texto oficial: se muestra como «sin cotejar».
+  const NORMAS = [
+    { n: 'Ley 11.723', re: /Ley 11\.723/, url: 'https://www.argentina.gob.ar/normativa/nacional/ley-11723-42755/actualizacion', verificado: '2026-11-14' },
+    { n: 'Código Civil y Comercial', re: /CCyC/, url: 'https://www.argentina.gob.ar/normativa/nacional/ley-26994-235975/texto', verificado: '2026-11-14' },
+    { n: 'Ley 22.399', re: /Ley 22\.399/, url: null, verificado: null }
+  ];
+  const normasDe = fuente => NORMAS.filter(x => x.re.test(fuente || '')).map(({ n, url, verificado }) => ({ n, url, verificado }));
+  const fechaAr = f => f ? f.split('-').reverse().join('/') : '';
+  const oficialTxt = c => c.normas && c.normas.length ? ' Texto oficial: ' + c.normas.map(x => x.url ? `${x.n}, ${x.url} (cotejado el ${fechaAr(x.verificado)})` : `${x.n} (sin cotejar contra el texto oficial)`).join('; ') + '.' : '';
   const miles = n => { const s = String(Math.round(Number(n) * 100) / 100).replace('.', ','), p = s.split(','); return p[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.') + (p[1] ? ',' + p[1] : ''); };
   const T = (id, etq, def, x) => Object.assign({ id, etq, tipo: 'texto', def: def == null ? '' : def }, x);
   const N = (id, etq, def, x) => Object.assign({ id, etq, tipo: 'num', def: def == null ? '' : def }, x);
@@ -486,7 +496,7 @@ const Contratos = (() => {
     CLAUSULAS[id].forEach(c => {
       if (!incluida(c, v)) return;
       const vr = c.vars ? variante(c, v) : null;
-      clausulas.push({ n: ++n, id: c.id, t: c.t, fuente: c.fuente, texto: (vr || c).f(g), porque: c.porque || '', ref: c.ref || [], revisar: !!c.revisar, opcional: !!c.opcional, variante: vr ? vr.etq : '' });
+      clausulas.push({ n: ++n, id: c.id, t: c.t, fuente: c.fuente, normas: normasDe(c.fuente), texto: (vr || c).f(g), porque: c.porque || '', ref: c.ref || [], revisar: !!c.revisar, opcional: !!c.opcional, variante: vr ? vr.etq : '' });
     });
     return { modelo: m, clausulas, falta: falta.map(k => etq[k] || k), avisos: avisos(id, v) };
   }
@@ -528,18 +538,18 @@ const Contratos = (() => {
     return { id, franja: franja(id), titulo: m.t.toUpperCase(), aviso: 'Borrador generado con Galera (galera.com.ar). ' + AVISO, cab, clausulas: r.clausulas, falta: r.falta,
       cierre: 'Para que conste, las partes firman dos ejemplares de un mismo tenor.', firmas: [m.roles.a, m.roles.b], notas: !!o.notas };
   }
-  const anexo = e => e.clausulas.map(c => ({ n: c.n, t: c.t, fuente: c.fuente, porque: c.porque, revisar: c.revisar }));
+  const anexo = e => e.clausulas.map(c => ({ n: c.n, t: c.t, fuente: c.fuente, oficial: oficialTxt(c), porque: c.porque, revisar: c.revisar }));
   const TIT_ANEXO = 'Anexo: notas de redacción (no forman parte del contrato)';
   const NOTA_ANEXO = 'Cada cláusula indica de dónde sale. Las marcadas «a revisar por abogado/a» no tienen una norma que las respalde o admiten opciones que conviene que un profesional evalúe.';
 
   function documento(id, v, o) {
     const e = estructura(id, v, o), L = [`# ${e.titulo}`, '', ...(e.franja ? [`> **${e.franja.t.toUpperCase()}.** ${e.franja.d}`, ''] : []), `> ${e.aviso}`, '', e.cab, '', ...e.clausulas.map(c => `**${c.n}. ${c.t}.** ${c.texto}`).flatMap(x => [x, '']), e.cierre, '', '______________________ &nbsp;&nbsp;&nbsp;&nbsp; ______________________', `${e.firmas[0]} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ${e.firmas[1]}`, ''];
-    if (e.notas) L.push('---', '', `## ${TIT_ANEXO}`, '', NOTA_ANEXO, '', ...anexo(e).flatMap(c => [`**${c.n}. ${c.t}.** Fuente: ${c.fuente}.${c.porque ? ' Por qué importa: ' + c.porque : ''}${c.revisar ? ' *A revisar por abogado/a.*' : ''}`, '']));
+    if (e.notas) L.push('---', '', `## ${TIT_ANEXO}`, '', NOTA_ANEXO, '', ...anexo(e).flatMap(c => [`**${c.n}. ${c.t}.** Fuente: ${c.fuente}.${c.oficial}${c.porque ? ' Por qué importa: ' + c.porque : ''}${c.revisar ? ' *A revisar por abogado/a.*' : ''}`, '']));
     return L.join('\n');
   }
   function texto(id, v, o) {
     const e = estructura(id, v, o), L = [e.titulo, '='.repeat(e.titulo.length), '', ...(e.franja ? [`>>> ${e.franja.t.toUpperCase()}. ${e.franja.d} <<<`, ''] : []), e.aviso, '', e.cab, '', ...e.clausulas.map(c => `${c.n}. ${c.t}. ${c.texto}`).flatMap(x => [x, '']), e.cierre, '', '______________________        ______________________', `${e.firmas[0]}${' '.repeat(Math.max(2, 30 - e.firmas[0].length))}${e.firmas[1]}`, ''];
-    if (e.notas) L.push('', TIT_ANEXO.toUpperCase(), '', NOTA_ANEXO, '', ...anexo(e).flatMap(c => [`${c.n}. ${c.t}. Fuente: ${c.fuente}.${c.porque ? ' Por qué importa: ' + c.porque : ''}${c.revisar ? ' [A revisar por abogado/a]' : ''}`, '']));
+    if (e.notas) L.push('', TIT_ANEXO.toUpperCase(), '', NOTA_ANEXO, '', ...anexo(e).flatMap(c => [`${c.n}. ${c.t}. Fuente: ${c.fuente}.${c.oficial}${c.porque ? ' Por qué importa: ' + c.porque : ''}${c.revisar ? ' [A revisar por abogado/a]' : ''}`, '']));
     return L.join('\n');
   }
   const xesc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -548,7 +558,7 @@ const Contratos = (() => {
   function html(id, v, o) {
     const e = estructura(id, v, o);
     return `<h1>${xesc(e.titulo)}</h1>${e.franja ? `<p class="rc-franja"><b>${xesc(e.franja.t)}.</b> ${xesc(e.franja.d)}</p>` : ''}<p class="rc-aviso">${xesc(e.aviso)}</p><p>${marcar(e.cab)}</p>` + e.clausulas.map(c => `<p><b>${c.n}. ${xesc(c.t)}.</b> ${marcar(c.texto)}</p>`).join('') + `<p>${xesc(e.cierre)}</p><div class="rc-firmas"><p>______________________<br>${xesc(e.firmas[0])}</p><p>______________________<br>${xesc(e.firmas[1])}</p></div>`
-      + (e.notas ? `<h2>${xesc(TIT_ANEXO)}</h2><p>${xesc(NOTA_ANEXO)}</p>` + anexo(e).map(c => `<p><b>${c.n}. ${xesc(c.t)}.</b> Fuente: ${xesc(c.fuente)}.${c.porque ? ' Por qué importa: ' + xesc(c.porque) : ''}${c.revisar ? ' <i>A revisar por abogado/a.</i>' : ''}</p>`).join('') : '');
+      + (e.notas ? `<h2>${xesc(TIT_ANEXO)}</h2><p>${xesc(NOTA_ANEXO)}</p>` + anexo(e).map(c => `<p><b>${c.n}. ${xesc(c.t)}.</b> Fuente: ${xesc(c.fuente)}.${xesc(c.oficial)}${c.porque ? ' Por qué importa: ' + xesc(c.porque) : ''}${c.revisar ? ' <i>A revisar por abogado/a.</i>' : ''}</p>`).join('') : '');
   }
 
   // .docx sin dependencias: un ZIP sin comprimir con las partes mínimas de un documento de Word.
@@ -581,7 +591,7 @@ const Contratos = (() => {
     const cuerpo = [par(run(e.titulo, { b: true, sz: 30 }), { jc: 'center', after: 240 }), ...(e.franja ? [par(run(e.franja.t.toUpperCase() + '. ', { b: true, mark: true }) + run(e.franja.d, { b: true }), { jc: 'left' })] : []), par(run(e.aviso, { i: true, sz: 20 }), { jc: 'left' }), par(conMarcas(e.cab)),
       ...e.clausulas.map(c => par(run(`${c.n}. ${c.t}. `, { b: true }) + conMarcas(c.texto))), par(run(e.cierre)),
       `<w:tbl><w:tblPr><w:tblW w:w="9000" w:type="dxa"/></w:tblPr><w:tblGrid><w:gridCol w:w="4500"/><w:gridCol w:w="4500"/></w:tblGrid><w:tr>${celda(e.firmas[0])}${celda(e.firmas[1])}</w:tr></w:tbl>`];
-    if (e.notas) cuerpo.push(par(run(TIT_ANEXO, { b: true, sz: 26 }), { jc: 'left', keep: true }), par(run(NOTA_ANEXO, { i: true }), { jc: 'left' }), ...anexo(e).map(c => par(run(`${c.n}. ${c.t}. `, { b: true }) + run(`Fuente: ${c.fuente}.${c.porque ? ' Por qué importa: ' + c.porque : ''}${c.revisar ? ' A revisar por abogado/a.' : ''}`), { jc: 'left' })));
+    if (e.notas) cuerpo.push(par(run(TIT_ANEXO, { b: true, sz: 26 }), { jc: 'left', keep: true }), par(run(NOTA_ANEXO, { i: true }), { jc: 'left' }), ...anexo(e).map(c => par(run(`${c.n}. ${c.t}. `, { b: true }) + run(`Fuente: ${c.fuente}.${c.oficial}${c.porque ? ' Por qué importa: ' + c.porque : ''}${c.revisar ? ' A revisar por abogado/a.' : ''}`), { jc: 'left' })));
     const pie = '<w:sectPr><w:pgSz w:w="11906" w:h="16838"/><w:pgMar w:top="1417" w:right="1417" w:bottom="1417" w:left="1417" w:header="708" w:footer="708" w:gutter="0"/></w:sectPr>';
     const X = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n';
     return zip([
@@ -592,6 +602,6 @@ const Contratos = (() => {
       { nombre: 'word/document.xml', datos: X + `<w:document ${W}><w:body>${cuerpo.join('')}${pie}</w:body></w:document>` }]);
   }
 
-  return { MODELOS, CLAUSULAS, FALTA, AVISO, franja, defaults: defaults2, generar, avisos, documento, texto, html, docx, estructura, zip, crc32, visible, incluida, miles };
+  return { MODELOS, CLAUSULAS, FALTA, AVISO, NORMAS, normasDe, franja, defaults: defaults2, generar, avisos, documento, texto, html, docx, estructura, zip, crc32, visible, incluida, miles };
 })();
 if (typeof module !== 'undefined') module.exports = Contratos;

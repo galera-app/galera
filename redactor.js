@@ -32,6 +32,9 @@ const Redactor = (() => {
   }
 
   // --- Vista previa ---
+  // Link al texto oficial de cada norma citada en la fuente y fecha en que se cotejó (Contratos.NORMAS).
+  const fecha = f => f.split('-').reverse().join('/');
+  const oficial = c => c.normas && c.normas.length ? `<p class="u-mt6 chico tenue">Texto oficial: ${c.normas.map(x => x.url ? `<a href="${esc(x.url)}" rel="noopener">${esc(x.n)}</a> (cotejado el ${esc(fecha(x.verificado))})` : `${esc(x.n)} (sin cotejar contra el texto oficial)`).join(' · ')}</p>` : '';
   function previa() {
     const r = Contratos.generar(E.tipo, vals());
     const avisos = r.avisos.length ? `<div class="tarjeta rc-avisos" role="status">${r.avisos.map(a => `<p class="u-mb4 chico">⚠️ ${esc(a)}</p>`).join('')}</div>` : '';
@@ -39,6 +42,7 @@ const Redactor = (() => {
     return avisos + r.clausulas.map(c => `<article class="tarjeta rc-clausula"><h3 class="u-mb4">${c.n}. ${esc(c.t)}</h3>
       <p class="u-m0">${marcar(c.texto)}</p>
       <p class="u-mt6 chico tenue">Fuente: ${esc(c.fuente)}${c.variante ? ` · Redacción elegida: ${esc(c.variante)}` : ''}</p>
+      ${oficial(c)}
       ${c.revisar ? '<p class="u-mt6 chico"><span class="chip ojo">A revisar por abogado/a</span></p>' : ''}
       ${E.notas && c.porque ? `<p class="u-mt6 chico rc-porque"><b>Por qué esto importa.</b> ${esc(c.porque)}</p>` : ''}${E.notas ? refs(c) : ''}</article>`).join('');
   }

@@ -132,6 +132,30 @@ console.log('Solo se citan artículos verificados');
   check(malos.size === 0, 'ninguna fuente cita un artículo fuera de la lista verificada' + (malos.size ? ': ' + [...malos].join(', ') : ''));
 }
 
+console.log('Texto oficial y fecha de cotejo de cada norma citada');
+{
+  // Cada norma que aparece en una `fuente` está en C.NORMAS: con URL oficial (argentina.gob.ar/normativa, InfoLEG, SAIJ o Boletín Oficial)
+  // y fecha AAAA-MM-DD, o explícitamente sin cotejar (url y verificado en null) para que la pantalla lo diga.
+  const OFICIAL = /^https:\/\/(www\.argentina\.gob\.ar\/normativa\/|servicios\.infoleg\.gob\.ar\/|www\.saij\.gob\.ar\/|www\.boletinoficial\.gob\.ar\/)/;
+  const SIN_COTEJAR = ['Ley 22.399'];
+  C.NORMAS.forEach(x => {
+    if (SIN_COTEJAR.includes(x.n)) check(x.url === null && x.verificado === null, `${x.n}: marcada sin cotejar (sin URL ni fecha inventadas)`);
+    else check(OFICIAL.test(x.url || '') && /^\d{4}-\d{2}-\d{2}$/.test(x.verificado || ''), `${x.n}: URL oficial y fecha de cotejo`);
+  });
+  const sinNorma = new Set();
+  TIPOS.forEach(id => C.CLAUSULAS[id].forEach(c => {
+    if (/Ley \d|CCyC|Código/.test(c.fuente) && !C.normasDe(c.fuente).length) sinNorma.add(`${id}/${c.t}`);
+    (c.fuente.match(/Ley [\d.]+|CCyC/g) || []).forEach(n => { if (!C.NORMAS.some(x => x.re.test(n))) sinNorma.add(`${id}/${c.t}: ${n}`); });
+  }));
+  check(sinNorma.size === 0, 'toda norma citada en una fuente tiene su entrada en NORMAS' + (sinNorma.size ? ': ' + [...sinNorma].join(', ') : ''));
+  const r = C.generar('edicion', con('edicion', CASOS.edicion));
+  check(r.clausulas.every(c => Array.isArray(c.normas)) && r.clausulas.some(c => c.normas.some(x => x.n === 'Ley 11.723' && x.url)), 'generar() pasa las normas de cada cláusula a la pantalla');
+  const md = C.documento('edicion', con('edicion', CASOS.edicion), { notas: true });
+  check(md.includes('Texto oficial: Ley 11.723, https://www.argentina.gob.ar/normativa/') && md.includes('cotejado el 14/11/2026'), 'el anexo de notas trae el link oficial y la fecha');
+  check(C.documento('coedicion', con('coedicion', CASOS.coedicion), { notas: true }).includes('Ley 22.399 (sin cotejar contra el texto oficial)'), 'la norma sin cotejar se dice como tal');
+  check(C.AVISO.includes('no es asesoramiento legal'), 'el aviso general sigue diciendo que no es asesoramiento legal');
+}
+
 console.log('Salidas');
 {
   const v = con('cesion', { ...CASOS.cesion, p1: 'Ana <script>x</script> & Cía.' });
