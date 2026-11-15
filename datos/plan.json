@@ -1,8 +1,36 @@
 {
+  "nota": "Se genera con plan_publico.py desde el plan de trabajo: no se edita a mano.",
   "etapas": [
     {"id": "ahora", "t": "Ahora", "items": [
-      {"id": "rediseno", "t": "Galera con la cara nueva", "d": "Todas las pantallas se están rehaciendo con el mismo diseño; ya salieron casi todas.", "estado": "en curso"},
-      {"id": "dominio", "t": "Mudanza a galera.com.ar", "d": "El sitio ya responde en la dirección nueva; falta que la dirección vieja te lleve sola.", "estado": "en curso"},
+      {"id": "apuntes-revisados", "t": "Apuntes revisados contra las fuentes", "d": "Correcciones en los resúmenes de Derechos Editoriales y del Autor, Teoría de los Medios y de la Cultura y Edición de Publicaciones Periódicas.", "estado": "planeado"},
+      {"id": "contratos-fuentes", "t": "Redactor de contratos, con el texto oficial de cada ley", "d": "Cada cita a la ley linkea el texto oficial y dice si se cotejó y cuándo.", "estado": "listo"}
+    ]},
+    {"id": "sigue", "t": "Lo que sigue", "items": [
+      {"id": "materia-aprobada", "t": "Una imagen para compartir cuando aprobás una materia", "d": "Marcás la materia como aprobada y Galera arma una imagen para tus redes y un álbum con tu avance en la carrera.", "estado": "planeado"},
+      {"id": "sin-conexion", "t": "Galera sin conexión", "d": "Después de una visita, Inicio, Mi carrera, Horarios y Calendario abren aunque no tengas internet.", "estado": "planeado"},
+      {"id": "datos-seguros", "t": "Tus datos, más protegidos", "d": "Galera le pide al navegador que no borre lo que cargaste, te recuerda hacer una copia y explica cómo instalarla en el iPhone.", "estado": "planeado"},
+      {"id": "accesos-directos", "t": "Accesos directos al instalar Galera", "d": "Con Galera instalada en el celular, el ícono abre directo Mi carrera, Horarios, Calendario o Resúmenes.", "estado": "planeado"},
+      {"id": "celular-rapido", "t": "Más rápida en el celular", "d": "El Directorio carga por páginas y los apuntes dejan de saltar mientras se abren.", "estado": "planeado"},
+      {"id": "buzon", "t": "Buzón más a la vista, con respuesta pública", "d": "Lo que pedís con «Contame qué falta» va a tener su respuesta a la vista de todos.", "estado": "planeado"},
+      {"id": "aporte-mensual", "t": "Aporte mensual", "d": "Una forma de apoyar a Galera todos los meses, por Mercado Pago o Cafecito.", "estado": "planeado"}
+    ]},
+    {"id": "despues", "t": "Después", "items": [
+      {"id": "libro-inverso", "t": "Un buscador de libros posibles", "d": "Cargás lo que tenés (plata, texto, precio de tapa y fecha) y Galera te muestra qué libros cierran y por qué no cierran los demás.", "estado": "planeado"},
+      {"id": "isbn", "t": "ISBN y depósito legal, paso a paso", "d": "Los trámites que pide publicar un libro en la Argentina, con la fuente oficial de cada dato.", "estado": "planeado"}
+    ]},
+    {"id": "cuat1-2027", "t": "Para el 1.er cuatrimestre de 2027", "items": [
+      {"id": "calendario-2027", "t": "Calendario académico 2027", "d": "Inscripciones, cursada, mesas y feriados del año nuevo, cada fecha con su fuente oficial.", "estado": "planeado"},
+      {"id": "oferta-2027", "t": "Horarios e ingresantes del primer cuatrimestre", "d": "La oferta de comisiones de 2027 y la guía para quienes empiezan la carrera, al día.", "estado": "planeado"},
+      {"id": "redes", "t": "Galera en las redes", "d": "Publicaciones en Instagram, LinkedIn, YouTube y el canal de WhatsApp.", "estado": "planeado"}
+    ]},
+    {"id": "sin-fecha", "t": "Más adelante, sin fecha", "items": [
+      {"id": "aviso-mail", "t": "El aviso de los lunes, con otra cara", "d": "Un mail más cuidado, con «Verlo online» y la posibilidad de invitar a alguien.", "estado": "planeado"},
+      {"id": "simuladores-nuevos", "t": "Simuladores nuevos", "d": "Más calculadoras y mapas para hacer las cuentas del oficio.", "estado": "planeado"},
+      {"id": "mas-resumenes", "t": "Más resúmenes según los aportes", "d": "Se suman materias y apuntes a medida que llegan textos para armarlos.", "estado": "planeado"}
+    ]},
+    {"id": "ya-salio", "t": "Ya salió", "items": [
+      {"id": "rediseno", "t": "Galera con la cara nueva", "d": "Todas las pantallas, rehechas con el mismo diseño.", "estado": "listo"},
+      {"id": "dominio", "t": "Mudanza a galera.com.ar", "d": "Galera vive en su dirección nueva y la vieja te lleva sola.", "estado": "listo"},
       {"id": "resumenes-pdf", "t": "Resúmenes para imprimir", "d": "Cada apunte se baja en PDF A4, PDF A5, cuadernillo para imprimir y EPUB.", "estado": "listo"},
       {"id": "buscador", "t": "Un buscador único", "d": "La lupa de la cabecera busca en todo el sitio, con respuesta rápida a las preguntas más comunes.", "estado": "listo"},
       {"id": "sostener", "t": "Cómo se sostiene", "d": "Horas de trabajo, costos y formas de ayudar.", "estado": "listo"},
@@ -14,15 +42,6 @@
       {"id": "mapa-editoriales", "t": "Mapa de editoriales argentinas", "d": "Dónde están las editoriales del país y qué publican.", "estado": "listo"},
       {"id": "resumenes-derecho", "t": "Resúmenes de Derechos Editoriales y del Autor", "d": "Nueve unidades con autoevaluación. Es un borrador, a la espera de una revisión del área.", "estado": "listo"},
       {"id": "preguntas", "t": "Preguntas frecuentes", "d": "45 respuestas sobre cursada, inscripción, finales, idiomas y título, y un lugar para dejar tu pregunta.", "estado": "listo"}
-    ]},
-    {"id": "proximo", "t": "Lo que sigue", "items": [
-      {"id": "aviso-mail", "t": "El aviso de los lunes, con otra cara", "d": "Un mail más cuidado, con «Verlo online» y la posibilidad de invitar a alguien.", "estado": "planeado"},
-      {"id": "redes", "t": "Galera en las redes", "d": "Ya están Instagram, LinkedIn, YouTube y un canal de WhatsApp; faltan las publicaciones.", "estado": "en curso"},
-      {"id": "simuladores-nuevos", "t": "Simuladores nuevos", "d": "Más calculadoras y mapas para hacer las cuentas del oficio.", "estado": "planeado"}
-    ]},
-    {"id": "cuat1-2027", "t": "1.er cuatrimestre 2027", "items": [
-      {"id": "herramientas-libro", "t": "Herramientas del libro para profesionales", "d": "Utilidades para quienes ya trabajan en edición, más allá de la cursada.", "estado": "en curso"},
-      {"id": "mas-resumenes", "t": "Más resúmenes según los aportes", "d": "Se suman materias y apuntes a medida que llegan textos para armarlos.", "estado": "planeado"}
     ]}
   ]
 }

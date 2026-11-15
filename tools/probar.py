@@ -10,7 +10,9 @@ Uso:
 Qué protege:
   datos      JSON sin claves repetidas, esquema mínimo de cada archivo, ids únicos, fechas ISO válidas,
              archivos que nombra datos/indice.json, novedades.json (versiones seguidas, orden, URLs propias)
-             y, si hay un CHANGELOG.md a mano (GALERA_CHANGELOG o ../CHANGELOG.md), que coincida con él.
+             y, si hay un CHANGELOG.md a mano (GALERA_CHANGELOG o ../CHANGELOG.md), que coincida con él;
+             plan.json (textos y estados) y, si hay un plan_publico.py a mano (GALERA_PLAN_PUBLICO o
+             ../plan_publico.py), que esté al día con el plan de trabajo.
   sitio      enlaces internos, sitemap contra páginas reales, robots.txt, metadatos compartibles,
              CSP (sin scripts en línea ni orígenes no declarados) y service worker + manifest.
 Los simuladores tienen su prueba de humo aparte: node tools/probar_simuladores.js
@@ -322,6 +324,25 @@ class TestDatos(unittest.TestCase):
         self.assertEqual(sorted(nv - set(reg)), [], "versiones publicadas que faltan en el CHANGELOG")
         self.assertEqual(sorted(set(reg) - nv), [], "versiones del CHANGELOG sin entrada en novedades.json")
         self.assertEqual(reg, sorted(reg, reverse=True), "CHANGELOG fuera de orden")
+
+    def test_plan_tiene_textos_y_estados_conocidos(self):
+        vistos = set()
+        for e in cargar_json(RAIZ / "datos/plan.json")["etapas"]:
+            self.assertTrue(e["items"], f"etapa sin ítems: {e['id']}")
+            for i in e["items"]:
+                self.assertTrue(all(isinstance(i.get(k), str) and i[k].strip() for k in ("id", "t", "d")), f"ítem del plan sin id, t o d: {i}")
+                self.assertIn(i.get("estado"), ("planeado", "en curso", "listo"), f"estado desconocido en {i['id']}")
+                self.assertNotIn(i["id"], vistos, "id repetido en el plan")
+                vistos.add(i["id"])
+
+    def test_plan_contra_el_plan_de_trabajo(self):
+        # datos/plan.json se genera desde las casillas del plan de trabajo, que vive fuera del repo.
+        cand = [os.environ.get("GALERA_PLAN_PUBLICO", ""), RAIZ.parent / "plan_publico.py"]
+        gen = next((Path(c) for c in cand if c and Path(c).is_file()), None)
+        if gen is None:
+            self.skipTest("no hay plan_publico.py a mano (en el CI no está: vive en 104-edicion-cursada)")
+        r = subprocess.run([sys.executable, str(gen), "--comprobar", str(RAIZ)], capture_output=True, text=True, encoding="utf-8")
+        self.assertEqual(r.returncode, 0, f"datos/plan.json quedó viejo: corré python {gen} --repo {RAIZ}\n{r.stdout}{r.stderr}")
 
 
 # ───────────────────────── sitio armado ─────────────────────────

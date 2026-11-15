@@ -2,6 +2,17 @@
  "nota": "Lo que va en el mail de los lunes (Novedades.gs) y en la pestaña Novedades. v: número de versión (obligatorio; ver CHANGELOG.md). tipo: herramientas | resumenes | fechas. perfil: estudiante (por defecto) | profesional | todos; el mail y la pestaña Novedades lo usan para mostrar a cada perfil lo suyo. materias: ids del plan (vacío = para todas). url: solo links a galera.com.ar/. Sumar una entrada por cada cosa que se publica; el script manda solo lo posterior al último envío de cada persona, así que las viejas no se reenvían.",
  "novedades": [
   {
+   "v": 172,
+   "fecha": "2026-11-15",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "menor": true,
+   "titulo": "«Qué se viene», al día con el plan",
+   "texto": "La lista de lo que viene en Galera, que ves en Novedades y en «Cómo se sostiene», ahora sale del plan de trabajo: cuando algo se termina, pasa a «Ya salió». Está ordenada por momento: ahora, lo que sigue, después y el primer cuatrimestre de 2027. Entre lo que viene: una imagen para compartir cuando aprobás una materia, Galera sin conexión y el calendario 2027. El orden puede cambiar según lo que pidan.",
+   "url": "https://galera.com.ar/sostener/"
+  },
+  {
    "v": 171,
    "fecha": "2026-11-14",
    "tipo": "herramientas",
