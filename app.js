@@ -63,7 +63,6 @@ const MECENAS = {
   3: [{ id: 'a', nombre: 'Victoria Ocampo', corto: 'Victoria', dato: 'Fundó la revista Sur en 1931 y, dos años después, la editorial.' },
     { id: 'b', nombre: 'Federico de Montefeltro', corto: 'Federico', dato: 'Duque de Urbino: armó una de las bibliotecas de manuscritos más famosas de su tiempo.' }]
 };
-const extrasVacio = () => ({ mail: '', cafe: '', resumen: '', respuesta: '', mecenas: null });
 
 // ---------- utilidades ----------
 const $ = (s, el = document) => el.querySelector(s);
@@ -169,6 +168,8 @@ function aviso(t) { const a = $('#aviso'); a.textContent = t; a.classList.add('o
 // juego: los elementos de juego (un interruptor general; todo informativo, sin puntos ni rachas): on, rondas (última de cada materia), hitos (registro de lo hecho),
 // retos (resueltos), aprob (materias ya registradas), ultimo (último apunte abierto).
 const juegoVacio = () => ({ on: true, rondas: {}, hitos: [], retos: {}, aprob: [], ultimo: '' });
+// Tarjetas por ayudar a Galera (v174): fechas y, del aporte mensual, nivel y figura (MECENAS).
+const extrasVacio = () => ({ mail: '', cafe: '', resumen: '', respuesta: '', mecenas: null });
 function estadoVacio() { return { v: 1, carrera: 'edicion', perfil: '', vioAyuda: false, materias: {}, horarios: {}, escandallo: null, comparador: null, papel: null, paginacion: null, cronograma: null, leidos: {}, lecturas: {}, descarga: '',
   copia: '', modif: '', primera: '', visto: '', invitacion: '', practica: {}, extras: extrasVacio(), juego: juegoVacio(), arcade: typeof Arcade === 'undefined' ? null : Arcade.sanear(null) }; }
 // Todo lo que entra (de localStorage o de un archivo importado) se reconstruye campo por campo:
