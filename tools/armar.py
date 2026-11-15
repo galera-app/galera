@@ -92,7 +92,7 @@ def pie(app=False):
                          enlaces=cookies + '<button class="enlace" type="button" data-clic="abrirDatos">Tus datos</button>'
                                  '<button class="enlace" type="button" data-clic="idea">Contame qué falta</button>' + extra)
     return plantilla("pie.tpl", id_nav="", avisame="", **comun,
-                     acciones='<a class="cafe" href="/sostener/">Invitar un cafecito</a>',
+                     acciones='<a class="cafe" href="/sostener/#ayudar">Ayudar a Galera</a>',
                      enlaces=cookies + '<a href="/config/">Tus datos</a><a href="mailto:hola@galera.com.ar">Contame qué falta</a>' + extra)
 
 
