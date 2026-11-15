@@ -3916,10 +3916,11 @@ function sostenerColaboradores(P) {
 function vSostener() {
   if (!D.sostener) { cargarSostener(); return '<p class="cargando">Cargando…</p>'; }
   const S = D.sostener, fila = (t, v) => `<div class="gl-donar"><span class="gl-chico">${t}</span><code>${esc(v)}</code><button class="gl-btn gl-btn--sec" type="button" data-clic="copiar" data-clic-a="[${arg(v)}]">Copiar</button></div>`;
-  const mensual = APORTES.length ? `<div class="gl-tarjeta"><h3>Aporte mensual</h3><p>Se cobra solo cada mes por Mercado Pago. No hace falta tener cuenta.</p>
+  const mensual = APORTES.length ? `<div class="gl-tarjeta"><h3>Aporte mensual</h3><p>Se cobra solo cada mes por Mercado Pago, y lo cancelás cuando quieras.</p>
         ${APORTES.map((x, i) => `<a class="gl-btn${i ? ' gl-btn--sec' : ''}" href="${urlSegura(x.url)}" target="_blank" rel="noopener" ${dAcc('aporteClic', String(i + 1))}>Aportar ${pesos(x.monto)} por mes</a>`).join('')}
-        <p class="gl-chico">El pago lo maneja Mercado Pago: Galera no guarda tus datos. Para cambiar el monto o darlo de baja, escribime a <a href="mailto:${HOLA}">${HOLA}</a>.</p></div>` : '';
-  const montos = APORTES.map(x => pesos(x.monto)).join(', ').replace(/, ([^,]*)$/, ' o $1');
+        <p class="gl-chico">Galera no ve tu tarjeta: el pago queda en Mercado Pago. La baja se hace desde Mercado Pago; para cambiar de monto, das de baja este y elegís otro. Si algo falla, escribime a <a href="mailto:${HOLA}">${HOLA}</a>.</p></div>` : '';
+  // En el celular el riel queda al final de la página: los montos van también como links acá, en «Con plata».
+  const montos = APORTES.map((x, i) => `<a href="${urlSegura(x.url)}" target="_blank" rel="noopener" ${dAcc('aporteClic', String(i + 1))}>${pesos(x.monto)} por mes</a>`).join(', ').replace(/, ([^,]*)$/, ' o $1');
   return `<div class="gl-v gl-sost"><div class="gl-cab"><h1 class="gl-display">Cómo ayudar</h1></div>
     <p class="gl-baja">Galera es gratis, no pide cuenta y no tiene publicidad. Acá está cuánto trabajo lleva, qué cuesta y cómo ayudar.</p>
     <div class="gl-doc gl-doc--izq"><div class="gl-principal">
@@ -3929,7 +3930,7 @@ function vSostener() {
       <p>Con más apoyo podría pagar un plan superior de Claude y avanzar más frentes por semana.</p>
       <h2 id="ayudar">Trabajar conmigo y colaborar</h2><p>Hay tres maneras de ayudar. Todas son opcionales.</p>
       <ul class="gl-formas">
-        <li><b>Con plata</b><p>${APORTES.length ? `Un aporte mensual de ${montos} por Mercado Pago, que es lo que más ayuda porque permite planificar. O un` : 'Un'} aporte único, del monto que quieras, por <a href="${urlSegura(DONAR.cafecito)}" target="_blank" rel="noopener" ${dAcc('aporteClic', 'unico')}>Cafecito</a> o por transferencia al alias <b>${esc(DONAR.alias)}</b>, sin comisión. Los datos para copiar están a un costado.</p></li>
+        <li><b>Con plata</b><p>${APORTES.length ? `Un aporte mensual por Mercado Pago, que es lo que más ayuda porque permite planificar: ${montos}. O un` : 'Un'} aporte único, del monto que quieras, por <a href="${urlSegura(DONAR.cafecito)}" target="_blank" rel="noopener" ${dAcc('aporteClic', 'unico')}>Cafecito</a> o por transferencia al alias <b>${esc(DONAR.alias)}</b>, sin comisión. Los datos para copiar están a un costado.</p></li>
         <li><b>Con tiempo</b><p>Avisame de un error, sugerime lo que falta o mandame tus apuntes para sumarlos: los reviso a mano antes de publicarlos. Se hace desde «Contame qué falta» o por mail.</p></li>
         <li><b>Un proyecto en común</b><p>Si tenés un proyecto editorial en el que pueda sumar con corrección, redacción o armado de contenidos, contame. Escribime a <a href="mailto:${HOLA}">${HOLA}</a>.</p></li></ul>
       <h2 id="mecenas">Mecenas</h2>${sostenerMecenas(S.mecenas)}

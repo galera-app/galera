@@ -33,7 +33,7 @@
       {"id": "dominio", "t": "Mudanza a galera.com.ar", "d": "Galera vive en su dirección nueva y la vieja te lleva sola.", "estado": "listo"},
       {"id": "resumenes-pdf", "t": "Resúmenes para imprimir", "d": "Cada apunte se baja en PDF A4, PDF A5, cuadernillo para imprimir y EPUB.", "estado": "listo"},
       {"id": "buscador", "t": "Un buscador único", "d": "La lupa de la cabecera busca en todo el sitio, con respuesta rápida a las preguntas más comunes.", "estado": "listo"},
-      {"id": "sostener", "t": "Cómo se sostiene", "d": "Horas de trabajo, costos y formas de ayudar.", "estado": "listo"},
+      {"id": "sostener", "t": "Cómo ayudar", "d": "Horas de trabajo, costos y formas de ayudar.", "estado": "listo"},
       {"id": "compartir", "t": "Botón Compartir", "d": "Mandar por WhatsApp o copiar el link de la pantalla que estás viendo.", "estado": "listo"},
       {"id": "otro-dispositivo", "t": "Pasar tus datos a otro dispositivo", "d": "Seguir en el celular lo que hiciste en la compu, con un link o un código QR.", "estado": "listo"},
       {"id": "leyes", "t": "Fichas de leyes del libro y del autor", "d": "Las leyes que importan en edición, en palabras simples.", "estado": "listo"},
