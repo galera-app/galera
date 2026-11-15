@@ -122,8 +122,8 @@ check(!C.avisos('cesion', con('cesion', { plazoAnios: 8 })).some(a => /AATI/.tes
 
 console.log('Solo se citan artículos verificados');
 {
-  // Artículos cotejados con el texto de InfoLEG (Ley 11.723 y CCyC) para esta herramienta. Si se agrega otro, hay que verificarlo antes.
-  const OK = new Set([4, 5, 6, 23, 24, 37, 38, 39, 40, 41, 42, 43, 44, 51, 52, 53, 54, 55, 790, 1077, 1078, 1083, 1086, 1087, 1088, 1091, 1251, 1252, 1253, 1254, 1255, 1256, 1257, 1261, 1262, 1614]);
+  // Artículos cotejados con el texto oficial de argentina.gob.ar/normativa (Ley 11.723 y CCyC) para esta herramienta. Si se agrega otro, hay que verificarlo antes.
+  const OK = new Set([4, 5, 6, 23, 24, 37, 38, 39, 40, 41, 42, 43, 44, 51, 52, 53, 54, 55, 57, 61, 790, 1077, 1078, 1083, 1086, 1087, 1088, 1091, 1251, 1252, 1253, 1254, 1255, 1256, 1257, 1261, 1262, 1614]);
   const malos = new Set();
   TIPOS.forEach(id => C.CLAUSULAS[id].forEach(c => {
     const textos = [c.fuente, c.porque, ...(c.vars ? [] : [])];
