@@ -54,6 +54,16 @@ const APORTES = [
 ];
 const pesos = n => '$' + Number(n).toLocaleString('es-AR');
 function aporteClic(escalon) { medir('aporte_clic', { escalon }); }   // escalón 1, 2, 3 o «unico»: «vio la invitación → hizo clic»
+// Tarjeta del aporte mensual (v174): cada nivel, en el orden de APORTES, tiene dos figuras para elegir (ella o él). «corto» es lo que va grande en la imagen.
+const MECENAS = {
+  1: [{ id: 'a', nombre: 'Isabella d’Este', corto: 'Isabella', dato: 'Marquesa de Mantua: juntó libros y encargó obras a los grandes artistas de su tiempo.' },
+    { id: 'b', nombre: 'Cayo Mecenas', corto: 'Mecenas', dato: 'Protegió a Virgilio y a Horacio. De su nombre viene la palabra «mecenas».' }],
+  2: [{ id: 'a', nombre: 'Cristina de Suecia', corto: 'Cristina', dato: 'Reina que reunió una de las grandes bibliotecas de su siglo y protegió a sabios y músicos.' },
+    { id: 'b', nombre: 'Lorenzo de Médici', corto: 'Lorenzo', dato: 'Sostuvo a artistas y humanistas en la Florencia del siglo XV.' }],
+  3: [{ id: 'a', nombre: 'Victoria Ocampo', corto: 'Victoria', dato: 'Fundó y sostuvo la revista y la editorial Sur, desde 1931.' },
+    { id: 'b', nombre: 'Federico de Montefeltro', corto: 'Federico', dato: 'Duque de Urbino: armó una de las bibliotecas de manuscritos más famosas de su tiempo.' }]
+};
+const extrasVacio = () => ({ mail: '', cafe: '', resumen: '', respuesta: '', mecenas: null });
 
 // ---------- utilidades ----------
 const $ = (s, el = document) => el.querySelector(s);
@@ -160,7 +170,7 @@ function aviso(t) { const a = $('#aviso'); a.textContent = t; a.classList.add('o
 // retos (resueltos), aprob (materias ya registradas), ultimo (último apunte abierto).
 const juegoVacio = () => ({ on: true, rondas: {}, hitos: [], retos: {}, aprob: [], ultimo: '' });
 function estadoVacio() { return { v: 1, carrera: 'edicion', perfil: '', vioAyuda: false, materias: {}, horarios: {}, escandallo: null, comparador: null, papel: null, paginacion: null, cronograma: null, leidos: {}, lecturas: {}, descarga: '',
-  copia: '', modif: '', primera: '', visto: '', invitacion: '', practica: {}, juego: juegoVacio(), arcade: typeof Arcade === 'undefined' ? null : Arcade.sanear(null) }; }
+  copia: '', modif: '', primera: '', visto: '', invitacion: '', practica: {}, extras: extrasVacio(), juego: juegoVacio(), arcade: typeof Arcade === 'undefined' ? null : Arcade.sanear(null) }; }
 // Todo lo que entra (de localStorage o de un archivo importado) se reconstruye campo por campo:
 // solo tipos, formatos y largos esperados. Lo que no encaja se descarta.
 const RE_ID = /^(?!__proto__$|constructor$|prototype$)[\w.-]{1,60}$/, RE_FECHA = /^\d{4}-\d\d-\d\d$/, RE_HORA = /^\d\d:\d\d$/;
@@ -254,6 +264,11 @@ function normalizar(e) {
     out.juego.aprob = Array.isArray(J.aprob) ? lista(J.aprob, 200).filter(x => typeof x === 'string' && RE_ID.test(x)) : null;
     out.juego.ultimo = /^\w[\w.-]{0,59}\/\w[\w.-]{0,59}$/.test(J.ultimo || '') ? J.ultimo : '';
   } else out.juego.aprob = null;   // sin dato: la primera vez se anotan las ya aprobadas sin hacer ruido
+  // Logros de lo que se hace aparte de la carrera (v174): solo fechas y, del aporte mensual, el nivel y la figura elegida.
+  const X = e.extras && typeof e.extras === 'object' ? e.extras : {};
+  ['mail', 'cafe', 'resumen', 'respuesta'].forEach(k => { if (RE_FECHA.test(X[k] || '')) out.extras[k] = X[k]; });
+  const MX = X.mecenas;
+  if (MX && typeof MX === 'object' && /^[123]$/.test(MX.n) && (MX.fig === 'a' || MX.fig === 'b') && RE_FECHA.test(MX.f || '')) out.extras.mecenas = { n: String(MX.n), fig: MX.fig, f: MX.f };
   out.arcade = typeof Arcade === 'undefined' ? (e.arcade && typeof e.arcade === 'object' ? JSON.parse(JSON.stringify(e.arcade)) : null) : Arcade.sanear(e.arcade);   // Arcade de Corrección de Estilo: iniciales y top local por tablero
   // Último formato de descarga elegido (solo uno de los conocidos).
   out.descarga = ['A4', 'A5', 'cuadernillo', 'epub'].indexOf(e.descarga) >= 0 ? e.descarga : '';
@@ -3450,7 +3465,7 @@ function faqSinResponder(S, T) {
     ${grupos.map(([t, L]) => `<section class="gl-faq-tema" aria-labelledby="sin-${esc(t.id)}"><h2 id="sin-${esc(t.id)}" class="gl-t2 gl-faq-h">${esc(t.titulo)}</h2>
       ${L.map(p => `<article class="gl-tarjeta gl-faq-p"><h3 id="${esc(p.id)}" class="gl-faq-q">${esc(p.pregunta)}</h3>
         ${V.faqAbierta === p.id ? formRespuesta(p.id)
-          : V.faqEnviada === p.id ? '<p class="gl-baja" id="r-gracias" tabindex="-1" role="status">Gracias: tu respuesta llegó. La reviso antes de publicarla.</p>'
+          : V.faqEnviada === p.id ? `<p class="gl-baja" id="r-gracias" tabindex="-1" role="status">Gracias: tu respuesta llegó. La reviso antes de publicarla.${E.extras.respuesta ? ` <button class="gl-enlace" type="button" ${dAcc('compartirLogro', 'respuesta')}>Ver tu tarjeta por ayudar</button>` : ''}</p>`
           : `<div class="gl-faq-acc"><button class="gl-btn gl-btn--sec" id="b-${esc(p.id)}" type="button" data-clic="abrirRespuesta" data-clic-a="[${arg(p.id)}]">Sé la respuesta</button></div>`}
       </article>`).join('')}</section>`).join('')}</div>`;
 }
@@ -3468,6 +3483,7 @@ async function mandarRespuesta(e, id) {
   b.disabled = true; b.textContent = 'Enviando…'; st.textContent = ''; st.className = 'gl-baja';
   try {
     await postBuzonDatos({ tipo: 'respuesta', pregunta: id, texto, firma, acepta, web: val('r-w'), ms: Date.now() - (mandarRespuesta.t0 || Date.now()) });
+    ganarExtra('respuesta');
     V.faqAbierta = ''; V.faqEnviada = id; render();
     const ok = $('#r-gracias'); if (ok) ok.focus();
   } catch (err) {
@@ -3918,7 +3934,8 @@ function vSostener() {
   const S = D.sostener, fila = (t, v) => `<div class="gl-donar"><span class="gl-chico">${t}</span><code>${esc(v)}</code><button class="gl-btn gl-btn--sec" type="button" data-clic="copiar" data-clic-a="[${arg(v)}]">Copiar</button></div>`;
   const mensual = APORTES.length ? `<div class="gl-tarjeta"><h3>Aporte mensual</h3><p>Se cobra solo cada mes por Mercado Pago, y lo cancelás cuando quieras.</p>
         ${APORTES.map((x, i) => `<a class="gl-btn${i ? ' gl-btn--sec' : ''}" href="${urlSegura(x.url)}" target="_blank" rel="noopener" ${dAcc('aporteClic', String(i + 1))}>Aportar ${pesos(x.monto)} por mes</a>`).join('')}
-        <p class="gl-chico">Galera no ve tu tarjeta: el pago queda en Mercado Pago. La baja se hace desde Mercado Pago; para cambiar de monto, das de baja este y elegís otro. Si algo falla, escribime a <a href="mailto:${HOLA}">${HOLA}</a>.</p></div>` : '';
+        <p class="gl-chico">Galera no ve tu tarjeta: el pago queda en Mercado Pago. La baja se hace desde Mercado Pago; para cambiar de monto, das de baja este y elegís otro. Si algo falla, escribime a <a href="mailto:${HOLA}">${HOLA}</a>.</p>
+        <p class="gl-chico">¿Ya te sumaste? <button class="gl-enlace" type="button" ${dAcc('elegirMecenas', '')}>Elegí tu tarjeta</button></p></div>` : '';
   // En el celular el riel queda al final de la página: los montos van también como links acá, en «Con plata».
   const montos = APORTES.map((x, i) => `<a href="${urlSegura(x.url)}" target="_blank" rel="noopener" ${dAcc('aporteClic', String(i + 1))}>${pesos(x.monto)} por mes</a>`).join(', ').replace(/, ([^,]*)$/, ' o $1');
   return `<div class="gl-v gl-sost"><div class="gl-cab"><h1 class="gl-display">Cómo ayudar</h1></div>
@@ -3937,7 +3954,7 @@ function vSostener() {
       <h2 id="colaboradores">Colaboradores</h2>${sostenerColaboradores(S.preguntas)}
       ${sostenerPlan(S.plan)}</div>
     <aside class="gl-riel" aria-label="Ayudar">${mensual}
-      <div class="gl-tarjeta"><h3>Invitame un cafecito</h3><p>Un aporte único, del monto que quieras.</p><a class="gl-btn${APORTES.length ? ' gl-btn--sec' : ''}" href="${urlSegura(DONAR.cafecito)}" target="_blank" rel="noopener" ${dAcc('aporteClic', 'unico')}>Ir a Cafecito</a></div>
+      <div class="gl-tarjeta"><h3>Invitame un cafecito</h3><p>Un aporte único, del monto que quieras.</p><a class="gl-btn${APORTES.length ? ' gl-btn--sec' : ''}" href="${urlSegura(DONAR.cafecito)}" target="_blank" rel="noopener" ${dAcc('aporteClic', 'unico')}>Ir a Cafecito</a><p class="gl-chico">¿Ya me invitaste? <button class="gl-enlace" type="button" ${dAcc('logroExtra', 'cafe')}>Sumá tu tarjeta</button></p></div>
       <div class="gl-tarjeta"><h3>Transferencia</h3><p>Sin comisión, desde cualquier banco o billetera.</p>${DONAR.alias ? fila('Alias', DONAR.alias) : ''}${DONAR.cvu ? fila('CVU', DONAR.cvu) : ''}</div>
       <div class="gl-tarjeta"><h3>Escribime</h3><p>Para colaborar, sumar tus apuntes o proponer algo.</p><a class="gl-btn gl-btn--sec" href="mailto:${HOLA}">${HOLA}</a></div></aside></div></div>`;
 }
@@ -4162,6 +4179,9 @@ function manejarLinkNov() {
   if (location.hash === '#donar') { history.replaceState(null, '', location.pathname + location.search); ir('sostener'); return true; }   // el botón del mail
   const t = location.hash.match(/^#tengo=(.{3,200})$/);   // links desde los apuntes y planes: #tengo=<texto que falta>
   if (t) { history.replaceState(null, '', location.pathname + location.search); let ref = ''; try { ref = decodeURIComponent(t[1]); } catch (e) { ref = t[1]; } tengoTexto(ref); return true; }
+  // v174: #avisame abre el formulario del mail; #aporte (=1, 2 o 3, desde /gracias/; no #mecenas, que es un ancla de /sostener/), #cafe y #colaboro dan la tarjeta de quien ayudó (compartir.js).
+  const x = location.hash.match(/^#(avisame|aporte|cafe|colaboro)(?:=([123]))?$/);
+  if (x) { history.replaceState(null, '', location.pathname + location.search); if (x[1] === 'avisame') avisame(); else if (x[1] === 'aporte') elegirMecenas(x[2] || ''); else logroExtra(x[1] === 'cafe' ? 'cafe' : 'resumen'); return true; }
   const m = location.hash.match(/^#(confirmar|baja|novedades)=([0-9a-f-]{36})$/);
   if (!m) return false;
   history.replaceState(null, '', location.pathname + location.search);
@@ -4174,8 +4194,10 @@ async function confirmarNov() {
   abrir(cab('🔔 Novedades de Galera') + '<p class="cargando">Confirmando tu mail…</p>', 'nov');
   try {
     await postNov({ accion: 'confirmar', token: novToken });
+    const tarjeta = ganarExtra('mail');
     abrir(cab('✅ ¡Listo!') + `<p>Tu mail quedó confirmado. Desde el próximo lunes, a las 8:00, te llega lo nuevo de Galera que elegiste recibir. Si un lunes no hay nada para vos, no te escribo.</p>
-      <div class="botones"><button class="btn" data-clic="cerrar">Seguir en Galera</button><button class="btn lin" data-clic="verPrefsNov">Cambiar lo que recibo</button></div>`, 'nov');
+      ${tarjeta ? '<p class="chico tenue">Y te ganaste una tarjeta nueva en «Mis logros».</p>' : ''}
+      <div class="botones"><button class="btn" data-clic="cerrar">Seguir en Galera</button>${tarjeta ? `<button class="btn sec" type="button" ${dAcc('compartirLogro', 'mail')}>Ver mi tarjeta</button>` : ''}<button class="btn lin" data-clic="verPrefsNov">Cambiar lo que recibo</button></div>`, 'nov');
   } catch (e) {
     // Link vencido (la fila se purgó a los 7 días o ya no existe): en vez de un error seco, se ofrece volver a suscribirse con un toque.
     if (e.codigo === 'vencido') abrir(cab('Este link ya no sirve') + `<div role="status"><p>Pasaron más de 7 días desde tu pedido y, como no se confirmó, borramos tu mail. Si todavía querés recibir las novedades de Galera, podés pedirlas de nuevo.</p></div>

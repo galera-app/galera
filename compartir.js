@@ -279,7 +279,8 @@ const puedeInstalar = () => !!INSTALAR;
 if ('serviceWorker' in navigator && window.isSecureContext) window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => { }));
 
 // ---------- logros compartibles ----------
-// Se calculan siempre desde lo que ya está cargado: no se guarda nada aparte. La imagen lleva solo el logro, sin materias, notas ni nombre.
+// Los de la carrera se calculan desde lo que ya está cargado. Los de ayudar a Galera (v174) salen de E.extras: solo fechas y la figura elegida.
+// La imagen lleva solo el logro, sin materias, notas, montos ni nombre.
 const HITOS_AVANCE = [10, 25, 50, 75, 100];
 const pctAvance = (ok, total) => total ? Math.floor(ok * 100 / total) : 0;
 function logros() {
@@ -292,6 +293,13 @@ function logros() {
   if (cbc.length && cbc.every(m => (E.materias[m.id] || {}).estado === 'aprobada')) mk('cbc', 'CBC', 'Terminé el Ciclo Básico Común.', { detalle: 'Todas las materias del CBC, aprobadas.' });
   if (p.idiomas[1] && p.idiomas[0] === p.idiomas[1]) mk('idiomas', 'Idiomas', 'Completé los idiomas de la carrera.', { detalle: p.idiomas[0] + ' de ' + p.idiomas[1] + ' niveles aprobados.' });
   if (p.final[1] && p.final[0] === p.final[1]) mk('final', 'Final', 'Aprobé la pasantía o la tesina.', { detalle: 'El último requisito del plan.' });
+  const X = E.extras || {}, ay = (id, grande, frase, detalle) => mk(id, grande, frase, { detalle, kicker: 'Ayudo a Galera', texto: frase + ' ' + BRAND.url });
+  if (X.mail) ay('mail', 'Al día', 'Recibo las novedades de Galera por mail.', 'Los lunes, solo lo que me importa.');
+  if (X.respuesta) ay('respuesta', 'Respuesta', 'Respondí una pregunta en Galera.', 'Para que la próxima persona no tenga que preguntar.');
+  if (X.resumen) ay('resumen', 'Resumen', 'Sumé mis apuntes a Galera.', 'Para quien cursa después.');
+  if (X.cafe) ay('cafe', 'Café', 'Le invité un café a Galera.', 'Para que siga gratis para quienes estudian Edición.');
+  const fig = X.mecenas && (MECENAS[X.mecenas.n] || []).find(f => f.id === X.mecenas.fig);
+  if (fig) ay('mecenas', fig.corto, 'Ayudo a Galera cada mes, como ' + fig.nombre + '.', fig.dato);
   return L;
 }
 // Hitos de avance que se cruzaron al pasar de «prev» a «ahora» materias aprobadas.
@@ -311,9 +319,37 @@ function abrirLogros() {
   abrir(cab('Mis logros') + (L.length
     ? `<p class="chico tenue u-margin-top-0">Cada uno se puede compartir como imagen sobria, sin tu nombre ni tus notas.</p>
       <ul class="lista-mas">${L.slice().reverse().map(g => `<li><button type="button" data-clic="compartirLogro" data-clic-a="[${arg(g.id)}]"><span>${esc(g.frase)}<small>${esc(g.detalle || '')}</small></span><i aria-hidden="true"></i></button></li>`).join('')}</ul>`
-    : '<p class="vacio">Todavía no hay logros: marcá las materias que aprobaste y aparecen solos.</p>')
+    : '<p class="vacio">Todavía no hay logros: marcá las materias que aprobaste y aparecen solos. También hay tarjetas por ayudar a Galera: confirmar el mail de los lunes, responder una pregunta, sumar tus apuntes o hacer un aporte.</p>')
     + (falta > 0 ? `<p class="chico tenue">Para el ${sig} % te ${falta === 1 ? 'falta 1 requisito' : 'faltan ' + falta + ' requisitos'}.</p>` : '')
     + '<div class="botones"><button class="btn lin" data-clic="cerrar">Cerrar</button></div>', 'logros');
+}
+
+// ---------- tarjetas por ayudar a Galera (v174) ----------
+// Mail confirmado y respuesta enviada los marca la app sola. El aporte, el café y los apuntes no se pueden verificar desde acá:
+// llegan por link (#aporte=N desde /gracias/, #cafe, #colaboro que Fidel manda al recibir un resumen) y se confía en quien lo abre, porque la tarjeta no da nada a cambio.
+function ganarExtra(k) {
+  if (V.demo) return false;
+  if (!E.extras[k]) { E.extras[k] = hoy(); guardar(true); medir('logro_extra', { item_id: k }); }
+  return true;
+}
+function logroExtra(k) {
+  if (V.demo) return aviso('Estás viendo el ejemplo: salí del ejemplo para guardar tu tarjeta');
+  if (ganarExtra(k)) compartirLogro(k);
+}
+function elegirMecenas(n) {
+  if (V.demo) return aviso('Estás viendo el ejemplo: salí del ejemplo para guardar tu tarjeta');
+  const L = MECENAS[n];
+  if (!L || !APORTES[n - 1]) return abrir(cab('Tu tarjeta por ayudar') + `<p class="chico tenue u-margin-top-0">Gracias por sumarte. ¿Qué aporte elegiste? Cada uno tiene su tarjeta, y en ninguna aparece el monto.</p>
+    <ul class="lista-mas">${APORTES.map((x, i) => MECENAS[i + 1] ? `<li><button type="button" ${dAcc('elegirMecenas', String(i + 1))}><span>${esc(pesos(x.monto))} por mes</span><i aria-hidden="true"></i></button></li>` : '').join('')}</ul>
+    <div class="botones"><button class="btn lin" data-clic="cerrar">Ahora no</button></div>`, 'logros');
+  abrir(cab('Elegí tu tarjeta') + `<p class="chico tenue u-margin-top-0">Gracias por ayudar a Galera. Tu tarjeta lleva el nombre de alguien que hizo posibles libros y obras. Elegí cuál.</p>
+    <ul class="lista-mas">${L.map(f => `<li><button type="button" ${dAcc('guardarMecenas', String(n), f.id)}><span>${esc(f.nombre)}<small>${esc(f.dato)}</small></span><i aria-hidden="true"></i></button></li>`).join('')}</ul>
+    <div class="botones"><button class="btn lin" data-clic="cerrar">Ahora no</button></div>`, 'logros');
+}
+function guardarMecenas(n, fig) {
+  if (V.demo || !(MECENAS[n] || []).some(f => f.id === fig)) return;
+  E.extras.mecenas = { n: String(n), fig, f: hoy() }; guardar(true); medir('logro_extra', { item_id: 'aporte' + n });
+  compartirLogro('mecenas');
 }
 
 // ---------- felicitación al aprobar ----------
@@ -474,7 +510,7 @@ Object.assign(ACC, {
 // Acciones registradas para la delegación de eventos (late binding: se resuelven al hacer clic).
 window.ACC = window.ACC || {};
 Object.assign(ACC, {
-  abrirLogros: (...a) => abrirLogros(...a), abrirPasarAmigo: (...a) => abrirPasarAmigo(...a), abrirQRPantalla: (...a) => abrirQRPantalla(...a),
+  abrirLogros: (...a) => abrirLogros(...a), logroExtra: (...a) => logroExtra(...a), elegirMecenas: (...a) => elegirMecenas(...a), guardarMecenas: (...a) => guardarMecenas(...a), abrirPasarAmigo: (...a) => abrirPasarAmigo(...a), abrirQRPantalla: (...a) => abrirQRPantalla(...a),
   abrirQueCursar: (...a) => abrirQueCursar(...a), arcDesafiar: (...a) => arcDesafiar(...a), bajarImagen: (...a) => bajarImagen(...a),
   bajarQR: (...a) => bajarQR(...a), compartirAvance: (...a) => compartirAvance(...a), compartirLogro: (...a) => compartirLogro(...a),
   compartirResultado: (...a) => compartirResultado(...a), copiarQueCursar: (...a) => copiarQueCursar(...a),
