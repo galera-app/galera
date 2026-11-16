@@ -18,7 +18,7 @@ const FUENTE = [linea(/^const ESTADOS = .*$/m), linea(/^const uid = .*$/m), app.
 
 function contexto(conModulos) {
   const g = { console };
-  if (conModulos) { g.Papel = cargar('papel'); g.Paginacion = cargar('paginacion'); g.Cronograma = cargar('cronograma'); g.Arcade = cargar('arcade'); }
+  if (conModulos) { g.Ejemplar = cargar('ejemplar'); g.Papel = cargar('papel'); g.Paginacion = cargar('paginacion'); g.Cronograma = cargar('cronograma'); g.Arcade = cargar('arcade'); }
   const ctx = vm.createContext(g);
   return vm.runInContext(FUENTE, ctx, { filename: 'app.js(normalizar)' });
 }
@@ -225,4 +225,13 @@ test('entradas que no son un estado: devuelven el estado vacío', () => {
   for (const x of [null, undefined, 5, 'texto', true]) assert.deepEqual(j(CON.normalizar(x)), vacio, String(x));
   const sinJuego = j(CON.estadoVacio()); sinJuego.juego.aprob = null;
   assert.deepEqual(norm(CON, []), sinJuego, 'una lista tampoco trae materias');
+});
+
+test('el ejemplar de materia aprobada pasa por normalizar() y sobrevive a exportar e importar', () => {
+  const n = norm(CON, leer('05-completo-actual.json'));
+  assert.deepEqual(n.materias.ipc.ejemplar, { p: 'oro y ultramar', f: 'dragon', n: 37, r: 1 });
+  assert.deepEqual(n.materias.icse.ejemplar, { p: 'ocre', f: 'monje', n: 0, r: 0 });
+  const roto = norm(CON, { v: 1, materias: { a: { estado: 'pendiente', ejemplar: { p: 'ocre', f: 'monje', n: 7 } }, b: { estado: 'aprobada', ejemplar: '<img>' } } });
+  assert.deepEqual(roto.materias.a.ejemplar, { p: 'ocre', f: 'monje', n: 7, r: 0 }, 'queda aunque la materia ya no esté aprobada');
+  assert.equal('ejemplar' in roto.materias.b, false);
 });

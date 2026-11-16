@@ -5,5 +5,6 @@
 <script defer src="/marco.js"></script>
 <script defer src="/num.js"></script>
 <script defer src="/traspaso.js"></script>
+<script defer src="/ejemplar.js"></script>
 <script defer src="/compartir.js"></script>
 <script defer src="/app.js"></script>

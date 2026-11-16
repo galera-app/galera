@@ -2,6 +2,16 @@
  "nota": "Lo que va en el mail de los lunes (Novedades.gs) y en la pestaña Novedades. v: número de versión (obligatorio; ver CHANGELOG.md). tipo: herramientas | resumenes | fechas. perfil: estudiante (por defecto) | profesional | todos; el mail y la pestaña Novedades lo usan para mostrar a cada perfil lo suyo. materias: ids del plan (vacío = para todas). url: solo links a galera.com.ar/. Sumar una entrada por cada cosa que se publica; el script manda solo lo posterior al último envío de cada persona, así que las viejas no se reenvían.",
  "novedades": [
   {
+   "v": 180,
+   "fecha": "2026-11-16",
+   "tipo": "herramientas",
+   "perfil": "estudiante",
+   "materias": [],
+   "titulo": "Cada materia aprobada, un ejemplar",
+   "texto": "Cuando marcás una materia como aprobada, Galera sortea su ejemplar: un grabado viejo en un pigmento, desde el bermellón, que sale seguido, hasta el oro, que sale muy poco y trae número. Si no te gusta, podés volver a tirar una sola vez. Lo compartís como post o como historia, y en «Mi álbum» ves todos juntos como grilla, índice o estante.",
+   "url": "https://galera.com.ar/carrera/"
+  },
+  {
    "v": 179,
    "fecha": "2026-11-16",
    "tipo": "herramientas",

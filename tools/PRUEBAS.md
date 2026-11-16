@@ -26,13 +26,14 @@ Cuatro niveles, de lo más barato a lo más caro. Todo corre desde la raíz del 
 
 - Playwright (`pip install playwright` y `python -m playwright install --with-deps chromium webkit`).
 - Abre 8 pantallas con tamaño de iPhone (390 × 844, táctil) contra `dist`: inicio, Mi carrera con datos de ejemplo, Horarios, Calendario, un apunte de `/r/`, escandallo, Directorio y `/buscar/`.
+- Además recorre «materia aprobada» (paso 19) en el mismo celular: marca Corrección de Estilo desde la carga rápida, abre el ejemplar desde «¡Aprobaste!», lo pasa a post, lo descarga, usa el único re-tiro y abre el álbum en sus tres vistas con la carrera entera aprobada. Falla si algo se sale de lo ancho de la pantalla.
 - Falla ante errores de consola, excepciones de página, violaciones de CSP, 404 del mismo origen o un `h1` ausente. Analytics, el buzón y las descargas de Typst se cortan en la red y se ignoran (lista `TERCEROS_IGNORADOS`).
 - `--estados` además abre `/carrera/` con cada archivo de `tools/estados/`. Sin Pagefind en `dist`, `/buscar/` se saltea salvo `GALERA_EXIGIR_BUSCADOR=1` (el CI lo exige).
 - Estados de ejemplo: `tools/estados/*.json`. Para sumar uno, copiá un estado exportado desde «Tus datos», sacale lo personal y probalo con `node --test tools/pruebas/estados.test.js`.
 
-## 4. Rendimiento: pendiente
+## 4. Rendimiento: pendiente (salvo materia aprobada)
 
-Sin implementar. Idea: medir peso transferido y tiempo de carga de las pantallas clave con el mismo `dist`, y fijar un trinquete de «no sube» como el de cobertura. No se fijan metas.
+El recorrido de materia aprobada mide cuánto tardan el ejemplar y el álbum en aparecer y falla si pasan los topes de `navegador.py` (`TOPE_PIEZA_MS`, `TOPE_ALBUM_MS`, con margen para el CI). Para el resto, sin implementar. Idea: medir peso transferido y tiempo de carga de las pantallas clave con el mismo `dist`, y fijar un trinquete de «no sube» como el de cobertura. No se fijan metas.
 
 ## Qué no cambia el sitio
 

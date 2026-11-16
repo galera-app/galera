@@ -1,14 +1,14 @@
 {
- "nota": "Pigmentos de Galera (materia aprobada, NIVELES.md del 15/11/2026, y color fijo por materia de «Mi semana», CP3 y CP10). nivel: tirada | ilustrada | numerado. papel y azul: el fondo del ejemplar y el color de su inicial. plano: true si es una tinta lisa; solo esos se reparten como color fijo por materia (tools/pigmentos_materias.py). Los oros son degradados y quedan para el ejemplar numerado.",
+ "nota": "Pigmentos de Galera (materia aprobada, NIVELES.md del 15/11/2026, y color fijo por materia de «Mi semana», CP3 y CP10). nivel: tirada | ilustrada | numerado. papel y azul: el fondo del ejemplar y el color de su inicial. prob: probabilidad en % del sorteo de materia aprobada (ejemplar.js; suman 100). plano: true si es una tinta lisa; solo esos se reparten como color fijo por materia (tools/pigmentos_materias.py). Los oros son degradados y quedan para el ejemplar numerado.",
  "pigmentos": [
-  {"nombre": "bermellón", "nivel": "tirada", "hex": "#E0412C", "papel": "#EEE6D3", "azul": "#0671E0", "plano": true},
-  {"nombre": "ocre", "nivel": "tirada", "hex": "#B9860A", "papel": "#FFFFFF", "azul": "#0671E0", "plano": true},
-  {"nombre": "sepia", "nivel": "tirada", "hex": "#8A5A3B", "papel": "#F3EDE2", "azul": "#0671E0", "plano": true},
-  {"nombre": "verde cardenillo", "nivel": "ilustrada", "hex": "#2F7D6A", "papel": "#EEE9DC", "azul": "#0671E0", "plano": true},
-  {"nombre": "púrpura de múrice", "nivel": "ilustrada", "hex": "#7B2D5E", "papel": "#F2ECE6", "azul": "#0671E0", "plano": true},
-  {"nombre": "carmín de cochinilla", "nivel": "ilustrada", "hex": "#9E1B3C", "papel": "#F4ECE8", "azul": "#0671E0", "plano": true},
-  {"nombre": "oro sobre papel", "nivel": "numerado", "hex": "#9C7A27", "papel": "#F4EBD6", "azul": "#1C3FAA", "plano": false},
-  {"nombre": "oro y ultramar", "nivel": "numerado", "hex": "#D9B04E", "papel": "#14213D", "azul": "#5AA9F5", "plano": false},
-  {"nombre": "oro sobre negro", "nivel": "numerado", "hex": "#D9B04E", "papel": "#151515", "azul": "#5AA9F5", "plano": false}
+  {"nombre": "bermellón", "nivel": "tirada", "prob": 40, "hex": "#E0412C", "papel": "#EEE6D3", "azul": "#0671E0", "plano": true},
+  {"nombre": "ocre", "nivel": "tirada", "prob": 24, "hex": "#B9860A", "papel": "#FFFFFF", "azul": "#0671E0", "plano": true},
+  {"nombre": "sepia", "nivel": "tirada", "prob": 16, "hex": "#8A5A3B", "papel": "#F3EDE2", "azul": "#0671E0", "plano": true},
+  {"nombre": "verde cardenillo", "nivel": "ilustrada", "prob": 8.5, "hex": "#2F7D6A", "papel": "#EEE9DC", "azul": "#0671E0", "plano": true},
+  {"nombre": "púrpura de múrice", "nivel": "ilustrada", "prob": 5.1, "hex": "#7B2D5E", "papel": "#F2ECE6", "azul": "#0671E0", "plano": true},
+  {"nombre": "carmín de cochinilla", "nivel": "ilustrada", "prob": 3.4, "hex": "#9E1B3C", "papel": "#F4ECE8", "azul": "#0671E0", "plano": true},
+  {"nombre": "oro sobre papel", "nivel": "numerado", "prob": 1.5, "hex": "#9C7A27", "papel": "#F4EBD6", "azul": "#1C3FAA", "plano": false},
+  {"nombre": "oro y ultramar", "nivel": "numerado", "prob": 0.9, "hex": "#D9B04E", "papel": "#14213D", "azul": "#5AA9F5", "plano": false},
+  {"nombre": "oro sobre negro", "nivel": "numerado", "prob": 0.6, "hex": "#D9B04E", "papel": "#151515", "azul": "#5AA9F5", "plano": false}
  ]
 }

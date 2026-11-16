@@ -201,6 +201,11 @@ function normalizar(e) {
       examenes: lista(m.examenes, 60).filter(x => x && typeof x === 'object').map(x => ({ id: RE_ID.test(x.id || '') ? x.id : uid(), tipo: txt(x.tipo, 30) || 'Otro',
         fecha: RE_FECHA.test(x.fecha || '') ? x.fecha : '', hora: RE_HORA.test(x.hora || '') ? x.hora : '', detalle: txt(x.detalle, 200), nota: txt(x.nota, 10) }))
     };
+    // Ejemplar de materia aprobada (ejemplar.js): queda aunque la materia cambie de estado, para que desmarcar y volver a marcar no re-sortee.
+    // Sin el módulo (solo en pruebas: se carga antes que app.js) pasa tal cual, como el Arcade, y se sanea al llegar.
+    const ej = typeof Ejemplar !== 'undefined' ? Ejemplar.sanear(m.ejemplar)
+      : m.ejemplar && typeof m.ejemplar === 'object' && !Array.isArray(m.ejemplar) ? JSON.parse(JSON.stringify(m.ejemplar)) : null;
+    if (ej) out.materias[id].ejemplar = ej;
   });
   const bloque = b => b && typeof b === 'object' && Number(b.dia) >= 1 && Number(b.dia) <= 6 && RE_HORA.test(b.desde || '') && RE_HORA.test(b.hasta || '') && b.desde < b.hasta
     ? { dia: Number(b.dia), desde: b.desde, hasta: b.hasta } : null;
@@ -1234,7 +1239,7 @@ function abrirMateria(id) {
     ${D.resumenes && D.resumenes.materias.some(x => x.id === resDe(m, o)) ? `<p class="fila u-margin-12px-0-0"><button class="btn sec ch" data-clic="cerrarIrRes" data-clic-a="[${arg(resDe(m, o))}]">📚 Resúmenes de esta materia</button>
       ${D.resumenes.materias.find(x => x.id === resDe(m, o)).apuntes.some(a => a.preguntas) ? `<button class="btn sec ch" data-clic="empezarPractica" data-clic-a="[${arg(resDe(m, o))}]">🧠 Practicar con preguntas</button>` : ''}</p>` : ''}
     ${recursos.length ? `<div class="c">Apuntes y recursos</div>${recursos.map(r => `<p class="u-margin-2px-0"><a href="${urlSegura(r.url)}" target="_blank" rel="noopener">${esc(r.t)} ↗</a></p>`).join('')}` : ''}
-    ${juegoOn() && e.estado === 'aprobada' ? `<p class="fila u-margin-10px-0-0"><button class="btn lin ch" data-clic="abrirRecorrido" data-clic-a="[${arg(id)}]">📋 Mi recorrido en esta materia</button></p>` : ''}
+    ${e.estado === 'aprobada' && !V.demo ? `<p class="fila u-margin-10px-0-0"><button class="btn lin ch" data-clic="abrirEjemplar" data-clic-a="[${arg(id)}]">Mi ejemplar</button>${juegoOn() ? `<button class="btn lin ch" data-clic="abrirRecorrido" data-clic-a="[${arg(id)}]">📋 Mi recorrido en esta materia</button>` : ''}</p>` : ''}
     <div class="titulo-sec"><h3>Parciales, entregas y finales</h3></div>
     ${(e.examenes || []).slice().sort((a, b) => (a.fecha || '') < (b.fecha || '') ? -1 : 1).map(x => `<div class="fila u-padding-6px-0_border-bottom-1px-solid-var-borde">
       <span class="crece"><b>${esc(x.tipo)}</b>${x.detalle ? ' · ' + esc(x.detalle) : ''}<span class="chico tenue u-display-block">${x.fecha ? fmt(x.fecha) + (x.hora ? ', ' + esc(x.hora) + ' h' : '') : 'sin fecha'}${x.nota ? ' · nota: ' + esc(x.nota) : ''}</span></span>
