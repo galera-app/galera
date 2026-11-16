@@ -15,6 +15,7 @@ y las descargas del compilador de Typst. Esos pedidos se cortan en la red (no sa
 import argparse
 import http.server
 import json
+import time
 import os
 import re
 import socketserver
@@ -317,6 +318,102 @@ def estados_viejos(browser, origen):
     return total
 
 
+MATERIA_APROBADA = "0911"
+# Las esperas van como funciones con argumento: una expresión suelta se evalúa con eval y la CSP del sitio la frena.
+EJ_GUARDADO = "id => ((JSON.parse(localStorage.getItem('cursada.v1')).materias[id] || {}).ejemplar || {})"
+# Topes de rendimiento del paso 19 (con margen: el CI es más lento que una compu). Se miden en el celular emulado.
+TOPE_PIEZA_MS, TOPE_ALBUM_MS = 6000, 8000   # en una compu: ~1,8 s el primer ejemplar (baja datos, fuentes y grabado), ~0,5 s el álbum
+
+
+def materia_aprobada(browser, origen):
+    """Paso 19, punta a punta en el celular: marcar una materia como aprobada desde la carga rápida, la felicitación,
+    el ejemplar (post e historia, descarga y un solo re-tiro), el álbum en sus tres vistas, los tiempos y que nada
+    se salga de lo ancho de la pantalla."""
+    fallas = []
+    siembra = {"v": 1, "perfil": "estudiante", "materias": {}, "juego": {"on": True, "aprob": []}}
+    ctx = preparar_contexto(browser, origen, siembra)
+    ancho = lambda: page.evaluate("[document.documentElement.scrollWidth, innerWidth, (document.querySelector('#dlg[open]') || {}).scrollWidth || 0, (document.querySelector('#dlg[open]') || {}).clientWidth || 0]")
+    imagen = lambda: page.evaluate("(() => { const i = document.querySelector('#dlg[open] img.img-comp'); return i ? [i.naturalWidth, i.naturalHeight] : null; })()")
+
+    def vieja():
+        """Marca la imagen que hay: la espera siguiente pide una nueva (el diálogo se rearma con cada dibujo)."""
+        page.evaluate("document.querySelectorAll('#dlg img.img-comp').forEach(i => i.dataset.vieja = '1')")
+        return time.perf_counter()
+
+    def esperar_imagen(w, h, que, t0):
+        try:
+            page.wait_for_function("([w, h]) => { const i = document.querySelector('#dlg[open] img.img-comp:not([data-vieja])'); return !!i && i.complete && i.naturalWidth === w && i.naturalHeight === h; }", arg=[w, h], timeout=15000)
+        except Exception:
+            fallas.append(f"{que}: no apareció la imagen de {w} × {h} (hay {imagen()})")
+        return (time.perf_counter() - t0) * 1000
+
+    def sin_desborde(que):
+        doc, vista, dlg, dlg_vista = ancho()
+        if doc > vista + 1 or dlg > dlg_vista + 1:
+            fallas.append(f"{que}: se sale de lo ancho (página {doc}/{vista}, diálogo {dlg}/{dlg_vista})")
+
+    def ejemplar():
+        return page.evaluate(f"(JSON.parse(localStorage.getItem('cursada.v1')).materias['{MATERIA_APROBADA}'] || {{}}).ejemplar || null")
+
+    try:
+        page = ctx.new_page()
+        observar(page, fallas, origen)
+        page.goto(origen + "/carrera/", wait_until="networkidle", timeout=30000)
+        esperar_h1(page, fallas)
+        page.get_by_role("button", name="Marcar las materias que ya aprobé").click()
+        page.locator(f'[data-f="ra-{MATERIA_APROBADA}"]').check()
+        page.wait_for_function(f"id => !!({EJ_GUARDADO})(id).p", arg=MATERIA_APROBADA, timeout=10000)
+        ej = ejemplar()
+        if not (ej and ej.get("p") and ej.get("f") and ej.get("r") == 0):
+            fallas.append(f"el sorteo no quedó guardado con la materia: {ej}")
+        page.keyboard.press("Escape")  # cierra la carga rápida: la felicitación espera a que no haya diálogo
+        t0 = vieja()
+        page.locator("#fe-ej").click(timeout=10000)
+        ms = esperar_imagen(1080, 1920, "ejemplar en historia", t0)
+        t0 = vieja()
+        page.get_by_role("button", name="Post", exact=True).click()
+        ms_post = esperar_imagen(1080, 1350, "ejemplar en post", t0)
+        sin_desborde("diálogo del ejemplar")
+        with page.expect_download(timeout=10000) as d:
+            page.get_by_role("button", name="Descargar (.png)").click()
+        if d.value.suggested_filename != f"galera-aprobe-{MATERIA_APROBADA}.png":
+            fallas.append(f"la descarga se llama {d.value.suggested_filename}")
+        # Un solo re-tiro: vuelve a sortear, queda guardado y el botón desaparece.
+        page.get_by_role("button", name="Volver a tirar (una sola vez)").click()
+        t0 = vieja()
+        page.locator('dialog.conf [data-r="1"]').click()
+        page.wait_for_function(f"id => ({EJ_GUARDADO})(id).r === 1", arg=MATERIA_APROBADA, timeout=10000)
+        esperar_imagen(1080, 1350, "ejemplar después del re-tiro", t0)
+        if page.get_by_role("button", name="Volver a tirar (una sola vez)").count():
+            fallas.append("después del re-tiro sigue el botón de volver a tirar")
+        # Álbum, con la carrera entera aprobada para medir el peor caso.
+        page.evaluate("D.plan.materias.forEach(m => { mat(m.id).estado = 'aprobada'; }); guardar(true)")
+        t0 = vieja()
+        page.get_by_role("button", name="Ver el álbum").click()
+        ms_album = esperar_imagen(1080, 1350, "álbum", t0)
+        for vista in ("Índice", "Estante", "Grilla"):
+            t0 = vieja()
+            page.get_by_role("button", name=vista, exact=True).click()
+            page.wait_for_function("v => (document.querySelector('#dlg .gl-seg[aria-label=\"Vista\"] .on') || {}).textContent === v", arg=vista, timeout=15000)
+            ms_album = max(ms_album, esperar_imagen(1080, 1350, f"álbum, {vista}", t0))
+            sin_desborde(f"álbum, {vista}")
+        n = page.evaluate("D.plan.materias.filter(m => (JSON.parse(localStorage.getItem('cursada.v1')).materias[m.id] || {}).ejemplar).length")
+        total = page.evaluate("D.plan.materias.length")
+        if n != total:
+            fallas.append(f"el álbum dejó {total - n} aprobadas sin ejemplar")
+        print(f"      tiempos: ejemplar {ms:.0f} ms (post {ms_post:.0f}), álbum con {total} materias {ms_album:.0f} ms")
+        if max(ms, ms_post) > TOPE_PIEZA_MS:
+            fallas.append(f"el ejemplar tardó {max(ms, ms_post):.0f} ms (tope {TOPE_PIEZA_MS})")
+        if ms_album > TOPE_ALBUM_MS:
+            fallas.append(f"el álbum tardó {ms_album:.0f} ms (tope {TOPE_ALBUM_MS})")
+        csp(page, fallas)
+    except Exception as e:
+        fallas.append(f"se cortó el recorrido: {str(e).splitlines()[0][:200]}")
+    finally:
+        ctx.close()
+    return sin_repetidos(fallas)
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--navegador", choices=["chromium", "webkit", "todos"], default="chromium")
@@ -350,6 +447,11 @@ def main():
                 for x in fallas:
                     print(f"        - {x}")
                 todas += [f"{m} · {nombre}: {x}" for x in fallas]
+            fallas = materia_aprobada(browser, origen)
+            print(f"  {'ok  ' if not fallas else 'FALLA'} materia aprobada (paso 19)")
+            for x in fallas:
+                print(f"        - {x}")
+            todas += [f"{m} · materia aprobada: {x}" for x in fallas]
             if a.estados:
                 todas += [f"{m} · {x}" for x in estados_viejos(browser, origen)]
             browser.close()
