@@ -571,7 +571,7 @@ async function asegurarEjemplares(ids) {
   const [pigs, banco] = await datosEjemplar();
   const falta = ids.filter(aprobadaSin);
   falta.forEach(id => { mat(id).ejemplar = Ejemplar.sortear(pigs, banco); });
-  if (falta.length) guardar(true);
+  if (falta.length) guardar();   // cuenta como cambio: entra en el aviso de «bajá una copia»
 }
 const nombreAprobada = id => { const m = datosMateria(id); return m ? nombreDe(m) : nombreMateria(id); };
 const inicial = s => (String(s).match(/\p{L}/u) || ['G'])[0].toUpperCase();
@@ -647,8 +647,10 @@ async function retirarEjemplar(id) {
   const ej = (E.materias[id] || {}).ejemplar;
   if (!ej || ej.r) return;
   if (!await confirmar('Se vuelven a sortear el pigmento, el fondo y el número. Es una sola vez: lo que salga queda fijo.', 'Volver a tirar', 'Me quedo con este')) return;
-  try { const [pigs, banco] = await datosEjemplar(); mat(id).ejemplar = Ejemplar.retirar(ej, pigs, banco); } catch (e) { return aviso('No se pudo volver a tirar'); }
-  guardar(true);
+  const ahora = (E.materias[id] || {}).ejemplar;   // se relee: pudo cambiar mientras estaba abierta la confirmación
+  if (!ahora || ahora.r) return;
+  try { const [pigs, banco] = await datosEjemplar(); mat(id).ejemplar = Ejemplar.retirar(ahora, pigs, banco); } catch (e) { return aviso('No se pudo volver a tirar'); }
+  guardar();
   medir('ejemplar_retiro', { item_id: id });
   abrirEjemplar(id);
 }
@@ -661,7 +663,8 @@ const VISTAS_ALBUM = [['grilla', 'Grilla'], ['indice', 'Índice'], ['estante', '
 const TITULO_ALBUM = { grilla: 'Mi álbum', indice: 'Índice', estante: 'Mi estante' };
 const itemsAlbum = () => D.plan.materias.map(m => {
   const nombre = nombreDe(m), e = E.materias[m.id] || {};
-  return { id: m.id, nombre, ini: inicial(nombre), ej: e.estado === 'aprobada' ? (e.ejemplar || { p: '', f: '' }) : null };
+  // Una aprobada sin ejemplar (el sorteo falló por la red) se cuenta pero se dibuja pendiente: nada de un ejemplar inventado.
+  return { id: m.id, nombre, ini: inicial(nombre), aprobada: e.estado === 'aprobada', ej: e.estado === 'aprobada' ? e.ejemplar || null : null };
 });
 // Un ejemplar chico: papel del pigmento, el grabado en la parte izquierda y la inicial gótica que se sale por el borde.
 async function cvTesela(c, it, x, y, w, h, letra, D2, ancho) {
@@ -685,7 +688,7 @@ function cvAlbum() {
     const [D2] = await Promise.all([datosEjemplar(), document.fonts.load(`600 20px ${CV_FUENTE}`).catch(() => { }),
       document.fonts.load(`italic 400 20px ${LITERATA}`).catch(() => { }), document.fonts.load(`400 20px ${LITERATA}`).catch(() => { }), document.fonts.load(`400 20px ${CV_GOTICA}`).catch(() => { })]);
     const post = formato === 'post', H = post ? 1350 : 1920, k = post ? 0.8 : 1, vista = (p && p.vista) || 'grilla';
-    const items = itemsAlbum(), n = items.filter(i => i.ej).length;
+    const items = itemsAlbum(), n = items.filter(i => i.aprobada).length;
     const [cv, c] = cvPapel(1080, H, T);
     cvArriba(c, TITULO_ALBUM[vista], 70, 70 * k, 150 * k, 400, T.azul, { fam: CV_GOTICA });
     cvArriba(c, `${n} de ${items.length} materias`, 74, 250 * k, 40 * k, 600, T.tinta);
@@ -721,21 +724,32 @@ async function cvGrilla(c, items, A, T, D2) {
 }
 // En el papel oscuro, los pigmentos oscuros (múrice, carmín, sepia) se aclaran para que se lean, como en el Plan a un amigo.
 const colorPigmento = (pig, T) => T.bloqueTinta ? cvMezcla(pig.hex, 0.6, '#FFFFFF') : pig.hex;
-// B: índice. Una fila por materia, con su ejemplar chico, el nombre, puntos guía y el pigmento.
+// B: índice. Una fila por materia, con su ejemplar chico, el nombre, puntos guía y el pigmento (album.py). Si las filas quedan
+// de menos de 64 px (la carrera entera no entra), pasa a dos columnas, con el pigmento debajo del nombre y sin puntos guía:
+// así el cuerpo no baja de unos 20 px sobre la imagen de 1080.
 async function cvIndice(c, items, A, T, D2) {
-  const fila = Math.min(104, A.h / items.length), caja = fila * 0.83, fn = fila * 0.38, fp = fila * 0.25;
+  const dos = A.h / items.length < 64, cols = dos ? 2 : 1, filas = Math.ceil(items.length / cols), gx = 40;
+  const fila = Math.min(104, A.h / filas), caja = fila * (dos ? 0.78 : 0.83), cw = (A.w - (cols - 1) * gx) / cols;
+  const fn = fila * (dos ? 0.3 : 0.38), fp = fila * (dos ? 0.24 : 0.25);
   for (let i = 0; i < items.length; i++) {
-    const it = items[i], y = A.y + i * fila, cy = y + (fila - caja) / 2;
+    const it = items[i], col = Math.floor(i / filas), x = A.x + col * (cw + gx), y = A.y + (i % filas) * fila, cy = y + (fila - caja) / 2;
     let pig = null;
-    if (it.ej) pig = await cvTesela(c, it, A.x + 10, cy, caja, caja, caja * 1.07, D2, 1); else cvVacia(c, it, A.x + 10, cy, caja, caja, caja * 0.85, T, true);
-    const pg = pig ? pig.nombre : 'pendiente', color = pig ? T.tinta : T.gris;
+    if (it.ej) pig = await cvTesela(c, it, x + 10, cy, caja, caja, caja * 1.07, D2, 1); else cvVacia(c, it, x + 10, cy, caja, caja, caja * 0.85, T, true);
+    const pg = pig ? pig.nombre : 'pendiente', color = pig ? T.tinta : T.gris, pcolor = pig ? colorPigmento(pig, T) : T.gris;
+    const x0 = x + 10 + caja + fila * 0.22;
+    if (dos) {
+      const ty = y + (fila - fn * 1.1 - fp * 1.2) / 2, ancho = x + cw - x0;
+      cvArriba(c, it.nombre, x0, ty, fn, 400, color, { fam: LITERATA, max: ancho });
+      cvArriba(c, pg, x0, ty + fn * 1.2, fp, 'italic 400', pcolor, { fam: LITERATA, max: ancho });
+      continue;
+    }
     c.font = `italic 400 ${fp}px ${LITERATA}`; const wp = c.measureText(pg).width;
-    const x0 = A.x + 10 + caja + fila * 0.25, xp = A.x + A.w - 10 - wp, maxN = xp - x0 - fila * 0.5;
+    const xp = x + cw - 10 - wp, maxN = xp - x0 - fila * 0.5;
     cvArriba(c, it.nombre, x0, y + (fila - fn) / 2, fn, 400, color, { fam: LITERATA, max: maxN });
     c.font = `400 ${fn}px ${LITERATA}`; const wn = Math.min(maxN, c.measureText(it.nombre).width);
     c.save(); c.strokeStyle = color; c.globalAlpha = 0.5; c.lineWidth = Math.max(1.5, fila * 0.03); c.setLineDash([1, fila * 0.1]); c.lineCap = 'round';
     c.beginPath(); c.moveTo(x0 + wn + fila * 0.15, y + fila * 0.66); c.lineTo(xp - fila * 0.15, y + fila * 0.66); c.stroke(); c.restore();
-    cvArriba(c, pg, xp, y + (fila - fp) / 2 + fn * 0.1, fp, 'italic 400', pig ? colorPigmento(pig, T) : T.gris, { fam: LITERATA });
+    cvArriba(c, pg, xp, y + (fila - fp) / 2 + fn * 0.1, fp, 'italic 400', pcolor, { fam: LITERATA });
   }
 }
 // C: estante. Lomos de alturas distintas en estantes de 6 u 8, con la inicial arriba y el nombre de abajo hacia arriba.
@@ -780,13 +794,13 @@ async function abrirAlbum() {
   if (V.demo) return aviso('Estás viendo el ejemplo: salí del ejemplo para ver tu álbum');
   if (!D.plan) return;
   await asegurarEjemplares(D.plan.materias.map(m => m.id)).catch(() => { });
-  const items = itemsAlbum(), n = items.filter(i => i.ej).length, total = items.length;
+  const items = itemsAlbum(), n = items.filter(i => i.aprobada).length, total = items.length;
   abrirImagen(null, { archivo: 'galera-mi-album.png', titulo: 'Mi álbum', tipo: 'album', id: 'album', dibujar: cvAlbum(), vistas: VISTAS_ALBUM,
     formatos: [['post', 'Post'], ['historia', 'Historia']],
     // TEXTOS PROVISORIOS (paso 19): esperan la voz de Fidel.
     intro: n ? `${n} de ${total} materias. Elegí la vista: la que ves es la que se comparte.` : 'Todavía no aprobaste ninguna: cada materia que marques como aprobada suma su ejemplar.',
     texto: `Mi álbum de Edición: ${n} de ${total} materias. ` + BRAND.url,
-    alt: p => `${TITULO_ALBUM[p.vista]}: ${n} de ${total} materias aprobadas. ` + items.filter(i => i.ej).map(i => i.nombre).join('; ') + '.' });
+    alt: p => `${TITULO_ALBUM[p.vista]}: ${n} de ${total} materias aprobadas. ` + items.filter(i => i.aprobada).map(i => i.nombre).join('; ') + '.' });
 }
 
 // ---------- «¿Le sirve a alguien?» ----------
