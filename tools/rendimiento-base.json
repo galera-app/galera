@@ -50,5 +50,44 @@
       }
     },
     "fecha": "2026-11-16"
+  },
+  "rendimiento": {
+    "lab": {
+      "/": {
+        "lcp_ms": 3281.2274999999995,
+        "tbt_ms": 0,
+        "cls": 0.01704949726357329
+      },
+      "/r/0905/e2-soportes-y-papel.html": {
+        "lcp_ms": 3613.2408500000006,
+        "tbt_ms": 40,
+        "cls": 0.07478403856656429
+      },
+      "/simuladores/escandallo.html": {
+        "lcp_ms": 3034.6078,
+        "tbt_ms": 0,
+        "cls": 0
+      },
+      "/directorio/": {
+        "lcp_ms": 5587.901,
+        "tbt_ms": 21.5,
+        "cls": 0
+      }
+    },
+    "toque": {
+      "estado de una materia": 59.80000000001746,
+      "ficha de una materia": 53,
+      "cambio de vista": 51.14999999999418
+    },
+    "tolerancias": {
+      "lcp_pct": 25,
+      "tbt_pct": 25,
+      "tbt_abs_ms": 50,
+      "cls_abs": 0.02,
+      "toque_pct": 50,
+      "toque_piso_ms": 100
+    },
+    "fecha": "2026-11-16",
+    "origen": "mediana de 5 corridas del CI (ubuntu-latest, 16/11/2026); pesos: build local, el CI da hasta 0,2 % menos"
   }
 }

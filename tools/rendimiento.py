@@ -4,7 +4,7 @@ Las dos medidas son más ruidosas que el peso (`tools/pesos.py`), así que lleva
 de hoy, medido en el CI (la máquina de referencia), y no puede empeorar. Base: `tools/rendimiento-base.json`.
 
 1. Laboratorio: Lighthouse en móvil sobre cuatro páginas tipo (PAGINAS_LAB), 3 corridas cada una, mediana. Se
-   presupuestan LCP, TBT y CLS (no el puntaje). Tope: LCP y TBT hasta `lcp_pct`/`tbt_pct` % sobre la base; CLS hasta
+   presupuestan LCP, TBT y CLS (no el puntaje). Tope: LCP y TBT hasta `lcp_pct`/`tbt_pct` % sobre la base (TBT, además, con un margen de `tbt_abs_ms` ms: puede valer 0); CLS hasta
    `cls_abs` sobre la base. Se pide a Lighthouse por `npx` con versión fija (LIGHTHOUSE); usa el Chromium de Playwright.
 2. Toque: en Chromium, con la CPU frenada 4 veces, en /carrera/ con el estado de ejemplo: del toque al segundo cuadro
    pintado (dos requestAnimationFrame) al cambiar el estado de una materia, abrir su ficha y cambiar de vista. Mediana
@@ -50,7 +50,7 @@ PAGINAS_LAB = {
 }
 TOQUES = ("estado de una materia", "ficha de una materia", "cambio de vista")
 
-TOLERANCIAS = {"lcp_pct": 25, "tbt_pct": 25, "cls_abs": 0.02, "toque_pct": 50, "toque_piso_ms": 100}
+TOLERANCIAS = {"lcp_pct": 25, "tbt_pct": 25, "tbt_abs_ms": 50, "cls_abs": 0.02, "toque_pct": 50, "toque_piso_ms": 100}
 
 
 # ---------- lógica pura (con autoprueba) ----------
@@ -69,10 +69,11 @@ def comparar(base, medido, tol=None):
         if b is None:
             fallas.append(f"{ruta} (laboratorio) no está en la base: correr con --actualizar y commitear el JSON")
             continue
-        for clave, pct in (("lcp_ms", t["lcp_pct"]), ("tbt_ms", t["tbt_pct"])):
-            tope = b[clave] * (1 + pct / 100)
+        for clave, pct, margen in (("lcp_ms", t["lcp_pct"], 0), ("tbt_ms", t["tbt_pct"], t["tbt_abs_ms"])):
+            # TBT puede valer 0 (el 25 % de 0 es 0): lleva además un margen absoluto en ms.
+            tope = max(b[clave] * (1 + pct / 100), b[clave] + margen)
             if m[clave] > tope:
-                fallas.append(f"{ruta} {clave[:-3].upper()}: {m[clave]:.0f} ms > base {b[clave]:.0f} ms + {pct} % ({tope:.0f})")
+                fallas.append(f"{ruta} {clave[:-3].upper()}: {m[clave]:.0f} ms > base {b[clave]:.0f} ms + {pct} % o {margen} ms ({tope:.0f})")
         if m["cls"] > b["cls"] + t["cls_abs"]:
             fallas.append(f"{ruta} CLS: {m['cls']:.3f} > base {b['cls']:.3f} + {t['cls_abs']}")
     for nombre, ms in sorted(medido.get("toque", {}).items()):
@@ -116,7 +117,14 @@ def autoprueba():
     m["lab"]["/"]["lcp_ms"] = 3751
     casos.append(("LCP +25 % y un poco falla", len(comparar(base(), m)) == 1))
     m = base(); m["lab"]["/"]["tbt_ms"] = 251
-    casos.append(("TBT +25 % falla", len(comparar(base(), m)) == 1))
+    casos.append(("TBT sobre +25 % y +50 ms falla", len(comparar(base(), m)) == 1))
+    m["lab"]["/"]["tbt_ms"] = 250
+    casos.append(("TBT +25 % o +50 ms justo no falla", comparar(base(), m) == []))
+    b0 = {"lab": {"/": {"lcp_ms": 3000, "tbt_ms": 0, "cls": 0}}, "toque": {}}
+    m = {"lab": {"/": {"lcp_ms": 3000, "tbt_ms": 50, "cls": 0}}}
+    casos.append(("TBT base 0: hasta 50 ms no falla", comparar(b0, m) == []))
+    m["lab"]["/"]["tbt_ms"] = 51
+    casos.append(("TBT base 0: más de 50 ms falla", len(comparar(b0, m)) == 1))
     m = base(); m["lab"]["/"]["cls"] = 0.03
     casos.append(("CLS +0,02 justo no falla", comparar(base(), m) == []))
     m["lab"]["/"]["cls"] = 0.031
