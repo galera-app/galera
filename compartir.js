@@ -7,7 +7,7 @@ const CV = { fondo: '#fff', tinta: '#212121', t2: '#4D4D4D', t3: '#717171', line
 const CV_FUENTE = '"Instrument Sans", system-ui, sans-serif', CV_GOTICA = '"UnifrakturMaguntia", "Times New Roman", serif';
 const CV_ARCADE = '"Jacquard 24", monospace'; // gótica pixelada de la imagen del desafío (recorte de 5 KB)
 // Las fuentes ya están en la página; esto solo pide que estén listas antes de dibujar.
-['400 20px "UnifrakturMaguntia"', '400 20px "Instrument Sans"', '600 20px "Instrument Sans"', '700 20px "Instrument Sans"', '400 20px "Jacquard 24"'].forEach(f => { try { document.fonts.load(f); } catch (e) { } });
+['400 20px "UnifrakturMaguntia"', '400 20px "Instrument Sans"', '600 20px "Instrument Sans"', '700 20px "Instrument Sans"', '400 20px "Jacquard 24"', '400 20px "Literata"'].forEach(f => { try { document.fonts.load(f); } catch (e) { } });
 
 // ---------- canvas ----------
 // Hilera de puntos de radio r y paso p dentro de un rectángulo (barras y cintas del sistema).
@@ -66,12 +66,13 @@ function cvDato({ kicker, grande, lineas, barra }) {
 // Plan a un amigo y «Mi semana»: papel crudo o el oscuro de la app, lo elige quien comparte (CP4). Valores de los prototipos
 // de propuestas/2026-11-12-materia-aprobada/lienzo/ (plan_amigo.py, mi_semana.py, compartir_oscuro.py).
 // grab: el grabado de fondo; t3: texto tenue; mezcla: cuánto del pigmento va en el fondo de un bloque; modo: cómo se apoya la
-// capitular azul sobre el grabado; grano: opacidad del ruido de papel.
+// capitular azul sobre el grabado; grano: opacidad del ruido de papel; kicker: la línea en versalitas; sub: el horario dentro de
+// un bloque; bloqueTinta: la sigla del bloque va en tinta (oscuro) o en su pigmento (claro).
 const CV_TEMA = {
   claro: { papel: '#EEE6D3', tinta: '#1E1B18', azul: '#0671E0', azulTexto: '#0560C8', grab: '#9A8F7C', t3: '#6B6458', gris: '#C9C2B4',
-    linea: 'rgba(30,27,24,.12)', regular: '#B9860A', mezcla: 0.28, modo: 'multiply', grano: 0.25 },
+    linea: 'rgba(30,27,24,.12)', regular: '#B9860A', mezcla: 0.28, modo: 'multiply', grano: 0.25, kicker: '#E0412C', sub: '#4A443B', bloqueTinta: false },
   oscuro: { papel: '#14171A', tinta: '#ECEFF1', azul: '#5AA9F5', azulTexto: '#5AA9F5', grab: '#59626A', t3: '#A3ABB1', gris: '#A3ABB1',
-    linea: 'rgba(236,239,241,.14)', regular: '#D9B04E', mezcla: 0.42, modo: 'screen', grano: 0.08 },
+    linea: 'rgba(236,239,241,.14)', regular: '#D9B04E', mezcla: 0.42, modo: 'screen', grano: 0.08, kicker: '#F07A63', sub: '#A3ABB1', bloqueTinta: true },
 };
 function cvPapel(w, h, T) {
   const cv = document.createElement('canvas'); cv.width = w; cv.height = h;
@@ -114,13 +115,13 @@ function cvGrano(c, w, h, T) {
   c.save(); c.globalAlpha = T.grano; c.globalCompositeOperation = 'multiply';
   c.fillStyle = c.createPattern(GRANO, 'repeat'); c.fillRect(0, 0, w, h); c.restore();
 }
-// Pie de afiche: «galera» en gótica con la g azul a la izquierda y galera.com.ar a la derecha.
-function cvPie2(c, w, h, T) {
-  const y = h - 88;
-  c.font = `400 84px ${CV_GOTICA}`; c.textAlign = 'left'; c.textBaseline = 'alphabetic';
+// Pie de afiche: «galera» en gótica con la g azul a la izquierda y galera.com.ar a la derecha (más chico en la cuadrada).
+function cvPie2(c, w, h, T, chico) {
+  const y = chico ? h - 44 : h - 88, m = chico ? 60 : 80;
+  c.font = `400 ${chico ? 56 : 84}px ${CV_GOTICA}`; c.textAlign = 'left'; c.textBaseline = 'alphabetic';
   const g = c.measureText('g').width;
-  c.fillStyle = T.azul; c.fillText('g', 80, y); c.fillStyle = T.tinta; c.fillText('alera', 80 + g, y);
-  cvTexto(c, BRAND.sitio, w - 80, y, 30, 400, T.tinta, 'right');
+  c.fillStyle = T.azul; c.fillText('g', m, y); c.fillStyle = T.tinta; c.fillText('alera', m + g, y);
+  cvTexto(c, BRAND.sitio, w - m, y, chico ? 22 : 30, 400, T.tinta, 'right');
 }
 
 // Diálogo con la imagen armada: se puede compartir (si el sistema lo permite) o bajar. Se muestra con data: porque la CSP no admite blob: en img.
@@ -245,42 +246,99 @@ function compartirAvance() {
 }
 
 // ---------- mi semana ----------
-// Dibuja la grilla semanal de las comisiones dadas (sin nombres de docentes ni datos personales).
-function cvSemana(sel, titulo) {
-  const [cv, c] = cvBase(1080, 1080);
-  const bl = sel.flatMap(x => x.bloques.map(b => ({ x, b, d: b.dia, a: Horarios.min(b.desde), z: Horarios.min(b.hasta) })));
-  const dias = bl.some(e => e.d === 6) ? [1, 2, 3, 4, 5, 6] : [1, 2, 3, 4, 5];
-  const ini = Math.min(...bl.map(e => Math.floor(e.a / 60))), fin = Math.max(Math.max(...bl.map(e => Math.ceil(e.z / 60))), ini + 6);
-  const X = 150, Y = 270, W = 1000 - X, H = 880 - Y, cw = W / dias.length, ch = H / (fin - ini);
-  cvTexto(c, 'MI CURSADA', 80, 120, 30, 600, CV.t2);
-  cvTexto(c, titulo, 80, 190, 56, 600);
-  dias.forEach((d, i) => cvTexto(c, Horarios.DIAS[d].slice(0, 3).toUpperCase(), X + cw * i + cw / 2, 255, 22, 600, CV.t2, 'center'));
-  c.strokeStyle = CV.punto; c.lineWidth = 2; c.beginPath(); c.moveTo(X, Y); c.lineTo(X + W, Y); c.stroke();
-  c.strokeStyle = CV.linea; c.lineWidth = 1;
-  for (let h = ini; h <= fin; h++) {
-    const y = Y + (h - ini) * ch; c.beginPath(); c.moveTo(X, y); c.lineTo(X + W, y); c.stroke();
-    if ((h - ini) % 2 === 0 || fin - ini <= 8) cvTexto(c, String(h).padStart(2, '0'), X - 14, y + 8, 22, 400, CV.t3, 'right');
-  }
-  for (let i = 0; i <= dias.length; i++) { c.beginPath(); c.moveTo(X + cw * i, Y); c.lineTo(X + cw * i, Y + H); c.stroke(); }
-  bl.forEach(({ x, b, d, a, z }) => {
-    const i = dias.indexOf(d); if (i < 0) return;
-    const bx = X + cw * i + 5, by = Y + (a / 60 - ini) * ch + 2, bw = cw - 10, bh = Math.max(34, (z - a) / 60 * ch - 4);
-    c.fillStyle = CV.fondo; c.strokeStyle = CV.acento; c.lineWidth = 2;
-    c.beginPath(); c.roundRect ? c.roundRect(bx, by, bw, bh, 4) : c.rect(bx, by, bw, bh); c.fill(); c.stroke();
-    c.save(); c.beginPath(); c.rect(bx, by, bw, bh); c.clip();
-    cvPuntos(c, bx + 1, by + 1, 15, bh - 2, CV.acento, 5, 1.4);
-    cvTexto(c, siglaMateria(x.materia), bx + 24, by + 32, 26, 700);
-    if (bh > 70) cvTexto(c, b.desde + '-' + b.hasta, bx + 24, by + 60, 20, 400, CV.t3);
-    c.restore();
+// Banda de afiche (Stradanus con el encuadre del prensista y la S gótica), «Mi semana», grilla de la primera a la última hora con
+// bloques tenues en el pigmento fijo de cada materia (CP3, CP10) y leyenda con sigla y nombre. Sin docentes ni datos personales.
+// Medidas del prototipo propuestas/2026-11-12-materia-aprobada/lienzo/mi_semana.py (historia y 1:1).
+let PIGMENTOS = null;
+const cargarPigmentos = () => PIGMENTOS || (PIGMENTOS = json('pigmentos.json').then(d => d.pigmentos).catch(e => { PIGMENTOS = null; throw e; }));
+// Color de cada materia de la semana: su pigmento fijo; si otra de la misma semana ya lo usa (o no tiene, como las cargadas a mano),
+// el siguiente liso libre.
+function coloresSemana(ids, pigs) {
+  const lisos = pigs.filter(p => p.plano), usados = new Set(), out = {};
+  ids.forEach(id => {
+    const m = D.plan.materias.find(x => x.id === id || (x.opciones || []).some(o => o.id === id));
+    let i = m ? lisos.findIndex(p => p.nombre === m.pigmento) : -1;
+    if (i < 0 || usados.has(lisos[i].nombre)) {
+      const j = lisos.findIndex((p, k) => k > i && !usados.has(p.nombre)), k = j >= 0 ? j : lisos.findIndex(p => !usados.has(p.nombre));
+      i = k >= 0 ? k : (i >= 0 ? i : 0);
+    }
+    usados.add(lisos[i].nombre); out[id] = lisos[i].hex;
   });
-  cvPie(c, 1080, 1080);
-  return cv;
+  return out;
+}
+// Mezcla un color con el papel del tema (a = cuánto del color).
+function cvMezcla(hex, a, papel) {
+  const h = s => [1, 3, 5].map(i => parseInt(s.slice(i, i + 2), 16)), c = h(hex), p = h(papel);
+  return '#' + c.map((v, i) => Math.round(p[i] + (v - p[i]) * a).toString(16).padStart(2, '0')).join('');
+}
+// Texto con la parte de arriba en y (como top en CSS con line-height 1). o: fam, align, esp (letter-spacing en em), max (ancho).
+function cvArriba(c, t, x, y, px, peso, color, o) {
+  o = o || {};
+  c.font = `${peso} ${px}px ${o.fam || CV_FUENTE}`; c.fillStyle = color; c.textAlign = o.align || 'left'; c.textBaseline = 'top';
+  if ('letterSpacing' in c) c.letterSpacing = (o.esp || 0) * px + 'px';
+  let s = String(t);
+  if (o.max) while (s.length > 1 && c.measureText(s).width > o.max) s = s.slice(0, -2).trimEnd() + '…';
+  c.fillText(s, x, y);
+  if ('letterSpacing' in c) c.letterSpacing = '0px';
+}
+function cvSemana(sel, titulo) {
+  const hhmm = s => s.endsWith(':00') ? s.slice(0, 2) : s;
+  return async (T, formato) => {
+    const [pigs] = await Promise.all([cargarPigmentos(), document.fonts.load('400 20px "Literata"').catch(() => { })]);
+    const H = formato === 'cuadrada' ? 1080 : 1920, chico = H === 1080, e = chico ? 0.72 : 1;
+    const [cv, c] = cvPapel(1080, H, T);
+    const bl = sel.flatMap(x => x.bloques.map(b => ({ x, b, d: b.dia, a: Horarios.min(b.desde), z: Horarios.min(b.hasta) })));
+    const ids = [...new Set(sel.map(x => x.materia))], col = coloresSemana(ids, pigs);
+    // Banda
+    const alto = chico ? 260 : 480;
+    c.save(); c.beginPath(); c.rect(0, 0, 1080, alto); c.clip();
+    await cvGrabado(c, chico ? 'stradanus-semana-cuadrada' : 'stradanus-semana-historia', 0, 0, 1080, alto, T.grab);
+    cvCapitular(c, 'S', -30, alto * 0.98, Math.min(alto * 1.15, 340), T);
+    c.restore();
+    cvArriba(c, 'Mi semana', 70, chico ? 284 : 520, chico ? 64 : 104, 600, T.tinta, { esp: -0.035 });
+    cvArriba(c, String(titulo).toUpperCase(), 74, chico ? 358 : 640, chico ? 18 : 24, 600, T.kicker, { esp: 0.12, max: 930 });
+    // Grilla
+    const dias = bl.some(x => x.d === 6) ? [1, 2, 3, 4, 5, 6] : [1, 2, 3, 4, 5];
+    const h0 = Math.floor(Math.min(...bl.map(x => x.a)) / 60), h1 = Math.max(Math.ceil(Math.max(...bl.map(x => x.z)) / 60), h0 + 4);
+    const top = chico ? 440 : 760, altoG = chico ? 420 : 640, L = chico ? 130 : 150, R = 1010, cw = (R - L) / dias.length, ph = altoG / (h1 - h0);
+    const paso = h1 - h0 > 6 ? 2 : 1;
+    dias.forEach((d, i) => cvArriba(c, Horarios.DIAS[d].slice(0, 3), L + i * cw + cw / 2, top - 46 * e, 30 * e, 600, T.tinta, { align: 'center' }));
+    for (let h = h0; h <= h1; h += paso) {
+      const y = top + (h - h0) * ph;
+      c.fillStyle = T.linea; c.fillRect(L, y, R - L, 2);
+      cvArriba(c, String(h).padStart(2, '0'), L - 80 * e, y - 14 * e, 28 * e, 400, T.t3);
+    }
+    bl.forEach(({ x, b, d, a, z }) => {
+      const i = dias.indexOf(d); if (i < 0) return;
+      const bx = L + i * cw + 5, by = top + (a / 60 - h0) * ph + 4, bw = cw - 10, bh = Math.max(30 * e, (z - a) / 60 * ph - 8), p = col[x.materia];
+      c.fillStyle = cvMezcla(p, T.mezcla, T.papel); c.fillRect(bx, by, bw, bh);
+      c.fillStyle = p; c.fillRect(bx, by, 8 * e, bh);
+      c.save(); c.beginPath(); c.rect(bx, by, bw, bh); c.clip();
+      const tx = bx + 22 * e, ty = by + 12 * e;
+      cvArriba(c, siglaMateria(x.materia), tx, ty, 34 * e, 700, T.bloqueTinta ? T.tinta : p, { max: bw - 30 * e });
+      if (bh > 74 * e) cvArriba(c, hhmm(b.desde) + '–' + hhmm(b.hasta), tx, ty + 40 * e, 24 * e, 400, T.sub);
+      c.restore();
+    });
+    // Leyenda: sigla y nombre de cada materia. Los nombres reales son largos: en la historia van en una columna hasta seis materias
+    // (dos si hay más); en la cuadrada, en dos columnas (tres si hay más de seis).
+    const n = ids.length, cols = chico ? (n > 6 ? 3 : 2) : (n > 6 ? 2 : 1), x0 = 74, colw = 930 / cols;
+    const k = chico ? (cols === 3 ? 0.6 : 0.66) : (cols === 1 ? 0.9 : 0.8), fila = chico ? (cols === 3 ? 30 : 33) : (cols === 1 ? 48 : 50), ly = chico ? 895 : 1450;
+    ids.forEach((id, j) => {
+      const lx = x0 + (j % cols) * colw, yy = ly + Math.floor(j / cols) * fila;
+      c.fillStyle = col[id]; c.fillRect(lx, yy, 40 * k, 40 * k);
+      cvArriba(c, siglaMateria(id), lx + 54 * k, yy + 6 * k, 28 * k, 700, T.tinta, { max: 80 * k });
+      cvArriba(c, nombreMateria(id), lx + 128 * k, yy + 4 * k, 30 * k, 400, T.tinta, { fam: '"Literata", Georgia, serif', max: colw - 146 * k });
+    });
+    cvGrano(c, 1080, H, T);
+    cvPie2(c, 1080, H, T, chico);
+    return cv;
+  };
 }
 function imagenSemana() {
   const sel = elegidas();
   if (!sel.length) return aviso('Elegí primero tus comisiones');
   const nombre = oferta().nombre || 'Mi semana';
-  abrirImagen(cvSemana(sel, nombre), { archivo: 'galera-mi-semana.png', titulo: 'Mi semana', tipo: 'horario', id: V.oferta,
+  abrirImagen(null, { archivo: 'galera-mi-semana.png', titulo: 'Mi semana', tipo: 'horario', id: V.oferta, dibujar: cvSemana(sel, nombre),
     intro: 'Sin tu nombre ni tus notas: solo las materias y los horarios.', texto: 'Así me queda el cuatrimestre. Armalo vos también: ' + BRAND.url,
     alt: 'Grilla semanal con las clases: ' + [...new Set(sel.map(x => siglaMateria(x.materia)))].join(', ') + '.' });
 }
@@ -296,13 +354,14 @@ function linkSemana() {
     ${m ? `<div class="qr-caja">${Traspaso.qrSvg(m, 'Código QR con tu horario')}</div>` : ''}
     <div class="botones"><button class="btn" data-clic="copiarHorLink">Copiar el link</button>${navigator.share ? '<button class="btn sec" data-clic="compartirHorLink">Compartir</button>' : ''}<button class="btn lin" data-clic="cerrar">Cerrar</button></div>`, 'hor-link');
 }
-function abrirSemanaCompartida(oferta_, ids) {
+async function abrirSemanaCompartida(oferta_, ids) {
   const of = (D.ofertas || []).find(o => o.id === oferta_);
   const sel = of ? ids.map(id => of.comisiones.find(c => c.id === id)).filter(Boolean) : [];
   if (!sel.length) return abrir(cab('Horario compartido') + `<p>Este horario es de un cuatrimestre que no está cargado o el link quedó incompleto.</p><div class="botones"><button class="btn" data-clic="cerrar">Cerrar</button></div>`, 'hor-comp');
-  const cv = cvSemana(sel, of.nombre);
+  // Si el grabado o los pigmentos no llegan, queda la lista sola.
+  const cv = await cvSemana(sel, of.nombre)(CV_TEMA.claro, 'cuadrada').catch(() => null);
   abrir(cab('Horario compartido') + `<p class="chico tenue u-margin-top-0">Alguien te pasó su semana. Solo se puede mirar: no cambia nada de lo tuyo.</p>
-    <img class="img-comp" src="${cv.toDataURL('image/png')}" alt="Grilla semanal del horario compartido" width="1080" height="1080">${listaSemana(sel)}
+    ${cv ? `<img class="img-comp" src="${cv.toDataURL('image/png')}" alt="Grilla semanal del horario compartido" width="1080" height="1080">` : ''}${listaSemana(sel)}
     <div class="botones"><button class="btn" data-clic="cerrarIr" data-clic-a="[&quot;horarios&quot;]">Armar el mío</button><button class="btn lin" data-clic="cerrar">Cerrar</button></div>`, 'hor-comp');
 }
 
