@@ -68,6 +68,9 @@ TRACKER_JS = """
 # Registra lo que el sitio le pide al sistema para compartir (no abre nada). `sin_share` lo deja sin navigator.share.
 COMPARTIR_JS = """
 window.__comp = { share: [], clip: [] };
+// Que el sitio use el menú nativo también en WebKit: compartir() pide (pointer: coarse).
+const __mm = window.matchMedia.bind(window);
+window.matchMedia = (q) => /pointer:\\s*coarse/.test(q) ? { matches: true, media: q, onchange: null, addEventListener() { }, removeEventListener() { }, addListener() { }, removeListener() { } } : __mm(q);
 try { Object.defineProperty(navigator, 'share', { configurable: true, value: SIN_SHARE ? undefined : (d) => { window.__comp.share.push(d); return Promise.resolve(); } }); } catch (e) { }
 try { Object.defineProperty(navigator, 'clipboard', { configurable: true, value: { writeText: (t) => { window.__comp.clip.push(String(t)); return Promise.resolve(); } } }); } catch (e) { }
 """
@@ -152,14 +155,14 @@ class Sesion:
         return ctx
 
 
-def correr_recorrido(nombre, fn, ses, hay_buscador=True):
+def correr_recorrido(nombre, fn, ses):
     """Corre un recorrido, devuelve sus fallas. Cualquier excepción corta el recorrido y cuenta como falla."""
     fallas = []
     t0 = time.perf_counter()
     try:
         fn(ses, fallas)
     except Exception as e:  # tiempo agotado, selector que no aparece…
-        fallas.append(f"se cortó el recorrido: {str(e).splitlines()[0][:220]}")
+        fallas.append(f"se cortó el recorrido: {(str(e).splitlines() or [repr(e)])[0][:220]}")
     print(f"  {'ok  ' if not fallas else 'FALLA'} {nombre} ({time.perf_counter() - t0:.1f} s)")
     fallas = N.sin_repetidos(fallas)
     for x in fallas:
@@ -199,7 +202,12 @@ def cargar_materia(page, fallas):
     page.locator(f"button[data-clic='abrirMateria'][data-clic-a='[\"{MATERIA}\"]']").filter(has_text="Cargar nota").click()
     campo = page.locator('#dlg[open] input[data-cambio="setNota"]')
     campo.fill(NOTA)
-    campo.press("Tab")  # dispara el change
+    campo.blur()  # dispara el change (más firme que Tab en WebKit)
+    espera = "([id, n]) => { const m = (JSON.parse(localStorage.getItem('cursada.v1')) || {}).materias || {}; return !!m[id] && String(m[id].nota) === n; }"
+    try:
+        page.wait_for_function(espera, arg=[MATERIA, NOTA], timeout=2500)
+    except Exception:
+        campo.dispatch_event("change")   # el navegador no lo mandó con el blur
     page.keyboard.press("Escape")
     page.wait_for_function("([id, n]) => { const m = (JSON.parse(localStorage.getItem('cursada.v1')) || {}).materias || {}; return !!m[id] && String(m[id].nota) === n; }",
                            arg=[MATERIA, NOTA], timeout=10000)
@@ -446,9 +454,11 @@ def cerrar_dialogos(page):
     page.evaluate("() => document.querySelectorAll('dialog[open]').forEach(d => { try { d.close(); } catch (e) { } })")
 
 
-def barrer(ses, dist, hasta, fallas):
+def barrer(ses, dist, hasta, fallas, cortado):
     """En cada pantalla, toca el primer elemento visible de cada acción de clic que todavía no se vio."""
     ctx = ses.contexto(N.ESTADO_EJEMPLO)
+    # Reloj fijo: calendario, mesas y cuatrimestre dependen de la fecha y cambiarían los botones de un día al otro.
+    ctx.clock.set_fixed_time('2026-11-16T12:00:00')
     # Un clic que descarga o abre algo del sistema no debe colgar el barrido.
     ctx.on("dialog", lambda d: d.dismiss())
     page = ctx.new_page()
@@ -458,7 +468,7 @@ def barrer(ses, dist, hasta, fallas):
     try:
         for ruta in pantallas_barrido(dist):
             if time.time() > hasta:
-                print("      (se recorta el barrido: se acabó el tiempo)")
+                cortado.append(ruta)
                 break
             try:
                 page.goto(ses.origen + ruta, wait_until="networkidle", timeout=30000)
@@ -539,7 +549,7 @@ def main():
             try:
                 browser = getattr(p, m).launch()
             except Exception as e:
-                print(f"  no se pudo lanzar {m}: {str(e).splitlines()[0]}")
+                print(f"  no se pudo lanzar {m}: {(str(e).splitlines() or [repr(e)])[0]}")
                 todas.append(f"{m}: no se pudo lanzar")
                 continue
             ses = Sesion(browser, origen)
@@ -548,11 +558,18 @@ def main():
                 todas += [f"{m} · recorrido {nombre}: {x}" for x in correr_recorrido(nombre, fn, ses)]
             if m == "chromium" and not a.sin_barrido:
                 fallas = []
-                tocadas = barrer(ses, dist, inicio + TOPE_SEGUNDOS, fallas)
+                cortado = []
+                tocadas = barrer(ses, dist, inicio + TOPE_SEGUNDOS, fallas, cortado)
                 print(f"  barrido: {tocadas} clics; en total {len(ses.vistas & registradas)} de {len(registradas)} acciones ejecutadas ({time.time() - inicio:.0f} s)")
                 for x in fallas:
                     print(f"        - {x}")
                 todas += [f"{m} · {x}" for x in fallas]
+                if cortado:
+                    # Con el barrido a medias el trinquete daría falsas «acciones nuevas»: no se evalúa.
+                    todas.append(f"{m} · el barrido se cortó por tiempo (tope {TOPE_SEGUNDOS} s) en {cortado[0]}: no se evaluó el trinquete")
+                    print(f"  FALLA el barrido se cortó por tiempo en {cortado[0]}")
+                    browser.close()
+                    continue
                 if a.actualizar:
                     nueva = lista_nueva(registradas, ses.vistas, lista)
                     if nueva is None:
