@@ -16,7 +16,7 @@ const conVersion = u => /[?&]v=\w+/.test(u.search);
 
 // Páginas y datos se piden saltando la caché HTTP (así el núcleo nunca guarda una copia vieja); lo que lleva ?v= es inmutable.
 const pedir = ruta => fetch(conVersion(new URL(ruta, location.origin)) ? ruta : new Request(ruta, { cache: 'reload' })).then(res => {
-  if (!res.ok) throw new Error(ruta + ' ' + res.status);
+  if (!res.ok || res.redirected) throw new Error(ruta + ' ' + res.status);   // una redirección guardada no se puede servir a una navegación
   return res;
 });
 async function llenarNucleo() {
@@ -43,13 +43,19 @@ self.addEventListener('fetch', e => {
     if (conVersion(u)) {
       const m = await buscar(r);
       if (m) return m;
-      try { const res = await fetch(r); if (res.ok) e.waitUntil(guardar(r, u, res.clone())); return res; } catch (err) { return Response.error(); }
+      try { const res = await fetch(r); if (res.ok) e.waitUntil(guardar(r, u, res.clone())); return res; } catch (err) {
+        // Pestaña abierta con una versión vieja y sin red: de la misma ruta, la copia del núcleo actual antes que nada.
+        return (await (await caches.open(CACHE_NUCLEO)).match(r, { ignoreSearch: true })) || Response.error();
+      }
     }
     return new Promise(ok => {
       let listo = false;
       const dar = res => { if (!listo) { listo = true; ok(res); } };
       const t = setTimeout(async () => { const m = await buscar(r, nav); if (m) dar(m); }, ESPERA);
-      const red = fetch(r).then(res => { if (res.ok) e.waitUntil(guardar(r, u, res.clone())); return res; });
+      // waitUntil se llama ya, en forma sincrónica: si la copia salió a los 4 s, igual se guarda lo que llegue después.
+      let g;
+      const red = fetch(r).then(res => { if (res.ok) g = guardar(r, u, res.clone()); return res; });
+      e.waitUntil(red.then(() => g, () => { }));
       red.then(res => { clearTimeout(t); dar(res); }, async () => { clearTimeout(t); dar(await sinRed(r, nav)); });
     });
   })());
