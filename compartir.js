@@ -7,7 +7,7 @@ const CV = { fondo: '#fff', tinta: '#212121', t2: '#4D4D4D', t3: '#717171', line
 const CV_FUENTE = '"Instrument Sans", system-ui, sans-serif', CV_GOTICA = '"UnifrakturMaguntia", "Times New Roman", serif';
 const CV_ARCADE = '"Jacquard 24", monospace'; // gótica pixelada de la imagen del desafío (recorte de 5 KB)
 // Las fuentes ya están en la página; esto solo pide que estén listas antes de dibujar.
-['400 20px "UnifrakturMaguntia"', '400 20px "Instrument Sans"', '600 20px "Instrument Sans"', '700 20px "Instrument Sans"', '400 20px "Jacquard 24"'].forEach(f => { try { document.fonts.load(f); } catch (e) { } });
+['400 20px "UnifrakturMaguntia"', '400 20px "Instrument Sans"', '600 20px "Instrument Sans"', '700 20px "Instrument Sans"', '400 20px "Jacquard 24"', '400 20px "Literata"'].forEach(f => { try { document.fonts.load(f); } catch (e) { } });
 
 // ---------- canvas ----------
 // Hilera de puntos de radio r y paso p dentro de un rectángulo (barras y cintas del sistema).
@@ -66,12 +66,13 @@ function cvDato({ kicker, grande, lineas, barra }) {
 // Plan a un amigo y «Mi semana»: papel crudo o el oscuro de la app, lo elige quien comparte (CP4). Valores de los prototipos
 // de propuestas/2026-11-12-materia-aprobada/lienzo/ (plan_amigo.py, mi_semana.py, compartir_oscuro.py).
 // grab: el grabado de fondo; t3: texto tenue; mezcla: cuánto del pigmento va en el fondo de un bloque; modo: cómo se apoya la
-// capitular azul sobre el grabado; grano: opacidad del ruido de papel.
+// capitular azul sobre el grabado; grano: opacidad del ruido de papel; kicker: la línea en versalitas; sub: el horario dentro de
+// un bloque; bloqueTinta: la sigla del bloque va en tinta (oscuro) o en su pigmento (claro).
 const CV_TEMA = {
   claro: { papel: '#EEE6D3', tinta: '#1E1B18', azul: '#0671E0', azulTexto: '#0560C8', grab: '#9A8F7C', t3: '#6B6458', gris: '#C9C2B4',
-    linea: 'rgba(30,27,24,.12)', regular: '#B9860A', mezcla: 0.28, modo: 'multiply', grano: 0.25 },
+    linea: 'rgba(30,27,24,.12)', regular: '#B9860A', mezcla: 0.28, modo: 'multiply', grano: 0.25, kicker: '#E0412C', sub: '#4A443B', bloqueTinta: false },
   oscuro: { papel: '#14171A', tinta: '#ECEFF1', azul: '#5AA9F5', azulTexto: '#5AA9F5', grab: '#59626A', t3: '#A3ABB1', gris: '#A3ABB1',
-    linea: 'rgba(236,239,241,.14)', regular: '#D9B04E', mezcla: 0.42, modo: 'screen', grano: 0.08 },
+    linea: 'rgba(236,239,241,.14)', regular: '#D9B04E', mezcla: 0.42, modo: 'screen', grano: 0.08, kicker: '#F07A63', sub: '#A3ABB1', bloqueTinta: true },
 };
 function cvPapel(w, h, T) {
   const cv = document.createElement('canvas'); cv.width = w; cv.height = h;
@@ -114,13 +115,13 @@ function cvGrano(c, w, h, T) {
   c.save(); c.globalAlpha = T.grano; c.globalCompositeOperation = 'multiply';
   c.fillStyle = c.createPattern(GRANO, 'repeat'); c.fillRect(0, 0, w, h); c.restore();
 }
-// Pie de afiche: «galera» en gótica con la g azul a la izquierda y galera.com.ar a la derecha.
-function cvPie2(c, w, h, T) {
-  const y = h - 88;
-  c.font = `400 84px ${CV_GOTICA}`; c.textAlign = 'left'; c.textBaseline = 'alphabetic';
+// Pie de afiche: «galera» en gótica con la g azul a la izquierda y galera.com.ar a la derecha (más chico en la cuadrada).
+function cvPie2(c, w, h, T, chico) {
+  const y = chico ? h - 44 : h - 88, m = chico ? 60 : 80;
+  c.font = `400 ${chico ? 56 : 84}px ${CV_GOTICA}`; c.textAlign = 'left'; c.textBaseline = 'alphabetic';
   const g = c.measureText('g').width;
-  c.fillStyle = T.azul; c.fillText('g', 80, y); c.fillStyle = T.tinta; c.fillText('alera', 80 + g, y);
-  cvTexto(c, BRAND.sitio, w - 80, y, 30, 400, T.tinta, 'right');
+  c.fillStyle = T.azul; c.fillText('g', m, y); c.fillStyle = T.tinta; c.fillText('alera', m + g, y);
+  cvTexto(c, BRAND.sitio, w - m, y, chico ? 22 : 30, 400, T.tinta, 'right');
 }
 
 // ---------- lámina de mecenas (v175) ----------
@@ -296,42 +297,103 @@ function compartirAvance() {
 }
 
 // ---------- mi semana ----------
-// Dibuja la grilla semanal de las comisiones dadas (sin nombres de docentes ni datos personales).
-function cvSemana(sel, titulo) {
-  const [cv, c] = cvBase(1080, 1080);
-  const bl = sel.flatMap(x => x.bloques.map(b => ({ x, b, d: b.dia, a: Horarios.min(b.desde), z: Horarios.min(b.hasta) })));
-  const dias = bl.some(e => e.d === 6) ? [1, 2, 3, 4, 5, 6] : [1, 2, 3, 4, 5];
-  const ini = Math.min(...bl.map(e => Math.floor(e.a / 60))), fin = Math.max(Math.max(...bl.map(e => Math.ceil(e.z / 60))), ini + 6);
-  const X = 150, Y = 270, W = 1000 - X, H = 880 - Y, cw = W / dias.length, ch = H / (fin - ini);
-  cvTexto(c, 'MI CURSADA', 80, 120, 30, 600, CV.t2);
-  cvTexto(c, titulo, 80, 190, 56, 600);
-  dias.forEach((d, i) => cvTexto(c, Horarios.DIAS[d].slice(0, 3).toUpperCase(), X + cw * i + cw / 2, 255, 22, 600, CV.t2, 'center'));
-  c.strokeStyle = CV.punto; c.lineWidth = 2; c.beginPath(); c.moveTo(X, Y); c.lineTo(X + W, Y); c.stroke();
-  c.strokeStyle = CV.linea; c.lineWidth = 1;
-  for (let h = ini; h <= fin; h++) {
-    const y = Y + (h - ini) * ch; c.beginPath(); c.moveTo(X, y); c.lineTo(X + W, y); c.stroke();
-    if ((h - ini) % 2 === 0 || fin - ini <= 8) cvTexto(c, String(h).padStart(2, '0'), X - 14, y + 8, 22, 400, CV.t3, 'right');
-  }
-  for (let i = 0; i <= dias.length; i++) { c.beginPath(); c.moveTo(X + cw * i, Y); c.lineTo(X + cw * i, Y + H); c.stroke(); }
-  bl.forEach(({ x, b, d, a, z }) => {
-    const i = dias.indexOf(d); if (i < 0) return;
-    const bx = X + cw * i + 5, by = Y + (a / 60 - ini) * ch + 2, bw = cw - 10, bh = Math.max(34, (z - a) / 60 * ch - 4);
-    c.fillStyle = CV.fondo; c.strokeStyle = CV.acento; c.lineWidth = 2;
-    c.beginPath(); c.roundRect ? c.roundRect(bx, by, bw, bh, 4) : c.rect(bx, by, bw, bh); c.fill(); c.stroke();
-    c.save(); c.beginPath(); c.rect(bx, by, bw, bh); c.clip();
-    cvPuntos(c, bx + 1, by + 1, 15, bh - 2, CV.acento, 5, 1.4);
-    cvTexto(c, siglaMateria(x.materia), bx + 24, by + 32, 26, 700);
-    if (bh > 70) cvTexto(c, b.desde + '-' + b.hasta, bx + 24, by + 60, 20, 400, CV.t3);
-    c.restore();
+// Banda de afiche (Stradanus con el encuadre del prensista y la S gótica), «Mi semana», grilla de la primera a la última hora con
+// bloques tenues en el pigmento fijo de cada materia (CP3, CP10) y leyenda con sigla y nombre. Sin docentes ni datos personales.
+// Medidas del prototipo propuestas/2026-11-12-materia-aprobada/lienzo/mi_semana.py (historia y 1:1).
+let PIGMENTOS = null;
+const cargarPigmentos = () => PIGMENTOS || (PIGMENTOS = json('pigmentos.json').then(d => d.pigmentos).catch(e => { PIGMENTOS = null; throw e; }));
+// Color de cada materia de la semana: su pigmento fijo; si otra de la misma semana ya lo usa (o no tiene, como las cargadas a mano),
+// el siguiente liso libre.
+// Dos pasadas, para que el color no dependa del orden en que se eligieron las comisiones: primero cada materia toma su pigmento si
+// nadie lo tomó; después las que quedaron (sin pigmento o repetido) toman el siguiente libre.
+function coloresSemana(ids, pigs) {
+  const lisos = pigs.filter(p => p.plano), usados = new Set(), out = {}, resto = [];
+  const propio = id => { const m = D.plan.materias.find(x => x.id === id || (x.opciones || []).some(o => o.id === id)); return m ? lisos.findIndex(p => p.nombre === m.pigmento) : -1; };
+  ids.forEach(id => { const i = propio(id); if (i >= 0 && !usados.has(lisos[i].nombre)) { usados.add(lisos[i].nombre); out[id] = lisos[i].hex; } else resto.push([id, i]); });
+  resto.forEach(([id, i]) => {
+    const j = lisos.findIndex((p, k) => k > i && !usados.has(p.nombre)), k = j >= 0 ? j : lisos.findIndex(p => !usados.has(p.nombre));
+    const x = k >= 0 ? k : (i >= 0 ? i : 0);
+    usados.add(lisos[x].nombre); out[id] = lisos[x].hex;
   });
-  cvPie(c, 1080, 1080);
-  return cv;
+  return out;
+}
+// Mezcla un color con el papel del tema (a = cuánto del color).
+function cvMezcla(hex, a, papel) {
+  const h = s => [1, 3, 5].map(i => parseInt(s.slice(i, i + 2), 16)), c = h(hex), p = h(papel);
+  return '#' + c.map((v, i) => Math.round(p[i] + (v - p[i]) * a).toString(16).padStart(2, '0')).join('');
+}
+// Texto con la parte de arriba en y (como top en CSS con line-height 1). o: fam, align, esp (letter-spacing en em), max (ancho).
+function cvArriba(c, t, x, y, px, peso, color, o) {
+  o = o || {};
+  c.font = `${peso} ${px}px ${o.fam || CV_FUENTE}`; c.fillStyle = color; c.textAlign = o.align || 'left'; c.textBaseline = 'top';
+  if ('letterSpacing' in c) c.letterSpacing = (o.esp || 0) * px + 'px';
+  let s = String(t);
+  if (o.max) while (s.length > 1 && c.measureText(s).width > o.max) s = s.slice(0, -2).trimEnd() + '…';
+  c.fillText(s, x, y);
+  if ('letterSpacing' in c) c.letterSpacing = '0px';
+}
+function cvSemana(sel, titulo) {
+  const hhmm = s => s.endsWith(':00') ? s.slice(0, 2) : s;
+  return async (T, formato) => {
+    const [pigs] = await Promise.all([cargarPigmentos(), document.fonts.load('400 20px "Literata"').catch(() => { })]);
+    const H = formato === 'cuadrada' ? 1080 : 1920, chico = H === 1080, e = chico ? 0.72 : 1;
+    const [cv, c] = cvPapel(1080, H, T);
+    const bl = sel.flatMap(x => x.bloques.map(b => ({ x, b, d: b.dia, a: Horarios.min(b.desde), z: Horarios.min(b.hasta) })));
+    const ids = [...new Set(sel.map(x => x.materia))], col = coloresSemana(ids, pigs);
+    // Banda
+    const alto = chico ? 260 : 480;
+    c.save(); c.beginPath(); c.rect(0, 0, 1080, alto); c.clip();
+    await cvGrabado(c, chico ? 'stradanus-semana-cuadrada' : 'stradanus-semana-historia', 0, 0, 1080, alto, T.grab);
+    cvCapitular(c, 'S', -30, alto * 0.98, Math.min(alto * 1.15, 340), T);
+    c.restore();
+    cvArriba(c, 'Mi semana', 70, chico ? 284 : 520, chico ? 64 : 104, 600, T.tinta, { esp: -0.035 });
+    cvArriba(c, String(titulo).toUpperCase(), 74, chico ? 358 : 640, chico ? 18 : 24, 600, T.kicker, { esp: 0.12, max: 930 });
+    // Grilla
+    const dias = bl.some(x => x.d === 6) ? [1, 2, 3, 4, 5, 6] : [1, 2, 3, 4, 5];
+    const h0 = Math.floor(Math.min(...bl.map(x => x.a)) / 60), h1 = Math.max(Math.ceil(Math.max(...bl.map(x => x.z)) / 60), h0 + 4);
+    const top = chico ? 440 : 760, altoG = chico ? 420 : 640, L = chico ? 130 : 150, R = 1010, cw = (R - L) / dias.length, ph = altoG / (h1 - h0);
+    const paso = h1 - h0 > 6 ? 2 : 1;
+    dias.forEach((d, i) => cvArriba(c, Horarios.DIAS[d].slice(0, 3), L + i * cw + cw / 2, top - 46 * e, 30 * e, 600, T.tinta, { align: 'center' }));
+    for (let h = h0; h <= h1; h += paso) {
+      const y = top + (h - h0) * ph;
+      c.fillStyle = T.linea; c.fillRect(L, y, R - L, 2);
+      cvArriba(c, String(h).padStart(2, '0'), L - 80 * e, y - 14 * e, 28 * e, 400, T.t3);
+    }
+    bl.forEach(({ x, b, d, a, z }) => {
+      const i = dias.indexOf(d); if (i < 0) return;
+      const bx = L + i * cw + 5, by = top + (a / 60 - h0) * ph + 4, bw = cw - 10, bh = Math.max(30 * e, (z - a) / 60 * ph - 8), p = col[x.materia];
+      c.fillStyle = cvMezcla(p, T.mezcla, T.papel); c.fillRect(bx, by, bw, bh);
+      c.fillStyle = p; c.fillRect(bx, by, 8 * e, bh);
+      c.save(); c.beginPath(); c.rect(bx, by, bw, bh); c.clip();
+      const tx = bx + 22 * e, ty = by + 12 * e;
+      cvArriba(c, siglaMateria(x.materia), tx, ty, 34 * e, 700, T.bloqueTinta ? T.tinta : p, { max: bw - 30 * e });
+      if (bh > 74 * e) cvArriba(c, hhmm(b.desde) + '–' + hhmm(b.hasta), tx, ty + 40 * e, 24 * e, 400, T.sub);
+      c.restore();
+    });
+    // Leyenda: sigla y nombre de cada materia. Los nombres reales son largos: en la historia van en una columna hasta seis materias
+    // (dos si hay más); en la cuadrada, en dos columnas (tres si hay más de seis).
+    // Si son muchas, las filas se achican para no pisar el pie. Las materias cargadas a mano dicen solo «Materia propia»: su nombre es
+    // texto libre y podría llevar datos personales.
+    const n = ids.length, cols = chico ? (n > 6 ? 3 : 2) : (n > 6 ? 2 : 1), x0 = 74, colw = 930 / cols, ly = chico ? 895 : 1450;
+    const fila0 = chico ? (cols === 3 ? 30 : 33) : (cols === 1 ? 48 : 50), achica = Math.min(1, (chico ? 92 : 300) / (Math.ceil(n / cols) * fila0));
+    const k = (chico ? (cols === 3 ? 0.6 : 0.66) : (cols === 1 ? 0.9 : 0.8)) * achica, fila = fila0 * achica;
+    const conocida = id => D.plan.materias.some(x => x.id === id || (x.opciones || []).some(o => o.id === id)) || !!extra(id);
+    ids.forEach((id, j) => {
+      const lx = x0 + (j % cols) * colw, yy = ly + Math.floor(j / cols) * fila;
+      c.fillStyle = col[id]; c.fillRect(lx, yy, 40 * k, 40 * k);
+      cvArriba(c, siglaMateria(id), lx + 54 * k, yy + 6 * k, 28 * k, 700, T.tinta, { max: 80 * k });
+      cvArriba(c, conocida(id) ? nombreMateria(id) : 'Materia propia', lx + 128 * k, yy + 4 * k, 30 * k, 400, T.tinta, { fam: '"Literata", Georgia, serif', max: colw - 146 * k });
+    });
+    cvGrano(c, 1080, H, T);
+    cvPie2(c, 1080, H, T, chico);
+    return cv;
+  };
 }
 function imagenSemana() {
   const sel = elegidas();
   if (!sel.length) return aviso('Elegí primero tus comisiones');
   const nombre = oferta().nombre || 'Mi semana';
-  abrirImagen(cvSemana(sel, nombre), { archivo: 'galera-mi-semana.png', titulo: 'Mi semana', tipo: 'horario', id: V.oferta,
+  abrirImagen(null, { archivo: 'galera-mi-semana.png', titulo: 'Mi semana', tipo: 'horario', id: V.oferta, dibujar: cvSemana(sel, nombre),
     intro: 'Sin tu nombre ni tus notas: solo las materias y los horarios.', texto: 'Así me queda el cuatrimestre. Armalo vos también: ' + BRAND.url,
     alt: 'Grilla semanal con las clases: ' + [...new Set(sel.map(x => siglaMateria(x.materia)))].join(', ') + '.' });
 }
@@ -347,13 +409,14 @@ function linkSemana() {
     ${m ? `<div class="qr-caja">${Traspaso.qrSvg(m, 'Código QR con tu horario')}</div>` : ''}
     <div class="botones"><button class="btn" data-clic="copiarHorLink">Copiar el link</button>${navigator.share ? '<button class="btn sec" data-clic="compartirHorLink">Compartir</button>' : ''}<button class="btn lin" data-clic="cerrar">Cerrar</button></div>`, 'hor-link');
 }
-function abrirSemanaCompartida(oferta_, ids) {
+async function abrirSemanaCompartida(oferta_, ids) {
   const of = (D.ofertas || []).find(o => o.id === oferta_);
   const sel = of ? ids.map(id => of.comisiones.find(c => c.id === id)).filter(Boolean) : [];
   if (!sel.length) return abrir(cab('Horario compartido') + `<p>Este horario es de un cuatrimestre que no está cargado o el link quedó incompleto.</p><div class="botones"><button class="btn" data-clic="cerrar">Cerrar</button></div>`, 'hor-comp');
-  const cv = cvSemana(sel, of.nombre);
+  // Si el grabado o los pigmentos no llegan, queda la lista sola.
+  const cv = await cvSemana(sel, of.nombre)(CV_TEMA.claro, 'cuadrada').catch(() => null);
   abrir(cab('Horario compartido') + `<p class="chico tenue u-margin-top-0">Alguien te pasó su semana. Solo se puede mirar: no cambia nada de lo tuyo.</p>
-    <img class="img-comp" src="${cv.toDataURL('image/png')}" alt="Grilla semanal del horario compartido" width="1080" height="1080">${listaSemana(sel)}
+    ${cv ? `<img class="img-comp" src="${cv.toDataURL('image/png')}" alt="Grilla semanal del horario compartido" width="1080" height="1080">` : ''}${listaSemana(sel)}
     <div class="botones"><button class="btn" data-clic="cerrarIr" data-clic-a="[&quot;horarios&quot;]">Armar el mío</button><button class="btn lin" data-clic="cerrar">Cerrar</button></div>`, 'hor-comp');
 }
 
@@ -381,8 +444,107 @@ async function abrirPasarAmigo() {
   medir('share', { method: 'link', content_type: 'plan', item_id: 'amigo' });
   abrir(cab(T) + `<p class="u-margin-top-0">Tu amigo abre el link y ya tiene cargadas las <b>${n} ${n === 1 ? 'materia' : 'materias'}</b> en las que estás (aprobadas y cursando). <b>No van tus notas, fechas, horarios ni apuntes.</b></p>
     ${m ? `<div class="qr-caja">${Traspaso.qrSvg(m, 'Código QR con tu plan, sin notas')}</div>` : '<p class="chico tenue">Es un link largo para un QR: usá «Copiar el link».</p>'}
-    <div class="botones"><button class="btn" data-clic="copiarAmigoUrl">Copiar el link</button>${navigator.share ? '<button class="btn sec" data-clic="compartirAmigoUrl">Compartir</button>' : ''}<button class="btn lin" data-clic="cerrar">Cerrar</button></div>
+    <div class="botones"><button class="btn" data-clic="copiarAmigoUrl">Copiar el link</button><button class="btn sec" data-clic="imagenPlan">Imagen</button>${navigator.share ? '<button class="btn sec" data-clic="compartirAmigoUrl">Compartir</button>' : ''}<button class="btn lin" data-clic="cerrar">Cerrar</button></div>
     <p class="chico tenue u-margin-top-10px">El link lleva el plan adentro y no pasa por ningún servidor. Mandalo solo a quien quieras.</p>`, 'amigo');
+}
+
+// Imagen del plan (CP1, CP5): afiche con la P gótica sobre un grabado sorteado del banco y la lista en Literata. Cada aprobada lleva
+// su ejemplar (inicial azul sobre su grabado en su pigmento) y dice solo «aprobada»; regular en mostaza y cursando en azul. Sin nombre
+// (CP11), sin notas ni fechas. Hasta que exista el sorteo de materia aprobada (paso 19), el ejemplar sale del pigmento fijo de la
+// materia y de un grabado de su nivel elegido por el id de la materia, siempre el mismo. Medidas de lienzo/plan_amigo.py.
+let GRABADOS_DATOS = null;
+const cargarGrabados = () => GRABADOS_DATOS || (GRABADOS_DATOS = json('grabados.json').then(d => d.grabados).catch(e => { GRABADOS_DATOS = null; throw e; }));
+const hashTexto = s => [...String(s)].reduce((h, ch) => (h * 31 + ch.charCodeAt(0)) >>> 0, 7);
+const cuatrimestreHoy = () => { const d = new Date(); return (d.getMonth() < 7 ? '1.er' : '2.º') + ' cuatrimestre ' + d.getFullYear(); };
+// Parte un texto en renglones de ancho máximo con la fuente dada.
+function cvPartir(c, texto, maxW, font) {
+  c.font = font; const out = []; let l = '';
+  String(texto).split(/\s+/).forEach(p => { const t = l ? l + ' ' + p : p; if (l && c.measureText(t).width > maxW) { out.push(l); l = p; } else l = t; });
+  if (l) out.push(l);
+  return out;
+}
+function materiasPlan() {
+  const e = planParaAmigo();
+  return D.plan.materias.filter(m => e.materias[m.id]).map(m => {
+    const x = e.materias[m.id], nombre = nombreMateria(x.opcion || m.id);
+    return { id: m.id, nombre, ini: nombre.trim().charAt(0).toUpperCase(), estado: x.estado, pigmento: m.pigmento };
+  });
+}
+function cvPlan(items) {
+  let fondo = null; // el grabado de fondo se sortea una vez por diálogo: cambiar tema o formato no lo cambia
+  return async (T, formato) => {
+    const [pigs, banco] = await Promise.all([cargarPigmentos(), cargarGrabados(),
+      document.fonts.load('400 20px "Literata"').catch(() => { }), document.fonts.load('italic 400 20px "Literata"').catch(() => { })]);
+    const tiradas = banco.filter(g => g.nivel === 'tirada');
+    if (!fondo) fondo = tiradas[Math.floor(Math.random() * tiradas.length)].id;
+    const H = formato === 'cuadrada' ? 1080 : 1920, chico = H === 1080;
+    const g = chico ? { gl: -150, gt: 40, gw: 600, gh: 880, cw: 450, ch: 930, px: -210, py: 830, ps: 760, x: 480, tt: 70, ts: 84, kt: 170, ks: 19, lt: 225, t: 46, letra: 50, f1: 25, f2: 19, mb: items.length > 5 ? 12 : 18, nm: 6, nota: 22, fin: 960 }
+      : { gl: -200, gt: 260, gw: 780, gh: 1300, cw: 570, ch: 1920, px: -300, py: 1420, ps: 1250, x: 600, tt: 300, ts: 112, kt: 430, ks: 24, lt: 520, t: 64, letra: 70, f1: 31, f2: 24, mb: 26, nm: 20, nota: 28, fin: 1720 };
+    const [cv, c] = cvPapel(1080, H, T);
+    await cvGrabado(c, fondo, g.gl, g.gt, g.gw, g.gh, T.grab);
+    c.save(); c.beginPath(); c.rect(0, 0, g.cw, g.ch); c.clip(); cvCapitular(c, 'P', g.px, g.py, g.ps, T); c.restore();
+    cvArriba(c, 'Mi plan', g.x, g.tt, g.ts, 600, T.tinta, { esp: -0.035 });
+    const x0 = g.x + 4, W = 1080 - 60 - x0;
+    // Cuatrimestre y carrera (CP11: sin nombre); si no entran en un renglón (la historia es angosta), van en dos.
+    const kick = [cuatrimestreHoy().toUpperCase(), 'EDICIÓN, FFYL'];
+    c.font = `600 ${g.ks}px ${CV_FUENTE}`;
+    const unaLinea = c.measureText(kick.join(' · ')).width * 1.12 <= W;
+    (unaLinea ? [kick.join(' · ')] : kick).forEach((l, i) => cvArriba(c, l, x0, g.kt + i * g.ks * 1.4, g.ks, 600, T.kicker, { esp: 0.12, max: W }));
+    // Si la lista no entra, se achica todo junto (hasta un 60 %). Si igual no entra (quien va avanzado), las aprobadas van en un solo
+    // renglón, «N aprobadas», con el ejemplar de la primera, y se listan las regulares y las que cursa (Fidel, 16/11).
+    const LIT = '"Literata", Georgia, serif';
+    const medir = (lista, k) => lista.map(m => {
+      const t = g.t * k, gap = t * 0.28, f1 = g.f1 * k, f2 = g.f2 * k;
+      const ls = cvPartir(c, m.nombre, W - t - gap, `400 ${f1}px ${LIT}`), alto = ls.length * f1 * 1.1 + (m.resumen ? 0 : f2 * 1.3);
+      return { m, t, gap, f1, f2, ls, alto, fila: Math.max(t, alto) };
+    });
+    const ajustar = lista => {
+      for (let k = 1; ; k -= 0.05) {
+        const filas = medir(lista, k), total = filas.reduce((s, f) => s + f.fila + g.mb * k, 0) + g.nm * k + g.nota * k * 1.3;
+        if (g.lt + total <= g.fin || k <= 0.6) return { k, filas, entra: g.lt + total <= g.fin };
+      }
+    };
+    let { k, filas, entra } = ajustar(items);
+    const aprob = items.filter(m => m.estado === 'aprobada');
+    if (!entra && aprob.length > 1) ({ k, filas } = ajustar([Object.assign({}, aprob[0], { resumen: true, nombre: aprob.length + ' aprobadas' }),
+      ...items.filter(m => m.estado !== 'aprobada')]));
+    let y = g.lt;
+    for (const f of filas) {
+      const { m, t, gap, f1, f2, ls, alto, fila } = f, cy = y + (fila - t) / 2;
+      let etiqueta = m.resumen ? '' : m.estado, color;
+      if (m.estado === 'aprobada') {
+        const lisos = pigs.filter(p => p.plano), pig = lisos.find(p => p.nombre === m.pigmento) || lisos[hashTexto(m.id) % lisos.length];
+        const deNivel = banco.filter(b => b.nivel === pig.nivel), grab = (deNivel.length ? deNivel : banco)[hashTexto(m.id) % (deNivel.length || banco.length)];
+        c.fillStyle = pig.papel; c.fillRect(x0, cy, t, t);
+        await cvGrabado(c, grab.id, x0, cy, t, t, pig.hex, 1);
+        c.save(); c.beginPath(); c.rect(x0, cy, t, t); c.clip();
+        cvArriba(c, m.ini, x0 + t * 0.09, cy - t * 0.07, g.letra * k, 400, pig.azul, { fam: CV_GOTICA });
+        c.restore();
+        color = T.bloqueTinta ? cvMezcla(pig.hex, 0.6, '#FFFFFF') : pig.hex;
+      } else {
+        color = m.estado === 'regular' ? T.regular : T.azulTexto;
+        c.strokeStyle = color; c.lineWidth = 3; c.strokeRect(x0 + 1.5, cy + 1.5, t - 3, t - 3);
+        c.font = `400 ${g.letra * k * 0.8}px ${CV_GOTICA}`; c.fillStyle = color; c.textAlign = 'center'; c.textBaseline = 'middle';
+        c.fillText(m.ini, x0 + t / 2, cy + t / 2 + 2);
+      }
+      let ty = y + (fila - alto) / 2;
+      ls.forEach(l => { cvArriba(c, l, x0 + t + gap, ty, f1, 400, T.tinta, { fam: LIT }); ty += f1 * 1.1; });
+      cvArriba(c, etiqueta, x0 + t + gap, ty + f2 * 0.15, f2, 'italic 400', color, { fam: LIT });
+      y += fila + g.mb * k;
+    }
+    cvArriba(c, 'Armá el tuyo en galera.com.ar', x0, y + g.nm * k, g.nota * k, 'italic 400', T.t3, { fam: LIT, max: W });
+    cvGrano(c, 1080, H, T);
+    cvPie2(c, 1080, H, T, chico);
+    return cv;
+  };
+}
+function imagenPlan() {
+  if (V.demo) return aviso('Estás viendo el ejemplo: salí del ejemplo para pasar tu plan');
+  const items = materiasPlan();
+  if (!items.length) return aviso('Marcá primero qué materias aprobaste o cursás');
+  abrirImagen(null, { archivo: 'galera-mi-plan.png', titulo: 'Mi plan', tipo: 'plan', id: 'amigo', dibujar: cvPlan(items),
+    intro: 'Sin tu nombre ni tus notas: solo las materias y en qué estado están.', texto: 'Así voy en la carrera. Armá tu plan en Galera: ' + BRAND.url,
+    alt: 'Mi plan de Edición: ' + items.map(m => m.nombre + ', ' + m.estado).join('; ') + '.' });
 }
 
 // ---------- «¿Le sirve a alguien?» ----------
@@ -666,7 +828,7 @@ Object.assign(ACC, {
   abrirQueCursar: (...a) => abrirQueCursar(...a), arcDesafiar: (...a) => arcDesafiar(...a), bajarImagen: (...a) => bajarImagen(...a),
   bajarQR: (...a) => bajarQR(...a), compartirAvance: (...a) => compartirAvance(...a), compartirLogro: (...a) => compartirLogro(...a),
   compartirResultado: (...a) => compartirResultado(...a), copiarQueCursar: (...a) => copiarQueCursar(...a),
-  elegirImagen: (...a) => elegirImagen(...a), enviarImagen: (...a) => enviarImagen(...a), imagenQueCursar: (...a) => imagenQueCursar(...a), imagenSemana: (...a) => imagenSemana(...a),
+  elegirImagen: (...a) => elegirImagen(...a), enviarImagen: (...a) => enviarImagen(...a), imagenPlan: (...a) => imagenPlan(...a), imagenQueCursar: (...a) => imagenQueCursar(...a), imagenSemana: (...a) => imagenSemana(...a),
   instalarApp: (...a) => instalarApp(...a), linkSemana: (...a) => linkSemana(...a), mailApunte: (...a) => mailApunte(...a),
   mandarApunte: (...a) => mandarApunte(...a), mandarQueCursar: (...a) => mandarQueCursar(...a), sumarApunte: (...a) => sumarApunte(...a),
 });
