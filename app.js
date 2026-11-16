@@ -201,6 +201,11 @@ function normalizar(e) {
       examenes: lista(m.examenes, 60).filter(x => x && typeof x === 'object').map(x => ({ id: RE_ID.test(x.id || '') ? x.id : uid(), tipo: txt(x.tipo, 30) || 'Otro',
         fecha: RE_FECHA.test(x.fecha || '') ? x.fecha : '', hora: RE_HORA.test(x.hora || '') ? x.hora : '', detalle: txt(x.detalle, 200), nota: txt(x.nota, 10) }))
     };
+    // Ejemplar de materia aprobada (ejemplar.js): queda aunque la materia cambie de estado, para que desmarcar y volver a marcar no re-sortee.
+    // Sin el módulo (solo en pruebas: se carga antes que app.js) pasa tal cual, como el Arcade, y se sanea al llegar.
+    const ej = typeof Ejemplar !== 'undefined' ? Ejemplar.sanear(m.ejemplar)
+      : m.ejemplar && typeof m.ejemplar === 'object' && !Array.isArray(m.ejemplar) ? JSON.parse(JSON.stringify(m.ejemplar)) : null;
+    if (ej) out.materias[id].ejemplar = ej;
   });
   const bloque = b => b && typeof b === 'object' && Number(b.dia) >= 1 && Number(b.dia) <= 6 && RE_HORA.test(b.desde || '') && RE_HORA.test(b.hasta || '') && b.desde < b.hasta
     ? { dia: Number(b.dia), desde: b.desde, hasta: b.hasta } : null;

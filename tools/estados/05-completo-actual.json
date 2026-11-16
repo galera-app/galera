@@ -7,12 +7,14 @@
   "ipc": {
    "estado": "aprobada",
    "nota": "8",
-   "aprobada": "2025-07-15"
+   "aprobada": "2025-07-15",
+   "ejemplar": {"p": "oro y ultramar", "f": "dragon", "n": 37, "r": 1}
   },
   "icse": {
    "estado": "aprobada",
    "nota": "7,5",
    "aprobada": "2025-12-10",
+   "ejemplar": {"p": "ocre", "f": "monje", "n": 0, "r": 0},
    "apuntes": "Notas libres con tildes: ñandú, ¿qué?"
   },
   "0902": {

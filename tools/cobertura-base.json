@@ -1,9 +1,10 @@
 {
-  "total": 92.39,
+  "total": 92.53,
   "archivos": {
     "arcade.js": 100,
     "contratos.js": 100,
     "cronograma.js": 100,
+    "ejemplar.js": 98.07,
     "escandallo.js": 100,
     "formatos.js": 100,
     "horarios.js": 100,
