@@ -12,6 +12,18 @@ Sitio estático, sin build. Lo personal queda en el navegador de cada persona.
 
 Los datos de la Facultad (`datos.yml`) salen solos a producción sobre ese tag, sin arrastrar pantallas sin aprobar. El sitio de prueba no indexa ni escribe en el buzón, el arcade o Analytics (`_headers`).
 
+## Volver atrás
+
+Si una versión publicada sale mal, en este orden:
+
+1. En Actions → Publicar, rechazar la aprobación pendiente, si la hay.
+2. Lanzar Actions → **Volver** con `codigo` = el tag de la última versión buena (por ejemplo `v170`; si no tiene tag, el commit) y aprobar en el entorno `produccion`. Publica ese código y mueve el tag `produccion` ahí, para que `datos.yml` no vuelva a publicar el código malo. Tarda lo que un despliegue (tope de 15 minutos). El tag se mueve apenas se publica, antes de la prueba de humo: en una versión muy vieja el humo puede fallar (usa las rutas de `main`) con el sitio ya vuelto atrás.
+3. Comprobar con `python tools/humo.py https://galera.com.ar` y mirando `datos/novedades.json`.
+4. Abrir un PR que revierta el commit malo. Mientras no se mergee, cualquier otro merge a `main` volvería a ofrecer el código malo en «Publicar».
+5. Para `prueba`: Cloudflare → Pages → Deployments → «Rollback», o esperar al PR del punto 4.
+
+Ensayo: _pendiente_ (fecha y duración, cuando se haga).
+
 ## Cabeceras de seguridad
 
 Hoy `galera.com.ar` y `www` salen por GitHub Pages (IPs de GitHub, nameservers de Cloudflare solo para el DNS, registros sin proxy). GitHub Pages no deja poner cabeceras propias, así que producción no manda HSTS ni `frame-ancestors`. `_headers` solo lo lee Cloudflare Pages (prueba y vistas previas), y `desplegar.yml` lo saca de `dist/`. Para que lleguen a producción, con Cloudflare por delante:

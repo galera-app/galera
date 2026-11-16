@@ -1,0 +1,69 @@
+# Galera: vuelta atrás. Se lanza a mano (Actions → Volver) con `codigo`: un tag de versión (v170) o un commit de
+# `main` que ya estuvo publicado. Pide la misma aprobación que Publicar (entorno `produccion`), publica ese código con
+# desplegar.yml (que mueve el tag `produccion` a ese commit). Mover el tag importa: datos.yml publica sobre `produccion`,
+# y si el tag quedara en el código malo, la próxima corrida de datos lo volvería a publicar.
+# Procedimiento completo: README, «Volver atrás».
+name: Volver
+
+on:
+  workflow_dispatch:
+    inputs:
+      codigo:
+        description: Tag (v170) o commit de la última versión buena
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      commit: ${{ steps.resolver.outputs.commit }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          fetch-depth: 0
+      # Un tag de versión o un commit, que exista y sea de main: un typo no llega a pedir aprobación.
+      - id: resolver
+        env:
+          CODIGO: ${{ inputs.codigo }}
+        run: |
+          if ! [[ "$CODIGO" =~ ^(v[0-9]+|[0-9a-f]{7,40})$ ]]; then
+            echo "::error::«$CODIGO» no es un tag de versión (v170) ni un commit."
+            exit 1
+          fi
+          commit=$(git rev-parse --verify --quiet "$CODIGO^{commit}") || {
+            echo "::error::No existe $CODIGO."
+            exit 1
+          }
+          git merge-base --is-ancestor "$commit" origin/main || {
+            echo "::error::$CODIGO no es parte de main."
+            exit 1
+          }
+          echo "Se vuelve a $CODIGO ($commit)"
+          echo "commit=$commit" >> "$GITHUB_OUTPUT"
+
+  aprobar:
+    needs: validar
+    runs-on: ubuntu-latest
+    concurrency:
+      group: volver
+      cancel-in-progress: false
+    environment:
+      name: produccion
+    steps:
+      - run: echo "Aprobado volver a ${{ needs.validar.outputs.commit }}"
+
+  publicar:
+    needs: [validar, aprobar]
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+    uses: ./.github/workflows/desplegar.yml
+    with:
+      codigo: ${{ needs.validar.outputs.commit }}
+      marcar: true

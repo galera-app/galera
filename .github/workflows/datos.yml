@@ -55,7 +55,7 @@ jobs:
     needs: actualizar
     if: needs.actualizar.outputs.cambio == 'si'
     permissions:
-      contents: read
+      contents: write   # lo pide desplegar.yml; sin `marcar` no lo usa
       pages: write
       id-token: write
     uses: ./.github/workflows/desplegar.yml
