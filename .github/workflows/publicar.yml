@@ -26,22 +26,10 @@ jobs:
   publicar:
     needs: aprobar
     permissions:
-      contents: read
+      contents: write
       pages: write
       id-token: write
     uses: ./.github/workflows/desplegar.yml
     with:
       codigo: ${{ github.sha }}
-
-  marcar:
-    needs: publicar
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
-        with:
-          ref: ${{ github.sha }}
-      - run: |
-          git tag -f produccion "$GITHUB_SHA"
-          git push -f origin refs/tags/produccion
+      marcar: true

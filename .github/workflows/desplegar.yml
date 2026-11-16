@@ -9,9 +9,15 @@ on:
         description: Commit o tag con el código que se publica
         required: true
         type: string
+      marcar:
+        description: Mover el tag `produccion` a ese código apenas se publica (Publicar y Volver sí; datos no)
+        required: false
+        default: false
+        type: boolean
 
+# contents: write solo se usa en el paso de marcar; los llamadores que no marcan igual lo conceden (GitHub lo exige).
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -67,6 +73,13 @@ jobs:
           path: dist
       - id: deploy
         uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4.0.5
+      # Dentro de este trabajo (grupo `pages`) para que sitio y tag no se separen: si el humo falla, el tag igual quedó
+      # donde está el sitio, y un despliegue de datos en espera no puede leer `produccion` antes de que se mueva.
+      - name: Marcar el tag produccion
+        if: inputs.marcar
+        run: |
+          git tag -f produccion HEAD
+          git push -f origin refs/tags/produccion
       - name: Producción responde
         # Desde main: el código publicado puede ser un tag anterior a este script.
         run: git show origin/main:tools/humo.py | python3 - https://galera.com.ar

@@ -17,7 +17,7 @@ Los datos de la Facultad (`datos.yml`) salen solos a producción sobre ese tag, 
 Si una versión publicada sale mal, en este orden:
 
 1. En Actions → Publicar, rechazar la aprobación pendiente, si la hay.
-2. Lanzar Actions → **Volver** con `codigo` = el tag de la última versión buena (por ejemplo `v170`) y aprobar en el entorno `produccion`. Publica ese código y mueve el tag `produccion` ahí, para que `datos.yml` no vuelva a publicar el código malo. Tarda lo que un despliegue (tope de 15 minutos).
+2. Lanzar Actions → **Volver** con `codigo` = el tag de la última versión buena (por ejemplo `v170`; si no tiene tag, el commit) y aprobar en el entorno `produccion`. Publica ese código y mueve el tag `produccion` ahí, para que `datos.yml` no vuelva a publicar el código malo. Tarda lo que un despliegue (tope de 15 minutos). El tag se mueve apenas se publica, antes de la prueba de humo: en una versión muy vieja el humo puede fallar (usa las rutas de `main`) con el sitio ya vuelto atrás.
 3. Comprobar con `python tools/humo.py https://galera.com.ar` y mirando `datos/novedades.json`.
 4. Abrir un PR que revierta el commit malo. Mientras no se mergee, cualquier otro merge a `main` volvería a ofrecer el código malo en «Publicar».
 5. Para `prueba`: Cloudflare → Pages → Deployments → «Rollback», o esperar al PR del punto 4.

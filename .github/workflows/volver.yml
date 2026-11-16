@@ -1,6 +1,6 @@
-# Galera: vuelta atrás. Se lanza a mano (Actions → Volver) con `codigo`: un tag de una versión que ya estuvo
-# publicada (por ejemplo v170). Pide la misma aprobación que Publicar (entorno `produccion`), publica ese código con
-# desplegar.yml y mueve el tag `produccion` a ese commit. Mover el tag importa: datos.yml publica sobre `produccion`,
+# Galera: vuelta atrás. Se lanza a mano (Actions → Volver) con `codigo`: un tag de versión (v170) o un commit de
+# `main` que ya estuvo publicado. Pide la misma aprobación que Publicar (entorno `produccion`), publica ese código con
+# desplegar.yml (que mueve el tag `produccion` a ese commit). Mover el tag importa: datos.yml publica sobre `produccion`,
 # y si el tag quedara en el código malo, la próxima corrida de datos lo volvería a publicar.
 # Procedimiento completo: README, «Volver atrás».
 name: Volver
@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
     inputs:
       codigo:
-        description: Tag de la última versión buena (por ejemplo v170)
+        description: Tag (v170) o commit de la última versión buena
         required: true
         type: string
 
@@ -26,17 +26,21 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with:
           fetch-depth: 0
-      # Solo tags de versión, y que existan: un typo no debería llegar a pedir aprobación.
+      # Un tag de versión o un commit, que exista y sea de main: un typo no llega a pedir aprobación.
       - id: resolver
         env:
           CODIGO: ${{ inputs.codigo }}
         run: |
-          if ! printf '%s' "$CODIGO" | grep -Eq '^v[0-9]+$'; then
-            echo "::error::«$CODIGO» no es un tag de versión (v170, v175…)."
+          if ! [[ "$CODIGO" =~ ^(v[0-9]+|[0-9a-f]{7,40})$ ]]; then
+            echo "::error::«$CODIGO» no es un tag de versión (v170) ni un commit."
             exit 1
           fi
-          commit=$(git rev-parse --verify --quiet "refs/tags/$CODIGO^{commit}") || {
-            echo "::error::El tag $CODIGO no existe."
+          commit=$(git rev-parse --verify --quiet "$CODIGO^{commit}") || {
+            echo "::error::No existe $CODIGO."
+            exit 1
+          }
+          git merge-base --is-ancestor "$commit" origin/main || {
+            echo "::error::$CODIGO no es parte de main."
             exit 1
           }
           echo "Se vuelve a $CODIGO ($commit)"
@@ -56,24 +60,10 @@ jobs:
   publicar:
     needs: [validar, aprobar]
     permissions:
-      contents: read
+      contents: write
       pages: write
       id-token: write
     uses: ./.github/workflows/desplegar.yml
     with:
       codigo: ${{ needs.validar.outputs.commit }}
-
-  marcar:
-    needs: [validar, publicar]
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
-        with:
-          ref: ${{ needs.validar.outputs.commit }}
-      - env:
-          COMMIT: ${{ needs.validar.outputs.commit }}
-        run: |
-          git tag -f produccion "$COMMIT"
-          git push -f origin refs/tags/produccion
+      marcar: true
