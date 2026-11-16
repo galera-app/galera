@@ -2,6 +2,17 @@
  "nota": "Lo que va en el mail de los lunes (Novedades.gs) y en la pestaña Novedades. v: número de versión (obligatorio; ver CHANGELOG.md). tipo: herramientas | resumenes | fechas. perfil: estudiante (por defecto) | profesional | todos; el mail y la pestaña Novedades lo usan para mostrar a cada perfil lo suyo. materias: ids del plan (vacío = para todas). url: solo links a galera.com.ar/. Sumar una entrada por cada cosa que se publica; el script manda solo lo posterior al último envío de cada persona, así que las viejas no se reenvían.",
  "novedades": [
   {
+   "v": 182,
+   "fecha": "2026-11-16",
+   "tipo": "resumenes",
+   "perfil": "estudiante",
+   "materias": ["idioma2"],
+   "menor": true,
+   "titulo": "La guía de Francés, armada como los demás apuntes",
+   "texto": "La guía para el final de Francés pasó a armarse igual que el resto de los apuntes de Resúmenes. El contenido es el mismo: cambió cómo se genera la página, no lo que dice.",
+   "url": "https://galera.com.ar/r/frances/"
+  },
+  {
    "v": 181,
    "fecha": "2026-11-16",
    "tipo": "herramientas",
