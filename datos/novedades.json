@@ -2,6 +2,58 @@
  "nota": "Lo que va en el mail de los lunes (Novedades.gs) y en la pestaña Novedades. v: número de versión (obligatorio; ver CHANGELOG.md). tipo: herramientas | resumenes | fechas. perfil: estudiante (por defecto) | profesional | todos; el mail y la pestaña Novedades lo usan para mostrar a cada perfil lo suyo. materias: ids del plan (vacío = para todas). url: solo links a galera.com.ar/. Sumar una entrada por cada cosa que se publica; el script manda solo lo posterior al último envío de cada persona, así que las viejas no se reenvían.",
  "novedades": [
   {
+   "v": 179,
+   "fecha": "2026-11-16",
+   "tipo": "herramientas",
+   "perfil": "estudiante",
+   "materias": [],
+   "titulo": "Desafiar en el Arcade, ahora con imagen",
+   "texto": "Cuando terminás un tablero del Arcade de Corrección y tocás «Superame», sale una imagen con tu puntaje sobre un grabado viejo teñido de cian, para mandar o subir a historias. El mensaje de WhatsApp con el link sigue ahí, en «Mandar por WhatsApp». Quien lo abre juega las mismas preguntas en el mismo orden.",
+   "url": "https://galera.com.ar/arcade/"
+  },
+  {
+   "v": 178,
+   "fecha": "2026-11-16",
+   "tipo": "herramientas",
+   "perfil": "estudiante",
+   "materias": [],
+   "titulo": "«Mi semana» y tu plan, ahora como afiches",
+   "texto": "La imagen de «Mi semana» cambió: arriba lleva la imprenta que grabó Stradanus y cada materia tiene su color, siempre el mismo. También podés pasar tu plan como imagen, desde «Pasarle mi plan a un amigo» → «Imagen», con un grabado distinto cada vez. Las dos salen claras u oscuras, cuadradas o para historias. No llevan tu nombre ni tus notas.",
+   "url": "https://galera.com.ar/horarios/"
+  },
+  {
+   "v": 177,
+   "fecha": "2026-11-15",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "menor": true,
+   "titulo": "El diseño de Galera, en un solo lugar",
+   "texto": "Junté en un solo lugar las reglas de diseño de Galera: colores, letras, logo y componentes, con el contraste de cada color calculado. No cambia nada de lo que ves, pero ordena lo que viene, y ya aparecieron dos detalles de contraste para corregir.",
+   "url": "https://galera.com.ar/novedades/"
+  },
+  {
+   "v": 176,
+   "mail": false,
+   "fecha": "2026-11-15",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "titulo": "De dónde salen los grabados de Galera",
+   "texto": "Las imágenes para compartir van a llevar grabados viejos: el impresor y el fundidor de tipos de Jost Amman, la imprenta de Stradanus, un monje copista y los animales del Bestiario de Aberdeen. Son de dominio público o CC0. En Legal, en «Imágenes», está de dónde sale cada uno, con el link a Wikimedia Commons.",
+   "url": "https://galera.com.ar/legal/#imagenes"
+  },
+  {
+   "v": 175,
+   "fecha": "2026-11-15",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "titulo": "La tarjeta del aporte, ahora una lámina",
+   "texto": "La tarjeta de quienes hacen un aporte mensual es ahora una lámina: un grabado viejo de un oficio del libro, enmarcado, con la inicial gótica de la figura que elegiste y su nombre al pie. El grabado sale sorteado y queda tuyo. El color va con el aporte: bermellón, púrpura de múrice, u oro sobre ultramar. Sigue sin llevar el monto ni tu nombre.",
+   "url": "https://galera.com.ar/sostener/#ayudar"
+  },
+  {
    "v": 174,
    "fecha": "2026-11-15",
    "tipo": "herramientas",

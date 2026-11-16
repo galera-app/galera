@@ -3,6 +3,7 @@
 @font-face{font-family:"Literata";src:url(fonts/literata.woff2) format("woff2");font-weight:400 500;font-style:normal;font-display:swap}
 @font-face{font-family:"Literata";src:url(fonts/literata-italic.woff2) format("woff2");font-weight:400;font-style:italic;font-display:swap}
 @font-face{font-family:"UnifrakturMaguntia";src:url(fonts/unifraktur.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Jacquard 24";src:url(fonts/jacquard-24.woff2) format("woff2");font-weight:400;font-display:swap}
 /* Los tokens (colores, radios, tipografías) viven solo en tokens.css. */
 body{font-family:var(--fuente)}
 h1,h2,h3{letter-spacing:-.02em}
