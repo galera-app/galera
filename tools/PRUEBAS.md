@@ -1,6 +1,6 @@
 # Pruebas de Galera
 
-Cuatro niveles, de lo más barato a lo más caro. Todo corre desde la raíz del repo. El CI (`.github/workflows/ci.yml`) corre los tres primeros y el de navegador en cada PR.
+Cuatro niveles, de lo más barato a lo más caro. Todo corre desde la raíz del repo. El CI (`.github/workflows/ci.yml`) corre los tres primeros y el de navegador en cada PR; el de rendimiento va en su propio trabajo.
 
 ## 1. Unidad (JS, sin DOM): `node tools/pruebas_unidad.mjs`
 
@@ -31,9 +31,17 @@ Cuatro niveles, de lo más barato a lo más caro. Todo corre desde la raíz del 
 - `--estados` además abre `/carrera/` con cada archivo de `tools/estados/`. Sin Pagefind en `dist`, `/buscar/` se saltea salvo `GALERA_EXIGIR_BUSCADOR=1` (el CI lo exige).
 - Estados de ejemplo: `tools/estados/*.json`. Para sumar uno, copiá un estado exportado desde «Tus datos», sacale lo personal y probalo con `node --test tools/pruebas/estados.test.js`.
 
-## 4. Rendimiento: pendiente (salvo materia aprobada)
+## 4. Rendimiento con presupuesto (paso 21)
 
-El recorrido de materia aprobada mide cuánto tardan el ejemplar y el álbum en aparecer y falla si pasan los topes de `navegador.py` (`TOPE_PIEZA_MS`, `TOPE_ALBUM_MS`, con margen para el CI). Para el resto, sin implementar. Idea: medir peso transferido y tiempo de carga de las pantallas clave con el mismo `dist`, y fijar un trinquete de «no sube» como el de cobertura. No se fijan metas.
+Trabajo `rendimiento` del CI, aparte de `controles`. Las tres medidas arrancan con el valor de hoy y no pueden empeorar; la base es `tools/rendimiento-base.json` (con fecha y origen). No se fijan metas.
+
+- **Peso (determinista):** `python tools/pesos.py dist`. Mide `app.js`, cada CSS de la raíz y el total de HTML + CSS + JS locales de cinco páginas tipo (`/`, un apunte de `/r/`, el escandallo, `/directorio/` y `/carrera/`), en bytes y con gzip. Falla si algo sube más de 1 %. `--actualizar` solo baja la base y suma lo nuevo; `--autoprueba` corre los casos de la lógica.
+- **Laboratorio:** `python tools/rendimiento.py dist --solo lab`. Lighthouse 12.6.1 (por `npx`, versión fija) en móvil, con el Chromium de Playwright, sobre las cuatro primeras páginas (Mi carrera no: Lighthouse no carga `localStorage`). Tres corridas, mediana. Se presupuestan LCP y TBT (hasta 25 % sobre la base; TBT, además, con 50 ms de margen porque puede valer 0) y CLS (hasta 0,02 sobre la base), no el puntaje. El servidor (`tools/servir.py`) comprime con gzip como el sitio real: sin gzip el inicio daba 64 en vez de 89.
+- **Toque:** `python tools/rendimiento.py dist --solo toque`. Chromium con la CPU frenada 4 veces, en `/carrera/` con el estado de ejemplo: del toque al segundo cuadro pintado (dos `requestAnimationFrame`) al cambiar el estado de una materia, abrir su ficha y cambiar de vista. El toque es sintético (`click()` o evento `change` dentro de la página): mide la respuesta de la app, no el hardware de entrada. Mediana de 5. Tope: 50 % sobre la base y nunca menos de 100 ms.
+- Subir la base a propósito: editar el JSON a mano y explicarlo en el commit. `python tools/rendimiento.py --autoprueba` corre los casos de los dos trinquetes.
+- **Dispersión medida (5 corridas del CI, 16/11/2026, con gzip también en `/x/`):** LCP entre 3 % y 18 % de la mediana (el peor es `/directorio/`; tope 25 %: alcanza). TBT osciló de 0 a 39 ms: en porcentaje es enorme, en milisegundos no, por eso el margen de 50 ms. CLS idéntico en las 5. Toque 29 a 64 ms (±50 % de la mediana, pero siempre bajo el piso de 100 ms). El CLS del apunte (0,075) es mayor que el del resto: queda como base, a mejorar.
+- Medido en el CI (ubuntu-latest). Sin verificar: cómo se comportan los números con otra versión de Chromium de Playwright; al subirla, revisar la base.
+- Localmente: `python tools/rendimiento.py dist --canal chrome` usa el Chrome instalado (pero el Lighthouse local da otros números que el CI: no sirven de base).
 
 ## Qué no cambia el sitio
 

@@ -7,7 +7,7 @@
     ]},
     {"id": "sigue", "t": "Lo que sigue", "items": [
       {"id": "materia-aprobada", "t": "Una imagen para compartir cuando aprobás una materia", "d": "Marcás la materia como aprobada y Galera arma una imagen para tus redes y un álbum con tu avance en la carrera.", "estado": "listo"},
-      {"id": "sin-conexion", "t": "Galera sin conexión", "d": "Después de una visita, Inicio, Mi carrera, Horarios y Calendario abren aunque no tengas internet.", "estado": "planeado"},
+      {"id": "sin-conexion", "t": "Galera sin conexión", "d": "Después de una visita, Inicio, Mi carrera, Horarios y Calendario abren aunque no tengas internet.", "estado": "listo"},
       {"id": "datos-seguros", "t": "Tus datos, más protegidos", "d": "Galera le pide al navegador que no borre lo que cargaste, te recuerda hacer una copia y explica cómo instalarla en el iPhone.", "estado": "planeado"},
       {"id": "accesos-directos", "t": "Accesos directos al instalar Galera", "d": "Con Galera instalada en el celular, el ícono abre directo Mi carrera, Horarios, Calendario o Resúmenes.", "estado": "listo"},
       {"id": "celular-rapido", "t": "Más rápida en el celular", "d": "El Directorio carga por páginas y los apuntes dejan de saltar mientras se abren.", "estado": "planeado"},
