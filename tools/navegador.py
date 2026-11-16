@@ -13,14 +13,11 @@ Lo de terceros que no corre en local se ignora a propósito: Google Analytics / 
 y las descargas del compilador de Typst. Esos pedidos se cortan en la red (no salen de la máquina) y su fallo no cuenta.
 """
 import argparse
-import http.server
 import json
 import time
 import os
 import re
-import socketserver
 import sys
-import threading
 from pathlib import Path
 from urllib.parse import urlparse
 
@@ -50,31 +47,7 @@ ESTADO_EJEMPLO = {
 }
 
 
-class Manejador(http.server.SimpleHTTPRequestHandler):
-    """Sirve dist/ como Cloudflare Pages: /x/ -> /x/index.html, /x -> /x.html o /x/index.html."""
-
-    def translate_path(self, path):
-        p = Path(super().translate_path(path))
-        if p.exists():
-            return str(p)
-        base = Path(self.directory)
-        rel = urlparse(path).path.strip("/")
-        for cand in (base / (rel + ".html"), base / rel / "index.html"):
-            if cand.is_file():
-                return str(cand)
-        return str(p)
-
-    def log_message(self, *a):  # sin ruido
-        pass
-
-
-def servir(dist):
-    class S(socketserver.ThreadingMixIn, http.server.HTTPServer):
-        daemon_threads = True
-    S.allow_reuse_address = True
-    srv = S(("127.0.0.1", 0), lambda *a, **k: Manejador(*a, directory=str(dist), **k))
-    threading.Thread(target=srv.serve_forever, daemon=True).start()
-    return srv, f"http://127.0.0.1:{srv.server_address[1]}"
+from servir import Manejador, servir  # noqa: E402  (el servidor vive en tools/servir.py)
 
 
 def apunte_de_r(dist):

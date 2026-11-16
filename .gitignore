@@ -1,3 +1,4 @@
+__pycache__/
 dist/
 marco.js
 vendor/typst/typst_ts_web_compiler_bg.wasm
