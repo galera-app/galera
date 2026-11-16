@@ -405,6 +405,26 @@ def escribir(p, t):
     p.write_text(t, encoding="utf-8", newline="\n")
 
 
+def manifest():
+    """manifest.webmanifest: nombre, descripción y accesos directos salen de datos/marca.json (no se edita a mano)."""
+    return {
+        "name": MARCA["titulo_home"],
+        "short_name": MARCA["nombre"],
+        "description": MARCA["desc_home"],
+        "lang": "es-AR",
+        "start_url": "./",
+        "scope": "./",
+        "display": "standalone",
+        "background_color": "#ffffff",
+        "theme_color": "#0671E0",
+        "icons": [
+            {"src": "img/icono-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable"},
+            {"src": "img/icono-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"},
+        ],
+        "shortcuts": [{"name": a["nombre"], "short_name": a["nombre"], "url": a["url"]} for a in MARCA["accesos_app"]],
+    }
+
+
 def construir(salida, indice=False, minificar=True):
     """Copia el repo a `salida` sin lo que no se publica, escribe marco.js y expande las marcas."""
     if salida.exists():
@@ -417,6 +437,7 @@ def construir(salida, indice=False, minificar=True):
     publico["huellas"] = {n: huella(salida / f"{n}.js") for g in CARGA.values() for n in g}
     escribir(salida / "marco.js", "// Lo escribe tools/armar.py desde marco/sitio.json: no editar a mano.\nconst MARCO = "
              + json.dumps(publico, ensure_ascii=False, separators=(",", ":")) + ";\n")
+    escribir(salida / "manifest.webmanifest", json.dumps(manifest(), ensure_ascii=False, indent=2) + "\n")
     app = salida / "app.js"
     sobran = []
     # app.js se minifica al final: antes hay que poner la huella de mapa-ar.js, que tiene que ser la del archivo ya minificado.
