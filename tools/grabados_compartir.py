@@ -16,13 +16,14 @@ y `<id>-<recorte>.webp` para los demás.
 
 datos/grabados.json es la única fuente de archivo, obra, licencia, nivel y recortes. Solo dominio público o CC0, nada
 generado con IA. Los créditos de /legal/ se reescriben entre <!--grabados--> y <!--/grabados-->."""
-import argparse, html, json, sys, urllib.parse
+import argparse, html, json, re, sys, urllib.parse
 from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
 DATOS = RAIZ / "datos" / "grabados.json"
 SALIDA = RAIZ / "img" / "grabados"
 LEGAL = RAIZ / "legal" / "index.html"
+APP = RAIZ / "app.js"
 ANCHO, ANCHO_BANDA, MAX_BYTES, PISO = 600, 1080, 150_000, 30
 LICENCIAS = {"Dominio público", "CC0"}
 NIVELES = {"tirada", "ilustrada"}
@@ -99,6 +100,11 @@ def controlar(gs):
                 errores.append(f"{r.relative_to(RAIZ).as_posix()} pesa {r.stat().st_size} bytes (máximo {MAX_BYTES})")
     esperados = {nombre(g, rec) for g in gs for rec in g["recortes"]}
     errores += [f"sobra img/grabados/{p.name}" for p in SALIDA.glob("*.webp") if p.name not in esperados]
+    # La lámina de mecenas (v175) sortea entre los grabados de oficio: MECENAS_GRABADOS de app.js debe ser el nivel «tirada».
+    m = re.search(r"const MECENAS_GRABADOS = \[([^\]]*)\]", APP.read_text(encoding="utf-8"))
+    oficio = [g["id"] for g in gs if g["nivel"] == "tirada"]
+    if not m or re.findall(r"'([^']+)'", m.group(1)) != oficio:
+        errores.append(f"MECENAS_GRABADOS de app.js no coincide con los grabados «tirada» de datos/grabados.json: {oficio}")
     if creditos(gs) not in LEGAL.read_text(encoding="utf-8"):
         errores.append("los créditos de /legal/ no coinciden con datos/grabados.json (correr el script)")
     return errores
