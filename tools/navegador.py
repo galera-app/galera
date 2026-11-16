@@ -400,6 +400,7 @@ def sin_conexion(browser, origen):
         page = ctx.new_page()
         errores = []
         page.on("pageerror", lambda e: errores.append(f"excepción de página: {str(e)[:200]}"))
+        page.on("requestfailed", lambda q: errores.append(f"pedido fallido: {q.url} ({str(q.failure)[:60]})") if urlparse(q.url).netloc == host else None)
         page.goto(origen + "/", wait_until="networkidle", timeout=30000)
         esperar_h1(page, fallas)
         if not page.evaluate("navigator.serviceWorker.ready.then(() => true)"):

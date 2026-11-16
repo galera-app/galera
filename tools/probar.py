@@ -577,6 +577,8 @@ class TestSitio(unittest.TestCase):
             self.assertIn("/datos/" + c["archivo"], nuc)
         self.assertIn("/datos/" + ind["calendarios"][-1]["archivo"], nuc)
         self.assertIn("/datos/indice.json", nuc)
+        self.assertIn("/datos/novedades.json", nuc)
+        self.assertIn("/resumenes/indice.json", nuc)
         peso = sum(len(gzip.compress(archivo(x).read_bytes(), 6)) for x in nuc)
         self.assertLess(peso, 1_500_000, f"el núcleo pesa {peso / 1e6:.2f} MB comprimido (tope 1,5 MB)")
         # La huella depende del contenido: se recalcula con otro byte y tiene que dar otra.

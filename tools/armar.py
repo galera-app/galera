@@ -442,7 +442,8 @@ def datos_nucleo(salida):
         if of:
             a += [of[-1]["archivo"]] + [i["archivo"] for i in ind.get("idiomas", []) if i["id"] == of[-1]["id"]]
         a += [m["archivo"] for m in [m for m in ind.get("mesas", []) if m["carrera"] == c["id"]][-2:]]
-    return ["/datos/" + x for x in dict.fromkeys(a)]
+    # Los dos que baja app.js en casi todas las pantallas (sin ellos, sin conexión, quedan «sin novedades» y «sin resúmenes»).
+    return ["/datos/" + x for x in dict.fromkeys(a + ["novedades.json"])] + ["/resumenes/indice.json"]
 
 
 def nucleo(salida):
