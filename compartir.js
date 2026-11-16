@@ -709,7 +709,7 @@ function rndSemilla(s) {
   return () => { a = (a + 0x6D2B79F5) >>> 0; let t = a; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
 }
 const semillaNueva = () => Math.random().toString(36).slice(2, 8).padEnd(6, '0');
-let DESAFIO_URL = '', DESAFIO_TXT = '', DESAFIO_DIB = null;
+let DESAFIO_URL = '', DESAFIO_TXT = '', DESAFIO_DIB = null, DESAFIO_TAB = '', BAJANDO_ENLACE = false;
 // Imagen del desafío (CP2, A3): fondo y colores del Arcade (SH1: conserva sus glifos), un grabado del banco sorteado y teñido de cian,
 // «¿Me superás?» en Jacquard 24 y el puntaje. Ya es oscura, así que no lleva selector de tema. Medidas de lienzo/desafio_arcade.py.
 // El 1200×630 queda solo para bajar: un sitio estático no puede servir una vista previa distinta para cada #desafio.
@@ -726,20 +726,26 @@ function cvDesafio(tablero, puntos) {
     const [cv, c] = cvPapel(W, H, ARC_TEMA);
     const caja = (x, y, w, h) => { c.fillStyle = ARC_COL.fondo; c.fillRect(x, y, w, h); c.strokeStyle = ARC_COL.oro; c.lineWidth = 4; c.strokeRect(x + 2, y + 2, w - 4, h - 4); };
     const ar = (t, x, y, px, color, align) => cvArriba(c, t.toUpperCase(), x, y, px, 700, color, { esp: 0.18, align });
-    const num = (x, y, px) => cvArriba(c, pts, x, y, px, 700, ARC_COL.oro, { esp: 0.06, align: 'center' });
+    // El puntaje siempre tiene seis cifras: se achica hasta que entre en la caja (sin cortarlo nunca con «…»).
+    const num = (x, y, px, ancho) => {
+      c.font = `700 ${px}px ${CV_FUENTE}`; if ('letterSpacing' in c) c.letterSpacing = 0.06 * px + 'px';
+      const w = c.measureText(pts).width; if ('letterSpacing' in c) c.letterSpacing = '0px';
+      const p2 = w > ancho ? px * ancho / w : px;
+      cvArriba(c, pts, x, y + (px - p2) / 2, p2, 700, ARC_COL.oro, { esp: 0.06, align: 'center' });
+    };
     const jac = (x, y, px, align) => cvArriba(c, '¿Me superás?', x, y, px, 400, ARC_COL.oro, { fam: CV_ARCADE, align });
     if (formato === 'enlace') {
       await cvGrabado(c, fondo, 560, -20, 660, 670, ARC_COL.cian, 0.35);
       jac(70, 70, 120);
       ar('★ Arcade de Corrección ★', 74, 215, 24, ARC_COL.rosa);
-      caja(70, 290, 560, 200); num(350, 300, 130);
+      caja(70, 290, 560, 200); num(350, 300, 130, 500);
       ar('puntos en ' + tab, 350, 450, 20, ARC_COL.tenue, 'center');
       cvPie2(c, W, H, ARC_TEMA, true);
     } else if (H === 1080) {
       await cvGrabado(c, fondo, -40, 60, 1160, 860, ARC_COL.cian, 0.35);
       jac(540, 90, 150, 'center');
       ar('★ Arcade de Corrección ★', 540, 270, 28, ARC_COL.rosa, 'center');
-      caja(150, 400, 780, 280); num(540, 420, 170);
+      caja(150, 400, 780, 280); num(540, 420, 170, 720);
       ar('puntos en ' + tab, 540, 620, 24, ARC_COL.tenue, 'center');
       cvArriba(c, 'Mismo tablero, mismas preguntas, mismo orden.', 540, 770, 32, 400, ARC_COL.texto, { align: 'center', max: 880 });
       cvPie2(c, W, H, ARC_TEMA, true);
@@ -747,7 +753,7 @@ function cvDesafio(tablero, puntos) {
       await cvGrabado(c, fondo, -40, 200, 1160, 1150, ARC_COL.cian, 0.35);
       jac(540, 250, 190, 'center');
       ar('★ Arcade de Corrección ★', 540, 480, 34, ARC_COL.rosa, 'center');
-      caja(120, 780, 840, 330); num(540, 810, 200);
+      caja(120, 780, 840, 330); num(540, 810, 200, 780);
       ar('puntos en ' + tab, 540, 1040, 28, ARC_COL.tenue, 'center');
       const ls = cvPartir(c, 'Mismo tablero, mismas preguntas, mismo orden.', 800, `400 36px ${CV_FUENTE}`);
       ls.forEach((l, i) => cvArriba(c, l, 540, 1400 + i * 36 * 1.35, 36, 400, ARC_COL.texto, { align: 'center' }));
@@ -762,7 +768,7 @@ function arcDesafiar() {
   if (!A.semilla || !r || !Arcade.EJES[A.tablero]) return;
   DESAFIO_URL = location.origin + location.pathname + '#desafio=' + A.tablero + '.' + A.semilla + '.' + r.puntos;
   DESAFIO_TXT = `Hice ${arcCero(r.puntos)} en el Arcade de Corrección de Estilo (${arcNombre(A.tablero)}). ¿Me superás? ${DESAFIO_URL}`;
-  DESAFIO_DIB = cvDesafio(A.tablero, r.puntos);
+  DESAFIO_DIB = cvDesafio(A.tablero, r.puntos); DESAFIO_TAB = A.tablero;
   abrirImagen(null, { archivo: 'galera-desafio.png', titulo: 'Desafiar', tipo: 'desafio', id: A.tablero, dibujar: DESAFIO_DIB, temas: false, texto: DESAFIO_TXT,
     intro: 'La imagen lleva tu puntaje y el tablero. Quien abra el link juega las mismas preguntas en el mismo orden.',
     alt: `¿Me superás? Arcade de Corrección: ${arcCero(r.puntos)} puntos en ${arcNombre(A.tablero)}.`,
@@ -770,16 +776,18 @@ function arcDesafiar() {
 }
 function desafioWhatsapp() {
   if (!DESAFIO_URL) return;
-  medir('share', { method: 'whatsapp', content_type: 'desafio', item_id: DESAFIO_URL.split('=')[1].split('.')[0] });
+  medir('share', { method: 'whatsapp', content_type: 'desafio', item_id: DESAFIO_TAB });
   window.open('https://wa.me/?text=' + encodeURIComponent(DESAFIO_TXT), '_blank', 'noopener');
 }
 async function bajarEnlaceDesafio() {
-  if (!DESAFIO_DIB) return;
-  let cv; try { cv = await DESAFIO_DIB(null, 'enlace'); } catch (e) { return aviso('No se pudo armar la imagen'); }
+  if (!DESAFIO_DIB || BAJANDO_ENLACE) return; // un toque doble no baja dos archivos
+  BAJANDO_ENLACE = true;
+  let cv; try { cv = await DESAFIO_DIB(null, 'enlace'); } catch (e) { BAJANDO_ENLACE = false; return aviso('No se pudo armar la imagen'); }
   cv.toBlob(blob => {
+    BAJANDO_ENLACE = false;
     if (!blob) return aviso('No se pudo armar la imagen');
     const a = document.createElement('a');
-    medir('share', { method: 'descarga', content_type: 'desafio_enlace', item_id: '' });
+    medir('share', { method: 'descarga', content_type: 'desafio_enlace', item_id: DESAFIO_TAB });
     a.href = URL.createObjectURL(blob); a.download = 'galera-desafio-1200x630.png'; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 4000);
   }, 'image/png');
 }
