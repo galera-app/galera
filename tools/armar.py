@@ -300,7 +300,7 @@ def minificadores():
 
 def minificar_todo(salida, solo=None, excepto=()):
     """Minifica los .js y .css de `salida` (nunca del repo fuente): saca espacios y comentarios, conserva los /*! */ y no cambia nombres.
-    Va antes de calcular las huellas ?v=, así que la huella es la del archivo final. Si node está, cada JS minificado pasa `node --check`
+    sw.js no se minifica: armar.py le escribe después su lista y su huella, línea por línea. Va antes de calcular las huellas ?v=, así que la huella es la del archivo final. Si node está, cada JS minificado pasa `node --check`
     y, si no compila, se deja el original. Sin rjsmin/rcssmin: aviso y sale sin minificar (Cloudflare hoy está en ese caso).
     Con GALERA_EXIGIR_MINIFICADO=1 (desplegar.yml) la falta es un error."""
     m = minificadores()
@@ -502,7 +502,7 @@ def construir(salida, indice=False, minificar=True):
     app = salida / "app.js"
     sobran = []
     # app.js se minifica al final: antes hay que poner la huella de mapa-ar.js, que tiene que ser la del archivo ya minificado.
-    if minificar and not minificar_todo(salida, excepto=("app.js",)):
+    if minificar and not minificar_todo(salida, excepto=("app.js", "sw.js")):
         sobran.append("minificado (no se pudo minificar y se exige)")
     escribir(app, re.sub(r"s\.src = '/mapa-ar\.js[^']*'", "s.src = '/mapa-ar.js?v=" + huella(salida / "mapa-ar.js") + "'", app.read_text(encoding="utf-8")))
     if minificar and not minificar_todo(salida, solo=app):
