@@ -12,6 +12,17 @@
    "url": "https://galera.com.ar/horarios/"
   },
   {
+   "v": 177,
+   "fecha": "2026-11-15",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "menor": true,
+   "titulo": "El diseño de Galera, en un solo lugar",
+   "texto": "Junté en un solo lugar las reglas de diseño de Galera: colores, letras, logo y componentes, con el contraste de cada color calculado. No cambia nada de lo que ves, pero ordena lo que viene, y ya aparecieron dos detalles de contraste para corregir.",
+   "url": "https://galera.com.ar/novedades/"
+  },
+  {
    "v": 176,
    "mail": false,
    "fecha": "2026-11-15",
