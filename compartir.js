@@ -127,7 +127,7 @@ function cvPie2(c, w, h, T) {
 // Las piezas de la línea de afiche traen o.dibujar(tema, formato), que devuelve el canvas (o una promesa): el diálogo suma
 // Clara u Oscura (CP4: lo elige quien comparte) y Cuadrada o Historia, y vuelve a dibujar con cada cambio. o.formatos === false
 // deja solo el tema. La última elección se recuerda en este navegador. Las piezas sin dibujar pasan el canvas hecho, como antes.
-let IMG_COMP = null;
+let IMG_COMP = null, IMG_GEN = 0; // IMG_GEN: solo vale el último dibujo pedido (dos toques seguidos o cerrar a mitad de camino)
 const PREF_IMG = 'galera.imagen';
 function prefImagen() {
   let p = {}; try { p = JSON.parse(localStorage.getItem(PREF_IMG) || '{}') || {}; } catch (e) { }
@@ -137,19 +137,23 @@ function elegirImagen(k, v) {
   if (!IMG_COMP || !IMG_COMP.o.dibujar) return;
   const p = Object.assign(prefImagen(), { [k]: v });
   try { localStorage.setItem(PREF_IMG, JSON.stringify(p)); } catch (e) { }
-  abrirImagen(null, IMG_COMP.o);
+  abrirImagen(null, IMG_COMP.o, true);
 }
-async function abrirImagen(cv, o) {
+async function abrirImagen(cv, o, redibujo) {
+  const gen = ++IMG_GEN;
+  const vigente = () => gen === IMG_GEN && (!redibujo || ($('#dlg').open && $('#dlg').dataset.k === 'img-comp'));
   let opc = '', p = null;
   if (o.dibujar) {
     p = prefImagen();
-    try { cv = await o.dibujar(CV_TEMA[p.tema], o.formatos === false ? null : p.formato); } catch (e) { return aviso('No se pudo armar la imagen'); }
+    try { cv = await o.dibujar(CV_TEMA[p.tema], o.formatos === false ? null : p.formato); } catch (e) { return vigente() && aviso('No se pudo armar la imagen'); }
+    if (!vigente()) return;
     const seg = (rotulo, k, ops) => `<div class="gl-seg" role="group" aria-label="${rotulo}">${ops.map(([v, n]) =>
       `<button type="button" class="${p[k] === v ? 'on' : ''}" aria-pressed="${p[k] === v}" data-clic="elegirImagen" data-clic-a="[${arg(k)},${arg(v)}]">${n}</button>`).join('')}</div>`;
     opc = `<div class="img-comp-opc">${seg('Fondo', 'tema', [['claro', 'Clara'], ['oscuro', 'Oscura']])}${o.formatos === false ? '' : seg('Formato', 'formato', [['cuadrada', 'Cuadrada'], ['historia', 'Historia']])}</div>`;
   }
   const alt = typeof o.alt === 'function' ? o.alt(p) : o.alt;
   cv.toBlob(blob => {
+    if (!vigente()) return;
     if (!blob) return aviso('No se pudo armar la imagen');
     const file = new File([blob], o.archivo, { type: 'image/png' });
     const puede = !!(navigator.canShare && navigator.canShare({ files: [file] }));
