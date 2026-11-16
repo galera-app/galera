@@ -387,6 +387,50 @@ def materia_aprobada(browser, origen):
     return sin_repetidos(fallas)
 
 
+def sin_conexion(browser, origen):
+    """Paso 27: tras UNA visita, sin red, abren inicio, Mi carrera, Horarios y Calendario (el núcleo que sw.js guarda por adelantado).
+    Es el único contexto con el service worker permitido; si el motor no lo ejecuta, la prueba lo dice y falla."""
+    fallas = []
+    ctx = browser.new_context(service_workers="allow", **IPHONE)
+    ctx.add_init_script(INIT_JS)
+    ctx.add_init_script(estado_js(ESTADO_EJEMPLO))
+    host = urlparse(origen).netloc
+    ctx.route("**/*", lambda route: route.continue_() if urlparse(route.request.url).netloc == host or urlparse(route.request.url).scheme in ("data", "blob") else route.abort())
+    try:
+        page = ctx.new_page()
+        errores = []
+        page.on("pageerror", lambda e: errores.append(f"excepción de página: {str(e)[:200]}"))
+        page.goto(origen + "/", wait_until="networkidle", timeout=30000)
+        esperar_h1(page, fallas)
+        if not page.evaluate("navigator.serviceWorker.ready.then(() => true)"):
+            return ["el service worker no quedó activo"]
+        page.wait_for_timeout(500)
+        guardadas = page.evaluate("caches.keys().then(ks => ks.filter(k => k.startsWith('galera-nucleo-')))")
+        if len(guardadas) != 1:
+            fallas.append(f"se esperaba un único caché del núcleo y hay: {guardadas}")
+        ctx.set_offline(True)
+        for nombre, ruta in (("inicio", "/"), ("Mi carrera", "/carrera/"), ("Horarios", "/horarios/"), ("Calendario", "/calendario/")):
+            errores.clear()
+            try:
+                page.goto(origen + ruta, wait_until="load", timeout=30000)
+                page.locator("h1").first.wait_for(state="visible", timeout=10000)
+                page.wait_for_function("!document.querySelector('#main .cargando')", timeout=10000)
+                page.wait_for_timeout(500)
+                texto = page.locator("#main").inner_text()
+                if "No pude cargar" in texto or "No se pudo cargar" in texto:
+                    fallas.append(f"sin conexión · {nombre}: muestra un error de carga")
+                if ruta == "/carrera/" and "Actividad Editorial" not in texto:
+                    fallas.append("sin conexión · Mi carrera: no muestra las materias del plan")
+            except Exception as e:
+                fallas.append(f"sin conexión · {nombre}: no abrió ({str(e)[:160]})")
+            fallas += [f"sin conexión · {nombre}: {x}" for x in errores]
+    except Exception as e:
+        fallas.append(f"prueba sin conexión: {str(e)[:200]}")
+    finally:
+        ctx.close()
+    return sin_repetidos(fallas)
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--navegador", choices=["chromium", "webkit", "todos"], default="chromium")
@@ -425,6 +469,11 @@ def main():
             for x in fallas:
                 print(f"        - {x}")
             todas += [f"{m} · materia aprobada: {x}" for x in fallas]
+            fallas = sin_conexion(browser, origen)
+            print(f"  {'ok  ' if not fallas else 'FALLA'} sin conexión (paso 27)")
+            for x in fallas:
+                print(f"        - {x}")
+            todas += [f"{m} · sin conexión: {x}" for x in fallas]
             if a.estados:
                 todas += [f"{m} · {x}" for x in estados_viejos(browser, origen)]
             browser.close()

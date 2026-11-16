@@ -549,6 +549,53 @@ class TestSitio(unittest.TestCase):
                 malas.append(f"acceso {s.get('name')}: {s.get('url')} no existe en el sitio armado")
         self.assertEqual(malas, [])
 
+    def test_service_worker_nucleo(self):
+        """Paso 27: el núcleo que sw.js guarda por adelantado existe entero, cubre las cuatro pantallas y lo que cargan, pesa menos de
+        1,5 MB comprimido, y la huella cambia si cambia uno de sus archivos."""
+        import gzip, shutil, tempfile
+        sw = (DIST / "sw.js").read_text(encoding="utf-8")
+        nuc = json.loads(re.search(r"^const NUCLEO = (\[.*\]);", sw, re.M).group(1))
+        huella = re.search(r"^const HUELLA = '(\w+)';", sw, re.M).group(1)
+        self.assertNotEqual(huella, "dev", "sw.js quedó sin armar")
+        def archivo(x):
+            r = x.split("?")[0]
+            return DIST / ("index.html" if r == "/" else r.strip("/") + "/index.html" if r.endswith("/") else r.lstrip("/"))
+        self.assertEqual([x for x in nuc if not archivo(x).is_file()], [])
+        for pantalla in ("/", "/carrera/", "/horarios/", "/calendario/", "/manifest.webmanifest"):
+            self.assertIn(pantalla, nuc)
+        # Todo lo que esas páginas cargan con ?v= o desde una fuente está en el núcleo.
+        for rel in ("index.html", "carrera/index.html", "horarios/index.html", "calendario/index.html"):
+            html = (DIST / rel).read_text(encoding="utf-8")
+            for ruta, v in re.findall(r'(?:src|href)="(/[^"#?]+\.(?:css|js|woff2))(\?v=\w+)?"', html):
+                self.assertIn(ruta + v, nuc, f"{rel} carga {ruta + v} y el núcleo no lo guarda")
+        for x in nuc:
+            if x.endswith(".css") or ".css?" in x:
+                for u in re.findall(r"url\(\s*[\"']?(?!data:|https?:|#)([^)\"'\s]+)", archivo(x).read_text(encoding="utf-8")):
+                    self.assertIn("/" + u.lstrip("/"), nuc, f"{x} usa {u} y el núcleo no lo guarda")
+        ind = json.loads((DIST / "datos" / "indice.json").read_text(encoding="utf-8"))
+        for c in ind["carreras"]:
+            self.assertIn("/datos/" + c["archivo"], nuc)
+        self.assertIn("/datos/" + ind["calendarios"][-1]["archivo"], nuc)
+        self.assertIn("/datos/indice.json", nuc)
+        peso = sum(len(gzip.compress(archivo(x).read_bytes(), 6)) for x in nuc)
+        self.assertLess(peso, 1_500_000, f"el núcleo pesa {peso / 1e6:.2f} MB comprimido (tope 1,5 MB)")
+        # La huella depende del contenido: se recalcula con otro byte y tiene que dar otra.
+        import importlib.util
+        spec = importlib.util.spec_from_file_location("armar_sw", RAIZ / "tools" / "armar.py")
+        armar = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(armar)
+        with tempfile.TemporaryDirectory() as tmp:
+            copia = Path(tmp) / "d"
+            shutil.copytree(DIST, copia, ignore=shutil.ignore_patterns("pagefind"))
+            self.assertEqual(armar.escribir_sw(copia), [])
+            h1 = re.search(r"^const HUELLA = '(\w+)';", (copia / "sw.js").read_text(encoding="utf-8"), re.M).group(1)
+            self.assertEqual(h1, huella, "la huella no es estable: dos armados iguales dan distinta")
+            with open(copia / "datos" / "indice.json", "ab") as f:
+                f.write(b" ")
+            self.assertEqual(armar.escribir_sw(copia), [])
+            h2 = re.search(r"^const HUELLA = '(\w+)';", (copia / "sw.js").read_text(encoding="utf-8"), re.M).group(1)
+            self.assertNotEqual(h2, h1, "la huella no cambia si cambia un archivo del núcleo")
+
     def test_service_worker_y_manifest(self):
         sw = (DIST / "sw.js").read_text(encoding="utf-8")
         faltan = []
