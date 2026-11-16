@@ -1,5 +1,5 @@
 {
- "_nota": "Fuente única de cómo se presenta Galera: la frase, el título y la bajada de la home, la firma y la ubicación. Las leen la home (app.js vía marco.js), Prensa, el pie y las metas. En las páginas y en marco/sitio.json se escriben como {{marca.clave}} y tools/armar.py las expande. Se edita acá y nada más.",
+ "_nota": "Fuente única de cómo se presenta Galera: la frase, el título y la bajada de la home, la firma y la ubicación. Las leen la home (app.js vía marco.js), Prensa, el pie, las metas y el manifest (`manifest.webmanifest`, que arma tools/armar.py: nombre, nombre corto, descripción y accesos directos). En las páginas y en marco/sitio.json se escriben como {{marca.clave}} y tools/armar.py las expande. Se edita acá y nada más.",
  "frase": "Herramientas abiertas para quienes hacen libros en español y una guía para cursar Edición en la UBA",
  "titulo_home": "Galera: herramientas abiertas para quienes hacen libros",
  "desc_home": "Herramientas abiertas para quienes hacen libros en español y una guía para cursar Edición en la UBA. Hecha en Argentina, gratis y sin cuenta.",
@@ -9,5 +9,24 @@
  "firma": "Fidel Chaves, biólogo y estudiante de Edición",
  "firma_en": "Fidel Chaves, a biologist and Publishing student",
  "ubicacion": "Ciudad de Buenos Aires, Argentina",
+ "nombre": "Galera",
+ "accesos_app": [
+  {
+   "nombre": "Mi carrera",
+   "url": "/carrera/"
+  },
+  {
+   "nombre": "Horarios",
+   "url": "/horarios/"
+  },
+  {
+   "nombre": "Calendario",
+   "url": "/calendario/"
+  },
+  {
+   "nombre": "Resúmenes",
+   "url": "/r/"
+  }
+ ],
  "que_es": "Galera es un sitio gratuito, sin cuenta ni publicidad, con herramientas abiertas para quienes hacen libros en español: simuladores de papel, paginación y costos, glosario, directorio, eventos y leyes del libro. Y, para quienes cursan Edición en la Facultad de Filosofía y Letras de la Universidad de Buenos Aires (UBA), la guía de la carrera: plan con notas, fechas de examen, horarios sin superposiciones y resúmenes con autoevaluación."
 }

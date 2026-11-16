@@ -206,7 +206,7 @@ ESQUEMAS = {
 CLAVES_TOP = {
     "datos/indice.json": ("carreras", "calendarios", "ofertas", "mesas", "bibliografia"),
     "datos/edicion.json": ("id", "nombre", "plan"),
-    "datos/marca.json": ("frase", "titulo_home", "desc_home"),
+    "datos/marca.json": ("frase", "titulo_home", "desc_home", "nombre", "accesos_app"),
     "datos/tarifas.json": ("rubros", "fuentes"),
     "datos/simuladores-info.json": ("escandallo", "paginacion"),
     "datos/sostener.json": ("horas_totales", "commits"),
@@ -530,6 +530,23 @@ class TestSitio(unittest.TestCase):
             for u in patron.findall(p.read_text(encoding="utf-8", errors="replace")):
                 if not host_cubierto(u, app.get("connect-src", [])):
                     malas.append(f"{p.relative_to(DIST).as_posix()}: se conecta a {u} y connect-src no lo declara")
+        self.assertEqual(malas, [])
+
+    def test_manifest_desde_marca(self):
+        # El manifest del armado sale de datos/marca.json: nombre, nombre corto, descripción y los cuatro accesos.
+        marca = cargar_json(RAIZ / "datos/marca.json")
+        mf = json.loads((DIST / "manifest.webmanifest").read_text(encoding="utf-8"))
+        malas = []
+        for campo, clave in (("name", "titulo_home"), ("short_name", "nombre"), ("description", "desc_home")):
+            if mf.get(campo) != marca[clave]:
+                malas.append(f"manifest {campo}={mf.get(campo)!r} no coincide con marca.json {clave}={marca[clave]!r}")
+        atajos = {(s.get("name"), s.get("url")) for s in mf.get("shortcuts", [])}
+        for a in marca["accesos_app"]:
+            if (a["nombre"], a["url"]) not in atajos:
+                malas.append(f"al manifest le falta el acceso {a['nombre']} ({a['url']})")
+        for s in mf.get("shortcuts", []):
+            if url_a_archivo(DOMINIO + s.get("url", "/")) is None:
+                malas.append(f"acceso {s.get('name')}: {s.get('url')} no existe en el sitio armado")
         self.assertEqual(malas, [])
 
     def test_service_worker_y_manifest(self):
