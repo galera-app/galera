@@ -405,6 +405,67 @@ def escribir(p, t):
     p.write_text(t, encoding="utf-8", newline="\n")
 
 
+PAGINAS_NUCLEO = ["index.html", "carrera/index.html", "horarios/index.html", "calendario/index.html"]
+REF_NUCLEO = re.compile(r'(?:src|href)="(/[^"#?]+\.(?:css|js|woff2|png|webmanifest))(\?v=\w+)?"')
+URL_CSS = re.compile(r"url\(\s*[\"']?(?!data:|https?:|#)([^)\"'\s]+)")
+
+
+def datos_nucleo(salida):
+    """Los datos que app.js baja al arrancar (arrancarVista): el índice, el plan de cada carrera, el último calendario,
+    la última oferta de cada carrera con sus idiomas y los dos últimos turnos de mesas. Si cambia esa lógica, cambia esto."""
+    ind = json.loads((salida / "datos" / "indice.json").read_text(encoding="utf-8"))
+    a = ["indice.json"] + [c["archivo"] for c in ind.get("carreras", [])]
+    if ind.get("calendarios"):
+        a.append(ind["calendarios"][-1]["archivo"])
+    for c in ind.get("carreras", []):
+        of = [o for o in ind.get("ofertas", []) if o["carrera"] == c["id"]]
+        if of:
+            a += [of[-1]["archivo"]] + [i["archivo"] for i in ind.get("idiomas", []) if i["id"] == of[-1]["id"]]
+        a += [m["archivo"] for m in [m for m in ind.get("mesas", []) if m["carrera"] == c["id"]][-2:]]
+    return ["/datos/" + x for x in dict.fromkeys(a)]
+
+
+def nucleo(salida):
+    """Lo que el service worker guarda por adelantado: las cuatro pantallas del uso diario y lo que necesitan para abrir sin conexión.
+    Sale del sitio ya armado (lee los <link> y <script> de las páginas, con su ?v=), así no hay lista que mantener a mano."""
+    lista = ["/", "/carrera/", "/horarios/", "/calendario/", "/manifest.webmanifest"]
+    for rel in PAGINAS_NUCLEO:
+        for ruta, v in REF_NUCLEO.findall((salida / rel).read_text(encoding="utf-8")):
+            lista.append(ruta + (v or ""))
+    marco = (salida / "marco.js").read_text(encoding="utf-8")
+    huellas = json.loads(marco[marco.index("{", marco.index("const MARCO")):marco.rindex("}") + 1])["huellas"]
+    lista.append(f"/horarios.js?v={huellas['horarios']}")   # lo baja app.js al abrir Horarios o Calendario (MARCO.carga)
+    for css in [x for x in lista if x.split("?")[0].endswith(".css")]:
+        for u in URL_CSS.findall((salida / css.split("?")[0].lstrip("/")).read_text(encoding="utf-8")):
+            lista.append("/" + u.lstrip("/"))
+    lista += datos_nucleo(salida)
+    return list(dict.fromkeys(lista))
+
+
+def escribir_sw(salida):
+    """Escribe en dist/sw.js la lista del núcleo y su huella (cada publicación que toque algo del núcleo cambia sw.js y el navegador lo actualiza).
+    Devuelve los problemas: un archivo del núcleo que no existe haría fallar la instalación del service worker."""
+    lista = nucleo(salida)
+    faltan = []
+    h = hashlib.sha256()
+    for x in lista:
+        p = salida / (x.split("?")[0].strip("/") + "/index.html" if x.endswith("/") else x.split("?")[0].lstrip("/"))
+        if x == "/":
+            p = salida / "index.html"
+        if not p.is_file():
+            faltan.append(f"sw.js: el núcleo lista {x} y no existe")
+            continue
+        h.update(x.encode() + b"|" + p.read_bytes() + b"|")
+    sw = salida / "sw.js"
+    t = sw.read_text(encoding="utf-8")
+    t, n1 = re.subn(r"^const NUCLEO = \[.*\];.*$", lambda m: "const NUCLEO = " + json.dumps(lista, separators=(",", ":")) + ";", t, flags=re.M)
+    t, n2 = re.subn(r"^const HUELLA = '\w+';.*$", lambda m: f"const HUELLA = '{h.hexdigest()[:12]}';", t, flags=re.M)
+    if n1 != 1 or n2 != 1:
+        faltan.append("sw.js: faltan las líneas «const NUCLEO» y «const HUELLA» que reemplaza armar.py")
+    escribir(sw, t)
+    return faltan
+
+
 def construir(salida, indice=False, minificar=True):
     """Copia el repo a `salida` sin lo que no se publica, escribe marco.js y expande las marcas."""
     if salida.exists():
@@ -428,6 +489,7 @@ def construir(salida, indice=False, minificar=True):
     for p, rel in paginas(salida):
         escribir(p, versionar(para_indice(lecturas_jsonld(faq_jsonld(con_marca(expandir(p.read_text(encoding="utf-8"), rel)), rel), rel), rel), p.parent, salida))
     prerender(salida)
+    sobran += escribir_sw(salida)
     for p, rel in paginas(salida):
         if "<!--marco:" in p.read_text(encoding="utf-8"):
             sobran.append(rel)
