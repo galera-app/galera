@@ -124,15 +124,38 @@ function cvPie2(c, w, h, T) {
 }
 
 // Diálogo con la imagen armada: se puede compartir (si el sistema lo permite) o bajar. Se muestra con data: porque la CSP no admite blob: en img.
+// Las piezas de la línea de afiche traen o.dibujar(tema, formato), que devuelve el canvas (o una promesa): el diálogo suma
+// Clara u Oscura (CP4: lo elige quien comparte) y Cuadrada o Historia, y vuelve a dibujar con cada cambio. o.formatos === false
+// deja solo el tema. La última elección se recuerda en este navegador. Las piezas sin dibujar pasan el canvas hecho, como antes.
 let IMG_COMP = null;
-function abrirImagen(cv, o) {
+const PREF_IMG = 'galera.imagen';
+function prefImagen() {
+  let p = {}; try { p = JSON.parse(localStorage.getItem(PREF_IMG) || '{}') || {}; } catch (e) { }
+  return { tema: p.tema === 'oscuro' ? 'oscuro' : 'claro', formato: p.formato === 'cuadrada' ? 'cuadrada' : 'historia' };
+}
+function elegirImagen(k, v) {
+  if (!IMG_COMP || !IMG_COMP.o.dibujar) return;
+  const p = Object.assign(prefImagen(), { [k]: v });
+  try { localStorage.setItem(PREF_IMG, JSON.stringify(p)); } catch (e) { }
+  abrirImagen(null, IMG_COMP.o);
+}
+async function abrirImagen(cv, o) {
+  let opc = '', p = null;
+  if (o.dibujar) {
+    p = prefImagen();
+    try { cv = await o.dibujar(CV_TEMA[p.tema], o.formatos === false ? null : p.formato); } catch (e) { return aviso('No se pudo armar la imagen'); }
+    const seg = (rotulo, k, ops) => `<div class="gl-seg" role="group" aria-label="${rotulo}">${ops.map(([v, n]) =>
+      `<button type="button" class="${p[k] === v ? 'on' : ''}" aria-pressed="${p[k] === v}" data-clic="elegirImagen" data-clic-a="[${arg(k)},${arg(v)}]">${n}</button>`).join('')}</div>`;
+    opc = `<div class="img-comp-opc">${seg('Fondo', 'tema', [['claro', 'Clara'], ['oscuro', 'Oscura']])}${o.formatos === false ? '' : seg('Formato', 'formato', [['cuadrada', 'Cuadrada'], ['historia', 'Historia']])}</div>`;
+  }
+  const alt = typeof o.alt === 'function' ? o.alt(p) : o.alt;
   cv.toBlob(blob => {
     if (!blob) return aviso('No se pudo armar la imagen');
     const file = new File([blob], o.archivo, { type: 'image/png' });
     const puede = !!(navigator.canShare && navigator.canShare({ files: [file] }));
     IMG_COMP = { blob, file, o };
-    abrir(cab(o.titulo) + `<p class="chico tenue u-margin-top-0">${esc(o.intro)}</p>
-      <img class="img-comp" src="${cv.toDataURL('image/png')}" alt="${esc(o.alt)}" width="${cv.width}" height="${cv.height}">
+    abrir(cab(o.titulo) + `<p class="chico tenue u-margin-top-0">${esc(o.intro)}</p>${opc}
+      <img class="img-comp" src="${cv.toDataURL('image/png')}" alt="${esc(alt)}" width="${cv.width}" height="${cv.height}">
       <div class="botones">${puede ? '<button class="btn" data-clic="enviarImagen">Compartir</button>' : ''}<button class="btn ${puede ? 'sec' : ''}" data-clic="bajarImagen">Descargar (.png)</button><button class="btn lin" data-clic="cerrar">Cerrar</button></div>`, 'img-comp');
   }, 'image/png');
 }
@@ -577,7 +600,7 @@ Object.assign(ACC, {
   abrirQueCursar: (...a) => abrirQueCursar(...a), arcDesafiar: (...a) => arcDesafiar(...a), bajarImagen: (...a) => bajarImagen(...a),
   bajarQR: (...a) => bajarQR(...a), compartirAvance: (...a) => compartirAvance(...a), compartirLogro: (...a) => compartirLogro(...a),
   compartirResultado: (...a) => compartirResultado(...a), copiarQueCursar: (...a) => copiarQueCursar(...a),
-  enviarImagen: (...a) => enviarImagen(...a), imagenQueCursar: (...a) => imagenQueCursar(...a), imagenSemana: (...a) => imagenSemana(...a),
+  elegirImagen: (...a) => elegirImagen(...a), enviarImagen: (...a) => enviarImagen(...a), imagenQueCursar: (...a) => imagenQueCursar(...a), imagenSemana: (...a) => imagenSemana(...a),
   instalarApp: (...a) => instalarApp(...a), linkSemana: (...a) => linkSemana(...a), mailApunte: (...a) => mailApunte(...a),
   mandarApunte: (...a) => mandarApunte(...a), mandarQueCursar: (...a) => mandarQueCursar(...a), sumarApunte: (...a) => sumarApunte(...a),
 });

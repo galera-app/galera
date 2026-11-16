@@ -2,6 +2,17 @@
  "nota": "Lo que va en el mail de los lunes (Novedades.gs) y en la pestaña Novedades. v: número de versión (obligatorio; ver CHANGELOG.md). tipo: herramientas | resumenes | fechas. perfil: estudiante (por defecto) | profesional | todos; el mail y la pestaña Novedades lo usan para mostrar a cada perfil lo suyo. materias: ids del plan (vacío = para todas). url: solo links a galera.com.ar/. Sumar una entrada por cada cosa que se publica; el script manda solo lo posterior al último envío de cada persona, así que las viejas no se reenvían.",
  "novedades": [
   {
+   "v": 176,
+   "mail": false,
+   "fecha": "2026-11-15",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "materias": [],
+   "titulo": "De dónde salen los grabados de Galera",
+   "texto": "Las imágenes para compartir van a llevar grabados viejos: el impresor y el fundidor de tipos de Jost Amman, la imprenta de Stradanus, un monje copista y los animales del Bestiario de Aberdeen. Son de dominio público o CC0. En Legal, en «Imágenes», está de dónde sale cada uno, con el link a Wikimedia Commons.",
+   "url": "https://galera.com.ar/legal/#imagenes"
+  },
+  {
    "v": 174,
    "fecha": "2026-11-15",
    "tipo": "herramientas",
