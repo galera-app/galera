@@ -43,6 +43,8 @@ class Manejador(http.server.SimpleHTTPRequestHandler):
 
     def send_head(self):
         ruta = Path(self.translate_path(self.path))
+        if ruta.is_dir() and self.path.split("?")[0].endswith("/") and (ruta / "index.html").is_file():
+            ruta = ruta / "index.html"  # /x/ -> /x/index.html: también se comprime
         if (self.command in ("GET", "HEAD") and ruta.is_file() and comprimible(ruta)
                 and quiere_gzip(self.headers.get("Accept-Encoding")) and not self.headers.get("Range")):
             datos = ruta.read_bytes()

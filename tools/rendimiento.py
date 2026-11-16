@@ -275,7 +275,7 @@ def main():
         if a.inicial and (base.get("lab") or base.get("toque")):
             print("rendimiento: ya hay base; --inicial es solo para la primera vez (usá --actualizar)")
             return 1
-        nueva = mejorar(base, medido)
+        nueva = {**base, **mejorar(base, medido)}
         nueva["tolerancias"] = base.get("tolerancias", dict(TOLERANCIAS))
         nueva["fecha"] = date.today().isoformat()
         cfg["rendimiento"] = nueva

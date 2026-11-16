@@ -172,7 +172,7 @@ def main():
     cfg = cargar()
     base = cfg.get("pesos", {})
     if a.actualizar:
-        nueva = mejorar(base, actual)
+        nueva = {**base, **mejorar(base, actual)}
         if nueva != {k: base.get(k) for k in ("archivos", "paginas")} or not base:
             nueva["fecha"] = date.today().isoformat()
         else:
