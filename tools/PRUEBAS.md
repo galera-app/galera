@@ -55,6 +55,14 @@ Trabajo `rendimiento` del CI, aparte de `controles`. Las tres medidas arrancan c
 - Medido en el CI (ubuntu-latest). Sin verificar: cómo se comportan los números con otra versión de Chromium de Playwright; al subirla, revisar la base.
 - Localmente: `python tools/rendimiento.py dist --canal chrome` usa el Chrome instalado (pero el Lighthouse local da otros números que el CI: no sirven de base).
 
+## 5. Pasada de celular (paso 26): `python tools/pasada.py`
+
+- Arma la lista de toques de la tanda según lo que cambió desde el tag `produccion` (`git diff --name-only produccion..HEAD`). Las pantallas salen de `marco/sitio.json` (url de cada una) y de `tools/navegador.py` (las rutas que el CI ya abre en iPhone, leídas con `ast`).
+- Un archivo se traduce a pantallas con `REGLAS`; una carpeta con el nombre de una url es de esa pantalla. Lo que no encaja va como «revisar a mano». El tooling y los `.md` no tocan pantallas.
+- Los toques (2 o 3 por pantalla) están en `TOQUES`. Lo que quedó «sin verificar» en otros pasos está en `FIJOS` y sale en cada pasada hasta que se anota un ok.
+- Modos: sin argumentos, interactiva (ok / falla / salteo / q, cada respuesta se guarda al instante); `--lista` solo muestra; `--autoprueba` corre los casos (lo corre el CI).
+- El estado va a `pasada-estado.txt` en la raíz del repo (en `.gitignore`): una línea por resultado. La pasada siguiente muestra primero lo que falló.
+
 ## Qué no cambia el sitio
 
 Estas pruebas no llevan versión ni entrada en `datos/novedades.json`. Los cuatro módulos que ganaron `module.exports` (`num`, `horarios`, `formatos`, `paginacion`) se comportan igual en el navegador, donde `module` no existe.
