@@ -54,30 +54,30 @@
   "rendimiento": {
     "lab": {
       "/": {
-        "lcp_ms": 3281.2274999999995,
+        "lcp_ms": 3110.9326,
         "tbt_ms": 0,
         "cls": 0.01704949726357329
       },
       "/r/0905/e2-soportes-y-papel.html": {
-        "lcp_ms": 3613.2408500000006,
-        "tbt_ms": 40,
+        "lcp_ms": 3614.4032000000007,
+        "tbt_ms": 1,
         "cls": 0.07478403856656429
       },
       "/simuladores/escandallo.html": {
-        "lcp_ms": 3034.6078,
+        "lcp_ms": 3035.6082,
         "tbt_ms": 0,
         "cls": 0
       },
       "/directorio/": {
-        "lcp_ms": 5587.901,
-        "tbt_ms": 21.5,
+        "lcp_ms": 3188.2762,
+        "tbt_ms": 9,
         "cls": 0
       }
     },
     "toque": {
-      "estado de una materia": 59.80000000001746,
-      "ficha de una materia": 53,
-      "cambio de vista": 51.14999999999418
+      "estado de una materia": 38.60000000000582,
+      "ficha de una materia": 37.5,
+      "cambio de vista": 36.34999999999127
     },
     "tolerancias": {
       "lcp_pct": 25,
@@ -88,6 +88,6 @@
       "toque_piso_ms": 100
     },
     "fecha": "2026-11-16",
-    "origen": "mediana de 5 corridas del CI (ubuntu-latest, 16/11/2026); pesos: build local, el CI da hasta 0,2 % menos"
+    "origen": "mediana de 5 corridas del CI (ubuntu-latest, 16/11/2026), con el servidor comprimiendo también /x/; pesos: build local, el CI da hasta 0,2 % menos"
   }
 }
