@@ -62,6 +62,67 @@ function cvDato({ kicker, grande, lineas, barra }) {
   return cv;
 }
 
+// ---------- línea de afiche (CP1 a CP5, 15/11/2026) ----------
+// Plan a un amigo y «Mi semana»: papel crudo o el oscuro de la app, lo elige quien comparte (CP4). Valores de los prototipos
+// de propuestas/2026-11-12-materia-aprobada/lienzo/ (plan_amigo.py, mi_semana.py, compartir_oscuro.py).
+// grab: el grabado de fondo; t3: texto tenue; mezcla: cuánto del pigmento va en el fondo de un bloque; modo: cómo se apoya la
+// capitular azul sobre el grabado; grano: opacidad del ruido de papel.
+const CV_TEMA = {
+  claro: { papel: '#EEE6D3', tinta: '#1E1B18', azul: '#0671E0', azulTexto: '#0560C8', grab: '#9A8F7C', t3: '#6B6458', gris: '#C9C2B4',
+    linea: 'rgba(30,27,24,.12)', regular: '#B9860A', mezcla: 0.28, modo: 'multiply', grano: 0.25 },
+  oscuro: { papel: '#14171A', tinta: '#ECEFF1', azul: '#5AA9F5', azulTexto: '#5AA9F5', grab: '#59626A', t3: '#A3ABB1', gris: '#A3ABB1',
+    linea: 'rgba(236,239,241,.14)', regular: '#D9B04E', mezcla: 0.42, modo: 'screen', grano: 0.08 },
+};
+function cvPapel(w, h, T) {
+  const cv = document.createElement('canvas'); cv.width = w; cv.height = h;
+  const c = cv.getContext('2d'); c.fillStyle = T.papel; c.fillRect(0, 0, w, h);
+  return [cv, c];
+}
+// Máscaras de img/grabados/ (tools/grabados_compartir.py, datos/grabados.json): se piden solo al compartir y quedan en memoria.
+const GRABADOS = {};
+function cvCargarGrabado(nombre) {
+  if (!GRABADOS[nombre]) GRABADOS[nombre] = new Promise((ok, mal) => {
+    const im = new Image(); im.onload = () => ok(im); im.onerror = () => { delete GRABADOS[nombre]; mal(new Error('grabado ' + nombre)); };
+    im.src = '/img/grabados/' + nombre + '.webp';
+  });
+  return GRABADOS[nombre];
+}
+// Grabado teñido de un color: cubre el rectángulo (como background-size:cover) y se tiñe con source-in en un canvas aparte.
+// nombre: id del grabado, o id-recorte («stradanus-semana-historia»). Devuelve una promesa.
+async function cvGrabado(c, nombre, x, y, w, h, color, alfa) {
+  const im = await cvCargarGrabado(nombre);
+  const t = document.createElement('canvas'); t.width = Math.round(w); t.height = Math.round(h);
+  const k = t.getContext('2d'), e = Math.max(w / im.width, h / im.height);
+  k.drawImage(im, (w - im.width * e) / 2, (h - im.height * e) / 2, im.width * e, im.height * e);
+  k.globalCompositeOperation = 'source-in'; k.fillStyle = color; k.fillRect(0, 0, w, h);
+  c.save(); c.globalAlpha = alfa == null ? 0.85 : alfa; c.drawImage(t, x, y); c.restore();
+}
+// Letra gótica grande en azul: multiply sobre el papel claro y screen sobre el oscuro, para que el grabado se vea a través.
+function cvCapitular(c, letra, x, y, px, T) {
+  c.save(); c.font = `400 ${px}px ${CV_GOTICA}`; c.textAlign = 'left'; c.textBaseline = 'alphabetic';
+  c.globalCompositeOperation = T.modo; c.fillStyle = T.azul; c.fillText(letra, x, y); c.restore();
+}
+// Ruido de papel: una tesela de 256 px que se arma una sola vez y se repite.
+let GRANO = null;
+function cvGrano(c, w, h, T) {
+  if (!GRANO) {
+    GRANO = document.createElement('canvas'); GRANO.width = GRANO.height = 256;
+    const k = GRANO.getContext('2d'), d = k.createImageData(256, 256);
+    for (let i = 3; i < d.data.length; i += 4) d.data[i] = Math.max(0, Math.random() * 0.55 - 0.12) * 255;
+    k.putImageData(d, 0, 0);
+  }
+  c.save(); c.globalAlpha = T.grano; c.globalCompositeOperation = 'multiply';
+  c.fillStyle = c.createPattern(GRANO, 'repeat'); c.fillRect(0, 0, w, h); c.restore();
+}
+// Pie de afiche: «galera» en gótica con la g azul a la izquierda y galera.com.ar a la derecha.
+function cvPie2(c, w, h, T) {
+  const y = h - 88;
+  c.font = `400 84px ${CV_GOTICA}`; c.textAlign = 'left'; c.textBaseline = 'alphabetic';
+  const g = c.measureText('g').width;
+  c.fillStyle = T.azul; c.fillText('g', 80, y); c.fillStyle = T.tinta; c.fillText('alera', 80 + g, y);
+  cvTexto(c, BRAND.sitio, w - 80, y, 30, 400, T.tinta, 'right');
+}
+
 // Diálogo con la imagen armada: se puede compartir (si el sistema lo permite) o bajar. Se muestra con data: porque la CSP no admite blob: en img.
 let IMG_COMP = null;
 function abrirImagen(cv, o) {
