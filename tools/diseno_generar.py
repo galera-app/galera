@@ -11,6 +11,7 @@ Y, solo si se pide, fuera del repo:
 Uso: python tools/diseno_generar.py                    (escribe tokens.json y contrastes.md)
      python tools/diseno_generar.py --comprobar        (falla si lo derivado quedó viejo)
      python tools/diseno_generar.py --vista <carpeta>  (escribe <carpeta>/vista.html, con los CSS copiados al lado)
+     python tools/diseno_generar.py --artifact <carpeta>  (escribe <carpeta>/project/, el contenido del artifact «Design System»)
 """
 import json
 import re
@@ -185,8 +186,167 @@ ul{{list-style:none;padding:0;margin:0}} .colores{{display:grid;grid-template-co
 """
 
 
+# ---- Artifact «Design System» (claude.ai): la vista compartida entre las dos cuentas de Fidel. ----
+# Escribe <carpeta>/project/… con la forma que pide ese tipo de artifact (tokens en listas, README y secciones,
+# fuentes, bundle.css y una vista por componente). El índice (design-system.json, con los ids de los íconos subidos)
+# no sale de acá: lo escribe quien publica, porque depende del artifact.
+
+USO_COLOR = {
+    "bg": "Fondo de la página.", "sup": "Superficie de tarjetas y campos.", "sup2": "Plata: fondos de apoyo y contenedores.",
+    "borde": "Bordes decorativos y riel del anillo.", "borde-campo": "Borde de campos y controles (3 : 1).",
+    "texto": "Tinta: texto principal, títulos y foco.", "texto2": "Texto de apoyo.", "tenue": "Ayudas y fechas; piso para texto chico.",
+    "tenue-2": "Gris de componentes (decisión pendiente). Falla sobre cielo en claro (4,1 : 1).",
+    "tinta": "Azul de texto: enlaces.", "tinta-suave": "Cielo: fondo de acción secundaria y contenedor con enlace.",
+    "marca": "Azul de marca: la g del logo, la capitular, el arco del anillo, el botón primario.", "marca-suave": "Fondo suave de marca.",
+    "ok": "Listo, aprobado.", "ok-suave": "Fondo de ok.", "ojo": "Atención.", "ojo-suave": "Fondo de atención.", "mal": "Error, peligro.", "mal-suave": "Fondo de error.",
+    "estado-pen-fondo": "Estado pendiente: fondo.", "estado-pen-texto": "Estado pendiente: texto.", "estado-pen-aro": "Estado pendiente: aro del ícono.",
+    "estado-cur-fondo": "Estado cursando: fondo.", "estado-cur-texto": "Estado cursando: texto.",
+    "estado-reg-fondo": "Estado regular (falta el final): fondo.", "estado-reg-texto": "Estado regular: texto.",
+    "estado-apr-fondo": "Estado aprobada: fondo.", "estado-apr-texto": "Estado aprobada: texto.",
+    "estado-error": "Borde y triángulo del aviso de horario.", "estado-ok-pleno": "Anillo completo. Sin valor oscuro: falla en oscuro (2,7 : 1).",
+    "azul-texto": "Igual a --tinta (alias histórico).", "azul-fondo": "Igual a --marca (alias histórico).",
+    "sobre-color": "Texto sobre fondos de color propio (bloques del horario, tapas, ícono).",
+    "gl-click": "Texto del botón secundario y del contenedor con enlace.", "gl-on-mark": "Texto del botón primario.",
+}
+FUENTES = [("Instrument Sans", "instrument-sans.woff2", "400 700", "normal"), ("Literata", "literata.woff2", "400 500", "normal"),
+           ("Literata", "literata-italic.woff2", "400", "italic"), ("UnifrakturMaguntia", "unifraktur.woff2", "400", "normal")]
+# Niveles de la escala: (nombre, clase de componentes.css, familia, uso)
+NIVELES = [("display", ".gl-display", "fuente", "Título de pantalla, con capitular."), ("titulo-1", ".gl-t1", "fuente", "Portadas de estudio, con capitular."),
+           ("titulo-2", ".gl-t2", "fuente", "Secciones."), ("titulo-3", ".gl-t3", "fuente", "Tarjetas, subtítulos."),
+           ("lectura", ".gl-lectura-texto", "serif", "Resúmenes, glosario; máximo 66 caracteres."), ("cuerpo", ".gl-cuerpo", "fuente", "Base de interfaz; nunca menos en campos."),
+           ("chico", ".gl-chico", "fuente", "Segundo renglón, ayudas."), ("rotulo", ".gl-rotulo", "fuente", "Piso del sistema; versalitas +0,06 em.")]
+
+
+def estilo_de(css, clase, tok):
+    """Tamaño, interlineado y peso de la primera regla de `clase` en componentes.css (resuelve var(--t-*))."""
+    css = re.sub(r"/\*.*?\*/", "", css, flags=re.S)
+    tam = alto = peso = None
+    for m in re.finditer(r"([^{}]+)\{([^{}]*)\}", css):
+        if clase not in [s.strip() for s in m.group(1).split(",")] or "@media" in m.group(1):
+            continue
+        d = m.group(2)
+        if f := re.search(r"font:\s*(\d+)\s+([^/\s]+)/(\S+)", d):
+            peso, tam, alto = peso or f.group(1), tam or f.group(2), alto or f.group(3)
+        tam = tam or (re.search(r"font-size:\s*([^;]+)", d) or [None, None])[1]
+        alto = alto or (re.search(r"line-height:\s*([^;]+)", d) or [None, None])[1]
+        peso = peso or (re.search(r"font-weight:\s*(\d+)", d) or [None, None])[1]
+    res = lambda v: tok.get(v[6:-1], v) if v and v.startswith("var(--") else v
+    cero = lambda v: "0" + v if v and v.startswith(".") else v
+    return cero(res(tam)), cero(res(alto)), int(peso or 400)
+
+
+PREVIEWS = {
+    "Estado": ("Materia", 72, '<div class="fila"><span class="gl-estado gl-pen"><span class="gl-ic"></span>Pendiente</span><span class="gl-estado gl-cur"><span class="gl-ic"></span>Cursando</span><span class="gl-estado gl-reg"><span class="gl-ic"></span>Regular · falta el final</span><span class="gl-estado gl-apr"><span class="gl-ic"></span>Aprobada</span></div>',
+               "Estado de una materia: ícono, palabra y color juntos, para que se lea igual en escala de grises.\n\nCuatro estados (`.gl-pen`, `.gl-cur`, `.gl-reg`, `.gl-apr`), solo de la materia. Colores: `--estado-*`. El choque de horarios no es un estado: es el Aviso."),
+    "Aviso": ("Materia", 110, '<div class="gl-aviso"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2 21h20zM12 10v5M12 17.5v.5" fill="none" stroke="currentColor" stroke-width="2"/></svg><div><b>Se superponen dos materias.</b>Producción de Impresos y Diseño Gráfico coinciden los lunes de 18 a 20 h. <a class="gl-enlace" href="#">Ver en Horarios</a></div></div>',
+              "Aviso de horario: borde y triángulo en `--estado-error`, texto en tinta y una sola acción.\n\nVa aparte de los estados de la materia. Reemplaza a las rayas rojas."),
+    "Anillo": ("Avance", 150, '<div class="fila"><span class="gl-anillo"><svg width="120" height="120" viewBox="0 0 120 120" aria-hidden="true"><circle class="riel" cx="60" cy="60" r="52" fill="none" stroke-width="10"/><circle class="arco" cx="60" cy="60" r="52" fill="none" stroke-width="10" stroke-dasharray="202.6 326.7" transform="rotate(-90 60 60)"/></svg><span class="cifra">62<small>%</small></span></span><span class="gl-anillo"><svg width="120" height="120" viewBox="0 0 120 120" aria-hidden="true"><circle class="arco completo" cx="60" cy="60" r="52" fill="none" stroke-width="10"/></svg><span class="cifra">100<small>%</small></span></span></div>',
+               "Anillo de avance, siempre con la cifra adentro (tabular, en tinta).\n\nRiel `--borde`, arco `--marca`; completo, `--estado-ok-pleno` (sin valor oscuro: pendiente). La barra de puntos y las tramas ya no se usan."),
+    "Tarjeta": ("Contenedores", 150, '<div class="gl-tarjeta"><span class="gl-estado gl-cur"><span class="gl-ic"></span>Cursando</span><b>Producción de Impresos</b><span class="gl-chico">Lunes y miércoles · 18 h</span><div class="gl-tarjeta-pie"><span>40 % del cuatrimestre</span></div></div>',
+                "Tarjeta: radio `--radio`, sin sombra.\n\nEl CSS usa relleno Plata (`--sup2`) sin borde; la lámina dice borde de 1 px sin relleno. Pendiente de decidir."),
+    "Contenedor": ("Contenedores", 130, '<div class="col"><div class="gl-cont">Mis materias</div><a class="gl-cont" href="#">Ir a Resúmenes</a></div>',
+                   "Contenedor: Plata (`--sup2`); si es enlace, cielo (`--tinta-suave`) con flecha."),
+    "Boton": ("Acciones", 80, '<div class="fila"><button class="gl-btn">Cargar nota</button><button class="gl-btn gl-btn--sec">Ver mesas</button><button class="gl-btn gl-btn--ter">Cancelar</button><button class="gl-btn" disabled>Deshabilitado</button></div>',
+              "Botón: 44 de alto en toque; el compacto (`.gl-btn--c`, 40) solo en escritorio con puntero.\n\nPrimario sobre `--marca`, secundario sobre cielo, terciario subrayado. Verbos en infinitivo. Foco: contorno de 2 px en tinta."),
+    "Campo": ("Formularios", 130, '<label class="gl-campo"><span>Buscar un resumen</span><input type="text" placeholder="Teoría de los medios"></label><div class="gl-ayuda"><span class="gl-chico">de tu carrera aprobada</span><a class="gl-enlace" href="#">Cómo se calcula</a></div>',
+              "Campo de 48 con borde `--borde-campo`.\n\nLa ayuda es un subtítulo visible más un enlace con palabras; el «?» circular se retiró."),
+    "Titulo": ("Tipografía", 220, '<div class="col"><h1 class="gl-display">Mi carrera</h1><h1 class="gl-t1">Resúmenes</h1><h2 class="gl-t2">Materias de grado</h2></div>',
+               "Títulos con capitular: la primera letra del h1 en UnifrakturMaguntia al 112 %, en `--marca`; el resto en Instrument Sans 600, en tinta.\n\nUna por pantalla, solo en el h1. Nunca en subtítulos, tarjetas, cifras ni siglas. `.sin-cap` la saca."),
+    "Logo": ("Marca", 140, '<div class="fila"><span class="logo l56">galera</span><span class="logo l32">galera</span><span class="logo l24">galera</span></div>',
+             "Logo: «galera» entero, en minúscula, en UnifrakturMaguntia, en tinta, con la g en `--marca`.\n\n56 px en portadas, 32 en cabecera y pie, 24 como mínimo. Sin mayúscula inicial, sin otra gótica, sin sombras ni estiramiento."),
+}
+CSS_PREVIEW = (".fila{display:flex;flex-wrap:wrap;gap:12px;align-items:center}.col{display:grid;gap:12px}"
+               ".logo{font-family:var(--gotica);color:var(--texto);line-height:1}.logo::first-letter{color:var(--marca)}"
+               ".l56{font-size:56px}.l32{font-size:32px}.l24{font-size:24px}")
+
+
+def g_artifact(destino, claro, oscuro):
+    tok_css = (RAIZ / "tokens.css").read_text(encoding="utf-8")
+    comp_css = (RAIZ / "componentes.css").read_text(encoding="utf-8")
+    p = destino / "project"
+    (p / "fonts").mkdir(parents=True, exist_ok=True)
+    escribir = lambda ruta, t: ((p / ruta).parent.mkdir(parents=True, exist_ok=True), (p / ruta).write_text(t, encoding="utf-8", newline="\n"))
+    colores = [{"name": k, "value": {"light": v.lower(), "dark": oscuro.get(k, v).lower()}, "usage": USO_COLOR.get(k, "")}
+               for k, v in claro.items() if es_color(v)]
+    grupos = [{"name": "Galera", "family": "fuente", "styles": []}]
+    for nombre, clase, fam, uso in NIVELES:
+        tam, alto, peso = estilo_de(comp_css, clase, claro)
+        grupos[0]["styles"].append({"name": nombre, "family": fam, "fontSize": tam, "lineHeight": alto, "fontWeight": peso, "usage": uso, "sample": "Mi carrera"})
+    tokens = {
+        "name": "Galera", "version": 1,
+        "meta": {"source": "github", "repo": "galera-app/galera", "paths": {"tokens": ["tokens.css", "componentes.css"], "fonts": ["fonts/"], "docs": ["diseno/"]},
+                 "nota": AVISO},
+        "color": {"themes": [{"id": "light", "name": "Claro"}, {"id": "dark", "name": "Oscuro"}], "tokens": colores},
+        "type": {"fonts": [{"family": f, "file": "fonts/" + a, "weight": w, "style": s} for f, a, w, s in FUENTES],
+                 "families": {k: claro[k] for k in ("fuente", "serif", "gotica")}, "groups": grupos},
+        "radius": {"tokens": [{"name": "radio", "value": claro["radio"], "usage": "Un solo radio en todo el sistema."}]},
+        "size": {"tokens": [{"name": k, "value": "0" + v if v.startswith(".") else v, "usage": "Escala de texto (tokens.css)."} for k, v in claro.items() if k.startswith("t-")]},
+    }
+    escribir("tokens.json", json.dumps(tokens, ensure_ascii=False, indent=2) + "\n")
+    for _, a, _, _ in FUENTES:
+        shutil.copyfile(RAIZ / "fonts" / a, p / "fonts" / a)
+    # bundle.css: las variables que no son color (escala, familias con el nombre del sitio) y componentes.css sin @font-face.
+    no_color = {k: v for k, v in bloques(tok_css, ":root").items() if not es_color(v) and k != "color-scheme"}
+    raiz = ":root{" + "".join(f"--{k}:{v};" for k, v in no_color.items()) + "}\n"
+    cuerpo = re.sub(r"@font-face\{[^}]*\}\n?", "", comp_css)
+    escribir("components/bundle.css", f"/* {AVISO} */\n" + raiz + CSS_PREVIEW + "\n" + cuerpo)
+    for nombre, (grupo, alto, html, guia) in PREVIEWS.items():
+        escribir(f"components/{nombre}/preview.html", f'<!-- @dsCard group="{grupo}" height={alto} -->\n<div class="col">{html}</div>\n')
+        escribir(f"components/{nombre}/README.md", f"# {nombre}\n\n{guia}\n")
+    # Brand book: README del repo más las secciones, con los enlaces al repo hechos absolutos.
+    base = "https://github.com/galera-app/galera/blob/main/"
+    def md(nombre):
+        t = (DISENO / nombre).read_text(encoding="utf-8")
+        t = re.sub(r"\]\(\.\./([^)]*)\)", lambda m: f"]({base}{m.group(1)})", t)
+        return re.sub(r"\]\(([a-z]+\.md)(#[^)]*)?\)", lambda m: f"]({base}diseno/{m.group(1)}{m.group(2) or ''})", t)
+    escribir("README.md", f"> Vista del design system de Galera. La fuente está en el repo [`galera-app/galera`]({base}diseno/README.md), carpeta `diseno/`: lo que cambie acá no vuelve al repo. {AVISO}\n\n" + md("README.md"))
+    for n in ("marca.md", "tipografia.md", "componentes.md", "reglas.md", "contrastes.md"):
+        escribir(n, md(n))
+    escribir("components/Cover/preview.html", g_portada())
+    print("escrito", p)
+
+
+def g_portada():
+    return """<!-- @dsCard height=288 -->
+<style>
+.tapa{position:relative;width:960px;height:288px;background:var(--bg);overflow:hidden;font-family:var(--fuente)}
+.tapa svg{position:absolute;inset:0}
+.b-marca{fill:var(--marca)}.b-tinta{fill:var(--texto)}.b-cielo{fill:var(--tinta-suave)}.b-plata{fill:var(--sup2)}.b-cur{fill:var(--estado-cur-texto)}
+.g{font-family:var(--gotica);fill:var(--sobre-color)}.aro{fill:none;stroke:var(--sobre-color);stroke-width:2.5}
+.nombre{position:absolute;left:48px;bottom:56px;max-width:440px;margin:0;font:400 120px/.92 var(--gotica);color:var(--texto)}
+.nombre::first-letter{color:var(--marca)}
+.lema{position:absolute;left:52px;bottom:28px;margin:0;font-size:14px;color:var(--texto2)}
+</style>
+<div class="tapa">
+<!-- Derivación:
+     bloques: --marca (alto, 240×288, la identidad), --texto (tinta, 96×144), --tinta-suave (cielo, 144×144), --sup2 (Plata, 96×144), --estado-cur-texto (franja de 24).
+     disposición: una losa alta azul con satélites a la derecha, sangrando por arriba y abajo; todo a la derecha de x = 480, radio --radio (4).
+     patrón: «una letra de display usada como forma»: la g de UnifrakturMaguntia, enorme y recortada por la losa, porque la marca es esa g.
+     escalas: lados múltiplos de 24 y 48 (la grilla de 4 del sistema), radio --radio; cuatro aros de estado, como los cuartos de círculo. -->
+<svg width="960" height="288" viewBox="0 0 960 288" aria-hidden="true">
+<rect class="b-plata" x="480" y="0" width="96" height="144" rx="4"/>
+<rect class="b-cielo" x="576" y="144" width="144" height="144" rx="4"/>
+<rect class="b-tinta" x="480" y="144" width="96" height="144" rx="4"/>
+<rect class="b-cur" x="576" y="120" width="144" height="24"/>
+<rect class="b-marca" x="720" y="0" width="240" height="288"/>
+<text class="g" x="738" y="300" font-size="330">g</text>
+<circle class="aro" cx="528" cy="72" r="16"/>
+<path class="aro" d="M612 72a16 16 0 1 0 32 0a16 16 0 1 0 -32 0M628 56a16 16 0 0 1 16 16h-16z"/>
+</svg>
+<p class="nombre">galera</p>
+<p class="lema">Design system de la cursada de Edición (FFyL, UBA).</p>
+</div>
+"""
+
+
 def main():
     claro, oscuro = leer()
+    if "--artifact" in sys.argv:
+        destino = Path(sys.argv[sys.argv.index("--artifact") + 1]).resolve()
+        if destino == RAIZ or RAIZ in destino.parents:
+            raise SystemExit("El artifact se arma fuera del repo.")
+        g_artifact(destino, claro, oscuro)
+        return
     if "--vista" in sys.argv:
         destino = Path(sys.argv[sys.argv.index("--vista") + 1]).resolve()
         if destino == RAIZ or RAIZ in destino.parents:
