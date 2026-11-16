@@ -61,6 +61,20 @@ function cvDato({ kicker, grande, lineas, barra }) {
   return cv;
 }
 
+// Tarjeta con un retrato en puntos (datos/retratos.json, lo arma retratos.py) y el nombre al pie, con la misma tinta y el mismo pie que el resto.
+function cvRetrato(kicker, puntos, cols, filas, pie) {
+  const [cv, c] = cvBase(1080, 1080), p = Math.min(600 / filas, 620 / cols), x0 = (1080 - cols * p) / 2, y0 = 210;
+  cvTexto(c, kicker.toUpperCase(), 80, 170, 30, 600, CV.t2);
+  c.fillStyle = CV.tinta;
+  for (let i = 0; i < puntos.length; i++) {
+    const n = +puntos[i]; if (!n) continue;
+    c.beginPath(); c.arc(x0 + (i % cols + 0.5) * p, y0 + (Math.floor(i / cols) + 0.5) * p, p * 0.5 * Math.sqrt(n / 9), 0, 7); c.fill();
+  }
+  cvTexto(c, pie, 540, y0 + filas * p + 62, 36, 400, CV.t2, 'center');
+  cvPie(c, 1080, 1080);
+  return cv;
+}
+
 // Diálogo con la imagen armada: se puede compartir (si el sistema lo permite) o bajar. Se muestra con data: porque la CSP no admite blob: en img.
 let IMG_COMP = null;
 function abrirImagen(cv, o) {
@@ -299,14 +313,22 @@ function logros() {
   if (X.resumen) ay('resumen', 'Resumen', 'Sumé mis apuntes a Galera.', 'Para quien cursa después.');
   if (X.cafe) ay('cafe', 'Café', 'Le invité un café a Galera.', 'Para que siga gratis para quienes estudian Edición.');
   const fig = X.mecenas && (MECENAS[X.mecenas.n] || []).find(f => f.id === X.mecenas.fig);
-  if (fig) ay('mecenas', fig.corto, 'Ayudo a Galera cada mes, como ' + fig.nombre + '.', fig.dato);
+  // La del aporte es un retrato en puntos con el nombre al pie (v175); si el retrato no carga, queda el nombre grande.
+  if (fig) { ay('mecenas', fig.corto, 'Ayudo a Galera cada mes.', fig.nombre); Object.assign(L[L.length - 1], { retrato: X.mecenas.n + fig.id, pie: fig.nombre }); }
   return L;
 }
 // Hitos de avance que se cruzaron al pasar de «prev» a «ahora» materias aprobadas.
 const hitosCruzados = (prev, ahora, T) => HITOS_AVANCE.filter(n => pctAvance(prev, T) < n && pctAvance(ahora, T) >= n).map(n => 'av' + n);
-function compartirLogro(id) {
+async function retratos() {
+  if (D.retratos === undefined) { try { D.retratos = await json('retratos.json'); } catch (e) { D.retratos = null; } }
+  return D.retratos;
+}
+async function compartirLogro(id) {
   const g = logros().find(x => x.id === id);
   if (!g) return aviso('Ese logro todavía no está');
+  const R = g.retrato ? await retratos() : null, r = R && R.retratos && R.retratos[g.retrato];
+  if (r) return abrirImagen(cvRetrato(g.kicker, r.d, R.cols, R.filas, g.pie), { archivo: 'galera-logro-' + id + '.png', titulo: 'Mi logro', tipo: 'logro', id,
+    intro: 'Sin montos ni tu nombre. Vos decidís si la compartís.', texto: g.texto, alt: `Tarjeta de Galera: retrato de ${g.pie} hecho con puntos, con su nombre al pie. Ayudo a Galera.` });
   const cv = cvDato({ kicker: g.kicker, grande: g.grande, barra: g.barra == null ? null : g.barra, lineas: [[g.frase, 54, 700], [g.detalle || '', 36, 400]].filter(l => l[0]) });
   abrirImagen(cv, { archivo: 'galera-logro-' + id + '.png', titulo: 'Mi logro', tipo: 'logro', id,
     intro: 'Solo el logro: sin materias, notas ni nombre. Vos decidís si lo compartís.', texto: g.texto,
@@ -343,7 +365,7 @@ function elegirMecenas(n) {
   if (!L || !APORTES[n - 1]) return abrir(cab('Tu tarjeta por ayudar') + `<p class="chico tenue u-margin-top-0">Gracias por sumarte. ¿Qué aporte elegiste? Cada uno tiene su tarjeta, y en ninguna aparece el monto.</p>
     <ul class="lista-mas">${APORTES.map((x, i) => MECENAS[i + 1] ? `<li><button type="button" ${dAcc('elegirMecenas', String(i + 1))}><span>${esc(pesos(x.monto))} por mes</span><i aria-hidden="true"></i></button></li>` : '').join('')}</ul>
     <div class="botones"><button class="btn lin" data-clic="cerrar">Ahora no</button></div>`, 'logros');
-  abrir(cab('Elegí tu tarjeta') + `<p class="chico tenue u-margin-top-0">Gracias por ayudar a Galera. Tu tarjeta lleva el nombre de alguien que hizo posibles libros y obras. Elegí cuál.</p>
+  abrir(cab('Elegí tu tarjeta') + `<p class="chico tenue u-margin-top-0">Gracias por ayudar a Galera. Tu tarjeta lleva el retrato de alguien que hizo posibles libros y obras. Elegí cuál.</p>
     <ul class="lista-mas">${L.map(f => `<li><button type="button" ${dAcc('guardarMecenas', String(n), f.id)}><span>${esc(f.nombre)}<small>${esc(f.dato)}</small></span><i aria-hidden="true"></i></button></li>`).join('')}</ul>
     <div class="botones"><button class="btn lin" data-clic="cerrar">Ahora no</button></div>`, 'logros');
 }
