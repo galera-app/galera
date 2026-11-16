@@ -178,12 +178,14 @@ async function cvMecenas(n, fig, grabado) {
 // Diálogo con la imagen armada: se puede compartir (si el sistema lo permite) o bajar. Se muestra con data: porque la CSP no admite blob: en img.
 // Las piezas de la línea de afiche traen o.dibujar(tema, formato), que devuelve el canvas (o una promesa): el diálogo suma
 // Clara u Oscura (CP4: lo elige quien comparte) y Cuadrada o Historia, y vuelve a dibujar con cada cambio. o.formatos === false
-// deja solo el tema y o.temas === false, solo el formato; o.botones suma botones antes de Cerrar. La última elección se recuerda en este navegador. Las piezas sin dibujar pasan el canvas hecho, como antes.
+// deja solo el tema y o.temas === false, solo el formato; o.formatos también puede ser una lista propia ([valor, rótulo]) y
+// o.vistas suma un selector de vista (el álbum); dibujar recibe además las preferencias. o.botones suma botones antes de Cerrar. La última elección se recuerda en este navegador. Las piezas sin dibujar pasan el canvas hecho, como antes.
 let IMG_COMP = null, IMG_GEN = 0; // IMG_GEN: solo vale el último dibujo pedido (dos toques seguidos o cerrar a mitad de camino)
 const PREF_IMG = 'galera.imagen';
 function prefImagen() {
   let p = {}; try { p = JSON.parse(localStorage.getItem(PREF_IMG) || '{}') || {}; } catch (e) { }
-  return { tema: p.tema === 'oscuro' ? 'oscuro' : 'claro', formato: ['cuadrada', 'post'].indexOf(p.formato) >= 0 ? p.formato : 'historia' };
+  return { tema: p.tema === 'oscuro' ? 'oscuro' : 'claro', formato: ['cuadrada', 'post'].indexOf(p.formato) >= 0 ? p.formato : 'historia',
+    vista: ['indice', 'estante'].indexOf(p.vista) >= 0 ? p.vista : 'grilla' };
 }
 function elegirImagen(k, v) {
   if (!IMG_COMP || !IMG_COMP.o.dibujar) return;
@@ -201,11 +203,11 @@ async function abrirImagen(cv, o, redibujo) {
     // ve el Post y al revés: es la misma elección («para el feed»).
     const fmts = Array.isArray(o.formatos) ? o.formatos : [['cuadrada', 'Cuadrada'], ['historia', 'Historia']];
     if (!fmts.some(f => f[0] === p.formato)) p.formato = p.formato === 'historia' ? 'historia' : fmts[0][0];
-    try { cv = await o.dibujar(CV_TEMA[p.tema], o.formatos === false ? null : p.formato); } catch (e) { return vigente() && aviso('No se pudo armar la imagen'); }
+    try { cv = await o.dibujar(CV_TEMA[p.tema], o.formatos === false ? null : p.formato, p); } catch (e) { return vigente() && aviso('No se pudo armar la imagen'); }
     if (!vigente()) return;
     const seg = (rotulo, k, ops) => `<div class="gl-seg" role="group" aria-label="${rotulo}">${ops.map(([v, n]) =>
       `<button type="button" class="${p[k] === v ? 'on' : ''}" aria-pressed="${p[k] === v}" data-clic="elegirImagen" data-clic-a="[${arg(k)},${arg(v)}]">${n}</button>`).join('')}</div>`;
-    opc = `<div class="img-comp-opc">${o.temas === false ? '' : seg('Fondo', 'tema', [['claro', 'Clara'], ['oscuro', 'Oscura']])}${o.formatos === false ? '' : seg('Formato', 'formato', fmts)}</div>`;
+    opc = `<div class="img-comp-opc">${o.temas === false ? '' : seg('Fondo', 'tema', [['claro', 'Clara'], ['oscuro', 'Oscura']])}${o.formatos === false ? '' : seg('Formato', 'formato', fmts)}${o.vistas ? seg('Vista', 'vista', o.vistas) : ''}</div>`;
   }
   const alt = typeof o.alt === 'function' ? o.alt(p) : o.alt;
   cv.toBlob(blob => {
@@ -471,7 +473,7 @@ function materiasPlan() {
   const e = planParaAmigo();
   return D.plan.materias.filter(m => e.materias[m.id]).map(m => {
     const x = e.materias[m.id], nombre = nombreMateria(x.opcion || m.id);
-    return { id: m.id, nombre, ini: nombre.trim().charAt(0).toUpperCase(), estado: x.estado, pigmento: m.pigmento };
+    return { id: m.id, nombre, ini: nombre.trim().charAt(0).toUpperCase(), estado: x.estado, pigmento: m.pigmento, ejemplar: (E.materias[m.id] || {}).ejemplar };
   });
 }
 function cvPlan(items) {
@@ -517,10 +519,15 @@ function cvPlan(items) {
       const { m, t, gap, f1, f2, ls, alto, fila } = f, cy = y + (fila - t) / 2;
       let etiqueta = m.resumen ? '' : m.estado, color;
       if (m.estado === 'aprobada') {
-        const lisos = pigs.filter(p => p.plano), pig = lisos.find(p => p.nombre === m.pigmento) || lisos[hashTexto(m.id) % lisos.length];
-        const deNivel = banco.filter(b => b.nivel === pig.nivel), grab = (deNivel.length ? deNivel : banco)[hashTexto(m.id) % (deNivel.length || banco.length)];
+        // El ejemplar sorteado al aprobar (paso 19); si es de antes y todavía no se sorteó, uno estable por materia (el provisorio de v178).
+        let pig, grab;
+        if (m.ejemplar) ({ pig, grab } = Ejemplar.resolver(m.ejemplar, pigs, banco, m.id));
+        else {
+          const lisos = pigs.filter(p => p.plano); pig = lisos.find(p => p.nombre === m.pigmento) || lisos[hashTexto(m.id) % lisos.length];
+          grab = banco[hashTexto(m.id) % banco.length];
+        }
         c.fillStyle = pig.papel; c.fillRect(x0, cy, t, t);
-        await cvGrabado(c, grab.id, x0, cy, t, t, pig.hex, 1);
+        await cvGrabado(c, grab.id, x0, cy, t, t, tintaEjemplar(pig), 1);
         c.save(); c.beginPath(); c.rect(x0, cy, t, t); c.clip();
         cvArriba(c, m.ini, x0 + t * 0.09, cy - t * 0.07, g.letra * k, 400, pig.azul, { fam: CV_GOTICA });
         c.restore();
@@ -542,10 +549,11 @@ function cvPlan(items) {
     return cv;
   };
 }
-function imagenPlan() {
+async function imagenPlan() {
   if (V.demo) return aviso('Estás viendo el ejemplo: salí del ejemplo para pasar tu plan');
+  if (!materiasPlan().length) return aviso('Marcá primero qué materias aprobaste o cursás');
+  await asegurarEjemplares(Object.keys(E.materias)).catch(() => { });
   const items = materiasPlan();
-  if (!items.length) return aviso('Marcá primero qué materias aprobaste o cursás');
   abrirImagen(null, { archivo: 'galera-mi-plan.png', titulo: 'Mi plan', tipo: 'plan', id: 'amigo', dibujar: cvPlan(items),
     intro: 'Sin tu nombre ni tus notas: solo las materias y en qué estado están.', texto: 'Así voy en la carrera. Armá tu plan en Galera: ' + BRAND.url,
     alt: 'Mi plan de Edición: ' + items.map(m => m.nombre + ', ' + m.estado).join('; ') + '.' });
@@ -631,7 +639,8 @@ async function abrirEjemplar(id) {
     // TEXTOS PROVISORIOS (paso 19): esperan la voz de Fidel.
     intro: etiqueta + '. Se sorteó al aprobar y queda con la materia.', texto: 'Aprobé ' + nombre + '. Mi ejemplar: ' + etiqueta + '. ' + BRAND.url,
     alt: 'Aprobé ' + nombre + '. Ejemplar: ' + etiqueta + '.',
-    botones: (r.retiro ? `<button class="btn lin" type="button" ${dAcc('retirarEjemplar', id)}>Volver a tirar (una sola vez)</button>` : '') });
+    botones: (r.retiro ? `<button class="btn lin" type="button" ${dAcc('retirarEjemplar', id)}>Volver a tirar (una sola vez)</button>` : '')
+      + `<button class="btn lin" type="button" ${dAcc('abrirAlbum')}>Ver el álbum</button>` });
 }
 // Un solo re-tiro por materia: vuelve a sortear pigmento, fondo y número, y queda fijo.
 async function retirarEjemplar(id) {
@@ -642,6 +651,142 @@ async function retirarEjemplar(id) {
   guardar(true);
   medir('ejemplar_retiro', { item_id: id });
   abrirEjemplar(id);
+}
+
+// ---------- álbum de ejemplares (paso 19) ----------
+// Las tres vistas de album.py: grilla de ejemplares, índice con puntos guía y estante de lomos. Quien lo usa elige cuál ver y cuál
+// compartir (MA2): lo que ve en el diálogo es lo que comparte. Van todas las materias del plan; las pendientes, en gris punteado y
+// con la inicial hueca. Las aprobadas de antes de v180 se sortean la primera vez que se abre.
+const VISTAS_ALBUM = [['grilla', 'Grilla'], ['indice', 'Índice'], ['estante', 'Estante']];
+const TITULO_ALBUM = { grilla: 'Mi álbum', indice: 'Índice', estante: 'Mi estante' };
+const itemsAlbum = () => D.plan.materias.map(m => {
+  const nombre = nombreDe(m), e = E.materias[m.id] || {};
+  return { id: m.id, nombre, ini: inicial(nombre), ej: e.estado === 'aprobada' ? (e.ejemplar || { p: '', f: '' }) : null };
+});
+// Un ejemplar chico: papel del pigmento, el grabado en la parte izquierda y la inicial gótica que se sale por el borde.
+async function cvTesela(c, it, x, y, w, h, letra, D2, ancho) {
+  const { pig, grab } = Ejemplar.resolver(it.ej, D2[0], D2[1], it.id);
+  c.save(); c.beginPath(); c.rect(x, y, w, h); c.clip();
+  c.fillStyle = pig.papel; c.fillRect(x, y, w, h);
+  await cvGrabado(c, grab.id, x, y, w * (ancho || 0.62), h, tintaEjemplar(pig), 0.9);
+  cvArriba(c, it.ini, x - letra * 0.22, y + h * 0.02, letra, 400, pig.azul, { fam: CV_GOTICA });
+  if (pig.nivel === 'numerado') { c.strokeStyle = pig.hex; c.lineWidth = 2; c.strokeRect(x + 6, y + 6, w - 12, h - 12); }
+  c.restore();
+  return pig;
+}
+function cvVacia(c, it, x, y, w, h, letra, T, centrada) {
+  c.save(); c.strokeStyle = T.gris; c.lineWidth = 3; c.setLineDash([10, 8]); c.strokeRect(x + 1.5, y + 1.5, w - 3, h - 3); c.setLineDash([]);
+  c.beginPath(); c.rect(x, y, w, h); c.clip();
+  c.font = `400 ${letra}px ${CV_GOTICA}`; c.textBaseline = 'top'; c.textAlign = centrada ? 'center' : 'left'; c.lineWidth = 2;
+  c.strokeText(it.ini, centrada ? x + w / 2 : x - letra * 0.22, y + h * 0.02); c.restore();
+}
+function cvAlbum() {
+  return async (T, formato, p) => {
+    const [D2] = await Promise.all([datosEjemplar(), document.fonts.load(`600 20px ${CV_FUENTE}`).catch(() => { }),
+      document.fonts.load(`italic 400 20px ${LITERATA}`).catch(() => { }), document.fonts.load(`400 20px ${LITERATA}`).catch(() => { }), document.fonts.load(`400 20px ${CV_GOTICA}`).catch(() => { })]);
+    const post = formato === 'post', H = post ? 1350 : 1920, k = post ? 0.8 : 1, vista = (p && p.vista) || 'grilla';
+    const items = itemsAlbum(), n = items.filter(i => i.ej).length;
+    const [cv, c] = cvPapel(1080, H, T);
+    cvArriba(c, TITULO_ALBUM[vista], 70, 70 * k, 150 * k, 400, T.azul, { fam: CV_GOTICA });
+    cvArriba(c, `${n} de ${items.length} materias`, 74, 250 * k, 40 * k, 600, T.tinta);
+    cvArriba(c, 'EDICIÓN, FFYL, UBA', 74, 250 * k + 56 * k, 24 * k, 600, T.kicker, { esp: 0.12 });
+    const A = { x: 60, y: 380 * k, w: 960, h: H - 380 * k - (post ? 150 : 180) };
+    if (vista === 'indice') await cvIndice(c, items, A, T, D2);
+    else if (vista === 'estante') await cvEstante(c, items, A, T, D2);
+    else await cvGrilla(c, items, A, T, D2);
+    cvGrano(c, 1080, H, T);
+    cvPie2(c, 1080, H, T, false);
+    return cv;
+  };
+}
+// A: grilla. Se prueban de 2 a 6 columnas y gana la que da el ejemplar más grande (con la proporción de album.py, 292 × 236),
+// con nombre y pigmento debajo.
+async function cvGrilla(c, items, A, T, D2) {
+  const gx = 24, gy = 18;
+  let g = null;
+  for (let cols = 2; cols <= 6; cols++) {
+    const paso = (A.w - (cols - 1) * gx) / cols, f = Math.max(14, Math.min(24, paso * 0.082)), lab = 10 + f * 2.2 + f * 1.15;
+    const rows = Math.ceil(items.length / cols), ch = Math.min(paso * 236 / 292, (A.h - (rows - 1) * gy) / rows - lab);
+    if (!g || ch > g.ch) g = { cols, paso, cw: ch * 292 / 236, ch, f, lab };
+  }
+  for (let i = 0; i < items.length; i++) {
+    const it = items[i], x = A.x + (i % g.cols) * (g.paso + gx), y = A.y + Math.floor(i / g.cols) * (g.ch + g.lab + gy), letra = g.ch * 1.14;
+    let pig = null;
+    if (it.ej) pig = await cvTesela(c, it, x, y, g.cw, g.ch, letra, D2); else cvVacia(c, it, x, y, g.cw, g.ch, letra, T);
+    let ty = y + g.ch + 10;
+    const ancho = g.paso - 4;
+    cvPartir(c, it.nombre, ancho, `600 ${g.f}px ${CV_FUENTE}`).slice(0, 2).forEach(l => { cvArriba(c, l, x, ty, g.f, 600, pig ? T.tinta : T.gris, { max: ancho }); ty += g.f * 1.1; });
+    cvArriba(c, pig ? pig.nombre : 'pendiente', x, ty + 2, g.f * 0.85, 'italic 400', pig ? colorPigmento(pig, T) : T.gris, { fam: LITERATA, max: ancho });
+  }
+}
+// En el papel oscuro, los pigmentos oscuros (múrice, carmín, sepia) se aclaran para que se lean, como en el Plan a un amigo.
+const colorPigmento = (pig, T) => T.bloqueTinta ? cvMezcla(pig.hex, 0.6, '#FFFFFF') : pig.hex;
+// B: índice. Una fila por materia, con su ejemplar chico, el nombre, puntos guía y el pigmento.
+async function cvIndice(c, items, A, T, D2) {
+  const fila = Math.min(104, A.h / items.length), caja = fila * 0.83, fn = fila * 0.38, fp = fila * 0.25;
+  for (let i = 0; i < items.length; i++) {
+    const it = items[i], y = A.y + i * fila, cy = y + (fila - caja) / 2;
+    let pig = null;
+    if (it.ej) pig = await cvTesela(c, it, A.x + 10, cy, caja, caja, caja * 1.07, D2, 1); else cvVacia(c, it, A.x + 10, cy, caja, caja, caja * 0.85, T, true);
+    const pg = pig ? pig.nombre : 'pendiente', color = pig ? T.tinta : T.gris;
+    c.font = `italic 400 ${fp}px ${LITERATA}`; const wp = c.measureText(pg).width;
+    const x0 = A.x + 10 + caja + fila * 0.25, xp = A.x + A.w - 10 - wp, maxN = xp - x0 - fila * 0.5;
+    cvArriba(c, it.nombre, x0, y + (fila - fn) / 2, fn, 400, color, { fam: LITERATA, max: maxN });
+    c.font = `400 ${fn}px ${LITERATA}`; const wn = Math.min(maxN, c.measureText(it.nombre).width);
+    c.save(); c.strokeStyle = color; c.globalAlpha = 0.5; c.lineWidth = Math.max(1.5, fila * 0.03); c.setLineDash([1, fila * 0.1]); c.lineCap = 'round';
+    c.beginPath(); c.moveTo(x0 + wn + fila * 0.15, y + fila * 0.66); c.lineTo(xp - fila * 0.15, y + fila * 0.66); c.stroke(); c.restore();
+    cvArriba(c, pg, xp, y + (fila - fp) / 2 + fn * 0.1, fp, 'italic 400', pig ? colorPigmento(pig, T) : T.gris, { fam: LITERATA });
+  }
+}
+// C: estante. Lomos de alturas distintas en estantes de 6 u 8, con la inicial arriba y el nombre de abajo hacia arriba.
+async function cvEstante(c, items, A, T, D2) {
+  const por = items.length <= 12 ? 6 : 8, est = Math.ceil(items.length / por), gap = 16, sep = 50, base = 10;
+  const sh = (A.h - est * (sep + base)) / est, lw = (A.w - 12 - (por - 1) * gap) / por, alturas = [600, 540, 620, 560, 590, 520];
+  for (let e = 0; e < est; e++) {
+    const piso = A.y + e * (sh + sep + base) + sh;
+    for (let j = 0; j < por; j++) {
+      const i = e * por + j, it = items[i];
+      if (!it) break;
+      const h = sh * alturas[(j + e * 2) % 6] / 620, x = A.x + 6 + j * (lw + gap), y = piso - h, letra = lw * 0.8;
+      if (!it.ej) { cvVacia(c, it, x, y, lw, h, letra, T, true); continue; }
+      const { pig, grab } = Ejemplar.resolver(it.ej, D2[0], D2[1], it.id), tinta = esOscuro(pig.papel) ? '#F4EBD6' : '#1E1B18';
+      c.save(); c.beginPath(); c.rect(x, y, lw, h); c.clip();
+      c.fillStyle = pig.papel; c.fillRect(x, y, lw, h);
+      await cvGrabado(c, grab.id, x, y, lw, h, tintaEjemplar(pig), 0.85);
+      cvArriba(c, it.ini, x + lw / 2, y + 6, letra, 400, pig.azul, { fam: CV_GOTICA, align: 'center' });
+      // Banda de papel con el nombre, de abajo hacia arriba: en uno o dos renglones, achicando el cuerpo hasta 15 px si hace falta.
+      const by = y + letra * 1.15, bh = h - letra * 1.15 - 24, largo = bh - 20;
+      let f = Math.min(26, lw * 0.21), ls = cvPartir(c, it.nombre, largo, `600 ${f}px ${CV_FUENTE}`);
+      while (ls.length > 2 && f > 15) { f -= 1; ls = cvPartir(c, it.nombre, largo, `600 ${f}px ${CV_FUENTE}`); }
+      if (ls.length > 2) ls = [ls[0], ls.slice(1).join(' ')];
+      const bw = Math.min(lw - 16, ls.length * f * 1.2 + 14);
+      if (bh > f * 3) {
+        c.fillStyle = pig.papel; c.fillRect(x + (lw - bw) / 2, by, bw, bh);
+        c.translate(x + lw / 2, by + bh / 2); c.rotate(-Math.PI / 2);
+        c.font = `600 ${f}px ${CV_FUENTE}`; c.textAlign = 'center'; c.textBaseline = 'middle'; c.fillStyle = tinta;
+        ls.forEach((l, q) => {
+          let s = l; while (s.length > 1 && c.measureText(s).width > largo) s = s.slice(0, -2).trimEnd() + '…';
+          c.fillText(s, 0, (q - (ls.length - 1) / 2) * f * 1.2);
+        });
+        c.setTransform(1, 0, 0, 1, 0, 0);
+      }
+      if (pig.nivel === 'numerado') { c.strokeStyle = pig.hex; c.lineWidth = 2; c.strokeRect(x + 5, y + 5, lw - 10, h - 10); }
+      c.restore();
+    }
+    c.fillStyle = T.tinta; c.fillRect(A.x, piso, A.w, base);
+  }
+}
+async function abrirAlbum() {
+  if (V.demo) return aviso('Estás viendo el ejemplo: salí del ejemplo para ver tu álbum');
+  if (!D.plan) return;
+  await asegurarEjemplares(D.plan.materias.map(m => m.id)).catch(() => { });
+  const items = itemsAlbum(), n = items.filter(i => i.ej).length, total = items.length;
+  abrirImagen(null, { archivo: 'galera-mi-album.png', titulo: 'Mi álbum', tipo: 'album', id: 'album', dibujar: cvAlbum(), vistas: VISTAS_ALBUM,
+    formatos: [['post', 'Post'], ['historia', 'Historia']],
+    // TEXTOS PROVISORIOS (paso 19): esperan la voz de Fidel.
+    intro: n ? `${n} de ${total} materias. Elegí la vista: la que ves es la que se comparte.` : 'Todavía no aprobaste ninguna: cada materia que marques como aprobada suma su ejemplar.',
+    texto: `Mi álbum de Edición: ${n} de ${total} materias. ` + BRAND.url,
+    alt: p => `${TITULO_ALBUM[p.vista]}: ${n} de ${total} materias aprobadas. ` + items.filter(i => i.ej).map(i => i.nombre).join('; ') + '.' });
 }
 
 // ---------- «¿Le sirve a alguien?» ----------
@@ -729,7 +874,7 @@ function abrirLogros() {
       <ul class="lista-mas">${L.slice().reverse().map(g => `<li><button type="button" data-clic="compartirLogro" data-clic-a="[${arg(g.id)}]"><span>${esc(g.frase)}<small>${esc(g.detalle || '')}</small></span><i aria-hidden="true"></i></button></li>`).join('')}</ul>`
     : '<p class="vacio">Todavía no hay logros: marcá las materias que aprobaste y aparecen solos. También hay tarjetas por ayudar a Galera: confirmar el mail de los lunes, responder una pregunta, sumar tus apuntes o hacer un aporte.</p>')
     + (falta > 0 ? `<p class="chico tenue">Para el ${sig} % te ${falta === 1 ? 'falta 1 requisito' : 'faltan ' + falta + ' requisitos'}.</p>` : '')
-    + '<div class="botones"><button class="btn lin" data-clic="cerrar">Cerrar</button></div>', 'logros');
+    + '<div class="botones"><button class="btn sec" data-clic="abrirAlbum">Mi álbum</button><button class="btn lin" data-clic="cerrar">Cerrar</button></div>', 'logros');
 }
 
 // ---------- tarjetas por ayudar a Galera (v174) ----------
@@ -769,7 +914,9 @@ function guardarMecenas(n, fig) {
 const FELICITA = 'cursada.felicita';
 let FELIC = null;
 function felicitarAprobadas(ids, hitos) {
-  if (V.demo || !juegoOn()) return;
+  if (V.demo) return;
+  asegurarEjemplares(ids).catch(() => { });   // el sorteo va siempre, con el juego prendido o no; si falla la red, se sortea al mirarlo
+  if (!juegoOn()) return;
   let est = {}; try { est = JSON.parse(localStorage.getItem(FELICITA) || '{}') || {}; } catch (e) { }
   if (est.no) return;
   FELIC = { ids: ((FELIC && FELIC.ids) || []).concat(ids), hitos: ((FELIC && FELIC.hitos) || []).concat(hitos) };
@@ -785,10 +932,11 @@ function mostrarFelicitacion() {
   V.invito = true;
   el = document.createElement('div'); el.id = 'felicita'; el.className = 'invita'; el.setAttribute('role', 'status');
   el.innerHTML = `<span class="crece"><b>¡Aprobaste!</b> ¿Querés dejar tu apunte para quien viene detrás?${unica ? `<small class="tenue u-display-block">${esc(nombreDe(unica))}</small>` : ''}</span>
-    <button class="btn ch" type="button" id="fe-ap">Dejar mi apunte</button>${hito ? '<button class="btn sec ch" type="button" id="fe-lo">Compartir mi logro</button>' : ''}<button class="btn lin ch" type="button" id="fe-no">Ahora no</button><button class="enlace chico" type="button" id="fe-nunca">No mostrar más</button>`;
+    <button class="btn ch" type="button" id="fe-ej">${unica ? 'Ver mi ejemplar' : 'Ver mis ejemplares'}</button><button class="btn sec ch" type="button" id="fe-ap">Dejar mi apunte</button>${hito ? '<button class="btn sec ch" type="button" id="fe-lo">Compartir mi logro</button>' : ''}<button class="btn lin ch" type="button" id="fe-no">Ahora no</button><button class="enlace chico" type="button" id="fe-nunca">No mostrar más</button>`;
   document.body.appendChild(el);
   const quitar = () => { clearTimeout(t); el.remove(); };
   const t = setTimeout(quitar, 30000);
+  el.querySelector('#fe-ej').onclick = () => { quitar(); if (unica) abrirEjemplar(unica.id); else abrirAlbum(); };
   el.querySelector('#fe-ap').onclick = () => { quitar(); sumarApunte(unica ? unica.id : ''); };
   if (hito) el.querySelector('#fe-lo').onclick = () => { quitar(); compartirLogro(hito); };
   el.querySelector('#fe-no').onclick = quitar;
@@ -994,7 +1142,7 @@ Object.assign(ACC, {
 // Acciones registradas para la delegación de eventos (late binding: se resuelven al hacer clic).
 window.ACC = window.ACC || {};
 Object.assign(ACC, {
-  abrirLogros: (...a) => abrirLogros(...a), abrirEjemplar: (...a) => abrirEjemplar(...a), retirarEjemplar: (...a) => retirarEjemplar(...a), logroExtra: (...a) => logroExtra(...a), elegirMecenas: (...a) => elegirMecenas(...a), guardarMecenas: (...a) => guardarMecenas(...a), abrirPasarAmigo: (...a) => abrirPasarAmigo(...a), abrirQRPantalla: (...a) => abrirQRPantalla(...a),
+  abrirLogros: (...a) => abrirLogros(...a), abrirEjemplar: (...a) => abrirEjemplar(...a), abrirAlbum: (...a) => abrirAlbum(...a), retirarEjemplar: (...a) => retirarEjemplar(...a), logroExtra: (...a) => logroExtra(...a), elegirMecenas: (...a) => elegirMecenas(...a), guardarMecenas: (...a) => guardarMecenas(...a), abrirPasarAmigo: (...a) => abrirPasarAmigo(...a), abrirQRPantalla: (...a) => abrirQRPantalla(...a),
   abrirQueCursar: (...a) => abrirQueCursar(...a), arcDesafiar: (...a) => arcDesafiar(...a), bajarImagen: (...a) => bajarImagen(...a),
   bajarQR: (...a) => bajarQR(...a), compartirAvance: (...a) => compartirAvance(...a), compartirLogro: (...a) => compartirLogro(...a),
   compartirResultado: (...a) => compartirResultado(...a), copiarQueCursar: (...a) => copiarQueCursar(...a),
