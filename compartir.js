@@ -253,16 +253,16 @@ let PIGMENTOS = null;
 const cargarPigmentos = () => PIGMENTOS || (PIGMENTOS = json('pigmentos.json').then(d => d.pigmentos).catch(e => { PIGMENTOS = null; throw e; }));
 // Color de cada materia de la semana: su pigmento fijo; si otra de la misma semana ya lo usa (o no tiene, como las cargadas a mano),
 // el siguiente liso libre.
+// Dos pasadas, para que el color no dependa del orden en que se eligieron las comisiones: primero cada materia toma su pigmento si
+// nadie lo tomó; después las que quedaron (sin pigmento o repetido) toman el siguiente libre.
 function coloresSemana(ids, pigs) {
-  const lisos = pigs.filter(p => p.plano), usados = new Set(), out = {};
-  ids.forEach(id => {
-    const m = D.plan.materias.find(x => x.id === id || (x.opciones || []).some(o => o.id === id));
-    let i = m ? lisos.findIndex(p => p.nombre === m.pigmento) : -1;
-    if (i < 0 || usados.has(lisos[i].nombre)) {
-      const j = lisos.findIndex((p, k) => k > i && !usados.has(p.nombre)), k = j >= 0 ? j : lisos.findIndex(p => !usados.has(p.nombre));
-      i = k >= 0 ? k : (i >= 0 ? i : 0);
-    }
-    usados.add(lisos[i].nombre); out[id] = lisos[i].hex;
+  const lisos = pigs.filter(p => p.plano), usados = new Set(), out = {}, resto = [];
+  const propio = id => { const m = D.plan.materias.find(x => x.id === id || (x.opciones || []).some(o => o.id === id)); return m ? lisos.findIndex(p => p.nombre === m.pigmento) : -1; };
+  ids.forEach(id => { const i = propio(id); if (i >= 0 && !usados.has(lisos[i].nombre)) { usados.add(lisos[i].nombre); out[id] = lisos[i].hex; } else resto.push([id, i]); });
+  resto.forEach(([id, i]) => {
+    const j = lisos.findIndex((p, k) => k > i && !usados.has(p.nombre)), k = j >= 0 ? j : lisos.findIndex(p => !usados.has(p.nombre));
+    const x = k >= 0 ? k : (i >= 0 ? i : 0);
+    usados.add(lisos[x].nombre); out[id] = lisos[x].hex;
   });
   return out;
 }
@@ -321,13 +321,17 @@ function cvSemana(sel, titulo) {
     });
     // Leyenda: sigla y nombre de cada materia. Los nombres reales son largos: en la historia van en una columna hasta seis materias
     // (dos si hay más); en la cuadrada, en dos columnas (tres si hay más de seis).
-    const n = ids.length, cols = chico ? (n > 6 ? 3 : 2) : (n > 6 ? 2 : 1), x0 = 74, colw = 930 / cols;
-    const k = chico ? (cols === 3 ? 0.6 : 0.66) : (cols === 1 ? 0.9 : 0.8), fila = chico ? (cols === 3 ? 30 : 33) : (cols === 1 ? 48 : 50), ly = chico ? 895 : 1450;
+    // Si son muchas, las filas se achican para no pisar el pie. Las materias cargadas a mano dicen solo «Materia propia»: su nombre es
+    // texto libre y podría llevar datos personales.
+    const n = ids.length, cols = chico ? (n > 6 ? 3 : 2) : (n > 6 ? 2 : 1), x0 = 74, colw = 930 / cols, ly = chico ? 895 : 1450;
+    const fila0 = chico ? (cols === 3 ? 30 : 33) : (cols === 1 ? 48 : 50), achica = Math.min(1, (chico ? 92 : 300) / (Math.ceil(n / cols) * fila0));
+    const k = (chico ? (cols === 3 ? 0.6 : 0.66) : (cols === 1 ? 0.9 : 0.8)) * achica, fila = fila0 * achica;
+    const conocida = id => D.plan.materias.some(x => x.id === id || (x.opciones || []).some(o => o.id === id)) || !!extra(id);
     ids.forEach((id, j) => {
       const lx = x0 + (j % cols) * colw, yy = ly + Math.floor(j / cols) * fila;
       c.fillStyle = col[id]; c.fillRect(lx, yy, 40 * k, 40 * k);
       cvArriba(c, siglaMateria(id), lx + 54 * k, yy + 6 * k, 28 * k, 700, T.tinta, { max: 80 * k });
-      cvArriba(c, nombreMateria(id), lx + 128 * k, yy + 4 * k, 30 * k, 400, T.tinta, { fam: '"Literata", Georgia, serif', max: colw - 146 * k });
+      cvArriba(c, conocida(id) ? nombreMateria(id) : 'Materia propia', lx + 128 * k, yy + 4 * k, 30 * k, 400, T.tinta, { fam: '"Literata", Georgia, serif', max: colw - 146 * k });
     });
     cvGrano(c, 1080, H, T);
     cvPie2(c, 1080, H, T, chico);
@@ -435,23 +439,28 @@ function cvPlan(items) {
     c.font = `600 ${g.ks}px ${CV_FUENTE}`;
     const unaLinea = c.measureText(kick.join(' · ')).width * 1.12 <= W;
     (unaLinea ? [kick.join(' · ')] : kick).forEach((l, i) => cvArriba(c, l, x0, g.kt + i * g.ks * 1.4, g.ks, 600, T.kicker, { esp: 0.12, max: W }));
-    // Si la lista no entra, se achica todo junto (hasta un 60 %).
+    // Si la lista no entra, se achica todo junto (hasta un 60 %). Si igual no entra (quien va avanzado), las aprobadas van en un solo
+    // renglón, «N aprobadas», con el ejemplar de la primera, y se listan las regulares y las que cursa (Fidel, 16/11).
     const LIT = '"Literata", Georgia, serif';
-    let k = 1, filas;
-    const medir = k => items.map(m => {
+    const medir = (lista, k) => lista.map(m => {
       const t = g.t * k, gap = t * 0.28, f1 = g.f1 * k, f2 = g.f2 * k;
-      const ls = cvPartir(c, m.nombre, W - t - gap, `400 ${f1}px ${LIT}`), alto = ls.length * f1 * 1.1 + f2 * 1.3;
+      const ls = cvPartir(c, m.nombre, W - t - gap, `400 ${f1}px ${LIT}`), alto = ls.length * f1 * 1.1 + (m.resumen ? 0 : f2 * 1.3);
       return { m, t, gap, f1, f2, ls, alto, fila: Math.max(t, alto) };
     });
-    for (; ; k -= 0.05) {
-      filas = medir(k);
-      const total = filas.reduce((s, f) => s + f.fila + g.mb * k, 0) + g.nm * k + g.nota * k * 1.3;
-      if (g.lt + total <= g.fin || k <= 0.6) break;
-    }
+    const ajustar = lista => {
+      for (let k = 1; ; k -= 0.05) {
+        const filas = medir(lista, k), total = filas.reduce((s, f) => s + f.fila + g.mb * k, 0) + g.nm * k + g.nota * k * 1.3;
+        if (g.lt + total <= g.fin || k <= 0.6) return { k, filas, entra: g.lt + total <= g.fin };
+      }
+    };
+    let { k, filas, entra } = ajustar(items);
+    const aprob = items.filter(m => m.estado === 'aprobada');
+    if (!entra && aprob.length > 1) ({ k, filas } = ajustar([Object.assign({}, aprob[0], { resumen: true, nombre: aprob.length + ' aprobadas' }),
+      ...items.filter(m => m.estado !== 'aprobada')]));
     let y = g.lt;
     for (const f of filas) {
       const { m, t, gap, f1, f2, ls, alto, fila } = f, cy = y + (fila - t) / 2;
-      let etiqueta = m.estado, color;
+      let etiqueta = m.resumen ? '' : m.estado, color;
       if (m.estado === 'aprobada') {
         const lisos = pigs.filter(p => p.plano), pig = lisos.find(p => p.nombre === m.pigmento) || lisos[hashTexto(m.id) % lisos.length];
         const deNivel = banco.filter(b => b.nivel === pig.nivel), grab = (deNivel.length ? deNivel : banco)[hashTexto(m.id) % (deNivel.length || banco.length)];
