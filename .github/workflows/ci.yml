@@ -56,6 +56,10 @@ jobs:
         run: python tools/controlar_descargas.py
       - name: El design system (diseno/) está al día con tokens.css y componentes.css
         run: python tools/diseno_generar.py --comprobar
+      - name: Cada grabado de Compartir tiene sus máscaras y su crédito en /legal/
+        run: python tools/grabados_compartir.py --controlar
+      - name: Cada materia tiene su pigmento fijo («Mi semana»)
+        run: python tools/pigmentos_materias.py --controlar
       - name: Armar el sitio publicable (dist/)
         env:
           GALERA_EXIGIR_BUSCADOR: "1"

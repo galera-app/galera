@@ -8,11 +8,14 @@ Qué conserva: todos los caracteres que aparecen en el texto de dist/ (html, js,
 básico, latín-1 y extendido A, puntuación general (comillas, rayas, puntos suspensivos), ℹ, flechas y símbolos de moneda y
 matemáticos comunes. Instrument Sans: se fija el eje wdth (el sitio no usa font-stretch) y wght queda 400-700. Conserva y las features OpenType (kern, liga, tnum, pnum, case, frac, numr, dnom,
 ordn, ccmp, locl, rvrn, calt, ss01-ss12). Gótica: solo letras, dígitos y puntuación de capitulares (::first-letter) y del nombre «galera».
+Jacquard 24: solo latín básico, las letras del castellano y la puntuación de los textos de la imagen del desafío del Arcade
+(compartir.js la pide con las demás: el recorte pesa unos 5 KB).
 
 Licencias: Instrument Sans y Literata son SIL OFL 1.1 sin Reserved Font Name (el copyright dice «Project Authors»); un subconjunto
 es una versión modificada y se puede redistribuir con otro formato. UnifrakturMaguntia es OFL con Reserved Font Name
 «UnifrakturMaguntia»: la versión modificada no puede llevar ese nombre, así que el script renombra la familia interna a «Galera Gotica»
-(el nombre CSS del @font-face es un alias propio y no cambia). Los avisos de copyright y licencia del name table se conservan.
+(el nombre CSS del @font-face es un alias propio y no cambia). Jacquard 24 (The Soft Type Project Authors) es OFL 1.1 sin Reserved
+Font Name: el original de tools/fuentes-originales/ es el TTF de Google Fonts pasado a WOFF2 sin cambios. Los avisos de copyright y licencia del name table se conservan.
 
 Cuando se agregan textos con caracteres nuevos: armar dist, volver a correr este script y commitear fonts/. Si un carácter nuevo
 no está en el original (por ejemplo un símbolo raro), el navegador usa la fuente de sistema para ese carácter: se ve al correr
@@ -30,7 +33,9 @@ BASE = (set(range(0x20, 0x7F)) | set(range(0xA0, 0x180)) | set(range(0x2010, 0x2
         | {0x2139, 0x2190, 0x2191, 0x2192, 0x2193, 0x2194, 0x2197, 0x2198, 0x21A9, 0x2212, 0x00D7, 0x00F7, 0x2248, 0x2260, 0x2264, 0x2265, 0x2022, 0x00B7})
 FEATURES = ["kern", "liga", "clig", "calt", "tnum", "pnum", "lnum", "onum", "case", "frac", "numr", "dnom", "ordn", "ccmp", "locl", "rvrn", "mark", "mkmk", "rlig"] + [f"ss{i:02d}" for i in range(1, 13)]
 GOTICA = set(range(0x20, 0x7F)) | set(range(0xC0, 0x100)) | {0xA1, 0xBF, 0xAB, 0xBB, 0x201C, 0x201D, 0x2018, 0x2019}
-FUENTES = [("instrument-sans.woff2", None), ("literata.woff2", None), ("literata-italic.woff2", None), ("unifraktur.woff2", "gotica")]
+ARCADE = set(range(0x20, 0x7F)) | {ord(c) for c in "ÁÉÍÓÚÜÑáéíóúüñ¡¿«»“”‘’…·–—"}
+FUENTES = [("instrument-sans.woff2", None), ("literata.woff2", None), ("literata-italic.woff2", None), ("unifraktur.woff2", "gotica"),
+           ("jacquard-24.woff2", "arcade")]
 
 
 def caracteres_sitio(dist):
@@ -54,9 +59,9 @@ def main():
     for nombre, modo in FUENTES:
         orig = TTFont(ORIG / nombre)
         cmap = set(orig.getBestCmap())
-        if nombre != "unifraktur.woff2":
+        if modo is None:  # la gótica y la del Arcade no cubren el texto corriente del sitio
             cubiertos |= cmap
-        quiero = (GOTICA if modo == "gotica" else (sitio | BASE)) & cmap
+        quiero = {"gotica": GOTICA, "arcade": ARCADE}.get(modo, sitio | BASE) & cmap
         if a.ver:
             continue
         op = subset.Options()
