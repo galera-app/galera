@@ -183,7 +183,7 @@ let IMG_COMP = null, IMG_GEN = 0; // IMG_GEN: solo vale el último dibujo pedido
 const PREF_IMG = 'galera.imagen';
 function prefImagen() {
   let p = {}; try { p = JSON.parse(localStorage.getItem(PREF_IMG) || '{}') || {}; } catch (e) { }
-  return { tema: p.tema === 'oscuro' ? 'oscuro' : 'claro', formato: p.formato === 'cuadrada' ? 'cuadrada' : 'historia' };
+  return { tema: p.tema === 'oscuro' ? 'oscuro' : 'claro', formato: ['cuadrada', 'post'].indexOf(p.formato) >= 0 ? p.formato : 'historia' };
 }
 function elegirImagen(k, v) {
   if (!IMG_COMP || !IMG_COMP.o.dibujar) return;
@@ -197,11 +197,15 @@ async function abrirImagen(cv, o, redibujo) {
   let opc = '', p = null;
   if (o.dibujar) {
     p = prefImagen();
+    // o.formatos puede traer su propia lista ([valor, rótulo]); el ejemplar usa Post (1080×1350) e Historia. Quien eligió Cuadrada
+    // ve el Post y al revés: es la misma elección («para el feed»).
+    const fmts = Array.isArray(o.formatos) ? o.formatos : [['cuadrada', 'Cuadrada'], ['historia', 'Historia']];
+    if (!fmts.some(f => f[0] === p.formato)) p.formato = p.formato === 'historia' ? 'historia' : fmts[0][0];
     try { cv = await o.dibujar(CV_TEMA[p.tema], o.formatos === false ? null : p.formato); } catch (e) { return vigente() && aviso('No se pudo armar la imagen'); }
     if (!vigente()) return;
     const seg = (rotulo, k, ops) => `<div class="gl-seg" role="group" aria-label="${rotulo}">${ops.map(([v, n]) =>
       `<button type="button" class="${p[k] === v ? 'on' : ''}" aria-pressed="${p[k] === v}" data-clic="elegirImagen" data-clic-a="[${arg(k)},${arg(v)}]">${n}</button>`).join('')}</div>`;
-    opc = `<div class="img-comp-opc">${o.temas === false ? '' : seg('Fondo', 'tema', [['claro', 'Clara'], ['oscuro', 'Oscura']])}${o.formatos === false ? '' : seg('Formato', 'formato', [['cuadrada', 'Cuadrada'], ['historia', 'Historia']])}</div>`;
+    opc = `<div class="img-comp-opc">${o.temas === false ? '' : seg('Fondo', 'tema', [['claro', 'Clara'], ['oscuro', 'Oscura']])}${o.formatos === false ? '' : seg('Formato', 'formato', fmts)}</div>`;
   }
   const alt = typeof o.alt === 'function' ? o.alt(p) : o.alt;
   cv.toBlob(blob => {
@@ -545,6 +549,99 @@ function imagenPlan() {
   abrirImagen(null, { archivo: 'galera-mi-plan.png', titulo: 'Mi plan', tipo: 'plan', id: 'amigo', dibujar: cvPlan(items),
     intro: 'Sin tu nombre ni tus notas: solo las materias y en qué estado están.', texto: 'Así voy en la carrera. Armá tu plan en Galera: ' + BRAND.url,
     alt: 'Mi plan de Edición: ' + items.map(m => m.nombre + ', ' + m.estado).join('; ') + '.' });
+}
+
+// ---------- materia aprobada: el ejemplar (paso 19) ----------
+// Sorteo y reglas en ejemplar.js (NIVELES.md). La pieza porta tiradas.py y pigmentos.py de propuestas/2026-11-12-materia-aprobada/lienzo/:
+// el grabado sorteado en el pigmento (en oro, con degradé, si es numerado), la inicial gótica en azul, la cinta punteada,
+// «Aprobé {materia}», «Materia aprobada» y la etiqueta «{Nivel} · {pigmento}». El numerado suma filete doble y «Ejemplar N.º N».
+const datosEjemplar = () => Promise.all([cargarPigmentos(), cargarGrabados()]);
+const aprobadaSin = id => (E.materias[id] || {}).estado === 'aprobada' && !E.materias[id].ejemplar;
+// Sortea y guarda el ejemplar de las aprobadas que no lo tienen: al aprobar, o la primera vez que se mira una de antes de v180.
+async function asegurarEjemplares(ids) {
+  if (!ids.some(aprobadaSin)) return;
+  const [pigs, banco] = await datosEjemplar();
+  const falta = ids.filter(aprobadaSin);
+  falta.forEach(id => { mat(id).ejemplar = Ejemplar.sortear(pigs, banco); });
+  if (falta.length) guardar(true);
+}
+const nombreAprobada = id => { const m = datosMateria(id); return m ? nombreDe(m) : nombreMateria(id); };
+const inicial = s => (String(s).match(/\p{L}/u) || ['G'])[0].toUpperCase();
+const esOscuro = hex => { const [r, g, b] = [1, 3, 5].map(i => parseInt(hex.slice(i, i + 2), 16)); return r * 0.299 + g * 0.587 + b * 0.114 < 128; };
+// Tema de la pieza: lo pone el pigmento (papel, inicial y tinta), no la elección clara u oscura.
+const temaEjemplar = pig => { const os = esOscuro(pig.papel); return { papel: pig.papel, tinta: os ? '#F4EBD6' : '#1E1B18', azul: pig.azul, grano: os ? 0.08 : 0.3 }; };
+const tintaEjemplar = pig => pig.nivel === 'numerado' ? (k, w, h) => cvDegrade(k, w, h, CV_ORO) : pig.hex;
+// Medidas: la historia es la de tiradas.py; el post (1080×1350) la comprime a lo alto.
+const GEO_EJEMPLAR = {
+  historia: { H: 1920, gl: -200, gt: 260, gw: 780, gh: 1300, px: -330, py: 1420, ps: 1250, cinta: [[720, 0], [720, 420], [470, 420], [470, 1460], [0, 1460]],
+    x: 600, tt: 560, ts: 118, talto: 520, tmin: 60, k: 24, l: 30, sep: 40 },
+  post: { H: 1350, gl: -170, gt: 150, gw: 700, gh: 1000, px: -280, py: 1080, ps: 1000, cinta: [[700, 0], [700, 260], [450, 260], [450, 1100], [0, 1100]],
+    x: 580, tt: 330, ts: 104, talto: 430, tmin: 54, k: 22, l: 28, sep: 32 },
+};
+const LITERATA = '"Literata", Georgia, serif';
+function cvEjemplar(id) {
+  return async (_, formato) => {
+    const [[pigs, banco]] = await Promise.all([datosEjemplar(), document.fonts.load(`600 20px ${CV_FUENTE}`).catch(() => { }),
+      document.fonts.load(`italic 400 20px ${LITERATA}`).catch(() => { }), document.fonts.load(`400 20px ${CV_GOTICA}`).catch(() => { })]);
+    const r = Ejemplar.resolver(E.materias[id].ejemplar, pigs, banco, id), pig = r.pig, T = temaEjemplar(pig);
+    const g = GEO_EJEMPLAR[formato === 'post' ? 'post' : 'historia'], H = g.H, nombre = nombreAprobada(id), num = pig.nivel === 'numerado';
+    const [cv, c] = cvPapel(1080, H, T);
+    await cvGrabado(c, r.grab.id, g.gl, g.gt, g.gw, g.gh, tintaEjemplar(pig), 0.9);
+    // Inicial: recortada antes del título, para que una M o una W anchas no lo pisen.
+    c.save(); c.beginPath(); c.rect(0, 0, g.x - 24, H); c.clip();
+    c.font = `400 ${g.ps}px ${CV_GOTICA}`; c.textAlign = 'left'; c.textBaseline = 'alphabetic'; c.fillStyle = pig.azul; c.fillText(inicial(nombre), g.px, g.py);
+    c.restore();
+    c.save(); c.strokeStyle = pig.azul; c.lineWidth = 5; c.lineCap = 'round'; c.setLineDash([2, 12]); c.beginPath();
+    g.cinta.forEach(([x, y], i) => i ? c.lineTo(x, y) : c.moveTo(x, y)); c.stroke(); c.restore();
+    const [tx, ty] = g.cinta[1];
+    c.fillStyle = pig.hex; c.beginPath(); c.moveTo(tx, ty); c.lineTo(tx + 60, ty); c.lineTo(tx, ty + 60); c.closePath(); c.fill();
+    // Título: «Aprobé» y el nombre, del cuerpo más grande en que entran todas las palabras y el alto disponible.
+    const W = 1080 - 60 - g.x;
+    let px = g.ts, ls;
+    for (; ; px -= 4) {
+      ls = ['Aprobé'].concat(cvPartir(c, nombre, W, `600 ${px}px ${CV_FUENTE}`));
+      if (px <= g.tmin || (ls.length * px <= g.talto && ls.every(l => c.measureText(l).width * 0.965 <= W))) break;
+    }
+    ls.forEach((l, i) => cvArriba(c, l, g.x, g.tt + i * px, px, 600, T.tinta, { esp: -0.035, max: W }));
+    let y = g.tt + ls.length * px + g.sep;
+    cvArriba(c, 'Materia aprobada', g.x + 4, y, g.k, 600, pig.hex, { esp: 0.12, max: W });
+    y += g.k * 1.7;
+    cvPartir(c, Ejemplar.etiqueta(pig), W, `italic 400 ${g.l}px ${LITERATA}`).forEach(l => { cvArriba(c, l, g.x + 4, y, g.l, 'italic 400', T.tinta, { fam: LITERATA }); y += g.l * 1.35; });
+    if (num) {
+      cvArriba(c, 'Ejemplar N.º ' + r.n, g.x + 4, y + g.l * 0.9, g.l, 400, pig.hex, { fam: LITERATA });
+      c.save(); c.globalAlpha = 0.8; c.strokeStyle = pig.hex;
+      c.lineWidth = 3; c.strokeRect(41.5, 41.5, 1080 - 83, H - 83);
+      c.lineWidth = 1; c.strokeRect(52.5, 52.5, 1080 - 105, H - 105);
+      c.restore();
+    }
+    cvGrano(c, 1080, H, T);
+    cvPie2(c, 1080, H, T, false);
+    return cv;
+  };
+}
+async function abrirEjemplar(id) {
+  if (V.demo) return aviso('Estás viendo el ejemplo: salí del ejemplo para ver tus ejemplares');
+  try { await asegurarEjemplares([id]); } catch (e) { return aviso('No se pudo armar la imagen'); }
+  if (!(E.materias[id] || {}).ejemplar) return aviso('Marcá primero la materia como aprobada');
+  let r;
+  try { const [pigs, banco] = await datosEjemplar(); r = Ejemplar.resolver(E.materias[id].ejemplar, pigs, banco, id); } catch (e) { return aviso('No se pudo armar la imagen'); }
+  const nombre = nombreAprobada(id), etiqueta = Ejemplar.etiqueta(r.pig) + (r.n ? ' · N.º ' + r.n : '');
+  abrirImagen(null, { archivo: 'galera-aprobe-' + id + '.png', titulo: 'Tu ejemplar', tipo: 'ejemplar', id, dibujar: cvEjemplar(id), temas: false,
+    formatos: [['post', 'Post'], ['historia', 'Historia']],
+    // TEXTOS PROVISORIOS (paso 19): esperan la voz de Fidel.
+    intro: etiqueta + '. Se sorteó al aprobar y queda con la materia.', texto: 'Aprobé ' + nombre + '. Mi ejemplar: ' + etiqueta + '. ' + BRAND.url,
+    alt: 'Aprobé ' + nombre + '. Ejemplar: ' + etiqueta + '.',
+    botones: (r.retiro ? `<button class="btn lin" type="button" ${dAcc('retirarEjemplar', id)}>Volver a tirar (una sola vez)</button>` : '') });
+}
+// Un solo re-tiro por materia: vuelve a sortear pigmento, fondo y número, y queda fijo.
+async function retirarEjemplar(id) {
+  const ej = (E.materias[id] || {}).ejemplar;
+  if (!ej || ej.r) return;
+  if (!await confirmar('Se vuelven a sortear el pigmento, el fondo y el número. Es una sola vez: lo que salga queda fijo.', 'Volver a tirar', 'Me quedo con este')) return;
+  try { const [pigs, banco] = await datosEjemplar(); mat(id).ejemplar = Ejemplar.retirar(ej, pigs, banco); } catch (e) { return aviso('No se pudo volver a tirar'); }
+  guardar(true);
+  medir('ejemplar_retiro', { item_id: id });
+  abrirEjemplar(id);
 }
 
 // ---------- «¿Le sirve a alguien?» ----------
@@ -897,7 +994,7 @@ Object.assign(ACC, {
 // Acciones registradas para la delegación de eventos (late binding: se resuelven al hacer clic).
 window.ACC = window.ACC || {};
 Object.assign(ACC, {
-  abrirLogros: (...a) => abrirLogros(...a), logroExtra: (...a) => logroExtra(...a), elegirMecenas: (...a) => elegirMecenas(...a), guardarMecenas: (...a) => guardarMecenas(...a), abrirPasarAmigo: (...a) => abrirPasarAmigo(...a), abrirQRPantalla: (...a) => abrirQRPantalla(...a),
+  abrirLogros: (...a) => abrirLogros(...a), abrirEjemplar: (...a) => abrirEjemplar(...a), retirarEjemplar: (...a) => retirarEjemplar(...a), logroExtra: (...a) => logroExtra(...a), elegirMecenas: (...a) => elegirMecenas(...a), guardarMecenas: (...a) => guardarMecenas(...a), abrirPasarAmigo: (...a) => abrirPasarAmigo(...a), abrirQRPantalla: (...a) => abrirQRPantalla(...a),
   abrirQueCursar: (...a) => abrirQueCursar(...a), arcDesafiar: (...a) => arcDesafiar(...a), bajarImagen: (...a) => bajarImagen(...a),
   bajarQR: (...a) => bajarQR(...a), compartirAvance: (...a) => compartirAvance(...a), compartirLogro: (...a) => compartirLogro(...a),
   compartirResultado: (...a) => compartirResultado(...a), copiarQueCursar: (...a) => copiarQueCursar(...a),
