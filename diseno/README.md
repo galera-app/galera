@@ -25,7 +25,6 @@ Lo genera `python tools/diseno_generar.py` leyendo `tokens.css` y `componentes.c
 | [`tokens.json`](tokens.json) | Tokens en formato W3C, claro y oscuro (Figma, Tokens Studio). |
 | [`contrastes.md`](contrastes.md) | Contraste WCAG de los pares que usa el sitio, calculado. |
 | `vista.html` | Página para mirar colores, escala y componentes con los CSS reales. Base del artifact. Se genera fuera del repo con `--vista <carpeta>` (no es una página del sitio). |
-
 | Artifact «Design System» | La vista compartida entre las dos cuentas: [claude.ai/artifact/F5Xh9iymVB1yguGxd1nsYD](https://claude.ai/artifact/F5Xh9iymVB1yguGxd1nsYD). Su contenido (`project/`) sale de `--artifact <carpeta>`, fuera del repo; el índice con los íconos subidos se escribe al publicar. Lo que se edite ahí no vuelve al repo. |
 
 La carpeta no se publica en el sitio (`NO_PUBLICAR` en `tools/armar.py`).
