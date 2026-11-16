@@ -5,6 +5,7 @@ Falla si:
 - queda un manejador en línea (onclick="…", onchange="…", etc.) en un HTML, una plantilla, un JS de la app o tools/armar.py;
 - un data-<evento>="nombre" o dAcc('nombre') apunta a algo que no está en ACC.
 Uso: python tools/controlar_acciones.py        (desde la raíz del repo)
+     python tools/controlar_acciones.py --listar  (imprime en JSON las acciones registradas; lo usa tools/recorridos.py)
 """
 import re, sys
 from pathlib import Path
@@ -29,6 +30,11 @@ for nombre_js in JS:
     for bloque in re.finditer(r"Object\.assign\(ACC, \{\n(.*?)\n\s*\}\);", t, re.S):
         registradas |= set(re.findall(r"^\s{2,4}([A-Za-z_$][\w$]*): \(", bloque.group(1), re.M))
         registradas |= set(re.findall(r"^\s{2,4}([A-Za-z_$][\w$]*): [^\n]*=>", bloque.group(1), re.M))
+
+if "--listar" in sys.argv:
+    import json
+    print(json.dumps(sorted(registradas), ensure_ascii=False))
+    sys.exit(0)
 
 fuentes = [RAIZ / j for j in JS] + [RAIZ / "tools" / "armar.py"] + sorted((RAIZ / "marco").glob("*.tpl")) + [RAIZ / "marco" / "sitio.json"]
 fuentes += [p for p in RAIZ.rglob("*.html") if ".claude" not in p.parts and "node_modules" not in p.parts and "dist" not in p.parts]

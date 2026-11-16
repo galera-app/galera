@@ -86,6 +86,10 @@ jobs:
           pip install playwright==1.65.2
           python -m playwright install --with-deps chromium webkit
           python tools/navegador.py --navegador todos --dist dist --estados
+      - name: "Recorridos punta a punta y acciones sin recorrido (Chromium y WebKit)"
+        run: |
+          python tools/recorridos.py --autoprueba
+          python tools/recorridos.py --navegador todos --dist dist
       - name: SEO y vista previa (cero fallas)
         run: python tools/verificar_seo.py dist --dominio https://galera.com.ar
 

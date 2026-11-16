@@ -31,6 +31,16 @@ Cuatro niveles, de lo más barato a lo más caro. Todo corre desde la raíz del 
 - `--estados` además abre `/carrera/` con cada archivo de `tools/estados/`. Sin Pagefind en `dist`, `/buscar/` se saltea salvo `GALERA_EXIGIR_BUSCADOR=1` (el CI lo exige).
 - Estados de ejemplo: `tools/estados/*.json`. Para sumar uno, copiá un estado exportado desde «Tus datos», sacale lo personal y probalo con `node --test tools/pruebas/estados.test.js`.
 
+### Recorridos punta a punta y trinquete de acciones: `python tools/recorridos.py --navegador chromium|webkit|todos`
+
+- Mismo `dist`, mismo celular y mismas condiciones de falla que `navegador.py` (lo importa: `servir`, `preparar_contexto`, `observar`, `comparar_estado`). Corre en el CI después de «Navegador real», con `--autoprueba` antes.
+- **Siete recorridos de riesgo**, en Chromium y WebKit: (1) cargar una materia aprobada con nota desde la pantalla y volver a abrir, (2) exportar la copia, (3) borrar todo (con el diálogo propio de `confirmar()`), (4) importar la copia del recorrido 2 en un navegador vacío, (5) traspaso por link (se genera y se abre en un contexto nuevo), (6) compartir un apunte (con `navigator.share` y `clipboard.writeText` reemplazados; se prueba cada vía) y (7) consentimiento de Analytics (sin elegir y con «Rechazar» no sale ningún pedido a `googletagmanager.com`; con «Aceptar» se intenta).
+- **Qué acciones se ejecutaron:** un init script escucha los mismos 8 eventos que el despachador de `app.js` y reporta cada `data-<evento>` que ve; no se toca `app.js`. La lista de acciones registradas sale de `python tools/controlar_acciones.py --listar`.
+- **Barrido** (solo Chromium): después de los recorridos, en cada pantalla de `marco/sitio.json`, cada simulador y un apunte, se toca (con `element.click()`) el primer elemento visible de cada `data-clic` que todavía no se vio. Quedan afuera las acciones de `NO_TOCAR` (borran, recargan, imprimen o descargan, con el motivo de cada una) y `/buscar/` (ya la cubre `navegador.py`, y sin Pagefind local cambiaría la lista). Tope de 4 minutos por navegador: si se pasa, se recorta el barrido, no los recorridos de riesgo.
+- **Trinquete:** `tools/acciones-sin-recorrido.json` lista las acciones registradas que ningún recorrido ejecuta. Falla si una acción registrada no se ejecutó y no está en la lista (acción nueva sin recorrido: sumale un recorrido), si una de la lista sí se ejecutó (sacala: solo se achica) o si la lista nombra una acción que ya no existe. `--actualizar` reescribe la lista con lo que quedó sin ejecutar y solo puede achicarla; sumar una a mano es empeorarlo a propósito y se explica en el commit.
+- En local, sin navegadores de Playwright: usar el Chrome del sistema con `BrowserType.launch(channel="chrome")` (un envoltorio de diez líneas). WebKit solo corre en el CI.
+- No se persigue vaciar la lista en este paso. El primer barrido encontró un error del sitio: en el comparador de escandallo, «Vaciar», «Quitar» y «＋ Título» tiran un `TypeError` que rompe el dibujo (`n2` ← `cmpPasos`). Las tres quedan en `NO_TOCAR` hasta que se arregle.
+
 ## 4. Rendimiento con presupuesto (paso 21)
 
 Trabajo `rendimiento` del CI, aparte de `controles`. Las tres medidas arrancan con el valor de hoy y no pueden empeorar; la base es `tools/rendimiento-base.json` (con fecha y origen). No se fijan metas.
