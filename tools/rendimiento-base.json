@@ -1,0 +1,54 @@
+{
+  "pesos": {
+    "archivos": {
+      "app.js": {
+        "bytes": 469009,
+        "gzip": 143579
+      },
+      "componentes.css": {
+        "bytes": 87556,
+        "gzip": 16109
+      },
+      "estilos.css": {
+        "bytes": 57845,
+        "gzip": 12647
+      },
+      "galera.css": {
+        "bytes": 12028,
+        "gzip": 3185
+      },
+      "tokens.css": {
+        "bytes": 2354,
+        "gzip": 770
+      }
+    },
+    "paginas": {
+      "/": {
+        "bytes": 767483,
+        "gzip": 222277,
+        "archivos": 13
+      },
+      "/r/0905/e2-soportes-y-papel.html": {
+        "bytes": 840253,
+        "gzip": 243673,
+        "archivos": 13
+      },
+      "/simuladores/escandallo.html": {
+        "bytes": 787296,
+        "gzip": 226140,
+        "archivos": 13
+      },
+      "/directorio/": {
+        "bytes": 1258191,
+        "gzip": 248637,
+        "archivos": 13
+      },
+      "/carrera/": {
+        "bytes": 792084,
+        "gzip": 224110,
+        "archivos": 13
+      }
+    },
+    "fecha": "2026-11-16"
+  }
+}

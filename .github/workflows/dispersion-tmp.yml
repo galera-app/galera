@@ -1,0 +1,29 @@
+# TEMPORAL (paso 21): 5 corridas del trabajo de rendimiento para anotar la dispersión. Se borra antes de mergear.
+name: Dispersion temporal
+on:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  d:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        n: [1, 2, 3, 4, 5]
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: "22"
+      - run: |
+          pip install "pagefind[extended]==1.6.0" rjsmin==1.3.0 rcssmin==1.3.0 playwright==1.65.2
+          python -m playwright install --with-deps chromium
+          python tools/armar.py --salida dist
+          python tools/pesos.py dist || true
+          python tools/rendimiento.py dist --salida m.json || true
+          echo "DISPERSION-JSON-BEGIN"; python -c "import json;print(json.dumps(json.load(open('m.json'))))"; echo "DISPERSION-JSON-END"
+        env:
+          GALERA_EXIGIR_BUSCADOR: "1"
