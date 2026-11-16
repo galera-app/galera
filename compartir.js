@@ -87,14 +87,14 @@ function cvCargarGrabado(nombre) {
   });
   return GRABADOS[nombre];
 }
-// Grabado teñido de un color: cubre el rectángulo (como background-size:cover) y se tiñe con source-in en un canvas aparte.
+// Grabado teñido de un color (o de un degradé: color puede ser una función (ctx, w, h) que lo arma): cubre el rectángulo (como background-size:cover) y se tiñe con source-in en un canvas aparte.
 // nombre: id del grabado, o id-recorte («stradanus-semana-historia»). Devuelve una promesa.
 async function cvGrabado(c, nombre, x, y, w, h, color, alfa) {
   const im = await cvCargarGrabado(nombre);
   const t = document.createElement('canvas'); t.width = Math.round(w); t.height = Math.round(h);
   const k = t.getContext('2d'), e = Math.max(w / im.width, h / im.height);
   k.drawImage(im, (w - im.width * e) / 2, (h - im.height * e) / 2, im.width * e, im.height * e);
-  k.globalCompositeOperation = 'source-in'; k.fillStyle = color; k.fillRect(0, 0, w, h);
+  k.globalCompositeOperation = 'source-in'; k.fillStyle = typeof color === 'function' ? color(k, w, h) : color; k.fillRect(0, 0, w, h);
   c.save(); c.globalAlpha = alfa == null ? 0.85 : alfa; c.drawImage(t, x, y); c.restore();
 }
 // Letra gótica grande en azul: multiply sobre el papel claro y screen sobre el oscuro, para que el grabado se vea a través.
@@ -121,6 +121,57 @@ function cvPie2(c, w, h, T) {
   const g = c.measureText('g').width;
   c.fillStyle = T.azul; c.fillText('g', 80, y); c.fillStyle = T.tinta; c.fillText('alera', 80 + g, y);
   cvTexto(c, BRAND.sitio, w - 80, y, 30, 400, T.tinta, 'right');
+}
+
+// ---------- lámina de mecenas (v175) ----------
+// Aporte mensual: grabado de oficio en una tinta, enmarcado, con la inicial gótica de la figura en la esquina y el nombre como
+// pie de foto. El pigmento sale del nivel de aporte (bermellón, múrice, oro y ultramar); el grabado, de E.extras.mecenas.g.
+// Diseño B de propuestas/2026-11-15-mecenas/mecenas2.py (comp_b). Sin monto ni nombre de quien aporta.
+const CV_ORO = [[0, '#7A5A16'], [0.28, '#D9B04E'], [0.45, '#F3DC8C'], [0.62, '#B88A2A'], [0.8, '#E8C66A'], [1, '#7A5A16']];
+const CV_MECENAS = {
+  1: { papel: '#EEE6D3', tinta: '#1E1B18', grab: '#E0412C', acento: '#E0412C', azul: '#0671E0', pigmento: 'bermellón' },
+  2: { papel: '#F2ECE6', tinta: '#231A20', grab: '#7B2D5E', acento: '#7B2D5E', azul: '#0671E0', pigmento: 'púrpura de múrice' },
+  3: { papel: '#14213D', tinta: '#F4EBD6', grab: CV_ORO, acento: '#D9B04E', azul: '#5AA9F5', pigmento: 'oro sobre ultramar' },
+};
+// Degradé a 135° como el linear-gradient de CSS: la línea pasa por el centro y llega a las esquinas.
+function cvDegrade(k, w, h, paradas) {
+  const r = (w + h) / 4, g = k.createLinearGradient(w / 2 - r, h / 2 - r, w / 2 + r, h / 2 + r);
+  paradas.forEach(([o, c]) => g.addColorStop(o, c));
+  return g;
+}
+async function cvMecenas(n, fig, grabado) {
+  const P = CV_MECENAS[n], W = 1080;
+  try { await Promise.all(['italic 400 48px "Literata"', '400 330px "UnifrakturMaguntia"', '600 22px "Instrument Sans"'].map(f => document.fonts.load(f))); } catch (e) { }
+  const [cv, c] = cvPapel(W, W, P);
+  // Cinta de puntos en la tinta de la lámina, que se apaga hacia la derecha.
+  c.fillStyle = P.tinta;
+  for (let j = 0; j < 4; j++) for (let i = 0; i < W / 12; i++) {
+    const a = Math.max(0, 1 - (i * 12) / (W * 0.6)) * 0.45;
+    if (a > 0.02) { c.globalAlpha = a; c.beginPath(); c.arc(i * 12 + 6, j * 12 + 8, 3, 0, 7); c.fill(); }
+  }
+  c.globalAlpha = 1;
+  // Lámina: filete de 2 px en el acento (720 × 640) y el grabado adentro, con 14 px de aire.
+  c.strokeStyle = P.acento; c.lineWidth = 2; c.strokeRect(181, 91, 718, 638);
+  await cvGrabado(c, grabado, 196, 106, 688, 608, Array.isArray(P.grab) ? (k, w, h) => cvDegrade(k, w, h, P.grab) : P.grab, 1);
+  // Capitular montada sobre la esquina: recuadro del color del papel y la inicial en el azul.
+  c.fillStyle = P.papel; c.fillRect(96, 30, 250, 290);
+  c.font = `400 330px ${CV_GOTICA}`; c.textAlign = 'left'; c.textBaseline = 'alphabetic'; c.fillStyle = P.azul;
+  c.fillText(fig.nombre[0], 110, 270);
+  // Pie de foto: el nombre en Literata itálica y «Mecenas de Galera» en versalitas, en el acento.
+  c.font = `italic 400 48px "Literata", Georgia, serif`; c.textAlign = 'center'; c.fillStyle = P.tinta;
+  c.fillText(fig.nombre, W / 2, 812);
+  c.font = `600 22px ${CV_FUENTE}`; c.fillStyle = P.acento;
+  if ('letterSpacing' in c) c.letterSpacing = '2.6px';
+  c.fillText('MECENAS DE GALERA', W / 2 + 1.3, 870);
+  if ('letterSpacing' in c) c.letterSpacing = '0px';
+  // Pie de siempre: línea, «galera» con la g azul y galera.com.ar.
+  c.globalAlpha = 0.25; c.fillStyle = P.tinta; c.fillRect(80, 940, 920, 2); c.globalAlpha = 1;
+  c.font = `400 76px ${CV_GOTICA}`; c.textAlign = 'left';
+  const g = c.measureText('g').width;
+  c.fillStyle = P.azul; c.fillText('g', 80, 1028); c.fillStyle = P.tinta; c.fillText('alera', 80 + g, 1028);
+  c.globalAlpha = 0.75; cvTexto(c, BRAND.sitio, 1000, 1024, 30, 400, P.tinta, 'right'); c.globalAlpha = 1;
+  cvGrano(c, W, W, { grano: 0.25 });
+  return cv;
 }
 
 // Diálogo con la imagen armada: se puede compartir (si el sistema lo permite) o bajar. Se muestra con data: porque la CSP no admite blob: en img.
@@ -396,10 +447,19 @@ const hitosCruzados = (prev, ahora, T) => HITOS_AVANCE.filter(n => pctAvance(pre
 function compartirLogro(id) {
   const g = logros().find(x => x.id === id);
   if (!g) return aviso('Ese logro todavía no está');
+  if (id === 'mecenas') return compartirMecenas(g);
   const cv = cvDato({ kicker: g.kicker, grande: g.grande, barra: g.barra == null ? null : g.barra, lineas: [[g.frase, 54, 700], [g.detalle || '', 36, 400]].filter(l => l[0]) });
   abrirImagen(cv, { archivo: 'galera-logro-' + id + '.png', titulo: 'Mi logro', tipo: 'logro', id,
     intro: 'Solo el logro: sin materias, notas ni nombre. Vos decidís si lo compartís.', texto: g.texto,
     alt: `Tarjeta con el logro: ${g.frase} ${g.detalle || ''} Galera.` });
+}
+async function compartirMecenas(g) {
+  const M = E.extras.mecenas, fig = MECENAS[M.n].find(f => f.id === M.fig);
+  let cv;
+  try { cv = await cvMecenas(M.n, fig, M.g); } catch (e) { return aviso('No se pudo armar la imagen'); }
+  abrirImagen(cv, { archivo: 'galera-mecenas.png', titulo: 'Mi tarjeta', tipo: 'logro', id: 'mecenas',
+    intro: 'Tu lámina de mecenas, sin el monto ni tu nombre. Vos decidís si la compartís.', texto: g.texto,
+    alt: `Lámina: un grabado antiguo de un oficio del libro en ${CV_MECENAS[M.n].pigmento}, con la inicial gótica ${fig.nombre[0]} y el pie «${fig.nombre}, mecenas de Galera». Galera.` });
 }
 function abrirLogros() {
   if (V.demo) return aviso('Estás viendo el ejemplo: salí del ejemplo para ver tus logros');
@@ -438,7 +498,9 @@ function elegirMecenas(n) {
 }
 function guardarMecenas(n, fig) {
   if (V.demo || !(MECENAS[n] || []).some(f => f.id === fig)) return;
-  E.extras.mecenas = { n: String(n), fig, f: hoy() }; guardar(true); medir('logro_extra', { item_id: 'aporte' + n });
+  // El grabado se sortea al elegir la figura y queda guardado; si se vuelve a elegir la misma, se conserva.
+  const M = E.extras.mecenas, g = M && M.n === String(n) && M.fig === fig ? M.g : MECENAS_GRABADOS[Math.floor(Math.random() * MECENAS_GRABADOS.length)];
+  E.extras.mecenas = { n: String(n), fig, f: hoy(), g }; guardar(true); medir('logro_extra', { item_id: 'aporte' + n });
   compartirLogro('mecenas');
 }
 

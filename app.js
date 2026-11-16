@@ -63,6 +63,9 @@ const MECENAS = {
   3: [{ id: 'a', nombre: 'Victoria Ocampo', corto: 'Victoria', dato: 'Fundó la revista Sur en 1931 y, dos años después, la editorial.' },
     { id: 'b', nombre: 'Federico de Montefeltro', corto: 'Federico', dato: 'Duque de Urbino: armó una de las bibliotecas de manuscritos más famosas de su tiempo.' }]
 };
+// Banco de la lámina de mecenas (v175): los grabados de oficio de datos/grabados.json (nivel «tirada»; el CI lo controla con
+// tools/grabados_compartir.py). Se sortea uno al elegir la figura y queda guardado en E.extras.mecenas.g.
+const MECENAS_GRABADOS = ['imprenta', 'encuadernador', 'papelero', 'fundidor', 'grabador', 'briefmaler', 'dibujante', 'monje', 'stradanus', 'diderot-caja'];
 
 // ---------- utilidades ----------
 const $ = (s, el = document) => el.querySelector(s);
@@ -269,7 +272,11 @@ function normalizar(e) {
   const X = e.extras && typeof e.extras === 'object' ? e.extras : {};
   ['mail', 'cafe', 'resumen', 'respuesta'].forEach(k => { if (RE_FECHA.test(X[k] || '')) out.extras[k] = X[k]; });
   const MX = X.mecenas;
-  if (MX && typeof MX === 'object' && /^[123]$/.test(MX.n) && (MX.fig === 'a' || MX.fig === 'b') && RE_FECHA.test(MX.f || '')) out.extras.mecenas = { n: String(MX.n), fig: MX.fig, f: MX.f };
+  if (MX && typeof MX === 'object' && /^[123]$/.test(MX.n) && (MX.fig === 'a' || MX.fig === 'b') && RE_FECHA.test(MX.f || '')) {
+    // v175: el grabado de la lámina. Las tarjetas de v174 no lo traen: se deriva de la fecha y la figura, así sale siempre el mismo.
+    const sem = [...MX.f + MX.n + MX.fig].reduce((s, ch) => (s * 31 + ch.charCodeAt(0)) % 9973, 7);
+    out.extras.mecenas = { n: String(MX.n), fig: MX.fig, f: MX.f, g: MECENAS_GRABADOS.includes(MX.g) ? MX.g : MECENAS_GRABADOS[sem % MECENAS_GRABADOS.length] };
+  }
   out.arcade = typeof Arcade === 'undefined' ? (e.arcade && typeof e.arcade === 'object' ? JSON.parse(JSON.stringify(e.arcade)) : null) : Arcade.sanear(e.arcade);   // Arcade de Corrección de Estilo: iniciales y top local por tablero
   // Último formato de descarga elegido (solo uno de los conocidos).
   out.descarga = ['A4', 'A5', 'cuadernillo', 'epub'].indexOf(e.descarga) >= 0 ? e.descarga : '';
