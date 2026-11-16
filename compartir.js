@@ -178,7 +178,7 @@ async function cvMecenas(n, fig, grabado) {
 // Diálogo con la imagen armada: se puede compartir (si el sistema lo permite) o bajar. Se muestra con data: porque la CSP no admite blob: en img.
 // Las piezas de la línea de afiche traen o.dibujar(tema, formato), que devuelve el canvas (o una promesa): el diálogo suma
 // Clara u Oscura (CP4: lo elige quien comparte) y Cuadrada o Historia, y vuelve a dibujar con cada cambio. o.formatos === false
-// deja solo el tema. La última elección se recuerda en este navegador. Las piezas sin dibujar pasan el canvas hecho, como antes.
+// deja solo el tema y o.temas === false, solo el formato; o.botones suma botones antes de Cerrar. La última elección se recuerda en este navegador. Las piezas sin dibujar pasan el canvas hecho, como antes.
 let IMG_COMP = null, IMG_GEN = 0; // IMG_GEN: solo vale el último dibujo pedido (dos toques seguidos o cerrar a mitad de camino)
 const PREF_IMG = 'galera.imagen';
 function prefImagen() {
@@ -201,7 +201,7 @@ async function abrirImagen(cv, o, redibujo) {
     if (!vigente()) return;
     const seg = (rotulo, k, ops) => `<div class="gl-seg" role="group" aria-label="${rotulo}">${ops.map(([v, n]) =>
       `<button type="button" class="${p[k] === v ? 'on' : ''}" aria-pressed="${p[k] === v}" data-clic="elegirImagen" data-clic-a="[${arg(k)},${arg(v)}]">${n}</button>`).join('')}</div>`;
-    opc = `<div class="img-comp-opc">${seg('Fondo', 'tema', [['claro', 'Clara'], ['oscuro', 'Oscura']])}${o.formatos === false ? '' : seg('Formato', 'formato', [['cuadrada', 'Cuadrada'], ['historia', 'Historia']])}</div>`;
+    opc = `<div class="img-comp-opc">${o.temas === false ? '' : seg('Fondo', 'tema', [['claro', 'Clara'], ['oscuro', 'Oscura']])}${o.formatos === false ? '' : seg('Formato', 'formato', [['cuadrada', 'Cuadrada'], ['historia', 'Historia']])}</div>`;
   }
   const alt = typeof o.alt === 'function' ? o.alt(p) : o.alt;
   cv.toBlob(blob => {
@@ -212,7 +212,7 @@ async function abrirImagen(cv, o, redibujo) {
     IMG_COMP = { blob, file, o };
     abrir(cab(o.titulo) + `<p class="chico tenue u-margin-top-0">${esc(o.intro)}</p>${opc}
       <img class="img-comp" src="${cv.toDataURL('image/png')}" alt="${esc(alt)}" width="${cv.width}" height="${cv.height}">
-      <div class="botones">${puede ? '<button class="btn" data-clic="enviarImagen">Compartir</button>' : ''}<button class="btn ${puede ? 'sec' : ''}" data-clic="bajarImagen">Descargar (.png)</button><button class="btn lin" data-clic="cerrar">Cerrar</button></div>`, 'img-comp');
+      <div class="botones">${puede ? '<button class="btn" data-clic="enviarImagen">Compartir</button>' : ''}<button class="btn ${puede ? 'sec' : ''}" data-clic="bajarImagen">Descargar (.png)</button>${o.botones || ''}<button class="btn lin" data-clic="cerrar">Cerrar</button></div>`, 'img-comp');
   }, 'image/png');
 }
 function enviarImagen() {
@@ -771,14 +771,87 @@ function rndSemilla(s) {
   return () => { a = (a + 0x6D2B79F5) >>> 0; let t = a; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
 }
 const semillaNueva = () => Math.random().toString(36).slice(2, 8).padEnd(6, '0');
-let DESAFIO_URL = '';
+let DESAFIO_URL = '', DESAFIO_TXT = '', DESAFIO_DIB = null, DESAFIO_TAB = '', BAJANDO_ENLACE = false;
+// Imagen del desafío (CP2, A3): fondo y colores del Arcade (SH1: conserva sus glifos), un grabado del banco sorteado y teñido de cian,
+// «¿Me superás?» en Jacquard 24 y el puntaje. Ya es oscura, así que no lleva selector de tema. Medidas de lienzo/desafio_arcade.py.
+// El 1200×630 queda solo para bajar: un sitio estático no puede servir una vista previa distinta para cada #desafio.
+const ARC_COL = { fondo: '#12142b', texto: '#f4f1ff', tenue: '#b9bde6', oro: '#ffd23f', cian: '#66e8ff', rosa: '#ff8ad8' };
+const ARC_TEMA = { papel: ARC_COL.fondo, tinta: ARC_COL.texto, azul: '#5AA9F5', grano: 0.2 };
+function cvDesafio(tablero, puntos) {
+  let fondo = null; // un grabado por diálogo
+  const pts = arcCero(puntos), tab = arcNombre(tablero);
+  return async (T, formato) => {
+    const banco = await cargarGrabados();
+    if (!fondo) fondo = banco[Math.floor(Math.random() * banco.length)].id;
+    await document.fonts.load('400 40px "Jacquard 24"').catch(() => { });
+    const W = formato === 'enlace' ? 1200 : 1080, H = formato === 'enlace' ? 630 : formato === 'cuadrada' ? 1080 : 1920;
+    const [cv, c] = cvPapel(W, H, ARC_TEMA);
+    const caja = (x, y, w, h) => { c.fillStyle = ARC_COL.fondo; c.fillRect(x, y, w, h); c.strokeStyle = ARC_COL.oro; c.lineWidth = 4; c.strokeRect(x + 2, y + 2, w - 4, h - 4); };
+    const ar = (t, x, y, px, color, align) => cvArriba(c, t.toUpperCase(), x, y, px, 700, color, { esp: 0.18, align });
+    // El puntaje siempre tiene seis cifras: se achica hasta que entre en la caja (sin cortarlo nunca con «…»).
+    const num = (x, y, px, ancho) => {
+      c.font = `700 ${px}px ${CV_FUENTE}`; if ('letterSpacing' in c) c.letterSpacing = 0.06 * px + 'px';
+      const w = c.measureText(pts).width; if ('letterSpacing' in c) c.letterSpacing = '0px';
+      const p2 = w > ancho ? px * ancho / w : px;
+      cvArriba(c, pts, x, y + (px - p2) / 2, p2, 700, ARC_COL.oro, { esp: 0.06, align: 'center' });
+    };
+    const jac = (x, y, px, align) => cvArriba(c, '¿Me superás?', x, y, px, 400, ARC_COL.oro, { fam: CV_ARCADE, align });
+    if (formato === 'enlace') {
+      await cvGrabado(c, fondo, 560, -20, 660, 670, ARC_COL.cian, 0.35);
+      jac(70, 70, 120);
+      ar('★ Arcade de Corrección ★', 74, 215, 24, ARC_COL.rosa);
+      caja(70, 290, 560, 200); num(350, 300, 130, 500);
+      ar('puntos en ' + tab, 350, 450, 20, ARC_COL.tenue, 'center');
+      cvPie2(c, W, H, ARC_TEMA, true);
+    } else if (H === 1080) {
+      await cvGrabado(c, fondo, -40, 60, 1160, 860, ARC_COL.cian, 0.35);
+      jac(540, 90, 150, 'center');
+      ar('★ Arcade de Corrección ★', 540, 270, 28, ARC_COL.rosa, 'center');
+      caja(150, 400, 780, 280); num(540, 420, 170, 720);
+      ar('puntos en ' + tab, 540, 620, 24, ARC_COL.tenue, 'center');
+      cvArriba(c, 'Mismo tablero, mismas preguntas, mismo orden.', 540, 770, 32, 400, ARC_COL.texto, { align: 'center', max: 880 });
+      cvPie2(c, W, H, ARC_TEMA, true);
+    } else {
+      await cvGrabado(c, fondo, -40, 200, 1160, 1150, ARC_COL.cian, 0.35);
+      jac(540, 250, 190, 'center');
+      ar('★ Arcade de Corrección ★', 540, 480, 34, ARC_COL.rosa, 'center');
+      caja(120, 780, 840, 330); num(540, 810, 200, 780);
+      ar('puntos en ' + tab, 540, 1040, 28, ARC_COL.tenue, 'center');
+      const ls = cvPartir(c, 'Mismo tablero, mismas preguntas, mismo orden.', 800, `400 36px ${CV_FUENTE}`);
+      ls.forEach((l, i) => cvArriba(c, l, 540, 1400 + i * 36 * 1.35, 36, 400, ARC_COL.texto, { align: 'center' }));
+      cvPie2(c, W, H, ARC_TEMA);
+    }
+    cvGrano(c, W, H, ARC_TEMA);
+    return cv;
+  };
+}
 function arcDesafiar() {
   const A = arcS(), r = A.res;
   if (!A.semilla || !r || !Arcade.EJES[A.tablero]) return;
   DESAFIO_URL = location.origin + location.pathname + '#desafio=' + A.tablero + '.' + A.semilla + '.' + r.puntos;
-  const txt = `Hice ${arcCero(r.puntos)} en el Arcade de Corrección de Estilo (${arcNombre(A.tablero)}). ¿Me superás? ${DESAFIO_URL}`;
-  medir('share', { method: 'whatsapp', content_type: 'desafio', item_id: A.tablero });
-  window.open('https://wa.me/?text=' + encodeURIComponent(txt), '_blank', 'noopener');
+  DESAFIO_TXT = `Hice ${arcCero(r.puntos)} en el Arcade de Corrección de Estilo (${arcNombre(A.tablero)}). ¿Me superás? ${DESAFIO_URL}`;
+  DESAFIO_DIB = cvDesafio(A.tablero, r.puntos); DESAFIO_TAB = A.tablero;
+  abrirImagen(null, { archivo: 'galera-desafio.png', titulo: 'Desafiar', tipo: 'desafio', id: A.tablero, dibujar: DESAFIO_DIB, temas: false, texto: DESAFIO_TXT,
+    intro: 'La imagen lleva tu puntaje y el tablero. Quien abra el link juega las mismas preguntas en el mismo orden.',
+    alt: `¿Me superás? Arcade de Corrección: ${arcCero(r.puntos)} puntos en ${arcNombre(A.tablero)}.`,
+    botones: '<button class="btn sec" data-clic="desafioWhatsapp">Mandar por WhatsApp</button><button class="btn lin" data-clic="bajarEnlaceDesafio">Vista previa para links (.png)</button>' });
+}
+function desafioWhatsapp() {
+  if (!DESAFIO_URL) return;
+  medir('share', { method: 'whatsapp', content_type: 'desafio', item_id: DESAFIO_TAB });
+  window.open('https://wa.me/?text=' + encodeURIComponent(DESAFIO_TXT), '_blank', 'noopener');
+}
+async function bajarEnlaceDesafio() {
+  if (!DESAFIO_DIB || BAJANDO_ENLACE) return; // un toque doble no baja dos archivos
+  BAJANDO_ENLACE = true;
+  let cv; try { cv = await DESAFIO_DIB(null, 'enlace'); } catch (e) { BAJANDO_ENLACE = false; return aviso('No se pudo armar la imagen'); }
+  cv.toBlob(blob => {
+    BAJANDO_ENLACE = false;
+    if (!blob) return aviso('No se pudo armar la imagen');
+    const a = document.createElement('a');
+    medir('share', { method: 'descarga', content_type: 'desafio_enlace', item_id: DESAFIO_TAB });
+    a.href = URL.createObjectURL(blob); a.download = 'galera-desafio-1200x630.png'; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+  }, 'image/png');
 }
 // Quien abre un desafío ve el puntaje a superar y decide si juega.
 function abrirDesafio(tablero, semilla, puntos) {
@@ -828,7 +901,7 @@ Object.assign(ACC, {
   abrirQueCursar: (...a) => abrirQueCursar(...a), arcDesafiar: (...a) => arcDesafiar(...a), bajarImagen: (...a) => bajarImagen(...a),
   bajarQR: (...a) => bajarQR(...a), compartirAvance: (...a) => compartirAvance(...a), compartirLogro: (...a) => compartirLogro(...a),
   compartirResultado: (...a) => compartirResultado(...a), copiarQueCursar: (...a) => copiarQueCursar(...a),
-  elegirImagen: (...a) => elegirImagen(...a), enviarImagen: (...a) => enviarImagen(...a), imagenPlan: (...a) => imagenPlan(...a), imagenQueCursar: (...a) => imagenQueCursar(...a), imagenSemana: (...a) => imagenSemana(...a),
+  elegirImagen: (...a) => elegirImagen(...a), desafioWhatsapp: (...a) => desafioWhatsapp(...a), bajarEnlaceDesafio: (...a) => bajarEnlaceDesafio(...a), enviarImagen: (...a) => enviarImagen(...a), imagenPlan: (...a) => imagenPlan(...a), imagenQueCursar: (...a) => imagenQueCursar(...a), imagenSemana: (...a) => imagenSemana(...a),
   instalarApp: (...a) => instalarApp(...a), linkSemana: (...a) => linkSemana(...a), mailApunte: (...a) => mailApunte(...a),
   mandarApunte: (...a) => mandarApunte(...a), mandarQueCursar: (...a) => mandarQueCursar(...a), sumarApunte: (...a) => sumarApunte(...a),
 });
