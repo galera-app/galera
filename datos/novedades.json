@@ -2,6 +2,16 @@
  "nota": "Lo que va en el mail de los lunes (Novedades.gs) y en la pestaña Novedades. v: número de versión (obligatorio; ver CHANGELOG.md). tipo: herramientas | resumenes | fechas. perfil: estudiante (por defecto) | profesional | todos; el mail y la pestaña Novedades lo usan para mostrar a cada perfil lo suyo. materias: ids del plan (vacío = para todas). url: solo links a galera.com.ar/. Sumar una entrada por cada cosa que se publica; el script manda solo lo posterior al último envío de cada persona, así que las viejas no se reenvían.",
  "novedades": [
   {
+   "v": 185,
+   "fecha": "2026-11-16",
+   "tipo": "resumenes",
+   "perfil": "estudiante",
+   "menor": true,
+   "titulo": "Los apuntes cargan sin saltos y sus tablas se leen mejor",
+   "texto": "Al abrir un apunte, el texto ya no se cambia por un «Cargando…» y se vuelve a dibujar: queda quieto desde el principio. Y las tablas de los apuntes marcan cada fila con su título, para que un lector de pantalla diga a qué fila y columna pertenece cada dato. El contenido es el mismo.",
+   "url": "https://galera.com.ar/r/"
+  },
+  {
    "v": 184,
    "fecha": "2026-11-16",
    "tipo": "herramientas",

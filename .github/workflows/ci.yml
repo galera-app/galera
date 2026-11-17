@@ -54,6 +54,8 @@ jobs:
         run: python tools/controlar_estilos.py
       - name: Cada apunte publicado tiene sus descargas
         run: python tools/controlar_descargas.py
+      - name: Las tablas de los apuntes tienen encabezado de fila y de columna
+        run: python tools/controlar_tablas.py
       - name: El design system (diseno/) está al día con tokens.css y componentes.css
         run: python tools/diseno_generar.py --comprobar
       - name: Cada grabado de Compartir tiene sus máscaras y su crédito en /legal/

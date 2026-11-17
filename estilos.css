@@ -196,6 +196,7 @@ details.tarjeta > summary, .guia summary { cursor: pointer; }
 .apunte table { display: block; overflow-x: auto; border-collapse: collapse; font-family: var(--fuente); font-size: var(--t-sm); margin: 10px 0; max-width: 100%; }
 .apunte th, .apunte td { border: 1px solid var(--borde); padding: 5px 8px; vertical-align: top; text-align: left; }
 .apunte th { background: var(--sup2); }
+.apunte tbody th { background: none; font-weight: inherit; } /* encabezado de fila (scope="row"): se ve como la celda de siempre */
 .apunte code { font-size: .88em; background: var(--sup2); padding: 1px 4px; border-radius: 4px; }
 .apunte pre { overflow-x: auto; background: var(--sup2); padding: 10px; border-radius: var(--radio); font-size: var(--t-sm); }
 .apunte img { max-width: 100%; }
