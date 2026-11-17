@@ -63,7 +63,7 @@ jobs:
           if grep -q '<!--marco:' index.html; then
             python tools/armar.py --salida dist
           else
-            mkdir dist && git ls-files -z | grep -zv -e '^\.github/' -e '^README\.md$' | xargs -0 cp --parents -t dist
+            mkdir dist && git ls-files -z | grep -zv -e '^\.github/' -e '^README\.md$' -e '^CHANGELOG\.md$' | xargs -0 cp --parents -t dist
           fi
       # _headers es del sitio de prueba (Cloudflare); en producción sería un archivo público más.
       - run: rm -f dist/_headers
