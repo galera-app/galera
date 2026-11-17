@@ -247,6 +247,22 @@ def lecturas_jsonld(t, rel):
     return t.replace("</head>", bloque + "</head>", 1)
 
 
+def sitio_jsonld(t, rel):
+    """Inicio: Organization y WebSite (con SearchAction hacia /buscar/?q=, que lee app.js), generados desde datos/marca.json y las redes de marco/sitio.json."""
+    if rel != "index.html":
+        return t
+    sitio_url = "https://galera.com.ar/"
+    organizacion = {"@context": "https://schema.org", "@type": "Organization", "name": MARCA["nombre"], "url": sitio_url,
+                    "description": MARCA["frase"], "sameAs": [r["url"] for r in S["pie"]["redes"]]}
+    web = {"@context": "https://schema.org", "@type": "WebSite", "name": MARCA["nombre"], "url": sitio_url, "description": MARCA["frase"],
+           "inLanguage": "es-AR", "potentialAction": {"@type": "SearchAction",
+           "target": {"@type": "EntryPoint", "urlTemplate": sitio_url + "buscar/?q={search_term_string}"},
+           "query-input": "required name=search_term_string"}}
+    bloques = "".join('<script type="application/ld+json">' + json.dumps(x, ensure_ascii=False).replace("</", "<" + chr(92) + "/") + "</script>\n"
+                      for x in (organizacion, web))
+    return t.replace("</head>", bloques + "</head>", 1)
+
+
 def comando_pagefind():
     """`python -m pagefind` (paquete pagefind[extended]) o el binario `pagefind`. Con GALERA_PAGEFIND_NPX=1 también `npx pagefind@versión`
     (baja de internet: por eso no es automático). None si no hay ninguno."""
@@ -509,7 +525,7 @@ def construir(salida, indice=False, minificar=True):
     if minificar and not minificar_todo(salida, solo=app):
         sobran.append("minificado de app.js")
     for p, rel in paginas(salida):
-        escribir(p, versionar(para_indice(lecturas_jsonld(faq_jsonld(con_marca(expandir(p.read_text(encoding="utf-8"), rel)), rel), rel), rel), p.parent, salida))
+        escribir(p, versionar(para_indice(lecturas_jsonld(faq_jsonld(sitio_jsonld(con_marca(expandir(p.read_text(encoding="utf-8"), rel)), rel), rel), rel), rel), p.parent, salida))
     prerender(salida)
     sobran += escribir_sw(salida)
     for p, rel in paginas(salida):
