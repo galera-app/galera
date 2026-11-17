@@ -1,0 +1,7 @@
+{
+ "_fecha": "2026-11-16",
+ "_nota": "Piezas de marco/sitio.json y simuladores con menos de dos niveles de prueba. Solo puede achicarse: python tools/mapa_pruebas.py --rutas X.json --actualizar",
+ "piezas": [
+  "pantalla:buscar"
+ ]
+}
