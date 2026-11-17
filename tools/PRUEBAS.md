@@ -20,7 +20,7 @@ Cuatro niveles, de lo más barato a lo más caro. Todo corre desde la raíz del 
 ## 2. Integración (sitio armado): `python tools/armar.py --salida dist` y `python tools/probar.py dist`
 
 - `probar.py` revisa datos, sitemap, CSP, service worker y enlaces internos sobre `dist` (~25 s). Sin Pagefind local, falla `/buscar/` → `/pagefind/pagefind.js`: es del entorno, el CI sí lo trae.
-- Los demás controles estáticos del CI: `armar.py --comprobar`, `controlar_acciones.py`, `controlar_descargas.py`, `controlar_capitulares.py dist`, `humo.py` y `verificar_seo.py dist --dominio https://galera.com.ar`.
+- Los demás controles estáticos del CI: `armar.py --comprobar`, `controlar_acciones.py`, `controlar_descargas.py`, `controlar_changelog.py` (cada versión de `novedades.json` tiene su entrada en `CHANGELOG.md`, en orden y sin huecos; `--autoprueba` corre los casos), `controlar_capitulares.py dist`, `humo.py` y `verificar_seo.py dist --dominio https://galera.com.ar`.
 
 ## 3. Navegador real: `python tools/navegador.py --navegador chromium|webkit|todos`
 
