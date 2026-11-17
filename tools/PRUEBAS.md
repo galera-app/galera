@@ -63,6 +63,14 @@ Trabajo `rendimiento` del CI, aparte de `controles`. Las tres medidas arrancan c
 - Modos: sin argumentos, interactiva (ok / falla / salteo / q, cada respuesta se guarda al instante); `--lista` solo muestra; `--autoprueba` corre los casos (lo corre el CI).
 - El estado va a `pasada-estado.txt` en la raíz del repo (en `.gitignore`): una línea por resultado. La pasada siguiente muestra primero lo que falló.
 
+## 6. Mapa de piezas y pruebas (paso 22): `python tools/mapa_pruebas.py`
+
+- Piezas: cada pantalla de `marco/sitio.json` con url y cada simulador (`simuladores/<id>.html`). Cinco niveles, cada uno con evidencia leída de los archivos: **unidad** (un módulo JS de la pieza tiene `tools/pruebas/<módulo>.test.js` o lo nombra un `probar_*.js`/`.mjs`; `probar_simuladores.js` no cuenta, es humo), **humo** (la url está en `RUTAS` de `humo.py`, o un módulo de la pieza está en `MODULOS` de `probar_simuladores.js`), **navegador** (la url está en `pantallas()` de `navegador.py`), **recorrido** (la url la abrió `recorridos.py`, que la deja con `--rutas X.json`) y **rendimiento** (la url está en `PAGINAS` de `pesos.py` o `PAGINAS_LAB` de `rendimiento.py`).
+- Lo único a mano: `tools/mapa-piezas.json`, qué módulos JS respaldan cada pieza. Falla si una pieza de `sitio.json` no figura ahí o si figura una que ya no existe. Ojo: «app» (`app.js`) solo tiene prueba de unidad por `normalizar()` (`estados.test.js`); no prueba las pantallas que dibuja.
+- Una pieza con menos de dos niveles va a `tools/sin-dos-pruebas.json` (con fecha). **Esa lista solo puede achicarse**: el CI (con `--rutas`) falla si aparece una pieza que no estaba. `--actualizar` achica la lista y se niega a sumar. Sin `--rutas` no se controla, porque sin el nivel recorrido la lista sale más larga.
+- El nivel recorrido cuenta el barrido de `recorridos.py`, que abre todas las pantallas y simuladores. Por eso la lista depende de que el barrido termine: si se corta por tiempo, falla aparte.
+- Autoprueba: `python tools/mapa_pruebas.py --autoprueba` (lo corre el CI antes).
+
 ## Qué no cambia el sitio
 
 Estas pruebas no llevan versión ni entrada en `datos/novedades.json`. Los cuatro módulos que ganaron `module.exports` (`num`, `horarios`, `formatos`, `paginacion`) se comportan igual en el navegador, donde `module` no existe.

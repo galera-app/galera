@@ -31,6 +31,13 @@ import navegador as N  # noqa: E402  (se reusa: servir, preparar_contexto, obser
 
 RAIZ = N.RAIZ
 LISTA = Path(__file__).resolve().parent / "acciones-sin-recorrido.json"
+# Rutas que abre algún recorrido o el barrido (lo que mapa_pruebas.py usa como nivel «recorrido»). Se escribe con --rutas.
+VISITADAS = set()
+
+
+def ir(page, ses, ruta):
+    page.goto(ses.origen + ruta, wait_until="networkidle", timeout=30000)
+    VISITADAS.add(ruta.split("#", 1)[0])  # se anota solo si el goto llegó
 TOPE_SEGUNDOS = 4 * 60          # por navegador: si se pasa, se recorta el barrido, no los recorridos de riesgo
 CONSENTIMIENTO = "fc-consent"
 
@@ -174,7 +181,7 @@ def abrir_carrera(ses, fallas, siembra, **kw):
     ctx = ses.contexto(siembra, **kw)
     page = ctx.new_page()
     N.observar(page, fallas, ses.origen)
-    page.goto(ses.origen + "/carrera/", wait_until="networkidle", timeout=30000)
+    ir(page, ses, "/carrera/")
     N.esperar_h1(page, fallas)
     return ctx, page
 
@@ -324,7 +331,7 @@ def r5_traspaso(ses, fallas):
     try:
         p2 = ctx2.new_page()
         N.observar(p2, fallas, ses.origen)
-        p2.goto(ses.origen + urlparse(link).path + "#" + link.split("#", 1)[1], wait_until="networkidle", timeout=30000)
+        ir(p2, ses, urlparse(link).path + "#" + link.split("#", 1)[1])
         p2.get_by_role("button", name="Cargar estos datos").click(timeout=15000)
         p2.wait_for_function("() => { const m = (JSON.parse(localStorage.getItem('cursada.v1')) || {}).materias || {}; return Object.keys(m).length > 0; }", timeout=10000)
         fallas += N.comparar_estado(p2, ESPERADO, None)
@@ -340,7 +347,7 @@ def r6_compartir(ses, fallas):
         try:
             page = ctx.new_page()
             N.observar(page, fallas, ses.origen)
-            page.goto(ses.origen + ruta, wait_until="networkidle", timeout=30000)
+            ir(page, ses, ruta)
             N.esperar_h1(page, fallas)
             page.get_by_role("button", name="Compartir", exact=True).first.click()
             page.wait_for_function("k => window.__comp[k].length > 0", arg="clip" if sin_share else "share", timeout=5000)
@@ -367,7 +374,7 @@ def r7_consentimiento(ses, fallas):
         ctx.on("request", lambda r: pedidos.append(r.url))   # también salen los que la red corta
         page = ctx.new_page()
         N.observar(page, fallas, ses.origen)
-        page.goto(ses.origen + "/", wait_until="networkidle", timeout=30000)
+        ir(page, ses, "/")
         N.esperar_h1(page, fallas)
         page.wait_for_timeout(800)
         return page, pedidos
@@ -482,7 +489,7 @@ def barrer(ses, dist, hasta, fallas, cortado):
                 cortado.append(ruta)
                 break
             try:
-                page.goto(ses.origen + ruta, wait_until="networkidle", timeout=30000)
+                ir(page, ses, ruta)
                 try:   # el apunte y otras pantallas se arman cuando llegan sus datos: sin esto, lo que se ve depende del momento
                     page.wait_for_function("() => !document.querySelector('.cargando')", timeout=5000)
                 except Exception:
@@ -512,7 +519,7 @@ def barrer(ses, dist, hasta, fallas, cortado):
                         for i in range(antes, len(errores)):   # qué clic dejó el error
                             errores[i] = f"{ruta} tras «{n}»: {errores[i]}"
                         if urlparse(page.url).path != urlparse(ses.origen + ruta).path:
-                            page.goto(ses.origen + ruta, wait_until="networkidle", timeout=30000)
+                            ir(page, ses, ruta)
                     except Exception:
                         pass   # la página se rompió o cambió: queda en la lista del trinquete
                     finally:
@@ -537,6 +544,7 @@ def main():
     ap.add_argument("--actualizar", action="store_true", help="achica tools/acciones-sin-recorrido.json a lo que quedó sin ejecutar (solo puede achicarse; crea la lista si no existe)")
     ap.add_argument("--sin-barrido", action="store_true", help="solo los recorridos de riesgo (sin el barrido ni el trinquete)")
     ap.add_argument("--autoprueba", action="store_true", help="casos de la lógica del trinquete, sin navegador")
+    ap.add_argument("--rutas", help="escribe en este JSON las rutas que abrieron los recorridos y el barrido (lo lee tools/mapa_pruebas.py)")
     a = ap.parse_args()
     if a.autoprueba:
         return autoprueba()
@@ -596,6 +604,8 @@ def main():
                 todas += [f"{m} · {x}" for x in tr]
             browser.close()
     srv.shutdown()
+    if a.rutas:
+        Path(a.rutas).write_text(json.dumps(sorted(VISITADAS), ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     print(f"\n{'FALLARON ' + str(len(todas)) + ' controles' if todas else 'recorridos ok'}")
     return 1 if todas else 0
 

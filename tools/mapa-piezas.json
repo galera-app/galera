@@ -1,0 +1,40 @@
+{
+ "_nota": "Lo único a mano del mapa de piezas (tools/mapa_pruebas.py): qué módulos JS (los de la raíz, sin .js) respaldan cada pantalla de marco/sitio.json y cada simulador. «app» es app.js. Si una pieza nueva no está acá, el control falla.",
+ "pantallas": {
+  "carrera": ["app", "num", "traspaso", "ejemplar", "compartir"],
+  "horarios": ["horarios"],
+  "calendario": ["app"],
+  "resumenes": ["app"],
+  "biblioteca": ["app"],
+  "simuladores": ["app"],
+  "imprenta": ["imprenta"],
+  "imprimir": ["imprenta"],
+  "glosario": ["grafo", "app"],
+  "eventos": ["app"],
+  "directorio": ["app"],
+  "links": ["app"],
+  "novedades": ["app"],
+  "preguntas": ["app"],
+  "lecturas": ["app"],
+  "sostener": ["app"],
+  "config": ["app"],
+  "arcade": ["arcade", "arcade-ui"],
+  "buscar": ["buscador"],
+  "inicio": ["app"],
+  "/fuentes/": ["app"],
+  "/legal/": ["app"]
+ },
+ "simuladores": {
+  "ecosistema": ["ecosistema"],
+  "paginacion": ["paginacion"],
+  "tarifario": ["app"],
+  "contratos": ["contratos"],
+  "leyes": ["leyes"],
+  "formatos": ["formatos"],
+  "papel": ["papel"],
+  "lomo": ["lomo"],
+  "escandallo": ["escandallo"],
+  "cronograma": ["cronograma"],
+  "comparador": ["app"]
+ }
+}

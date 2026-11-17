@@ -93,7 +93,11 @@ jobs:
       - name: "Recorridos punta a punta y acciones sin recorrido (Chromium y WebKit)"
         run: |
           python tools/recorridos.py --autoprueba
-          python tools/recorridos.py --navegador todos --dist dist
+          python tools/recorridos.py --navegador todos --dist dist --rutas "$RUNNER_TEMP/rutas-visitadas.json"
+      - name: "Mapa de piezas y pruebas: la lista de piezas con menos de dos pruebas no puede crecer"
+        run: |
+          python tools/mapa_pruebas.py --autoprueba
+          python tools/mapa_pruebas.py --rutas "$RUNNER_TEMP/rutas-visitadas.json"
       - name: SEO y vista previa (cero fallas)
         run: python tools/verificar_seo.py dist --dominio https://galera.com.ar
 
