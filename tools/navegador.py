@@ -387,6 +387,61 @@ def materia_aprobada(browser, origen):
     return sin_repetidos(fallas)
 
 
+def recorrer_directorio(page, origen, fallas):
+    """Paso 30: el Directorio trae solo la primera página de fichas; paginar, buscar, filtrar y abrir una ficha.
+    Lo usan navegador.py y recorridos.py (el trinquete de acciones cuenta lo que ejecuta ahí)."""
+    filas = lambda: page.locator("#dir-lista .gl-dir-fila").count()
+    cuenta = lambda: page.locator("#dir-lista .gl-cuenta").inner_text()
+    page.goto(origen + "/directorio/", wait_until="networkidle", timeout=30000)
+    esperar_h1(page, fallas)
+    page.wait_for_selector("#dir-lista .gl-dir-fila", timeout=15000)
+    total = int(re.match(r"\d+", cuenta()).group())
+    if filas() != 50 or total <= 50:
+        fallas.append(f"la lista debe traer 50 fichas por página (hay {filas()} de {total})")
+    primera = page.locator("#dir-lista .gl-dir-fila h3").first.inner_text()
+    page.get_by_role("button", name="Siguiente").click()
+    page.wait_for_function("() => /Página 2 de/.test(document.querySelector('#dir-lista nav').textContent)", timeout=10000)
+    if page.locator("#dir-lista .gl-dir-fila h3").first.inner_text() == primera:
+        fallas.append("«Siguiente» no cambió las fichas")
+    page.get_by_role("button", name="Anterior").click()
+    page.wait_for_function("() => /Página 1 de/.test(document.querySelector('#dir-lista nav').textContent)", timeout=10000)
+    # Buscar: vuelve a la primera página y filtra.
+    page.fill("#dir-q", primera[:4])
+    page.wait_for_function(r"t => { const m = /^(\d+)/.exec(document.querySelector('#dir-lista .gl-cuenta').textContent); return m && +m[1] < t; }", arg=total, timeout=10000)
+    if not filas():
+        fallas.append("la búsqueda no devolvió fichas")
+    page.fill("#dir-q", "")
+    page.wait_for_function(r"t => { const m = /^(\d+)/.exec(document.querySelector('#dir-lista .gl-cuenta').textContent); return m && +m[1] === t; }", arg=total, timeout=10000)
+    if page.get_by_role("button", name="Anterior").is_enabled():
+        fallas.append("al vaciar la búsqueda no volvió a la primera página")
+    # Filtrar por tipo.
+    page.locator('[data-f^="dirt-"]').nth(1).click()
+    page.wait_for_function(r"t => { const m = /^(\d+)/.exec(document.querySelector('#dir-lista .gl-cuenta').textContent); return m && +m[1] !== t; }", arg=total, timeout=10000)
+    # Abrir una ficha: el enlace a su fuente o a su sitio es un <a> real.
+    enlace = page.locator("#dir-lista .gl-dir-fila a[href^='http']").first
+    if enlace.count() == 0:
+        page.locator('[data-f^="dirt-"]').first.click()
+        page.wait_for_selector("#dir-lista .gl-dir-fila a[href^='http']", timeout=10000)
+        enlace = page.locator("#dir-lista .gl-dir-fila a[href^='http']").first
+    if enlace.get_attribute("target") != "_blank" or "noopener" not in (enlace.get_attribute("rel") or ""):
+        fallas.append("el enlace de una ficha no abre aparte con noopener")
+    csp(page, fallas)
+
+
+def recorrido_directorio(browser, origen):
+    fallas = []
+    ctx = preparar_contexto(browser, origen)
+    try:
+        page = ctx.new_page()
+        observar(page, fallas, origen)
+        recorrer_directorio(page, origen, fallas)
+    except Exception as e:
+        fallas.append(f"se cortó el recorrido: {str(e).splitlines()[0][:200]}")
+    finally:
+        ctx.close()
+    return sin_repetidos(fallas)
+
+
 def sin_conexion(browser, origen):
     """Paso 27: tras UNA visita, sin red, abren inicio, Mi carrera, Horarios y Calendario (el núcleo que sw.js guarda por adelantado).
     Es el único contexto con el service worker permitido; si el motor no lo ejecuta, la prueba lo dice y falla."""
@@ -470,6 +525,11 @@ def main():
             for x in fallas:
                 print(f"        - {x}")
             todas += [f"{m} · materia aprobada: {x}" for x in fallas]
+            fallas = recorrido_directorio(browser, origen)
+            print(f"  {'ok  ' if not fallas else 'FALLA'} recorrido del Directorio (paso 30)")
+            for x in fallas:
+                print(f"        - {x}")
+            todas += [f"{m} · directorio: {x}" for x in fallas]
             fallas = sin_conexion(browser, origen)
             print(f"  {'ok  ' if not fallas else 'FALLA'} sin conexión (paso 27)")
             for x in fallas:
