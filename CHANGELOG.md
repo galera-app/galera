@@ -1,5 +1,8 @@
 # Cambios de Cursada (ficha.github.io/cursada)
 
+## v186 · 2026-11-17
+- Detalles de buscadores (paso 34). `/config/` lleva `<meta name="robots" content="noindex">` (ya estaba fuera del sitemap). El inicio suma JSON-LD `Organization` y `WebSite` generados por `tools/armar.py` (`sitio_jsonld`) desde `datos/marca.json` (nombre, frase) y las redes de `marco/sitio.json`; el `WebSite` trae `SearchAction` hacia `/buscar/?q=`, que lee `app.js`. El `WebApplication` sigue. `tools/probar.py` (`test_config_noindex_y_jsonld_del_inicio`) lo controla. Novedad v186 menor, borrador para la voz de Fidel.
+
 ## v185 · 2026-11-16
 - Apuntes sin saltos (paso 31). En `/r/…` el apunte prerenderizado ya no se reinserta al cargar: `cargarApunte()` no pasa por «Cargando el apunte…» si el artículo ya está en pantalla, y `ponerMain()` deja el DOM como está cuando lo que dibujaría `app.js` es lo mismo (salvo el bloque de descargas, que se llena al llegar su json, y el origen de la cita). Las tablas de los apuntes llevan `<th scope="col">` en la cabecera y `<th scope="row">` como primera celda de cada fila: lo hace `encabezar_tablas()` en `resumenes.py` (en 104, fuera del repo; idempotente), aplicado a los 102 `resumenes/*/*.json` con tablas (532 tablas) sin regenerar desde las fuentes, para no arrastrar los desvíos de 0911 y 0919; `tools/controlar_tablas.py` lo controla en el CI, `.apunte tbody th` conserva el aspecto de siempre. `tools/navegador.py` suma la prueba «apunte sin saltos» (artículo sin reinsertar, sin «Cargando», CLS ≤ 0,02, tablas con encabezado de fila). `test_generadores.py` suma `test_tablas_con_encabezado_de_fila`. Lighthouse local no corre (sin Playwright): el tope de CLS del CI se baja con `--actualizar` si mejora. Novedad v185 en borrador (voz de Fidel).
 

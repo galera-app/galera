@@ -538,6 +538,38 @@ class TestSitio(unittest.TestCase):
                 malas.append(f"acceso {s.get('name')}: {s.get('url')} no existe en el sitio armado")
         self.assertEqual(malas, [])
 
+    def test_config_noindex_y_jsonld_del_inicio(self):
+        # /config/ no se indexa; el inicio trae Organization y WebSite válidos (JSON que parsea, con name y url) y conserva WebApplication.
+        malos = []
+        cfg = paginas().get("config/index.html")
+        if cfg is None or not cfg.noindex:
+            malos.append('/config/ no trae <meta name="robots" content="noindex">')
+        marca = cargar_json(RAIZ / "datos/marca.json")
+        bloques = {}
+        for cuerpo in re.findall(r'<script type="application/ld\+json">(.*?)</script>', (DIST / "index.html").read_text(encoding="utf-8"), re.S):
+            try:
+                x = json.loads(cuerpo)
+            except ValueError as e:
+                malos.append(f"JSON-LD del inicio no parsea: {e}")
+                continue
+            bloques.setdefault(x.get("@type"), x)
+        if "WebApplication" not in bloques:
+            malos.append("el inicio perdió el JSON-LD WebApplication")
+        for tipo in ("Organization", "WebSite"):
+            x = bloques.get(tipo)
+            if x is None:
+                malos.append(f"el inicio no trae JSON-LD {tipo}")
+                continue
+            for campo in ("url", "name"):
+                if not isinstance(x.get(campo), str) or not x.get(campo):
+                    malos.append(f"{tipo} sin {campo}")
+            if x.get("name") != marca["nombre"]:
+                malos.append(f"{tipo}.name={x.get('name')!r} no coincide con marca.json nombre={marca['nombre']!r}")
+        busqueda = (bloques.get("WebSite") or {}).get("potentialAction", {}).get("target", {}).get("urlTemplate", "")
+        if "/buscar/?q={search_term_string}" not in busqueda:
+            malos.append("WebSite sin SearchAction hacia /buscar/?q=")
+        self.assertEqual(malos, [])
+
     def test_service_worker_nucleo(self):
         """Paso 27: el núcleo que sw.js guarda por adelantado existe entero, cubre las cuatro pantallas y lo que cargan, pesa menos de
         1,5 MB comprimido, y la huella cambia si cambia uno de sus archivos."""
