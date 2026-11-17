@@ -60,6 +60,16 @@ def apunte_de_r(dist):
     raise SystemExit("dist/r no tiene ningún apunte")
 
 
+def apunte_con_tablas(dist):
+    """Un apunte de /r/ con al menos una tabla (el primero por orden alfabético)."""
+    for carpeta in sorted((dist / "r").iterdir()):
+        if carpeta.is_dir():
+            for f in sorted(carpeta.glob("*.html")):
+                if f.name != "index.html" and "<table" in f.read_text(encoding="utf-8"):
+                    return f"/r/{carpeta.name}/{f.name}"
+    raise SystemExit("dist/r no tiene ningún apunte con tablas")
+
+
 def pantallas(dist):
     # (nombre, ruta, estado de localStorage o None)
     return [
@@ -387,6 +397,51 @@ def materia_aprobada(browser, origen):
     return sin_repetidos(fallas)
 
 
+APUNTE_JS = """
+window.__apunte = { reinsertado: false, cargando: false, saltos: 0 };
+new MutationObserver(ms => ms.forEach(m => {
+  m.removedNodes.forEach(n => { if (n.nodeType === 1 && (n.matches('article.apunte') || n.querySelector('article.apunte'))) window.__apunte.reinsertado = true; });
+  m.addedNodes.forEach(n => { if (n.nodeType === 1 && (n.matches('.cargando') || n.querySelector('.cargando'))) window.__apunte.cargando = true; });
+})).observe(document, { childList: true, subtree: true });
+try { new PerformanceObserver(l => l.getEntries().forEach(e => { if (!e.hadRecentInput) window.__apunte.saltos += e.value; })).observe({ type: 'layout-shift', buffered: true }); } catch (e) { }
+"""
+
+
+def apunte_sin_saltos(browser, origen, ruta):
+    """Paso 31: el apunte prerenderizado de /r/ no se reinserta al cargar (ni pasa por «Cargando el apunte…»), y sus tablas
+    llevan encabezado de fila (<th scope="row">). Devuelve la lista de fallas."""
+    fallas = []
+    ctx = preparar_contexto(browser, origen)
+    try:
+        ctx.add_init_script(APUNTE_JS)
+        page = ctx.new_page()
+        observar(page, fallas, origen)
+        page.goto(origen + ruta, wait_until="networkidle", timeout=30000)
+        esperar_h1(page, fallas)
+        page.wait_for_timeout(1500)  # que app.js termine de arrancar y dibujar
+        r = page.evaluate("window.__apunte")
+        if r["reinsertado"]:
+            fallas.append("el artículo del apunte se reinsertó al cargar (salto de diseño)")
+        if r["cargando"]:
+            fallas.append("el apunte pasó por «Cargando el apunte…» después del prerender")
+        if r["saltos"] > 0.02:
+            fallas.append(f"saltos de diseño (CLS) de {r['saltos']:.3f} al cargar el apunte")
+        t = page.evaluate("""() => { const f = [...document.querySelectorAll('article.apunte table tbody tr')];
+          return { filas: f.length, sinTh: f.filter(x => !x.firstElementChild || x.firstElementChild.tagName !== 'TH' || x.firstElementChild.getAttribute('scope') !== 'row').length,
+                   thSinScope: document.querySelectorAll('article.apunte table th:not([scope])').length } }""")
+        if t["filas"] == 0:
+            fallas.append("el apunte de prueba no tiene tablas: elegir otro")
+        if t["sinTh"]:
+            fallas.append(f"{t['sinTh']} filas de tabla sin <th scope=\"row\">")
+        if t["thSinScope"]:
+            fallas.append(f"{t['thSinScope']} <th> de tabla sin scope")
+    except Exception as e:
+        fallas.append(f"no se pudo abrir: {str(e)[:200]}")
+    finally:
+        ctx.close()
+    return sin_repetidos(fallas)
+
+
 def recorrer_directorio(page, origen, fallas):
     """Paso 30: el Directorio trae solo la primera página de fichas; paginar, buscar, filtrar y abrir una ficha.
     Lo usan navegador.py y recorridos.py (el trinquete de acciones cuenta lo que ejecuta ahí)."""
@@ -525,6 +580,11 @@ def main():
             for x in fallas:
                 print(f"        - {x}")
             todas += [f"{m} · materia aprobada: {x}" for x in fallas]
+            fallas = apunte_sin_saltos(browser, origen, apunte_con_tablas(dist))
+            print(f"  {'ok  ' if not fallas else 'FALLA'} apunte sin saltos y con tablas (paso 31)")
+            for x in fallas:
+                print(f"        - {x}")
+            todas += [f"{m} · apunte sin saltos: {x}" for x in fallas]
             fallas = recorrido_directorio(browser, origen)
             print(f"  {'ok  ' if not fallas else 'FALLA'} recorrido del Directorio (paso 30)")
             for x in fallas:

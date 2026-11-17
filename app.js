@@ -376,6 +376,7 @@ const mostrarMain = () => document.documentElement.classList.remove('con-datos')
 setTimeout(mostrarMain, 6000);
 async function arrancar() { try { await arrancarVista(); } finally { mostrarMain(); } }
 async function arrancarVista() {
+  V.preApunte = !!$('#main article.apunte'); // el prerender ya dejó el apunte en pantalla: no se lo cambia por «Cargando…» ni se lo reinserta igual (sin saltos)
   V.docHtml = $('#main').innerHTML; V.docClase = $('#main').className; V.docRuta = location.pathname + location.search; desdeUrl(); V.arrancando = true;
   try {
     D.indice = await json('indice.json');
@@ -661,6 +662,22 @@ function ponerMeta() {
 // El título de cada pantalla es su <h1> (la marca de la cabecera ya no lo es): el primer <h2> de la vista.
 const conTitulo = html => /<h1[\s>]/.test(html) ? html : html.replace(/<h2\b([^>]*)>([\s\S]*?)<\/h2>/, '<h1$1>$2</h1>');
 const arcadeInfo = () => D.simInfo && D.simInfo.arcade ? `<section class="gl-v gl-sim-info">${D.simInfo.arcade.html}</section>` : '';
+// Pone el HTML de la vista en #main. La primera vez en un apunte prerenderizado, si el HTML es el mismo que ya está, no se toca el DOM:
+// reinsertarlo igual provoca un salto de diseño (CLS) y pierde el scroll y la selección.
+function ponerMain(h) {
+  const m = $('#main');
+  if (V.preApunte) {
+    V.preApunte = false;
+    // Se compara el DOM ya armado con el nuevo, salvo el bloque de descargas (el prerender lo trae lleno; acá se llena cuando llega su json, y solo ese bloque se cambia)
+    // y el origen de la cita (el prerender cita siempre https://galera.com.ar; en otro origen, como una vista previa, lleva el de ahí).
+    const t = document.createElement('div'); t.innerHTML = h;
+    const vaciar = r => { const d = r.querySelector('#desc-apunte'); if (d) { d.removeAttribute('class'); d.textContent = ''; } return r; };
+    const igual = vaciar(t).innerHTML.split(location.origin).join('https://galera.com.ar') === vaciar(m.cloneNode(true)).innerHTML;
+    if (igual) return;
+  }
+  V.mainTocado = true;
+  m.innerHTML = h;
+}
 function render() {
   if (V.arrancando) return;
   const g = modsDe();
@@ -680,7 +697,7 @@ function render() {
   document.title = tituloPagina();
   altoCab();
   const gr = grupoDe(V.tab); if (gr) (V.gUlt = V.gUlt || {})[gr[0]] = V.tab;
-  conFoco($('#main'), () => { $('#main').innerHTML = (V.demo ? bandaEjemplo() : '') + subnav() + invitacionNov() + conTitulo({ doc: () => V.docHtml, inicio: vInicio, carrera: vCarrera, horarios: vHorarios, calendario: vCalendario, resumenes: vResumenes, biblioteca: vBiblioteca, simuladores: vSimuladores, glosario: vGlosario, preguntas: vPreguntas, lecturas: vLecturas, buscar: vBuscar, directorio: vDirectorio, links: vLinks, novedades: vNovedades, sostener: vSostener, eventos: vEventos, arcade: () => vArcade() + arcadeInfo(), config: vConfig, imprimir: () => vImprimir(), imprenta: () => vImprenta() }[V.tab]()); capitulares(); ajustarPoster(); });
+  conFoco($('#main'), () => { ponerMain((V.demo ? bandaEjemplo() : '') + subnav() + invitacionNov() + conTitulo({ doc: () => V.docHtml, inicio: vInicio, carrera: vCarrera, horarios: vHorarios, calendario: vCalendario, resumenes: vResumenes, biblioteca: vBiblioteca, simuladores: vSimuladores, glosario: vGlosario, preguntas: vPreguntas, lecturas: vLecturas, buscar: vBuscar, directorio: vDirectorio, links: vLinks, novedades: vNovedades, sostener: vSostener, eventos: vEventos, arcade: () => vArcade() + arcadeInfo(), config: vConfig, imprimir: () => vImprimir(), imprenta: () => vImprenta() }[V.tab]())); capitulares(); ajustarPoster(); });
   $('#main').className = V.tab === 'doc' ? V.docClase : '';
   document.body.classList.toggle('lectura', V.tab === 'doc');
   const can = document.querySelector('link[rel="canonical"]'); if (can && V.tab !== 'doc') can.href = 'https://galera.com.ar' + rutaActual().split('#')[0].split('?')[0];
@@ -1661,14 +1678,15 @@ function verRes(materia = '', apunte = '', sec = '') {
 function abrirApunte(materia, id) { verRes(materia, id); }
 async function traerApunte() { const k = V.res.materia + '/' + V.res.apunte; if (!D.apuntes[k]) { const r = await fetch('/resumenes/' + k + '.json'); if (!r.ok) throw new Error(); D.apuntes[k] = await r.json(); } }
 async function cargarApunte() {
-  const k = V.res.materia + '/' + V.res.apunte;
+  const k = V.res.materia + '/' + V.res.apunte, pre = V.preApunte;
   if (!D.apuntes[k]) {
-    render();
+    if (!pre) render();
     try { const r = await fetch('/resumenes/' + k + '.json'); if (!r.ok) throw new Error(); D.apuntes[k] = await r.json(); }
     catch (e) { V.res.apunte = V.res.sec = ''; history.replaceState(null, '', rutaActual()); aviso('No se pudo abrir el apunte. Revisá la conexión y recargá la página.'); }
   }
   await cargarResumenes(); // sin el índice no se dibuja el apunte (y no hay a qué sección bajar)
-  render(); irSeccion();
+  V.mainTocado = false; render();
+  if (!pre || V.mainTocado) irSeccion(); // con el apunte prerenderizado intacto, la persona ya está leyendo: no se la vuelve a mover
 }
 function irSeccion() {
   const el = V.res.sec && (document.getElementById('s-' + V.res.sec) || document.getElementById('s-' + V.res.sec.slice(0, 50).replace(/-+$/, '')) || document.getElementById(V.res.sec));
