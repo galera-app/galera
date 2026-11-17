@@ -675,6 +675,7 @@ function ponerMain(h) {
     const igual = vaciar(t).innerHTML.split(location.origin).join('https://galera.com.ar') === vaciar(m.cloneNode(true)).innerHTML;
     if (igual) return;
   }
+  V.mainTocado = true;
   m.innerHTML = h;
 }
 function render() {
@@ -1677,14 +1678,15 @@ function verRes(materia = '', apunte = '', sec = '') {
 function abrirApunte(materia, id) { verRes(materia, id); }
 async function traerApunte() { const k = V.res.materia + '/' + V.res.apunte; if (!D.apuntes[k]) { const r = await fetch('/resumenes/' + k + '.json'); if (!r.ok) throw new Error(); D.apuntes[k] = await r.json(); } }
 async function cargarApunte() {
-  const k = V.res.materia + '/' + V.res.apunte;
+  const k = V.res.materia + '/' + V.res.apunte, pre = V.preApunte;
   if (!D.apuntes[k]) {
-    if (!V.preApunte) render();
+    if (!pre) render();
     try { const r = await fetch('/resumenes/' + k + '.json'); if (!r.ok) throw new Error(); D.apuntes[k] = await r.json(); }
     catch (e) { V.res.apunte = V.res.sec = ''; history.replaceState(null, '', rutaActual()); aviso('No se pudo abrir el apunte. Revisá la conexión y recargá la página.'); }
   }
   await cargarResumenes(); // sin el índice no se dibuja el apunte (y no hay a qué sección bajar)
-  render(); irSeccion();
+  V.mainTocado = false; render();
+  if (!pre || V.mainTocado) irSeccion(); // con el apunte prerenderizado intacto, la persona ya está leyendo: no se la vuelve a mover
 }
 function irSeccion() {
   const el = V.res.sec && (document.getElementById('s-' + V.res.sec) || document.getElementById('s-' + V.res.sec.slice(0, 50).replace(/-+$/, '')) || document.getElementById(V.res.sec));
