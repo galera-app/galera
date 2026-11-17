@@ -10,7 +10,7 @@ Uso:
 Qué protege:
   datos      JSON sin claves repetidas, esquema mínimo de cada archivo, ids únicos, fechas ISO válidas,
              archivos que nombra datos/indice.json, novedades.json (versiones seguidas, orden, URLs propias)
-             y, si hay un CHANGELOG.md a mano (GALERA_CHANGELOG o ../CHANGELOG.md), que coincida con él;
+             (el CHANGELOG.md contra novedades.json lo controla tools/controlar_changelog.py);
              plan.json (textos y estados) y, si hay un plan_publico.py a mano (GALERA_PLAN_PUBLICO o
              ../plan_publico.py), que esté al día con el plan de trabajo.
   sitio      enlaces internos, sitemap contra páginas reales, robots.txt, metadatos compartibles,
@@ -313,17 +313,6 @@ class TestDatos(unittest.TestCase):
         malas = [x["v"] for x in nv if x.get("url") and not x["url"].startswith(DOMINIO + "/")
                  and not (x["v"] <= 100 and x["url"].startswith("https://ficha.github.io/cursada/"))]   # v85 quedó con la dirección vieja
         self.assertEqual(malas, [], "url de novedades que no es de galera.com.ar")
-
-    def test_novedades_contra_changelog(self):
-        cand = [os.environ.get("GALERA_CHANGELOG", ""), RAIZ / "CHANGELOG.md", RAIZ.parent / "CHANGELOG.md"]
-        ch = next((Path(c) for c in cand if c and Path(c).is_file()), None)
-        if ch is None:
-            self.skipTest("no hay CHANGELOG.md a mano (en el CI no está: vive en 104-edicion-cursada)")
-        nv = {x["v"] for x in cargar_json(RAIZ / "datos/novedades.json")["novedades"]}
-        reg = [int(m) for m in re.findall(r"^## v(\d+) ", ch.read_text(encoding="utf-8"), re.M)]
-        self.assertEqual(sorted(nv - set(reg)), [], "versiones publicadas que faltan en el CHANGELOG")
-        self.assertEqual(sorted(set(reg) - nv), [], "versiones del CHANGELOG sin entrada en novedades.json")
-        self.assertEqual(reg, sorted(reg, reverse=True), "CHANGELOG fuera de orden")
 
     def test_plan_tiene_textos_y_estados_conocidos(self):
         vistos = set()
