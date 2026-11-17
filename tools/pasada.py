@@ -131,6 +131,7 @@ GENERICO = [
 
 # Archivo → pantallas. El primero que encaja gana; si ninguno encaja, se mira la carpeta (ver pantallas_de).
 REGLAS = [
+    (r"^index\.html$", ["inicio"]),
     (r"^horarios\.js$", ["horarios"]),
     (r"^datos/oferta", ["horarios", "calendario"]),
     (r"^datos/calendario", ["calendario"]),
@@ -148,6 +149,8 @@ REGLAS = [
     (r"^(grafo|glosario)", ["glosario"]),
     (r"^(imprenta|prensa)", ["imprenta"]),
     (r"^marco/", ["menu", "inicio"]),
+    (r"^tools/armar\.py$", ["menu", "inicio"]),
+    (r"^\.github/workflows/desplegar\.yml$", ["inicio"]),
     (r"^(estilos|tokens|componentes|galera)\.css$", ["menu", "inicio", "carrera"]),
     (r"^(menu|tema)\.js$", ["menu"]),
     (r"^sw\.js$", ["inicio", "carrera", "horarios", "calendario"]),
@@ -155,7 +158,8 @@ REGLAS = [
 ]
 
 # Cambios que no tocan ninguna pantalla (tooling, documentos, propuestas).
-IGNORADOS = re.compile(r"^(\.github/|tools/|propuestas/|_fuentes/|sugerencias/|[^/]+\.md$|\.gitignore$)")
+IGNORADOS = re.compile(r"^(?!tools/armar\.py$|\.github/workflows/desplegar\.yml$)"
+                       r"(\.github/|tools/|propuestas/|_fuentes/|sugerencias/|[^/]+\.md$|\.gitignore$)")
 
 # Lo que quedó «sin verificar» en otros pasos (regla 8 del plan). Sale en cada pasada hasta que se anota un ok.
 FIJOS = [
@@ -249,7 +253,7 @@ def leer_estado(ruta=ESTADO):
     ultimo = {}
     if not ruta.exists():
         return ultimo
-    for linea in ruta.read_text(encoding="utf-8").splitlines():
+    for linea in ruta.read_text(encoding="utf-8-sig").splitlines():
         partes = linea.split("\t")
         if len(partes) < 3 or linea.startswith("#") or partes[2] not in RESULTADOS:
             continue
@@ -268,7 +272,7 @@ def anotar(ruta, id_, resultado, nota, hoy):
 
 
 def cambios_desde(base=BASE, hasta="HEAD", raiz=RAIZ):
-    r = subprocess.run(["git", "-C", str(raiz), "diff", "--name-only", f"{base}..{hasta}"],
+    r = subprocess.run(["git", "-c", "core.quotePath=false", "-C", str(raiz), "diff", "--name-only", f"{base}..{hasta}"],
                        capture_output=True, text=True, encoding="utf-8")
     if r.returncode:
         raise SystemExit(f"git no pudo comparar {base}..{hasta}: {r.stderr.strip()}")
@@ -348,8 +352,15 @@ def autoprueba():
     chequear("los ids del plan son únicos", len(ids) == len(set(ids)))
     chequear("el plan trae los fijos sin verificar", sum(i.startswith("fijo|") for i in ids) == len(FIJOS))
     chequear("«revisar a mano» aparece en el plan", any(it["pantalla"] == "Revisar a mano" for it in plan))
-    chequear("cada toque tiene 2 o 3 pasos concretos (los genéricos, 2)",
-             all(1 <= len(TOQUES.get(k, GENERICO)) <= 3 for k in TOQUES))
+    chequear("cada pantalla con toques propios trae 2 o 3 pasos concretos (una sola si es menor)",
+             all(1 <= len(v) <= 3 for v in TOQUES.values()))
+    chequear("el genérico trae 2 pasos", len(GENERICO) == 2)
+    sin_toques = [k for k in sitio if k not in TOQUES]
+    chequear("hay al menos una pantalla sin toques propios para probar el genérico", bool(sin_toques))
+    if sin_toques:
+        plan_gen = armar_plan({"pantallas": {sin_toques[0]: ["x"]}, "revisar": []}, sitio)
+        propios = [it["toque"] for it in plan_gen if it["id"].startswith(f"{sin_toques[0]}|")]
+        chequear("una pantalla sin toques propios usa el genérico", propios == GENERICO)
 
     for clave in REGLAS:
         for destino in clave[1]:
@@ -372,7 +383,9 @@ def autoprueba():
         leido = leer_estado(ruta)
         chequear("el estado guarda el último resultado de cada toque",
                  leido.get("carrera|x") == ("2026-12-07", "ok", ""))
-        chequear("las notas no rompen el formato", "\t" not in ruta.read_text(encoding="utf-8").split("\n")[2].split("\t", 3)[3])
+        linea_con_nota = ruta.read_text(encoding="utf-8").split("\n")[1]  # la primera anotación (la que trae tab y salto)
+        chequear("las notas no rompen el formato (una línea, cuatro columnas)",
+                 len(linea_con_nota.split("\t")) == 4 and linea_con_nota.split("\t")[3] == "se vio mal hoy")
         chequear("un estado vacío no falla", leer_estado(Path(tmp) / "no-existe.txt") == {})
 
     if fallas:
