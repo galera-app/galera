@@ -70,6 +70,8 @@ jobs:
         run: node tools/probar_simuladores.js
       - name: "Pruebas de unidad con cobertura (la cobertura no puede bajar)"
         run: node tools/pruebas_unidad.mjs
+      - name: "Pasada de celular: la tabla de pantallas y toques (tools/pasada.py)"
+        run: python tools/pasada.py --autoprueba
       - name: "Capitulares góticas: una por pantalla, solo en el h1 (y sin letras ambiguas sin sin-cap)"
         run: python tools/controlar_capitulares.py dist
       - name: Las pantallas clave responden
