@@ -36,8 +36,8 @@ VISITADAS = set()
 
 
 def ir(page, ses, ruta):
-    VISITADAS.add(ruta.split("#", 1)[0])
     page.goto(ses.origen + ruta, wait_until="networkidle", timeout=30000)
+    VISITADAS.add(ruta.split("#", 1)[0])  # se anota solo si el goto llegó
 TOPE_SEGUNDOS = 4 * 60          # por navegador: si se pasa, se recorta el barrido, no los recorridos de riesgo
 CONSENTIMIENTO = "fc-consent"
 
