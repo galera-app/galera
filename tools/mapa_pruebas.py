@@ -20,7 +20,7 @@ el control falla si aparece una pieza que no estaba.
 
     python tools/mapa_pruebas.py                     controla contra tools/sin-dos-pruebas.json (lo que corre el CI)
     python tools/mapa_pruebas.py --rutas X.json      además usa las rutas que dejó recorridos.py --rutas X.json
-    python tools/mapa_pruebas.py --actualizar        achica la lista a lo que quedó (nunca suma)
+    python tools/mapa_pruebas.py --rutas X.json --actualizar   achica la lista a lo que quedó (nunca suma)
     python tools/mapa_pruebas.py --autoprueba        casos de la lógica pura (el CI la corre antes)
 """
 import argparse
@@ -251,7 +251,7 @@ def main():
     if a.rutas is None:
         print("(sin --rutas: no se cuenta el nivel recorrido)")
 
-    comprometida = leer_json(LISTA)["piezas"] if LISTA.is_file() else None
+    comprometida = leer_json(LISTA).get("piezas") if LISTA.is_file() else None
     if a.actualizar:
         if comprometida is not None:
             nuevas, _ = chequear(sin, comprometida)
@@ -276,7 +276,7 @@ def main():
         print("Piezas nuevas sin dos pruebas (la lista no puede crecer): " + ", ".join(nuevas))
         return 1
     if sobran:
-        print(f"La lista se puede achicar ({len(sobran)}): python tools/mapa_pruebas.py --actualizar")
+        print(f"La lista se puede achicar ({len(sobran)}): python tools/mapa_pruebas.py --rutas X.json --actualizar")
     print("mapa de piezas ok")
     return 0
 
