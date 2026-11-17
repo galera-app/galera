@@ -644,6 +644,7 @@ button.gl-az:hover{background:var(--tinta-suave);color:var(--gl-click)}
 .gl-opt[aria-pressed="true"] .gl-opt-g{border-color:var(--tinta);background:radial-gradient(circle,var(--marca) 1.3px,transparent 1.7px) 0 0/4px 4px}
 .gl-opt:focus-visible{outline:2px solid var(--texto);outline-offset:2px}
 .gl-dir-lista{margin:8px 0 0;padding:0;list-style:none}
+.gl-dir-lista,.gl-dir-main .gl-cuenta{scroll-margin-top:88px}
 .gl-dir-paginas{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:16px 0 0;padding-top:16px;border-top:1px solid var(--borde)}
 .gl-dir-letra{padding:24px 0 8px;font:600 var(--t-xs)/16px var(--gl-sans);letter-spacing:.08em;color:var(--tinta);scroll-margin-top:88px}
 .gl-dir-fila{display:flex;align-items:flex-start;gap:16px;min-height:72px;padding:12px 0;border-top:1px solid var(--borde)}

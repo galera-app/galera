@@ -411,6 +411,16 @@ def r7_consentimiento(ses, fallas):
         ctx.close()
 
 
+def r8_directorio(ses, fallas):
+    ctx = ses.contexto(None)
+    try:
+        page = ctx.new_page()
+        N.observar(page, fallas, ses.origen)
+        N.recorrer_directorio(page, ses.origen, fallas)
+    finally:
+        ctx.close()
+
+
 RECORRIDOS = [
     ("1 · cargar y volver a abrir", r1_cargar_y_reabrir),
     ("2 · exportar", r2_exportar),
@@ -419,6 +429,7 @@ RECORRIDOS = [
     ("5 · traspaso por link", r5_traspaso),
     ("6 · compartir un apunte", r6_compartir),
     ("7 · consentimiento de Analytics", r7_consentimiento),
+    ("8 · Directorio por páginas", r8_directorio),
 ]
 
 

@@ -106,7 +106,7 @@ window.ACC = window.ACC || {};
     buscarInicio: (e) => { e.preventDefault(); const q = String(($('#inicio-q') || {}).value || '').trim().slice(0, 100); V.bus.q = q; ir('buscar'); },
     busRepetir: () => { V.bus.pide = null; lanzarBusqueda(); pintarBusqueda(); },
     busTipeo: (v) => { clearTimeout(buscarEnviar.t); buscarEnviar.t = setTimeout(() => buscarCon(v), 350); },
-    dirPag: (n) => { V.dir.n = n; $('#dir-lista').innerHTML = directorioLista(); const c = $('#dir-lista .gl-cuenta'); if (c) { c.setAttribute('tabindex', '-1'); c.focus(); c.scrollIntoView({ block: 'start' }); } },
+    dirPag: (n) => { V.dir.n = n; $('#dir-lista').innerHTML = directorioLista(); const c = $('#dir-lista .gl-cuenta'); if (c) { c.setAttribute('tabindex', '-1'); c.focus(); } },
     dirBuscar: (v) => { V.dir.q = v; V.dir.n = 0; $('#dir-lista').innerHTML = directorioLista(); $('#dir-mapa').innerHTML = directorioMapaVista(); },
     dirTipo: (t) => { V.dir = { tipo: t, q: '', prov: '', linea: '', web: false, letra: '', mapa: V.dir.mapa }; render(); },
     dirLimpiar: () => { V.dir = { tipo: V.dir.tipo, q: '', prov: '', linea: '', web: false, letra: '', mapa: V.dir.mapa }; render(); },
@@ -3804,7 +3804,7 @@ function directorioLista() {
   const L = directorioFiltrado().sort((a, b) => sinTildes(a.n) < sinTildes(b.n) ? -1 : 1), t = (D.directorio.tipos.find(x => x.id === V.dir.tipo) || {}).t || '';
   if (!L.length) return `<p class="gl-vacio">${actoresDelTipo().length ? 'No hay fichas con ese filtro.' : esc(t) + ': todavía no hay fichas cargadas.'}</p>`;
   const pags = Math.ceil(L.length / DIR_PAG), pag = Math.min(Math.max(V.dir.n || 0, 0), pags - 1), vis = L.slice(pag * DIR_PAG, (pag + 1) * DIR_PAG);
-  const nav = pags > 1 ? `<nav class="gl-dir-paginas" aria-label="Páginas de fichas"><button class="gl-btn gl-btn--sec" type="button" data-clic="dirPag" data-clic-a="[${pag - 1}]"${pag ? '' : ' disabled'}>Anterior</button><span class="gl-chico" aria-live="polite">Página ${pag + 1} de ${pags}</span><button class="gl-btn gl-btn--sec" type="button" data-clic="dirPag" data-clic-a="[${pag + 1}]"${pag < pags - 1 ? '' : ' disabled'}>Siguiente</button></nav>` : '';
+  const nav = pags > 1 ? `<nav class="gl-dir-paginas" aria-label="Páginas de fichas"><button class="gl-btn gl-btn--sec" type="button" data-clic="dirPag" data-clic-a="[${pag - 1}]"${pag ? '' : ' disabled'}>Anterior</button><span class="gl-chico">Página ${pag + 1} de ${pags}</span><button class="gl-btn gl-btn--sec" type="button" data-clic="dirPag" data-clic-a="[${pag + 1}]"${pag < pags - 1 ? '' : ' disabled'}>Siguiente</button></nav>` : '';
   let ini = '';
   const filas = vis.map(a => {
     const lin = a.linea || [], f = a.fuente || (D.directorio.fuentes || {})[a.fx] || {}, letra = inicialDir(a);
