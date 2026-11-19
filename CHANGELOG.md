@@ -1,5 +1,8 @@
 # Cambios de Cursada (ficha.github.io/cursada)
 
+## v187 · 2026-11-17
+- Press kit en `/prensa/`: sección «De dónde sale el nombre» (texto aprobado por Fidel, PK2) y «Capturas», seis JPG del sitio sin datos (Mi carrera, Horarios y Resúmenes en escritorio 1360 × 900; Mi carrera, Glosario y Arcade en celular 390 × 844 a 2×) en `prensa/img/capturas/`, con enlace de descarga como los íconos. Fecha de actualización y `dateModified` al 17/11. Novedad v187 menor, borrador para la voz de Fidel.
+
 ## v186 · 2026-11-17
 - Detalles de buscadores (paso 34). `/config/` lleva `<meta name="robots" content="noindex">` (ya estaba fuera del sitemap). El inicio suma JSON-LD `Organization` y `WebSite` generados por `tools/armar.py` (`sitio_jsonld`) desde `datos/marca.json` (nombre, frase) y las redes de `marco/sitio.json`; el `WebSite` trae `SearchAction` hacia `/buscar/?q=`, que lee `app.js`. El `WebApplication` sigue. `tools/probar.py` (`test_config_noindex_y_jsonld_del_inicio`) lo controla. Novedad v186 menor, borrador para la voz de Fidel.
 
