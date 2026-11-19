@@ -22,6 +22,12 @@
  ],
  "mesas": [
   {
+   "id": "2026-diciembre",
+   "nombre": "Turno diciembre 2026",
+   "carrera": "edicion",
+   "archivo": "mesas-2026-diciembre.json"
+  },
+  {
    "id": "2026-septiembre",
    "nombre": "Turno septiembre 2026",
    "carrera": "edicion",
