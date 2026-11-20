@@ -7,7 +7,9 @@ name: Cursada - datos de la Facultad
 
 on:
   schedule:
-    - cron: "17 11 * * 1,4"   # lunes y jueves, 8:17 de Buenos Aires
+    # Todos los días: en turno de examen la cartelera cambia seguido. Lee unos 9 PDF (Edición y las
+    # planillas de examen de Letras, Bibliotecología, Antropología y Lenguas Modernas) y no gasta nada.
+    - cron: "17 11 * * *"     # todos los días, 8:17 de Buenos Aires
   workflow_dispatch:
 
 permissions:
