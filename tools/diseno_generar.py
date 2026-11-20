@@ -24,6 +24,8 @@ sys.stdout.reconfigure(encoding="utf-8")
 RAIZ = Path(__file__).resolve().parent.parent
 DISENO = RAIZ / "diseno"
 AVISO = "Generado por tools/diseno_generar.py desde tokens.css y componentes.css. No editar a mano."
+sys.path.insert(0, str(RAIZ / "tools"))
+import diseno_extra  # noqa: E402  (mapa del sitio y componentes de navegación)
 
 
 def bloques(css, selector):
@@ -288,9 +290,13 @@ def g_artifact(destino, claro, oscuro):
     # bundle.css: las variables que no son color (escala, familias con el nombre del sitio) y componentes.css sin @font-face.
     no_color = {k: v for k, v in bloques(tok_css, ":root").items() if not es_color(v) and k != "color-scheme"}
     raiz = ":root{" + "".join(f"--{k}:{v};" for k, v in no_color.items()) + "}\n"
-    cuerpo = re.sub(r"@font-face\{[^}]*\}\n?", "", comp_css)
-    escribir("components/bundle.css", f"/* {AVISO} */\n" + raiz + CSS_PREVIEW + "\n" + cuerpo)
-    for nombre, (grupo, alto, html, guia) in PREVIEWS.items():
+    # Las hojas del sitio en el orden del build (armar.CSS, sin tokens.css: los colores los pone la página desde tokens.json).
+    hojas = [(RAIZ / n).read_text(encoding="utf-8") for n in ("estilos.css", "galera.css", "componentes.css")]
+    cuerpo = "\n".join(re.sub(r"@font-face\{[^}]*\}\n?", "", h) for h in hojas)
+    escribir("components/bundle.css", f"/* {AVISO} Incluye estilos.css y galera.css. */\n" + raiz + CSS_PREVIEW + "\n" + cuerpo
+             + "\n" + diseno_extra.css_barra(*hojas))
+    todas = {**PREVIEWS, **diseno_extra.PREVIEWS_EXTRA, **diseno_extra.previews_marco()}
+    for nombre, (grupo, alto, html, guia) in todas.items():
         escribir(f"components/{nombre}/preview.html", f'<!-- @dsCard group="{grupo}" height={alto} -->\n<div class="col">{html}</div>\n')
         escribir(f"components/{nombre}/README.md", f"# {nombre}\n\n{guia}\n")
     # Brand book: README del repo más las secciones, con los enlaces al repo hechos absolutos.
@@ -300,7 +306,7 @@ def g_artifact(destino, claro, oscuro):
         t = re.sub(r"\]\(\.\./([^)]*)\)", lambda m: f"]({base}{m.group(1)})", t)
         return re.sub(r"\]\(([a-z]+\.md)(#[^)]*)?\)", lambda m: f"]({base}diseno/{m.group(1)}{m.group(2) or ''})", t)
     escribir("README.md", f"> Vista del design system de Galera. La fuente está en el repo [`galera-app/galera`]({base}diseno/README.md), carpeta `diseno/`: lo que cambie acá no vuelve al repo. {AVISO}\n\n" + md("README.md"))
-    for n in ("marca.md", "tipografia.md", "componentes.md", "reglas.md", "contrastes.md"):
+    for n in ("marca.md", "tipografia.md", "componentes.md", "reglas.md", "contrastes.md", "mapa.md"):
         escribir(n, md(n))
     escribir("components/Cover/preview.html", g_portada())
     print("escrito", p)
@@ -359,7 +365,7 @@ def main():
         (destino / "vista.html").write_text(g_vista(claro, oscuro), encoding="utf-8", newline="\n")
         print("escrito", destino / "vista.html")
         return
-    salidas = {"tokens.json": g_tokens(claro, oscuro), "contrastes.md": g_contrastes(claro, oscuro)}
+    salidas = {"tokens.json": g_tokens(claro, oscuro), "contrastes.md": g_contrastes(claro, oscuro), "mapa.md": diseno_extra.g_mapa()}
     if "--comprobar" in sys.argv:
         viejos = [n for n, t in salidas.items() if not (DISENO / n).exists() or (DISENO / n).read_text(encoding="utf-8") != t]
         if viejos:
