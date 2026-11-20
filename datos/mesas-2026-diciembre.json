@@ -3,16 +3,92 @@
  "carrera": "edicion",
  "nombre": "Turno diciembre 2026",
  "fuente": "https://academica.filo.uba.ar/horarios-de-materias-y-seminarios",
- "actualizado": "2026-11-19",
+ "actualizado": "2026-11-20",
  "nota": "Cartelera sujeta a cambios: confirmá siempre en la planilla de la Facultad.",
  "mesas": [
   {
-   "materia": "0914",
-   "nombre": "Edición editorial",
-   "fecha": "2025-12-02",
+   "materia": "aleman",
+   "nombre": "Alemán, nivel elemental",
+   "fecha": "2026-11-30",
+   "hora": "10:00",
+   "llamado": "1° llamado",
+   "aula": "",
+   "origen": "Lenguas Modernas"
+  },
+  {
+   "materia": "",
+   "nombre": "Alemán, nivel superior",
+   "fecha": "2026-11-30",
+   "hora": "10:00",
+   "llamado": "1° llamado",
+   "aula": "",
+   "origen": "Lenguas Modernas"
+  },
+  {
+   "materia": "antropo",
+   "nombre": "Epistemología y métodos de investigación social",
+   "fecha": "2026-11-30",
+   "hora": "10:00",
+   "llamado": "1° llamado",
+   "aula": "",
+   "origen": "Antropología",
+   "catedra": "Hernandez"
+  },
+  {
+   "materia": "antropo",
+   "nombre": "Epistemología y métodos de investigación social",
+   "fecha": "2026-11-30",
+   "hora": "10:00",
+   "llamado": "1° llamado",
+   "aula": "",
+   "origen": "Antropología",
+   "catedra": "Balbi"
+  },
+  {
+   "materia": "frances",
+   "nombre": "Francés, nivel elemental",
+   "fecha": "2026-11-30",
+   "hora": "10:00",
+   "llamado": "1° llamado",
+   "aula": "",
+   "origen": "Lenguas Modernas"
+  },
+  {
+   "materia": "",
+   "nombre": "Francés, nivel superior",
+   "fecha": "2026-11-30",
+   "hora": "10:00",
+   "llamado": "1° llamado",
+   "aula": "",
+   "origen": "Lenguas Modernas"
+  },
+  {
+   "materia": "tal",
+   "nombre": "Teoría y análisis literario",
+   "fecha": "2026-11-30",
+   "hora": "10:00",
+   "llamado": "1° llamado",
+   "aula": "",
+   "origen": "Letras",
+   "catedra": "Quintana"
+  },
+  {
+   "materia": "",
+   "nombre": "Alemán, nivel medio",
+   "fecha": "2026-11-30",
    "hora": "12:00",
    "llamado": "1° llamado",
-   "aula": ""
+   "aula": "",
+   "origen": "Lenguas Modernas"
+  },
+  {
+   "materia": "",
+   "nombre": "Francés, nivel medio",
+   "fecha": "2026-11-30",
+   "hora": "12:30",
+   "llamado": "1° llamado",
+   "aula": "",
+   "origen": "Lenguas Modernas"
   },
   {
    "materia": "0919",
@@ -23,6 +99,61 @@
    "aula": ""
   },
   {
+   "materia": "ingles3",
+   "nombre": "Inglés, nivel superior",
+   "fecha": "2026-12-01",
+   "hora": "10:00",
+   "llamado": "1° llamado",
+   "aula": "",
+   "origen": "Lenguas Modernas"
+  },
+  {
+   "materia": "portugues",
+   "nombre": "Portugués, nivel elemental",
+   "fecha": "2026-12-01",
+   "hora": "10:00",
+   "llamado": "1° llamado",
+   "aula": "",
+   "origen": "Lenguas Modernas"
+  },
+  {
+   "materia": "",
+   "nombre": "Portugués, nivel superior",
+   "fecha": "2026-12-01",
+   "hora": "10:00",
+   "llamado": "1° llamado",
+   "aula": "",
+   "origen": "Lenguas Modernas"
+  },
+  {
+   "materia": "tal",
+   "nombre": "Teoría y análisis literario",
+   "fecha": "2026-12-01",
+   "hora": "10:00",
+   "llamado": "1° llamado",
+   "aula": "",
+   "origen": "Letras",
+   "catedra": "Rodriguez"
+  },
+  {
+   "materia": "ingles1",
+   "nombre": "Inglés, nivel elemental",
+   "fecha": "2026-12-01",
+   "hora": "12:00",
+   "llamado": "1° llamado",
+   "aula": "",
+   "origen": "Lenguas Modernas"
+  },
+  {
+   "materia": "",
+   "nombre": "Portugués, nivel medio",
+   "fecha": "2026-12-01",
+   "hora": "12:00",
+   "llamado": "1° llamado",
+   "aula": "",
+   "origen": "Lenguas Modernas"
+  },
+  {
    "materia": "0911",
    "nombre": "Corrección de estilo",
    "fecha": "2026-12-01",
@@ -31,10 +162,36 @@
    "aula": ""
   },
   {
+   "materia": "ingles2",
+   "nombre": "Inglés, nivel medio",
+   "fecha": "2026-12-01",
+   "hora": "14:00",
+   "llamado": "1° llamado",
+   "aula": "",
+   "origen": "Lenguas Modernas"
+  },
+  {
    "materia": "0922",
    "nombre": "Edición de publicaciones periódicas",
    "fecha": "2026-12-02",
    "hora": "10:00",
+   "llamado": "1° llamado",
+   "aula": ""
+  },
+  {
+   "materia": "biblio",
+   "nombre": "Métodos de investigación en bibliotecología y ciencia de la información",
+   "fecha": "2026-12-02",
+   "hora": "10:00",
+   "llamado": "1° llamado",
+   "aula": "",
+   "origen": "Bibliotecología"
+  },
+  {
+   "materia": "0914",
+   "nombre": "Edición editorial",
+   "fecha": "2026-12-02",
+   "hora": "12:00",
    "llamado": "1° llamado",
    "aula": ""
   },
@@ -55,10 +212,45 @@
    "aula": ""
   },
   {
+   "materia": "italiano",
+   "nombre": "Italiano, nivel elemental",
+   "fecha": "2026-12-02",
+   "hora": "16:00",
+   "llamado": "1° llamado",
+   "aula": "",
+   "origen": "Lenguas Modernas"
+  },
+  {
+   "materia": "",
+   "nombre": "Italiano, nivel superior",
+   "fecha": "2026-12-02",
+   "hora": "16:00",
+   "llamado": "1° llamado",
+   "aula": "",
+   "origen": "Lenguas Modernas"
+  },
+  {
    "materia": "0916",
    "nombre": "Informática aplicada a la administración editorial",
    "fecha": "2026-12-02",
    "hora": "18:00",
+   "llamado": "1° llamado",
+   "aula": ""
+  },
+  {
+   "materia": "",
+   "nombre": "Italiano, nivel medio",
+   "fecha": "2026-12-02",
+   "hora": "18:00",
+   "llamado": "1° llamado",
+   "aula": "",
+   "origen": "Lenguas Modernas"
+  },
+  {
+   "materia": "0902",
+   "nombre": "Introducción a la actividad editorial",
+   "fecha": "2026-12-03",
+   "hora": "10:00",
    "llamado": "1° llamado",
    "aula": ""
   },
@@ -71,24 +263,16 @@
    "aula": ""
   },
   {
-   "materia": "0902",
-   "nombre": "Introducción a la actividad editorial",
-   "fecha": "2026-12-03",
-   "hora": "10:00",
-   "llamado": "1° llamado",
-   "aula": ""
-  },
-  {
-   "materia": "0915",
-   "nombre": "Registro y organización de materiales editoriales",
+   "materia": "0921",
+   "nombre": "Edición electrónica y multimedia",
    "fecha": "2026-12-03",
    "hora": "12:00",
    "llamado": "1° llamado",
    "aula": ""
   },
   {
-   "materia": "0921",
-   "nombre": "Edición electrónica y multimedia",
+   "materia": "0915",
+   "nombre": "Registro y organización de materiales editoriales",
    "fecha": "2026-12-03",
    "hora": "12:00",
    "llamado": "1° llamado",
@@ -127,6 +311,15 @@
    "aula": ""
   },
   {
+   "materia": "biblio",
+   "nombre": "Métodos de investigación en bibliotecología y ciencia de la información",
+   "fecha": "2026-12-09",
+   "hora": "10:00",
+   "llamado": "2° llamado",
+   "aula": "",
+   "origen": "Bibliotecología"
+  },
+  {
    "materia": "0914",
    "nombre": "Edición editorial",
    "fecha": "2026-12-09",
@@ -167,14 +360,6 @@
    "aula": ""
   },
   {
-   "materia": "0913",
-   "nombre": "Teoría de los medios y de la cultura",
-   "fecha": "2026-12-10",
-   "hora": "10:00",
-   "llamado": "2° llamado",
-   "aula": ""
-  },
-  {
    "materia": "0902",
    "nombre": "Introducción a la actividad editorial",
    "fecha": "2026-12-10",
@@ -183,16 +368,24 @@
    "aula": ""
   },
   {
-   "materia": "0915",
-   "nombre": "Registro y organización de materiales editoriales",
+   "materia": "0913",
+   "nombre": "Teoría de los medios y de la cultura",
    "fecha": "2026-12-10",
-   "hora": "12:00",
+   "hora": "10:00",
    "llamado": "2° llamado",
    "aula": ""
   },
   {
    "materia": "0921",
    "nombre": "Edición electrónica y multimedia",
+   "fecha": "2026-12-10",
+   "hora": "12:00",
+   "llamado": "2° llamado",
+   "aula": ""
+  },
+  {
+   "materia": "0915",
+   "nombre": "Registro y organización de materiales editoriales",
    "fecha": "2026-12-10",
    "hora": "12:00",
    "llamado": "2° llamado",
@@ -223,6 +416,46 @@
    "aula": ""
   },
   {
+   "materia": "antropo",
+   "nombre": "Epistemología y métodos de investigación social",
+   "fecha": "2026-12-14",
+   "hora": "10:00",
+   "llamado": "2° llamado",
+   "aula": "",
+   "origen": "Antropología",
+   "catedra": "Hernandez"
+  },
+  {
+   "materia": "antropo",
+   "nombre": "Epistemología y métodos de investigación social",
+   "fecha": "2026-12-14",
+   "hora": "10:00",
+   "llamado": "2° llamado",
+   "aula": "",
+   "origen": "Antropología",
+   "catedra": "Balbi"
+  },
+  {
+   "materia": "tal",
+   "nombre": "Teoría y análisis literario",
+   "fecha": "2026-12-14",
+   "hora": "10:00",
+   "llamado": "2° llamado",
+   "aula": "",
+   "origen": "Letras",
+   "catedra": "Quintana"
+  },
+  {
+   "materia": "tal",
+   "nombre": "Teoría y análisis literario",
+   "fecha": "2026-12-15",
+   "hora": "10:00",
+   "llamado": "2° llamado",
+   "aula": "",
+   "origen": "Letras",
+   "catedra": "Rodriguez"
+  },
+  {
    "materia": "0911",
    "nombre": "Corrección de estilo",
    "fecha": "2026-12-15",
@@ -237,6 +470,15 @@
    "hora": "10:00",
    "llamado": "3° llamado",
    "aula": ""
+  },
+  {
+   "materia": "biblio",
+   "nombre": "Métodos de investigación en bibliotecología y ciencia de la información",
+   "fecha": "2026-12-16",
+   "hora": "10:00",
+   "llamado": "3° llamado",
+   "aula": "",
+   "origen": "Bibliotecología"
   },
   {
    "materia": "0914",
@@ -279,14 +521,6 @@
    "aula": ""
   },
   {
-   "materia": "0913",
-   "nombre": "Teoría de los medios y de la cultura",
-   "fecha": "2026-12-17",
-   "hora": "10:00",
-   "llamado": "3° llamado",
-   "aula": ""
-  },
-  {
    "materia": "0902",
    "nombre": "Introducción a la actividad editorial",
    "fecha": "2026-12-17",
@@ -295,16 +529,24 @@
    "aula": ""
   },
   {
-   "materia": "0915",
-   "nombre": "Registro y organización de materiales editoriales",
+   "materia": "0913",
+   "nombre": "Teoría de los medios y de la cultura",
    "fecha": "2026-12-17",
-   "hora": "12:00",
+   "hora": "10:00",
    "llamado": "3° llamado",
    "aula": ""
   },
   {
    "materia": "0921",
    "nombre": "Edición electrónica y multimedia",
+   "fecha": "2026-12-17",
+   "hora": "12:00",
+   "llamado": "3° llamado",
+   "aula": ""
+  },
+  {
+   "materia": "0915",
+   "nombre": "Registro y organización de materiales editoriales",
    "fecha": "2026-12-17",
    "hora": "12:00",
    "llamado": "3° llamado",
@@ -333,6 +575,46 @@
    "hora": "16:00",
    "llamado": "3° llamado",
    "aula": ""
+  },
+  {
+   "materia": "antropo",
+   "nombre": "Epistemología y métodos de investigación social",
+   "fecha": "2026-12-21",
+   "hora": "10:00",
+   "llamado": "3° llamado",
+   "aula": "",
+   "origen": "Antropología",
+   "catedra": "Hernandez"
+  },
+  {
+   "materia": "antropo",
+   "nombre": "Epistemología y métodos de investigación social",
+   "fecha": "2026-12-21",
+   "hora": "10:00",
+   "llamado": "3° llamado",
+   "aula": "",
+   "origen": "Antropología",
+   "catedra": "Balbi"
+  },
+  {
+   "materia": "tal",
+   "nombre": "Teoría y análisis literario",
+   "fecha": "2026-12-21",
+   "hora": "10:00",
+   "llamado": "3° llamado",
+   "aula": "",
+   "origen": "Letras",
+   "catedra": "Quintana"
+  },
+  {
+   "materia": "tal",
+   "nombre": "Teoría y análisis literario",
+   "fecha": "2026-12-22",
+   "hora": "10:00",
+   "llamado": "3° llamado",
+   "aula": "",
+   "origen": "Letras",
+   "catedra": "Rodriguez"
   },
   {
    "materia": "0911",

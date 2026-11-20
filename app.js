@@ -174,11 +174,12 @@ const juegoVacio = () => ({ on: true, rondas: {}, hitos: [], retos: {}, aprob: [
 // Tarjetas por ayudar a Galera (v174): fechas y, del aporte mensual, nivel y figura (MECENAS).
 const extrasVacio = () => ({ mail: '', cafe: '', resumen: '', respuesta: '', mecenas: null });
 function estadoVacio() { return { v: 1, carrera: 'edicion', perfil: '', vioAyuda: false, materias: {}, horarios: {}, escandallo: null, comparador: null, papel: null, paginacion: null, cronograma: null, leidos: {}, lecturas: {}, descarga: '',
-  copia: '', modif: '', primera: '', visto: '', invitacion: '', practica: {}, extras: extrasVacio(), juego: juegoVacio(), arcade: typeof Arcade === 'undefined' ? null : Arcade.sanear(null) }; }
+  copia: '', modif: '', primera: '', visto: '', invitacion: '', practica: {}, rendir: [], extras: extrasVacio(), juego: juegoVacio(), arcade: typeof Arcade === 'undefined' ? null : Arcade.sanear(null) }; }
 // Todo lo que entra (de localStorage o de un archivo importado) se reconstruye campo por campo:
 // solo tipos, formatos y largos esperados. Lo que no encaja se descarta.
 const RE_ID = /^(?!__proto__$|constructor$|prototype$)[\w.-]{1,60}$/, RE_FECHA = /^\d{4}-\d\d-\d\d$/, RE_HORA = /^\d\d:\d\d$/;
 const TIPOS = ['Teórico', 'Práctico', 'Teórico-práctico'];
+const RE_MESA = /^[\w.-]{1,40}\|[\w.-]{0,60}\|[^|]{1,160}\|\d{4}-\d\d-\d\d\|(\d\d:\d\d)?$/;
 const MODOS_ESC = ['cpu', 'offset', 'demanda'];
 const CAMPOS_PAPEL = ['ancho', 'alto', 'paginas', 'solapa', 'lomo', 'tirada', 'demasia', 'gramaje', 'precioKg', 'fa', 'fb', 'calle', 'lateral', 'pinza', 'cola', 'forzar', 'espesor'];
 const CAMPOS_ESC = ['pvp', 'tirada', 'cpu', 'preproduccion', 'industrial', 'paginas', 'porPliego', 'precioPliego', 'tapasPorPliego', 'precioTapa', 'encuadernado',
@@ -223,6 +224,8 @@ function normalizar(e) {
       bloqueos: lista(h.bloqueos, 40).map(b => { const x = bloque(b); if (x) x.t = txt(b.t, 40); return x; }).filter(Boolean)
     };
   });
+  // Mesas que la persona eligió rendir (panel «Qué vas a rendir» de Calendario): claves turno|materia|nombre|fecha|hora.
+  out.rendir = lista(e.rendir, 200).filter(k => typeof k === 'string' && RE_MESA.test(k)).filter((k, i, a) => a.indexOf(k) === i);
   // Simulador de escandallo: solo cifras (como texto, tal cual se tipearon) y los nombres de los canales.
   const cifra = v => typeof v === 'string' && /^[\d.,\s$%-]{0,20}$/.test(v) ? v : '';
   const S = e.escandallo;
@@ -1538,7 +1541,9 @@ function vCalendarioIn() {
   const c = D.calendario, t = hoy();
   // De las mesas publicadas, al calendario van solo las de las materias que tenés regulares o en curso.
   const mias = D.plan.materias.filter(m => ['regular', 'cursando'].indexOf((E.materias[m.id] || {}).estado) >= 0)
-    .flatMap(m => mesasDe(m).map(x => ({ t: 'Mesa de ' + nombreDe(m) + (x.aula ? ' (aula ' + x.aula + ')' : ''), tipo: 'mesa', desde: x.fecha, hasta: x.fecha, hora: x.hora, materia: m.id })));
+    .flatMap(m => mesasDe(m).map(x => ({ t: 'Mesa de ' + nombreDe(m) + (x.aula ? ' (aula ' + x.aula + ')' : ''), tipo: 'mesa', desde: x.fecha, hasta: x.fecha, hora: x.hora, materia: m.id })))
+    .concat(mesasElegidas().map(x => ({ t: 'Mesa de ' + nombreMesa(x) + (x.aula ? ' (aula ' + x.aula + ')' : ''), tipo: 'mesa', desde: x.fecha, hasta: x.fecha, hora: x.hora, materia: materiaDelPlan(x.materia) })))
+    .filter((e, i, a) => a.findIndex(o => o.desde === e.desde && o.hora === e.hora && (o.materia || o.t) === (e.materia || e.t)) === i);
   const fer = (c.feriados || []).map(f => ({ t: f.t, tipo: 'feriado', desde: f.fecha, hasta: f.fecha }));
   const todos = c.eventos.concat(fer, misFechas(), mias, repasos()).sort((a, b) => a.desde < b.desde ? -1 : a.desde > b.desde ? 1 : 0);
   // Filtro: "Mis fechas" son las que cargaste, las mesas de tus materias y los repasos; "Oficial" es el calendario de la Facultad y los feriados.
@@ -1547,9 +1552,7 @@ function vCalendarioIn() {
   const futuros = visibles.filter(e => e.hasta >= t), pasados = visibles.filter(e => e.hasta < t);
   const periodo = c.periodos.find(p => p.desde <= t && p.hasta >= t);
   const chip = { examen: ['gl-chip--mal', 'Exámenes'], inscripcion: ['', 'Inscripción'], cursada: ['gl-chip--ok', 'Cursada'], tramite: ['gl-chip--aviso', 'Trámite'], info: ['gl-chip--neutro', 'Info'], mio: ['gl-chip--aviso', 'Tuyo'], mesa: ['gl-chip--mal', 'Mesa'], feriado: ['gl-chip--aviso', 'Feriado'], repaso: ['', 'Repaso'], especial: ['gl-chip--aviso', 'Feriado'] };
-  const turnos = D.mesas.map(tn => `<details class="gl-tarjeta"><summary class=""><b>Mesas de examen: ${esc(tn.nombre)}</b> <span class="gl-chico">(${tn.mesas.length}, cargadas el ${fmt(tn.actualizado)})</span></summary>
-    <p class="gl-chico">${esc(tn.nota)} <a href="${urlSegura(tn.fuente)}" target="_blank" rel="noopener">Ver la planilla de la Facultad</a>.</p>
-    ${tn.mesas.map(x => `<div class="gl-ev"><div class="gl-cuando">${fmt(x.fecha)}</div><div class="gl-crece">${esc(x.nombre)}<span class="gl-chico">${[x.hora && x.hora + ' h', x.aula && 'aula ' + x.aula, x.llamado].filter(Boolean).map(esc).join(' · ')}</span></div></div>`).join('')}</details>`).join('');
+  const turnos = panelMesas();
   const fila = e => { const enCurso = e.desde <= t && e.hasta >= t; return `<div class="gl-ev ${enCurso ? 'hoy' : ''} ${e.hasta < t ? 'gl-pasado' : ''}"><div class="gl-cuando">${fmtRango(e.desde, e.hasta)}</div>
     <div class="gl-crece">${e.res ? `${esc(e.t)}: <button class="gl-enlace" data-clic="empezarPractica" data-clic-a="[${arg(e.res)}]">practicar ${RONDA} preguntas</button>` : e.materia ? `<button class="gl-enlace" data-clic="abrirMateria" data-clic-a="[${arg(e.materia)}]">${esc(e.t)}</button>` : esc(e.t)}${e.hora ? ' · ' + esc(e.hora) + ' h' : ''}${enCurso && e.desde !== e.hasta ? ' <span class="gl-chico">(en curso)</span>' : ''}</div>
     <span class="gl-chip ${(chip[e.tipo] || chip.info)[0]}">${(chip[e.tipo] || chip.info)[1]}</span></div>`; };
@@ -1606,6 +1609,74 @@ function calMes(todos, t, previo, turnos) {
       <p><button class="gl-btn gl-btn--sec" data-clic="vAsig" data-clic-a="[&quot;calVista&quot;,${arg('lista')}]">Ver todo en lista</button></p></aside></div>${turnos}`;
 }
 function calAlternar(g) { const o = V.calOcultos = V.calOcultos || [], i = o.indexOf(g); if (i >= 0) o.splice(i, 1); else o.push(g); render(); }
+// =====================================================================
+// QUÉ VAS A RENDIR: de las mesas publicadas (Edición, las materias del plan que se rinden en otras carreras
+// e idiomas), la persona tilda los llamados a los que va y se los lleva al calendario en un .ics.
+const nombreMesa = x => x.nombre + (x.catedra ? ' (cátedra ' + x.catedra + ')' : '');
+const claveMesa = (tn, x) => [tn.id, x.materia || '', nombreMesa(x).replace(/\|/g, '/'), x.fecha, x.hora || ''].join('|');
+const grupoMesa = x => x.origen === 'Lenguas Modernas' ? 'idiomas' : x.origen ? 'otras' : 'edicion';
+const GRUPOS_MESA = [['edicion', 'Edición'], ['otras', 'De otras carreras'], ['idiomas', 'Idiomas']];
+// La materia del plan a la que corresponde una mesa (para abrirla desde el calendario): ella misma o la electiva que la tiene de opción.
+const materiaDelPlan = id => !id ? '' : ((D.plan.materias.find(m => m.id === id || (m.opciones || []).some(o => o.id === id)) || {}).id || '');
+function mesasElegidas() {
+  const R = E.rendir || [];
+  return D.mesas.flatMap(tn => tn.mesas.filter(x => R.indexOf(claveMesa(tn, x)) >= 0).map(x => Object.assign({ turno: tn.nombre, clave: claveMesa(tn, x) }, x)))
+    .sort((a, b) => (a.fecha + a.hora) < (b.fecha + b.hora) ? -1 : 1);
+}
+function alternarMesa(k) {
+  const R = E.rendir = E.rendir || [], i = R.indexOf(k);
+  if (i >= 0) R.splice(i, 1); else if (R.length < 200 && RE_MESA.test(k)) R.push(k);
+  guardar(); render();
+}
+function limpiarMesas() { E.rendir = []; guardar(); render(); aviso('Listo: no queda ninguna mesa elegida'); }
+// Misma mesa, mismo UID: si se baja dos veces, el calendario la actualiza en vez de duplicarla.
+const huellaMesa = k => { let h = 5381; for (let i = 0; i < k.length; i++) h = ((h << 5) + h + k.charCodeAt(i)) >>> 0; return h.toString(36); };
+function exportarMesas() {
+  const sel = mesasElegidas().filter(x => x.fecha >= hoy());
+  if (!sel.length) return aviso('Elegí primero qué vas a rendir');
+  const evs = sel.map(x => ({
+    uid: 'galera-mesa-' + x.fecha.replace(/-/g, '') + '-' + huellaMesa(x.clave) + '@galera.com.ar',
+    t: (grupoMesa(x) === 'idiomas' ? 'Examen libre de ' : 'Final de ') + nombreMesa(x) + (x.llamado ? ' (' + x.llamado.toLowerCase() + ')' : ''),
+    fecha: x.fecha, desde: /^\d\d:\d\d$/.test(x.hora || '') ? x.hora : '', lugar: x.aula ? 'Aula ' + x.aula : '',
+    nota: [x.turno + (x.origen ? ', mesa de ' + x.origen : '') + '.', 'Inscribite antes en SIU Guaraní.',
+      'Cartelera sujeta a cambios: confirmá en la planilla de la Facultad (academica.filo.uba.ar/horarios-de-materias-y-seminarios). Armado con Galera, galera.com.ar/'].join('\n')
+  }));
+  descargar('mis-mesas-galera.ics', Horarios.ics(evs, hoy()), 'text/calendar');
+  aviso(evs.length === 1 ? 'Se bajó 1 mesa' : 'Se bajaron ' + evs.length + ' mesas');
+}
+function panelMesas() {
+  const t = hoy(), R = E.rendir || [];
+  const vigentes = D.mesas.filter(tn => tn.mesas.some(x => x.fecha >= t));
+  if (!vigentes.length) return D.mesas.length ? `<div class="gl-sec"><h2 class="gl-t2">Qué vas a rendir</h2></div><p class="gl-chico">Las mesas del último turno ya pasaron. Cuando la Facultad publique el próximo, aparecen acá solas.</p>` : '';
+  const g = V.mesaGrupo || 'edicion', sel = mesasElegidas().filter(x => x.fecha >= t);
+  // Las materias que tenés regulares o en curso llevan una marca: son las que seguramente quieras rendir.
+  const tuyas = D.plan.materias.filter(m => ['regular', 'cursando'].indexOf((E.materias[m.id] || {}).estado) >= 0).flatMap(m => [m.id].concat((m.opciones || []).map(o => o.id)));
+  const mismoDia = sel.filter((x, i) => sel.some((o, j) => j !== i && o.fecha === x.fecha && o.hora === x.hora));
+  const seg = `<div class="gl-seg" role="group" aria-label="Qué mesas ver">${GRUPOS_MESA.map(([k, n]) => {
+    const c = sel.filter(x => grupoMesa(x) === k).length;
+    return `<button type="button" class="${g === k ? 'on' : ''}" aria-pressed="${g === k}" data-clic="vAsig" data-clic-a="[&quot;mesaGrupo&quot;,${arg(k)}]">${n}${c ? ' (' + c + ')' : ''}</button>`;
+  }).join('')}</div>`;
+  const bloques = vigentes.map(tn => {
+    const porNombre = {};
+    tn.mesas.filter(x => grupoMesa(x) === g && x.fecha >= t).forEach(x => { (porNombre[nombreMesa(x)] = porNombre[nombreMesa(x)] || []).push(x); });
+    const filas = Object.keys(porNombre).sort((a, b) => a.localeCompare(b, 'es')).map(n => {
+      const L = porNombre[n], x0 = L[0], tuya = L.some(x => x.materia && tuyas.indexOf(x.materia) >= 0);
+      const datos = [x0.origen && x0.origen !== 'Lenguas Modernas' && 'Se rinde en ' + x0.origen, tuya && 'La tenés regular o en curso'].filter(Boolean);
+      return `<div class="gl-mesa"><div class="gl-mesa-nom"><b>${esc(n)}</b>${datos.length ? `<span class="gl-chico">${datos.map(esc).join(' · ')}</span>` : ''}</div>
+        <div class="gl-mesa-ll">${L.map(x => {
+          const k = claveMesa(tn, x), on = R.indexOf(k) >= 0;
+          return `<button type="button" class="gl-mesa-op ${on ? 'on' : ''}" aria-pressed="${on}" data-clic="alternarMesa" data-clic-a="[${arg(k)}]"><i class="gl-cal-ck ${on ? 'on' : ''}" aria-hidden="true"></i><span>${esc(fmt(x.fecha))}${x.hora ? ', ' + esc(x.hora) + ' h' : ''}<span class="gl-chico">${esc([x.llamado, x.aula && 'aula ' + x.aula].filter(Boolean).join(' · ') || 'Mesa')}</span></span></button>`;
+        }).join('')}</div></div>`;
+    }).join('');
+    return `<div class="gl-tarjeta"><p class="gl-rotulo">${esc(tn.nombre)}</p>${filas || '<p class="gl-chico">En este turno no quedan mesas de este grupo por delante.</p>'}
+      <p class="gl-chico">${esc(tn.nota)} Cargadas el ${fmt(tn.actualizado)}. <a href="${urlSegura(tn.fuente)}" target="_blank" rel="noopener">Ver la planilla de la Facultad</a>.</p></div>`;
+  }).join('');
+  return `<section class="gl-mesas" aria-label="Qué vas a rendir"><div class="gl-sec"><h2 class="gl-t2">Qué vas a rendir</h2>
+    <span class="gl-flex">${sel.length ? `<button class="gl-btn gl-btn--sec gl-btn--c" type="button" data-clic="exportarMesas">Llevar ${sel.length === 1 ? 'la mesa' : 'las ' + sel.length + ' mesas'} al calendario (.ics)</button><button class="gl-btn gl-btn--ter gl-btn--c" type="button" data-clic="limpiarMesas">Borrar la elección</button>` : ''}</span></div>
+    <p class="gl-chico">Tildá los llamados a los que pensás ir: quedan en tu calendario (en «Mis fechas») y los bajás en un archivo .ics para Google Calendar, iPhone u Outlook. Están las materias de Edición, las del plan que se rinden en otras carreras y los idiomas de Lenguas Modernas. Lo que elegís queda solo en este navegador.</p>
+    ${mismoDia.length ? `<p class="gl-chico"><b>Ojo:</b> ${esc(mismoDia.map(nombreMesa).filter((x, i, a) => a.indexOf(x) === i).join(', '))}: caen el mismo día y a la misma hora.</p>` : ''}
+    ${seg}${bloques}</section>`;
+}
 // Repaso espaciado: antes de cada parcial o final de una materia con resumen, tres repasos cortos (7, 3 y 1 día antes).
 // No se guardan: se calculan de las fechas que carga cada persona.
 function repasos() {
@@ -4392,7 +4463,7 @@ Object.assign(ACC, {
   editarHorarios: (...a) => editarHorarios(...a), ejemploCmp: (...a) => ejemploCmp(...a), ejemploCr: (...a) => ejemploCr(...a),
   ejemploEsc: (...a) => ejemploEsc(...a), ejemploPag: (...a) => ejemploPag(...a), ejemploPap: (...a) => ejemploPap(...a),
   elegirComision: (...a) => elegirComision(...a), elegirEnInicio: (...a) => elegirEnInicio(...a), empezarPractica: (...a) => empezarPractica(...a),
-  enviarAviso: (...a) => enviarAviso(...a), exportar: (...a) => exportar(...a), exportarIcs: (...a) => exportarIcs(...a),
+  enviarAviso: (...a) => enviarAviso(...a), exportar: (...a) => exportar(...a), exportarIcs: (...a) => exportarIcs(...a), exportarMesas: (...a) => exportarMesas(...a), alternarMesa: (...a) => alternarMesa(...a), limpiarMesas: (...a) => limpiarMesas(...a),
   fmtBase: (...a) => fmtBase(...a), fmtGrupo: (...a) => fmtGrupo(...a), fmtPaso: (...a) => fmtPaso(...a), fmtSel: (...a) => fmtSel(...a),
   fmtSelA: (...a) => fmtSelA(...a), gloElegir: (...a) => gloElegir(...a), gloIr: (...a) => gloIr(...a), gloVer: (...a) => gloVer(...a),
   gloVista: (...a) => gloVista(...a), guardarBloqueo: (...a) => guardarBloqueo(...a), guardarNov: (...a) => guardarNov(...a),
