@@ -120,7 +120,7 @@ def cabecera(rel):
 
 # Scripts que la app baja recién cuando una pantalla los necesita (los usa `cargarMods` en app.js; el prerender los suma todos).
 # El orden dentro de cada grupo es el de ejecución. No van en app-cierre.tpl.
-CARGA = {"horarios": ["horarios"], "grafo": ["grafo"], "arcade": ["arcade", "arcade-ui"],
+CARGA = {"horarios": ["horarios", "mesas"], "grafo": ["grafo"], "arcade": ["arcade", "arcade-ui"],
          "sim": ["escandallo", "papel", "paginacion", "cronograma", "ecosistema", "formatos", "lomo", "leyes", "contratos", "redactor", "retos"],
          "imprenta": ["imprenta"], "prensa": ["imprenta", "imprenta-editor"]}   # pdf-lib (vendor/) no va acá: lo baja imprenta.js recién cuando alguien elige un PDF
 
@@ -472,6 +472,7 @@ def nucleo(salida):
     marco = (salida / "marco.js").read_text(encoding="utf-8")
     huellas = json.loads(marco[marco.index("{", marco.index("const MARCO")):marco.rindex("}") + 1])["huellas"]
     lista.append(f"/horarios.js?v={huellas['horarios']}")   # lo baja app.js al abrir Horarios o Calendario (MARCO.carga)
+    lista.append(f"/mesas.js?v={huellas['mesas']}")       # ídem (Qué vas a rendir, en Calendario)
     for css in [x for x in lista if x.split("?")[0].endswith(".css")]:
         for u in URL_CSS.findall((salida / css.split("?")[0].lstrip("/")).read_text(encoding="utf-8")):
             lista.append("/" + u.lstrip("/"))
