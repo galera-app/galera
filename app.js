@@ -174,11 +174,12 @@ const juegoVacio = () => ({ on: true, rondas: {}, hitos: [], retos: {}, aprob: [
 // Tarjetas por ayudar a Galera (v174): fechas y, del aporte mensual, nivel y figura (MECENAS).
 const extrasVacio = () => ({ mail: '', cafe: '', resumen: '', respuesta: '', mecenas: null });
 function estadoVacio() { return { v: 1, carrera: 'edicion', perfil: '', vioAyuda: false, materias: {}, horarios: {}, escandallo: null, comparador: null, papel: null, paginacion: null, cronograma: null, leidos: {}, lecturas: {}, descarga: '',
-  copia: '', modif: '', primera: '', visto: '', invitacion: '', practica: {}, extras: extrasVacio(), juego: juegoVacio(), arcade: typeof Arcade === 'undefined' ? null : Arcade.sanear(null) }; }
+  copia: '', modif: '', primera: '', visto: '', invitacion: '', practica: {}, rendir: [], extras: extrasVacio(), juego: juegoVacio(), arcade: typeof Arcade === 'undefined' ? null : Arcade.sanear(null) }; }
 // Todo lo que entra (de localStorage o de un archivo importado) se reconstruye campo por campo:
 // solo tipos, formatos y largos esperados. Lo que no encaja se descarta.
 const RE_ID = /^(?!__proto__$|constructor$|prototype$)[\w.-]{1,60}$/, RE_FECHA = /^\d{4}-\d\d-\d\d$/, RE_HORA = /^\d\d:\d\d$/;
 const TIPOS = ['Teórico', 'Práctico', 'Teórico-práctico'];
+const RE_MESA = /^[\w.-]{1,40}\|[\w.-]{0,60}\|[^|]{1,160}\|\d{4}-\d\d-\d\d\|(\d\d:\d\d)?$/;
 const MODOS_ESC = ['cpu', 'offset', 'demanda'];
 const CAMPOS_PAPEL = ['ancho', 'alto', 'paginas', 'solapa', 'lomo', 'tirada', 'demasia', 'gramaje', 'precioKg', 'fa', 'fb', 'calle', 'lateral', 'pinza', 'cola', 'forzar', 'espesor'];
 const CAMPOS_ESC = ['pvp', 'tirada', 'cpu', 'preproduccion', 'industrial', 'paginas', 'porPliego', 'precioPliego', 'tapasPorPliego', 'precioTapa', 'encuadernado',
@@ -223,6 +224,8 @@ function normalizar(e) {
       bloqueos: lista(h.bloqueos, 40).map(b => { const x = bloque(b); if (x) x.t = txt(b.t, 40); return x; }).filter(Boolean)
     };
   });
+  // Mesas que la persona eligió rendir (panel «Qué vas a rendir» de Calendario): claves turno|materia|nombre|fecha|hora.
+  out.rendir = lista(e.rendir, 200).filter(k => typeof k === 'string' && RE_MESA.test(k)).filter((k, i, a) => a.indexOf(k) === i);
   // Simulador de escandallo: solo cifras (como texto, tal cual se tipearon) y los nombres de los canales.
   const cifra = v => typeof v === 'string' && /^[\d.,\s$%-]{0,20}$/.test(v) ? v : '';
   const S = e.escandallo;
@@ -1538,7 +1541,9 @@ function vCalendarioIn() {
   const c = D.calendario, t = hoy();
   // De las mesas publicadas, al calendario van solo las de las materias que tenés regulares o en curso.
   const mias = D.plan.materias.filter(m => ['regular', 'cursando'].indexOf((E.materias[m.id] || {}).estado) >= 0)
-    .flatMap(m => mesasDe(m).map(x => ({ t: 'Mesa de ' + nombreDe(m) + (x.aula ? ' (aula ' + x.aula + ')' : ''), tipo: 'mesa', desde: x.fecha, hasta: x.fecha, hora: x.hora, materia: m.id })));
+    .flatMap(m => mesasDe(m).map(x => ({ t: 'Mesa de ' + nombreDe(m) + (x.aula ? ' (aula ' + x.aula + ')' : ''), tipo: 'mesa', desde: x.fecha, hasta: x.fecha, hora: x.hora, materia: m.id })))
+    .concat((typeof mesasElegidas === 'function' ? mesasElegidas() : []).map(x => ({ t: 'Mesa de ' + nombreMesa(x) + (x.aula ? ' (aula ' + x.aula + ')' : ''), tipo: 'mesa', desde: x.fecha, hasta: x.fecha, hora: x.hora, materia: materiaDelPlan(x.materia) })))
+    .filter((e, i, a) => a.findIndex(o => o.desde === e.desde && o.hora === e.hora && (o.materia || o.t) === (e.materia || e.t)) === i);
   const fer = (c.feriados || []).map(f => ({ t: f.t, tipo: 'feriado', desde: f.fecha, hasta: f.fecha }));
   const todos = c.eventos.concat(fer, misFechas(), mias, repasos()).sort((a, b) => a.desde < b.desde ? -1 : a.desde > b.desde ? 1 : 0);
   // Filtro: "Mis fechas" son las que cargaste, las mesas de tus materias y los repasos; "Oficial" es el calendario de la Facultad y los feriados.
@@ -1547,9 +1552,7 @@ function vCalendarioIn() {
   const futuros = visibles.filter(e => e.hasta >= t), pasados = visibles.filter(e => e.hasta < t);
   const periodo = c.periodos.find(p => p.desde <= t && p.hasta >= t);
   const chip = { examen: ['gl-chip--mal', 'Exámenes'], inscripcion: ['', 'Inscripción'], cursada: ['gl-chip--ok', 'Cursada'], tramite: ['gl-chip--aviso', 'Trámite'], info: ['gl-chip--neutro', 'Info'], mio: ['gl-chip--aviso', 'Tuyo'], mesa: ['gl-chip--mal', 'Mesa'], feriado: ['gl-chip--aviso', 'Feriado'], repaso: ['', 'Repaso'], especial: ['gl-chip--aviso', 'Feriado'] };
-  const turnos = D.mesas.map(tn => `<details class="gl-tarjeta"><summary class=""><b>Mesas de examen: ${esc(tn.nombre)}</b> <span class="gl-chico">(${tn.mesas.length}, cargadas el ${fmt(tn.actualizado)})</span></summary>
-    <p class="gl-chico">${esc(tn.nota)} <a href="${urlSegura(tn.fuente)}" target="_blank" rel="noopener">Ver la planilla de la Facultad</a>.</p>
-    ${tn.mesas.map(x => `<div class="gl-ev"><div class="gl-cuando">${fmt(x.fecha)}</div><div class="gl-crece">${esc(x.nombre)}<span class="gl-chico">${[x.hora && x.hora + ' h', x.aula && 'aula ' + x.aula, x.llamado].filter(Boolean).map(esc).join(' · ')}</span></div></div>`).join('')}</details>`).join('');
+  const turnos = typeof panelMesas === 'function' ? panelMesas() : ''; // mesas.js (bajo demanda, con horarios.js)
   const fila = e => { const enCurso = e.desde <= t && e.hasta >= t; return `<div class="gl-ev ${enCurso ? 'hoy' : ''} ${e.hasta < t ? 'gl-pasado' : ''}"><div class="gl-cuando">${fmtRango(e.desde, e.hasta)}</div>
     <div class="gl-crece">${e.res ? `${esc(e.t)}: <button class="gl-enlace" data-clic="empezarPractica" data-clic-a="[${arg(e.res)}]">practicar ${RONDA} preguntas</button>` : e.materia ? `<button class="gl-enlace" data-clic="abrirMateria" data-clic-a="[${arg(e.materia)}]">${esc(e.t)}</button>` : esc(e.t)}${e.hora ? ' · ' + esc(e.hora) + ' h' : ''}${enCurso && e.desde !== e.hasta ? ' <span class="gl-chico">(en curso)</span>' : ''}</div>
     <span class="gl-chip ${(chip[e.tipo] || chip.info)[0]}">${(chip[e.tipo] || chip.info)[1]}</span></div>`; };
@@ -4392,7 +4395,7 @@ Object.assign(ACC, {
   editarHorarios: (...a) => editarHorarios(...a), ejemploCmp: (...a) => ejemploCmp(...a), ejemploCr: (...a) => ejemploCr(...a),
   ejemploEsc: (...a) => ejemploEsc(...a), ejemploPag: (...a) => ejemploPag(...a), ejemploPap: (...a) => ejemploPap(...a),
   elegirComision: (...a) => elegirComision(...a), elegirEnInicio: (...a) => elegirEnInicio(...a), empezarPractica: (...a) => empezarPractica(...a),
-  enviarAviso: (...a) => enviarAviso(...a), exportar: (...a) => exportar(...a), exportarIcs: (...a) => exportarIcs(...a),
+  enviarAviso: (...a) => enviarAviso(...a), exportar: (...a) => exportar(...a), exportarIcs: (...a) => exportarIcs(...a), exportarMesas: (...a) => exportarMesas(...a), alternarMesa: (...a) => alternarMesa(...a), limpiarMesas: (...a) => limpiarMesas(...a),
   fmtBase: (...a) => fmtBase(...a), fmtGrupo: (...a) => fmtGrupo(...a), fmtPaso: (...a) => fmtPaso(...a), fmtSel: (...a) => fmtSel(...a),
   fmtSelA: (...a) => fmtSelA(...a), gloElegir: (...a) => gloElegir(...a), gloIr: (...a) => gloIr(...a), gloVer: (...a) => gloVer(...a),
   gloVista: (...a) => gloVista(...a), guardarBloqueo: (...a) => guardarBloqueo(...a), guardarNov: (...a) => guardarNov(...a),

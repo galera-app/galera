@@ -306,7 +306,13 @@ main:has(>.gl-carrera){max-width:1224px;padding:48px 16px 80px}
 .gl-cal-opt{display:flex;align-items:center;gap:12px;min-height:48px;padding:0 4px;border:0;border-top:1px solid var(--borde);background:none;width:100%;text-align:left;font:400 var(--t-base)/24px var(--gl-sans);color:var(--texto);cursor:pointer}
 .gl-cal-opt:last-of-type{border-bottom:1px solid var(--borde)}
 .gl-cal-opt.on{font-weight:500}
-.gl-cal-opt:focus-visible{outline:2px solid var(--texto);outline-offset:2px}
+.gl-cal-opt:focus-visible,.gl-mesa-op:focus-visible{outline:2px solid var(--texto);outline-offset:2px}
+.gl-mesas>.gl-seg{flex-wrap:wrap}
+.gl-mesa{display:grid;grid-template-columns:1fr 2fr;gap:8px 24px;padding:12px 0;border-top:1px solid var(--borde)}
+.gl-mesa-nom,.gl-mesa-op>span{display:flex;flex-direction:column}.gl-mesa-ll{display:flex;flex-wrap:wrap;gap:8px}
+.gl-mesa-op{display:flex;align-items:center;gap:10px;min-height:48px;padding:6px 12px;border:1px solid var(--borde-campo);border-radius:var(--radio);background:var(--bg);color:inherit;font:inherit;text-align:left}
+.gl-mesa-op.on{border-color:var(--marca);font-weight:500}
+@media (max-width:760px){.gl-mesa{grid-template-columns:1fr}.gl-mesa-op{flex:1 1 140px}}
 .gl-cal-ag{display:flex;gap:16px;padding:16px;background:var(--sup2);border-radius:var(--radio)}
 .gl-cal-ag+.gl-cal-ag{margin-top:8px}
 .gl-cal-fe{width:48px;flex:none;text-align:center;font:600 var(--t-xs)/16px var(--gl-sans);color:var(--tinta)}

@@ -57,11 +57,15 @@ def bajar(url):
 
 
 def links_de_la_carrera():
-    """Los archivos de Drive que la página enlaza con el rótulo de la carrera (oferta y turno de examen)."""
+    """Los archivos de Drive que la página enlaza con el rótulo de la carrera (oferta y turno de examen) y,
+    del turno de examen, los de las carreras de OTRAS_MESAS (materias del plan que se rinden ahí e idiomas)."""
     html = bajar(PAGINA).decode("utf-8", "replace")
+    corte = re.search(r"TURNO DE EX[AÁ]MEN", html, re.I)
     ids = []
-    for href, texto in re.findall(r'<a[^>]+href="([^"]+)"[^>]*>(.*?)</a>', html, re.S):
-        if norm(re.sub(r"<[^>]+>", "", texto)) == norm(CARRERA["rotulo"]):
+    for a in re.finditer(r'<a[^>]+href="([^"]+)"[^>]*>(.*?)</a>', html, re.S):
+        href, texto = a.group(1), norm(re.sub(r"<[^>]+>", "", a.group(2)))
+        examen = corte is not None and a.start() > corte.start()
+        if texto == norm(CARRERA["rotulo"]) or (examen and texto in OTRAS_MESAS):
             m = re.search(r"/d/([\w-]+)", href) or re.search(r"[?&]id=([\w-]+)", href)
             if m:
                 ids.append((m.group(1), href))
@@ -229,7 +233,57 @@ def _filas(items):
 
 # ------------------------------------------------------------------ mesas de examen
 
-def leer_mesas(T, plan):
+# Del turno de examen también se leen las planillas de otras carreras, pero solo las materias que el plan
+# de Edición toma de ellas, y la de Lenguas Modernas (idiomas). Cada regla: (comienzo del nombre, ya
+# normalizado con norm(), id de la materia u opción del plan). La cátedra (PROF. X) se guarda aparte.
+OTRAS_MESAS = {
+    "letras": ("Letras", [(r"teoria y analisis literario\b", "tal")]),
+    "bibliotecologia": ("Bibliotecología", [(r"metodos de investigacion en bibliotecologia\b", "biblio")]),
+    "ciencias antropologicas": ("Antropología", [(r"epistemologia y metodos de investigacion social\b", "antropo")]),
+    "lenguas modernas": ("Lenguas Modernas", [(r"(ingles|frances|aleman|italiano|portugues) nivel (elemental|medio|superior)$", None)]),
+}
+IDIOMAS = {"ingles": "Inglés", "frances": "Francés", "aleman": "Alemán", "italiano": "Italiano", "portugues": "Portugués"}
+NIVELES = {"elemental": "1", "medio": "2", "superior": "3"}
+
+
+def carrera_del_pdf(T):
+    """El rótulo que la planilla trae debajo de «MESAS DE EXÁMENES» (EDICIÓN, LETRAS...), normalizado."""
+    for i, t in enumerate(T):
+        if re.fullmatch(r"MESAS? DE EX[AÁ]MEN(ES)?", t[3], re.I) and i + 1 < len(T):
+            return norm(T[i + 1][3])
+    return ""
+
+
+def _lineas(items):
+    """Agrupa los trozos del título por renglón (misma página y altura)."""
+    out = []
+    for p, y, x, t in items:
+        if out and out[-1][0] == p and abs(out[-1][1] - y) <= 2:
+            out[-1][2].append(t)
+        else:
+            out.append([p, y, [t]])
+    return [" ".join(l[2]).strip() for l in out]
+
+
+def _materia_de_otra(linea, reglas):
+    """(id del plan, nombre para mostrar, cátedra) si el renglón es una materia que Edición toma de esa carrera."""
+    cat = re.search(r"(?<![A-Z])PROF\.?\s+(.+)$", linea, re.I)
+    base = linea[:cat.start()].strip() if cat else linea
+    n = norm(base)
+    for patron, mid in reglas:
+        m = re.match(patron, n)
+        if not m:
+            continue
+        if mid is None:  # idiomas: Inglés va a los tres niveles del plan; los demás, a la opción de «Otro idioma» (nivel 1)
+            idi, niv = m.group(1), m.group(2)
+            mid = f"ingles{NIVELES[niv]}" if idi == "ingles" else (idi if niv == "elemental" else "")
+            return mid, f"{IDIOMAS[idi]}, nivel {niv}", ""
+        return mid, oracion(base), oracion(cat.group(1)).title() if cat else ""
+    return None
+
+
+def leer_mesas(T, plan, carrera="edicion"):
+    """Mesas de una planilla de turno de examen. Edición: todas sus materias; otra carrera: solo las de OTRAS_MESAS."""
     cab = " ".join(t[3] for t in T[:10])
     anio = (re.search(r"ACAD[EÉ]MICO:?\s*(\d{4})", cab, re.I) or re.search(r"(20\d\d)", cab)).group(1)
     turno = re.search(r"TURNO:?\s*([A-ZÁÉÍÓÚ]+)", cab, re.I).group(1).capitalize()
@@ -238,6 +292,7 @@ def leer_mesas(T, plan):
         for o in [m_] + m_.get("opciones", []):
             if o.get("codigo"):
                 nombres[norm(o["nombre"])] = o["id"]
+    otra = OTRAS_MESAS.get(carrera)
     mesas, titulo, actual, en_titulo = [], [], None, False
     pendientes = []
     for p, y, x, t in T:
@@ -245,12 +300,21 @@ def leer_mesas(T, plan):
             titulo, en_titulo = [], True
         elif re.fullmatch(r"FECHA|HORARIO|LLAMADO|AULA", t, re.I):
             if en_titulo:
-                tit = " ".join(titulo)
-                actual = {"nombre": tit, "materia": nombres.get(norm(tit), ""), "items": []}
+                # Un bloque puede traer varias materias con las mismas fechas (pasa en Letras y en idiomas).
+                if otra:
+                    cuales = [r for r in (_materia_de_otra(l, otra[1]) for l in _lineas(titulo)) if r]
+                else:
+                    tit = " ".join(t_[3] for t_ in titulo)
+                    cuales = [(nombres.get(norm(tit), ""), oracion(tit), "")]
+                    if not cuales[0][0]:
+                        por_linea = [(nombres.get(norm(l), ""), oracion(l), "") for l in _lineas(titulo)]
+                        if any(c[0] for c in por_linea):
+                            cuales = por_linea
+                actual = {"cuales": cuales, "items": []}
                 pendientes.append(actual)
                 en_titulo = False
         elif en_titulo:
-            titulo.append(t)
+            titulo.append((p, y, x, t))
         elif actual is not None and not re.fullmatch(r"\d", t):
             actual["items"].append((p, y, x, t))
     for a in pendientes:
@@ -267,11 +331,19 @@ def leer_mesas(T, plan):
             for s, i in ((uh, h), (ul, ll), (ua, au)):
                 if i is not None:
                     s.add(i)
-            mesas.append({"materia": a["materia"], "nombre": oracion(a["nombre"]),
-                          "fecha": f"{int(yy) + (2000 if int(yy) < 100 else 0)}-{int(mth):02d}-{int(d):02d}",
-                          "hora": f"{int(horas[h][2].group(1)):02d}:{horas[h][2].group(2)}" if h is not None else "",
-                          "llamado": re.sub(r"\s+", " ", llamados[ll][2]).capitalize() if ll is not None else "",
-                          "aula": aulas[au][2] if au is not None else ""})
+            # Un año anterior al del turno es una errata de la planilla (pasó: «02/12/25» en el turno diciembre 2026).
+            yy = max(int(yy) + (2000 if int(yy) < 100 else 0), int(anio))
+            for mid, nombre, catedra in a["cuales"]:
+                mesa = {"materia": mid, "nombre": nombre,
+                        "fecha": f"{yy}-{int(mth):02d}-{int(d):02d}",
+                        "hora": f"{int(horas[h][2].group(1)):02d}:{horas[h][2].group(2)}" if h is not None else "",
+                        "llamado": re.sub(r"\s+", " ", llamados[ll][2]).strip().capitalize() if ll is not None else "",
+                        "aula": aulas[au][2] if au is not None else ""}
+                if otra:
+                    mesa["origen"] = otra[0]
+                    if catedra:
+                        mesa["catedra"] = catedra
+                mesas.append(mesa)
     mid = f"{anio}-{norm(turno)}"
     return {"id": mid, "carrera": CARRERA["id"], "nombre": f"Turno {turno.lower()} {anio}", "fuente": PAGINA, "actualizado": date.today().isoformat(),
             "nota": "Cartelera sujeta a cambios: confirmá siempre en la planilla de la Facultad.", "mesas": sorted(mesas, key=lambda m: (m["fecha"], m["hora"]))}
@@ -373,21 +445,33 @@ def main():
     indice = json.loads((DATOS / "indice.json").read_text(encoding="utf-8"))
     indice.setdefault("mesas", [])
     cambios = []
+    turnos = {}  # id del turno → {"edicion": planilla de Edición, "otras": [mesas de otras carreras]}
     for pdf in pdfs:
         if pdf[:4] != b"%PDF":
             print("aviso: uno de los archivos no es un PDF; lo salteo")
             continue
         T = trozos(pdf)
         cab = " ".join(t[3] for t in T[:10])
-        if re.search(r"MESAS? DE EX[AÁ]MEN", cab, re.I):
+        carrera = carrera_del_pdf(T)
+        otra = next((k for k in OTRAS_MESAS if carrera.startswith(k)), None)
+        es_mesas = bool(re.search(r"MESAS? DE EX[AÁ]MEN", " ".join(t[3] for t in T), re.I))
+        if es_mesas and carrera and not carrera.startswith(norm(CARRERA["rotulo"])):
+            # Planillas de otras carreras: solo las de OTRAS_MESAS; si una no se deja leer, se avisa y siguen las de Edición.
+            if not otra:
+                continue
+            try:
+                m = leer_mesas(T, plan, otra)
+            except Exception as e:
+                print(f"aviso: no pude leer las mesas de {otra}: {e}")
+                continue
+            turnos.setdefault(m["id"], {}).setdefault("otras", []).extend(m["mesas"])
+            print(f"mesas {m['id']} de {OTRAS_MESAS[otra][0]}: {len(m['mesas'])}")
+            continue
+        if es_mesas:
             m = leer_mesas(T, plan)
             if len(m["mesas"]) < 3:
                 sys.exit(f"Las mesas de examen no se dejaron leer bien ({len(m['mesas'])} mesas). No toco nada.")
-            archivo = f"mesas-{m['id']}.json"
-            if escribir(archivo, m):
-                cambios.append(archivo)
-            if not any(x["id"] == m["id"] for x in indice["mesas"]):
-                indice["mesas"].append({"id": m["id"], "nombre": m["nombre"], "carrera": CARRERA["id"], "archivo": archivo})
+            turnos.setdefault(m["id"], {})["edicion"] = m
             print(f"mesas {m['id']}: {len(m['mesas'])} ({sum(1 for x in m['mesas'] if x['materia'])} reconocidas)")
         else:
             o, avisos = leer_oferta(T, plan)
@@ -409,6 +493,17 @@ def main():
             print(f"oferta {o['id']}: {len(reconocidas)} materias del plan, {len(o['extras'])} seminarios, {len(o['comisiones'])} comisiones")
             for a in avisos:
                 print("  aviso:", a)
+    for tid, tn in turnos.items():
+        m = tn.get("edicion")
+        if not m:
+            print(f"aviso: hay mesas de otras carreras del turno {tid} pero no la planilla de Edición; no las publico")
+            continue
+        m["mesas"] = sorted(m["mesas"] + tn.get("otras", []), key=lambda x: (x["fecha"], x["hora"], x["nombre"]))
+        archivo = f"mesas-{m['id']}.json"
+        if escribir(archivo, m):
+            cambios.append(archivo)
+        if not any(x["id"] == m["id"] for x in indice["mesas"]):
+            indice["mesas"].append({"id": m["id"], "nombre": m["nombre"], "carrera": CARRERA["id"], "archivo": archivo})
     cambios += actualizar_feriados(indice)
     cambios += actualizar_pedidos()
     indice["ofertas"].sort(key=lambda x: x["id"])
