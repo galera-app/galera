@@ -1,5 +1,4 @@
-# Galera: cuenta las horas de trabajo («Cómo se sostiene») cada lunes antes del mail de novedades (8:00 de Buenos Aires)
-# y guarda el rango medido con Claude que manda horas_reales.py desde la PC de Fidel (workflow_dispatch, entrada «claude»).
+# Galera: cuenta las horas de trabajo («Cómo se sostiene») por commits cada lunes antes del mail de novedades (8:00 de Buenos Aires).
 # Los datos salen a producción sin aprobación, sobre el último código aprobado (igual que datos.yml).
 name: Galera - horas de trabajo
 
@@ -7,11 +6,6 @@ on:
   schedule:
     - cron: "40 10 * * 1"   # lunes, 7:40 de Buenos Aires
   workflow_dispatch:
-    inputs:
-      claude:
-        description: "Rango de horas medido con Claude (JSON de horas_reales.py); vacío = solo contar commits"
-        required: false
-        default: ""
 
 permissions:
   contents: read
@@ -37,14 +31,10 @@ jobs:
           python-version: "3.12"
       - name: Contar las horas por commits
         run: python .github/scripts/sostener_horas.py
-      - name: Guardar el rango de Claude
-        env:
-          CLAUDE_JSON: ${{ github.event.inputs.claude }}
-        run: python .github/scripts/sostener_claude.py
       - name: Guardar si hubo cambios
         id: commit
         run: |
-          git add datos/sostener.json datos/sostener-claude.json
+          git add datos/sostener.json
           if git diff --cached --quiet; then
             echo "Sin cambios."
           else

@@ -2,6 +2,16 @@
  "nota": "Lo que va en el mail de los lunes (Novedades.gs) y en la pestaña Novedades. v: número de versión (obligatorio; ver CHANGELOG.md). tipo: herramientas | resumenes | fechas. perfil: estudiante (por defecto) | profesional | todos; el mail y la pestaña Novedades lo usan para mostrar a cada perfil lo suyo. materias: ids del plan (vacío = para todas). url: solo links a galera.com.ar/. Sumar una entrada por cada cosa que se publica; el script manda solo lo posterior al último envío de cada persona, así que las viejas no se reenvían.",
  "novedades": [
   {
+   "v": 188,
+   "fecha": "2026-11-26",
+   "tipo": "herramientas",
+   "perfil": "todos",
+   "menor": true,
+   "titulo": "Las horas de Galera, solo por cambios guardados",
+   "texto": "En «Cómo se sostiene», las horas de trabajo salen solo de los cambios guardados en Galera, que cualquiera puede verificar en el historial público. Se deja de mostrar el rango que se medía aparte.",
+   "url": "https://galera.com.ar/sostener/"
+  },
+  {
    "v": 187,
    "fecha": "2026-11-20",
    "tipo": "fechas",

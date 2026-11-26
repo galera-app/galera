@@ -3904,24 +3904,19 @@ async function cargarSostener() {
   if (D.sostener || cargarSostener.va) return;
   cargarSostener.va = true;
   const leer = a => json(a).catch(() => null);
-  const [horas, costos, plan, claude, mecenas, preguntas] = await Promise.all([leer('sostener.json'), leer('sostener-costos.json'), leer('plan.json'), leer('sostener-claude.json'), leer('mecenas.json'), leer('preguntas.json')]);
-  D.sostener = { horas, costos, plan, claude, mecenas, preguntas };
+  const [horas, costos, plan, mecenas, preguntas] = await Promise.all([leer('sostener.json'), leer('sostener-costos.json'), leer('plan.json'), leer('mecenas.json'), leer('preguntas.json')]);
+  D.sostener = { horas, costos, plan, mecenas, preguntas };
   if (V.tab === 'sostener' || V.tab === 'novedades') render();
 }
 const ESTADO_PLAN = { planeado: ['Planeado', 'gl-chip gl-chip--neutro'], 'en curso': ['En curso', 'gl-chip'], listo: ['Listo', 'gl-chip gl-chip--ok'] };
 const MESES_ES = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
 const horasTxt = h => String(h).replace('.', ',') + (Number(h) === 1 ? ' hora' : ' horas');
 const HOLA = 'hola@galera.com.ar', HISTORIAL_GH = 'https://github.com/galera-app/galera/commits/main';
-function sostenerHoras(H, R) {
+function sostenerHoras(H) {
   if (!H || typeof H.horas_totales !== 'number') return '<p class="gl-chico">Las horas no se pudieron cargar ahora. Probá de nuevo más tarde.</p>';
-  const rango = R && R.minimo > 0 && R.maximo >= R.minimo;
-  const cifra = rango ? `Entre ${R.minimo} y ${R.maximo} horas` : horasTxt(H.horas_totales);
-  const sub = rango ? `de trabajo entre el ${fmtLarga(R.desde)} y el ${fmtLarga(R.hasta)}; lo más probable, unas ${R.central}. Actualizado el ${fmtLarga(R.generado)}.`
-    : `de trabajo desde el ${fmtLarga(H.primer_commit)}, en ${H.sesiones} sesiones. Actualizado el ${fmtLarga(H.generado)}.`;
-  const nota = rango
-    ? `Cómo se cuenta: junto en una sola línea de tiempo cada cambio guardado en Galera y la hora de cada mensaje de mis sesiones de trabajo con Claude (solo la hora, nunca el contenido), y cuento una sesión mientras no pasen más de 10, 20 o 45 minutos sin actividad (más unos minutos de arranque). De ahí salen el mínimo, el valor central y el máximo. Es una estimación y no incluye el tiempo fuera de la pantalla, como pensar o probar en el celular. Solo con los cambios guardados, que cualquiera puede verificar en el <a href="${HISTORIAL_GH}" target="_blank" rel="noopener">historial público</a>, son ${horasTxt(H.horas_totales)} (sesiones de hasta dos horas entre cambios, más 30 minutos de arranque).`
-    : `Cómo se cuenta: se toman todos los cambios que se guardaron en Galera y se juntan en sesiones (si entre un cambio y el siguiente pasaron menos de dos horas, es la misma sesión). A cada sesión se le suman 30 minutos de arranque. Es una estimación, y cualquiera puede verificarla en el <a href="${HISTORIAL_GH}" target="_blank" rel="noopener">historial público</a>.`;
-  return `<p class="gl-cifra">${esc(cifra)}</p><p>${esc(sub)}</p><p class="gl-chico">${nota}</p>`;
+  const sub = `de trabajo desde el ${fmtLarga(H.primer_commit)}, en ${H.sesiones} sesiones. Actualizado el ${fmtLarga(H.generado)}.`;
+  const nota = `Cómo se cuenta: se toman todos los cambios que se guardaron en Galera y se juntan en sesiones (si entre un cambio y el siguiente pasaron menos de dos horas, es la misma sesión). A cada sesión se le suman 30 minutos de arranque. Es una estimación, y cualquiera puede verificarla en el <a href="${HISTORIAL_GH}" target="_blank" rel="noopener">historial público</a>.`;
+  return `<p class="gl-cifra">${esc(horasTxt(H.horas_totales))}</p><p>${esc(sub)}</p><p class="gl-chico">${nota}</p>`;
 }
 function sostenerCostos(C) {
   if (!C || !Array.isArray(C.items)) return '<p class="gl-chico">Los costos no se pudieron cargar ahora.</p>';
@@ -3977,7 +3972,7 @@ function vSostener() {
     <p class="gl-baja">Galera es gratis, no pide cuenta y no tiene publicidad. Acá está cuánto trabajo lleva, qué cuesta y cómo ayudar.</p>
     <div class="gl-doc gl-doc--izq"><div class="gl-principal">
       <p class="gl-lead">Galera la hago yo, ${esc(MARCO.marca.firma)}, en mi tiempo libre. No pide registro ni vende datos: lo que cargás queda en tu dispositivo.</p>
-      <h2 id="horas">Horas de trabajo</h2>${sostenerHoras(S.horas, S.claude)}
+      <h2 id="horas">Horas de trabajo</h2>${sostenerHoras(S.horas)}
       <h2 id="costos">Qué cuesta</h2>${sostenerCostos(S.costos)}
       <p>Con más apoyo podría pagar un plan superior de Claude y avanzar más frentes por semana.</p>
       <h2 id="ayudar">Trabajar conmigo y colaborar</h2><p>Hay tres maneras de ayudar. Todas son opcionales.</p>
