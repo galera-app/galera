@@ -3,7 +3,7 @@
  "carrera": "edicion",
  "nombre": "Turno diciembre 2026",
  "fuente": "https://academica.filo.uba.ar/horarios-de-materias-y-seminarios",
- "actualizado": "2026-11-20",
+ "actualizado": "2026-11-27",
  "nota": "Cartelera sujeta a cambios: confirmá siempre en la planilla de la Facultad.",
  "mesas": [
   {
@@ -12,7 +12,7 @@
    "fecha": "2026-11-30",
    "hora": "10:00",
    "llamado": "1° llamado",
-   "aula": "",
+   "aula": "B 102",
    "origen": "Lenguas Modernas"
   },
   {
@@ -21,7 +21,7 @@
    "fecha": "2026-11-30",
    "hora": "10:00",
    "llamado": "1° llamado",
-   "aula": "",
+   "aula": "B 102",
    "origen": "Lenguas Modernas"
   },
   {
@@ -30,7 +30,7 @@
    "fecha": "2026-11-30",
    "hora": "10:00",
    "llamado": "1° llamado",
-   "aula": "",
+   "aula": "B 401",
    "origen": "Antropología",
    "catedra": "Hernandez"
   },
@@ -40,7 +40,7 @@
    "fecha": "2026-11-30",
    "hora": "10:00",
    "llamado": "1° llamado",
-   "aula": "",
+   "aula": "241",
    "origen": "Antropología",
    "catedra": "Balbi"
   },
@@ -50,7 +50,7 @@
    "fecha": "2026-11-30",
    "hora": "10:00",
    "llamado": "1° llamado",
-   "aula": "",
+   "aula": "126",
    "origen": "Lenguas Modernas"
   },
   {
@@ -59,7 +59,7 @@
    "fecha": "2026-11-30",
    "hora": "10:00",
    "llamado": "1° llamado",
-   "aula": "",
+   "aula": "126",
    "origen": "Lenguas Modernas"
   },
   {
@@ -68,7 +68,7 @@
    "fecha": "2026-11-30",
    "hora": "10:00",
    "llamado": "1° llamado",
-   "aula": "",
+   "aula": "218",
    "origen": "Letras",
    "catedra": "Quintana"
   },
@@ -78,7 +78,7 @@
    "fecha": "2026-11-30",
    "hora": "12:00",
    "llamado": "1° llamado",
-   "aula": "",
+   "aula": "B 102",
    "origen": "Lenguas Modernas"
   },
   {
@@ -87,7 +87,7 @@
    "fecha": "2026-11-30",
    "hora": "12:30",
    "llamado": "1° llamado",
-   "aula": "",
+   "aula": "126",
    "origen": "Lenguas Modernas"
   },
   {
