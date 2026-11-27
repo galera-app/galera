@@ -18,14 +18,15 @@ Lo vigente del diseño de Galera, en un solo lugar del repo. Reemplaza al lienzo
 
 ## Qué se deriva
 
-Lo genera `python tools/diseno_generar.py` leyendo `tokens.css` y `componentes.css`. No se edita a mano; `--comprobar` falla si quedó viejo.
+Lo genera `python tools/diseno_generar.py` leyendo `tokens.css`, `componentes.css`, `marco/sitio.json` y `sitemap.xml`. No se edita a mano; `--comprobar` falla si quedó viejo.
 
 | Archivo | Qué es |
 |---|---|
 | [`tokens.json`](tokens.json) | Tokens en formato W3C, claro y oscuro (Figma, Tokens Studio). |
 | [`contrastes.md`](contrastes.md) | Contraste WCAG de los pares que usa el sitio, calculado. |
+| [`mapa.md`](mapa.md) | Mapa del sitio: menú por perfil, barra del celular, pantallas, simuladores, pie y páginas publicadas. Sale de `marco/sitio.json` y `sitemap.xml`. |
 | `vista.html` | Página para mirar colores, escala y componentes con los CSS reales. Base del artifact. Se genera fuera del repo con `--vista <carpeta>` (no es una página del sitio). |
-| Artifact «Design System» | La vista compartida entre las dos cuentas: [claude.ai/artifact/F5Xh9iymVB1yguGxd1nsYD](https://claude.ai/artifact/F5Xh9iymVB1yguGxd1nsYD). Su contenido (`project/`) sale de `--artifact <carpeta>`, fuera del repo; el índice con los íconos subidos se escribe al publicar. Lo que se edite ahí no vuelve al repo. |
+| Artifact «Design System» | [claude.ai/artifact/TiD3CMUFXHksbDiK8V8qbj](https://claude.ai/artifact/TiD3CMUFXHksbDiK8V8qbj) (desde el 20/11/2026; el anterior quedó en la otra cuenta). Su contenido (`project/`) sale de `--artifact <carpeta>`, fuera del repo: tokens, secciones (con el mapa), los componentes de `componentes.css` y los de navegación del marco (cabecera, barra del celular, pie), con `estilos.css` y `galera.css` en el bundle. Las imágenes y el índice se suben al publicar (`104-edicion-cursada/difusion/design-system/`). Lo que se edite ahí no vuelve al repo. |
 
 La carpeta no se publica en el sitio (`NO_PUBLICAR` en `tools/armar.py`).
 
