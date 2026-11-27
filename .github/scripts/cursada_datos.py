@@ -19,6 +19,7 @@ import io
 import json
 import re
 import sys
+import time
 import unicodedata
 import urllib.request
 from datetime import date
@@ -53,7 +54,14 @@ def norm(s):
 
 def bajar(url):
     req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (cursada; galera.com.ar)"})
-    return urllib.request.urlopen(req, timeout=60).read()
+    for intento in range(3):  # el sitio de la Facultad a veces no contesta desde los servidores de GitHub
+        try:
+            return urllib.request.urlopen(req, timeout=45).read()
+        except OSError as e:
+            if intento == 2:
+                raise
+            print(f"aviso: {url} no contestó ({e}); reintento")
+            time.sleep(10 * (intento + 1))
 
 
 def links_de_la_carrera():
@@ -101,7 +109,8 @@ def hhmm(h, m):
 def leer_oferta(T, plan):
     texto = " ".join(t[3] for t in T[:12])
     m = re.search(r"(\d)\s*[°ºo]?\s*Cuatrimestre\s+(\d{4})", texto, re.I)
-    verano = re.search(r"(?:Bimestre|Curso)s?\s+de\s+Verano\s+(\d{4})", texto, re.I)
+    # «Bimestre de Verano 2027», «Cursos de Verano 2027» y, desde 2027, «HORARIOS DE VERANO EDICIÓN 2027».
+    verano = re.search(r"(?:(?:Bimestre|Curso)s?\s+de\s+Verano|Horarios?\s+de\s+Verano(?:\s+[^\W\d_]+)*?)\s+(\d{4})", texto, re.I)
     if m:
         oid, nombre = f"{m.group(2)}-{m.group(1)}C", f"{'1.er' if m.group(1) == '1' else '2.º'} cuatrimestre {m.group(2)}"
     elif verano:
@@ -455,6 +464,9 @@ def main():
         carrera = carrera_del_pdf(T)
         otra = next((k for k in OTRAS_MESAS if carrera.startswith(k)), None)
         es_mesas = bool(re.search(r"MESAS? DE EX[AÁ]MEN", " ".join(t[3] for t in T), re.I))
+        if not es_mesas and not re.search(r"EDICI[ÓO]N", " ".join(t[3] for t in T[:3]), re.I):
+            # Horarios de otras carreras (la Facultad los enlaza en la misma sección): no son de Edición.
+            continue
         if es_mesas and carrera and not carrera.startswith(norm(CARRERA["rotulo"])):
             # Planillas de otras carreras: solo las de OTRAS_MESAS; si una no se deja leer, se avisa y siguen las de Edición.
             if not otra:
@@ -475,6 +487,10 @@ def main():
             print(f"mesas {m['id']}: {len(m['mesas'])} ({sum(1 for x in m['mesas'] if x['materia'])} reconocidas)")
         else:
             o, avisos = leer_oferta(T, plan)
+            if o["id"].endswith("-V"):
+                # La app toma como vigente la última oferta del índice: una de verano (solo seminarios) taparía el cuatrimestre.
+                print(f"aviso: la oferta de {o['nombre']} se lee ({len(o['comisiones'])} comisiones) pero no se publica todavía")
+                continue
             reconocidas = {c["materia"] for c in o["comisiones"] if not c["materia"].startswith("sem-")}
             if len(reconocidas) < 5 or len(o["comisiones"]) < 15:
                 sys.exit(f"La oferta no se dejó leer bien ({len(reconocidas)} materias, {len(o['comisiones'])} comisiones). No toco nada.")
